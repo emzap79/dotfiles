@@ -246,10 +246,10 @@ command_not_found_handle() {
             return 0
             ;;
         doc2*) # http://stackoverflow.com/a/21204653/3569509
-            libreoffice --headless --convert-to "${1#xlsx2}" "${2%%.*}"."doc"
+            libreoffice --headless --convert-to "${1#doc2}" "${2%%.*}"."doc"
             return 0
             ;;
-        docx2*) libreoffice --headless --convert-to "${1#xlsx2}" "${2%%.*}"."docx"
+        docx2*) libreoffice --headless --convert-to "${1#docx2}" "${2%%.*}"."docx"
             return 0
             ;;
         xlsx2*) ssconvert -S "$2" "${2%%.*}"."${1#xlsx2}"

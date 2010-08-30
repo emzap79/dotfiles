@@ -14,8 +14,10 @@
 # urls                             {{{2
 
 # Alerts
-http://www.oek.wiwi.uni-due.de/rss/                                          "00.01 Lehrstuhl"
-https://www.jpmakro.wiwi.uni-due.de/rss                                      "00.01 Lehrstuhl"
+http://www.oek.wiwi.uni-due.de/rss/                                          "00.01 Ökonometrie"
+http://www.lef.wiwi.uni-due.de/rss/                                          "00.01 Financial Mathamatics"
+http://www.stat.wiwi.uni-due.de/rss/                                         "00.01 Empirische Methoden"
+http://www.mikro.wiwi.uni-due.de/rss/                                        "00.01 Mikro"
 
 # Podcasts
 http://www.zdf.de/ZDFmediathek/podcast/2012868                               "00.11 Kultur"
@@ -306,14 +308,6 @@ http://rss.kicker.de/team/borussiadortmund                             "1591 BVB
 # Allgemein
 http://newsfeed.zeit.de/kultur/index                       "1610 Deutschland"
 http://newsfeed.zeit.de/zeit-magazin/index                 "1610 Magazin"
-http://www.coolibri.de/redaktion/                                                                                                                                                           tags/Kultur/rss.html      "1610 Deutschland"
-
-# Ruhrpott
-http://www.coolibri.de/redaktion/                                                                                                                                                           tags/Duisburg/rss.html    "1621 Duisburg"
-http://www.coolibri.de/redaktion/                                                                                                                                                           tags/Bochum/rss.html      "1622 Bochum"
-http://www.coolibri.de/redaktion/                                                                                                                                                           tags/Essen/rss.html       "1623 Essen"
-http://www.coolibri.de/redaktion/                                                                                                                                                           tags/Wuppertal/rss.html   "1624 Wuppertal"
-http://www.coolibri.de/redaktion/                                                                                                                                                           tags/Düsseldorf/rss.html  "1625 Düsseldorf"
 
 # 07. Parties                      {{{1
 # queries                          {{{2
@@ -321,7 +315,7 @@ http://www.coolibri.de/redaktion/                                               
 
 # urls                             {{{2
 # Parties
-http://www.coolibri.de/redaktion/                                                                                                                                                           tags/Party/rss.html       "1710 Parties"
+http://www.coolibri.de/redaktion/tags/Party/rss.html    "1710 Coolibri"                                                                                                                                                           tags/Party/rss.html       "1710 Parties"
 
 # Salsa
 http://www.salsa-muenster.eu/blog/?feed=rss2               "1720 Salsa"
@@ -387,7 +381,6 @@ http://blog.mellowmonk.com/feeds/posts/default          "1840 Japanese Green Tea
 "query:Aktionen // Garmin:       tags=~ \"19[0-9][0-9]\" and title =~ \"garmin\"" "09.00"
 "query:Aktionen // Wasserfilter: tags=~ \"19[0-9][0-9]\" and (title =~ \"Brita\" or title =~ \"Wasserfilter\")" "09.00"
 "query:Aktionen // Föhn:         tags=~ \"19[0-9][0-9]\" and title =~ \"F.hn\"" "09.00"
-"query:Aktionen // Smartphone:   tags=~ \"19[0-9][0-9]\" and ( title =~ \"phone\" and title !~ \"iphone\" or title =~ \"1m8\" or title =~ \"samsung s6\")" "09.00"
 "query:Aktionen // Speaker:      tags=~ \"19[0-9][0-9]\" and (title !~ \"bluetooth\" and title !~ \"BT-\") and (title =~ \"subwoof\" or title =~ \"lautsprecher\" or title =~ \"speaker\")" "09.00"
 
 # Groupon, Schuhe & Gutscheine
@@ -395,8 +388,8 @@ http://blog.mellowmonk.com/feeds/posts/default          "1840 Japanese Green Tea
 # "query:Aktionen // Schuhe:      tags=~ \"19[4][0-9]\" and title =~ \"Rabattstufe [6-9]\"" "09.00"
 
 # Alles
-"query:Aktionen // Spirituosen:   tags=~ \"19[0-9][0-9]\" and (title =~ \"Pils\" or title =~ \"Cocktail\" or title =~ \" Gin \" or title =~ \" Rum \" or title =~ \"Spirituosen\" or title =~ \"Vodka\" or title =~ \"Tequila\")" "09.00"
-"query:Aktionen // Spirituosen:   tags=~ \"19[0-9][0-9]\" and link =~ \"hochprozentig\"" "09.00"
+"query:Aktionen // Spirituosen:   tags=~ \"19[0-9][0-9]\" and (title =~ \"Pils\" or title =~ \"Augustiner\" or title =~ \"Cocktail\" or title =~ \" Gin \" or title =~ \" Rum \" or title =~ \"Spirituosen\" or title =~ \"Vodka\" or title =~ \"Tequila\")" "09.00"
+"query:Aktionen // Spirituosen:   tags=~ \"19[0-9][0-9]\" and (link =~ \"hochprozentig\" or title =~ \"hochprozentig\")" "09.00"
 
 # queries                          {{{2
 "query:Angebote // Technik:        tags=~ \"19[1][0-9]\""  "09.10"
