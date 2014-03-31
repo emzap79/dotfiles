@@ -1,0 +1,373 @@
+#.########
+#.#.Muttrc
+#.########
+# # Sources festlegen# {{{
+#source '~/bin/hooks.sh|'
+source ~/.mutt/colschEmzap                  # Defining Mutts Colors
+source ~/.mutt/muttKeybinds.priv            # Keybindings & Macros
+source ~/.mutt/muttHooks.priv               # Save-, Send- und Folderhooks
+source ~/.mutt/muttAlias.priv               # Sourcing Alias
+source ~/.mutt/muttScoring.priv             # Scorings
+#source ~/.mutt/muttIgnores                 # Headers to Ignore
+#source ~/.mutt/muttUnignore                # Headers to show
+# }}}
+# # Accounts & Folders # {{{
+set folder="/home/zapata/mails"
+
+# legt fest, welche Mailboxen zu Anfang bekannt sind und beim Start abgerufen werden sollen
+mailboxes /var/mail/zapata
+mailboxes /home/zapata/mails/Outbox
+mailboxes /home/zapata/mails/Inbox/received-`date +%Y`
+mailboxes /home/zapata/mails/Inbox
+mailboxes /home/zapata/mails/SPAM
+# }}}
+# # Allgemeine Einstellungen# {{{
+# # # Emails versenden, empfangen & drucken# {{{
+#set signature="~/.mutt/signPrivat"             # Signatur
+set delete=yes                              # Löschen ohne Nachfrage
+set copy=yes                                # sent messages will be saved
+set mail_check=60                           # checking every 60 sec for new mails
+set mailcap_path="~/.mailcap"               # setting path to mailcap
+toggle reply_to="yes"                       # Welche Reply-Adresse: yes -> Reply-To:, no -> From;
+toggle move="no"                            # whether to move messages
+toggle quit="yes"                           # quitting? yes or no
+set mime_forward=yes                        # the message you are forwarding will be attached as a separate message
+set mime_forward_rest=ask-no                # forwarding attachments
+
+# }}}
+# # # Darstellung von Mails# {{{
+# http://www.mail-archive.com/mutt-users@mutt.org/msg37103.html
+push <show-version>                         # Versionsnummer beim Starten
+# set ascii_chars
+# set charset="utf-8"                           # Zeichensatz voreinstellen
+# set display_filter="tr '\\221\\222\\223\\224\\226' '\\047\\047\\042\\042\\055'"   # Umlaute werden umgewandelt
+set assumed_charset="windows-1252"
+set send_charset="us-ascii:iso-8859-1:iso-8859-15:windows-1252:utf-8"
+charset-hook '^x-unknown$' windows-1252
+charset-hook '^unknown-8bit$' windows-1252
+charset-hook '^iso-8859-1$' windows-1252
+charset-hook '^us-ascii$' windows-1252
+charset-hook '^none$' windows-1252
+charset-hook '^iso-8859-8-i$' iso-8859-8
+charset-hook '^gb2312$' gb18030
+unset allow_8bit                            # u.U. verbesserte Darstellung von Umlauten
+# }}}
+# # # Adressbuch# {{{
+set alias_file=~/.mutt/muttAlias.priv           # Datei, in der die Kontakte gespeichert werden
+set reverse_alias                           # Bewirkt, dass in der
+                                    #E-Mail-Übersicht der Name statt der
+                                    #Absender-Adresse angezeigt wird, wenn er in
+                                    #der Alias-Datei steht
+# }}}
+# # # Print & Format Options #{{{ # # # Printing# {{{
+#set print_command="muttprint -s -2 %s"      # Muttprint um Mails zweiseitig (ohne Signatur "-s") zu drucken
+set print_command="$HOME/bin/muttPrint"     # Emails als PDF drucken und öffnen
+set print="yes"                             # Keine Rückfrage beim Drucken
+set print_split                             # Jede Mail einzeln drucken
+# }}}
+# # # Format Options# {{{
+#3.112. index_format# {{{
+
+#Type: string
+#Default: “%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s”
+
+#This variable allows you to customize the message index display to your
+#personal taste.
+
+#“Format strings” are similar to the strings used in the C function printf(3) to
+#format output (see the man page for more details). The following sequences are
+#defined in Mutt:
+
+#┌─────┬───────────────────────────────────────────────────────────────────────┐
+#│%a   │address of the author                                                  │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%A   │reply-to address (if present; otherwise: address of author)            │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%b   │filename of the original message folder (think mailbox)                │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%B   │the list to which the letter was sent, or else the folder name (%b).   │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%c   │number of characters (bytes) in the message                            │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%C   │current message number                                                 │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%d   │date and time of the message in the format specified by $date_format   │
+#│     │converted to sender's time zone                                        │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%D   │date and time of the message in the format specified by $date_format   │
+#│     │converted to the local time zone                                       │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%e   │current message number in thread                                       │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%E   │number of messages in current thread                                   │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%f   │sender (address + real name), either From: or Return-Path:             │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%F   │author name, or recipient name if the message is from you              │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%H   │spam attribute(s) of this message                                      │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%i   │message-id of the current message                                      │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%l   │number of lines in the message (does not work with maildir, mh, and    │
+#│     │possibly IMAP folders)                                                 │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│     │If an address in the “To:” or “Cc:” header field matches an address    │
+#│%L   │defined by the users “subscribe” command, this displays "To <list-name>│
+#│     │", otherwise the same as %F.                                           │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%m   │total number of message in the mailbox                                 │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%M   │number of hidden messages if the thread is collapsed.                  │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%N   │message score                                                          │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%n   │author's real name (or address if missing)                             │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%O   │original save folder where mutt would formerly have stashed the        │
+#│     │message: list name or recipient name if not sent to a list             │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%P   │progress indicator for the built-in pager (how much of the file has    │
+#│     │been displayed)                                                        │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%s   │subject of the message                                                 │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%S   │status of the message (“N”/“D”/“d”/“!”/“r”/*)                          │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%t   │“To:” field (recipients)                                               │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%T   │the appropriate character from the $to_chars string                    │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%u   │user (login) name of the author                                        │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%v   │first name of the author, or the recipient if the message is from you  │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%X   │number of attachments (please see the “attachments” section for        │
+#│     │possible speed effects)                                                │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%y   │“X-Label:” field, if present                                           │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│     │“X-Label:” field, if present, and (1) not at part of a thread tree, (2)│
+#│%Y   │at the top of a thread, or (3) “X-Label:” is different from preceding  │
+#│     │message's “X-Label:”.                                                  │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%Z   │message status flags                                                   │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%    │the date and time of the message is converted to sender's time zone,   │
+#│{fmt}│and “fmt” is expanded by the library function strftime(3); a leading   │
+#│     │bang disables locales                                                  │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%    │the date and time of the message is converted to the local time zone,  │
+#│[fmt]│and “fmt” is expanded by the library function strftime(3); a leading   │
+#│     │bang disables locales                                                  │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%    │the local date and time when the message was received. “fmt” is        │
+#│(fmt)│expanded by the library function strftime(3); a leading bang disables  │
+#│     │locales                                                                │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%    │the current local time. “fmt” is expanded by the library function      │
+#│<fmt>│strftime(3); a leading bang disables locales.                          │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%>X  │right justify the rest of the string and pad with character “X”        │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%|X  │pad to the end of the line with character “X”                          │
+#├─────┼───────────────────────────────────────────────────────────────────────┤
+#│%*X  │soft-fill with character “X” as pad                                    │
+#└─────┴───────────────────────────────────────────────────────────────────────┘
+# }}}
+set index_format="%-4C %Z %D %?H?*** SPAM *** &             ?\
+%?X?[%-2X]&%-4c? %-22F (%5l) %s"
+                                            # If # '%?'; then'?%';
+                                            # else '&%';
+                                            # fi '?'
+set date_format="%d.%b %Y, %H:%M"           # gibt an, wie das Datum formatiert wird
+set folder_format="%2C %8s %d %t %N %f"     # Format des Datei-Browsers
+set status_format="%v: %f (%s) [%M/%m] [N=%n,*=%t,new=%b]"
+set pager_format="%4C %2S %d %-30n (%5l) %-s"
+set attach_format="%u%D%I %t%4n %T%.40d%> [%.7m/%.10M, %.6e%?C?, %C?, %s] "
+# }}} # }}}
+# # # Anzeigen und Sonstige Einstellungen# {{{
+set abort_unmodified="no"
+set abort_nosubject="ask-yes"               # Abbruch falls 'Betreff' fehlt
+set sendmail="/usr/bin/msmtp"               # Standardmäßig: Webde
+set postpone="ask-no"                       # Entwuerfe nicht speichern
+set postponed="~/mails/Drafts"              # Datei fuer Entwuerfe
+unset resolve                                 # Automatische nächste Nachricht anzeigen wenn Ende erreicht
+set help                                    # Mini-Menue anzeigen
+set status_on_top                           # Status-Zeile oben
+set arrow_cursor                            # Pfeil- oder Balken-Curser (= arrow or bar)
+set fast_reply=yes                          # Keine Nachfrage bei Antwort
+set beep=no                                 # Keine Töne/Töne erlauben
+set beep_new                                # Piepton bei neuen Nachrichten
+set markers=no                              # Kein + bei Zeilenumbruch
+set confirmappend=no                        # Keine Nachfrage, ob versandte Emails gespeichert werden sollen
+set to_chars=" +TCF"                        # Kein L für Mailingslisten
+set wait_key=no                             # Nicht warten wenn Befehl gepipt wird.
+set ssl_starttls=yes                        # activate TLS if available on the server
+#set ssl_force_tls=yes                      # always use SSL when connecting to a server
+#unset imap_passive                         # Don't wait to enter mailbox manually 
+#set imap_check_subscribed                  # Automatically poll subscribed mailboxes for new mail (new in 1.5.11)
+#set mail_check=60                          # Reduce polling frequency to a sane level and poll the current mailbox more often (not needed with IDLE in post 1.5.11)
+#set timeout=15                             # logging out at 15 min
+#set net_inc=5                              # Display download progress every 5K
+#set imap_keepalive = 300                   # Keep IMAP connection alive by polling intermittently (time in seconds).
+# }}}# }}}
+# # Mails verfassen# {{{
+# # # Formatoptions# {{{
+set include="yes"                           # Bei Reply wird Original-Message eingefuegt
+#set askcc                                  # include asking for a cc: line set
+#askbcc                                     # include asking for a bcc: line
+unset reply_self                            # don't include myself when replying
+# to a group set attribution="* %n <%a> [%(%d.%m.%Y %H:%M)]:"
+# set attribution="%f schrieb am %d:"       # Zitatkennzeichnung in unserer
+# Muttersprache :)
+set reply_regexp="^((re([\[^-][0-9]+\]?)*|aw|antwort|antw|wg):[ \t]*)+" 
+set forward_format="Fwd: %s" 
+set indent_str='> '              # eingerückter Text beginnt mit "> " 
+set tilde                        # fügt Tilde in letzte Zeile in VIM
+# }}}
+# # # Header einstellen# {{{
+unmy_hdr *
+set header_cache="~/.mutt.headercache"          # Headercache festlegen für schnellen Download.
+set edit_hdrs                                   # Empfänger u.a. auch im Editor bearbeiten
+set envelope_from=yes                           # übergibt msmtp automatisch den richtigen Absender
+set realname="Jonas Petong"                     # Name des Absenders
+set from="jonas.petong@web.de"
+my_hdr From: Jonas Petong <jonas.petong@web.de> 
+my_hdr Reply-To: jonas.petong@web.de
+my_hdr Fcc: ~/mails/Outbox/sent-`date +%Y`
+hdr_order From: To: cc subject date X-Spam-Score:   # Reihenfolge der Header in der Anzeige
+# }}}
+# # # Editor, der zum Verfassen der Mails benutzt wird.# {{{
+
+set editor="vim \
+-c 'set wrap' \
+-c 'set spell spelllang=de,en' \
+-c 'set t_Co=8' \
+-c 'set tw=72' \
+-c 'set number' \
+-c 'colorscheme default' \
+-c 'syntax on' \
+-c '+/^$' \
+-c 'startinsert' \
+
+# }}} # }}}
+# # Mails empfangen# {{{
+# # # Pager Einstellungen# {{{
+# # # # Most common pager keys# {{{
+#┌────────┬──────────────────────────────────────────────────────────────────┐
+#│  Key   │                           Description                            │
+#├────────┼──────────────────────────────────────────────────────────────────┤
+#│<Return>│go down one line                                                  │
+#├────────┼──────────────────────────────────────────────────────────────────┤
+#│<Space> │display the next page (or next message if at the end of a message)│
+#├────────┼──────────────────────────────────────────────────────────────────┤
+#│-       │go back to the previous page                                      │
+#├────────┼──────────────────────────────────────────────────────────────────┤
+#│n       │search for next match                                             │
+#├────────┼──────────────────────────────────────────────────────────────────┤
+#│S       │skip beyond quoted text                                           │
+#├────────┼──────────────────────────────────────────────────────────────────┤
+#│T       │toggle display of quoted text                                     │
+#├────────┼──────────────────────────────────────────────────────────────────┤
+#│?       │show keybindings                                                  │
+#├────────┼──────────────────────────────────────────────────────────────────┤
+#│/       │regular expression search                                         │
+#├────────┼──────────────────────────────────────────────────────────────────┤
+#│Esc /   │backward regular expression search                                │
+#├────────┼──────────────────────────────────────────────────────────────────┤
+#│\       │toggle highlighting of search matches                             │
+#├────────┼──────────────────────────────────────────────────────────────────┤
+#│^       │jump to the top of the message                                    │
+#└────────┴──────────────────────────────────────────────────────────────────┘
+#
+#In addition to key bindings in Table 2.7, “Most common pager keys”, many of the
+#functions from the index menu are also available in the pager, such as
+#<delete-message> or <copy-message> (this is one advantage over using an
+#external pager to view messages).
+
+#Also, the internal pager supports a couple other advanced features. For one, it
+#will accept and translate the “standard” nroff sequences for bold and
+#underline. These sequences are a series of either the letter, backspace (“^H”),
+#the letter again for bold or the letter, backspace, “_” for denoting underline.
+#Mutt will attempt to display these in bold and underline respectively if your
+#terminal supports them. If not, you can use the bold and underline color
+#objects to specify a color or mono attribute for them.
+# }}}
+# # # # Configurations# {{{
+# set pager="less -aCMsei"                       # config for setting less as pager (not necessary)
+set prompt_after=no                             # returning to index with no prompting
+set pager_context=5                             # number of lines that overlap on paging
+set pager_index_lines=5                         # number of lines to see from the index
+set pager_stop=yes                              # jump/dont jump to next message at EOF
+# }}}# }}}
+# # # Sorting Mails# {{{
+set sort=score                              # score, date, threads, reverse-date, alpha etc.
+set sort_browser=alpha                      # showing mbox list default to newest first
+set sort_aux=reverse-last-date-received     # alternative sorting
+set strict_threads                          # threading to refer on 'in reply-to:-header', not the subject
+folder-hook ~/mails/SPAM set sort=reverse-date
+folder-hook ~/mails/Inbox set sort=reverse-date
+folder-hook ~/mails/Outbox set sort=reverse-date
+#folder-hook SPAM push 'D.\n'               # löscht automatisch kompletten spamordner
+# }}}
+# # # Ignore/Unignore# {{{
+ignore *                                        # alles ausblenden, einzeln freigeben
+unignore From:                                  # Absender
+unignore Subject:                               # Betreff
+unignore To:                                    # Empfaenger
+unignore CC:                                    # andere Empfaenger
+unignore Date:                                  # Datum
+unignore X-Spam-Score:                          # Spam-Wert 
+
+ignore Resent- Precedence In-Reply-To Return-Receipt-To Mailer X400
+ignore Originator X-Loop X-Mailing-List X-Listprocessor X-Face
+ignore X-Received X-Mailer X-Envelope-To X-Sender X-Attribution
+ignore Path Lines NNTP-Posting-Host X-Newsreader X-Submitted-Via
+# }}}
+# # # HTML-Messages# {{{
+set implicit_autoview
+auto_view text/html application/x-pgp-message   # needs ~/.mailcap and install elinks!
+# }}}
+# # # Attachments# {{{
+#Table 5.1. Supported MIME types
+
+#┌───────────────┬────────┬─────────────────────────────────────────┐
+#│MIME major type│Standard│               Description               │
+#├───────────────┼────────┼─────────────────────────────────────────┤
+#│application    │yes     │General application data                 │
+#├───────────────┼────────┼─────────────────────────────────────────┤
+#│audio          │yes     │Audio data                               │
+#├───────────────┼────────┼─────────────────────────────────────────┤
+#│image          │yes     │Image data                               │
+#├───────────────┼────────┼─────────────────────────────────────────┤
+#│message        │yes     │Mail messages, message status information│
+#├───────────────┼────────┼─────────────────────────────────────────┤
+#│model          │yes     │VRML and other modeling data             │
+#├───────────────┼────────┼─────────────────────────────────────────┤
+#│multipart      │yes     │Container for other MIME parts           │
+#├───────────────┼────────┼─────────────────────────────────────────┤
+#│text           │yes     │Text data                                │
+#├───────────────┼────────┼─────────────────────────────────────────┤
+#│video          │yes     │Video data                               │
+#├───────────────┼────────┼─────────────────────────────────────────┤
+#│chemical       │no      │Mostly molecular data                    │
+#└───────────────┴────────┴─────────────────────────────────────────┘
+
+# Default
+attachments +A */.*
+attachments -A text/x-vcard
+attachments -A application/pgp.*
+attachments -A application/x-pkcs7-.*
+attachments -A message/external-body
+attachments +I text/plain
+attachments -I message/external-body
+#These basically mean that "attachments" with a content-disposition
+#of "inline" will not be counted as attachments, unless they are
+#content-type text/plain; and all messages with a content-disposition
+#of "attachment" will be counted, except for the four types listed
+#(pgp signatures, vcards, and external-body messages).
+# http://www.mail-archive.com/mutt-users@mutt.org/msg34004.html
+
+# Custom
+# }}}# }}}

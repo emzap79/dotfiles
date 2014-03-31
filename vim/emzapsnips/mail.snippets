@@ -1,0 +1,121 @@
+#.#.Mailsnips
+
+global !p
+def complete(t, opts):
+    if t:
+        opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+    if len(opts) == 1:
+        return opts[0]
+    return "" + ' '.join(opts) + ''
+endglobal
+
+# # Signaturen
+snippet sig "Appending Signature" b
+${0:sig $1`!p snip.rv=complete(t[1], ['[p]rivate','[s]tudent','[e]bay','[b]loomb'])`
+}${1/(p)$|(s)$|(e)$|(b)/(?1:---
+jonas petong
+
+lohbergstr. 6
+44789 bochum
++49 17653347208)(?2:---
+jonas petong
+
+es02224159
+volkswirtschaft
+uni duisburg-essen
++49 176 53347208)(?3:---
+jonas petong
+
+Bei Interesse bitte Nachricht mit "EKZ\: ..." und Name
+des Artikels an mich senden. Oder eine SMS an\: 0176 53347208)(?4:---
+Handelsraum - Team
+Lehrstuhl für Energiehandel und Finanzdienstleistungen
+Fachbereich Wirtschaftswissenschaften
+Universität Duisburg-Essen, Campus Essen
+http\:\/\/www.lef.wiwi.uni-due.de\/handelsraum\/
+Mail\: handelsraum@uni-due.de
+Tel.\: +49(0)201\/183-6049
+)/
+}
+
+endsnippet
+snippet "cite?" "Insert Citation" !br
+---
+jonas petong
+
+`!p
+import string, random
+quotes = open("/home/zapata/.sigdata").read()
+quotes = string.split( quotes, '\n\n' )
+quotes = filter( None, map( string.strip, quotes ))
+qotd = random.choice(quotes)` `!p snip.rv = qotd`
+
+endsnippet
+
+# # Grußklauseln
+snippet fg "Freundliche Grüße" b
+Freundliche Grüße
+
+endsnippet
+snippet lg "Liebe Grüße" b
+Liebe Grüße
+
+endsnippet
+snippet bg "Beste Grüße" b
+Beste Grüße
+
+endsnippet
+snippet vg "Viele Grüße" b
+Viele Grüße
+
+endsnippet
+snippet "chr?s?" "Cheers" br
+cheers
+
+endsnippet
+snippet kr "Kind Regards" !b
+Kind regards,
+
+endsnippet
+snippet mfg
+Mit freundlichen Grüßen,
+
+endsnippet
+
+# # Sonstige
+snippet tel
+0176 53347208
+endsnippet
+snippet "add?r" "Vollständige Adresse" r
+lohbergstr. 6
+44789 bochum
+tel: 0176 53347208
+endsnippet
+snippet link "Link zu Ebay Kleinanzeigen" !w
+http://kleinanzeigen.ebay.de/anzeigen/s-bestandsliste.html?userId=3413793
+endsnippet
+snippet reply "Antwort auf Ebay Anzeige" !b
+Hallo ${1}, ${2:<der Artikel>} steht noch zum Verkauf. Wenn sie möchten, können
+sie gerne unter der Woche ab 16 uhr vorbeikommen. Wann passt es ihnen am
+besten? Ich wohne in Bochum Mitte, nahe der Kreuzung Lohring und Wittenerstraße.
+
+Viele Grüße
+---
+jonas petong
++49 17653347208
+
+endsnippet
+
+# # Anrede
+snippet sgf "Sehr geehrte Frau" !b
+Sehr geehrte Frau ${1:${VISUAL}},
+$0
+endsnippet
+snippet sgh "Sehr geehrter Herr" !b
+Sehr geehrter Herr ${1:${VISUAL}},
+$0
+endsnippet
+snippet sdh "Sehr geehrte Damen und Herren" !b
+Sehr geehrte Damen und Herren,
+
+endsnippet

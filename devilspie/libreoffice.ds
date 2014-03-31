@@ -1,0 +1,9 @@
+(if
+	(and
+		(contains (window_class) 'libreoffice')
+	)
+	(begin
+		(println "--[ LibreOffice ]--")
+        (geometry "1025x755+0+27")
+	)
+)

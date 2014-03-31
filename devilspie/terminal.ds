@@ -1,0 +1,10 @@
+(if
+	(and
+		(is (application_name) 'Terminal')
+	)
+	(begin
+		(println "--[ Terminal ]--")
+		(geometry "1025x755+0+27")
+        (pin)
+	)
+)
