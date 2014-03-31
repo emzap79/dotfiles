@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-Recreation of my dotfiles... hang loose!
+Feel free to clone my repos and/or sending pull requests!
