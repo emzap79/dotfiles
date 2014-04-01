@@ -165,46 +165,35 @@ inoremap <s-f6> <esc>:e ~/.vim/vimrc_plugs<cr> :BundleInstall<cr>
 nnoremap <s-c-f6> :e ~/.vim/vimrc_plugs<cr> :BundleInstall!<cr>
 inoremap <s-c-f6> <esc>:e ~/.vim/vimrc_plugs<cr> :BundleInstall!<cr>
 "}}}
-" <f7>  " latex-commands{{{
-"mapping to automatically add an abbreviation
-map <c-s-f7> <sid>:call AddAbbr()<cr>
-inoremap <c-s-f7> <sid>:call AddAbbr()<cr>
-vnoremap <c-s-f7> <sid>:call AddAbbr()<cr>
-""" func: abbreviations"{{{
-"" an abbreviation is a short form of long text e.g. mfg mit freundlichen grüßen
-"" its found in ~/.vim/ftplugin/tex.vim (at the eof)
+" <f7>  " *** no functions yet *** " {{{
 
-"abbreviation
-fun! AddAbbr()
-    normal byw
-    let stringchar = lh#visual#selection()
-    let val = input("enter the abbreviation you wish to use for '". stringchar. "' :")
-    exec "ia" stringchar val
-    silent call SaveAbbr(stringchar, val)
-endfun
 
-fun! SaveAbbr(val, abbr)
-    redir >>~/.vim/ftplugin/tex.vim
-    echo "iab" a:abbr a:val
-    redir end
-endfun
-" "}}}
 "}}}
 " <f8>  " toggle linewrapping, -numbers and foldcolumn etc.{{{
-"" "toggle linewrapping
-map <f8> :call ToggleWrap()<cr>
-map! <f8> ^[:call ToggleWrap()<cr>
-""" func: ToggleWrap{{{
-fun! ToggleWrap()
-    if &fo =~ "t"
-        set fo-=t
-        echo "nowrap"
+
+" toggling textwidth"{{{
+nnoremap <f8> :call ToggleTextwidth()<CR>
+vnoremap <f8> <ESC>:call ToggleTextwidth()<CR>
+inoremap <f8> <ESC>:call ToggleTextwidth()<CR>
+
+" toggling textwidth"}}}
+" func: toggle through textwidth"{{{
+
+let b:mytextwidth=0
+let g:mytextwidthlist=["0","72","80"]
+fun! ToggleTextwidth()
+    let b:mytextwidth=b:mytextwidth+1
+    if b:mytextwidth>=len(g:mytextwidthlist) | let b:mytextwidth=0 | endif
+    if b:mytextwidth==0
+        setlocal textwidth=0
     else
-        set fo+=t
-        echo "wrap"
+        execute "setlocal textwidth=".get(g:mytextwidthlist, b:mytextwidth)
     endif
+    echo "current textwidth:" g:mytextwidthlist[b:mytextwidth]
+    if &wrap | echo "" | echo "wrap" | else | echo "nowrap" | endif
 endfun
-" "}}}
+
+" func: toggle through textwidth"}}}
 
 " paste mode toggle (needed when using autoindent/smartindent) 
 " "" func: toggle paste {{{
@@ -242,11 +231,6 @@ inoremap <m-f8> <ESC>:call AutoCorrect()<CR>
 " " f-keys"}}}
 " <f9>  " language tools & spellcheck"{{{
 
-" next in location list
-noremap <f9> :lnext<cr>
-inoremap <f9> :lnext<cr>
-vnoremap <f9> :lnext<cr>
-
 "enable languagetool
 "for use with latex: http://tex.stackexchange.com/questions/6333/grammar-checking-tool-for-use-with-latex/6552#6552
 noremap <s-f9> :LanguageToolCheck<cr>:lopen 25<CR>
@@ -257,10 +241,10 @@ vnoremap <s-f9> :LanguageToolCheck<cr>:lopen 25<CR>
 nnoremap <c-f9> :w!<cr>:!/usr/bin/aspell --dont-backup --dont-tex-check-comments check %<cr>:e! %<cr>
 inoremap <c-f9> :w!<cr>:!/usr/bin/aspell --dont-backup --dont-tex-check-comments check %<cr>:e! %<cr>
 
-"switch spellcheck languages
-"func: toggle languages"{{{
-"http://vim.wikia.com/wiki/toggle_spellcheck_with_function_keys
-" spell check
+" switch spellcheck languages
+" func: toggle languages"{{{
+" http://vim.wikia.com/wiki/toggle_spellcheck_with_function_keys
+
 let b:mylang=0
 let g:mylanglist=["nospell","de_de","en_us","es"]
 fun! ToggleSpell()
@@ -273,6 +257,7 @@ fun! ToggleSpell()
     endif
     echo "spell checking language:" g:mylanglist[b:mylang]
 endfun
+
 "}}}
 map <s-c-f9> :call ToggleSpell()<cr>
 inoremap <s-c-f9> <c-o>:call ToggleSpell()<cr>
@@ -299,6 +284,7 @@ vnoremap <silent> <s-f10> :NERDTree %:p:h<cr> " to display NERDTree"
 " compiling and viewing its.tex file
 " compile and start latex viewer
 " see: http://plankenau.com/blog/post-8/latexInVim
+
 nnoremap <a-f12> :TexCompilePDF<CR>
 inoremap <a-f12> <ESC>:TexCompilePDF<CR>
 vnoremap <a-f12> <ESC>:TexCompilePDF<CR>
@@ -308,8 +294,32 @@ vnoremap <s-f12> <ESC>:LatexCompilePDF<CR>
 nnoremap <s-c-f12> :XeLatexCompilePDF<CR>
 inoremap <s-c-f12> <ESC>:XeLatexCompilePDF<CR>
 vnoremap <s-c-f12> <ESC>:XeLatexCompilePDF<CR>
-" ----------------------------"}}}
-"}}}
+
+"mapping to automatically add an abbreviation
+map <leader><f12> <sid>:call AddAbbr()<cr>
+inoremap <leader><f12> <sid>:call AddAbbr()<cr>
+vnoremap <leader><f12> <sid>:call AddAbbr()<cr>
+""" func: abbreviations"{{{
+"" an abbreviation is a short form of long text e.g. mfg mit freundlichen grüßen
+"" its found in ~/.vim/ftplugin/tex.vim (at the eof)
+
+"abbreviation
+fun! AddAbbr()
+    normal byw
+    let stringchar = lh#visual#selection()
+    let val = input("enter the abbreviation you wish to use for '". stringchar. "' :")
+    exec "ia" stringchar val
+    silent call SaveAbbr(stringchar, val)
+endfun
+
+fun! SaveAbbr(val, abbr)
+    redir >>~/.vim/ftplugin/tex.vim
+    echo "iab" a:abbr a:val
+    redir end
+endfun
+" "}}}
+""}}}
+" f-keys"}}}
 " plugins{{{
 " better-/hudigraphs <plugin>"{{{
 inoremap <expr> <K> BDG_GetDigraph()
@@ -326,8 +336,10 @@ vnoremap v <Plug>(expand_region_expand)
 vnoremap <C-v> <Plug>(expand_region_shrink)
 "
 " listtrans <plugin>"{{{
+
 nnoremap <leader>lt  :call ListTrans_toggle_format()<CR>
 vnoremap <leader>lt :call ListTrans_toggle_format('visual')<CR>
+
 ""}}}
 " calculator <plugin>"{{{
 " http://vim.wikia.com/wiki/scientific_calculator
@@ -371,7 +383,6 @@ vnoremap <Leader>P "+P
 " vnoremap v <C-V>
 " vnoremap <C-V> v
 ""}}}
-"}}}
 "visual mode mappings"}}}
 " yank from the cursor to the end of the line, to be consistent with c and d."{{{
 nnoremap Y y$
@@ -414,6 +425,7 @@ nnoremap <leader>ft <esc>:! chromium-browser 'http://tex.stackexchange.com/searc
 " func: execute online searches (eg. wikipedia)"{{{
 "" found on http://alexanderle.com/blog/2012/my-vimrc.html
 " key mapping for tex-stackexchange search
+
 fun! TeX()
     call inputsave()
     let searchterm = input('stackexchange: ')
@@ -422,13 +434,15 @@ fun! TeX()
 endfun
 
 " key mapping for wikipedia search
+
 fun! Wikipedia()
     call inputsave()
     let searchterm = input('wikipedia: ')
     call inputrestore()
     return searchterm
 endfun
-" ----------------------------"}}}
+
+" key mapping for wikipedia search "}}}
 "}}}
 " offline searches"{{{
 "open link under curser in chrome"{{{
