@@ -1,0 +1,23 @@
+" ----------------------------
+" Mutt
+" ----------------------------
+
+"ab neun neunzehn
+
+" Mappings
+nmap <silent> <leader>ns :%!spamassassin -d <CR><Esc> " removes all SpamAssassin markup from the message inside of *mutt*
+
+" headerfarben
+hi mailHeader      ctermfg=Grey
+hi mailSubject     ctermfg=Green
+hi mailEmail       ctermfg=Blue
+hi mailSignature   ctermfg=Grey
+hi mailQuoted1     ctermfg=Darkyellow
+hi mailQuoted2     ctermfg=Green
+
+"Activate MuttAliasComplete Plugin
+"autocmd FileType mail set omnifunc=muttaliasescomplete#Complete 
+"source ~/.vim/bundle/muttaliasescomplete.vim/plugin/muttaliasescomplete.vim
+
+
+"au BufRead /tmp/mutt* source /path/to/email.vim 

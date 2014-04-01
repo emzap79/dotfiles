@@ -1,0 +1,209 @@
+# This file contains snippets that are always defined. I personally
+# have snippets for signatures and often needed texts
+snippet "(showopts)|(printopts)" "Print available ultisnip-options" !br
+#{{{
+#.#################
+#.#.Snippet-Options
+#.#################
+#The options currently supported are: >
+#   !   Overwrite - A snippet with this option will overwrite all previously
+#       defined snippets with an identical tab trigger. What previously means
+#       in this context depends on the order UltiSnips traverses the
+#       'runtimepath'. (Compare g:UltiSnipsDontReverseSearchPath). This might
+#       depend on your installation type (Pathogen, Bzr, Vundle). The default
+#       behavior is to display list of snippets matching the tab trigger and
+#       let the user pick the one they want. Use this option to overwrite
+#       bundled snippets with user defined ones.
+#
+#   b   Beginning of line - A snippet with this option is expanded only if the
+#       tab trigger is the first word on the line. In other words, if only
+#       whitespace precedes the tab trigger, expand. The default is to expand
+#       snippets at any position regardless of the preceding non-whitespace
+#       characters.
+#
+#   i   In-word expansion - By default a snippet is expanded only if the tab
+#       trigger is the first word on the line or is preceded by one or more
+#       whitespace characters. A snippet with this option is expanded
+#       regardless of the preceding character. In other words, the snippet can
+#       be triggered in the middle of a word.
+#
+#   w   Word boundary - With this option, the snippet is expanded if
+#       the tab trigger start matches a word boundary and the tab trigger end
+#       matches a word boundary. In other words the tab trigger must be
+#       preceded and followed by non-word characters. Word characters are
+#       defined by the 'iskeyword' setting. Use this option, for example, to
+#       permit expansion where the tab trigger follows punctuation without
+#       expanding suffixes of larger words.
+#
+#   r   Regular expression - With this option, the tab trigger is expected to
+#       be a python regular expression. The snippet is expanded if the recently
+#       typed characters match the regular expression. Note: The regular
+#       expression MUST be quoted (or surrounded with another character) like a
+#       multi-word tab trigger (see above) whether it has spaces or not. A
+#       resulting match is passed to any python code blocks in the snippet
+#       definition as the local variable "match".
+#
+#   t   Do not expand tabs - If a snippet definition includes leading tab
+#       characters, by default UltiSnips expands the tab characters honoring
+#       the Vim 'shiftwidth', 'softtabstop', 'expandtab' and 'tabstop'
+#       indentation settings. (For example, if 'expandtab' is set, the tab is
+#       replaced with spaces.) If this option is set, UltiSnips will ignore the
+#       Vim settings and insert the tab characters as is. This option is useful
+#       for snippets involved with tab delimited formats, for example.
+#
+#   s   Remove whitespace immediately before the cursor at the end of a line
+#       before jumping to the next tabstop.  This is useful if there is a
+#       tabstop with optional text at the end of a line.
+#}}}
+endsnippet
+
+#.#.Boxes.etc.
+global !p
+import string, vim
+""" Maps a filetype to comment format used for boxes.
+Automatically filled during usage"""
+_commentDict = { }
+def _parse_comments(s):
+    """ Parses vim's comments option to extract comment format """
+    i = iter(s.split(","))
+    rv = []
+    try:
+        while True:
+            # get the flags and text of a comment part
+            flags,text = i.next().split(':', 1)
+            if len(flags) == 0:
+                if len(text) == 1:
+                    rv.append((text,text,text, ""))
+            # parse 3-part comment, but ignore those with O flag
+            elif flags[0] == 's' and 'O' not in flags:
+                ctriple = []
+                indent = ""
+                if flags[-1] in string.digits:
+                    indent = " " * int(flags[-1])
+                ctriple.append(text)
+                flags,text = i.next().split(':', 1)
+                assert(flags[0] == 'm')
+                ctriple.append(text)
+                flags,text = i.next().split(':', 1)
+                assert(flags[0] == 'e')
+                ctriple.append(text)
+                ctriple.append(indent)
+                rv.append(ctriple)
+            elif flags[0] == 'b':
+                if len(text) == 1:
+                    rv.insert(0, (text,text,text, ""))
+    except StopIteration:
+       return rv
+def _get_comment_format():
+    """ Returns a 4-element tuple representing the comment format for
+    the current file. """
+    ft = vim.eval("&filetype")
+    # check if the comment dict has the format for the current file
+    if ft in _commentDict:
+        return _commentDict[ft]
+    # otherwise parse vim's comments and add it for later use
+    commentformat = _parse_comments(vim.eval("&comments"))[0]
+    _commentDict[ft] = commentformat
+    return commentformat
+def make_box(twidth, bwidth=None):
+    b, m, e, i = _get_comment_format()
+    bwidth_inner = bwidth - 3 - max(len(b), len(i + e)) if bwidth else twidth + 2
+    sline = b + m + bwidth_inner * m + 2 * m
+    nspaces = (bwidth_inner - twidth) // 2
+    mlines = i + m + " " + " " * nspaces
+    mlinee = " " + " "*(bwidth_inner - twidth - nspaces) + m
+    eline = i + 2 * m + bwidth_inner * m + m + e
+    return sline, mlines, mlinee, eline
+def foldmarker():
+    "Return a tuple of (open fold marker, close fold marker)"
+    return vim.eval("&foldmarker").split(",")
+endglobal
+#.##.Nice.Boxes
+snippet bbox "A nice box with the current comment symbol" b
+`!p
+box = make_box(len(t[1]))
+snip.rv = box[0] + '\n' + box[1]
+`${1:content}`!p
+box = make_box(len(t[1]))
+snip.rv = box[2] + '\n' + box[3]`
+$0
+endsnippet
+snippet bbbox "A nice box over the full width" b
+`!p
+width = int(vim.eval("&textwidth")) or 71
+box = make_box(len(t[1]), width)
+snip.rv = box[0] + '\n' + box[1]
+`${1:content}`!p
+box = make_box(len(t[1]), width)
+snip.rv = box[2] + '\n' + box[3]`
+$0
+endsnippet
+#.##.Folding-Markers
+snippet fold "Insert a vim fold marker" !b
+`!p snip.rv = _get_comment_format()[0]` ${1:Fold description} `!p snip.rv = foldmarker()[0]`${2:1} `!p snip.rv = _get_comment_format()[2]`
+endsnippet
+snippet foldc "Insert a vim fold close marker" !b
+`!p snip.rv = _get_comment_format()[0]` ${2:1}`!p snip.rv = foldmarker()[1]` `!p snip.rv = _get_comment_format()[2]`
+endsnippet
+snippet foldp "Insert a vim fold marker pair" !b
+`!p snip.rv = _get_comment_format()[0]` ${1:Fold description} `!p snip.rv = foldmarker()[0]` `!p snip.rv = _get_comment_format()[2]`
+${2:${VISUAL:Content}}
+`!p snip.rv = _get_comment_format()[0]` `!p snip.rv = foldmarker()[1]` $1 `!p snip.rv = _get_comment_format()[2]`
+endsnippet
+#.#.Miscellanous
+snippet lorem "Lorem Ipsum - 50 Words" b
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.
+endsnippet
+snippet cond
+${1:some_text}${1/(o)|(t)|..*/(?1:ne)(?2:wo)/}
+endsnippet
+snippet vimft "Vim Filetype" b
+# vim:ft=${1:sh,snippets,py ...}:
+$0
+endsnippet
+#.#.Header
+snippet "h1" "chapter header" !br
+#.##`!p snip.rv = '#'*len(t[1])`
+#.#.${1:Chapter Header}
+#.##`!p snip.rv = '#'*len(t[1])`
+${2:# $1.# {{{
+${3:${VISUAL}}
+###.$1.# }}}
+}
+endsnippet
+snippet "h2" "chapter header" !br
+#.###`!p snip.rv = '#'*len(t[1])`
+#.##.${1:Section Header}
+#.###`!p snip.rv = '#'*len(t[1])`
+${2:# $1.# {{{
+${3:${VISUAL}}
+###.$1.# }}}
+}
+endsnippet
+snippet "h3" "chapter header" !br
+#.#####`!p snip.rv = '#'*len(t[1])`
+#.###.${1:Subsection Header}
+#.#####`!p snip.rv = '#'*len(t[1])`
+${0:${VISUAL}}
+endsnippet
+#.#.Python.Interpolation
+global !p
+def complete(t, opts):
+    if t:
+        opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+    if len(opts) == 1:
+        return opts[0]
+    return "(" + '|'.join(opts) + ')'
+endglobal
+snippet "rep (\d+) (.+)" "Repeat" r
+`!p snip.rv = int(match.group(1))*match.group(2)`
+endsnippet
+# vim:ft=snippets:

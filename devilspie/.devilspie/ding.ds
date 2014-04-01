@@ -1,0 +1,9 @@
+(if
+	(contains (window_class) 'Ding')
+	(begin
+		(println "--[ Ding ]--")
+		(geometry "750x374-0+21")
+        (undecorate)
+        (above)
+	)
+)

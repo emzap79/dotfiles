@@ -1,0 +1,7 @@
+(if
+     (is (window_class) "R_x11")
+     (begin
+         (println "--[ R-Plots ]--")
+         (geometry "679x707+686+60")
+     )
+ )

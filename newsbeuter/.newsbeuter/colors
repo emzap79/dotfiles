@@ -1,0 +1,22 @@
+# # a simple newsbeuter color scheme.
+# color listnormal white  black
+# color listfocus  black  blue bold
+# color info       green  blue
+# color background white  black
+# color article    white  black
+
+# # solarized color scheme for newsbeuter <http://www.newsbeuter.org/>
+# # more on solarized: http://ethanschoonover.com/solarized
+# color listnormal color244 color234
+# color listfocus  color166 color235 
+# color info       color136 color235 
+# color background color244 color234
+# color article    color244 color234
+
+# color background white default
+# color listnormal white default
+# color listfocus green default
+# color listnormal_unread yellow default bold
+# color listfocus_unread green default
+# color info white default
+# color article white default

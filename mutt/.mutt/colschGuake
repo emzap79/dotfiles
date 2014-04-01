@@ -1,0 +1,69 @@
+###############################################################################
+##   Color
+##   Tuned for transparent black background
+###############################################################################
+
+color normal            cyan            black
+color hdrdefault        brightgreen     black
+color signature         blue            black
+color indicator         white           black
+color error             brightyellow    black
+color status            brightblue      black
+color tree              cyan            black   # the thread tree in the index menu
+color tilde             cyan            black
+color message           brightcyan      black
+color markers           cyan            black
+color attachment        brightmagenta   black
+color search            black           brightcyan   # how to hilite searches in the pager
+color quoted            yellow          black   # quoted text
+color quoted1           green           black
+color quoted2           blue            black
+color quoted3           magenta         black
+color quoted4           red             black
+color quoted5           yellow          black
+color quoted6           green           black
+color quoted7           blue            black
+color quoted8           magenta         black
+color quoted9           red             black
+color underline         brightgreen     black
+color index             green           black "~F"
+color index             brightcyan      black "~N"
+color index             yellow          black "~D"
+color header            brightyellow    black "^(From|Subject):"
+color sidebar_new       brightcyan      black
+
+# point out url's
+color body              brightyellow    black "((ftp|http|https)://|(file|news):|www\\.)[-a-z0-9_.:]*[a-z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:!])?/?"
+color body              brightyellow    black "[-a-z_0-9.]+@[-a-z_0-9.]+"    # e-mail addresses
+
+# smilies and the like
+color body brightgreen black "<[Gg]>"
+color body brightgreen black "<[Bb][Gg]>"
+# see also the variables smileys
+color body black yellow ">?[;:][-^]?[][)(><}{|/DP][)}]*"
+
+#
+#  Mono
+#
+
+mono normal             none            # normal text
+mono indicator          reverse         # actual message
+mono tree               none            # thread arrows
+mono status             reverse         # status line
+#mono error             bold
+mono error              standout
+mono message            none            # info messages
+mono quoted             bold
+mono signature          none
+mono attachment         underline       # MIME attachments
+mono search             reverse         # search matches
+mono tilde              none            # ~ at bottom of msg
+mono markers            bold            # + at beginning of wrapped lines
+mono hdrdefault         none            # default header lines
+mono bold               bold            # hilite bold patterns in body
+mono underline          underline       # hilite underlined patterns in body
+mono header             bold           "^(from|subject):"
+mono body               underline      "((ftp|http|https)://|(file|news):|www\\.)[-a-z0-9_.:]*[a-z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:!])?/?"
+mono body               underline      "[-a-z_0-9.]+@[-a-z_0-9.]+"
+mono body               bold           "(^| )\\*[-a-z0-9äöüß*]+\\*[,.?]?[ \n]"
+mono body               underline      "(^| )_[-a-z0-9äöüß_]+_[,.?]?[ \n]"
