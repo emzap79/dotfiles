@@ -43,9 +43,11 @@
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Digital_Globe_Mix_Ramirez_Son_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Eat_Fish_Mix_ft_Fish_Go_Deep_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Electrified_Mix_Sweep_n_Groove_128.mp3
+/home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Gabz_FM_March_14_with_Alex_B_Groove_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Osaka_Tiger_Mix_Aiko_Morita_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Silberschwein_Mix_with_Alex_B_Groove_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Spaetzle_Mix_DJ_M_SI_128.mp3
+/home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Spring_Break_Mix_ft_DurtysoxXx_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_SSRadio_Episode_157_Alex_B_Groove_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_SSRadio_Episode_158_ft_Kiyo_To_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_SSRadio_Episode_159_ft_PJ_Parker_128.mp3
@@ -96,6 +98,7 @@
 /home/zapata/Podcasts/Music/House/DeepSoulSessions/RedEyeFlight-DeepSoulSessions2006.mp3
 /home/zapata/Podcasts/Music/House/DeepSoulSessions/SolSummerv2.mp3
 /home/zapata/Podcasts/Music/House/HouseMusicPodcasts.co.uk/Grant-Richards-Love-Story-2014.mp3
+/home/zapata/Podcasts/Music/House/HouseMusicPodcasts.co.uk/Grant-Richards-Mysterious-Vibes-12.mp3
 /home/zapata/Podcasts/Music/House/HouseMusicPodcasts.co.uk/Grant-Richards-SumStuffMeLikes.mp3
 /home/zapata/Podcasts/Music/House/HouseMusicPodcasts.co.uk/K-KLASS-BEST-OF-2013-RADIO-SHOW.mp3
 /home/zapata/Podcasts/Music/House/HouseMusicPodcasts.co.uk/MDE-ZULU-62-PODCAST.mp3
@@ -110,4 +113,5 @@
 /home/zapata/Podcasts/Music/House/DeeperShades/dsoh441I_LB.mp3
 /home/zapata/Podcasts/Music/House/DeeperShades/dsoh442I_LB.mp3
 /home/zapata/Podcasts/Music/House/DeeperShades/dsoh443I_LB.mp3
+/home/zapata/Podcasts/Music/House/DeeperShades/dsoh444I_LB.mp3
 /home/zapata/Podcasts/Music/House/DeeperShades/Msg4PremiumMembers2014.mp3

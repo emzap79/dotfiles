@@ -449,29 +449,35 @@ xnoremap <leader>o :<c-u>!chromium-browser <C-r>=GetVisualSelection()<cr>
 "}}}
 "appending to the previous search pattern the current word under the cursor"{{{"{{{
 "http://stackoverflow.com/a/9261779
-nnoremap <leader>as :let @/.='\\|\<'.expand("<cword>").'\>'<cr>
+nnoremap <leader>as :let @/.='\\|\<'.expand("<cWORD>").'\>'<cr>
 " "}}}
 " offline searches"}}}
 "search for a word in ding"{{{
-vnoremap <leader>fd :<c-u>!ding -r "<cword>" >& /dev/null <cr><cr>
-vnoremap <leader>fot :<c-u>!othes <cword> >& /dev/null<cr><cr>
+
+vnoremap <leader>fd :<c-u>!ding -r "<cWORD>" >& /dev/null <cr><cr>
+vnoremap <leader>fot :<c-u>!othes <C-r>=GetVisualSelection()<CR>
+
 "}}}
 "}}}
 " spell-checking"{{{
 " enable general spell-check:"{{{
+
 noremap <leader>sc :set spell spelllang=de,en,es<cr>
 vnoremap <leader>sc :set spell spelllang=de,en,es<cr>
+
 "}}}
 " spellcheck: german"{{{
+
 "enable spell checking for german:
 noremap <leader>scg :call <sid>Spell_de()<cr>
 vnoremap <leader>scg :call <sid>Spell_de()<cr>
-"
+
 " " painless spell checking
 " " for german, you'll need
 " " wget -p ~/.vim/spell/ http://ftp.vim.org/pub/vim/runtime/spell/de.utf-8.sug
 " " wget -p ~/.vim/spell/ http://ftp.vim.org/pub/vim/runtime/spell/de.utf-8.spl
 " Func: Spell-DE "{{{
+
 fun! s:Spell_de()
     if !exists("s:Spell_check") || s:Spell_check == 0
         echo "spell checking activated (german)"
@@ -483,6 +489,7 @@ fun! s:Spell_de()
         setlocal spell spelllang=
     endif
 endfun
+
 "}}}
 "}}}
 " spellcheck: english"{{{
@@ -508,8 +515,8 @@ nnoremap <leader>x *``cgn
 nnoremap <leader>X #``cgN
 
 " replace word under cursor in paragraph/buffer
-nnoremap <leader>r :'{,'}s/\<<C-r>=expand('<cword>')<CR>\>/
-nnoremap <leader>R :%s/\<<C-r>=expand('<cword>')<CR>\>/
+nnoremap <leader>r :'{,'}s/\<<C-r>=expand('<cWORD>')<CR>\>/
+nnoremap <leader>R :%s/\<<C-r>=expand('<cWORD>')<CR>\>/
 
 " replace word under cursor in visual selection
 xnoremap <leader>r :<C-u>'{,'}s/<C-r>=GetVisualSelection()<CR>/

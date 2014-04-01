@@ -15,6 +15,8 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/crash_LIVE_on_DNBRADIO.COM_20140128_2326_-_late_measures_20140128.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/crash_LIVE_on_DNBRADIO.COM_20140219_0147_-_late_measures_20140218.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/crash_LIVE_on_DNBRADIO.COM_20140312_0019_-_counter_measures_87.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/crash_LIVE_on_DNBRADIO.COM_20140323_1648_-_day_of_wrest_20140323.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/crash_LIVE_on_DNBRADIO.COM_20140325_2323_-_late_measures_20140325.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DEACON_LIVE_on_DNBRADIO.COM_20140226_2302_-_RESPECT_DNB_RADIO_022613.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Dizygotic_LIVE_on_DNBRADIO.COM_20131116_1108_-_Saturday_Sounds_16Nov2013.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Dizygotic_LIVE_on_DNBRADIO.COM_20131123_1035_-_Saturday_Sounds_23Nov2013.mp3
@@ -34,6 +36,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Dizygotic_LIVE_on_DNBRADIO.COM_20140301_1040_-_Saturday_Sounds_01Mar2014.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Dizygotic_LIVE_on_DNBRADIO.COM_20140308_1204_-_Saturday_Sounds_08Mar2014.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Dizygotic_LIVE_on_DNBRADIO.COM_20140322_1311_-_Saturday_Sounds_22Mar2014.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/Dizygotic_LIVE_on_DNBRADIO.COM_20140329_1406_-_Saturday_Sounds_29Mar2014.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_CONSTRUCT%2C_DRUMSOUND_n_BASSLINE_SMITH_LIVE_on_DNBRADIO.COM_20140312_2307_-_RESPECT_DNB_RADIO_031214.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_FuZion_LIVE_on_DNBRADIO.COM_20140202_0500_-_Ep.167_Album_Spotlight_Vol._8__9th_Blackout.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_FuZion_LIVE_on_DNBRADIO.COM_20140209_0500_-_Ep.168_Mix_Sessions_Vol._29%2C_Slender_Cuts_Pt._2.mp3
@@ -44,6 +47,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_Ranton_LIVE_on_DNBRADIO.COM_20140209_1306_-_Power_Trippin__-_Feb_9th_2014.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_Ranton_LIVE_on_DNBRADIO.COM_20140302_1312_-_Power_Trippin__-_March_2nd_2014.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_Ranton_LIVE_on_DNBRADIO.COM_20140309_1407_-_Power_Trippin__-_March_9th_2014.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_Ranton_LIVE_on_DNBRADIO.COM_20140330_1317_-_Power_Trippin__-_March_30th_2014.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_WITNESS_B2B_DJ_SWITCH_LIVE_on_DNBRADIO.COM_20140203_1504_-_Monday_Night_HAZE_ft_DJ_Switch.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_WITNESS_LIVE_on_DNBRADIO.COM_20131111_1425_-_Monday_Night_HAZE.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_WITNESS_LIVE_on_DNBRADIO.COM_20131125_1447_-_Monday_Night_HAZE.mp3
@@ -72,6 +76,8 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Eroc_LIVE_on_DNBRADIO.COM_20140305_1900_-_Soul_R_Eclipse_Radio_no_351.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Eroc_LIVE_on_DNBRADIO.COM_20140312_1900_-_Soul_R_Eclipse_Radio_no_352_March_Freshness.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Eroc_LIVE_on_DNBRADIO.COM_20140319_1858_-_Soul_R_Eclipse_Radio_no_353_Bracketer_Cashectomy.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/Eroc_LIVE_on_DNBRADIO.COM_20140326_1900_-_Soul_R_Eclipse_Radio_no_354_Oh_Snap.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/Eroc_LIVE_on_DNBRADIO.COM_20140328_2028_-_Friday_Ren_28_3_14.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/FlApJaCk_B2B_CoOlHaNd_FlEx_LIVE_on_DNBRADIO.COM_20140118_1505_-_OvErLoAd_PT_46_DeFaUlT_ReCoRdInGs_ShOw.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/FlApJaCk_B2B_FoUrEyE_LIVE_on_DNBRADIO.COM_20131207_1609_-_OvErLoAd_PT_42__DeFaUlT_ReCoRdInGs_ShOw.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/FlApJaCk_B2B_MiSs_C_and_VoCaLiSt_CaT_KnIgHt_LIVE_on_DNBRADIO.COM_20131116_1602_-_OvErLoAd_PT_41_DeFaUlT_ReCoRdInGs_ShOw.mp3
@@ -85,6 +91,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/FlApJaCk_LIVE_on_DNBRADIO.COM_20140215_1601_-_OvErLoAd_PT_50_DeFaUlT_ReCoRdInGs_ShOw.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/FlApJaCk_LIVE_on_DNBRADIO.COM_20140301_1542_-_OvErLoAd_PT_52__DeFaUlT_ReCoRdInGs_ShOw.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/FlApJaCk_LIVE_on_DNBRADIO.COM_20140315_1610_-_OvErLoAd_PT_53_DeFaUlT_ReCoRdInGs_ShOw.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/FlApJaCk_LIVE_on_DNBRADIO.COM_20140329_1611_-_OvErLoAd_PT_55_DeFaUlT_ReCoRdInGs_ShOw.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Flood_LIVE_on_DNBRADIO.COM_20131114_1900_-_Sink_or_Swim_9_Years_Anniversary.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Flood_LIVE_on_DNBRADIO.COM_20131121_1859_-_Sink_or_Swim_Despot_Pragmatism.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Flood_LIVE_on_DNBRADIO.COM_20131128_1731_-_Sink_or_Swim_Turkey_Genocide_Extravaganza.mp3
@@ -106,6 +113,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Flood_LIVE_on_DNBRADIO.COM_20140306_1902_-_Sink_or_Swim_Apparently_Im_Venomous.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Flood_LIVE_on_DNBRADIO.COM_20140313_1902_-_Sink_or_Swim_Katies_Treachery_Exposed.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Flood_LIVE_on_DNBRADIO.COM_20140320_1900_-_Sink_or_Swim_The_Hidden_Squirrel.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/Flood_LIVE_on_DNBRADIO.COM_20140327_1900_-_Sink_Or_Swim_Palpitations_In_Audio.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Geekcroft_LIVE_on_DNBRADIO.COM_20131217_1702_-_DnB_Chronicals.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Geekcroft_LIVE_on_DNBRADIO.COM_20140114_1701_-_DnB_Chronicles.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Geekcroft_LIVE_on_DNBRADIO.COM_20140121_1703_-_DnB_Chronicles.mp3
@@ -116,6 +124,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Geekcroft_LIVE_on_DNBRADIO.COM_20140226_1338_-_Renegade_Session.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Geekcroft_LIVE_on_DNBRADIO.COM_20140304_1702_-_DnB_Chronicles.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Geekcroft_LIVE_on_DNBRADIO.COM_20140318_1701_-_DnB_Chronicles.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/Geekcroft_LIVE_on_DNBRADIO.COM_20140325_1704_-_05__DnB_Chronicles.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/MACHETE_LIVE_on_DNBRADIO.COM_20140212_2258_-_RESPECT_DNB_RADIO_021213.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/MACHETE_n_DC_BREAKS_LIVE_on_DNBRADIO.COM_20131211_2302_-_RESPECT_DNB_RADIO_121113.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/MACHETE_n_DELICAT_LIVE_on_DNBRADIO.COM_20140319_2304_-_RESPECT_DNB_RADIO_031914.mp3
@@ -137,6 +146,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/MrKrotos_LIVE_on_DNBRADIO.COM_20140210_1426_-_LondonBeatz_Radio_Show.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/MrKrotos_LIVE_on_DNBRADIO.COM_20140303_1324_-_LondonBeatz_Radio_Show.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/MrKrotos_LIVE_on_DNBRADIO.COM_20140318_1534_-_LondonBeatz_Radio_Show.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/MrKrotos_LIVE_on_DNBRADIO.COM_20140325_1509_-_LondonBeatz_Radio_Show.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Parallel_Motion%2CCabinFever%2CSilentCode%2C1210andWintle_LIVE_on_DNBRADIO.COM_20131225_1516_-_The_RedEyeRecords.co.uk_Drum_and_Bass_Show.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Parallel_Motion_Feat._Guest_DJ__W1NTLE_LIVE_on_DNBRADIO.COM_20140219_1503_-_The_RedEyeRecords.co.uk_Drum_and_Bass_Show.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Parallel_Motion_LIVE_on_DNBRADIO.COM_20131113_1506_-_The_RedEyeRecords.co.uk_Drum_and_Bass_Show.mp3
@@ -172,6 +182,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Pressure_LIVE_on_DNBRADIO.COM_20140307_1100_-_Human_Traffic_Vol.175.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Pressure_LIVE_on_DNBRADIO.COM_20140314_1200_-_Human_Traffic_Vol.176.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Pressure_LIVE_on_DNBRADIO.COM_20140321_1200_-_Human_Traffic_Vol.177.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/Pressure_LIVE_on_DNBRADIO.COM_20140328_1158_-_Human_Traffic_Vol.178.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Robot_Hands_LIVE_on_DNBRADIO.COM_20140312_1101_-_Darkwax_Express.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Ryu_LIVE_on_DNBRADIO.COM_20131112_1359_-_Liquid_Room.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Ryu_LIVE_on_DNBRADIO.COM_20131119_1358_-_Liquid_Room.mp3
@@ -202,6 +213,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shape_LIVE_on_DNBRADIO.COM_20140307_1503_-_the_shape_of_things_to_come.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shape_LIVE_on_DNBRADIO.COM_20140314_1804_-_the_shape_of_things_to_come.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shape_LIVE_on_DNBRADIO.COM_20140321_1531_-_the_shape_of_things_to_come.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/shape_LIVE_on_DNBRADIO.COM_20140328_1533_-_the_shape_of_things_to_come.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Shark_LIVE_on_DNBRADIO.COM_20131215_0902_-_Amity_Island_20131215.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Shark_LIVE_on_DNBRADIO.COM_20140216_0951_-_Amity_Island_2014Feb16.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Shark_LIVE_on_DNBRADIO.COM_20140309_1017_-_Amity_Island_2014Mar09.mp3
@@ -211,6 +223,8 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shoebox_LIVE_on_DNBRADIO.COM_20140313_1030_-_All_Flavors_Drum_n_Bass_Session_March.13.2014.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shoebox_LIVE_on_DNBRADIO.COM_20140315_0924_-_All_Flavors_Drum_n_Bass_Session_March.15.2014.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shoebox_LIVE_on_DNBRADIO.COM_20140319_1405_-_All_Flavors_Drum_n_Bass_Session_March.19.2014.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/shoebox_LIVE_on_DNBRADIO.COM_20140324_1224_-_All_Flavors_Drum_n_Bass_Session_March.24.2014.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/shoebox_LIVE_on_DNBRADIO.COM_20140330_1135_-_All_Flavors_Drum_n_Bass_Session_March.30.2014.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shoebox__XTS_Emcee_LIVE_on_DNBRADIO.COM_20131220_2002_-_Live_Tune_Submissions__-_test_run.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shoebox__XTS_Emcee_LIVE_on_DNBRADIO.COM_20131231_2112_-_All_Flavors_Drum_n_Bass_Session_Dec.31.2013_NYE.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shoebox__XTS_Emcee_LIVE_on_DNBRADIO.COM_20140110_1704_-_All_Flavors_Drum_n_Bass_Session_Jan.10.2013.mp3
@@ -222,6 +236,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Southpaw_LIVE_on_DNBRADIO.COM_20140125_1800_-_Divine_Sessions.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Southpaw_LIVE_on_DNBRADIO.COM_20140208_1800_-_Divine_Sessions.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Southpaw_LIVE_on_DNBRADIO.COM_20140308_1808_-_Divine_Sessions.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/stream
 /home/zapata/Podcasts/Music/DnB/DnBRadio/turbo_alliance_LIVE_on_DNBRADIO.COM_20131114_2059_-_time_served.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/turbo_alliance_LIVE_on_DNBRADIO.COM_20131121_2059_-_time_served.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/turbo_alliance_LIVE_on_DNBRADIO.COM_20131128_2037_-_time_served.mp3
@@ -240,6 +255,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/turbo_alliance_LIVE_on_DNBRADIO.COM_20140306_2053_-_time_served.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/turbo_alliance_LIVE_on_DNBRADIO.COM_20140313_2032_-_time_served.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/turbo_alliance_LIVE_on_DNBRADIO.COM_20140320_2056_-_time_served.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/turbo_alliance_LIVE_on_DNBRADIO.COM_20140327_2052_-_time_served.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/YMB_LIVE_on_DNBRADIO.COM_20131123_1202_-_Ninth_Circle_Radio_Invites_Bratkilla.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/YMB_LIVE_on_DNBRADIO.COM_20131221_1204_-_Ninth_Circle_Radio_Invites_Gameplay.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/YMB_LIVE_on_DNBRADIO.COM_20140208_1203_-_Ninth_Circle_Radio_invites_Infamous.mp3

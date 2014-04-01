@@ -20,3 +20,4 @@
 /home/zapata/Podcasts/Music/Funk/Wefunk/WeFunk_Show_762_2013-12-20.mp3
 /home/zapata/Podcasts/Music/Funk/Wefunk/WeFunk_Show_763_2014-01-10.mp3
 /home/zapata/Podcasts/Music/Funk/Wefunk/WeFunk_Show_764_2014-01-17.mp3
+/home/zapata/Podcasts/Music/Funk/Wefunk/WeFunk_Show_765_2014-01-24.mp3

@@ -1,9 +1,0 @@
-let leader = "\<space>"
-function AssignGood(foo)
-  let foo_tmp = a:foo
-  let foo_tmp = "Yep"
-  echom foo_tmp
-endfunction
-
-map + call AssignGood("test")
-map <leader>ec :e ~/.vim/vimrc_script.vim<cr>
