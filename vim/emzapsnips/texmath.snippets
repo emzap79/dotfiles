@@ -119,27 +119,23 @@ snippet includepdf "Include PDF to Page" b
 endsnippet
 #.##.rezepte
 snippet rezept "editing new receipt" b
-% %%%%%%%%%%%%%
-% %%% $1
-% %%%%%%%%%%%%%
-\subsection{${1:receipt name}}
+\subsection{${1:receipt name}}%{{{
 \label{sub:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}
 
-% %%%%%%%%%%%%%
-% %%% Zutaten
-% %%%%%%%%%%%%%
-\textbf{Zutaten}
+\par{Zutaten}
+
 \begin{itemize}
-\item ${5:Zutat 1}
+
+	\item ${5:Zutat 1}
+
 \end{itemize}
 
-% %%%%%%%%%%%%%
-% %%% Zubereitung
-% %%%%%%%%%%%%%
-\textbf{Zubereitung}
+\par{Zubereitung}
+
 ${0}
-\href{${3:Name des Links}}{Quelle: ## ${4:URL} ##}}
-% subsection $1 (end)
+
+\href{${3:Name des Links}}{Quelle: ${4:URL}}
+% subsection $1 (end)%}}}
 endsnippet
 #.##.spicker
 snippet spicker

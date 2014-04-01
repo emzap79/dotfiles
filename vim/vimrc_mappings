@@ -122,25 +122,20 @@ nnoremap <c-f4> :FufFile<cr>
 inoremap <c-f4> <esc>:FufFile<cr>
 " "}}}
 " <F5>  " enable plugins"{{{
-" Toggle YouCompleteMe"{{{
-fun! ToggleYCM()
-if g:ycm_auto_trigger == 1
-    let g:ycm_auto_trigger = 0
-    echo "Plugin YCM disabled"
-else
-    let g:ycm_auto_trigger = 1
-    echo "Plugin YCM enabled"
-endif
-endfun
-"}}}
+" toggle YouCompleteMe
 nnoremap <F5> :call ToggleYCM()<CR>
 vnoremap <F5> <ESC>:call ToggleYCM()<CR>
 inoremap <F5> <ESC>:call ToggleYCM()<CR>
 
 " "Enable Neocomplete <Plugin>"{{{
+
+" nnoremap <S-F5> :NeoCompleteToggle<cr>
+" vnoremap <S-F5> <esc>:NeoCompleteToggle<cr>
+
 "nnoremap <F5> :NeoCompleteEnable<CR>
 "inoremap <F5> <ESC>:NeoCompleteEnable<CR>
 "vnoremap <F5> <ESC>:NeoCompleteEnable<CR>
+
 "}}}
 " note: disabled due to performance issues!
 """""""""""""""""""""""""""""""""""""""""""
@@ -243,10 +238,6 @@ endfun
 nnoremap <m-f8> :call AutoCorrect()<CR>
 vnoremap <m-f8> <ESC>:call AutoCorrect()<CR>
 inoremap <m-f8> <ESC>:call AutoCorrect()<CR>
-
-" remove trailing whitespaces
-" http://vim.wikia.com/wiki/Remove_unwanted_spaces
-nnoremap <silent> <s-c-f8> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " " f-keys"}}}
 " <f9>  " language tools & spellcheck"{{{
@@ -509,28 +500,6 @@ fun! s:Spell_en()
 endfun
 "}}}
 " ----------------------------"}}}
-" substitutions & replacements{{{
-" replace words by hitting '.'
-nnoremap <leader>x *``cgn
-nnoremap <leader>X #``cgN
-
-" replace word under cursor in paragraph/buffer
-nnoremap <leader>r :'{,'}s/\<<C-r>=expand('<cWORD>')<CR>\>/
-nnoremap <leader>R :%s/\<<C-r>=expand('<cWORD>')<CR>\>/
-
-" replace word under cursor in visual selection
-xnoremap <leader>r :<C-u>'{,'}s/<C-r>=GetVisualSelection()<CR>/
-xnoremap <leader>R :<C-u>%s/<C-r>=GetVisualSelection()<CR>/
-" " Func: Replace Word in Visual Selection"{{{
-function! GetVisualSelection()
-    let old_reg = @v
-    normal! gv"vy
-    let raw_search = @v
-    let @v = old_reg
-    return substitute(escape(raw_search, '\/.*$^~[]'), "\n", '\\n', "g")
-endfunction
-"}}}
-" substitution & replacements "}}}
 
 " Folding, Buffers & Tabs
 " fold commands"{{{
@@ -674,16 +643,6 @@ nnoremap gm :call cursor(0, virtcol('$')/2)<cr>
 ""}}}
 
 " Miscellaneous
-" change formatting"{{{
-nnoremap <silent>d<space> :'{,'}s/\s\s/ /g<CR>
-nnoremap <silent>da<space> :%s/^\ \ \+//g<CR>
-nnoremap <silent>d^ vap:s/^\ *//g<CR>g;g;g;
-"}}}
-" insert path to graphics"{{{
-" http://superuser.com/questions/428423/get-path-of-existing-directory-or-file-paste-at-cursor-position
-nnoremap <leader>ff :r!basename<space>
-vnoremap <leader>ff <ESC>:r!basename<space>
-"}}}
 " word completion"{{{
 "" example of a set of mappings that first close any popups that are open
 "" which means you can seamlessly switch between omni and user completions
@@ -698,10 +657,6 @@ inoremap <expr> <m-,> pumvisible() ? '<c-n>' :
 " count character under cursor in line"{{{
 nnoremap <leader>ct xhp:s/<c-r>-/&/gn<CR><esc>
 " }}}
-" substituting strings"{{{
-"" first character of line capitalised
-map <leader>gu :s/\([[:blank:]].\)/\u\1/g<cr> :s/^\(.\)/\u\1/g<cr>
-"}}}
 " paste yanked input at end of line"{{{
 " http://vim.wikia.com/wiki/Maintain_cursor_and_screen_position
 
@@ -746,11 +701,8 @@ endfunction
 nnoremap <s-c-p> :call CurPos("save")<cr>$p :call CurPos("restore")<cr>
 
 "}}}
-" desactivate highlighting of search results"{{{
+" deactivate highlighting of search results"{{{
 nnoremap <silent> <esc> :nohl<cr>
-"}}}
-" printout date in current line"{{{
-nnoremap <leader>sd o<c-r>=strftime("%c")<cr><esc>
 "}}}
 " execute cmd between mark 'a and 's"{{{
 nnoremap <leader>m :'a,'s
@@ -761,8 +713,59 @@ nnoremap <leader>m :'a,'s
 cmap w!! w !sudo tee % >/dev/null
 "}}}
 
-" Toggle Plugins
-" toggle neocomplete "{{{
-nnoremap <leader>tnc :NeoCompleteToggle<cr>
-vnoremap <leader>tnc <esc>:NeoCompleteToggle<cr>
+" Substitutions/Replacements
+" remove/replace <spaces>"{{{
+
+" remove trailing whitespaces
+" http://vim.wikia.com/wiki/Remove_unwanted_spaces
+nnoremap <silent>d<space>p :'{,'}s/\s\s\+/ /g<CR>:nohl<CR>``
+nnoremap <silent>d<space>0 :'{,'}s/^\s\+//g<CR>:nohl<CR>``
+nnoremap <silent>d<space>a :%s/\s\s\+/ /g<CR>:nohl<CR>``
+nnoremap <silent>d<space>$ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>``
+
+"}}}
+" substituting strings"{{{
+"" first character of line capitalised
+map <leader>gu :s/\([[:blank:]].\)/\u\1/g<cr> :s/^\(.\)/\u\1/g<cr>
+"}}}
+" change word under curser{{{
+
+" replace words by hitting '.'
+nnoremap <leader>x *``cgn
+nnoremap <leader>X #``cgN
+
+" replace word under cursor in paragraph/buffer
+nnoremap <leader>r :'{,'}s/\<<C-r>=expand('<cWORD>')<CR>\>/
+nnoremap <leader>R :%s/\<<C-r>=expand('<cWORD>')<CR>\>/
+
+" replace word under cursor in visual selection
+xnoremap <leader>r :<C-u>'{,'}s/<C-r>=GetVisualSelection()<CR>/
+xnoremap <leader>R :<C-u>%s/<C-r>=GetVisualSelection()<CR>/
+
+" substitution & replacements "}}}
+
+" Global and local Functions
+" Func: YouCompleteMe <Plugin>"{{{
+
+fun! ToggleYCM()
+    if g:ycm_auto_trigger == 1
+        let g:ycm_auto_trigger = 0
+        echo "Plugin YCM disabled"
+    else
+        let g:ycm_auto_trigger = 1
+        echo "Plugin YCM enabled"
+    endif
+endfun
+
+"}}}
+" " Func: Get Visual Selection"{{{
+
+function! GetVisualSelection()
+    let old_reg = @v
+    normal! gv"vy
+    let raw_search = @v
+    let @v = old_reg
+    return substitute(escape(raw_search, '\/.*$^~[]'), "\n", '\\n', "g")
+endfunction
+
 "}}}
