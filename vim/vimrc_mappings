@@ -326,7 +326,7 @@ vnoremap <leader><f12> <sid>:call AddAbbr()<cr>
 
 "abbreviation
 fun! AddAbbr()
-    normal byw
+    normal! byw
     let stringchar = lh#visual#selection()
     let val = input("enter the abbreviation you wish to use for '". stringchar. "' :")
     exec "ia" stringchar val
@@ -725,10 +725,10 @@ nnoremap <leader>m :'a,'s
 " uppercase beginning of word/line"{{{
 
 " first character of word capitalised
-nnoremap <s-u> :normal mzlBgUl`z<cr>
-nnoremap <leader>u :normal mzlBgUl`z<cr>
+nnoremap <s-u> :normal! mzlBgUl`z<cr>
+nnoremap <leader>u :normal! mzlBgUl`z<cr>
 " first character of line capitalised
-nnoremap <leader>u^ :normal mz^gUl`z<cr>
+nnoremap <leader>u^ :normal! mz^gUl`z<cr>
 " first character of every words in line capitalised
 nnoremap <leader>uu :normal! mz0<cr>:s/\<\w/\u&/g<cr>:nohl<cr>:normal! `z<cr>
 
