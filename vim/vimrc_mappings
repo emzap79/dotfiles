@@ -4,58 +4,41 @@
 " File: vimrc_mappings
 " Author: Jonas Petong
 " Description: VIM related Mappings & Keybinds
-" Last Modified: Januar 04, 2014
-"
-""""""""""""
-"  Config  "
-""""""""""""
+" Last Modified: April 16, 2014
+
+" Config"{{{
+
 " mapping examples {{{
+
 " map (all modes)
 " vnoremap (visual mode)
 " inoremap (insert mode)
 " nnoremap (normal mode)
 " smap (select mode)
 
-" add to config file
-" map key_sequence operation
-" example: map <f5> dd
-" shift, ctrl, alt, meta, shift: <s-...>
-" shift: <s-...>
-" example: shift s
-" <s-s>
-" ctrl: <c-...>
-" example: ctrl s
-" <c-s>
-" alt and meta are the same: <a-...> <m-...>
-" example: alt s
-" <a-s> or <m-s>
-" special characters
-" this maps to 'no operation' (do nothing): <nop>
-
-" basic
 " <f1> through <f12>
 " enter: <cr> or <enter> or <return>
 " space bar: <space>
 " esc key: <esc>
 " all special keys
-" see: http://vimdoc.sourceforge.net/htmldoc/intro.html#keycodes
+" see - :h keycodes
+
 "}}}
 " set leader-keys"{{{
-"the <leader> key is mapped to \ by default. so if
-"you have a map of <leader>t, you can execute it by 
-"default with \t
 
 " change the mapleader from \ to,
 
 let mapleader="\<space>"
 let maplocalleader=","
 let plug=";"
+
 ""}}}
 
-""""""""""""""
-"  Mappings  "
-""""""""""""""
+""}}}
+" Basic Mappings"{{{
+
 " f-keys"{{{
+
 " <f1>  " show current directory "{{{
 
 " change local buffer to current dir
@@ -72,33 +55,26 @@ vnoremap <C-F1> <esc>:lcd %:p:h<cr>:echo expand('%:p')<cr>
 nnoremap <s-f1> :echo expand('%:p')<cr>
 inoremap <s-f1> <esc>:echo expand('%:p')<cr>
 vnoremap <s-f1> <esc>:echo expand('%:p')<cr>
+
 "}}}
 " <f2>  " save file "{{{
-" save file
-nnoremap <f2> :w<cr>
-inoremap <f2> <esc>:w<cr>
-vnoremap <f2> <esc>:w<cr>
-" inoremap <f2> <c-o>:w<esc><cr>
-" vnoremap <f2> <c-o>:w<esc><cr>
 
 "save file and source vimrc
 if has("gui_running")
-    nnoremap <s-f2> :w<cr> :so ~/.gvimrc<cr>
-    inoremap <s-f2> <esc>:w<cr> :so ~/.gvimrc<cr>
+    nnoremap <silent><f2> :w<cr> :so ~/.gvimrc<cr>
+    inoremap <silent><f2> <esc>:w<cr> :so ~/.gvimrc<cr>
 else
-    nnoremap <s-f2> :w<cr> :so $MYVIMRC<cr>
-    inoremap <s-f2> <esc>:w<cr>:so $MYVIMRC<cr>
+    nnoremap <silent><f2> :w<cr> :so $MYVIMRC<cr>
+    inoremap <silent><f2> <esc>:w<cr>:so $MYVIMRC<cr>
 endif
-
-" force save
-nnoremap <c-f2> :wqall<cr>
-inoremap <c-f2> <esc>:wqall<cr>
 
 "save & exit
 nnoremap <s-c-f2> :mks!<cr>:wqall!<cr>
 inoremap <s-c-f2> <esc>:mks!<cr>:wqall!<cr>
+
 "}}}
 " <f3>  " bufferlist "{{{
+
 " " select buffer
 "call fuzzyfinder
 nnoremap <f3> :FufBuffer<cr>
@@ -107,8 +83,10 @@ inoremap <f3> <esc>:FufBuffer<cr>
 "alternativ: plugin selectbuf.vim
 nnoremap <s-f3> :buffer<cr>
 inoremap <s-f3> <esc>:buffer<cr>
+
 "}}}
 " <f4>  " open file {{{
+
 "call fuzzyfinder for files in current buffer
 nnoremap <f4> :FufFileWithCurrentBufferDir<cr>
 inoremap <f4> <esc>:FufFileWithCurrentBufferDir<cr>
@@ -120,8 +98,10 @@ inoremap <s-f4> <esc>:FufMruFile<cr>
 "call fuzzyfinder for files in homedir
 nnoremap <c-f4> :FufFile<cr>
 inoremap <c-f4> <esc>:FufFile<cr>
+
 " "}}}
 " <F5>  " enable plugins"{{{
+
 " toggle YouCompleteMe
 nnoremap <F5> :call ToggleYCM()<CR>
 inoremap <F5> <ESC>:call ToggleYCM()<CR>
@@ -146,8 +126,10 @@ inoremap <F5> <ESC>:call ToggleYCM()<CR>
 " nnoremap <s-f5> :fufmrucmd<cr>
 " inoremap <s-f5> <esc>:fufmrucmd<cr>
 """""""""""""""""""""""""""""""""""""""""""
+
 "}}}
 " <f6>  " manage plugins through vundle "{{{
+
 "call bundlelist
 nnoremap <f6> :e ~/.vim/vimrc_plugs<cr> :BundleList<cr>
 inoremap <f6> <esc>:e ~/.vim/vimrc_plugs<cr> :BundleList<cr>
@@ -163,9 +145,9 @@ inoremap <s-f6> <esc>:e ~/.vim/vimrc_plugs<cr> :BundleInstall<cr>
 "call bundleinstall
 nnoremap <s-c-f6> :e ~/.vim/vimrc_plugs<cr> :BundleInstall!<cr>
 inoremap <s-c-f6> <esc>:e ~/.vim/vimrc_plugs<cr> :BundleInstall!<cr>
+
 "}}}
 " <f7>  " *** no functions yet *** " {{{
-
 
 "}}}
 " <f8>  " toggle linewrapping, -numbers and foldcolumn etc.{{{
@@ -176,12 +158,14 @@ inoremap <s-c-f6> <esc>:e ~/.vim/vimrc_plugs<cr> :BundleInstall!<cr>
 let b:mytextwidth=0
 let g:mytextwidthlist=["0","72","80"]
 fun! ToggleTextwidth()
+    call clearmatches()
     let b:mytextwidth=b:mytextwidth+1
     if b:mytextwidth>=len(g:mytextwidthlist) | let b:mytextwidth=0 | endif
     if b:mytextwidth==0
         setlocal textwidth=0
     else
         execute "setlocal textwidth=".get(g:mytextwidthlist, b:mytextwidth)
+        execute "call matchadd('ColorColumn', '\\%" . &textwidth . "v', 100)"
     endif
     if &fo =~ "t" | echo "wrap" | else | echo "nowrap" | endif
     echo "current textwidth:" g:mytextwidthlist[b:mytextwidth]
@@ -199,6 +183,7 @@ inoremap <f8> <ESC>:call ToggleTextwidth()<CR>
 fun! ToggleWrap()
     if &fo =~ "t"
         set fo-=t
+        call clearmatches()
     else
         set fo+=t
     endif
@@ -211,23 +196,6 @@ endfun
 nnoremap <s-f8> :call ToggleWrap()<cr>
 nnoremap <s-f8> <esc>:call ToggleWrap()<cr>
 nnoremap <s-f8> <esc>:call ToggleWrap()<cr>
-
-" paste mode toggle (needed when using autoindent/smartindent) 
-" "" func: toggle paste {{{
-
-fun! TogglePaste()
-    if &paste
-        setlocal nopaste
-        echo "nopaste"
-    else
-        setlocal paste
-        echo "paste"
-    endif
-endfun
-
-" "}}}
-nnoremap <s-c-s-f8> :call TogglePaste()<cr>
-inoremap <s-c-s-f8> <c-o>:call TogglePaste()<cr>
 
 " toggle foldcolumn on left
 "" func: toggle foldcolumn {{{
@@ -245,10 +213,9 @@ nnoremap <c-f8> :call ToggleFoldColumn()<cr>
 vnoremap <c-f8> <ESC>:call ToggleFoldColumn()<cr>
 inoremap <c-f8> <ESC>:call ToggleFoldColumn()<cr>
 
-" Autocorrect typos
-nnoremap <m-f8> :call AutoCorrect()<CR>
-vnoremap <m-f8> <ESC>:call AutoCorrect()<CR>
-inoremap <m-f8> <ESC>:call AutoCorrect()<CR>
+" call matchadd('ColorColumn', '\%81v', 100)
+nnoremap <s-c-f8> :call TogglePaste()<cr>
+inoremap <s-c-f8> <c-o>:call TogglePaste()<cr>
 
 " " f-keys"}}}
 " <f9>  " language tools & spellcheck"{{{
@@ -265,6 +232,7 @@ inoremap <c-f9> :w!<cr>:!/usr/bin/aspell --dont-backup --dont-tex-check-comments
 
 " switch spellcheck languages
 " func: toggle languages"{{{
+
 " http://vim.wikia.com/wiki/toggle_spellcheck_with_function_keys
 
 let b:mylang=0
@@ -287,8 +255,15 @@ inoremap <s-c-f9> <c-o>:call ToggleSpell()<cr>
 "count words in latex
 nnoremap <a-f9> :w !detex \| wc -w<cr>
 inoremap <a-f9> :w !detex \| wc -w<cr>
+
+" Autocorrect typos
+nnoremap <s-m-f9> :call AutoCorrect()<CR>
+vnoremap <s-m-f9> <ESC>:call AutoCorrect()<CR>
+inoremap <s-m-f9> <ESC>:call AutoCorrect()<CR>
+
 "}}}
 " <f10> " show vim-explorer/nerdtree"{{{
+
 "displaying vim-explorer
 nnoremap <silent> <f10> :VE %:p:h<cr> " to display vimexplorer
 inoremap <silent> <f10> :VE %:p:h<cr> " to display vimexplorer
@@ -301,8 +276,10 @@ vnoremap <silent> <s-f10> :NERDTree %:p:h<cr> " to display NERDTree"
 
 "}}}
 " <f11> " *** no functions yet***{{{
+
 "}}}
 " <f12> " compile latex and tex documents{{{
+
 " compiling and viewing its.tex file
 " compile and start latex viewer
 " see: http://plankenau.com/blog/post-8/latexInVim
@@ -321,6 +298,7 @@ vnoremap <s-c-f12> <ESC>:XeLatexCompilePDF<CR>
 nnoremap <leader><f12> <sid>:call AddAbbr()<cr>
 vnoremap <leader><f12> <sid>:call AddAbbr()<cr>
 """ func: abbreviations"{{{
+
 "" an abbreviation is a short form of long text e.g. mfg mit freundlichen grüßen
 "" its found in ~/.vim/ftplugin/tex.vim (at the eof)
 
@@ -338,18 +316,26 @@ fun! SaveAbbr(val, abbr)
     echo "iab" a:abbr a:val
     redir end
 endfun
+
 " "}}}
+
 ""}}}
+
 " f-keys"}}}
 " plugins{{{
+
 " better-/hudigraphs <plugin>"{{{
+
 inoremap <expr> <K> BDG_GetDigraph()
 " inoremap <expr> <K> HUDG_GetDigraph()
+
 ""}}}
 " vmath <plugin>"{{{
+
 " press ++ to get mathematical data of visual block
 vnoremap <expr> ++ VMATH_YankAndAnalyse()
 nnoremap ++ vip++
+
 ""}}}
 " region expanding <plugin>
 " https://github.com/terryma/vim-expand-region
@@ -363,32 +349,49 @@ vnoremap <leader>lt :call ListTrans_toggle_format('visual')<CR>
 
 ""}}}
 " calculator <plugin>"{{{
+
 " http://vim.wikia.com/wiki/scientific_calculator
 " :command! -nargs=- calc :py print <args>
 " :py from math import *
+
 nnoremap <leader>clc :calc<cr>
 nnoremap <leader>slc :scalcvsplit<cr>
+
 "}}}
 " alignment <plugin>"{{{
-nnoremap <leader>ac :AlignCtrl lp1p
-vnoremap <leader>ac <esc>:AlignCtrl lp1p
-nnoremap <leader>al :'a,.Align<space>
-vnoremap <leader>al <esc>:'a,.Align<space>
+
+nnoremap <leader>al :'a,'sAlign!<space>
+vnoremap <leader>al <esc>:'a,'sAlign!<space>
+
 "}}}
 " frisk <plugin>"{{{
+
 nnoremap <leader>fr :frisk<space>-
 vnoremap <leader>fr :frisk<space>=GetVisualSelection()<cr>
+
 "}}}
 " visual-block movement <plugin>"{{{
+
 vnoremap  <expr>  <LEFT>   DVB_Drag('left')
 vnoremap  <expr>  <RIGHT>  DVB_Drag('right')
 vnoremap  <expr>  <DOWN>   DVB_Drag('down')
 vnoremap  <expr>  <UP>     DVB_Drag('up')
 vnoremap  <expr>  D        DVB_Duplicate()
+
 "}}}
+
 "plugins"}}}
 " basic key remaps "{{{
+
+" save file in normal-mode"{{{
+
+" save file by hitting <space>
+nnoremap <space><space> :wall!<CR>
+vnoremap <space><space> <ESC>:wall!<CR>
+
+""}}}
 " paste to clipboard"{{{
+
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 vnoremap <Leader>y "+y
 vnoremap <Leader>d "+d
@@ -396,34 +399,51 @@ nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
 vnoremap <Leader>p "+p
 vnoremap <Leader>P "+P
+
 "}}}
 " visual mode mappings"{{{
+
 " change visual mode to visual-block-mode"{{{
-" nnoremap v <C-V>
-" nnoremap <C-V> v
-" vnoremap v <C-V>
-" vnoremap <C-V> v
+
+nnoremap v <C-V>
+nnoremap <C-V> v
+vnoremap v <C-V>
+vnoremap <C-V> v
+
 ""}}}
+
 "visual mode mappings"}}}
-" yank from the cursor to the end of the line, to be consistent with c and d."{{{
+" yank from cursor to eol with Y"{{{
+
+" yank from the cursor to the end of the line, to be consistent with c and d.
 nnoremap Y y$
+
 "}}}
 " productivity-boosts"{{{
+
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 " Automatically jump to end of text you pasted:"{{{
+
 " vnoremap <silent> y y`]
 " vnoremap <silent> p p`]
 " nnoremap <silent> p p`]
+
 "}}}
 " Quickly select text you just pasted:"{{{
+
 noremap gV `[v`]
+
 "}}}
+
 " producitivity boosts"}}}
+
 " basic key remaps"}}}
 " open & edit vimrc-files"{{{
+
 " edit config file in horizontal split mode
-nnoremap <silent> <leader>ecs :sp ~/.vim/vimrc_colors<cr> 
-nnoremap <silent> <leader>ec :sp ~/.vim/vimrc_general<cr> 
+nnoremap <silent> <leader>erc :sp ~/.vim/vimrc_general<cr> 
+nnoremap <silent> <leader>ef :sp ~/.vim/vimrc_foldexpr<cr> 
+nnoremap <silent> <leader>ec :sp ~/.vim/vimrc_colors<cr> 
 nnoremap <silent> <leader>el :sp ~/.vim/vimrc_latex<cr> 
 nnoremap <silent> <leader>eb :sp ~/.vim/vimrc_mappings<cr>
 nnoremap <silent> <leader>ep :sp ~/.vim/vimrc_plugs<cr>
@@ -434,130 +454,43 @@ nnoremap <silent> <leader>ea :sp ~/.vim/plugin/vim-autocorrect/plugin/autocorrec
 nnoremap <silent> <leader>es :UltiSnipsEdit<cr>
 nnoremap <leader>sp :cd %:p:h <cr>
 nnoremap <leader>slp :lcd %:p:h <cr> "set local path of currently edited file.
+
 ""}}}
 
-" Word- Searches, Spell-Checking & String-Replacements
-" online searches{{{
-"search wikipedia from within vim"{{{
-nnoremap <leader>fw <esc>:! chromium-browser 'http://de.wikipedia.org/w/index.php?search=<c-r>=wikipedia()<cr>'<cr><cr>
-"search tex-stackexchange from within vim
-nnoremap <leader>ft <esc>:! chromium-browser 'http://tex.stackexchange.com/search?q=<c-r>=tex()<cr>'<cr><cr>
 ""}}}
-" func: execute online searches (eg. wikipedia)"{{{
-"" found on http://alexanderle.com/blog/2012/my-vimrc.html
-" key mapping for tex-stackexchange search
+" Folding, Buffers & Tabs"{{{
 
-fun! TeX()
-    call inputsave()
-    let searchterm = input('stackexchange: ')
-    call inputrestore()
-    return searchterm
-endfun
-
-" key mapping for wikipedia search
-
-fun! Wikipedia()
-    call inputsave()
-    let searchterm = input('wikipedia: ')
-    call inputrestore()
-    return searchterm
-endfun
-
-" key mapping for wikipedia search "}}}
-"}}}
-" offline searches"{{{
-"open link under curser in chrome"{{{
-" " will search the word in chromium where
-" " the cursor is when typing <leader>fg in visual mode
-" " found on http://la.firme.perso.esil.univmed.fr/website/article.php3?id_article=70 
-nnoremap <leader>o "oyiW :<c-u>!chromium-browser "<C-r>o" >& /dev/null<cr><cr>
-xnoremap <leader>o :<c-u>!chromium-browser <C-r>=GetVisualSelection()<cr>
-"}}}
-"appending to the previous search pattern the current word under the cursor"{{{"{{{
-"http://stackoverflow.com/a/9261779
-nnoremap <leader>as :let @/.='\\|\<'.expand("<cWORD>").'\>'<cr>
-" "}}}
-" offline searches"}}}
-"search for a word in ding"{{{
-
-vnoremap <leader>fd :<c-u>!ding -r "<cWORD>" >& /dev/null <cr><cr>
-vnoremap <leader>fot :<c-u>!othes <C-r>=GetVisualSelection()<CR>
-
-"}}}
-"}}}
-" spell-checking"{{{
-" enable general spell-check:"{{{
-
-noremap <leader>sc :set spell spelllang=de,en,es<cr>
-vnoremap <leader>sc :set spell spelllang=de,en,es<cr>
-
-"}}}
-" spellcheck: german"{{{
-
-"enable spell checking for german:
-noremap <leader>scg :call <sid>Spell_de()<cr>
-vnoremap <leader>scg :call <sid>Spell_de()<cr>
-
-" " painless spell checking
-" " for german, you'll need
-" " wget -p ~/.vim/spell/ http://ftp.vim.org/pub/vim/runtime/spell/de.utf-8.sug
-" " wget -p ~/.vim/spell/ http://ftp.vim.org/pub/vim/runtime/spell/de.utf-8.spl
-" Func: Spell-DE "{{{
-
-fun! s:Spell_de()
-    if !exists("s:Spell_check") || s:Spell_check == 0
-        echo "spell checking activated (german)"
-        let s:Spell_check = 1
-        setlocal spell spelllang=de
-    else
-        echo "spell checking canceled"
-        let s:Spell_check = 0
-        setlocal spell spelllang=
-    endif
-endfun
-
-"}}}
-"}}}
-" spellcheck: english"{{{
-"enable spell checking for english :
-noremap <leader>sce :call <sid>Spell_en()<cr>
-vnoremap <leader>sce :call <sid>Spell_en()<cr>
-fun! s:Spell_en()
-    if !exists("s:Spell_check") || s:Spell_check == 0
-        echo "spell checking activated (english)"
-        let s:Spell_check = 1
-        setlocal spell spelllang=en
-    else
-        echo "spell checking canceled"
-        let s:Spell_check = 0
-        setlocal spell spelllang=
-    endif
-endfun
-"}}}
-" ----------------------------"}}}
-
-" Folding, Buffers & Tabs
 " fold commands"{{{
+
 " activating 'visual-folding' by pressing <enter>
 " http://vim.wikia.com/wiki/Folding
 " nnoremap <silent> <space> @=(foldlevel('.')?'za':"\<Space>")<space>
-vnoremap <CR> zf
+
 "}}}
 " tab movements"{{{
+
 " change to next tab"{{{
+
 if has("gui_running")
     nnoremap <s-space> :tabn<cr>
     nnoremap <c-@> <s-space>
 endif
+
 ""}}}
+
 "}}}
 " reload session.vim"{{{
+
 nnoremap <leader>ss :lcd %:p:h<CR>:so Session.vim<CR>
 vnoremap <leader>ss <ESC>:lcd %:p:h<CR>:so Session.vim<CR>
+
 ""}}}
 " open/edit/close buffers"{{{
+
 " close non-open buffers"{{{
+
 " func: Wipeout"{{{
+
 " http://stackoverflow.com/a/1536094
 function! Wipeout()
     " list of *all* buffer numbers
@@ -590,31 +523,43 @@ function! Wipeout()
         " go back to our original tab page
         execute 'tabnext' l:currentTab
     endtry
+
 endfunction"}}}
 nnoremap <leader>co :call Wipeout()<CR>
 vnoremap <leader>co <ESC>:call Wipeout()<CR>
+
 "}}}
 " open new buffer"{{{
+
 nnoremap <leader>e :lcd %:p:h<cr>:e<space>
 nnoremap <leader>vf :ldc %:p:h<cr>:vertical find<space>
 nnoremap <leader>ht :helptags ~/.vim/doc<cr>
 nnoremap <leader>v :lcd %:p:h<cr>:vertical<space>
 nnoremap <leader>vb :lcd %:p:h<cr>:vertical sb<space>
+
 "}}}
 " open nonexisting file under cursor"{{{
+
 " http://stackoverflow.com/a/6159415
-nnoremap <leader>gf :lcd %:p:h<cr>:e! ./<cfile><cr>
+nnoremap gF :lcd %:p:h<cr>:e! ./<cfile><cr>
+
 ""}}}
+
 "}}}
 " window-movements"{{{
+
 " "" map ctrl-movement keys to window switching"{{{
+
 nnoremap <c-k> <c-w><up>
 nnoremap <c-j> <c-w><down>
 nnoremap <c-l> <c-w><right>
 nnoremap <c-h> <c-w><left>
+
 "}}}
 " "" swap position of two open buffer-windows"{{{
+
 """ " func: window swap"{{{
+
 " "http://stackoverflow.com/a/4903681
 " "move to the window to mark for the swap via ctrl-w movement
 " "type,mw move to the window you want to swap type,pw
@@ -637,100 +582,191 @@ fun! DoWindowSwap()
     "hide and open so that we aren't prompted and keep history
     exe 'hide buf' markedbuf 
 endfun
+
 "}}}
 nnoremap <silent> <leader>mw :call MarkWindowSwap()<cr>
 nnoremap <silent> <leader>pw :call DoWindowSwap()<cr>
+
 "}}}
 " "" switching buffers"{{{
+
 nnoremap <silent> <leader>bp :bprevious<cr> " closing mb on/off
 nnoremap <silent> <leader>bn :bnext<cr> " closing mb on/off
 
 nnoremap <esc>ß :b #<cr> " changes to previous buffer
-nnoremap <esc>1 :b 1<cr>
-nnoremap <esc>2 :b 2<cr>
-nnoremap <esc>3 :b 3<cr>
-nnoremap <esc>4 :b 4<cr>
-nnoremap <esc>5 :b 5<cr>
-nnoremap <esc>6 :b 6<cr>
-nnoremap <esc>7 :b 7<cr>
-nnoremap <esc>8 :b 8<cr>
-nnoremap <esc>9 :b 9<cr>
-nnoremap <esc>0 :b 10<cr>
+
 "}}}
 " " "" change to window from bufferlist"{{{
+
 " " http://vim.wikia.com/wiki/easier_buffer_switching
 " command -nargs=? -bang Buffer if <q-args> != '' | exe 'buffer '.<q-args> | else | ls<bang> | let buffer_nn=input('Which one: ') | if buffer_nn != '' | exe buffer_nn != 0 ? 'buffer '.buffer_nn : 'enew' | endif | endif
+
 " "}}}
 " "" switch to alternate file"{{{
+
 nnoremap <c-tab> :bnext<cr>
 nnoremap <c-s-tab> :bprevious<cr>
+
 " "}}}
-"}}}
 
-" Advanced Movements
-" jump back to marked position"{{{
-nnoremap M `m
-vnoremap M `m
+"}}}
+" " add emptyline between beginning / ending of folds "{{{
+
+" nnoremap <silent><leader>fo :%s/\v^.*(\}\}\})/\r&/g | :%v/}}}\n.*{{{/s/\v(\{\{\{)/&\r/g | :%s/^$\n^$//g<CR>
+" vnoremap <silent><leader>fo <ESC>:%s/\v^.*(\}\}\})/\r&/g | :%v/}}}\n.*{{{/s/\v(\{\{\{)/&\r/g | :%s/^$\n^$//g<CR>
+" inoremap <silent><localleader>fo <ESC>:%s/\v^.*(\}\}\})/\r&/g | :%v/}}}\n.*{{{/s/\v(\{\{\{)/&\r/g | :%s/^$\n^$//g<CR>
+
+" " add emptyline between beginning / ending of folds "}}}
+
 ""}}}
-" moving to middle of line (instead of 'screen')"{{{
-" see: http://superuser.com/a/216423
-nnoremap gm :call cursor(0, virtcol('$')/2)<cr>
+" Word-Searches, Spell-Checking & String-Replacements"{{{
+
+" online searches{{{
+
+"open link under curser in chrome"{{{
+
+" " will search the word in chromium where
+" " the cursor is when typing <leader>fg in visual mode
+" " found on http://la.firme.perso.esil.univmed.fr/website/article.php3?id_article=70 
+nnoremap <leader>chromium-browser :exe "!chromium-browser " . shellescape(expand("<cWORD>"))<CR>
+xnoremap <leader>o :<c-u>!chromium-browser <C-r>=GetVisualSelection()<cr>
+
+"}}}
+"search wikipedia from within vim"{{{
+
+nnoremap <leader>fw <esc>:! chromium-browser 'http://de.wikipedia.org/w/index.php?search=<c-r>=wikipedia()<cr>'<cr><cr>
+"search tex-stackexchange from within vim
+nnoremap <leader>ft <esc>:! chromium-browser 'http://tex.stackexchange.com/search?q=<c-r>=tex()<cr>'<cr><cr>
+
+""}}}
+" func: execute online searches (eg. wikipedia)"{{{
+
+"" found on http://alexanderle.com/blog/2012/my-vimrc.html
+" key mapping for tex-stackexchange search
+
+fun! TeX()
+    call inputsave()
+    let searchterm = input('stackexchange: ')
+    call inputrestore()
+    return searchterm
+endfun
+
+" key mapping for wikipedia search
+
+fun! Wikipedia()
+    call inputsave()
+    let searchterm = input('wikipedia: ')
+    call inputrestore()
+    return searchterm
+endfun
+
+" key mapping for wikipedia search "}}}
+
+"}}}
+" offline searches"{{{
+
+"appending to the previous search pattern the current word under the cursor"{{{
+
+"http://stackoverflow.com/a/9261779
+nnoremap <leader>as :let @/.='\\|\<'.expand("<cWORD>").'\>'<cr>
+
+" "}}}
+"search for a word in ding/dict/thes"{{{
+
+nnoremap <leader>ding :exe "!ding " . shellescape(expand("<cword>"))<CR>
+vnoremap <leader>ding :<c-u>!ding <C-r>=GetVisualSelection()<CR>
+nnoremap <leader>dict :exe "!dict " . shellescape(expand("<cword>"))<CR>
+vnoremap <leader>dict :<c-u>!dict <C-r>=GetVisualSelection()<CR>
+nnoremap <leader>thes :exe "!thes " . shellescape(expand("<cword>"))<CR>
+vnoremap <leader>thes :<c-u>!othes <C-r>=GetVisualSelection()<CR>
+
+"}}}
+" search word under cursor with grep"{{{
+" http://learnvimscriptthehardway.stevelosh.com/chapters/33.html
+
+nnoremap <leader>g :set operatorfunc=GrepOperator<cr>g@
+vnoremap <leader>g :<c-u>call GrepOperator(visualmode())<cr>
+" fun: grep word under cursor "{{{
+function! GrepOperator(type)
+    if a:type ==# 'v'
+        normal! `<v`>y
+    elseif a:type ==# 'char'
+        normal! `[v`]y
+    else
+        return
+    endif
+    silent execute "grep! -R " . shellescape(@@) . " ."
+    copen
+endfunction
+"}}}
+
 ""}}}
 
-" Miscellaneous
-" word completion"{{{
-"" example of a set of mappings that first close any popups that are open
-"" which means you can seamlessly switch between omni and user completions
-"" http://vim.wikia.com/wiki/vimtip1386
-set completeopt=longest,menuone
-inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
-inoremap <expr> <c-n> pumvisible() ? '<c-n>' :
-            \ '<c-n><c-r>=pumvisible() ? "\<lt>down>" : ""<cr>'
-inoremap <expr> <m-,> pumvisible() ? '<c-n>' :
-            \ '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>down>" : ""<cr>'
-"}}}
-" count character under cursor in line"{{{
-nnoremap <leader>ct xhp:s/<c-r>-/&/gn<CR><esc>
-" }}}
-" paste yanked input at end of line"{{{
-nnoremap <s-c-p> :call CurPos("save")<cr>$p :call CurPos("restore")<cr>
-"}}}
-" deactivate highlighting of search results"{{{
-nnoremap <silent> <esc> :nohl<cr>
-"}}}
-" when you forgot to sudo before editing a file that requires root privileges"{{{
-"(typically /etc/hosts). this lets you use w!! to do that after you opened the
-"file already
-cmap w!! w !sudo tee % >/dev/null
-"}}}
-" execute cmd within visual"{{{
+" offline searches"}}}
+" spell-checking"{{{
 
-nnoremap <leader>v :'<,'>
-vnoremap <leader>v <ESC>:'<,'>
-inoremap <localleader>v <ESC>:'<,'>
+" enable general spell-check:"{{{
+
+noremap <leader>sc :set spell spelllang=de,en,es<cr>
+vnoremap <leader>sc :set spell spelllang=de,en,es<cr>
 
 "}}}
-" execute cmd within paragraph"{{{
+" spellcheck: german"{{{
 
-nnoremap <leader>p :'{,'}
-vnoremap <leader>p <ESC>:'{,'}
-inoremap <localleader>p <ESC>:'{,'}
+"enable spell checking for german:
+noremap <leader>scg :call <sid>Spell_de()<cr>
+vnoremap <leader>scg :call <sid>Spell_de()<cr>
+
+" " painless spell checking
+" " for german, you'll need
+" " wget -p ~/.vim/spell/ http://ftp.vim.org/pub/vim/runtime/spell/de.utf-8.sug
+" " wget -p ~/.vim/spell/ http://ftp.vim.org/pub/vim/runtime/spell/de.utf-8.spl
+" Func: Spell-DE "{{{
+
+fun! s:Spell_de()
+    if !exists("s:Spell_check") || s:Spell_check == 0
+        echo "spell checking activated (german)"
+        let s:Spell_check = 1
+        setlocal spell spelllang=de
+    else
+        echo "spell checking canceled"
+        let s:Spell_check = 0
+        setlocal spell spelllang=
+    endif
+endfun
 
 "}}}
-" execute cmd within marks 'a and 's"{{{
-nnoremap <leader>m :'a,'s
+
+"}}}
+" spellcheck: english"{{{
+
+"enable spell checking for english :
+noremap <leader>sce :call <sid>Spell_en()<cr>
+vnoremap <leader>sce :call <sid>Spell_en()<cr>
+fun! s:Spell_en()
+    if !exists("s:Spell_check") || s:Spell_check == 0
+        echo "spell checking activated (english)"
+        let s:Spell_check = 1
+        setlocal spell spelllang=en
+    else
+        echo "spell checking canceled"
+        let s:Spell_check = 0
+        setlocal spell spelllang=
+    endif
+endfun
+
 "}}}
 
-" Substitutions/Replacements
+""}}}
 " uppercase beginning of word/line"{{{
 
 " first character of word capitalised
-nnoremap <s-u> :normal! mzlBgUl`z<cr>
-nnoremap <leader>u :normal! mzlBgUl`z<cr>
+nnoremap <silent><s-u> :normal! mzlbgUl`z<cr>:nohl<cr>
+nnoremap <silent><leader>u :normal! mzlbgUl`z<cr>:nohl<cr>
 " first character of line capitalised
-nnoremap <leader>u^ :normal! mz^gUl`z<cr>
+nnoremap <silent><leader>u^ :normal! mz^gUl`z<cr>:nohl<cr>
 " first character of every words in line capitalised
-nnoremap <leader>uu :normal! mz0<cr>:s/\<\w/\u&/g<cr>:nohl<cr>:normal! `z<cr>
+nnoremap <silent><leader>uu mz :s/\<\w\+/\u\0/g<cr>:nohl<cr>`z
 
 "}}}
 " change word under curser{{{
@@ -747,19 +783,96 @@ nnoremap <leader>R :%s/\<<C-r>=expand('<cWORD>')<CR>\>/
 xnoremap <leader>r :<C-u>'{,'}s/<C-r>=GetVisualSelection()<CR>/
 xnoremap <leader>R :<C-u>%s/<C-r>=GetVisualSelection()<CR>/
 
-" substitution & replacements "}}}
+" change word under cursor "}}}
 " remove/replace (trailing) spaces"{{{
 
 " remove trailing whitespaces
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
-nnoremap <silent>d<space>p :'{,'}s/\s\s\+/ /g<CR>:nohl<CR>``
-nnoremap <silent>d<space>0 :'{,'}s/^\s\+//g<CR>:nohl<CR>``
-nnoremap <silent>d<space>$ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>``
-nnoremap <silent>d<space>a :%s/\s\s\+/ /g<CR>:nohl<CR>``
+nnoremap <silent><space>dp :'{,'}s/\s\s\+/ /g<CR>:nohl<CR>``
+vnoremap <silent><space>dv  :B s/\s\s\+/ /g<cr>:nohl<cr>
+nnoremap <silent><space>d0 :'{,'}s/^\s\+//g<CR>:nohl<CR>``
+nnoremap <silent><space>d$ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>``
+nnoremap <silent><space>da :%s/\s\s\+/ /g<CR>:nohl<CR>``
 
 "}}}
 
-" Global and local Functions
+" ""}}}
+" Advanced Movements"{{{
+
+" jump back to marked position"{{{
+
+nnoremap M `m
+vnoremap M `m
+
+""}}}
+" moving to middle of line (instead of 'screen')"{{{
+
+" see: http://superuser.com/a/216423
+nnoremap gm :call cursor(0, virtcol('$')/2)<cr>
+
+""}}}
+
+""}}}
+" Miscellaneous"{{{
+
+" word completion"{{{
+
+"" example of a set of mappings that first close any popups that are open
+"" which means you can seamlessly switch between omni and user completions
+"" http://vim.wikia.com/wiki/vimtip1386
+set completeopt=longest,menuone
+inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
+inoremap <expr> <c-n> pumvisible() ? '<c-n>' :
+            \ '<c-n><c-r>=pumvisible() ? "\<lt>down>" : ""<cr>'
+inoremap <expr> <m-,> pumvisible() ? '<c-n>' :
+            \ '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>down>" : ""<cr>'
+
+"}}}
+" count character under cursor in line"{{{
+
+nnoremap <leader>ct xP:s/<c-r>-/&/gn<CR><esc>
+
+" }}}
+" paste yanked input at end of line"{{{
+
+nnoremap <s-c-p> :call CurPos("save")<cr>$p :call CurPos("restore")<cr>
+
+"}}}
+" deactivate highlighting of search results"{{{
+
+nnoremap <silent> <esc> :nohl<cr>
+
+"}}}
+" when you forgot to sudo before editing a file that requires root privileges"{{{
+
+"(typically /etc/hosts). this lets you use w!! to do that after you opened the
+"file already
+cmap w!! w !sudo tee % >/dev/null
+
+"}}}
+" execute cmd within visual"{{{
+
+nnoremap <leader>v :'<,'>
+vnoremap <leader>v <ESC>:'<,'>
+inoremap <localleader>v <ESC>:'<,'>
+
+"}}}
+" execute cmd within paragraph"{{{
+
+nnoremap <leader>p :'{,'}
+vnoremap <leader>p <ESC>:'{,'}
+inoremap <localleader>p <ESC>:'{,'}
+
+"}}}
+" execute cmd within marks 'a and 's"{{{
+
+nnoremap <leader>m :'a,'s
+
+"}}}
+
+""}}}
+" Global and local Functions"{{{
+
 " Func: YouCompleteMe <Plugin>"{{{
 
 fun! ToggleYCM()
@@ -774,6 +887,7 @@ endfun
 
 "}}}
 " Func: Save and Restore Cursorposition"{{{
+
 " http://vim.wikia.com/wiki/Maintain_cursor_and_screen_position
 
 function! CurPos(action)
@@ -813,8 +927,9 @@ function! CurPos(action)
   endif
   return ""
 endfunction
+
 "}}}
-" " Func: Get Visual Selection"{{{
+" Func: Get Visual Selection"{{{
 
 function! GetVisualSelection()
     let old_reg = @v
@@ -825,3 +940,5 @@ function! GetVisualSelection()
 endfunction
 
 "}}}
+
+""}}}

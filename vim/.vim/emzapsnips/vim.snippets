@@ -9,6 +9,9 @@ ${4:" Last Modified: `!v strftime("%B %d, %Y")`}
 
 $0
 endsnippet
+snippet lastmod "set date of last modification" i
+" Last Modified: `!v strftime("%B %d, %Y")`
+endsnippet
 snippet gvar "Global / configuration variable"
 if !exists("g:${1:MyUltraImportantVar}")
 	let g:$1 = ${2:"${3:<tab>}"}
@@ -59,8 +62,8 @@ else
 endif
 endsnippet
 snippet "map( (\S+))?" "Defining VIM Mappings" !br
-n${4:nore}map `!p snip.rv = match.group(2) if match.group(1) is not None else "<leader>"`${1:define all keys} ${2:define command}${3:<CR>}
-${5:v$4map `!p snip.rv = match.group(2) if match.group(1) is not None else "<leader>"`$1 ${7:<ESC>}$2$3}
-${6:i$4map `!p snip.rv = match.group(2) if match.group(1) is not None else "<localleader>"`$1 ${9:<ESC>}$2$3}
+nnoremap ${4:<silent>}`!p snip.rv = match.group(2) if match.group(1) is not None else "<leader>"`${1:define all keys} ${2:define command}${3:<CR>}
+${5:vnoremap $4`!p snip.rv = match.group(2) if match.group(1) is not None else "<leader>"`$1 ${7:<ESC>}$2$3}
+${6:inoremap $4`!p snip.rv = match.group(2) if match.group(1) is not None else "<localleader>"`$1 ${7:<ESC>}$2$3}
 endsnippet
 # vim:ft=snippets:

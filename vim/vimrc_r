@@ -9,6 +9,7 @@ inoremap <C-Y> <esc><Plug>RStart
 vnoremap <C-Y> <Plug>RStart
 
 " Mappings for Vim-R"{{{
+
 " ----------------------------
 vnoremap <Space> <Plug>RDSendSelection
 nnoremap <Space> <Plug>RDSendLine
@@ -54,16 +55,20 @@ nnoremap <M-5> 5gt
 inoremap <M-5> <esc>5gt
 vnoremap <M-5> 5gt
 endfunction
+
 "}}}
 " Benutzung (Kommandozeile)"{{{
+
 " http://wiki.ubuntuusers.de/R#Benutzung-Kommandozeile
 " Unter Linux verfügt R über keine Standardoberfläche. Es wird über ein Terminal
 " mit dem Befehl: R gestartet. Am Befehlsprompt können nur R-Befehle eingegeben
 " werden, die direkt ausgeführt werden. Die umfangreiche Hilfe von R lässt sich
 " mit dem Befehl: help.start() in einem Browser aufrufen.  Um R zu beenden,
 " führt man den Befehl : q() aus.
+
 "}}}
 " Configurations for R in Gvim"{{{
+
 " ----------------------------
 " Nicht genutzte Schaltflächen
 " aunmenu ToolBar.-sep1-
@@ -91,4 +96,5 @@ endfunction
 " aunmenu ToolBar.Kopieren
 " aunmenu ToolBar.Einfügen
 " aunmenu ToolBar.Replace
+
 "}}}

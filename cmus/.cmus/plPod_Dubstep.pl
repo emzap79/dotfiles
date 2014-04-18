@@ -73,6 +73,9 @@
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-03-26_-_JVIZ_Presents_Earthquake_Weather_In_Los_Angeles.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-03-28_-_Future_Bass_Sessions_With_Broke_N_From_Portland.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-03-28_-_JVIZ_Presents_Tsunami_Weather_With_A_Shit_Ton_Of_Guests.mp3
+/home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-03-29_-_The_Deep_End_With_Mortal_Grey_From_Portland.mp3
+/home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-03-30_-_Brontosonic_Radio_With_KidLogic_Lurky_Uncommon_Sense_From_Portland.mp3
+/home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-04-11_-_BWOMP_Renegades_And_All_That.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/Compa_17_Feb_2014_Sub_Fm.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/Conscious_Pilot_12_Feb_2014_Sub_FM.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/Foster_17_Feb_2014_Sub_FM.mp3

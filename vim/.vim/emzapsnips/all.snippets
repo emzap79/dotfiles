@@ -194,6 +194,15 @@ snippet "h3" "chapter header" !br
 #.#####`!p snip.rv = '#'*len(t[1])`
 ${0:${VISUAL}}
 endsnippet
+# Passwords
+snippet "passw" "block: set userdata for password" rb
+Title:    ${1:${VISUAL}}
+Username: $2
+Password: $3
+Url:      $4${5:
+Comment:  ${6:<further information>}
+}
+endsnippet
 #.#.Python.Interpolation
 global !p
 def complete(t, opts):

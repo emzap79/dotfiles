@@ -9,7 +9,7 @@ from md5 import md5
 
 # enter your last.fm username/password here
 username = "S_Bolivar"
-password = "eat-camel"
+password = "jM_N4QeN"
 
 # other globals
 SESSION_ID = None

@@ -8,8 +8,9 @@
 # Find more servers at: http://www.ipodder.org/directory/4/podcasts
 #
 # Poddirections
-# Club & House# {{{
+# Electronic# {{{
 # # House# {{{
+http://www.housedeelings.com/feed/podcast/ House HouseDeelings
 http://feeds.deepershades.net/dsoh House DeeperShades
 # http://www.play.fm/recordings/rss/radioshow/deepgrooveradioshow House DeepGroove
 http://feeds.feedburner.com/deepgrooveradioshow House DeepGrooveRadio
@@ -26,13 +27,10 @@ http://lowdowndirtymotherfunkinhouse.podomatic.com/rss2.xml House DavidNaylor195
 http://soulfortune.podomatic.com/rss2.xml House SoulFortune
 http://thedeephousepodcast.podomatic.com/rss2.xml House DeepHousePodcast
 # }}}
-# # Chillout# {{{
-http://www.housedeelings.com/feed/podcast/ Chillout HouseDeelings
-# }}}
-# }}}
-# DnB & Dubstep# {{{
+# # DnB & Dubstep# {{{
 http://www.dnbradio.com/feeds DnB DnBRadio
 http://www.dubstep.fm/archive.xml Dubstep DubStep.FM
+# }}}
 # }}}
 # Funk# {{{
 http://www.wefunkradio.com/rss-currentshow64.xml Funk Wefunk

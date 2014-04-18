@@ -1,7 +1,9 @@
 "PLUGINS
 call vundle#rc()
 Bundle 'gmarik/vundle'
+
 " Brief help"{{{
+
 " <F6>     :BundleList
 " <C-F6>   :BundleClean!
 " <S-F6>   :BundleInstall
@@ -14,6 +16,7 @@ Bundle 'gmarik/vundle'
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle commands are not allowed.
+
 "}}}
 " Bundles "{{{
 
@@ -33,15 +36,17 @@ Bundle 'jalvesaq/VimCom'
 Bundle 'jcfaria/Vim-R-plugin'
 Bundle 'matchit.zip'
 Bundle 'navicore/vis.vim'
+Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'terryma/vim-expand-region'
 Bundle 'tommcdo/vim-exchange'
+Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-obsession'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tracyone/Align.git'
-Bundle 'vim-scripts/DrawIt'
 Bundle 'vim-scripts/ExtractLinks'
 Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'vim-scripts/LanguageTool'
@@ -51,7 +56,7 @@ Bundle 'wellle/targets.vim'
 "Bundles"}}}
 " No more used repos"{{{
 
-" Bundle 'tpope/vim-fugitive'
+" Bundle 'vim-scripts/DrawIt'
 " Bundle 'panozzaj/vim-autocorrect'
 " Bundle 'mru.vim'
 " Bundle 'CheckAttach.vim'
@@ -71,6 +76,7 @@ Bundle 'wellle/targets.vim'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'screen.vim'
 " Bundle 'tpope/vim-rails.git'
+
 "No more used repos"}}}
 " Plugin Settings "{{{
 
@@ -87,7 +93,9 @@ autocmd FileType tex so ~/.vim/bundle/LaTeX-Box/ftplugin/latex-box/indent.vim
 
 " Latex Box Plugin"}}}
 " Vim-R-Plugin: needs to have VimCom installed!"{{{
+
 " Configuration in ~/.vim/vimrc_R
+
 ""}}}
 
 ""}}}
@@ -127,10 +135,11 @@ let g:targets_quotes = '"d '' `'
 " quote objects, separator objects can optionally be followed by a single one
 " letter alias. To set 'c' as an alias for comma, allowing such commands as
 " 'dic' to be equivalent to 'di,', you could define:
-" 
+"
 let g:targets_separators = ',c . ; : + - ~ _ * / \ |'
 " Default: let g:targets_separators = ', . ; : + - ~ _ * / \ |'
 "
+
 ""}}}
 " VIM-Surround"{{{
 
@@ -148,7 +157,9 @@ let g:surround_108 = "\\begin{\1environment: \1}\r\\end{\1\r}.*\r\1}"
 " Movements and Visual Selection"{{{
 
 " VIS"{{{
+
 " " apply commmand only to Visual Block ":'<,'>B <command>"
+
 " VIS"}}}
 " CamelCase Motions"{{{
 
@@ -168,116 +179,16 @@ map <silent> e <Plug>CamelCaseMotion_e
 " xmap <silent> ib <Plug>CamelCaseMotion_ib
 " omap <silent> ie <Plug>CamelCaseMotion_ie
 " xmap <silent> ie <Plug>CamelCaseMotion_ie
+
 "}}}
 
 " Movements and Visual Selection"}}}
-" Miscellanious"{{{
-
-" Language-Tool"{{{
-" let g:languagetool_lang = de-DE           " language expected automatically, if unset
-" let g:languagetool_win_width = 18
-let g:languagetool_win_height = -1          " enable/disable languagetool-scratch buffer, if negative value: 14pt
-let g:languagetool_jar = '$HOME/.dictionaries/LanguageTool-2.5-SNAPSHOT/languagetool-commandline.jar'
-" Language-Tool"}}}
-" Frisk - Search Engine"{{{
-call frisk#DefaultEngine('google')
-" " Default Engines"{{{
- " "bingImages"
- " "bing"
- " "bingVideo"
- " "imdb"
- " "google"
- " "googleImages"
- " "googleTranslate"
- " "stackOverflow"
- " "wikipedia"
- " "wolframAlpha""}}}
-" " Custom Search Operators"{{{
-" "" General Search - a"{{{
-call frisk#AddEngine('wikipediaEn', 'http://en.wikipedia.org/w/api.php?action=opensearch&search=')
-call frisk#AddEngine('wikipediaEs', 'http://es.wikipedia.org/w/index.php?title=Especial:Buscar&search=')
-" call frisk#AddEngine('wikipediaEs', 'http://es.wikipedia.org/w/api.php?action=opensearch&search=')
-call frisk#AddEngine('yacy', 'http://search.yacy.net/yacysearch.html?query=')
-call frisk#AddEngine('dasoertliche', 'http://services.dasoertliche.de/addons/search/?q=')
-call frisk#AddEngine('dbahn', 'http://reiseauskunft.bahn.de/bin/query.exe/dn?revia=yes&existOptimizePrice=1&country=DEU&dbkanal_007=L01_S01_D001_KIN0001_qf-bahn_LZ003&start=1&S=')
-call frisk#AddEngine('duckduckgo', 'https://duckduckgo.com/ac/?q=')
-call frisk#AddEngine('investopedia', 'http://www.investopedia.com/search/default/?key=')
-call frisk#AddEngine('openstreetmap', 'http://nominatim.openstreetmap.org/search/?q=')
-call frisk#AddEngine('wikibooks', 'http://de.wikibooks.org/w/index.php?search=')
-call frisk#AddEngine('reddit', 'http://de.reddit.com/search?q=')
-call frisk#AddEngine('duckduckgo', 'https://duckduckgo.com/ac/?q=')
-"}}}
-" "" Online-Shops - s"{{{
-call frisk#AddEngine('ebayKleinanz', 'http://kleinanzeigen.ebay.de/anzeigen/s-suchanfrage.html?keywords=')
-call frisk#AddEngine('amazon', 'http://www.amazon.com/exec/obidos/external-search/?field-keywords=')
-call frisk#AddEngine('ebay', 'http://shop.ebay.de/?_nkw=')
-call frisk#AddEngine('ikea', 'http://www.ikea.com/de/de/search/?query=')
-"}}}
-" "" Dictionaries - d"{{{
-call frisk#AddEngine('dict', 'http://dees.dict.cc/?s=')
-call frisk#AddEngine('leo', 'http://dict.leo.org/?lp=ende&from=fx3&search=')
-call frisk#AddEngine('linguee', 'http://www.linguee.de/deutsch-englisch/search?source=auto&query=')
-call frisk#AddEngine('openthesaurus', 'http://www.openthesaurus.de/synonyme?q=')
-call frisk#AddEngine('dict', 'http://dees.dict.cc/?s=')
-"}}}
-" "" Linux/LaTeX/Coding - f"{{{
-call frisk#AddEngine('mutt', 'http://dev.mutt.org/trac/search?q=')
-call frisk#AddEngine('ctan', 'http://www.ctan.org/pkg/')
-call frisk#AddEngine('github', 'https://github.com/search?q=')
-call frisk#AddEngine('launchpad', 'https://launchpad.net/+search?field.text=')
-call frisk#AddEngine('musicbrainz', 'http://musicbrainz.org/search?query=')
-call frisk#AddEngine('mutt', 'http://www.mail-archive.com/search?l=mutt-users%40mutt.org&q=')
-call frisk#AddEngine('stackexchange', 'http://unix.stackexchange.com/search?q=')
-call frisk#AddEngine('stackoverflow', 'http://stackoverflow.com/search?q=')
-call frisk#AddEngine('stackoverflowExcel', 'http://stackoverflow.com/search?q=[excel-vba]')
-call frisk#AddEngine('superuser', 'http://superuser.com/search?q=')
-call frisk#AddEngine('texexchange', 'http://tex.stackexchange.com/search?q=')
-call frisk#AddEngine('ubuntuusers', 'http://ubuntuusers.de/search/?query=')
-call frisk#AddEngine('vimscripts', 'http://www.vim.org/scripts/script_search_results.php?keywords=')
-call frisk#AddEngine('vimwiki', 'http://vim.wikia.com/wiki/index.php?search=')
-call frisk#AddEngine('mutt', 'http://dev.mutt.org/trac/search?q=')
-call frisk#AddEngine('ctan', 'http://www.ctan.org/pkg/')
-"}}}
-" "" Auskunft - g"{{{
-call frisk#AddEngine('dasoertliche', 'http://services.dasoertliche.de/addons/search/?q=')
-call frisk#AddEngine('dbahn', 'http://reiseauskunft.bahn.de/bin/query.exe/dn?revia=yes&existOptimizePrice=1&country=DEU&dbkanal_007=L01_S01_D001_KIN0001_qf-bahn_LZ003&start=1&S=')
-call frisk#AddEngine('gelbeseiten', 'http://www.gelbeseiten.de/yp/search.yp?subject=')
-"}}}
-" "" Uni Due - h"{{{
-call frisk#AddEngine('googleScholar', 'http://scholar.google.de/scholar?hl=de&q=')
-"}}}
-" "" Sport/Entertainment - j"{{{
-call frisk#AddEngine('kicker', 'http://www.kicker.de/home/suchergebnisse.html?suchbegriff=')
-call frisk#AddEngine('lastfm', 'http://www.last.fm/search?q=')
-call frisk#AddEngine('metacafe', 'http://www.metacafe.com/results/')
-call frisk#AddEngine('podcasts', 'http://www.allpodcasts.com/Results.aspx?cx=partner-pub-0273520528742867%3A9dltns-5q5f&cof=FORID%3A9&ie=ISO-8859-1&q=')
-call frisk#AddEngine('podomatic', 'http://www.podomatic.com/search?query=')
-call frisk#AddEngine('reddit', 'http://www.reddit.com/search?q=')
-call frisk#AddEngine('soundcloud', 'https://soundcloud.com/search?q=')
-call frisk#AddEngine('twitter', 'http://twitter.com/search?q=')
-call frisk#AddEngine('vimeo', 'http://vimeo.com/search?q=')
-call frisk#AddEngine('youtube', 'http://www.youtube.com/results?search_query=')
-"}}}
-"}}}
-" Frisk - Search Engine"}}}
-" Mutt"{{{
-let g:mutt_aliases_file = '$HOME/.mutt/.alias'
-" Mutt"}}}
-" VimCalc"{{{
-let g:VCalc_WindowPosition = 'top'
-let g:VCalc_Max_History = 100
-let g:VCalc_InsertOnEnter = 1
-let g:VCalc_CWInsert = 0
-let g:VCalc_Win_Size = 10
-" VimCalc"}}}
-
-" Miscellanious"}}}
 " Completion, Snippets"{{{
 
 " UltiSnips"{{{
 
+" UltiSnips#ExpandSnippet
 let g:UltiSnipsExpandTrigger = "<s-tab>"
-"let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsListSnippets = "<s-c-tab>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
@@ -289,10 +200,29 @@ let g:UltiSnipsSnippetDirectories= ["emzapsnips"]
 " let g:UltiSnipsRemoveSelectModeMappings = 1
 " let g:UltiSnipsMappingsToIgnore = [ "somePlugin", "otherPlugin" ]
 
+" If the trigger for your snippet is lorem, you type lor, and you have no other
+" snippets whose trigger matches lor then hitting <C-L> will expand to whatever
+" expands to.
+function! ExpandPossibleShorterSnippet()
+    if len(UltiSnips#SnippetsInCurrentScope()) == 1 "only one candidate...
+        let curr_key = keys(UltiSnips#SnippetsInCurrentScope())[0]
+        normal diw
+        exe "normal a" . curr_key
+        exe "normal a "
+        return 1
+    endif
+    return 0
+endfunction
+inoremap <silent> <C-L> <C-R>=(ExpandPossibleShorterSnippet() == 0? '': UltiSnips#ExpandSnippet())<CR>
+
+" Adding anonymous snippets
+inoremap <silent> $$ $$<C-R>=UltiSnips#Anon(':latex:\$1\', '$$')<cr>
+inoremap <silent> (( ((<C-R>=UltiSnips#Anon('(${1:${VISUAL}})', '((', '', 'i')<cr>
+
 " let g:autoclose = 1
 " let loaded_matchit = 1
-"let fortran_free_source=1                                                " use fortran free form
-"let g:acp_behaviorSnipmateLength = -1                                    " allows using autocompl plugin together with snipmate
+" let fortran_free_source=1                                                " use fortran free form
+" let g:acp_behaviorSnipmateLength = -1                                    " allows using autocompl plugin together with snipmate
 
 " This option when set to 1 makes <C-J> in insert mode delete
 " non-descriptive (empty) placeholders and enters insert mode.
@@ -315,6 +245,7 @@ let MRU_File="/home/zapata/.vim/vimplug_mru_files"
 
 " Fuzzyfinder Bindings"}}}
 "" Neocomplete"{{{
+
 ""Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 
 "" " Use neocomplete.
@@ -351,15 +282,20 @@ let MRU_File="/home/zapata/.vim/vimplug_mru_files"
 "inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 "" Recommended key-mappings."{{{
+
 "" <CR>: close popup and save indent."{{{
+
 "inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 "function! s:my_cr_function()
   "return neocomplete#close_popup() . "\<CR>"
   "" For no inserting <CR> key.
   "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 "endfunction
+
 ""}}}
+
 "" <TAB> or <SPACE> completion"{{{
+
 "" <TAB>: completion.
 "inoremap <expr><C-TAB>  pumvisible() ? "\<C-n>" : "\<C-TAB>"
 "inoremap <expr><C-TAB>  pumvisible() ? neocomplete#close_popup() : "\<C-TAB>"
@@ -371,22 +307,32 @@ let MRU_File="/home/zapata/.vim/vimplug_mru_files"
 "inoremap <expr><S-Space>  pumvisible() ? "\<S-n>" : "\<S-Space>"
 "inoremap <expr><S-Space>  pumvisible() ? neocomplete#close_popup() : "\<S-Space>"
 "inoremap <expr><S-Space>  pumvisible() ? neocomplete#close_popup() : "\<S-Space>"
+
 ""}}}
+
 "" <C-h>, <BS>: close popup and delete backword char."{{{
+
 "inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 "inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 "inoremap <expr><C-y>  neocomplete#close_popup()
 "inoremap <expr><C-e>  neocomplete#cancel_popup()
+
 ""}}}
+
 "" AutoComplPop like behavior."{{{
+
 "let g:neocomplete#enable_auto_select = 1
+
 ""}}}
+
 "" Shell like behavior(not recommended).
 ""set completeopt+=longest
 ""let g:neocomplete#enable_auto_select = 1
 ""let g:neocomplete#disable_auto_complete = 1
 ""inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
 ""}}}
+
 "" Enable omni completion.
 "autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 "autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -402,10 +348,12 @@ let MRU_File="/home/zapata/.vim/vimplug_mru_files"
 ""let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 ""let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 ""let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
 """}}}
 " YouCompleteMe"{{{
 
 " settings"{{{
+
 " Enable/Disable
 let g:ycm_auto_trigger = 0
 
@@ -416,14 +364,16 @@ let g:ycm_key_list_previous_completion=['<Up>']
 let g:ycm_semantic_triggers = {
 \  'tex'  : ['\ref{','\cite{'],
 \ }
+
 " settings"}}}
 "" To work with ultisnips"{{{
+
 "" https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-15451411
 "" UltiSnips completion function that tries to expand a snippet. If there's
 "" no snippet for expanding, it checks for completion window and if it's
 "" shown, selects first element. If there's no completion window it tries
 "" to jump to next placeholder. If there's no placeholder it just returns
-"" TAB key 
+"" TAB key
 "function! g:UltiSnips_Complete()
     "call UltiSnips_ExpandSnippet()
     "if g:ulti_expand_res == 0
@@ -440,6 +390,7 @@ let g:ycm_semantic_triggers = {
 "endfunction
 
 "exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+
 "" To work with ultisnips"}}}
 
 " YouCompleteMe"}}}
@@ -451,5 +402,145 @@ let NERDSpaceDelims = 1
 " NERDCommenter"}}}
 
 " Completion, Snippets"}}}
+" Miscellanious"{{{
+
+" Language-Tool"{{{
+
+" let g:languagetool_lang = de-DE           " language expected automatically, if unset
+" let g:languagetool_win_width = 18
+let g:languagetool_win_height = -1          " enable/disable languagetool-scratch buffer, if negative value: 14pt
+let g:languagetool_jar = '$HOME/.dictionaries/LanguageTool-2.5-SNAPSHOT/languagetool-commandline.jar'
+
+" Language-Tool"}}}
+" Align"{{{
+
+" let alignctrl= Align#AlignCtrl()
+
+" Align"}}}
+" Frisk - Search Engine"{{{
+
+call frisk#DefaultEngine('google')
+
+" " Default Engines"{{{
+
+ " "bingImages"
+ " "bing"
+ " "bingVideo"
+ " "imdb"
+ " "google"
+ " "googleImages"
+ " "googleTranslate"
+ " "stackOverflow"
+ " "wikipedia"
+
+ " "wolframAlpha""}}}
+
+" " Custom Search Operators"{{{
+
+" "" General Search - a"{{{
+
+call frisk#AddEngine('wikipediaEn', 'http://en.wikipedia.org/w/api.php?action=opensearch&search=')
+call frisk#AddEngine('wikipediaEs', 'http://es.wikipedia.org/w/index.php?title=Especial:Buscar&search=')
+" call frisk#AddEngine('wikipediaEs', 'http://es.wikipedia.org/w/api.php?action=opensearch&search=')
+call frisk#AddEngine('yacy', 'http://search.yacy.net/yacysearch.html?query=')
+call frisk#AddEngine('dasoertliche', 'http://services.dasoertliche.de/addons/search/?q=')
+call frisk#AddEngine('dbahn', 'http://reiseauskunft.bahn.de/bin/query.exe/dn?revia=yes&existOptimizePrice=1&country=DEU&dbkanal_007=L01_S01_D001_KIN0001_qf-bahn_LZ003&start=1&S=')
+call frisk#AddEngine('duckduckgo', 'https://duckduckgo.com/ac/?q=')
+call frisk#AddEngine('investopedia', 'http://www.investopedia.com/search/default/?key=')
+call frisk#AddEngine('openstreetmap', 'http://nominatim.openstreetmap.org/search/?q=')
+call frisk#AddEngine('wikibooks', 'http://de.wikibooks.org/w/index.php?search=')
+call frisk#AddEngine('reddit', 'http://de.reddit.com/search?q=')
+call frisk#AddEngine('duckduckgo', 'https://duckduckgo.com/ac/?q=')
+
+"}}}
+
+" "" Online-Shops - s"{{{
+
+call frisk#AddEngine('ebayKleinanz', 'http://kleinanzeigen.ebay.de/anzeigen/s-suchanfrage.html?keywords=')
+call frisk#AddEngine('amazon', 'http://www.amazon.com/exec/obidos/external-search/?field-keywords=')
+call frisk#AddEngine('ebay', 'http://shop.ebay.de/?_nkw=')
+call frisk#AddEngine('ikea', 'http://www.ikea.com/de/de/search/?query=')
+
+"}}}
+
+" "" Dictionaries - d"{{{
+
+call frisk#AddEngine('dict', 'http://dees.dict.cc/?s=')
+call frisk#AddEngine('leo', 'http://dict.leo.org/?lp=ende&from=fx3&search=')
+call frisk#AddEngine('linguee', 'http://www.linguee.de/deutsch-englisch/search?source=auto&query=')
+call frisk#AddEngine('openthesaurus', 'http://www.openthesaurus.de/synonyme?q=')
+call frisk#AddEngine('dict', 'http://dees.dict.cc/?s=')
+
+"}}}
+
+" "" Linux/LaTeX/Coding - f"{{{
+
+call frisk#AddEngine('mutt', 'http://dev.mutt.org/trac/search?q=')
+call frisk#AddEngine('ctan', 'http://www.ctan.org/pkg/')
+call frisk#AddEngine('github', 'https://github.com/search?q=')
+call frisk#AddEngine('launchpad', 'https://launchpad.net/+search?field.text=')
+call frisk#AddEngine('musicbrainz', 'http://musicbrainz.org/search?query=')
+call frisk#AddEngine('mutt', 'http://www.mail-archive.com/search?l=mutt-users%40mutt.org&q=')
+call frisk#AddEngine('stackexchange', 'http://unix.stackexchange.com/search?q=')
+call frisk#AddEngine('stackoverflow', 'http://stackoverflow.com/search?q=')
+call frisk#AddEngine('stackoverflowExcel', 'http://stackoverflow.com/search?q=[excel-vba]')
+call frisk#AddEngine('superuser', 'http://superuser.com/search?q=')
+call frisk#AddEngine('texexchange', 'http://tex.stackexchange.com/search?q=')
+call frisk#AddEngine('ubuntuusers', 'http://ubuntuusers.de/search/?query=')
+call frisk#AddEngine('vimscripts', 'http://www.vim.org/scripts/script_search_results.php?keywords=')
+call frisk#AddEngine('vimwiki', 'http://vim.wikia.com/wiki/index.php?search=')
+call frisk#AddEngine('mutt', 'http://dev.mutt.org/trac/search?q=')
+call frisk#AddEngine('ctan', 'http://www.ctan.org/pkg/')
+
+"}}}
+
+" "" Auskunft - g"{{{
+
+call frisk#AddEngine('dasoertliche', 'http://services.dasoertliche.de/addons/search/?q=')
+call frisk#AddEngine('dbahn', 'http://reiseauskunft.bahn.de/bin/query.exe/dn?revia=yes&existOptimizePrice=1&country=DEU&dbkanal_007=L01_S01_D001_KIN0001_qf-bahn_LZ003&start=1&S=')
+call frisk#AddEngine('gelbeseiten', 'http://www.gelbeseiten.de/yp/search.yp?subject=')
+
+"}}}
+
+" "" Uni Due - h"{{{
+
+call frisk#AddEngine('googleScholar', 'http://scholar.google.de/scholar?hl=de&q=')
+
+"}}}
+
+" "" Sport/Entertainment - j"{{{
+
+call frisk#AddEngine('kicker', 'http://www.kicker.de/home/suchergebnisse.html?suchbegriff=')
+call frisk#AddEngine('lastfm', 'http://www.last.fm/search?q=')
+call frisk#AddEngine('metacafe', 'http://www.metacafe.com/results/')
+call frisk#AddEngine('podcasts', 'http://www.allpodcasts.com/Results.aspx?cx=partner-pub-0273520528742867%3A9dltns-5q5f&cof=FORID%3A9&ie=ISO-8859-1&q=')
+call frisk#AddEngine('podomatic', 'http://www.podomatic.com/search?query=')
+call frisk#AddEngine('reddit', 'http://www.reddit.com/search?q=')
+call frisk#AddEngine('soundcloud', 'https://soundcloud.com/search?q=')
+call frisk#AddEngine('twitter', 'http://twitter.com/search?q=')
+call frisk#AddEngine('vimeo', 'http://vimeo.com/search?q=')
+call frisk#AddEngine('youtube', 'http://www.youtube.com/results?search_query=')
+
+"}}}
+
+"}}}
+
+" Frisk - Search Engine"}}}
+" Mutt"{{{
+
+let g:mutt_aliases_file = '$HOME/.mutt/.alias'
+
+" Mutt"}}}
+" VimCalc"{{{
+
+let g:VCalc_WindowPosition = 'top'
+let g:VCalc_Max_History = 100
+let g:VCalc_InsertOnEnter = 1
+let g:VCalc_CWInsert = 0
+let g:VCalc_Win_Size = 10
+
+" VimCalc"}}}
+
+" Miscellanious"}}}
 
 " Plugin Settings "}}}

@@ -13,12 +13,12 @@ endglobal
 ##############
 # MATH STUFF #
 ##############
-snippet $ "Math Surround" i
-$${1:${VISUAL}}$ $0
-endsnippet
-snippet $$ "Math Surround" i
-$$${1:${VISUAL}}$$ $0
-endsnippet
+# snippet $ "Math Surround" i
+# $${1:${VISUAL}}$ $0
+# endsnippet
+# snippet $$ "Math Surround" i
+# $$${1:${VISUAL}}$$ $0
+# endsnippet
 snippet "->" "sign: rightarrow" ir
 \rightarrow
 endsnippet
@@ -597,7 +597,7 @@ pdftex,
 %% %%%%%%%%%%%%%%%%
 \newcommand{\comment}[1]{\textcolor{red}{#1}}
 \renewcommand{\comment}[1]{}                           %% Comments: If both commands are used, the existing comments will be deleted
-\newcommand{\note}[1]{\marginnote{\itshape #1}} #1}}   %% add a \marginnote 'italic style'
+\newcommand{\note}[1]{\marginnote{\itshape #1}}        %% add a \marginnote 'italic style'
 \newcommand{\ind}{\hspace{0.2in}}
 \newcommand{\ftext}[1]{\text{\ind\footnotesize #1}}
 %%}}}

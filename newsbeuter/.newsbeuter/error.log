@@ -1,62 +1,6 @@
-[2014-04-01 20:21:16] Fehler beim Abholen von view-source://http%3A//rss.golem.de/rss.php?feed=RSS1.0&ms=linux: Fehler: nicht unterstützte URL: view-source:http://rss.golem.de/rss.php?feed=RSS1.0&ms=linux
-[2014-04-01 20:21:43] Fehler beim Abholen von http://news.billiger.de/feed: HTTP response code said error
-[2014-04-01 20:21:48] Fehler beim Abholen von http://economic-observer.de/?feed=rss2: HTTP response code said error
-[2014-04-01 20:21:59] Fehler beim Abholen von http://fivefilters.org/content-only/makefulltextfeed.php?url=http://www.spox.com/pub/rss/us-sport-nba.xml&key=&max=4&links=preserve&submit=Create+Feed: Couldn't resolve host name
-[2014-04-01 20:21:59] Fehler beim Abholen von http://vimcasts.org/feeds/ogg: Couldn't resolve host name
-[2014-04-01 20:21:59] Fehler beim Abholen von http://feeds.bbci.co.uk/news/world/latin_america/rss.xml: Couldn't resolve host name
-[2014-04-01 20:22:19] Fehler beim Abholen von http://my.opera.com/area42/xml/atom/blog/: nicht unterstütztes Feed-Format
-[2014-04-01 20:22:29] Fehler beim Abholen von http://www.linuxjournal.com/node/feed: Couldn't resolve host name
-[2014-04-01 20:22:29] Fehler beim Abholen von http://www.spiegelfechter.com/wordpress/feed/: Couldn't resolve host name
-[2014-04-01 20:22:29] Fehler beim Abholen von http://www.it-hall.com/feed/: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://www.mein-wunschpreis.com/rss.php?BrowseNode=elektronikbestpreis: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://www.techdrivein.com/feeds/posts/default: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://www.openshotvideo.com/feeds/posts/default: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://mavsblog.dallasnews.com/atom.xml: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://www.iwillfolo.com/feed/: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://www.reddit.com/r/vimgolf/.rss: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://feeds.feedburner.com/Gimptutorials: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://www.reddit.com/message/inbox/.rss: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://feeds.feedburner.com/techdrivein: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://www.reddit.com/r/all/hot/.rss: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://feeds.feedburner.com/d0od: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://www.handelsblatt.com/contentexport/feed/finanzen/: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://feeds.feedburner.com/UbuntuTutorials: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://www.spox.com/pub/rss/basketball.xml: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://feeds.feedburner.com/UbuntuGeek?format=xml: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://gutscheindeal.info/gutschein-anbieter/zalando/feed/: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://feeds.feedburner.com/linuxjournalcom: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://feeds.feedburner.com/usevim: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://www.faz.net/aktuell/wirtschaft/?rssview=1: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://feeds.feedburner.com/Noobslab: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://feeds.feedburner.com/unixmenhowtos?format=xml: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://feeds.feedburner.com/GimpologyLatest: Couldn't resolve host name
-[2014-04-01 20:22:30] Fehler beim Abholen von http://blog.superuser.com/feed/: Couldn't resolve host name
-[2014-04-01 20:22:31] Fehler beim Abholen von http://afaikblog.wordpress.com/feed/: Couldn't resolve host name
-[2014-04-01 20:22:31] Fehler beim Abholen von http://texblog.wordpress.com/feed/: Couldn't resolve host name
-[2014-04-01 20:22:31] Fehler beim Abholen von http://liorkaplan.wordpress.com/feed/: Couldn't resolve host name
-[2014-04-01 20:22:31] Fehler beim Abholen von http://tuxhausen.wordpress.com/feed/: Couldn't resolve host name
-[2014-04-01 20:22:31] Fehler beim Abholen von http://alexkrispin.wordpress.com/feed/: Couldn't resolve host name
-[2014-04-01 20:22:31] Fehler beim Abholen von http://projecthamster.wordpress.com/feed/: Couldn't resolve host name
-[2014-04-01 20:22:31] Fehler beim Abholen von http://inkscapetutorials.wordpress.com/feed/: Couldn't resolve host name
-[2014-04-01 20:22:31] Fehler beim Abholen von http://vagubunt.wordpress.com/feed/: Couldn't resolve host name
-[2014-04-01 20:22:31] Fehler beim Abholen von http://udioica.blogspot.com/feeds/posts/default?alt=rss: Couldn't resolve host name
-[2014-04-01 20:22:31] Fehler beim Abholen von http://elementaryluna.blogspot.com/feeds/posts/default: Couldn't resolve host name
-[2014-04-01 20:22:31] Fehler beim Abholen von http://ldiracdelta.blogspot.com/feeds/posts/default?alt=rss: Couldn't resolve host name
-[2014-04-01 20:22:32] Fehler beim Abholen von http://ldiracdelta.blogspot.com/feeds/posts/default?alt=rss: Couldn't resolve host name
-[2014-04-01 20:22:32] Fehler beim Abholen von http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss: Couldn't resolve host name
-[2014-04-01 20:22:32] Fehler beim Abholen von http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss: Couldn't resolve host name
-[2014-04-01 20:22:32] Fehler beim Abholen von http://mygeekopinions.blogspot.com/feeds/posts/default: Couldn't resolve host name
-[2014-04-01 20:22:32] Fehler beim Abholen von http://ubuntu4beginners.blogspot.com/feeds/posts/default: Couldn't resolve host name
-[2014-04-01 20:22:32] Fehler beim Abholen von http://ramonmirandavisualart.blogspot.com/feeds/posts/default: Couldn't resolve host name
-[2014-04-01 20:22:32] Fehler beim Abholen von http://askubuntu.com/feeds/question/30334: Couldn't resolve host name
-[2014-04-01 20:22:32] Fehler beim Abholen von http://blog.fpmurphy.com/feed: Couldn't resolve host name
-[2014-04-01 20:22:32] Fehler beim Abholen von http://www.ubuntubuzz.com/feeds/posts/default: Couldn't resolve host name
-[2014-04-01 20:22:32] Fehler beim Abholen von http://www.atareao.es/feed/: Couldn't resolve host name
-[2014-04-01 20:22:32] Fehler beim Abholen von http://feeds.launchpad.net/~yorba/branches.atom: Couldn't resolve host name
-[2014-04-01 20:22:32] Fehler beim Abholen von http://feeds.launchpad.net/beat-box/announcements.atom: Couldn't resolve host name
-[2014-04-01 20:22:32] Fehler beim Abholen von http://feeds.launchpad.net/beat-box/announcements.atom: Couldn't resolve host name
-[2014-04-01 20:22:33] Fehler beim Abholen von http://ubuntuguide.net/feed: Couldn't resolve host name
-[2014-04-01 20:22:33] Fehler beim Abholen von http://www.deimeke.net/dirk/blog/index.php?/feeds/index.rss2: Couldn't resolve host name
-[2014-04-01 20:22:33] Fehler beim Abholen von http://texblog.net/feed/: Couldn't resolve host name
-[2014-04-01 20:22:33] Fehler beim Abholen von http://www.iloveubuntu.net/rss.xml: Couldn't resolve host name
-[2014-04-01 20:22:33] Fehler beim Abholen von http://www.cyberciti.biz/faq/feed/?feedburner=false&k=true: Couldn't resolve host name
+[2014-04-18 12:41:17] Fehler beim Abholen von view-source://http%3A//rss.golem.de/rss.php?feed=RSS1.0&ms=linux: Fehler: nicht unterstützte URL: view-source:http://rss.golem.de/rss.php?feed=RSS1.0&ms=linux
+[2014-04-18 12:41:19] Fehler beim Abholen von http://www.linux-magazin.de/rss/feed/news: HTTP response code said error
+[2014-04-18 12:41:23] Fehler beim Abholen von http://news.billiger.de/feed: HTTP response code said error
+[2014-04-18 12:41:24] Fehler beim Abholen von http://economic-observer.de/?feed=rss2: HTTP response code said error
+[2014-04-18 12:41:52] Fehler beim Abholen von http://doctormo.org/feed/: Timeout was reached
+[2014-04-18 12:42:01] Fehler beim Abholen von http://my.opera.com/area42/xml/atom/blog/: nicht unterstütztes Feed-Format

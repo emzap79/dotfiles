@@ -132,6 +132,7 @@
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-02-14_-_Future_Bass_Sessions_With_Broke_N_From_Portland_Oregon.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-03-03_-_Saber_Tooth_Radio_With_Smilodon_From_Minneapolis.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-01-17_-_Future_Bass_Sessions_From_Portland_Oregon_WIth_Broke_N.mp3
+/home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-03-29_-_The_Deep_End_With_Mortal_Grey_From_Portland.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2006-12-19_-_Struggle_And_DopeLabs_-_Seattle_Sessions_-_12.19.06_-_Part_1.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-02-12_-_JVIZ_Presents_Earthquake_Weather_In_Los_Angeles.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-02-26_-_JVIZ_Presents_Earthquake_Weather_In_Los_Angeles.mp3
@@ -153,9 +154,11 @@
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/M2J_and_MTB_Matty_16_Feb_2014_Sub_FM.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-02-22_-_The_Deep_End_With_Mortal_Grey_From_Portland_Oregon.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-01-31_-_JVIZ_Presents_Tsunami_Weather_With_Guest_Endigo.mp3
+/home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-03-30_-_Brontosonic_Radio_With_KidLogic_Lurky_Uncommon_Sense_From_Portland.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2013-11-08_-_Megalodon_Bukez_Finezt_Barron_And_JuJu.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-03-28_-_Future_Bass_Sessions_With_Broke_N_From_Portland.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-01-29_-_JVIZ_Presents_Earthquake_Weather_In_Los_Angeles.mp3
+/home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-04-11_-_BWOMP_Renegades_And_All_That.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-03-23_-_Supernormous_Brontosonic_Radio_From_Portland.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2013-12-25_-_Dubfix_With_DopeLabs.mp3
 /home/zapata/Podcasts/Music/Dubstep/DubStep.FM/ARCHIVE_-_2014-01-22_-_JVIZ_Presents_Earthquake_Weather_In_Los_Angeles.mp3
@@ -205,6 +208,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shape_LIVE_on_DNBRADIO.COM_20140110_1503_-_the_shape_of_things_to_come.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Pressure_LIVE_on_DNBRADIO.COM_20140314_1200_-_Human_Traffic_Vol.176.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Geekcroft_LIVE_on_DNBRADIO.COM_20140211_1700_-_DnB_Chronicles.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/shape_LIVE_on_DNBRADIO.COM_20140411_1606_-_the_shape_of_things_to_come.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Eroc_LIVE_on_DNBRADIO.COM_20140312_1900_-_Soul_R_Eclipse_Radio_no_352_March_Freshness.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_FuZion_LIVE_on_DNBRADIO.COM_20140216_0502_-_Ep._169__Drum_and_Bass_Remixes%2C_Vol._9.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Dizygotic_LIVE_on_DNBRADIO.COM_20140308_1204_-_Saturday_Sounds_08Mar2014.mp3
@@ -214,6 +218,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Geekcroft_LIVE_on_DNBRADIO.COM_20140114_1701_-_DnB_Chronicles.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Balistik_LIVE_on_DNBRADIO.COM_20140118_1404_-_Assassin_Sounds_UK_Show.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/FlApJaCk_LIVE_on_DNBRADIO.COM_20140301_1542_-_OvErLoAd_PT_52__DeFaUlT_ReCoRdInGs_ShOw.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/Southpaw_LIVE_on_DNBRADIO.COM_20140412_1800_-_Divine_Sessions.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Shivaxi_LIVE_on_DNBRADIO.COM_20140304_0918_-_The_BiPolar_Sessions__-_Scooby_Snacks.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/turbo_alliance_LIVE_on_DNBRADIO.COM_20140116_2055_-_time_served.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Parallel_Motion_LIVE_on_DNBRADIO.COM_20131113_1506_-_The_RedEyeRecords.co.uk_Drum_and_Bass_Show.mp3
@@ -278,9 +283,11 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Dizygotic_LIVE_on_DNBRADIO.COM_20131123_1035_-_Saturday_Sounds_23Nov2013.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/turbo_alliance_LIVE_on_DNBRADIO.COM_20140306_2053_-_time_served.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Parallel_Motion_LIVE_on_DNBRADIO.COM_20131218_1502_-_The_RedEyeRecords.co.uk_Drum_and_Bass_Show.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_WITNESS_LIVE_on_DNBRADIO.COM_20140331_1432_-_Monday_Night_HAZE.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Flood_LIVE_on_DNBRADIO.COM_20131212_1901_-_Sink_Or_Swim_Brock_Out_Like_Sampson.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/turbo_alliance_LIVE_on_DNBRADIO.COM_20131114_2059_-_time_served.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_FuZion_LIVE_on_DNBRADIO.COM_20140209_0500_-_Ep.168_Mix_Sessions_Vol._29%2C_Slender_Cuts_Pt._2.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_FuZion_LIVE_on_DNBRADIO.COM_20140330_0501_-_Ep._175__Labels_First_Releases%2C_Vol._6.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Eroc_LIVE_on_DNBRADIO.COM_20140205_1900_-_Soul_R_Eclipse_Radio_no_347.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/crash_LIVE_on_DNBRADIO.COM_20140312_0019_-_counter_measures_87.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/YMB_LIVE_on_DNBRADIO.COM_20131221_1204_-_Ninth_Circle_Radio_Invites_Gameplay.mp3
@@ -306,6 +313,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Dizygotic_LIVE_on_DNBRADIO.COM_20131130_1127_-_Saturday_Sounds_30Nov2013.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Eroc_LIVE_on_DNBRADIO.COM_20140114_2058_-_Renegade_14114.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/MACHETE_n_JAYDAN_LIVE_on_DNBRADIO.COM_20131120_2303_-_RESPECT_DNB_RADIO_112013.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/turbo_alliance_LIVE_on_DNBRADIO.COM_20140410_2055_-_time_served.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/turbo_alliance_LIVE_on_DNBRADIO.COM_20140102_2056_-_time_served.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/crash_LIVE_on_DNBRADIO.COM_20140108_0019_-_late_measures_20140107.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/FlApJaCk_LIVE_on_DNBRADIO.COM_20131221_1601_-_OvErLoAd_PT_43_DeFaUlT_ReCoRdInGs_ShOw.mp3
@@ -314,6 +322,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Pressure_LIVE_on_DNBRADIO.COM_20140328_1158_-_Human_Traffic_Vol.178.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shoebox_LIVE_on_DNBRADIO.COM_20140313_1030_-_All_Flavors_Drum_n_Bass_Session_March.13.2014.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_Ranton_LIVE_on_DNBRADIO.COM_20140202_1331_-_Power_Trippin__-_Feb_2nd_2014.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/FlApJaCk_LIVE_on_DNBRADIO.COM_20140412_1605_-_OvErLoAd_PT_57_DeFaUlT_ReCoRdInGs_ShOw.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Dizygotic_LIVE_on_DNBRADIO.COM_20140215_1117_-_Saturday_Sounds_15Feb2014.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Southpaw_LIVE_on_DNBRADIO.COM_20140111_1804_-_Divine_Sessions.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shoebox__XTS_Emcee_LIVE_on_DNBRADIO.COM_20140110_1704_-_All_Flavors_Drum_n_Bass_Session_Jan.10.2013.mp3
@@ -372,6 +381,7 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Pressure_LIVE_on_DNBRADIO.COM_20131115_1100_-_Human_Traffic_Vol.160_www.dnbsolja.com.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Dizygotic_LIVE_on_DNBRADIO.COM_20131214_1048_-_Saturday_Sounds_14Dec2013.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/DJ_WITNESS_LIVE_on_DNBRADIO.COM_20131230_1456_-_Monday_Night_HAZE.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/Pressure_LIVE_on_DNBRADIO.COM_20140411_1100_-_Human_Traffic_Vol.180.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Pressure_LIVE_on_DNBRADIO.COM_20131227_1100_-_Human_Traffic_Vol.165_www.dnbsolja.com.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Balistik_LIVE_on_DNBRADIO.COM_20131123_1407_-_Assassin_Sounds_UK_Show.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Pressure_LIVE_on_DNBRADIO.COM_20140321_1200_-_Human_Traffic_Vol.177.mp3
@@ -429,12 +439,14 @@
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shape_LIVE_on_DNBRADIO.COM_20140124_1501_-_the_shape_of_things_to_come.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/turbo_alliance_LIVE_on_DNBRADIO.COM_20140206_2054_-_time_served.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Ryu_LIVE_on_DNBRADIO.COM_20140218_1359_-_Liquid_Room.mp3
+/home/zapata/Podcasts/Music/DnB/DnBRadio/Dizygotic_LIVE_on_DNBRADIO.COM_20140412_1141_-_Saturday_Sounds_12Apr2014.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/FlApJaCk_LIVE_on_DNBRADIO.COM_20140215_1601_-_OvErLoAd_PT_50_DeFaUlT_ReCoRdInGs_ShOw.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/MrKrotos_LIVE_on_DNBRADIO.COM_20140325_1509_-_LondonBeatz_Radio_Show.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Pressure_LIVE_on_DNBRADIO.COM_20140214_1100_-_Human_Traffic_Vol.172.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/Eroc_LIVE_on_DNBRADIO.COM_20131204_1912_-_Soul_R_Eclipse_Radio_no_334.mp3
 /home/zapata/Podcasts/Music/DnB/DnBRadio/shape_LIVE_on_DNBRADIO.COM_20131213_1504_-_the_shape_of_things_to_come.mp3
 /home/zapata/Podcasts/Music/House/DeepHousePodcast/2012-11-01T01_55_50-07_00.mp3
+/home/zapata/Podcasts/Music/House/DeepHousePodcast/2014-04-01T08_21_40-07_00.mp3
 /home/zapata/Podcasts/Music/House/DeepHousePodcast/2014-01-03T15_22_21-08_00.mp3
 /home/zapata/Podcasts/Music/House/DeepHousePodcast/2013-07-02T08_37_34-07_00.mp3
 /home/zapata/Podcasts/Music/House/DeepHousePodcast/2013-01-11T04_22_08-08_00.mp3
@@ -448,6 +460,7 @@
 /home/zapata/Podcasts/Music/House/ScotchFlavio/2013-06-10T09_56_56-07_00.mp3
 /home/zapata/Podcasts/Music/House/HouseDeelings/Groovy-DeeVIbes-Chill_Deep_House-Feb-2014-mix.mp3
 /home/zapata/Podcasts/Music/House/HouseDeelings/Groovy-Deevibes-Jazz-Deep-House-January-2014.mp3
+/home/zapata/Podcasts/Music/House/HouseDeelings/groovy-deeVibes-April-2014-soulful-deep-house-session.mp3
 /home/zapata/Podcasts/Music/House/HouseDeelings/BuzbysDeepHouseHour12.mp3
 /home/zapata/Podcasts/Music/House/HouseDeelings/Groovy-DeeVibes-SoulFull-2hours-mix-January-2014.mp3
 /home/zapata/Podcasts/Music/House/HouseDeelings/Groovy-DeeVibes-Deep_House-Tribute-The-Rurals-Mix.mp3
@@ -477,10 +490,12 @@
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Spaetzle_Mix_DJ_M_SI_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_SSRadio_Episode_159_ft_PJ_Parker_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_SSRadio_Episode_162_ft_DJ_Buddah_128.mp3
+/home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_SSRadio_Episode_163_ft_Turntablerocker_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_SSRadio_Episode_160_ft_DJ_Danial_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Osaka_Tiger_Mix_Aiko_Morita_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_SSRadio_Episode_161_with_Alex_B_Groove_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Electrified_Mix_Sweep_n_Groove_128.mp3
+/home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Summertime_Mix_ft_Foxx_n_Adams_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Eat_Fish_Mix_ft_Fish_Go_Deep_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Spring_Break_Mix_ft_DurtysoxXx_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Silberschwein_Mix_with_Alex_B_Groove_128.mp3
@@ -492,6 +507,7 @@
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Three_Kings_Mix_Foxx_n_Adams_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Digital_Globe_Mix_Ramirez_Son_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_SSRadio_Episode_158_ft_Kiyo_To_128.mp3
+/home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Lifes_Great_Mix_ft_Fedor_K_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Waterkant_Mix_Clark_Davis_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Valentines_Mix_ft_Kon_Ding_128.mp3
 /home/zapata/Podcasts/Music/House/NoirMusic/2014-01-13T13_14_34-08_00.mp3
@@ -519,6 +535,7 @@
 /home/zapata/Podcasts/Music/House/JamesCalamera/2014-02-12T19_14_20-08_00.mp3
 /home/zapata/Podcasts/Music/House/JamesCalamera/2014-03-12T20_21_04-07_00.mp3
 /home/zapata/Podcasts/Music/House/JamesCalamera/2013-09-09T23_13_08-07_00.mp3
+/home/zapata/Podcasts/Music/House/JamesCalamera/2014-04-01T16_32_27-07_00.mp3
 /home/zapata/Podcasts/Music/House/JamesCalamera/2013-12-19T21_20_41-08_00.mp3
 /home/zapata/Podcasts/Music/House/JamesCalamera/2013-10-28T16_56_06-07_00.mp3
 /home/zapata/Podcasts/Music/House/JamesCalamera/2013-12-09T18_22_48-08_00.mp3
@@ -542,6 +559,8 @@
 /home/zapata/Podcasts/Music/House/HouseMusicPodcasts.co.uk/MDE-ZULU-62-PODCAST.mp3
 /home/zapata/Podcasts/Music/House/DeeperShades/dsoh440I_LB.mp3
 /home/zapata/Podcasts/Music/House/DeeperShades/dsoh444I_LB.mp3
+/home/zapata/Podcasts/Music/House/DeeperShades/dsoh446I_LB.mp3
+/home/zapata/Podcasts/Music/House/DeeperShades/dsoh445I_LB.mp3
 /home/zapata/Podcasts/Music/House/DeeperShades/dsoh441I_LB.mp3
 /home/zapata/Podcasts/Music/House/DeeperShades/dsoh443I_LB.mp3
 /home/zapata/Podcasts/Music/House/DeeperShades/dsoh442I_LB.mp3
