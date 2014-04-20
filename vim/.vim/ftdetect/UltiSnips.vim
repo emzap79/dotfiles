@@ -1,1 +1,0 @@
-/home/zapata/.vim/bundle/ultisnips/ftdetect/UltiSnips.vim

@@ -1,7 +1,0 @@
-(if 
- (contains (window_name) 'Chromium')
-    (begin
-        (println "--[ Chrome ]--")
-        (pin)
-    )
-)

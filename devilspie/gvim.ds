@@ -1,9 +1,0 @@
-(if
-	(and
-    	(is (window_class) "Gvim")
-	)
-	(begin
-		(println "--[ Gvim ]--")
-		(geometry "908x744+0+24")
-	)
-)

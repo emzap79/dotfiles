@@ -1,6 +1,0 @@
-# # #!/bin/bash
-# /home/zapata/.cmus/plugins/cmus_add_similar.py "$@" &
-/home/zapata/.cmus/plugins/last-cmus.py "$@" &
-/home/zapata/.cmus/plugins/cmus-status.py "$@" &
-/home/zapata/.cmus/plugins/notify_send.py "$@" &
-exit 0

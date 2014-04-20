@@ -1,5 +1,0 @@
-[2014-04-21 00:47:11] Fehler beim Abholen von view-source://http%3A//rss.golem.de/rss.php?feed=RSS1.0&ms=linux: Fehler: nicht unterstützte URL: view-source:http://rss.golem.de/rss.php?feed=RSS1.0&ms=linux
-[2014-04-21 00:47:25] Fehler beim Abholen von http://my.opera.com/area42/xml/atom/blog/: nicht unterstütztes Feed-Format
-[2014-04-21 00:47:41] Fehler beim Abholen von http://www.bochum.de/RSSNews.xml: Timeout was reached
-[2014-04-21 00:47:45] Fehler beim Abholen von http://news.billiger.de/feed: HTTP response code said error
-[2014-04-21 00:47:46] Fehler beim Abholen von http://economic-observer.de/?feed=rss2: HTTP response code said error

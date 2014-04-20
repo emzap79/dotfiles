@@ -1,7 +1,0 @@
-(if
- (is (application_name) "gnome-contacts")
- (begin
-  (println "--[ Kontakte ]--")
-  (geometry "658x744+0+24")
- )
- )
