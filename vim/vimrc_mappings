@@ -1,3 +1,4 @@
+" vim: fdm=marker
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   MAPPINGS                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -628,8 +629,8 @@ nnoremap <c-s-tab> :bprevious<cr>
 " " will search the word in chromium where
 " " the cursor is when typing <leader>fg in visual mode
 " " found on http://la.firme.perso.esil.univmed.fr/website/article.php3?id_article=70 
-nnoremap <leader>chromium-browser :exe "!chromium-browser " . shellescape(expand("<cWORD>"))<CR>
-xnoremap <leader>o :<c-u>!chromium-browser <C-r>=GetVisualSelection()<cr>
+nnoremap \ :exe "!chromium-browser " . shellescape(expand("<cWORD>"))<CR>
+xnoremap \ :<c-u>!chromium-browser <C-r>=GetVisualSelection()<cr>
 
 "}}}
 "search wikipedia from within vim"{{{
@@ -850,6 +851,12 @@ nnoremap <silent> <esc> :nohl<cr>
 cmap w!! w !sudo tee % >/dev/null
 
 "}}}
+" flip text horizontally
+
+nnoremap <leader>fh :Mirror<CR>
+command! -bar -range Mirror <line1>,<line2>call setline('.', join(reverse(split(getline('.'), '\zs')), ''))
+
+"
 " execute cmd within visual"{{{
 
 nnoremap <leader>v :'<,'>
@@ -884,6 +891,24 @@ fun! ToggleYCM()
         echo "Plugin YCM enabled"
     endif
 endfun
+
+"}}}
+" Func: Foldexpressions"{{{
+
+" " fold braces
+" " http://vim.wikia.com/wiki/Folding_functions_with_the_prototype_included
+" function! FoldBrace()
+  " if getline(v:lnum+1)[0] == '{'
+    " return 1
+  " endif
+  " if getline(v:lnum) =~ '{'
+    " return 1
+  " endif
+  " if getline(v:lnum)[0] =~ '}'
+    " return '<1'
+  " endif
+  " return -1
+" endfunction
 
 "}}}
 " Func: Save and Restore Cursorposition"{{{

@@ -110,29 +110,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# show content when changing into subdir
-# http://www.reddit.com/r/linux/comments/1zsn7r/a_bash_alias_i_cannot_function_without/cfwldex
-function cd {
-dir="${@:-$HOME}"  # ~ isn't expanded when in quotes
-[ -z "${dir}" ] && dir=~
-if ! builtin cd "$dir"
-then
-    dir=`compgen -d "${dir}" | head -1`
-    if builtin cd "$dir"
-    then
-        clear
-        pwd
-        # ls -l
-        ls -lrtc
-    fi
-else
-    clear
-    pwd
-    # ls -l
-    ls -lrtc
-fi
-}
-
 # allow crontab access to my X display
 xhost +local:zapata > /dev/null
 # [[ $DISPLAY ]] && xhost +localhost:$LOGNAME

@@ -12,10 +12,21 @@
 /home/zapata/Podcasts/Music/House/ScotchFlavio/2013-08-08T00_32_41-07_00.mp3
 /home/zapata/Podcasts/Music/House/ScotchFlavio/2013-09-11T11_38_49-07_00.mp3
 /home/zapata/Podcasts/Music/House/HouseDeelings/BuzbysDeepHouseHour12.mp3
+/home/zapata/Podcasts/Music/House/HouseDeelings/BuzbysHouseHour13.mp3
+/home/zapata/Podcasts/Music/House/HouseDeelings/BuzbysHouseHour14.mp3
+/home/zapata/Podcasts/Music/House/HouseDeelings/BuzbysHouseHour15.mp3
 /home/zapata/Podcasts/Music/House/HouseDeelings/DeeCostaDeepDiscoVoyageN6January2014.mp3
+/home/zapata/Podcasts/Music/House/HouseDeelings/DeeCostaDeepDiscoVoyageN7Ferbuary2014.mp3
+/home/zapata/Podcasts/Music/House/HouseDeelings/DeeCosta-EklektikVoyageN62014192.mp3
+/home/zapata/Podcasts/Music/House/HouseDeelings/DeeCosta-EklektikVoyageN82014.mp3
+/home/zapata/Podcasts/Music/House/HouseDeelings/DJMixSpring14.mp3
 /home/zapata/Podcasts/Music/House/HouseDeelings/groovy-deeVibes-April-2014-soulful-deep-house-session.mp3
 /home/zapata/Podcasts/Music/House/HouseDeelings/Groovy-DeeVIbes-Chill_Deep_House-Feb-2014-mix.mp3
+/home/zapata/Podcasts/Music/House/HouseDeelings/Groovy-DeeVibes-Chill-House-November-2013-a.mp3
+/home/zapata/Podcasts/Music/House/HouseDeelings/Groovy-DeeVibes-Deep-Funky-House-March-2113.mp3
+/home/zapata/Podcasts/Music/House/HouseDeelings/Groovy-DeeVibes-Deep-House-March-2014-Mix-Session.mp3
 /home/zapata/Podcasts/Music/House/HouseDeelings/Groovy-DeeVibes-Deep_House-Tribute-The-Rurals-Mix.mp3
+/home/zapata/Podcasts/Music/House/HouseDeelings/Groovy_DeeVibes-Deep-Jacking-House-127bpm-Feb-2014.mp3
 /home/zapata/Podcasts/Music/House/HouseDeelings/Groovy-Deevibes-Jazz-Deep-House-January-2014.mp3
 /home/zapata/Podcasts/Music/House/HouseDeelings/Groovy-DeeVibes-SoulFull-2hours-mix-January-2014.mp3
 /home/zapata/Podcasts/Music/House/SoulFortune/2013-06-05T04_08_21-07_00.mp3
@@ -58,6 +69,7 @@
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_SSRadio_Episode_161_with_Alex_B_Groove_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_SSRadio_Episode_162_ft_DJ_Buddah_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_SSRadio_Episode_163_ft_Turntablerocker_128.mp3
+/home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_SSRadio_Episode_164_ft_Alex_B_Groove_dj_philE_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Summertime_Mix_ft_Foxx_n_Adams_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Three_Kings_Mix_Foxx_n_Adams_128.mp3
 /home/zapata/Podcasts/Music/House/DeepHouseCat/Deep_House_Cat_Show_Tulips_From_Amsterdam_Mix_Housemotion_128.mp3
@@ -97,6 +109,7 @@
 /home/zapata/Podcasts/Music/House/JamesCalamera/2014-02-12T19_14_20-08_00.mp3
 /home/zapata/Podcasts/Music/House/JamesCalamera/2014-03-12T20_21_04-07_00.mp3
 /home/zapata/Podcasts/Music/House/JamesCalamera/2014-04-01T16_32_27-07_00.mp3
+/home/zapata/Podcasts/Music/House/JamesCalamera/2014-04-16T20_21_50-07_00.mp3
 /home/zapata/Podcasts/Music/House/DeepSoulSessions/DeepSoulSessionsJune42012.mp3
 /home/zapata/Podcasts/Music/House/DeepSoulSessions/DeepSoulSessionsSolSummer12.mp3
 /home/zapata/Podcasts/Music/House/DeepSoulSessions/EveryBlueMoonvol-DeepSoulSessionsNinaMorena.mp3

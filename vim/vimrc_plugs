@@ -1,4 +1,7 @@
-"PLUGINS
+"""""""""""""
+"  Plugins  "
+"""""""""""""
+
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
@@ -21,7 +24,9 @@ Bundle 'gmarik/vundle'
 " Bundles "{{{
 
 Bundle 'BufOnly.vim'
+Bundle 'plasticboy/vim-markdown'
 Bundle 'L9'
+Bundle 'matze/vim-tex-fold'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'Shougo/neocomplete.vim'
 Bundle 'SirVer/ultisnips.git'
@@ -97,8 +102,46 @@ autocmd FileType tex so ~/.vim/bundle/LaTeX-Box/ftplugin/latex-box/indent.vim
 " Configuration in ~/.vim/vimrc_R
 
 ""}}}
+" Vim-Markdown"{{{
+
+" Set to '1' to disable folding
+let g:vim_markdown_folding_disabled=1
+
+" Set Initial Foldlevel
+let g:vim_markdown_initial_foldlevel=1
+
+" Enable/Disable (0/1) Default Key Mappings
+let g:vim_markdown_no_default_key_mappings=0
+
+" Key-Maps
+" ]]: go to next header. <Plug>(Markdown_MoveToNextHeader)
+" [[: go to previous header. Contrast with ]c. <Plug>(Markdown_MoveToPreviousHeader)
+" ][: go to next sibling header if any. <Plug>(Markdown_MoveToNextSiblingHeader)
+" []: go to previous sibling header if any. <Plug>(Markdown_MoveToPreviousSiblingHeader)
+" ]c: go to Current header. <Plug>(Markdown_MoveToCurHeader)
+" ]u: go to parent header (Up). <Plug>(Markdown_MoveToParentHeader)
 
 ""}}}
+" TeX-Folding"{{{
+
+" Use these options to customize tex-fold:
+
+" Use tex-folds own foldtext function instead of the builtin one:
+let g:tex_fold_override_foldtext = 1
+
+" Set the string to prepend the foldtext for sections: >
+let g:tex_fold_sec_char = '>'
+
+" Set the string to prepend the foldtext for environments: >
+let g:tex_fold_env_char = 'E'
+
+" Besides folding sections and environments, allow folds to be defined with
+" markers: >
+let g:tex_fold_allow_marker = 1
+
+"}}}
+
+"}}}
 " Braces/Brackets/Parenthesis"{{{
 
 " Targets"{{{
@@ -543,4 +586,5 @@ let g:VCalc_Win_Size = 10
 
 " Miscellanious"}}}
 
-" Plugin Settings "}}}
+" Plugin Settings
+" vim: fdm=marker

@@ -15,7 +15,7 @@ bind-key O rev-sort
 bind-key k up
 bind-key j down
 bind-key ^u show-urls
-bind-key V open-in-browser
+bind-key \ open-in-browser
 unbind-key l
 bind-key l open-search
 bind-key L toggle-show-read-feeds

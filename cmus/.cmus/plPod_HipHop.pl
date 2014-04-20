@@ -15,6 +15,7 @@
 /home/zapata/Podcasts/Music/HipHop/DjModesty/2014-02-12T16_09_30-08_00.mp3
 /home/zapata/Podcasts/Music/HipHop/DjModesty/2014-02-26T13_04_48-08_00.mp3
 /home/zapata/Podcasts/Music/HipHop/DjModesty/2014-03-12T17_09_22-07_00.mp3
+/home/zapata/Podcasts/Music/HipHop/DjModesty/2014-04-02T10_35_28-07_00.mp3
 /home/zapata/Podcasts/Music/HipHop/FadeEm/2013-01-02T02_45_35-08_00.mp3
 /home/zapata/Podcasts/Music/HipHop/FadeEm/2013-02-20T02_19_22-08_00.mp3
 /home/zapata/Podcasts/Music/HipHop/FadeEm/2013-06-22T01_57_50-07_00.mp3

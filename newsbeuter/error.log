@@ -1,4 +1,4 @@
-[2014-04-18 12:43:09] Fehler beim Abholen von view-source://http%3A//rss.golem.de/rss.php?feed=RSS1.0&ms=linux: Fehler: nicht unterstützte URL: view-source:http://rss.golem.de/rss.php?feed=RSS1.0&ms=linux
-[2014-04-18 12:43:10] Fehler beim Abholen von http://www.linux-magazin.de/rss/feed/news: HTTP response code said error
-[2014-04-18 12:43:15] Fehler beim Abholen von http://news.billiger.de/feed: HTTP response code said error
-[2014-04-18 12:43:16] Fehler beim Abholen von http://economic-observer.de/?feed=rss2: HTTP response code said error
+[2014-04-20 12:59:48] Fehler beim Abholen von view-source://http%3A//rss.golem.de/rss.php?feed=RSS1.0&ms=linux: Fehler: nicht unterstützte URL: view-source:http://rss.golem.de/rss.php?feed=RSS1.0&ms=linux
+[2014-04-20 13:00:41] Fehler beim Abholen von http://news.billiger.de/feed: HTTP response code said error
+[2014-04-20 13:00:52] Fehler beim Abholen von http://economic-observer.de/?feed=rss2: HTTP response code said error
+[2014-04-20 13:01:33] Fehler beim Abholen von http://my.opera.com/area42/xml/atom/blog/: nicht unterstütztes Feed-Format
