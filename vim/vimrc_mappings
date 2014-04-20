@@ -611,13 +611,11 @@ nnoremap <c-s-tab> :bprevious<cr>
 " "}}}
 
 "}}}
-" " add emptyline between beginning / ending of folds "{{{
+" add emptyline between beginning / ending of folds "{{{
 
-" nnoremap <silent><leader>fo :%s/\v^.*(\}\}\})/\r&/g | :%v/}}}\n.*{{{/s/\v(\{\{\{)/&\r/g | :%s/^$\n^$//g<CR>
-" vnoremap <silent><leader>fo <ESC>:%s/\v^.*(\}\}\})/\r&/g | :%v/}}}\n.*{{{/s/\v(\{\{\{)/&\r/g | :%s/^$\n^$//g<CR>
-" inoremap <silent><localleader>fo <ESC>:%s/\v^.*(\}\}\})/\r&/g | :%v/}}}\n.*{{{/s/\v(\{\{\{)/&\r/g | :%s/^$\n^$//g<CR>
+nnoremap <silent><leader>fo :exec "%s/\\v^.*(\\}\\}\\})/\\r\&/g \| %v/}}}\\n.*{{{/s/\\v(\\{\\{\\{)/&\\r/g \| %s/^$\\n^$//g"<cr>
 
-" " add emptyline between beginning / ending of folds "}}}
+" add emptyline between beginning / ending of folds "}}}
 
 ""}}}
 " Word-Searches, Spell-Checking & String-Replacements"{{{
@@ -683,11 +681,13 @@ vnoremap <leader>thes :<c-u>!othes <C-r>=GetVisualSelection()<CR>
 
 "}}}
 " search word under cursor with grep"{{{
+
 " http://learnvimscriptthehardway.stevelosh.com/chapters/33.html
 
 nnoremap <leader>g :set operatorfunc=GrepOperator<cr>g@
 vnoremap <leader>g :<c-u>call GrepOperator(visualmode())<cr>
 " fun: grep word under cursor "{{{
+
 function! GrepOperator(type)
     if a:type ==# 'v'
         normal! `<v`>y
@@ -699,6 +699,7 @@ function! GrepOperator(type)
     silent execute "grep! -R " . shellescape(@@) . " ."
     copen
 endfunction
+
 "}}}
 
 ""}}}
