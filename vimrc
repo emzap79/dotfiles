@@ -16,16 +16,17 @@ source ~/.vim/vimrc_general
 source ~/.vim/vimrc_mappings
 "This source imports all of my miscellanous settings. Tab bar, etc
 source ~/.vim/vimrc_miscellaneous
-" This source sets R configs
-source ~/.vim/vimrc_r
-" This source sets LaTeX configs
-source ~/.vim/vimrc_latex
 " This source sets mutt configs
 source ~/.vim/vimrc_mutt
 " This source sets Colorscheme etc.
 source ~/.vim/vimrc_colors
 " This source imports all plugins
 source ~/.vim/vimrc_plugs
+
+" This source sets R configs
+source ~/.vim/ftplugin/r.vim
+" This source sets LaTeX configs
+source ~/.vim/ftplugin/tex.vim
 
 "------------------
 " Xterm-Style-Keys

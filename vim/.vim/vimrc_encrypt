@@ -1,0 +1,101 @@
+" source ~/.vimrc
+set cm=blowfish     " encrypting algorithm
+
+set nobackup
+set noswapfile
+set nowritebackup
+
+set number
+set relativenumber
+
+set fdm=indent
+set foldenable
+set fdn=1
+set fcl=all
+set fdl=0
+set shiftwidth=4 softtabstop=4
+set foldlevelstart=1
+
+nnoremap <F2> :so ~/.vim/vimrc_encrypt<cr>
+
+" " indent_fold_bug.vim
+" " Author: Ted Tibbetts
+" " License: WTFPL version 2 (http://sam.zoy.org/wtfpl/)
+" " Demonstrates a bug in vim's 'indent' foldmethod
+" " Usage: Two different options:
+" "   $ vim -u indent_fold_bug.vim
+" "     This will start vim, using this script as the vimrc.
+" "     This option will ensure that default settings are used.
+" "   :source indent_fold_bug.vim
+" "     This will open a new tab and therein reproduce and analyze the bug.
+" "     Using this method,
+" "       loaded plugins or set options may interfere with bug reproduction.
+ 
+" let s:initial_lines = ['  first section', '    first subsection', '', 'second section', '  second subsection']
+ 
+" funct! s:BufferIsEmpty()
+  " return line('$') == 1 && empty(getline(1))
+" endfunct
+ 
+" funct! s:GetFoldLevels()
+  " let flvls = []
+  " for line in range(line('$'))
+    " let flvls += [ foldlevel(line) ]
+  " endfor
+  " return flvls
+" endfunct
+ 
+" let stages = []
+" command! RecordStage let stages += [ { 'change': s:stage_change, 'buffer contents': getline(1, '$'), 'foldlevels': <SID>GetFoldLevels() } ]
+ 
+" if !s:BufferIsEmpty()
+  " tabedit
+" endif
+ 
+" ""  Set Options
+  " " When this script is used as the vimrc via $(vim -u %),
+  " "   this will ensure that no plugins are loaded.
+  " set runtimepath=
+ 
+  " " Set other options in a way that will reproduce the bug.
+  " " I'm not sure which of these are necessary.
+  " set nocompatible
+  " setlocal expandtab
+  " setlocal tabstop=2
+  " setlocal shiftwidth=2
+  " setlocal autoindent
+  " setlocal foldmethod=indent
+  " setlocal foldlevel=1
+ 
+" let s:stage_change = 'Initial setup'
+" silent put =s:initial_lines
+" normal ggdd
+" RecordStage
+ 
+" let s:stage_change = 'Indent the empty-line-delimited last section'
+" call search('second section')
+" normal >G
+" RecordStage
+ 
+" let s:stage_change = 'Delete the empty line'
+" normal kdd
+" RecordStage
+ 
+" let s:stage_change = 'Fold things in a way that demonstrates the bug'
+" normal zc
+" normal ggjzc
+" normal gg
+" RecordStage
+ 
+" rightbelow new
+" normal iStages:
+" for stage in stages
+  " call append('$',
+    " \ [ '  change: ' . stage.change,
+    " \   '  line [foldlevel: contents]:' ]
+    " \ + map(stage['buffer contents'], '"    ".string(stage.foldlevels[v:key]).": ".string(v:val)')
+    " \ + [ '' ] )
+" endfor
+" normal GddggzR
+" wincmd w
+" 4wincmd _
