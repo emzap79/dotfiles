@@ -1,0 +1,15 @@
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/Mixshow_10.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/THHP_60_UnRip.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/THHP_61_Are_white_people_guests_in_hip_hop.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/THHP_62.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/thhp_63__Is_outkast_lying_to_the_people.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/thhp_mix_show_11.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/THHP_Mixshow_12.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/THHP_Mixshow_13_Indie_Edition.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/THHP_Mixshow_14_Christmas_Edition.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/THHP_Mixshow_14.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/Wassup_61.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/Wassup_62.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/Wassup_62_part_2.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/Wassup_63.mp3
+/home/zapata/Podcasts/Music/HipHop/TheHipHopPodcast/Wassup_64.mp3

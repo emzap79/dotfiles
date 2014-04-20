@@ -1,0 +1,10 @@
+(if
+	(and
+		(is (application_name) 'indicator-remindor')
+	)
+	(begin
+		(println "--[ Indicator-Remindor ]--")
+        (above)
+        (center)
+	)
+)

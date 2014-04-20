@@ -1,0 +1,343 @@
+" Location of VIMRC
+" ~/.vimrc
+
+" vim                 <-- starts Vim normally, reading ~/.vimrc
+" vim -u ~/.vimsqlrc  <-- starts Vim using your alternative vimrc
+" vim -u NONE         <-- starts Vim without any vimrc
+" vim -u NORC         <-- starts Vim without any vimrc, but with plugins
+
+" Convert from dos/unix to dos
+" http://vim.wikia.com/wiki/File_format
+" To convert the current file from any mixture of CRLF/LF-only line endings, so all lines end with CRLF only:
+"
+" :update    Save any changes.
+" :e ++ff=dos    Edit file again, using dos file format ('fileformats' is ignored).[A 1]
+" :w     Write buffer using dos (CRLF) line endings.
+
+" general config
+" filetype "{{{
+filetype off                    " VUNDLE requires to set off
+filetype plugin on              " This makes vim invoke Latex-Suite when you open a tex file
+filetype indent on              " This enables automatic indentation as you type
+"}}}
+" cpoptions"{{{
+" http://vi-improved.org/vimrc.html
+set cpoptions=aABceFsmq
+"             |||||||||
+"             ||||||||+-- When joining lines, leave the cursor between joined lines
+"             |||||||+-- When a new match is created (showmatch) pause for .5
+"             ||||||+-- Set buffer options when entering the buffer
+"             |||||+-- :write command updates current file name automatically add <CR> to the last line when using :@r
+"             |||+-- Searching continues at the end of the match at the cursor position
+"             ||+-- A backslash has no special meaning in mappings
+"             |+-- :write updates alternative file name
+"             +-- :read updates alternative file name
+" cpoptions"}}}
+" formatoptions"{{{
+" -------------------------------------------------
+" How to set formatoptions depending on filetype is described here:
+" http://vim.wikia.com/wiki/Disable_automatic_comment_insertion#Overriding_format_options_set_by_filetype_plugin
+"
+"set fo-=t        " don't autowrap
+set fo+=cqron    " explination see below
+" ------    ---------------------------------------
+" letter    meaning when present in 'formatoptions'
+" ------    ---------------------------------------
+" c         Auto-wrap comments using textwidth, inserting
+"           the current comment leader automatically.
+" q         Allow formatting of comments with "gq".
+" r         Automatically insert the current comment leader
+"           after hitting <Enter> in Insert mode.
+" t         Auto-wrap text using textwidth
+" w         Trailing white space indicates a paragraph continues
+"           in the next line.  A line that ends in a non-white
+"           character ends a paragraph.
+" a         Automatic formatting of paragraphs. Every time text
+"           is inserted or deleted the paragraph will be reformatted.
+"           When the 'c' flag is present this only happens for
+"           recognized comments.  n to comments.
+" o         Automatically insert the current comment leader
+"           after hitting 'o' or 'O' in Normal mode.
+" n         When formatting text, recognize numbered lists.
+"           This actually uses the 'formatlistpat' option,
+"           thus any kind of list can be used
+" "}}}
+" settings "{{{
+" " display settings"{{{
+" Vim can highlight whitespaces for you in a convenient way:
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+" set listchars=tab:>.,trail:.,extends:#,nbsp:.,eol:¬
+set list
+set background=dark                                                                   " enable for dark terminals
+set cursorcolumn                                                                      " highlight current column
+set cursorline                                                                        " show me where i am
+set laststatus=2                                                                      " use 2 lines for the status bar
+set matchpairs+=<:>                                                                   " specially for html
+set matchtime=2                                                                       " show matching bracket for 0.2 seconds
+set number                                                                            " show line numbers
+set rnu                                                                               " relative line numbers
+set ruf=%25(%n%m%r:\ %Y\ [%l,%v]\ %p%%%)                                              " rulerformat
+set ruler                                                                             " show cursor position in status bar
+set scrolloff=5                                                                       " keep at least 5 lines above/below cursor
+set showcmd                                                                           " show typed command in status bar
+set showmatch                                                                         " show matching bracket (briefly jump)
+set showmode                                                                          " show mode in status bar (insert/replace/...)
+set title                                                                             " show title in console title bar
+set wildignore+=*.fff,*.out,*.ttt,*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
+set wildignore+=*.log,*.aux,*.dvi,*.aut,*.aux,*.pdf,*.dvi,*.ps,*.toc,*.bbl,*.blg
+set wildignore+=*.o,*~,*.cmo,*.cmi,*.a,*.cmx,*.cmxa,*.lo
+set wildmenu                                                                          " completion with menu
+" set wmh=3                                                                             " windows minimum height
+" set wmw=3                                                                             " windows minimum width in columns
+"}}}
+" " editor settings"{{{
+set esckeys                                                 " map missed escape sequences (enables keypad keys)
+set tabstop=4                                               " number of spaces a tab counts for
+set ffs=unix,dos,mac                                        " only detect unix fileformat, displays that ^M with dos files
+"set ffs=mac                                        " only detect unix fileformat, displays that ^M with dos files
+"}}}
+" " advanced settings "{{{
+" -------------------------------------------------
+syntax on                              " switch on syntax highlight
+set t_Co=257
+"set nocompatible                      " use vim defaults
+set enc=utf-8
+set ls=2                               " always show status line
+set softtabstop=4                      " make the four spaces feel like a tab
+set nrformats=octal,hex                " defines characters to increase by CTRL+A.
+                                       " options: octal,hex,alpha
+set confirm                            " get a dialog when :q, :w, or :wq fails
+set lazyredraw                         " screen will only redraw once the macro has completed (speed up macros)
+set viminfo='20,\"500                  " remember copy registers after quitting in the .viminfo file -- 20 jump links, regs up to 500 lines'
+set nopaste                            " this is needed for use of abbreviations
+" set clipboard=unnamedplus            " use yanking to clipboard as default
+" set clipboard+=unnamed               " yank and copy to X clipboard
+set path=$PWD/**,$HOME/Unimaterialien  " sets current path variable for find command
+set rtp+=~/.vim/
+set rtp+=~/.vim/plugin/                " some extra plugins
+set rtp+=~/.vim/bundle/vundle/         " adding vundle to runtimepath
+set ttyfast                            " smoother changes
+set ttyscroll=0                        " turn off scrolling, didn't work well with PuTTY
+set modeline                           " last lines in document sets vim mode
+set modelines=3                        " number lines checked for modelines
+
+set nostartofline                      " don't jump to first character when paging
+set ofu=syntaxcomplete#Complete        " completion http://vim.wikia.com/wiki/Omni_completion
+"set switchbuf=useopen,usetabe
+set autowrite                          " auto saves changes when quitting and swiching buffer
+" set sm                               " show matching braces, somewhat annoying...
+set undolevels=1000                    " number of undos
+set history=2000                       " remember last 2000 typed commands
+set autoread                           " Set to auto read when a file is changed from the outside
+set hidden                             " It hides buffers instead of closing
+                                       " them. This means that you can have
+                                       " unwritten changes to a file and open
+                                       " a new  file using :e, without being
+                                       " forced to write or undo your changes
+                                       " first. Also, undo buffers and marks
+                                       " are preserved while the buffer is open.
+set nobackup                           " no backup~ files.
+set backupcopy=auto
+set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*test*,*temp*,*tmp*,*tst*,*~,*bak
+set comments+=:%,:\\begin{,:\\end{,:\\title{,:\\author{,:\\subtitle{,:\\part{,:\\chapter{,:\\section{,:\\subsection{,:\\subsubsection{,:\\paragraph,:\\subparagraph{,:\\usepackage{,:\\documenclass{,:\\usepackage[,:\\item[,:\\item,:#
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.out,.toc                " for file names completion
+
+"}}}
+" " search settings"{{{
+set magic        " change the way backslashes are used in search patterns
+set hlsearch     " When there is a previous search pattern, highlight all
+set incsearch    " While typing a search command, show results immediately
+set ignorecase   " Ignore case in search patterns.
+set smartcase    " Override the 'ignorecase' option if the search
+                 " pattern contains upper case characters.
+set wrapscan     " end of search has been achieved!
+"}}}
+""}}}
+" status line "{{{
+" set laststatus=2
+" " number of current buffer
+set statusline=%n:
+" " filename and -type
+set statusline+=[%f],[%{&fileencoding},%{&fileformat}]%<
+" " options
+set statusline+=%m%r%h%w
+" " formatoptions
+set statusline+=,[%{&fo}]
+" " editorname
+set statusline+=,%y
+" " current positon in file
+set statusline+=%=%-10.(%<\ %l,%c%v%)\ %p%%
+""" some more options
+" " git hotness
+" set statusline+=%{fugitive#statusline()}
+" " current date and time
+" set statusline+=[%{strftime(\"%l:%m:%s\ \%p,\ %a\ %b\ %d,\ %y\")}]
+" "}}}
+" session & viminfo settings"{{{
+" " sessionoptions"{{{
+" sessionoptions: saving a session to :mks [name] and reload with vim -S [name]
+set ssop-=options,buffers
+set ssop+=curdir,winsize
+let g:PathToSessions = "$HOME/.vim/sessions"
+" let g:PathToSessions += "."
+""}}}
+" " viminfo"{{{
+" Tell vim to remember certain things when we exit
+"  '10  :  marks will be remembered for up to 10 previously edited files
+"  "100 :  will save up to 100 lines for each register
+"  :20  :  up to 20 lines of command-line history will be remembered
+"  %    :  saves and restores the buffer list
+"  n... :  where to save the viminfo files
+set viminfo='10,\"100,:20,%,n~/.viminfo
+set com=s2:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,b:-                  " show all user-defined commands
+""}}}
+"}}}
+
+" wrapping, folding & indentation
+" folding"{{{
+set fdm=marker
+set foldopen=block,hor,mark,percent,quickfix,search,tag,undo  " reveals folded search hits
+set foldcolumn=4                                              " sets rows to show fold information
+set fdl=3                                                     " folds with higher level will be closed
+set fdls=0                                                    " sets number of closed folds when opening a new buffer
+"}}}
+" indentation "{{{
+set smarttab                                                  " smart tab handling for indenting
+set bs=indent,eol,start                                       " Allow backspacing over everything in insert mode
+set expandtab                                                 " tabs are converted to spaces, use only when required
+set nocindent                                                 " cindent
+                                                              " options: smart-/auto-/cindent
+set copyindent                                                " copy the previous indentation on autoindenting
+set smartindent                                               " turn on smart indenting. Availabile
+set shiftwidth=4                                              " number of spaces to use for autoindenting
+setlocal indentkeys+=},=\\item,=\\bibitem,=\\else,=\\fi,=\\or,=\\]
+"}}}
+" linewrapping{{{
+" set showbreak=>\ \ \                                          " note trailing space at end of next line
+set showbreak=""                                                " note trailing space at end of next line
+set textwidth=80                                              " set linebreak. default: 80
+set shiftround                                                " use multiple of shiftwidth when indenting with '<' and '>'
+set lbr                                                       " wrap at word
+set whichwrap=b,s,h,l,<,>,[,]                                 " Allow specified keys that move the cursor left/right.
+set wrap                                                      " wrap/nowrap lines
+"}}}
+" highlight where to wrap line"{{{
+" " option 1: vim owns wrap-limit highlighting"{{{
+" set colorcolumn=+1                                          " highlight column at eol
+" "}}}
+" " option 2: highlight to eol"{{{
+" http://blog.ezyang.com/2010/03/vim-textwidth/
+" augroup vimrc_autocmds
+  " autocmd BufEnter * highlight OverLength ctermbg=27 ctermfg=none cterm=none guibg=#592929
+  " autocmd BufEnter * match OverLength /\%81v.*/
+" augroup END
+" }}}
+" option 3: only highlight first character when wrapping"{{{
+call matchadd('ColorColumn', '\%81v', 100)
+" exec 'set colorcolumn=' . join(range(2,80,3), ',')          " this option is not recommended ;-)
+"}}}
+""}}}
+" automatically remove trailing whitespace"{{{
+" autocmd BufWritePre *.tex :%s/\s\+$//e
+" autocmd FileType c,cpp,java,php,txt autocmd BufWritePre <buffer> :%s/\s\+$//e
+""}}}
+
+" miscellanious
+" functions"{{{
+" enhanced increase number"{{{
+" http://vim.wikia.com/wiki/Increasing_or_decreasing_numbers?action=edit&section=3
+function! AddSubtract(char, back)
+  let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
+  call search(pattern, 'cw' . a:back)
+  execute 'normal! ' . v:count1 . a:char
+  silent! call repeat#set(":\<c-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<cr>")
+endfunction
+nnoremap <silent>         <c-a> :<c-u>call AddSubtract("\<c-a>", '')<cr>
+nnoremap <silent> <leader><c-a> :<c-u>call AddSubtract("\<c-a>", 'b')<cr>
+nnoremap <silent>         <c-x> :<c-u>call AddSubtract("\<c-x>", '')<cr>
+nnoremap <silent> <leader><c-x> :<c-u>call AddSubtract("\<c-x>", 'b')<cr>
+""}}}
+" restore key position"{{{
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+" ""}}}
+"}}}
+" error messages"{{{
+set cmdheight=3                        " Number of screen lines to use for the
+                                       " command-line. surpress errormessage when
+                                       " working with buffers
+set shortmess=atI                      " Abbreviate messages
+" a         all abbreviations
+" t         truncate file message at the start if it is too long to fit
+            " on the command-line, "<" will appear in the left most column.
+            " Ignored in Ex mode.
+" I         don't give the intro message when starting Vim |:intro|.
+set noerrorbells                       " do/don't beep when error
+set visualbell t_vb=                   " When no beep or flash is wanted, use "vb t_vb="
+"}}}
+" dictionary & thesaurus"{{{
+set dict=~/.aspell.de.pws
+set dict+=~/.vim/spell                                                     " set dirs of dictionaries
+set nospell                                                                " altern: set spell spelllang=de,en
+set complete+=k                                                            " enable dictionary completion
+                                                                           " its matches.
+set thesaurus+=~/.vim/thesaurus/thes_de.txt,~/.vim/thesaurus/thes_eng.txt  " using thesaurus by CTR+X CTRL+T in insert mode.
+" set iskeyword+=32-127,^,                                                 " thesaurus uses phrases witch contain spaces so account for them
+set iskeyword+="@,48-57,_,192-255"                                         " Keywords for recognizing beginning/end of word eg. in movements like w,e...
+set nolisp                                                                 " When <Enter> is typed in insert mode set the indent for the next line to Lisp
+                                                                           " standards (default: off)
+" "}}}
+" file type specific settings"{{{
+" restores the cursor position and its autocmd so that it gets triggered"{{{
+" augroup resCur
+  " autocmd!
+  " autocmd BufWinEnter * call ResCur()
+" augroup END
+" """}}}
+" define width of quickfix/location-list window"{{{
+autocmd FileType qf setlocal fo+=t
+autocmd FileType qf setlocal textwidth=32
+autocmd FileType qf setlocal wrap
+" """}}}
+" " other autocmd commands"{{{
+" if has( "autocmd ")
+ " " For debugging
+ " "set verbose=9
+
+ " " if bash is sh.
+  " let bash_is_sh=1
+
+ " " change to directory of current file automatically
+  " autocmd BufEnter * cd %:p:h
+
+ " " Put these in an autocmd group, so that we can delete them easily.
+  " augroup mysettings
+    " au FileType xslt,xml,css,html,xhtml,javascript,sh,config,c,cpp,docbook set smartindent shiftwidth=2 softtabstop=2 expandtab
+    " au FileType tex set wrap shiftwidth=2 softtabstop=2 expandtab
+
+ " " Confirm to PEP8
+    " au FileType python set tabstop=4 softtabstop=4 expandtab shiftwidth=4 cinwords=if,elif,else,for,while,try,except,finally,def,class
+  " augroup END
+
+  " augroup perl
+ " " reset (disable previous 'augroup perl' settings)
+    " au!
+
+ " " Always jump to the last known cursor position.
+ " " Don't do it when the position is invalid or when inside
+ " " an event handler (happens when dropping a file on gvim).
+  " autocmd BufReadPost *
+    " \ if line( "'\ " ") > 0 && line( "'\ " ") <= line( "$ ") |
+    " \   exe "normal g`\ " " |
+    " \ endif
+
+" endif " has( "autocmd ")
+" """}}}
+"}}}
+
+" testing functions
+

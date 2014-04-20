@@ -1,0 +1,12 @@
+(if
+	(and
+    	(is (window_class) "Gnote")
+    	(not 
+            (matches (window_name) "Alle\ Notizen\ durchsuchen")
+        )
+	)
+	(begin
+		(println "--[ Gnote ]--")
+		(geometry "658x744+0+24")
+	)
+)

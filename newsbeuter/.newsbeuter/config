@@ -1,0 +1,169 @@
+# Documentation: http://www.newsbeuter.org/doc/newsbeuter.html
+# available operations: http://newsbeuter.org/doc/newsbeuter.html#_first_steps
+
+# # bindings & macros# {{{
+# # # key-bindings# {{{
+unbind-key ^B
+bind-key ^B pageup
+unbind-key ^F
+bind-key ^F pagedown
+unbind-key g
+# bind-key g pageup
+bind-key o sort
+unbind-key G
+bind-key O rev-sort
+bind-key k up
+bind-key j down
+bind-key ^u show-urls
+bind-key \ open-in-browser
+unbind-key l
+bind-key l open-search
+bind-key L toggle-show-read-feeds
+# }}}
+# # # macro# {{{
+macro p toggle-article-read "unread"
+macro E set browser "echo %u >> ~/.newsbeuter/queue" ; open ; set browser "elinks %u"
+# }}}# }}}
+# # feedlist-format# {{{
+datetime-format              "%a, %d.%m %I:%M%P" # eigenes Format festlegen (man strftime)
+
+# Available Identifiers for articlelist-format
+# Identifier        Meaning
+# a                 Article author
+# D                 Publication date
+# f                 Article flags
+# i                 Article index
+# t                 Article title
+# T                 If the article list displays articles from different feeds, then this identifier contains the title of the feed to which the article belongs.
+# L                 Article length
+articlelist-format           "%4i %f %D   %?T?|%-17T|  ?%t"
+
+# Available Identifiers for feedlist-format
+# Identifier        Meaning
+# d                 Feed description
+# i                 Feed index
+# l                 Feed link
+# L                 Feed RSS URL
+# n                 "unread" flag field
+# S                 download status
+# t                 Feed title
+# T                 First tag of a feed in the URLs file
+# u                 "unread/total" field
+# U                 "unread" field
+# c                 "total" field
+feedlist-format              "%T %n %u %7u - %t" # Anzeige der Liste verändern
+
+feedlist-title-format        "%N %V - Your feeds (%u unread, %t total)%?T? - tag ‘%T’&?"
+articlelist-title-format     "%N %V - Articles in feed %T (%u unread, %t total) - %U"
+searchresult-title-format    "%N %V - Search result (%u unread, %t total)"
+filebrowser-title-format     "%N %V - %?O?Open File&Save File? - %f"
+help-title-format            "%N %V - Help"
+selecttag-title-format       "%N %V - Select Tag"
+selectfilter-title-format    "%N %V - Select Filter"
+itemview-title-format        "%N %V - Article %T (%u unread, %t total)"
+urlview-title-format         "%N %V - URLs"
+dialogs-title-format         "%N %V - Dialogs"
+# }}}
+## colors & highlighting# {{{
+# # # colors# {{{
+# ## https://github.com/carno/dotfiles/blob/master/.newsbeuter/colors
+# ## include ~/.newsbeuter/colors
+
+# solarized color scheme for newsbeuter <http://www.newsbeuter.org/>
+# more on solarized: http://ethanschoonover.com/solarized
+color listnormal color244 color234
+color listfocus  color166 color235
+color info       color136 color235
+color background color244 color234
+color article    color244 color234
+
+# ## a simple newsbeuter color scheme.
+# color listnormal white  black
+# color listfocus  black  blue bold
+# color info       green  blue
+# color background white  black
+# color article    white  black
+
+# color background white default
+# color listnormal white default
+# color listfocus green default
+# color listnormal_unread yellow default bold
+# color listfocus_unread green default
+# color info white default
+# color article white default
+# }}}
+# # # highlighting # {{{
+search-highlight-colors                     black yellow bold
+highlight all "00\.\ Filter.*"              color251 color234
+highlight all "^0[^0].*"                    color245 color234
+highlight all "999.*"                       color239 color234
+# }}}# }}}
+# # podcasts & downloads# {{{
+# # Available Operations in Podbeuter
+# Operation                 Default key     Description
+# quit                      q               Quit the program.
+# pb-download               d               Download the currently selected URL.
+# pb-cancel                 c               Cancel the currently selected download.
+# pb-play                   p               Start player with currently selected download.
+# pb-delete                 D               Delete the currently selected URL from the queue.
+# pb-purge                  P               Remove all finished and deleted downloads from the queue and load URLs that were newly added to the queue.
+# pb-toggle-download-all    a               Toggle the "automatic download"
+    # feature where all queued URLs are downloaded one after the other. The
+    # "max-downloads" configuration option controls how many downloads are done in
+    # parallel.
+# pb-increase-max-dls       +               Increase the "max-downloads" option by 1.
+# pb-decrease-max-dls       -               Decrease the "max-downloads" option by 1. If the option is already 1, no further decrease is possible.
+podcast-auto-enqueue no
+download-full-page no
+download-retries   2
+download-path ~/Podcasts/Videos/%n
+max-downloads 5
+player "mplayer %u"
+# }}}
+# # other settings# {{{
+# # # general settings# {{{
+mark-as-read-on-hover	yes
+article-sort-order      date-asc                       # currently available: date, title, flags, author, link, guid
+cleanup-on-quit         yes
+confirm-exit            no
+error-log               "~/.newsbeuter/error.log"
+external-url-viewer     "urlview"
+feed-sort-order         firsttag                       # firsttag, none,  title
+goto-next-feed          no
+html-renderer           "elinks  -dump -force-html"
+keep-articles-days      15
+max-items               500
+prepopulate-query-feeds yes
+show-keymap-hint        no
+show-read-articles      no
+show-read-feeds         no
+text-width 72  # description: If set to a number greater than 0, then
+               # all HTML will be rendered to this maximum line length. If set to 0, the terminal
+               # width will be used.
+# }}}
+# # # url-sources# {{{
+urls-source "local"
+# urls-source "googlereader"
+# googlereader-login "emzap79@googlemail.com"
+# }}}
+# # # reload & refresh # {{{
+auto-reload               yes
+refresh-on-startup        yes
+reload-only-visible-feeds yes
+reload-threads            2
+reload-time               60
+suppress-first-reload     yes
+# }}}
+# # # browser settings# {{{
+html-renderer "w3m -dump -T text/html"
+# browser "chromium-browser %u"
+# browser newsbPix      # For Terminal-Browser
+browser "chromium-browser --no-startup-window --new-tab %u 2> /dev/null &"
+# browser "chromium-browser --remote 'openURL(%u,new-tab,no-startup-window)'"
+# }}}
+# # # notifications# {{{
+notify-format	"RSS: "%d new articles (%n unread articles, %f unread feeds)"
+notify-program	"notify-send --hint=int:transient:1" # Notification-Programm festlegen
+notify-xterm	yes
+notify-beep		yes
+# }}}# }}}
