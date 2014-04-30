@@ -170,7 +170,7 @@ alias gitadd="git add -A . && git status"
 alias gitcom="git branch -a && git commit -m "
 alias gitgit="git add -A . && git commit -m "
 alias gitremote="git remote add origin"
-alias gitpush="git log --oneline && git push origin master"
+alias gitpush="git push origin master"
 alias gitp="git log --oneline --graph && git push origin master"
 alias gitdot="$HOME/bin/cronGithub backup"
 
@@ -278,7 +278,7 @@ alias vimenc="vim -u $USB/VIM/_vimrc $USB/VIM/_passw.encr"
 alias vimfoo="vim -u ~/.vim/vimrc_testing_foobar /tmp/foo.test"
 alias vimg='echo -e "$HOME/.vim-last-scriptout \n $LIX/Vim/vimgolf/VimGolfTricks_DotMacros.vg" >> /tmp/foo.golf \
     && vim -u ~/.vim/vimrc_vimgolf -W ~/.vim-last-scriptout /tmp/foo.golf' # http://stackoverflow.com/a/8931728/3569509
-alias vimm="vim -c ':MRU'"      # opens MRUs
+alias vimm="vim -c ':FufMruFile'"      # opens MRUs
 alias vimmutt="vim ~/.muttrc"
 alias vims="vim -S Session.vim"
 alias vimtmpl="vim ~/bin/tmplAte.sh"

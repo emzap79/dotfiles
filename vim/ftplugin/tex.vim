@@ -44,12 +44,6 @@ set dictionary+=~/.vim/dictionaries/tex.dict
 nnoremap <leader>ab :split<CR>:buffer abbrev.tex<CR>
 vnoremap <leader>ab <ESC>:split<CR>:buffer abbrev.tex<CR>
 
-" Save Buffer before Switching
-nnoremap <c-k> :w<cr><c-w><up>
-nnoremap <c-j> :w<cr><c-w><down>
-nnoremap <c-l> :w<cr><c-w><right>
-nnoremap <c-h> :w<cr><c-w><left>
-
 "itemizing full paragraph
 nnoremap <leader>it {jV}:s/^../\\item &/<cr>{jV}k<cr>
 inoremap <localleader>it \item<space>

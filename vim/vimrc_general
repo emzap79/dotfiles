@@ -29,8 +29,8 @@
 
 " filetype "{{{
 
-syntax on           " switch on syntax highlight
-filetype off        " VUNDLE requires to set off
+" filetype off        " VUNDLE requires to set off
+syntax enable           " switch on syntax highlight
 filetype plugin on  " This makes vim invoke Latex-Suite when you open a tex file
 filetype indent on  " This enables automatic indentation as you type
 set shell=bash\ -i
@@ -140,6 +140,10 @@ set path=$PWD/**,$HOME/Unimaterialien                " path: sets current path v
 set rtp+=~/.vim/
 set rtp+=~/.vim/plugin/                              " runtimepath: some extra plugins
 set rtp+=~/.vim/bundle/vundle/                       " runtimepath: adding vundle to runtimepath
+set rtp+=~/.vim/after
+set rtp+=$VIMRUNTIME
+
+set rtp+=~/Vim-R-plugin
 
 set nosol                                            " startofline: jump to first character when paging
 set ofu=syntaxcomplete#Complete                      " omnifunc: completion http://vim.wikia.com/wiki/Omni_completion

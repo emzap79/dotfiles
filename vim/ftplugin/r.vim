@@ -1,60 +1,48 @@
 " ----------------------------
 " Mapping Function
 " ----------------------------
-" nnoremap <C-Y> <Plug>RStart
-" inoremap <C-Y> <esc><Plug>RStart
-" vnoremap <C-Y> <Plug>RStart
-
-nnoremap <plug>r <Plug>RStart
-inoremap <plug>r <esc><Plug>RStart
-vnoremap <plug>r <Plug>RStart
 
 " Mappings for Vim-R"{{{
 
-" ----------------------------
-vnoremap <Space> <Plug>RDSendSelection
-nnoremap <Space> <Plug>RDSendLine
+" NOTE: Only *(ivn)map* will work!
+" Start R from inside vim by hitting: <,rf>
 
-nnoremap <localleader>q <Plug>RClose
-inoremap <localleader>q <esc><Plug>RClose
-vnoremap <localleader>q <Plug>RClose
+nmap <localleader>q <Plug>RClose
+imap <localleader>q <esc><Plug>RClose
+vmap <localleader>q <Plug>RClose
 
-nnoremap <M-l> <Plug>RSendLine
-inoremap <M-l> <esc><Plug>RSendLine
-vnoremap <M-l> <Plug>RSendLine
-
-nnoremap <M-p> <Plug>RSendSelection
-inoremap <M-p> <esc><Plug>RSendSelection
-vnoremap <M-p> <Plug>RSendSelection
+nmap L <Plug>RDSendLine
+imap L <esc><Plug>RDSendLine
+vmap L <Plug>RDSendSelection
 
 " Custom Keybindings
-nnoremap <C-kMinus> <Space><-<Space>
-inoremap <C-kMinus> <esc> <Space><-<Space>
-vnoremap <C-kMinus> <Space><-<Space>
+nmap <C-kMinus> <Space><-<Space>
+imap <C-kMinus> <esc> <Space><-<Space>
+vmap <C-kMinus> <Space><-<Space>
 
-nnoremap <C-l> <Space><-<Space>
-inoremap <C-l> <esc> <Space><-<Space>
-vnoremap <C-l> <Space><-<Space>
+nmap <S-C-l> <Space><-<Space>
+imap <S-C-l> <esc> <Space><-<Space>
+vmap <S-C-l> <Space><-<Space>
 
-nnoremap <M-1> 1gt
-inoremap <M-1> <esc>1gt
-vnoremap <M-1> 1gt
+nmap <M-1> 1gt
+imap <M-1> <esc>1gt
+vmap <M-1> 1gt
 
-nnoremap <M-2> 2gt
-inoremap <M-2> <esc>2gt
-vnoremap <M-2> 2gt
+nmap <M-2> 2gt
+imap <M-2> <esc>2gt
+vmap <M-2> 2gt
 
-nnoremap <M-3> 3gt
-inoremap <M-3> <esc>3gt
-vnoremap <M-3> 3gt
+nmap <M-3> 3gt
+imap <M-3> <esc>3gt
+vmap <M-3> 3gt
 
-nnoremap <M-4> 4gt
-inoremap <M-4> <esc>4gt
-vnoremap <M-4> 4gt
+nmap <M-4> 4gt
+imap <M-4> <esc>4gt
+vmap <M-4> 4gt
 
-nnoremap <M-5> 5gt
-inoremap <M-5> <esc>5gt
-vnoremap <M-5> 5gt
+nmap <M-5> 5gt
+imap <M-5> <esc>5gt
+vmap <M-5> 5gt
 
 "}}}
 " Benutzung (Kommandozeile)"{{{

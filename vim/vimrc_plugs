@@ -13,7 +13,8 @@ Bundle 'gmarik/vundle'
 " <S-C-F6> :BundleInstall!
 "
 " :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
+" :BundleInstall       - install bundles
+" :BundleInstall(!)    - update bundles
 " :BundleSearch(!) foo - search (or refresh cache first) for foo
 " :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
 "

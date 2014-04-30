@@ -18,9 +18,11 @@
 " smap (select mode)
 
 " <f1> through <f12>
+" <S-...>       shift-key
+" <C-...>       control-key
+" <M-...>       alt-key or meta-key
+" <A-...>       same as <M-...>
 " enter: <cr> or <enter> or <return>
-" space bar: <space>
-" esc key: <esc>
 " all special keys
 " see - :h keycodes
 
@@ -29,9 +31,9 @@
 
 " change the mapleader from \ to,
 
+let plug=";"
 let mapleader="\<space>"
 let maplocalleader=","
-let plug=";"
 " let r-plugin-localleader="\<space>"
 
 ""}}}
@@ -133,8 +135,8 @@ inoremap <F5> <ESC>:call ToggleYCM()<CR>
 " <f6>  " manage plugins through vundle "{{{
 
 "call bundlelist
-nnoremap <f6> :e ~/.vim/vimrc_plugs<cr> :BundleList<cr>
-inoremap <f6> <esc>:e ~/.vim/vimrc_plugs<cr> :BundleList<cr>
+nnoremap <f6> :e :BundleList<cr>
+inoremap <f6> <esc>:e :BundleList<cr>
 
 "call bundleclean!
 nnoremap <c-f6> :e ~/.vim/vimrc_plugs<cr> :BundleClean!<cr>
@@ -448,20 +450,23 @@ noremap gV `[v`]
 " open & edit vimrc-files"{{{
 
 " edit config file in horizontal split mode
+nnoremap <silent> <leader>es :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>erc :sp ~/.vim/vimrc_general<cr>
 nnoremap <silent> <leader>ef :sp ~/.vim/vimrc_foldexpr<cr>
 nnoremap <silent> <leader>ea :sp ~/.vim/vimrc_abbrev<cr>
 nnoremap <silent> <leader>ec :sp ~/.vim/vimrc_colors<cr>
 nnoremap <silent> <leader>eb :sp ~/.vim/vimrc_mappings<cr>
-nnoremap <silent> <leader>ep :sp ~/.vim/vimrc_plugs<cr>
 nnoremap <silent> <leader>em :sp ~/.vim/vimrc_mutt<cr>
+nnoremap <silent> <leader>er :sp ~/.vim/ftplugin/r.vim<cr>
+nnoremap <silent> <leader>et :sp ~/.vim/ftplugin/tex.vim<cr>
 nnoremap <silent> <leader>ea :sp ~/.vim/plugin/vim-autocorrect/plugin/autocorrect.vim<cr>
-nnoremap <silent> <leader>es :UltiSnipsEdit<cr>
+
+" edit config file in vertical split mode
+nnoremap <silent> <leader>ep :vs ~/.vim/vimrc_plugs<cr>
+
+
 nnoremap <leader>sp :cd %:p:h <cr>
 nnoremap <leader>slp :lcd %:p:h <cr> "set local path of currently edited file.
-
-nnoremap <silent> <leader>er :sp ~/.vim/vimrc_ft_r<cr>
-nnoremap <silent> <leader>et :sp ~/.vim/ftplugin/tex.vim<cr>
 
 ""}}}
 
@@ -602,7 +607,8 @@ nnoremap <silent> <leader>pw :call DoWindowSwap()<cr>
 "}}}
 " "" switching buffers"{{{
 
-nnoremap <esc>ß :b #<cr> " changes to previous buffer
+" changes to previous buffer
+nnoremap <esc>ß :b #<cr>
 nnoremap <c-k> <c-w><up>
 nnoremap <c-j> <c-w><down>
 nnoremap <c-l> <c-w><right>

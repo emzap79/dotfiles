@@ -5,11 +5,6 @@
 " Description: Please feel free to fork my vimrc!!!
 " Last Modified: Januar 04, 2014
 
-" reset to vim-defaults
-if &compatible          " only if not set before:
-  set nocompatible      " use vim-defaults instead of vi-defaults (easier, more user friendly)
-endif
-
 " This source imports all of my general settings. Indent, hilight, etc.
 source ~/.vim/vimrc_general
 " This source imports all of my plugin settings and bindings.
@@ -26,9 +21,9 @@ source ~/.vim/vimrc_colors
 source ~/.vim/vimrc_plugs
 
 " This source sets R configs
-source ~/.vim/vimrc_ft_r
+source ~/.vim/ftplugin/r.vim
 " This source sets LaTeX configs
-" source ~/.vim/ftplugin/tex.vim
+source ~/.vim/ftplugin/tex.vim
 
 "------------------
 " Xterm-Style-Keys
