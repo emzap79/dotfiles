@@ -13,10 +13,7 @@ endglobal
 ##############
 # MATH STUFF #
 ##############
-snippet $ "Math Surround" i
-$${1:${VISUAL}}$ $0
-endsnippet
-snippet $$ "Math Surround" i
+snippet $$ "Math Surround" i!
 $$${1:${VISUAL}}$$ $0
 endsnippet
 snippet "->" "sign: rightarrow" ir
@@ -96,10 +93,10 @@ endsnippet
 snippet 1/4 "One Quarter" i
 \frac{1}{4} $0
 endsnippet
-snippet "(\w)_" "subscript" r
+snippet "(\S)_" "subscript" r
 `!p snip.rv = match.group(1)`_{${1}}
 endsnippet
-snippet "(\w)\^" "supscript" r
+snippet "(\S)\^" "superscript" r
 `!p snip.rv = match.group(1)`^{${1}}
 endsnippet
 
@@ -126,7 +123,7 @@ snippet rezept "editing new receipt" b
 
 \begin{itemize}
 
-	\item ${5:Zutat 1}
+    \item ${5:Zutat 1}
 
 \end{itemize}
 
@@ -630,6 +627,7 @@ pdftex,
 \newcommand{\bD}{\mathbf{D}}
 \newcommand{\mE}{I\!\!E}
 \newcommand{\si}{{(i)}}
+\newcommand{\Tau}{\mathrm{T}}   %% http://tex.stackexchange.com/a/111548
 \newcommand{\coloneqq}{\mathrel{\mathop:}=}
 \newcommand{\eqqcolon}{=\mathrel{\mathop:}}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
@@ -673,8 +671,12 @@ pdftex,
 %% Press <Tab> to begin Document
 ${1/(scrartcl)$|(scrlttr2)$|(newlfm)/(?1:begin document)(?2:letter scrlttr2)(?3:letter newlfm)/g}$0
 
-%% \maketitle
-%% \printindex
+% \maketitle
+% \pagebreak
+% \input{\currDir abbrev}
+% \pagebreak
+% \printindex
+
 % document %}}}
 endsnippet
 snippet "preamble short" "Short Preamble" b
@@ -720,6 +722,19 @@ snippet "preamble short" "Short Preamble" b
 \usepackage[ngerman]{babel}            %% Neue Rechtschreibung
 \usepackage[utf8]{inputenc}            %% UTF-8
 \usepackage[T1]{fontenc}               %% Zur Darstellung von Umlauten
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Gray Highlighting equations
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% http://tex.stackexchange.com/a/77763
+\usepackage{mdframed}
+\usepackage{xcolor}
+\surroundwithmdframed[
+    hidealllines=true,
+    backgroundcolor=black!20,
+    skipbelow=\baselineskip,
+    skipabove=\baselineskip
+]{equation}
 
 %%%%%%%%%%%
 %%% Math-Packages

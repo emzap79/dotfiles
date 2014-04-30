@@ -32,6 +32,7 @@
 let mapleader="\<space>"
 let maplocalleader=","
 let plug=";"
+" let r-plugin-localleader="\<space>"
 
 ""}}}
 
@@ -196,7 +197,6 @@ endfun
 " func: ToggleWrap"}}}
 nnoremap <s-f8> :call ToggleWrap()<cr>
 nnoremap <s-f8> <esc>:call ToggleWrap()<cr>
-nnoremap <s-f8> <esc>:call ToggleWrap()<cr>
 
 " toggle foldcolumn on left
 "" func: toggle foldcolumn {{{
@@ -221,16 +221,6 @@ inoremap <s-c-f8> <c-o>:call TogglePaste()<cr>
 " " f-keys"}}}
 " <f9>  " language tools & spellcheck"{{{
 
-"enable languagetool
-"for use with latex: http://tex.stackexchange.com/questions/6333/grammar-checking-tool-for-use-with-latex/6552#6552
-noremap <s-f9> :LanguageToolCheck<cr>:lopen 25<CR>
-inoremap <s-f9> :LanguageToolCheck<cr>:lopen 25<CR>
-vnoremap <s-f9> :LanguageToolCheck<cr>:lopen 25<CR>
-
-"aspell spellcheck
-nnoremap <c-f9> :w!<cr>:!/usr/bin/aspell --dont-backup --dont-tex-check-comments check %<cr>:e! %<cr>
-inoremap <c-f9> :w!<cr>:!/usr/bin/aspell --dont-backup --dont-tex-check-comments check %<cr>:e! %<cr>
-
 " switch spellcheck languages
 " func: toggle languages"{{{
 
@@ -250,8 +240,18 @@ fun! ToggleSpell()
 endfun
 
 "}}}
-nnoremap <s-c-f9> :call ToggleSpell()<cr>
-inoremap <s-c-f9> <c-o>:call ToggleSpell()<cr>
+nnoremap <f9> :call ToggleSpell()<cr>
+inoremap <f9> <c-o>:call ToggleSpell()<cr>
+
+"enable languagetool
+"for use with latex: http://tex.stackexchange.com/questions/6333/grammar-checking-tool-for-use-with-latex/6552#6552
+noremap <s-f9> :LanguageToolCheck<cr>:lopen 25<CR>
+inoremap <s-f9> :LanguageToolCheck<cr>:lopen 25<CR>
+vnoremap <s-f9> :LanguageToolCheck<cr>:lopen 25<CR>
+
+"aspell spellcheck
+nnoremap <c-f9> :w!<cr>:!/usr/bin/aspell --dont-backup --dont-tex-check-comments check %<cr>:e! %<cr>
+inoremap <c-f9> :w!<cr>:!/usr/bin/aspell --dont-backup --dont-tex-check-comments check %<cr>:e! %<cr>
 
 "count words in latex
 nnoremap <a-f9> :w !detex \| wc -w<cr>
@@ -279,12 +279,11 @@ vnoremap <silent> <s-f10> :NERDTree %:p:h<cr> " to display NERDTree"
 " <f11> " *** no functions yet***{{{
 
 "}}}
-" <f12> " compile latex and tex documents{{{
+" <f12> " compile docs (eg. latex) from within vim "{{{
 
 " compiling and viewing its.tex file
 " compile and start latex viewer
 " see: http://plankenau.com/blog/post-8/latexInVim
-
 nnoremap <a-f12> :TexCompilePDF<CR>
 inoremap <a-f12> <ESC>:TexCompilePDF<CR>
 vnoremap <a-f12> <ESC>:TexCompilePDF<CR>
@@ -294,6 +293,14 @@ vnoremap <s-f12> <ESC>:LatexCompilePDF<CR>
 nnoremap <s-c-f12> :XeLatexCompilePDF<CR>
 inoremap <s-c-f12> <ESC>:XeLatexCompilePDF<CR>
 vnoremap <s-c-f12> <ESC>:XeLatexCompilePDF<CR>
+
+" http://plankenau.com/blog/post-8/latexInVim
+" command!  LatexCompilePDF execute "silent !latexmk\ -pdf\ % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
+command!  LatexCompilePDF execute "silent !pdflatex % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
+command!  TexCompilePDF execute "silent !pdftex % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
+command!  XeLatexCompilePDF execute "silent !xelatex % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
+
+
 
 "mapping to automatically add an abbreviation
 nnoremap <leader><f12> <sid>:call AddAbbr()<cr>
@@ -396,7 +403,6 @@ vnoremap <space><space> <ESC>:wall!<CR>
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 vnoremap <Leader>y "+y
 vnoremap <Leader>d "+d
-nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
 vnoremap <Leader>p "+p
 vnoremap <Leader>P "+P
@@ -444,6 +450,7 @@ noremap gV `[v`]
 " edit config file in horizontal split mode
 nnoremap <silent> <leader>erc :sp ~/.vim/vimrc_general<cr>
 nnoremap <silent> <leader>ef :sp ~/.vim/vimrc_foldexpr<cr>
+nnoremap <silent> <leader>ea :sp ~/.vim/vimrc_abbrev<cr>
 nnoremap <silent> <leader>ec :sp ~/.vim/vimrc_colors<cr>
 nnoremap <silent> <leader>eb :sp ~/.vim/vimrc_mappings<cr>
 nnoremap <silent> <leader>ep :sp ~/.vim/vimrc_plugs<cr>
@@ -453,12 +460,24 @@ nnoremap <silent> <leader>es :UltiSnipsEdit<cr>
 nnoremap <leader>sp :cd %:p:h <cr>
 nnoremap <leader>slp :lcd %:p:h <cr> "set local path of currently edited file.
 
-nnoremap <silent> <leader>er :sp ~/.vim/ftplugin/r.vim<cr>
+nnoremap <silent> <leader>er :sp ~/.vim/vimrc_ft_r<cr>
 nnoremap <silent> <leader>et :sp ~/.vim/ftplugin/tex.vim<cr>
 
 ""}}}
 
 ""}}}
+" Compile and show documents"{{{
+
+" Open any kind of files as pdf (requires pandoc installed!)
+" http://stackoverflow.com/a/20799071
+" pandoc , markdown
+command! -nargs=* RunSilent
+      \ | execute ':silent !'.'<args>'
+      \ | execute ':redraw!'
+noremap <Leader>pc :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
+noremap <Leader>pp :RunSilent gnome-open /tmp/vim-pandoc-out.pdf<CR>
+
+"}}}
 " Folding, Buffers & Tabs"{{{
 
 " fold commands"{{{
@@ -549,14 +568,6 @@ nnoremap gF :lcd %:p:h<cr>:e! ./<cfile><cr>
 "}}}
 " window-movements"{{{
 
-" "" map ctrl-movement keys to window switching"{{{
-
-nnoremap <c-k> <c-w><up>
-nnoremap <c-j> <c-w><down>
-nnoremap <c-l> <c-w><right>
-nnoremap <c-h> <c-w><left>
-
-"}}}
 " "" swap position of two open buffer-windows"{{{
 
 """ " func: window swap"{{{
@@ -591,18 +602,13 @@ nnoremap <silent> <leader>pw :call DoWindowSwap()<cr>
 "}}}
 " "" switching buffers"{{{
 
-nnoremap <silent> <leader>bp :bprevious<cr> " closing mb on/off
-nnoremap <silent> <leader>bn :bnext<cr> " closing mb on/off
-
 nnoremap <esc>ß :b #<cr> " changes to previous buffer
+nnoremap <c-k> <c-w><up>
+nnoremap <c-j> <c-w><down>
+nnoremap <c-l> <c-w><right>
+nnoremap <c-h> <c-w><left>
 
 "}}}
-" " "" change to window from bufferlist"{{{
-
-" " http://vim.wikia.com/wiki/easier_buffer_switching
-" command -nargs=? -bang Buffer if <q-args> != '' | exe 'buffer '.<q-args> | else | ls<bang> | let buffer_nn=input('Which one: ') | if buffer_nn != '' | exe buffer_nn != 0 ? 'buffer '.buffer_nn : 'enew' | endif | endif
-
-" "}}}
 " "" switch to alternate file"{{{
 
 nnoremap <c-tab> :bnext<cr>
@@ -786,12 +792,16 @@ xnoremap <leader>r :<C-u>'{,'}s/<C-r>=GetVisualSelection()<CR>/
 xnoremap <leader>R :<C-u>%s/<C-r>=GetVisualSelection()<CR>/
 
 " change word under cursor "}}}
-" remove/replace (trailing) spaces"{{{
+" remove/replace duplicates and/or (trailing) spaces"{{{
+
+" remove duplicate lines
+" http://vim.wikia.com/wiki/Power_of_g
+nnoremap <silent><leader>dd :%g/\^\\(.*\\)\\(\\r\\?\\n\\1\\)\\+$/d  \\| %!uniq<CR>
 
 " remove trailing whitespaces
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
 nnoremap <silent><space>dp :'{,'}s/\s\s\+/ /g<CR>:nohl<CR>``
-vnoremap <silent><space>dv  :B s/\s\s\+/ /g<cr>:nohl<cr>
+vnoremap <silent><space>dv :B s/\s\s\+/ /g<cr>:nohl<cr>
 nnoremap <silent><space>d0 :'{,'}s/^\s\+//g<CR>:nohl<CR>``
 nnoremap <silent><space>d$ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>``
 nnoremap <silent><space>da :%s/\s\s\+/ /g<CR>:nohl<CR>``
@@ -852,12 +862,12 @@ nnoremap <silent> <esc> :nohl<cr>
 cmap w!! w !sudo tee % >/dev/null
 
 "}}}
-" flip text horizontally
+" flip text horizontally"{{{
 
 nnoremap <leader>fh :Mirror<CR>
 command! -bar -range Mirror <line1>,<line2>call setline('.', join(reverse(split(getline('.'), '\zs')), ''))
 
-"
+""}}}
 " execute cmd within visual"{{{
 
 nnoremap <leader>v :'<,'>

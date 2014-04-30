@@ -12,17 +12,20 @@ endglobal
 #.##################
 #.#.General.Snippets
 #.##################
-snippet ",,(\S+)?" "Insert Tex-command" !ir
+snippet ",,(\S+)?" "Insert Tex-command" ir
 \\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`${1:[${2}]}{${3}}{${4:${VISUAL}}}
 endsnippet
-snippet "\.\.(\S+)?" "Insert Tex-command" !ir
+snippet "\.\.(\S+)?" "Insert Tex-command" ir
 {\\`!p snip.rv = match.group(1) if match.group(1) is not None else ""` ${1:${VISUAL}}}
 endsnippet
-snippet ";(\S+)?" "Insert Tex-command" !ir
+snippet ";(\S+)?" "Insert Tex-command" ir
 \\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`{${1:${VISUAL}}}
 endsnippet
-snippet "\:(\S+)?" "Insert Tex-command" !ir
+snippet "\:(\S+)?" "Insert Tex-command" ir
 \\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`${1:${VISUAL}}
+endsnippet
+snippet "\:\:(\S+)?" "Insert Tex-command" !ir
+:\\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`${1:${VISUAL}}
 endsnippet
 #.##.header
 snippet % "chapter header" b
@@ -73,9 +76,9 @@ snippet twofigure "Envir: Two Figures" !b
 \end{figure}
 endsnippet
 snippet "be(gin)?( (\S+))?" "begin{} / end{}" br
-\begin{`!p snip.rv = match.group(3) if match.group(2) is not None else "document"`}
-${1:${VISUAL}}
-\end{`!p snip.rv = match.group(3) if match.group(2) is not None else "document"`}$0
+\begin{`!p snip.rv = match.group(3) if match.group(2) is not None else "document"`}${1:
+${VISUAL}}$0
+\end{`!p snip.rv = match.group(3) if match.group(2) is not None else "document"`}
 endsnippet
 snippet "((pic)|(graph))(s)?" "Include Pictures" rwb!
 \\includegraphics[${1:[ scale | height | width ]}${1/(h)$|(w)$|(s)/(?1:eight)(?2:idth)(?3:cale)/}=0.5\text${1/(h)$|(w)$|(.)/(?1:$1eight)(?2:$2idth)(?3:)/},${2:trim=${3: l b r t} $3 $3 $3, clip}]
@@ -118,6 +121,9 @@ endsnippet
 snippet strut "Rule width 0 width" w
 \\rule{0em}{${1}}
 endsnippet
+snippet strut "invisible rule with specific height" !b
+\rule[${1}]{0ex}{0ex}
+endsnippet
 snippet "(tab)|(arr)" "tabular and arrays" r
 \begin{${1:t}${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${2:c}}
 $0${2/((?<=.)c|l|r)|./(?1: & )/g}
@@ -126,23 +132,17 @@ endsnippet
 snippet box "boxes" w
 \\${1:[frame|make|par|rule]}${1/(f)$|(m)$|(p)$|(r)/(?1:ramebox)(?2:akebox)(?3:arbox)(?4:ule)/}${2:[${3:${1/(f$|m)$|(p)$|(r)/(?1:lr)(?2:bt)(?3:5mm)/}}]}${1/(f$|m$|p)$|(r)/(?1:)(?2:{1em}{1ex})/}$0
 endsnippet
-snippet strut "invisible rule with specific height" !b
-\rule[${1}]{0ex}{0ex}
-endsnippet
 # .##.enum,.descr,.itemize
 snippet "enume?r?a?t?e?" "env: enumerate" br
-\begin{enumerate}
-${0:${VISUAL}}
+\begin{enumerate}$0${VISUAL}
 \end{enumerate}
 endsnippet
 snippet "itemiz?e?" "env: itemize" br
-\begin{itemize}
-${1:${VISUAL}}
+\begin{itemize}$0${VISUAL}
 \end{itemize}
 endsnippet
 snippet "descr?i?p?t?" "env: description" br
-\begin{description}
-\item[$1] ${0:${VISUAL}}
+\begin{description}$0${VISUAL}
 \end{description}
 endsnippet
 snippet "ite?m?" "item" br
@@ -150,6 +150,7 @@ snippet "ite?m?" "item" br
 endsnippet
 # .##.sections,.chapters.and.their.like
 snippet "part" "Part" br
+\setcounter{section}{0}
 \part{${1:part name}}
 \label{prt:${2:${1/(\w+)|\W+/(?1:\L$0\E:_)/ga}}}
 \input{\currDir $2.tex}
@@ -158,6 +159,7 @@ ${3:% part % $2 %{{{
 ${4:${VISUAL}}
 
 % part % $2 (end) %}}}}
+\pagebreak
 endsnippet
 snippet "cha?p?t?e?r?" "Chapter" br
 % chapter % $2 %{{{
@@ -170,8 +172,8 @@ ${3:${VISUAL}}
 endsnippet
 snippet "sec?t?i?o?n?" "Section" br
 \section{${1:section name}}
-${2:\label{sec:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}
-${4:\input{\currDir cont/$3.tex}}
+${2:\label{sec:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}${4:
+\input{\currDir cont/$3.tex}}
 
 ${5:${VISUAL}}
 
@@ -179,8 +181,8 @@ ${5:${VISUAL}}
 endsnippet
 snippet "(subs?e?c?)|(ssec)" "Subsection" br
 \subsection{${1:subsection name}}
-${2:\label{sec:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}
-${4:\input{\currDir cont/$3.tex}}
+${2:\label{sec:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}${4:
+\input{\currDir cont/$3.tex}}
 
 ${5:${VISUAL}}
 
@@ -188,8 +190,8 @@ ${5:${VISUAL}}
 endsnippet
 snippet "(subsub?s?e?c?)|(sssec)" "Subsection" br
 \subsubsection{${1:subsection name}}
-${2:\label{sec:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}
-${4:\input{\currDir cont/$3.tex}}
+${2:\label{sec:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}${4:
+\input{\currDir cont/$3.tex}}
 
 ${5:${VISUAL}}
 
@@ -213,10 +215,7 @@ ${0}
 endsnippet
 # .##.notes,.comments
 snippet note "Insert (Margin)Note" i
-\\${1:margin}note
-{
-	${2:${VISUAL}}
-}${3:[${4}ex]}
+\\${1:margin}note{${2:${VISUAL}}}${3:[${4}ex]}
 endsnippet
 snippet "(under|over)b?r?" "Under-/Overbrace Text or Formula" wr
 \\`!p snip.rv = match.group(1)`brace{${1:${VISUAL}}}`!p snip.rv = '^' if match.group(1) == 'over' else '_'`{${2}}

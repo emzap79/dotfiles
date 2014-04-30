@@ -1,4 +1,4 @@
-# vim:set textwidth=0
+# vim:fdm=marker:textwidth=0
 ### Filter {{{
 
 "query:Jobsinecuador: tags =~ \"jobs\" and title =~ \"ecuador\""       "00. Filter"
@@ -9,25 +9,27 @@
 # }}} Filter #
 ### url-list# {{{
 
-"query:Uni Due: tags =~ \"999. Uni Due\" and tags =~ \"Uni Due\""                                                                        "01. Uni Due :: Uni Due"
-"query:Unix: tags =~ \"999.\ Unix\" and tags =~ \"linux\""                                                                               "02. Unix :: Linux"
-"query:Unix: tags =~ \"999.\" and (tags =~ \"vim\" or title =~ \"vim\")"                                                                 "02.1 Unix :: VIM"
-"query:Unix: tags =~ \"999. Unix\" and tags =~ \"Ubuntu\""                                                                               "02.2 Unix :: Ubuntu"
-"query:Unix: tags =~ \"999. Unix\" and tags =~ \"Fedora\""                                                                               "02.3 Unix :: Fedora"
-"query:Rasppi: tags =~ \"999.\" and (tags =~ \"Lifehacker\" or tags =~ \"Rasppi\") and (title =~ \"rasppi\" or title =~ \"raspberry\")"  "02.3 Unix :: RaspPi"
-"query:Mavs: tags =~ \"999. Sport\" and (title =~ \"Mavs\" or title =~ \"Mavericks\" or title =~ \"Nowitzki\")"                          "03.1 Sport :: Basketball"
-"query:Sport: tags =~ \"999. Sport\" and tags =~ \"Fussball\" and link =~\"spielbericht\""                                               "03.2 Sport :: Fussball"
-"query:News: tags =~ \"999. News\" and (tags =~ \"nachrichten\" or tags =~ \"latinamerica\")"                                            "04. News :: Nachrichten"
-"query:News: tags =~ \"999. News\" and tags =~ \"Technik\""                                                                              "04.2 News :: Technik"
-"query:News: tags =~ \"999. News\" and tags =~ \"Finance\""                                                                              "04.3 News :: Finance"
-"query:News: tags =~ \"999. News\" and tags =~ \"bochum\""                                                                               "04.4 News :: Bochum"
-"query:Reddit: tags =~ \"999. Reddit\" and tags =~ \"ama\" and title !~ \"\ama request\""                                                "05.1 Reddit :: IAmA"
-"query:Reddit: tags =~ \"999. Reddit\" and (link =~ \"rasppi\" or link =~ \"rasppi\" or link =~ \"raspberry\")"                          "05.2 Reddit :: Rasppi"
-"query:Reddit: tags =~ \"999. Reddit\" and tags =~ \"all\" and (title =~ \"linux\")"                                                     "05.3 Reddit :: linux"
-"query:Reddit: tags =~ \"999. Reddit\" and tags =~ \"messages\""                                                                         "05.4 Reddit :: messages"
-"query:News: tags =~ \"999. Ecuador\" and tags =~ \"ecuador\" and link !~ \"deporte\""                                                   "06. Ecuador :: News"
-"query:News: tags =~ \"999. Ecuador\" and tags =~ \"karo\""                                                                              "06.1 Ecuador :: Privat"
-"query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Technik\""                                                                      "09. Angebote :: Technik"
+"query:Uni Due: tags =~ \"999. Uni Due\" and tags =~ \"Uni Due\""                                                                         "01. Uni Due :: Uni Due"
+"query:Unix: tags =~ \"999.\ Unix\" and tags =~ \"linux\""                                                                                "02. Unix :: Linux"
+"query:Unix: tags =~ \"999.\" and (tags =~ \"vim\" or title =~ \"vim\")"                                                                  "02.1 Unix :: VIM"
+"query:Unix: tags =~ \"999. Unix\" and tags =~ \"Ubuntu\""                                                                                "02.2 Unix :: Ubuntu"
+"query:Unix: tags =~ \"999. Unix\" and tags =~ \"Fedora\""                                                                                "02.3 Unix :: Fedora"
+"query:Rasppi: tags =~ \"999.\" and (tags =~ \"Lifehacker\" or tags =~ \"Rasppi\") and (title =~ \"rasppi\" or title =~ \"raspberry\")"   "02.3 Unix :: RaspPi"
+"query:Mavs: tags =~ \"999. Sport\" and (title =~ \"Mavs\" or title =~ \"Mavericks\" or title =~ \"Nowitzki\")"                           "03.1 Sport :: Basketball"
+"query:Sport: tags =~ \"999. Sport\" and tags =~ \"Fussball\" and link =~\"spielbericht\""                                                "03.2 Sport :: Fussball"
+"query:News: tags =~ \"999. News\" and (tags =~ \"nachrichten\" or tags =~ \"latinamerica\")"                                             "04. News :: Nachrichten"
+"query:News: tags =~ \"999. News\" and tags =~ \"Technik\""                                                                               "04.2 News :: Technik"
+"query:News: tags =~ \"999. News\" and tags =~ \"Finance\""                                                                               "04.3 News :: Finance"
+"query:News: tags =~ \"999. News\" and tags =~ \"bochum\""                                                                                "04.4 News :: Bochum"
+"query:Reddit: tags =~ \"999. Reddit\" and tags =~ \"ama\" and title !~ \"\ama request\""                                                 "05.1 Reddit :: IAmA"
+"query:Reddit: tags =~ \"999. Reddit\" and (link =~ \"rasppi\" or link =~ \"rasppi\" or link =~ \"raspberry\")"                           "05.2 Reddit :: Rasppi"
+"query:Reddit: tags =~ \"999. Reddit\" and tags =~ \"all\" and (title =~ \"linux\")"                                                      "05.3 Reddit :: linux"
+"query:Reddit: tags =~ \"999. Reddit\" and tags =~ \"messages\""                                                                          "05.4 Reddit :: messages"
+"query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"VIM\""                                                               "06.1 StackExch :: VIM"
+"query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"Bash\""                                                               "06.2 StackExch :: Bash"
+"query:News: tags =~ \"999. Ecuador\" and tags =~ \"ecuador\" and link !~ \"deporte\""                                                    "07. Ecuador :: News"
+"query:News: tags =~ \"999. Ecuador\" and tags =~ \"karo\""                                                                               "07.1 Ecuador :: Privat"
+"query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Technik\""                                                                       "09. Angebote :: Technik"
 # "query:Sport: tags =~ \"999. Sport\" and tags =~ \"Basketball\""                                                                       "03. Sport :: Basketball"
 # "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Kleidung\""                                                                   "09. Angebote :: Kleidung"
 # "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Sonstige\""                                                                   "09. Angebote :: Sonstige"
@@ -35,7 +37,7 @@
 
 # }}}
 # "999. Single Tags"
-### Reddit#{{{
+### Reddit #{{{
 
 http://www.reddit.com/r/all/hot/.rss                  "999. Reddit - All"
 http://www.reddit.com/message/inbox/.rss              "999. Reddit - Messages"
@@ -48,6 +50,14 @@ http://www.reddit.com/r/vimgolf/.rss                  "999. Reddit - Vimgolf"
 # http://www.Reddit.com/r/gnome/.rss                  "999. Reddit - Linux"
 # http://www.reddit.com/r/linux4noobs/.rss            "999. Reddit - Linux"
 # http://www.reddit.com/r/LinuxActionShow/.rss reddit "999. Reddit - Linux"
+
+#}}}
+### StackExch #{{{
+
+http://stackoverflow.com/feeds/tag?tagnames=bash&sort=newest "999. StackExch :: Bash"
+http://stackoverflow.com/feeds/tag?tagnames=vim&sort=newest "999. StackExch :: VIM"
+http://superuser.com/feeds/tag/bash "999. StackExch :: Bash"
+http://superuser.com/feeds/tag/vim "999. StackExch :: VIM"
 
 #}}}
 ### Podcasts #{{{
@@ -86,7 +96,6 @@ http://wsj.com/xml/rss/3_7481.xml                                            "99
 http://www.faz.net/aktuell/wirtschaft/?rssview=1                             "999. News - Finance"
 http://www.tradac.de/wordpress/?feed=rss2                                    "999. News - Finance"
 http://www.handelsblatt.com/contentexport/feed/finanzen/                     "999. News - Finance"
-http://economic-observer.de/?feed=rss2                                       "999. News - Finance"
 
 ####}}}
 #### Technics#{{{
@@ -138,7 +147,6 @@ http://blog.superuser.com/feed/                                    "999. Unix - 
 http://ldiracdelta.blogspot.com/feeds/posts/default?alt=rss        "999. Unix - Linux"
 http://feeds.launchpad.net/beat-box/announcements.atom             "999. Unix - Linux"
 http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss     "999. Unix - Linux"
-http://doctormo.org/feed/                                          "999. Unix - Linux"
 http://feeds2.feedburner.com/Command-line-fu "999. Unix - Linux"
 http://www.themagpi.com/feed/                                      "999. Unix - Rasppi"
 http://www.techdrivein.com/feeds/posts/default                     "999. Unix - Ubuntu"
@@ -153,12 +161,10 @@ http://www.linux-community.de/Ticker/news.rdf                      "999. Unix - 
 http://www.markshuttleworth.com/feed                               "999. Unix - Ubuntu"
 http://feeds.feedburner.com/unixmenhowtos?format=xml               "999. Unix - Ubuntu"
 http://feeds.tuxgarage.com/TuxGarage                               "999. Unix - Ubuntu"
-view-source:http://rss.golem.de/rss.php?feed=RSS1.0&ms=linux       "999. Unix - Ubuntu"
+http://rss.golem.de/rss.php?feed=RSS1.0&ms=linux       "999. Unix - Ubuntu"
 http://www.cyberciti.biz/faq/feed/?feedburner=false&k=true         "999. Unix - Ubuntu"
-http://feeds.feedburner.com/Noobslab                               "999. Unix - Ubuntu"
 http://www.freiesmagazin.de/rss.xml                                "999. Unix - Ubuntu"
 http://www.openshotvideo.com/feeds/posts/default                   "999. Unix - Ubuntu"
-http://my.opera.com/area42/xml/atom/blog/                          "999. Unix - Ubuntu"
 http://www.it-hall.com/feed/                                       "999. Unix - Ubuntu"
 http://elementaryluna.blogspot.com/feeds/posts/default             "999. Unix - Ubuntu"
 http://mylinux.suzansworld.com/wp-atom.php                         "999. Unix - Ubuntu"
@@ -206,6 +212,8 @@ http://fivefilters.org/content-only/makefulltextfeed.php?url=http%3A%2F%2Fcampin
 http://planet.fedoraproject.org/atom.xml                          "999. Unix - Fedora"
 http://fedorausers.de/?q=aggregator/rss/5                         "999. Unix - Fedora"
 http://www.fedora-blog.de/feed/                                   "999. Unix - Fedora"
+# http://doctormo.org/feed/                                          "999. Unix - Linux"
+# http://feeds.feedburner.com/Noobslab                               "999. Unix - Ubuntu"
 
 # }}}
 ### Sport#{{{
@@ -237,7 +245,6 @@ http://feeds.gawker.com/lifehacker/full                            "999. Other -
 # }}}
 ### Angebote#{{{
 
-http://news.billiger.de/feed                                                          "999. Angebote - Sonstige"
 http://ws.audioscrobbler.com/2.0/user/S_Bolivar/podcast.rss                           "999. Angebote - Sonstige"
 http://feeds2.feedburner.com/mydealz                                                  "999. Angebote - Sonstige"
 http://feeds.feedburner.com/schnaeppchenfuchs                                         "999. Angebote - Sonstige"
@@ -260,5 +267,6 @@ http://api.groupon.de/feed/api/v1/deals/oftheday/DE/bochum                      
 # http://www.getgoods.de/smartphones-handys-und-festnetz?sAtom=1                        "999. Angebote - Technik"
 # http://www.amazon.de/gp/rss/movers-and-shakers/ce-de/ref=zg_bsms_ce-de_rsslink        "999. Angebote - Technik"
 # http://www.amazon.de/gp/rss/movers-and-shakers/apparel/ref=zg_bsms_apparel_rsslink    "999. Angebote - Kleidung"
+# http://news.billiger.de/feed                                                          "999. Angebote - Sonstige"
 
 #}}}

@@ -57,7 +57,15 @@ snippet "(showopts)|(printopts)" "Print available ultisnip-options" !br
 #}}}
 endsnippet
 
-#.#.Boxes.etc.
+#.#.Python.Interpolation
+global !p
+def complete(t, opts):
+    if t:
+        opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+    if len(opts) == 1:
+        return opts[0]
+    return "(" + '|'.join(opts) + ')'
+endglobal
 global !p
 import string, vim
 """ Maps a filetype to comment format used for boxes.
@@ -118,6 +126,7 @@ def foldmarker():
     "Return a tuple of (open fold marker, close fold marker)"
     return vim.eval("&foldmarker").split(",")
 endglobal
+#.#.Boxes.etc.
 #.##.Nice.Boxes
 snippet bbox "A nice box with the current comment symbol" b
 `!p
@@ -169,6 +178,40 @@ snippet vimft "Vim Filetype" b
 # vim:ft=${1:sh,snippets,py ...}:
 $0
 endsnippet
+snippet "lice?n?s?e?" "License Agreement" br!
+${0:lic $1`!p snip.rv=complete(t[1], ['[m]it','[b]eer'])`
+}${1/(m)$|(b)/(?1:
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files \(the "Software"\), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and\/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions\:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+)(?2:
+"THE BEER-WARE LICENSE" \(Revision 42\)\:
+<emzap79@gmail.com> wrote this file. As long as you retain this notice you
+can do whatever you want with this stuff. If we meet some day, and you think
+this stuff is worth it, you can buy me a beer in return Jonas Petong
+
+)/g}
+endsnippet
+snippet "rep (\d+) (.+)" "Repeat" r
+`!p snip.rv = int(match.group(1))*match.group(2)`
+endsnippet
 #.#.Header
 snippet "h1" "chapter header" !br
 #.##`!p snip.rv = '#'*len(t[1])`
@@ -193,26 +236,5 @@ snippet "h3" "chapter header" !br
 #.###.${1:Subsection Header}
 #.#####`!p snip.rv = '#'*len(t[1])`
 ${0:${VISUAL}}
-endsnippet
-# Passwords
-snippet "passw" "block: set userdata for password" rb
-Title:    ${1:${VISUAL}}
-Username: $2
-Password: $3
-Url:      $4${5:
-Comment:  ${6:<further information>}
-}
-endsnippet
-#.#.Python.Interpolation
-global !p
-def complete(t, opts):
-    if t:
-        opts = [ m[len(t):] for m in opts if m.startswith(t) ]
-    if len(opts) == 1:
-        return opts[0]
-    return "(" + '|'.join(opts) + ')'
-endglobal
-snippet "rep (\d+) (.+)" "Repeat" r
-`!p snip.rv = int(match.group(1))*match.group(2)`
 endsnippet
 # vim:ft=snippets:

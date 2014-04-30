@@ -18,15 +18,17 @@ source ~/.vim/vimrc_mappings
 source ~/.vim/vimrc_miscellaneous
 " This source sets mutt configs
 source ~/.vim/vimrc_mutt
+" This source sets Abbreviations
+source ~/.vim/vimrc_abbrev
 " This source sets Colorscheme etc.
 source ~/.vim/vimrc_colors
 " This source imports all plugins
 source ~/.vim/vimrc_plugs
 
 " This source sets R configs
-source ~/.vim/ftplugin/r.vim
+source ~/.vim/vimrc_ft_r
 " This source sets LaTeX configs
-source ~/.vim/ftplugin/tex.vim
+" source ~/.vim/ftplugin/tex.vim
 
 "------------------
 " Xterm-Style-Keys

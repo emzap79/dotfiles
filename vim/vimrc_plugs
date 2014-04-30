@@ -24,9 +24,7 @@ Bundle 'gmarik/vundle'
 " Bundles "{{{
 
 Bundle 'BufOnly.vim'
-Bundle 'plasticboy/vim-markdown'
 Bundle 'L9'
-Bundle 'matze/vim-tex-fold'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'Shougo/neocomplete.vim'
 Bundle 'SirVer/ultisnips.git'
@@ -36,14 +34,16 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'arecarn/frisk.git'
 Bundle 'bjoernd/vim-ycm-tex'
 Bundle 'bkad/CamelCaseMotion'
-Bundle 'http://gregsexton.github.com/VimCalc/'
 Bundle 'jalvesaq/VimCom'
 Bundle 'jcfaria/Vim-R-plugin'
 Bundle 'matchit.zip'
+" Bundle 'matze/vim-tex-fold'
 Bundle 'navicore/vis.vim'
 Bundle 'nelstrom/vim-markdown-folding'
+Bundle 'plasticboy/vim-markdown'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'suan/vim-instant-markdown'
 Bundle 'terryma/vim-expand-region'
 Bundle 'tommcdo/vim-exchange'
 Bundle 'tpope/vim-fugitive'
@@ -122,6 +122,12 @@ let g:vim_markdown_no_default_key_mappings=0
 " ]u: go to parent header (Up). <Plug>(Markdown_MoveToParentHeader)
 
 ""}}}
+" Vim-Instant-Markdown"{{{
+
+let g:instant_markdown_slow = 1
+let g:instant_markdown_autostart = 0
+
+""}}}
 " TeX-Folding"{{{
 
 " Use these options to customize tex-fold:
@@ -146,53 +152,40 @@ let g:tex_fold_allow_marker = 1
 
 " Targets"{{{
 
-" Controls the normal mode operator mode maps that get created for In Pair
-" (i), A Pair (a), Inside Pair (I), and Around Pair (A). Required to be a
-" 4 character long list.
-let g:targets_aiAI = 'aiAI'
-
-" Controls the keys used in maps for seeking next and last text objects. For
-" example, if you don't wish to use the N and L seeks, and instead wish for 'n' to
-" always search for the next object and 'N' to search for the last, you could set:
-let g:targets_nlNL = 'nlNL'
-
-" Note that two extra spaces are still required on the end, indicating you wish
-" to disable the default functionality of N and L. Required to be a 4 character
-" long list.
-let g:targets_nlNL = 'nN  '
-
 " Defines the space separated list of pair objects you wish to use, along with
 " optional one letter aliases for them.
 let g:targets_pairs = '()b {}B []r <>a'
 
+" Default: let g:targets_quotes = '" '' `'
 " Defines the space separated list of quoting objects you wish to use. Note that
 " you have to escape the single quote by doubling it. Quote objects can
 " optionally be followed by a single one letter alias. For example, to set 'd'
 " as an alias for double quotes, allowing such commands as 'cid' to be
 " equivalent to 'ci"', you could define:
-
 let g:targets_quotes = '"d '' `'
-" Default: let g:targets_quotes = '" '' `'
 
+" Default: let g:targets_separators = ', . ; : + - ~ _ * / \ |'
 " Defines the space separated list of separator objects you wish to use. Like
 " quote objects, separator objects can optionally be followed by a single one
 " letter alias. To set 'c' as an alias for comma, allowing such commands as
 " 'dic' to be equivalent to 'di,', you could define:
-"
 let g:targets_separators = ',c . ; : + - ~ _ * / \ |'
-" Default: let g:targets_separators = ', . ; : + - ~ _ * / \ |'
 "
 
 ""}}}
 " VIM-Surround"{{{
 
-let g:surround_108 = "\\begin{\1environment: \1}\r\\end{\1\1}"
 " When this replacement is used,  the user is prompted with an "environment: "
 " prompt for input.  This input is inserted between each set of \1's.
 " Additional inputs up to \7 can be used.
 
 " Furthermore, one can specify a regular expression substitution to apply.
-let g:surround_108 = "\\begin{\1environment: \1}\r\\end{\1\r}.*\r\1}"
+" let g:surround_108 = "\\begin{\1environment: \1}\r\\end{\1\r}.*\r\1}"
+
+" mnemonical keybind is: <surround-strokes>le (eg. "you surround latex environment")
+let g:surround_{char2nr("e")} = "\\begin{\1environment: \1}\r\\end{\1\r}.*\r\1}"
+let g:surround_{char2nr("e")} = "\\begin{\1environment: \1}\r\\end{\1\r}.*\r\1}"
+autocmd FileType php let b:surround_45 = "<?php \r ?>"
 
 " VIM-Surround"}}}
 
@@ -398,20 +391,20 @@ let MRU_File="/home/zapata/.vim/vimplug_mru_files"
 " Default: 0
 " If enabled, syntastic will do syntax checks when buffers are first loaded as
 " well as on saving >
-" let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 
 " Default: 1
 " Normally syntastic runs syntax checks whenever buffers are written to disk.
 " If you want to skip these checks when you issue |:wq|, |:x|, and |:ZZ|, set this
 " variable to 0. >
-" let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 0
 
 " Default: 0
 " When enabled, syntastic runs all checkers that apply to the current filetype,
 " then aggregates errors found by all checkers and displays them. When disabled,
 " syntastic runs each checker in turn, and stops to display the results the first
 " time a checker finds any errors. >
-" let g:syntastic_aggregate_errors = 1
+let g:syntastic_aggregate_errors = 0
 
 " Default: 1
 " When results from multiple checkers are aggregated in a single error list
@@ -419,24 +412,24 @@ let MRU_File="/home/zapata/.vim/vimplug_mru_files"
 " a file with a composite filetype), it might not be immediately obvious which
 " checker has produced a given error message. This variable instructs syntastic
 " to label error messages with the names of the checkers that created them. >
-" let g:syntastic_id_checkers = 0
+let g:syntastic_id_checkers = 1
 
 " Default: 1
 " By default, when |syntastic_aggregate_errors| is enabled, errors are grouped
 " by file, then sorted by line number, then grouped by type (namely, errors take
 " precedence over warnings), then they are sorted by column number.  If you want
 " to leave messages grouped by checker output, set this variable to 0. >
-" let g:syntastic_sort_aggregated_errors = 0
+let g:syntastic_sort_aggregated_errors = 1
 
 " Default: 1
 " If enabled, syntastic will echo the error associated with the current line to
 " the command window. If multiple errors are found, the first will be used. >
-" let g:syntastic_echo_current_error = 1
+let g:syntastic_echo_current_error = 1
 
 " Default: 1
 " Use this option to tell syntastic whether to use the |:sign| interface to mark
 " syntax errors: >
-" let g:syntastic_enable_signs = 1
+let g:syntastic_enable_signs = 1
 
 " Use this option to control what the syntastic |:sign| text contains. Several
 " error symbols can be customized:
@@ -453,58 +446,48 @@ let MRU_File="/home/zapata/.vim/vimplug_mru_files"
 " Default: 1
 " Use this option to tell syntastic whether to display error messages in balloons
 " when the mouse is hovered over erroneous lines: >
-" let g:syntastic_enable_balloons = 1
+let g:syntastic_enable_balloons = 1
 
 " Default: 1
 " Use this option to tell syntastic whether to use syntax highlighting to mark
 " errors (where possible). Highlighting can be turned off with the following >
-" let g:syntastic_enable_highlighting = 0
+let g:syntastic_enable_highlighting = 0
 
 " Default: 0
 " Enable this option to tell syntastic to always stick any detected errors into
 " the |location-list|: >
-" let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_always_populate_loc_list = 0
 
 " Default: 0
 " Enable this option if you want the cursor to jump to the first detected issue
 " when saving or opening a file.
-
-" When set to 0 the cursor won't jump automatically. >
-" let g:syntastic_auto_jump = 0
-
-" When set to 1 the cursor will always jump to the first issue detected. >
-" let g:syntastic_auto_jump = 1
-
-" When set to 2 the cursor will jump to the first issue detected, but only if
-" this issue is an error. >
-" let g:syntastic_auto_jump = 2
+" " When set to 0 the cursor won't jump automatically. >
+" " When set to 1 the cursor will always jump to the first issue detected. >
+" " When set to 2 the cursor will jump to the first issue detected, but only if
+" " this issue is an error. >
+let g:syntastic_auto_jump = 2
 
 " Default: 2
 " Use this option to tell syntastic to automatically open and/or close the
 " |location-list| (see |syntastic-error-window|).
-
-" When set to 0 the error window will not be opened or closed automatically. >
-" let g:syntastic_auto_loc_list = 0
-
-" When set to 1 the error window will be automatically opened when errors are
-" detected, and closed when none are detected. >
-" let g:syntastic_auto_loc_list = 1
-
-" When set to 2 the error window will be automatically closed when no errors are
-" detected, but not opened automatically. >
-" let g:syntastic_auto_loc_list = 2
+" " When set to 0 the error window will not be opened or closed automatically. >
+" " When set to 1 the error window will be automatically opened when errors are
+" " detected, and closed when none are detected. >
+" " When set to 2 the error window will be automatically closed when no errors are
+" " detected, but not opened automatically. >
+let g:syntastic_auto_loc_list = 2
 
 " Default: 10
 " Use this option to specify the height of the location lists that syntastic
 " opens. >
-" let g:syntastic_loc_list_height = 5
+let g:syntastic_loc_list_height = 5
 
 " Default: []
 " Use this option to specify files that syntastic should never check.  It's a
 " list of |regular-expression| patterns.  The full paths of files (see |::p|) are
 " matched against these patterns, and the matches are case sensitive. Use |\c|
-" to specify case insensitive patterns.  Example: >
-" let g:syntastic_ignore_files = ['\m^/usr/include/', '\m\c\.h$']
+" to specify case insensitive patterns.  Example: > ['\m^/usr/include/', '\m\c\.h$']
+let g:syntastic_ignore_files = []
 
 " Default: {}
 " Use this option to map non-standard filetypes to standard ones.  Corresponding
@@ -526,9 +509,9 @@ let MRU_File="/home/zapata/.vim/vimplug_mru_files"
 
 " The option should be set to something like: >
 
-    " let g:syntastic_mode_map = { 'mode': 'active',
-                               " \ 'active_filetypes': ['ruby', 'php'],
-                               " \ 'passive_filetypes': ['puppet'] }
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': ['ruby', 'php','bash'],
+            \ 'passive_filetypes': ['tex'] }
 
 " "mode" can be mapped to one of two values - "active" or "passive". When set to
 " active, syntastic does automatic checking whenever a buffer is saved or

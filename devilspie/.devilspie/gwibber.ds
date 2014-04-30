@@ -1,9 +1,0 @@
-(
-if	
-(is (application_name) 'gwibber')
-	(begin
-		( println "--[ Gwibber ]--" )
-		( maximize )
-        ( set_workspace 2 )
-	)
-)

@@ -62,7 +62,7 @@ else
 endif
 endsnippet
 snippet "map( (\S+))?" "Defining VIM Mappings" !br
-nnoremap ${4:<silent>}`!p snip.rv = match.group(2) if match.group(1) is not None else "<leader>"`${1:define all keys} ${2:define command}${3:<CR>}
+nnoremap ${4:<silent>}`!p snip.rv = match.group(2) if match.group(1) is not None else "<leader>"`${1:define all keys} ${2:${VISUAL}}${3:<CR>}
 ${5:vnoremap $4`!p snip.rv = match.group(2) if match.group(1) is not None else "<leader>"`$1 ${7:<ESC>}$2$3}
 ${6:inoremap $4`!p snip.rv = match.group(2) if match.group(1) is not None else "<localleader>"`$1 ${7:<ESC>}$2$3}
 endsnippet

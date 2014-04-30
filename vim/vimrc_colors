@@ -1,16 +1,12 @@
 " Colorscheme
 "----------------------------------
-"let g:solarized_termcolors=256
-"
-" Nice CSs are: default, impact, sorcerer, herald, solarized
-"colors solarized
-"colorscheme solarized
+let g:solarized_termcolors=256
+
+" Nice CSs are: impact, sorcerer, herald, solarized
 colors default
 colorscheme default
-"colors impact
-"colorscheme impact
 
-"set background=dark
+" set background=dark
 set background=light
 syntax enable
 

@@ -122,8 +122,9 @@ endsnippet
 snippet cron "templ: cronjobs" !b
 # # Konfiguration
 prog="${1}"
+LOG="$HOME/.logfiles"
 chkProg="$(ps -aef | grep -v grep | grep "/usr/bin/$prog" | wc -l)"
-chkPower="$(acpi -a | awk '{print $3}' | cut -d '-' -f 1)"
+chkPower="$(acpi -a | awk '{print on}' | cut -d '-' -f 1)"
 lockfile_old="$(basename $HOME/.logfiles/*.$prog.lock)"
 lockfile_glob="$(ls $LOG | egrep [[:digit:]]{8}.lock)"
 

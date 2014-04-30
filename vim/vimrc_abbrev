@@ -1,0 +1,18 @@
+" vim:fdm=marker
+" Abbreviations"{{{
+
+" TeX abbr"{{{
+
+autocmd Filetype tex call SetTexAbbrev()
+function! SetTexAbbrev()
+    inoremap <buffer>... \ldots
+    inoremap <buffer>dh. d.~h.<space>
+    inoremap <buffer>eg. e.~g.<space>
+    inoremap <buffer>oä. o.~ä.<space>
+    inoremap <buffer>zb. z.~B.<space>
+endfun
+
+" own abbr"}}}
+
+"}}}
+
