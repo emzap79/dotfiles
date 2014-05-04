@@ -24,6 +24,7 @@ Bundle 'gmarik/vundle'
 "}}}
 " Bundles "{{{
 
+" active bundles
 Bundle 'BufOnly.vim'
 Bundle 'L9'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
@@ -38,16 +39,15 @@ Bundle 'bkad/CamelCaseMotion'
 Bundle 'jalvesaq/VimCom'
 Bundle 'jcfaria/Vim-R-plugin'
 Bundle 'matchit.zip'
-" Bundle 'matze/vim-tex-fold'
 Bundle 'navicore/vis.vim'
 Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'
 Bundle 'suan/vim-instant-markdown'
 Bundle 'terryma/vim-expand-region'
 Bundle 'tommcdo/vim-exchange'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-obsession'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround.git'
@@ -59,9 +59,12 @@ Bundle 'vim-scripts/LanguageTool'
 Bundle 'vim-scripts/VimExplorer'
 Bundle 'wellle/targets.vim'
 
-"Bundles"}}}
-" No more used repos"{{{
-
+" No more used repos
+" Bundle 'pivotal/tmux-config'
+" Bundle 'matze/vim-tex-fold'
+" Bundle 'scrooloose/nerdtree'
+" Bundle 'airblade/vim-gitgutter'
+"
 " Bundle 'vim-scripts/DrawIt'
 " Bundle 'panozzaj/vim-autocorrect'
 " Bundle 'mru.vim'
@@ -83,7 +86,8 @@ Bundle 'wellle/targets.vim'
 " Bundle 'screen.vim'
 " Bundle 'tpope/vim-rails.git'
 
-"No more used repos"}}}
+"No more used repos
+"Bundles"}}}
 " Plugin Settings "{{{
 
 " Script-Language-Extensions"{{{
@@ -91,7 +95,7 @@ Bundle 'wellle/targets.vim'
 " Latex Box Plugin"{{{
 
 autocmd FileType tex so ~/.vim/bundle/LaTeX-Box/ftplugin/tex_LatexBox.vim
-autocmd FileType tex so ~/.vim/bundle/LaTeX-Box/ftplugin/latex-box/indent.vim
+
 " set mupdf as viewer
 " let g:LatexBox_viewer = 'mupdf'
 " let g:LatexBox_latexmk_options = "-pvc -pdfps"
@@ -149,6 +153,48 @@ let g:tex_fold_allow_marker = 1
 "}}}
 
 "}}}
+" Text- & Code-Operators"{{{
+
+" On Text Operators"{{{
+
+" VIS"{{{
+
+" " apply commmand only to Visual Block ":'<,'>B <command>"
+
+" VIS"}}}
+" CamelCase Motions"{{{
+
+" Example: Replace the default 'w', 'b' and 'e' mappings instead of defining additional mappings ',w', ',b' and ',e':
+
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+" sunmap w
+" sunmap b
+" sunmap e
+
+" Example: Replace default 'iw' text-object and define 'ib' and 'ie' motions:
+" omap <silent> iw <Plug>CamelCaseMotion_iw
+" xmap <silent> iw <Plug>CamelCaseMotion_iw
+" omap <silent> ib <Plug>CamelCaseMotion_ib
+" xmap <silent> ib <Plug>CamelCaseMotion_ib
+" omap <silent> ie <Plug>CamelCaseMotion_ie
+" xmap <silent> ie <Plug>CamelCaseMotion_ie
+
+"}}}
+" Align"{{{
+
+" let alignctrl= Align#AlignCtrl()
+
+" Align"}}}
+" NERDCommenter"{{{
+
+" Leave 1 space after comment
+let NERDSpaceDelims = 1
+
+" NERDCommenter"}}}
+
+" On Text Operators"}}}
 " Braces/Brackets/Parenthesis"{{{
 
 " Targets"{{{
@@ -191,35 +237,6 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
 " VIM-Surround"}}}
 
 " Braces/Brackets/Parenthesis"}}}
-" Movements and Visual Selection"{{{
-
-" VIS"{{{
-
-" " apply commmand only to Visual Block ":'<,'>B <command>"
-
-" VIS"}}}
-" CamelCase Motions"{{{
-
-" Example: Replace the default 'w', 'b' and 'e' mappings instead of defining additional mappings ',w', ',b' and ',e':
-
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-" sunmap w
-" sunmap b
-" sunmap e
-
-" Example: Replace default 'iw' text-object and define 'ib' and 'ie' motions:
-" omap <silent> iw <Plug>CamelCaseMotion_iw
-" xmap <silent> iw <Plug>CamelCaseMotion_iw
-" omap <silent> ib <Plug>CamelCaseMotion_ib
-" xmap <silent> ib <Plug>CamelCaseMotion_ib
-" omap <silent> ie <Plug>CamelCaseMotion_ie
-" xmap <silent> ie <Plug>CamelCaseMotion_ie
-
-"}}}
-
-" Movements and Visual Selection"}}}
 " Completion, Snippets, Syntastic"{{{
 
 " UltiSnips"{{{
@@ -250,7 +267,7 @@ function! ExpandPossibleShorterSnippet()
     endif
     return 0
 endfunction
-inoremap <silent> <C-L> <C-R>=(ExpandPossibleShorterSnippet() == 0? '': UltiSnips#ExpandSnippet())<CR>
+inoremap <silent> <leader>l <C-R>=(ExpandPossibleShorterSnippet() == 0? '': UltiSnips#ExpandSnippet())<CR>
 
 " Adding anonymous snippets
 inoremap <silent> $$ $$<C-R>=UltiSnips#Anon(':latex:\$1\', '$$')<cr>
@@ -564,16 +581,27 @@ let g:ycm_semantic_triggers = {
 "" To work with ultisnips"}}}
 
 " YouCompleteMe"}}}
-" NERDCommenter"{{{
-
-" Leave 1 space after comment
-let NERDSpaceDelims = 1
-
-" NERDCommenter"}}}
 
 " Completion, Snippets"}}}
-" Miscellanious"{{{
 
+" Text- & Code-Operators"}}}
+" Extensions"{{{
+
+" Github "{{{
+
+" vim-fugitive"{{{
+
+" watch: http://vimcasts.org/episodes/fugitive-vim-working-with-the-git-index/
+" TIP: pressing '~' on a :Gblame hash to go re-blame
+" http://www.reddit.com/r/vim/comments/21f4gm/best_workflow_when_using_fugitive/cgcqbc5
+
+" fugitive statusline
+" set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set stl+=%{fugitive#statusline()}
+
+" vim-fugitive"}}}
+
+" Github "}}}
 " Language-Tool"{{{
 
 " let g:languagetool_lang = de-DE           " language expected automatically, if unset
@@ -582,11 +610,6 @@ let g:languagetool_win_height = -1          " enable/disable languagetool-scratc
 let g:languagetool_jar = '$HOME/.dictionaries/LanguageTool-2.5-SNAPSHOT/languagetool-commandline.jar'
 
 " Language-Tool"}}}
-" Align"{{{
-
-" let alignctrl= Align#AlignCtrl()
-
-" Align"}}}
 " Frisk - Search Engine"{{{
 
 call frisk#DefaultEngine('google')
@@ -696,11 +719,6 @@ call frisk#AddEngine('youtube', 'http://www.youtube.com/results?search_query=')
 "}}}
 
 " Frisk - Search Engine"}}}
-" Mutt"{{{
-
-let g:mutt_aliases_file = '$HOME/.mutt/.alias'
-
-" Mutt"}}}
 " VimCalc"{{{
 
 let g:VCalc_WindowPosition = 'top'
@@ -710,8 +728,10 @@ let g:VCalc_CWInsert = 0
 let g:VCalc_Win_Size = 10
 
 " VimCalc"}}}
+" Tmux-Extension"{{{
+" Tmux-Extension"}}}
 
-" Miscellanious"}}}
+" Extensions"}}}
 
 " Plugin Settings
 " vim: fdm=marker

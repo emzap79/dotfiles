@@ -9,8 +9,6 @@
 source ~/.vim/vimrc_general
 " This source imports all of my plugin settings and bindings.
 source ~/.vim/vimrc_mappings
-"This source imports all of my miscellanous settings. Tab bar, etc
-source ~/.vim/vimrc_miscellaneous
 " This source sets mutt configs
 source ~/.vim/vimrc_mutt
 " This source sets Abbreviations
@@ -21,9 +19,9 @@ source ~/.vim/vimrc_colors
 source ~/.vim/vimrc_plugs
 
 " This source sets R configs
-source ~/.vim/ftplugin/r.vim
+" source ~/.vim/ftplugin/r.vim
 " This source sets LaTeX configs
-source ~/.vim/ftplugin/tex.vim
+" source ~/.vim/ftplugin/tex.vim
 
 "------------------
 " Xterm-Style-Keys

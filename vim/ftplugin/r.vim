@@ -12,17 +12,12 @@ imap <localleader>q <esc><Plug>RClose
 vmap <localleader>q <Plug>RClose
 
 nmap L <Plug>RDSendLine
-imap L <esc><Plug>RDSendLine
 vmap L <Plug>RDSendSelection
 
 " Custom Keybindings
 nmap <C-kMinus> <Space><-<Space>
 imap <C-kMinus> <esc> <Space><-<Space>
 vmap <C-kMinus> <Space><-<Space>
-
-nmap <S-C-l> <Space><-<Space>
-imap <S-C-l> <esc> <Space><-<Space>
-vmap <S-C-l> <Space><-<Space>
 
 nmap <M-1> 1gt
 imap <M-1> <esc>1gt

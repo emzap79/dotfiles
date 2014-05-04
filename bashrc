@@ -1,6 +1,38 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+# sources
+
+## source aliases
+if [[ -f "/home/${USER}/.bash/aliases" ]]; then
+    source "/home/${USER}/.bash/aliases"
+fi
+
+
+# sources tmux-plugin
+if [[ -f "/home/${USER}/.vim/bundle/tmux-config/tmux-autwrite/autowrite-vim.sh" ]]; then
+    # enable VIM autosaving
+    # https://github.com/pivotal/tmux-config
+    source ~/.vim/bundle/tmux-config/tmux-autowrite/autowrite-vim.sh
+fi
+
+
 # append to the history file, don't overwrite it
 shopt -s histappend
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+shopt -s globstar
+
+# more shopt-options
+shopt -s cdspell
+shopt -s cmdhist
+shopt -s expand_aliases
+shopt -s extglob
+shopt -s extquote
+shopt -s force_fignore
+shopt -s interactive_comments
+shopt -s progcomp
+shopt -s promptvars
+shopt -s sourcepath
+shopt -s checkwinsize
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -41,11 +73,6 @@ case "$TERM" in
     ;;
 esac
 
-# source aliases
-if [[ -f "/home/${USER}/.bash/aliases" ]]; then
-    source "/home/${USER}/.bash/aliases"
-fi
-
 # Exclude grepping through .svn folders.
 # http://stefaanlippens.net/how_to_be_a_better_grepper
 GREP_OPTIONS="--exclude-dir=\.svn"
@@ -59,14 +86,6 @@ case $- in
     *i*) ;;
       *) return;;
 esac
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -83,12 +102,12 @@ fi
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
