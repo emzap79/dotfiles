@@ -1,6 +1,7 @@
 # vim:fdm=marker
 # # some personal aliases
 export aliases="~/.bash/aliases"
+
 # setting strings# {{{
 
 export SEM="Sommer2014"
@@ -166,8 +167,8 @@ alias usync="/bin/bash $HOME/bin/cronSyncSsh"
 # }}}
 # # github# {{{
 
-alias gitadd="git add -A . && git status"
-alias gitcom="git branch -a && git commit -m "
+alias gitadd="git add -A . && git branch -a && git status"
+alias gitcom="git commit -m "
 alias gitgit="git add -A . && git commit -m "
 alias gitremote="git remote add origin"
 alias gitpush="git push origin master"

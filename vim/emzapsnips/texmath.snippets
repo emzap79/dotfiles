@@ -76,10 +76,10 @@ snippet lr[ "left[ right]" w
 \left[ ${1:${VISUAL}} \right]
 endsnippet
 snippet sum "Summary" w
-\\sum${1:^{${2:n}}_{${3:i=1}}} ${4}
+\\sum${1:_{${2:i=1}}^{${3:n}}} ${4}
 endsnippet
 snippet nsum "Summary" w
-\\sum^{n}_{i=1} ${1}
+\\sum_{i=1}^{n} ${1}
 endsnippet
 snippet sqrt "Root Squirt" w
 \sqrt${1:[${2:nth}]}{${2:${VISUAL}}}
@@ -93,11 +93,14 @@ endsnippet
 snippet 1/4 "One Quarter" i
 \frac{1}{4} $0
 endsnippet
-snippet "(\S)_" "subscript" r
+snippet "([^\^])_" "subscript" r
 `!p snip.rv = match.group(1)`_{${1}}
 endsnippet
-snippet "(\S)\^" "superscript" r
+snippet "([^_])\^" "superscript" r
 `!p snip.rv = match.group(1)`^{${1}}
+endsnippet
+snippet "(\^_)|(_\^)" "sub-/supscript" ir!
+_{$1}^{$2}
 endsnippet
 
 #.###########

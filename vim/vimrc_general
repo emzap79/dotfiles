@@ -24,6 +24,11 @@
 " :e ++ff=dos  " Edit file again, using dos file format ('fileformats' is ignored).[A 1]
 " :w           " Write buffer using dos (CRLF) line endings.
 
+" Use aliases from .bashrc
+" https://github.com/tpope/vim-fugitive/issues/387
+set shellcmdflag=-c
+set shell=/bin/bash\ --rcfile\ ~/.bashrc
+
 "}}}
 " general config"{{{
 
@@ -75,7 +80,7 @@ set fo+=cqrn
 " "}}}
 " settings "{{{
 
-" " display settings"{{{
+" display settings"{{{
 
 " Vim can highlight whitespaces for you in a convenient way:
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
@@ -96,12 +101,12 @@ set ru                                    " ruler: show cursor position in statu
 set so=5                                  " scrolloff: keep at least 5 lines above/below cursor
 set title                                 " title: show title in console title bar
 set wmnu                                  " wildmenu: completion with menu
-set wmh=1                                 " winminheight: windows minimum height (values 0-3)
+set wmh=0                                 " winminheight: windows minimum height (values 0-3)
 set wmw=1                                 " winminwidth: windows minimum width in columns (val 0-12)
 au VimEnter * set wh=30                  " winheight: Minimal number of lines for the current window.
                                           " This is not a hard minimum, Vim will use fewer
                                           " lines if there is not enough room.  I
-au VimEnter * set wiw=65                 " winwidth: Minimal number of columns for the current window.
+au VimEnter * set wiw=100                 " winwidth: Minimal number of columns for the current window.
 
 " wildignore: patterns are ignored when expanding, completing file or directory names
 set wig+=*.fff,*.out,*.ttt,*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
@@ -110,64 +115,67 @@ set wig+=*.o,*~,*.cmo,*.cmi,*.a,*.cmx,*.cmxa,*.lo
 
 
 "}}}
-" " editor settings"{{{
+" editor settings"{{{
 
 set ek                                               " esckeys: map missed escape sequences (enables keypad keys)
 set ffs=unix,dos,mac                                 " fileformats: only detect unix fileformat, displays that ^M with dos files
 "set ffs=mac                                         " ffs: only detect unix fileformat, displays that ^M with dos files
 
 "}}}
-" " advanced settings "{{{
+" advanced settings "{{{
 
 set t_Co=257
-"set nocompatible                                    " nocompatible: use vim defaults
-set enc=utf-8                                        " encoding: 8-bit (latin1, iso-8859), 2-bit or unicode (utf-8)
-set ls=2                                             " laststatus: always show status line
-set nf=octal,hex                                     " nrformats: defines characters to increase by CTRL+A.
-                                                     " options: octal,hex,alpha
-set cf                                               " confirm: get a dialog when :q, :w, or :wq fails
-set lz                                               " lazyredraw: screen will only redraw once the macro has completed (speed up macros)
-set vi='20,\"500                                     " viminfo: remember copy registers after quitting in the .viminfo file -- 20 jump links, regs up to 500 lines'
-set nopaste                                          " paste: this is needed for use of abbreviations to be off
-set cb-=unnamed                                      " clipboard: yank and copy to X clipboard
-set cb-=unnamedplus                                  " clipboard: use yanking to clipboard as default
-set tf                                          " ttyfast: smoother changes
-set tsl=0                                      " ttyscroll: turn off scrolling, didn't work well with PuTTY
-set ml                                         " modeline: last lines in document sets vim mode
-set mls=3                                      " modelines: number lines checked for modelines
+set enc=utf-8                          " encoding: 8-bit (latin1, iso-8859), 2-bit or unicode (utf-8)
+set ls=2                               " laststatus: always show status line
+set nf=octal,hex                       " nrformats: defines characters to increase by CTRL+A.
+                                       " options: octal,hex,alpha
+set cf                                 " confirm: get a dialog when :q, :w, or :wq fails
+set lz                                 " lazyredraw: screen will only redraw once the macro has completed (speed up macros)
+set vi='20,\"500                       " viminfo: remember copy registers after quitting in the .viminfo file -- 20 jump links, regs up to 500 lines'
+set nopaste                            " paste: this is needed for use of abbreviations to be off
+set cb-=unnamed                        " clipboard: yank and copy to X clipboard
+set cb-=unnamedplus                    " clipboard: use yanking to clipboard as default
+set tf                                 " ttyfast: smoother changes
+set tsl=0                              " ttyscroll: turn off scrolling, didn't work well with PuTTY
+set ml                                 " modeline: last lines in document sets vim mode
+set mls=3                              " modelines: number lines checked for modelines
+set path=$PWD/**,$HOME/Unimaterialien  " path: sets current path variable for find command
 
-set path=$PWD/**,$HOME/Unimaterialien                " path: sets current path variable for find command
-set rtp+=~/.vim/
-set rtp+=~/.vim/plugin/                              " runtimepath: some extra plugins
-set rtp+=~/.vim/bundle/vundle/                       " runtimepath: adding vundle to runtimepath
-set rtp+=~/.vim/after
+" set runtimepath
+" default
+set rtp+=$HOME/.vim
+set rtp+=$VIM/vimfiles
 set rtp+=$VIMRUNTIME
+set rtp+=$VIM/vimfiles/after
+set rtp+=$HOME/.vim/after
 
-set rtp+=~/Vim-R-plugin
+" extra
+set rtp+=~/.vim/plugin/                " runtimepath: some extra plugins
+set rtp+=~/.vim/bundle/vundle/         " runtimepath: adding vundle to runtimepath
 
-set nosol                                            " startofline: jump to first character when paging
-set ofu=syntaxcomplete#Complete                      " omnifunc: completion http://vim.wikia.com/wiki/Omni_completion
-set swb+=useopen,usetab                              " switchbuf: This option controls the behavior when switching between buffers.
-                                                     " options: useopen, usetab, split, newtab
-set noaw                                             " autowrite: auto saves changes when quitting and swiching buffer
-set noar                                             " autoread: Set to auto read when a file is changed from the outside
-set sm                                               " showmatch: Show matching braces, somewhat annoying...
-set undolevels=1000                                  " undolevels: number of undos
-set history=2000                                     " history: remember last 2000 typed commands
-set hidden                                           " hidden: It hides buffers instead of closing
-                                                     " them. This means that you can have
-                                                     " unwritten changes to a file and open
-                                                     " a new  file using :e, without being
-                                                     " forced to write or undo your changes
-                                                     " first. Also, undo buffers and marks
-                                                     " are preserved while the buffer is open.
-set nobk                                             " backup: backup~ files.
+set nosol                              " startofline: jump to first character when paging
+set ofu=syntaxcomplete#Complete        " omnifunc: completion http://vim.wikia.com/wiki/Omni_completion
+set swb+=useopen,usetab                " switchbuf: This option controls the behavior when switching between buffers.
+                                       " options: useopen, usetab, split, newtab
+set noaw                               " autowrite: auto saves changes when quitting and swiching buffer
+set noar                               " autoread: Set to auto read when a file is changed from the outside
+set sm                                 " showmatch: Show matching braces, somewhat annoying...
+set ul=1000                            " undolevels: number of undos
+set hi=2000                            " history: remember last 2000 typed commands
+set hid                                " hidden: It hides buffers instead of closing
+                                       " them. This means that you can have
+                                       " unwritten changes to a file and open
+                                       " a new  file using :e, without being
+                                       " forced to write or undo your changes
+                                       " first. Also, undo buffers and marks
+                                       " are preserved while the buffer is open.
+set nobk                               " backup: backup~ files.
 set bkc=auto
 set bsk=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*test*,*temp*,*tmp*,*tst*,*~,*bak   " backupskip
 set su=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.out,.toc                " suffixes: for file names completion
 
 "}}}
-" " search settings"{{{
+" search settings"{{{
 
 set magic        " magic: change the way backslashes are used in search patterns
 set hls     " hlsearch: When there is a previous search pattern, highlight all
@@ -248,22 +256,22 @@ set fdo+=mark      " fdo: jumping to a mark: "'m", CTRL-O, etc.
 set fdo+=percent   " fdo: "%"
 set fdo+=quickfix  " fdo: ":cn", ":crew", ":make", etc.
 set fdo+=search    " fdo: search for a pattern: "/", "n", "*", "gd", etc.  (not for
-                   " a search pattern in a ":" command) Also for |[s| and |]s|.
+		   " a search pattern in a ":" command) Also for |[s| and |]s|.
 set fdo+=tag       " fdo: jumping to a tag: ":ta", CTRL-T, etc.
 set fdo+=undo      " fdo: undo or redo: "u" and CTRL-R
 " set fdo=all      " fdo: any
 
 set fen            " fen: enable folding
 set fdl=1          " foldlevel: Folds with a higher level will be closed.
-                   " Setting this option to zero will close all folds.  Higher numbers will
-                   " close fewer folds.
+		   " Setting this option to zero will close all folds.  Higher numbers will
+		   " close fewer folds.
 set fdls=0         " foldlevelstart: Sets 'foldlevel' when starting to edit another buffer in a window.
-                   " Useful to always start editing with all folds closed (value zero),
-                   " some folds closed (one) or no folds closed (99).
+		   " Useful to always start editing with all folds closed (value zero),
+		   " some folds closed (one) or no folds closed (99).
 set fdc=4          " foldcolumn: sets rows to show fold information
 set fcl=all        " foldclose: When set to "all", a fold is closed when the cursor isn't in it and
-                   " its level is higher than 'foldlevel'.  Useful if you want folds to
-                   " automatically close when moving out of them.
+		   " its level is higher than 'foldlevel'.  Useful if you want folds to
+		   " automatically close when moving out of them.
 set fdn=2          " foldnestmax: Sets the maximum nesting of folds for the "indent" and "syntax" methods (with max = 20)
 set fdm=syntax     " foldmethod: manual, indent, expr, marker, syntax or diff
 
@@ -292,7 +300,7 @@ set sta                  " smarttab: smart tab handling for indenting
 set bs=indent,eol,start  " backspace: Allow backspacing over everything in insert mode
 set et                   " expandtab: tabs are converted to spaces, use only when required
 set nocin                " indent: enables automatic C program indenting.
-                         " options: smart-/auto-/cindent
+			 " options: smart-/auto-/cindent
 set ci                   " copyindent: copy the previous indentation on autoindenting
 set si                   " smartindent: turn on smart indenting. Availabile
 
@@ -388,14 +396,14 @@ augroup END
 " error messages"{{{
 
 set ch=3                        " cmdheight: Number of screen lines to use for the
-                                       " command-line. surpress errormessage when
-                                       " working with buffers
+				       " command-line. surpress errormessage when
+				       " working with buffers
 set cwh=3                        " cmdwinheight
 set shm=atI                      " shortmess: Abbreviate messages
 " a         all abbreviations
 " t         truncate file message at the start if it is too long to fit
-            " on the command-line, "<" will appear in the left most column.
-            " Ignored in Ex mode.
+	    " on the command-line, "<" will appear in the left most column.
+	    " Ignored in Ex mode.
 " I         don't give the intro message when starting Vim |:intro|.
 set noeb                       " noerrorbells: do/don't beep when error
 set vb t_vb=                   " visualbell: When no beep or flash is wanted, use "vb t_vb="
@@ -413,7 +421,7 @@ set iskeyword+="@,48-57,_,192-255"                                         " isk
 setlocal keywordprg=trs\ {en=@en+de}                                            " googletranslate word under cursor - english
 setlocal keywordprg=trs\ {es=@es+de}                                            " googletranslate word under cursor - español
 set nolisp                                                                 " nolisp: When <Enter> is typed in insert mode set the indent for the next line to Lisp
-                                                                           " standards (default: off)
+									   " standards (default: off)
 
 " "}}}
 
