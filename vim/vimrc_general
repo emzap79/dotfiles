@@ -2,12 +2,10 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               VIMRC GENERAL                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ~/.vimrc
-
 " File: vimrc_general
 " Author: Jonas Petong
 " Description: basic vimrc settings
-" Last Modified: April 16, 2014
+" Last Modified: Mai 04, 2014
 
 " font matters"{{{
 

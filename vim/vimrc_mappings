@@ -392,8 +392,9 @@ noremap gV `[v`]
 " open & edit vimrc-files"{{{
 
 " edit config file in horizontal split mode
+nnoremap <silent> <leader>erc :sp ~/.vimrc<cr>
 nnoremap <silent> <leader>es :UltiSnipsEdit<cr>
-nnoremap <silent> <leader>erc :sp ~/.vim/vimrc_general<cr>
+nnoremap <silent> <leader>ee :sp ~/.vim/vimrc_general<cr>
 nnoremap <silent> <leader>ef :sp ~/.vim/vimrc_foldexpr<cr>
 nnoremap <silent> <leader>ea :sp ~/.vim/vimrc_abbrev<cr>
 nnoremap <silent> <leader>ec :sp ~/.vim/vimrc_colors<cr>
