@@ -286,8 +286,10 @@ alias vims="vim -S Session.vim"
 alias vimtmpl="vim ~/bin/tmplAte.sh"
 alias vimu="vim -u NONE"
 alias vimvim="vim ~/.vimrc"
-alias vv="vim -c 'startinsert' /tmp/foo.md"
-alias vvt="vim -c 'startinsert' /tmp/foo.tex"
+# alias vv="vim -c 'startinsert' /tmp/foo.md"
+# alias vvt="vim -c 'startinsert' /tmp/foo.tex"
+alias vv="vim /tmp/foo. "
+# alias vvt="vim -c 'startinsert' /tmp/foo.tex"
 
 # }}}
 ## translate words in command line# {{{
@@ -332,6 +334,9 @@ fun_absolute_path() { echo "$PWD/$1"; }
 # expand shortened urls
 # http://www.commandlinefu.com/commands/view/9515/expand-shortened-urls
 fun_expandurl() { curl -sIL $1 | grep ^Location; }
+
+# open vim
+fun_vv() { vim.$1 }
 
 # play yt-videos as ascii video
 # http://annasagrera.com/on-ascii-youtube-and-letting-go/?lang=en
