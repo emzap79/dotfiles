@@ -332,12 +332,12 @@ fun_absolute_path() { echo "$PWD/$1"; }
 # http://www.commandlinefu.com/commands/view/9515/expand-shortened-urls
 fun_expandurl() { curl -sIL $1 | grep ^Location; }
 
-# open file with vim
+# edit new file with vim
 fun_vim() {
-    if test -n "$@;" then
-        vim -c /tmp/foo.txt;
+    if [ "$#" -eq 0 ]; then
+        vim /tmp/foo.txt
     else
-        vim -c /tmp/foo.$1;
+        vim /tmp/foo.$1
     fi
 }
 
