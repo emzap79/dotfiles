@@ -15,7 +15,7 @@ Bundle 'gmarik/vundle'
 " :BundleList          - list configured bundles
 " :BundleInstall       - install bundles
 " :BundleInstall(!)    - update bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
+" :bUndleSearch(!) foo - search (or refresh cache first) for foo
 " :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
 "
 " see :h vundle for more details or wiki for FAQ
@@ -58,6 +58,7 @@ Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'vim-scripts/LanguageTool'
 Bundle 'vim-scripts/VimExplorer'
 Bundle 'wellle/targets.vim'
+Bundle 'christoomey/vim-tmux-navigator'
 
 " No more used repos
 " Bundle 'pivotal/tmux-config'
@@ -728,8 +729,21 @@ let g:VCalc_CWInsert = 0
 let g:VCalc_Win_Size = 10
 
 " VimCalc"}}}
-" Tmux-Extension"{{{
-" Tmux-Extension"}}}
+" Tmux-Extensions"{{{
+
+" Vim-Tmux-Navigator"{{{
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <c-l> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-h> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-ß> :tMuxNavigatePrevious<cr>
+
+" Vim-Tmux-Navigator"}}}
+
+" Tmux-Extensions"}}}
 
 " Extensions"}}}
 
