@@ -1,5 +1,5 @@
-bind -f common ^Y shell /home/zapata/bin/cmusCopyDir_Curr
 clear 
+bind -f common ^Y shell /home/zapata/bin/cmusCopyDir_Curr
 cl
 add ~/tmp/house.pl
 Q
