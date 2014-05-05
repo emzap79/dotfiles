@@ -47,4 +47,4 @@ endif
         " endtry
 " endfunc 
 
-au BufEnter let i=0| while (i<26) | exec 'let @'.nr2char(i+(char2nr("a"))).'=""' | let i=i+1 | endwhile
+let i=0| while (i<26) | exec 'let @'.nr2char(i+(char2nr("a"))).'=""' | let i=i+1 | endwhile
