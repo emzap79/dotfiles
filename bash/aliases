@@ -334,8 +334,8 @@ fun_expandurl() { curl -sIL $1 | grep ^Location; }
 
 # open file with vim
 fun_vim() {
-    if -z $1;then
-            vim -c /tmp/foo.txt;
+    if test -n "$@;" then
+        vim -c /tmp/foo.txt;
     else
         vim -c /tmp/foo.$1;
     fi
