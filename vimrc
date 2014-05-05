@@ -7,6 +7,8 @@
 
 " This source imports all of my general settings. Indent, hilight, etc.
 source ~/.vim/vimrc_general
+" This source imports all plugins
+source ~/.vim/vimrc_plugs
 " This source imports all of my plugin settings and bindings.
 source ~/.vim/vimrc_mappings
 " This source sets mutt configs
@@ -15,8 +17,6 @@ source ~/.vim/vimrc_mutt
 source ~/.vim/vimrc_abbrev
 " This source sets Colorscheme etc.
 source ~/.vim/vimrc_colors
-" This source imports all plugins
-source ~/.vim/vimrc_plugs
 
 " This source sets R configs
 " source ~/.vim/ftplugin/r.vim

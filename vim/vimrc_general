@@ -110,6 +110,7 @@ set nu                                    " number: show line numbers
 set rnu                                   " rnu: relative line numbers
 set so=5                                  " scrolloff: keep at least 5 lines above/below cursor
 set title                                 " title: show title in console title bar
+set t_ut=                                 " fix tmux color issues
 set wmnu                                  " wildmenu: completion with menu
 set wmh=0                                 " winminheight: windows minimum height (values 0-3)
 set wmw=1                                 " winminwidth: windows minimum width in columns (val 0-12)
@@ -342,35 +343,6 @@ autocmd BufWritePre *.tex :%s/\s\+$//e
 "}}}
 " miscellanious"{{{
 
-" functions"{{{
-
-" enhanced increase number"{{{
-
-" http://vim.wikia.com/wiki/Increasing_or_decreasing_numbers?action=edit&section=3
-function! AddSubtract(char, back)
-  let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
-  call search(pattern, 'cw' . a:back)
-  execute 'normal! ' . v:count1 . a:char
-  silent! call repeat#set(":\<c-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<cr>")
-endfunction
-nnoremap <silent>         <c-a> :<c-u>call AddSubtract("\<c-a>", '')<cr>
-nnoremap <silent> <leader><c-a> :<c-u>call AddSubtract("\<c-a>", 'b')<cr>
-nnoremap <silent>         <c-x> :<c-u>call AddSubtract("\<c-x>", '')<cr>
-nnoremap <silent> <leader><c-x> :<c-u>call AddSubtract("\<c-x>", 'b')<cr>
-
-""}}}
-" restore key position"{{{
-
-function! ResCur()
-  if line("'\"") <= line("$")
-    normal! g`"
-    return 1
-  endif
-endfunction
-
-" ""}}}
-
-"}}}
 " augroups"{{{
 
 " change delay-time depending on mode"{{{

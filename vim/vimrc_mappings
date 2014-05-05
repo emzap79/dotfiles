@@ -529,6 +529,32 @@ endfunction
 command! ClearRegisters call ClearRegisters()
 
 " Func: Clear all registers"}}}
+" Func: Enhanced Increase Number"{{{
+
+" http://vim.wikia.com/wiki/Increasing_or_decreasing_numbers?action=edit&section=3
+function! AddSubtract(char, back)
+  let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
+  call search(pattern, 'cw' . a:back)
+  execute 'normal! ' . v:count1 . a:char
+  silent! call repeat#set(":\<c-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<cr>")
+endfunction
+nnoremap <silent>         <c-a> :<c-u>call AddSubtract("\<c-a>", '')<cr>
+nnoremap <silent> <leader><c-a> :<c-u>call AddSubtract("\<c-a>", 'b')<cr>
+nnoremap <silent>         <c-x> :<c-u>call AddSubtract("\<c-x>", '')<cr>
+nnoremap <silent> <leader><c-x> :<c-u>call AddSubtract("\<c-x>", 'b')<cr>
+
+""}}}
+" Func: Restore Key Position"{{{
+
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+" ""}}}
+
 
 ""}}}
 " Other Mappings"{{{
@@ -592,7 +618,7 @@ vnoremap  <expr>  <UP>     DVB_Drag('up')
 vnoremap  <expr>  D        DVB_Duplicate()
 
 "}}}
-" " fugitive <plugin>"{{{
+" fugitive <plugin>"{{{
 
 " fugitive git bindings
 " map fugitive commands to <leader>g
@@ -613,11 +639,20 @@ nnoremap <space>go :Git checkout<Space>
 nnoremap <space>gps :Dispatch! git push<CR>
 nnoremap <space>gpl :Dispatch! git pull<CR>
 
-" autcomd so that 'd' in visual mode doesn't cause a pause outside of diff-mode
+" autocomd so that 'd' in visual mode doesn't cause a pause outside of diff-mode
 " http://www.reddit.com/r/vim/comments/21f4gm/best_workflow_when_using_fugitive/cgcrfwz
 autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<cr>|xnoremap <buffer> do :diffget<cr>
 
-" " fugitive"}}}
+" fugitive"}}}
+" tmux-navigator <plugin>"{{{
+
+nnoremap <silent> <c-l> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-h> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-ß> :TmuxNavigatePrevious<cr>
+
+" tmux-navigator <plugin>"}}}
 
 " Plugin-Maps"}}}
 " Folds & Marks"{{{
@@ -658,56 +693,56 @@ endif
 "}}}
 " window-movements"{{{
 
-" "" swap position of two open buffer-windows"{{{
+" swap position of two open buffer-windows"{{{
 
-""" " func: window swap"{{{
+" " func: window swap"{{{
 
-" "http://stackoverflow.com/a/4903681
-" "move to the window to mark for the swap via ctrl-w movement
-" "type,mw move to the window you want to swap type,pw
-" "voila! swapped buffers without screwing up your window layout!
+" http://stackoverflow.com/a/4903681
+" move to the window to mark for the swap via ctrl-w movement
+" type,mw move to the window you want to swap type,pw
+" voila! swapped buffers without screwing up your window layout!
 fun! MarkWindowSwap()
     let g:markedwinnum = winnr()
 endfun
 
 fun! DoWindowSwap()
-    "mark destination
+    mark destination
     let curnum = winnr()
     let curbuf = bufnr( "%" )
     exe g:markedwinnum. "wincmd w"
-    "switch to source and shuffle dest->source
+    " switch to source and shuffle dest->source
     let markedbuf = bufnr( "%" )
-    "hide and open so that we aren't prompted and keep history
+    " hide and open so that we aren't prompted and keep history
     exe 'hide buf' curbuf
-    "switch to dest and shuffle source->dest
+    " switch to dest and shuffle source->dest
     exe curnum. "wincmd w"
-    "hide and open so that we aren't prompted and keep history
+    " hide and open so that we aren't prompted and keep history
     exe 'hide buf' markedbuf
 endfun
 
-"}}}
+" }}}
 nnoremap <silent> <leader>mw :call MarkWindowSwap()<cr>
 nnoremap <silent> <leader>pw :call DoWindowSwap()<cr>
 
-"}}}
-" "" switching buffers"{{{
+" }}}
+" switching buffers"{{{
 
 " changes to previous buffer
 nnoremap <esc>ß :b #<cr>
 
-" " move around between buffers
-" nnoremap <c-k> <c-w><up>
-" nnoremap <c-j> <c-w><down>
-" nnoremap <c-h> <c-w><left>
-" nnoremap <c-l> <c-w><right>
+" move around between buffers
+nnoremap <s-c-k> <c-w><up>
+nnoremap <s-c-j> <c-w><down>
+nnoremap <s-c-h> <c-w><left>
+nnoremap <s-c-l> <c-w><right>
 
-"}}}
-" "" switch to alternate file"{{{
+" }}}
+" switch to alternate file"{{{
 
 nnoremap <c-tab> :bnext<cr>
 nnoremap <c-s-tab> :bprevious<cr>
 
-" "}}}
+" }}}
 
 "}}}
 " reload session.vim"{{{
