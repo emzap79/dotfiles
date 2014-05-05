@@ -11,7 +11,7 @@ gitdir=$HOME/dotfiles                                           # dotfiles direc
 git_old_dir=$HOME/dotfiles_old                                  # old dotfiles backup directory
 folders="bash cmus devilspie newsbeuter \
 dictionaries podget sane spamassassin vim xournal mutt"  # list of files/folders to symlink in homedir
-files="tmux.conf vimrc bashrc dingrc gvimrc muttrc"
+files="inputrc Rprofile tmux.conf vimrc bashrc dingrc gvimrc muttrc"
 scripts="$HOME/bin/gitDotfiles"
 
 
