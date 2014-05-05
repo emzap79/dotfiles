@@ -27,3 +27,22 @@ filetype on             " detect type of file
 filetype plugin indent on      " load indent file for specific file type
 
 set t_RV=               " http://bugs.debian.org/608242, http://groups.google.com/group/vim_dev/browse_thread/thread/9770ea844cec3282
+
+" http://vim.1045645.n5.nabble.com/Re-how-to-suppress-quot-E173-1-more-file-to-edit-quot-td5716336.html
+" Avoid E173
+if argc() > 1
+  silent blast " load last buffer
+  silent bfirst " switch back to the first
+endif
+
+" command -bang -bar Qfast call Qfast(<q-bang>)
+" func Qfast(bang)
+        " if a:bang == "" " optional: if no ! write all modified named files
+                " set awa "
+        " endif           "
+        " try
+                " exe 'qa' . a:bang
+        " catch /^Vim\%((\a\+)\)\=:E173/
+                " exe 'qa' . a:bang
+        " endtry
+" endfunc 
