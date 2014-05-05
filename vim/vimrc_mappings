@@ -1028,6 +1028,13 @@ vnoremap <leader>v <ESC>:'<,'>
 inoremap <localleader>v <ESC>:'<,'>
 
 "}}}
+" execute cmd within sentencse"{{{
+
+nnoremap <leader>s :'(,')
+vnoremap <leader>s <ESC>:'(,')
+inoremap <localleader>s <ESC>:'(,')
+
+"}}}
 " execute cmd within paragraph"{{{
 
 nnoremap <leader>p :'{,'}
