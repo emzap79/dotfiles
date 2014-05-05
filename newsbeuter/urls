@@ -23,7 +23,7 @@
 "query:Reddit: tags =~ \"999. Reddit\" and tags =~ \"all\" and (title =~ \"linux\")"                                                     "05.3 Reddit :: linux"
 "query:Reddit: tags =~ \"999. Reddit\" and tags =~ \"messages\""                                                                         "05.4 Reddit :: messages"
 "query:Unix: tags =~ \"999.\ Unix\" and tags =~ \"linux\""                                                                               "06. Unix :: Linux"
-"query:Unix: tags =~ \"999.\ Unix\" and tags =~ \"vim\"\""                                                                               "06.1 Unix :: VIM"
+"query:Unix: tags =~ \"999.\ Unix\" and tags =~ \"vim\""                                                                               "06.1 Unix :: VIM"
 "query:Unix: tags =~ \"999. Unix\" and tags =~ \"Ubuntu\""                                                                               "06.2 Unix :: Ubuntu"
 "query:Unix: tags =~ \"999. Unix\" and tags =~ \"Fedora\""                                                                               "06.3 Unix :: Fedora"
 "query:Rasppi: tags =~ \"999.\" and (tags =~ \"Lifehacker\" or tags =~ \"Rasppi\") and (title =~ \"rasppi\" or title =~ \"raspberry\")"  "06.3 Unix :: RaspPi"
