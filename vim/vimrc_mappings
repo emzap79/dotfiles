@@ -694,10 +694,12 @@ nnoremap <silent> <leader>pw :call DoWindowSwap()<cr>
 
 " changes to previous buffer
 nnoremap <esc>ß :b #<cr>
-nnoremap <c-k> <c-w><up>
-nnoremap <c-j> <c-w><down>
-nnoremap <c-h> <c-w><left>
-nnoremap <c-l> <c-w><right>
+
+" " move around between buffers
+" nnoremap <c-k> <c-w><up>
+" nnoremap <c-j> <c-w><down>
+" nnoremap <c-h> <c-w><left>
+" nnoremap <c-l> <c-w><right>
 
 "}}}
 " "" switch to alternate file"{{{
