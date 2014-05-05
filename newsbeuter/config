@@ -183,7 +183,8 @@ suppress-first-reload     yes
 html-renderer "w3m -dump -T text/html"
 # browser "chromium-browser %u"
 # browser newsbPix      # For Terminal-Browser
-browser "chromium-browser --no-startup-window --new-tab %u 2> /dev/null &"
+# browser "chromium-browser --no-startup-window --new-tab %u 2> /dev/null &"
+browser "firefox --no-startup-window --new-tab %u 2> /dev/null &"
 # browser "chromium-browser --remote 'openURL(%u,new-tab,no-startup-window)'"
 
 # }}}
