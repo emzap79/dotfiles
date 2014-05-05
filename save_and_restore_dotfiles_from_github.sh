@@ -19,7 +19,7 @@ scripts="$HOME/bin/gitDotfiles"
 chk_if_already_exec ()
 {
 
-    if [ -e "$LOGDIR/$prog-`date +%Y-%W`.lock" ];then
+    if [ -e "$LOGDIR/`date +%Y-%W`-$prog.lock" ];then
         # Skript beenden
         echo "You've already run this script this week!"
         echo "CU next time buddy!"
