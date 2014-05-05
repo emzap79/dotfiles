@@ -417,15 +417,15 @@ nnoremap <leader>slp :lcd %:p:h <cr> "set local path of currently edited file.
 
 " " Func: YouCompleteMe <Plugin>"{{{
 
-" fun! ToggleYCM()
-    " if g:ycm_auto_trigger == 1
-        " let g:ycm_auto_trigger = 0
-        " echo "Plugin YCM disabled"
-    " else
-        " let g:ycm_auto_trigger = 1
-        " echo "Plugin YCM enabled"
-    " endif
-" endfun
+fun! ToggleYCM()
+    if g:ycm_auto_trigger == 1
+        let g:ycm_auto_trigger = 0
+        echo "Plugin YCM disabled"
+    else
+        let g:ycm_auto_trigger = 1
+        echo "Plugin YCM enabled"
+    endif
+endfun
 
 " "}}}
 " " Func: Foldexpressions"{{{

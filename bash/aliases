@@ -278,8 +278,7 @@ alias vimcalc="vim -c ':Calc'"  # VimCalculator
 alias vimenc="vim -u $USB/VIM/_vimrc $USB/VIM/_passw.encr"
 alias vimfoo="vim -u ~/.vim/vimrc_testing_foobar /tmp/foo.test"
 # http://stackoverflow.com/a/8931728/3569509
-alias vimg='echo -e "\n$HOME/.vim-last-scriptout \n$LIX/Vim/vimgolf/VimGolfTricks_DotMacros.vg" >> /tmp/foo.golf \
-    && vim -u ~/.vim/vimrc_vimgolf -W ~/.vim-last-scriptout /tmp/foo.golf \
+alias vimg='vim -u ~/.vim/vimrc_vimgolf -W ~/.vim-last-scriptout /tmp/foo.golf ~/Dokumente/\
     && cat ~/.vim-last-scriptout | wc -c'
 alias vimm="vim -c ':FufMruFile'"      # opens MRUs
 alias vimmutt="vim ~/.muttrc"
