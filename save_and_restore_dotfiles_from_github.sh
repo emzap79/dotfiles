@@ -3,9 +3,7 @@
 
 # Defining Variables
 prog="github"
-LOG="$HOME/.logfiles"
-lockfile_old="$(basename $HOME/.logfiles/*.$prog.lock)"
-lockfile_last_week="$(ls $LOG | egrep [[:digit:]]{8})"
+LOGDIR="$HOME/.logfiles"
 
 gitdir=$HOME/dotfiles                                           # dotfiles directory
 git_old_dir=$HOME/dotfiles_old                                  # old dotfiles backup directory
@@ -19,13 +17,13 @@ scripts="$HOME/bin/gitDotfiles"
 chk_if_already_exec ()
 {
 
-    if [ -e "$LOGDIR/`date +%Y-%W`-$prog.lock" ];then
+    if [ -f "$LOGDIR/`date +%Y-%W`-$prog.lock" ]; then
         # Skript beenden
         echo "You've already run this script this week!"
         echo "CU next time buddy!"
         exit 1
     else
-        rm $LOGDIR/$prog.*.lock; touch "$LOGDIR/$prog-`date +%Y-%W`.lock"
+        rm "$LOGDIR/*$prog.lock"; touch "$LOGDIR/`date +%Y-%W`-$prog.lock"
     fi
 
 }
