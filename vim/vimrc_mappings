@@ -598,7 +598,7 @@ nnoremap <space>go :Git checkout<Space>
 nnoremap <space>gps :Dispatch! git push<CR>
 nnoremap <space>gpl :Dispatch! git pull<CR>
 
-" autcomd so that d in visual mode doesn't cause a pause outside of diff-mode
+" autcomd so that 'd' in visual mode doesn't cause a pause outside of diff-mode
 " http://www.reddit.com/r/vim/comments/21f4gm/best_workflow_when_using_fugitive/cgcrfwz
 autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<cr>|xnoremap <buffer> do :diffget<cr>
 
