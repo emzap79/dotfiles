@@ -46,6 +46,6 @@ function! ClearRegisters()
     endwhile
 endfunction
 command! ClearRegisters call ClearRegisters()
-au BufNew * call ClearRegisters()
+au VimEnter * call ClearRegisters()
 
 " Func: Clear all registers"}}}
