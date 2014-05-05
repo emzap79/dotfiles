@@ -514,6 +514,21 @@ endfunction
 au BufReadPost * call SaveFolds()
 
 " Func: Save Folds"}}}
+" Func: Clear all registers"{{{
+
+" http://kba49.wordpress.com/2013/03/21/clear-all-registers-and-macros-in-vim/
+function! ClearRegisters()
+    let regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
+    let i=0
+    while (i<strlen(regs))
+        exec 'let @'.regs[i].'=""'
+        let i=i+1
+    endwhile
+endfunction
+
+command! ClearRegisters call ClearRegisters()
+
+" Func: Clear all registers"}}}
 
 ""}}}
 " Other Mappings"{{{

@@ -35,16 +35,16 @@ if argc() > 1
   silent bfirst " switch back to the first
 endif
 
-" command -bang -bar Qfast call Qfast(<q-bang>)
-" func Qfast(bang)
-        " if a:bang == "" " optional: if no ! write all modified named files
-                " set awa "
-        " endif           "
-        " try
-                " exe 'qa' . a:bang
-        " catch /^Vim\%((\a\+)\)\=:E173/
-                " exe 'qa' . a:bang
-        " endtry
-" endfunc 
+" http://kba49.wordpress.com/2013/03/21/clear-all-registers-and-macros-in-vim/
+function! ClearRegisters()
+    let regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
+    let i=0
+    while (i<strlen(regs))
+        exec 'let @'.regs[i].'=""'
+        let i=i+1
+    endwhile
+endfunction
+command! ClearRegisters call ClearRegisters()
+au BufRead * :ClearRegisters<CR>
 
-let i=0| while (i<26) | exec 'let @'.nr2char(i+(char2nr("a"))).'=""' | let i=i+1 | endwhile
+" Func: Clear all registers"}}}
