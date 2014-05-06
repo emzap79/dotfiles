@@ -646,11 +646,11 @@ autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<cr>|xnoremap <buffer> 
 " fugitive"}}}
 " tmux-navigator <plugin>"{{{
 
-nnoremap <silent> <c-l> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-h> :TmuxNavigateRight<cr>
-nnoremap <silent> <c-ß> :TmuxNavigatePrevious<cr>
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 " tmux-navigator <plugin>"}}}
 
@@ -730,11 +730,11 @@ nnoremap <silent> <leader>pw :call DoWindowSwap()<cr>
 " changes to previous buffer
 nnoremap <esc>ß :b #<cr>
 
-" move around between buffers
-nnoremap <s-c-k> <c-w><up>
-nnoremap <s-c-j> <c-w><down>
-nnoremap <s-c-h> <c-w><left>
-nnoremap <s-c-l> <c-w><right>
+" " move around between buffers
+" nnoremap <c-k> <c-w><up>
+" nnoremap <c-j> <c-w><down>
+" nnoremap <c-h> <c-w><left>
+" nnoremap <c-l> <c-w><right>
 
 " }}}
 " switch to alternate file"{{{

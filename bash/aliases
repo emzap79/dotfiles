@@ -278,7 +278,8 @@ alias vimcalc="vim -c ':Calc'"  # VimCalculator
 alias vimenc="vim -u $USB/VIM/_vimrc $USB/VIM/_passw.encr"
 alias vimfoo="vim -u ~/.vim/vimrc_testing_foobar /tmp/foo.test"
 # http://stackoverflow.com/a/8931728/3569509
-alias vimg='vim -u ~/.vim/vimrc_vimgolf -W ~/.vim-last-scriptout /tmp/foo.golf ~/Dokumente/Linux/Vim/vimgolf/chall*.vg \
+alias vimg='vim -u ~/.vim/vimrc_vimgolf -W ~/.vim-last-scriptout /tmp/foo.golf $DOK/Linux/Vim/vimgolf/VimGolfTricks_DotMacros.vg \
+    $DOK/Linux/Vim/vimgolf/chall*.vg \
     && cat ~/.vim-last-scriptout | wc -c'
 alias vimm="vim -c ':FufMruFile'"      # opens MRUs
 alias vimmutt="vim ~/.muttrc"
@@ -325,8 +326,8 @@ alias chkwlan="nm-tool | grep Strength | egrep -v '(WEP|WPA)' | sed 's/^ *//g' |
 # functions# {{{
 
 # show absolute path to file
-# http://stackoverflow.com/a/14984302 (or readlink -f)
-fun_absolute_path() { echo "$PWD/$1"; }
+# http://stackoverflow.com/a/14984302
+fun_absolute_path() { echo "$PWD/$1"; }  # alt: readlink -f
 
 # expand shortened urls
 # http://www.commandlinefu.com/commands/view/9515/expand-shortened-urls

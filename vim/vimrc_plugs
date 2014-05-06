@@ -256,7 +256,7 @@ let g:UltiSnipsSnippetDirectories= ["emzapsnips"]
 " let g:UltiSnipsMappingsToIgnore = [ "somePlugin", "otherPlugin" ]
 
 " If the trigger for your snippet is lorem, you type lor, and you have no other
-" snippets whose trigger matches lor then hitting <C-L> will expand to whatever
+" snippets whose trigger matches lor then hitting <C-K> will expand to whatever
 " expands to.
 function! ExpandPossibleShorterSnippet()
     if len(UltiSnips#SnippetsInCurrentScope()) == 1 "only one candidate...
@@ -268,7 +268,7 @@ function! ExpandPossibleShorterSnippet()
     endif
     return 0
 endfunction
-inoremap <silent> <leader>l <C-R>=(ExpandPossibleShorterSnippet() == 0? '': UltiSnips#ExpandSnippet())<CR>
+inoremap <silent> <leader>K <C-R>=(ExpandPossibleShorterSnippet() == 0? '': UltiSnips#ExpandSnippet())<CR>
 
 " Adding anonymous snippets
 inoremap <silent> $$ $$<C-R>=UltiSnips#Anon(':latex:\$1\', '$$')<cr>
