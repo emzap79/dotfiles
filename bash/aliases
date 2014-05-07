@@ -171,8 +171,8 @@ alias gitadd="git add -A . && git branch -a && git status"
 alias gitcom="git commit -m "
 alias gitgit="git add -A . && git commit -m "
 alias gitremote="git remote add origin"
-alias gitpush="git push origin master"
-alias gitp="git log --oneline --graph && git push origin master"
+alias gitpush="git push origin"
+alias gitp="git push origin"
 alias gitdot="$HOME/bin/cronGithub backup"
 
 ## }}}

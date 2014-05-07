@@ -1,0 +1,29 @@
+[user]
+		name = emzap79
+		email = kaktuuus@gmx.de
+[credential]
+		helper = cache
+[push]
+	default = simple
+[branch]
+	autosetuprebase = always
+[color]
+	ui = true
+	status = auto
+	branch = auto
+[core]
+	editor = vim
+	excludesfile = /home/zapata/.gitignore
+[merge]
+	tool = kdiff3
+[auto]
+	squash = true
+[config]
+	autosquash = true
+[rebase]
+	autosquash = true
+[alias]
+	upd = !git add . -A && git commit
+	grep-conf = config --get-regexp
+	ll = log --graph --oneline --decorate --all
+	staged = diff --cached

@@ -812,6 +812,12 @@ nnoremap gF :lcd %:p:h<cr>:e! ./<cfile><cr>
 ""}}}
 
 "}}}
+" buffer to 2/3 width
+
+nnoremap <silent> <Leader>+ :exe "vert resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "vert resize " . (winwidth(0) * 2/3)<CR>
+
+" buffer to 2/3 width
 
 " buffers & tabs"}}}
 " String-Searches & Spell-Checking"{{{
@@ -824,7 +830,7 @@ nnoremap gF :lcd %:p:h<cr>:e! ./<cfile><cr>
 " " the cursor is when typing <leader>fg in visual mode
 " " found on http://la.firme.perso.esil.univmed.fr/website/article.php3?id_article=70
 nnoremap \ :exe "!firefox " . shellescape(expand("<cword>"))<cr>
-xnoremap \ :<c-u>!firefox <c-r>=getvisualselection()<cr>
+xnoremap \ :<c-u>!firefox <c-r>=GetVisualSelection()<cr>
 
 "}}}
 "search wikipedia from within vim"{{{
@@ -884,7 +890,7 @@ nnoremap <leader>g :set operatorfunc=GrepOperator<cr>g@
 vnoremap <leader>g :<c-u>call GrepOperator(visualmode())<cr>
 " fun: grep word under cursor "{{{
 
-function! GrepopOrator(type)
+function! GrepOperator(type)
     if a:type ==# 'v'
         normal! `<v`>y
     elseif a:type ==# 'char'

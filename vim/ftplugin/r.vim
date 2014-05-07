@@ -7,12 +7,23 @@
 " NOTE: Only *(ivn)map* will work!
 " Start R from inside vim by hitting: <,rf>
 
-nmap <localleader>q <Plug>RClose
-imap <localleader>q <esc><Plug>RClose
-vmap <localleader>q <Plug>RClose
+" Start R
+nmap <localleader>R <Plug>RStart
+imap <localleader>R <esc><Plug>RStart
+vmap <localleader>R <Plug>RStart
 
+" Close R
+nmap <localleader>qq <Plug>RClose
+imap <localleader>qq <esc><Plug>RClose
+vmap <localleader>qq <Plug>RClose
+
+" Send Line And Jump To Next Codechunk
 nmap L <Plug>RDSendLine
 vmap L <Plug>RDSendSelection
+
+" Send Line And Jump To Next Codechunk
+nmap <M-l> <Plug>RSendLine
+vmap <M-l> <Plug>RSendSelection
 
 " Custom Keybindings
 nmap <C-kMinus> <Space><-<Space>

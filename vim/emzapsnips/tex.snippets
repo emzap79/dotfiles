@@ -241,3 +241,9 @@ endsnippet
 snippet pac "Package" b
 \usepackage[${1:options}]{${2:package}}$0
 endsnippet
+snippet "(cmd(\S+)?)" "set cmd in QRCs" br!
+\\`!p snip.rv = match.group(1)`{${1:${VISUAL}}}	{$2}
+endsnippet
+snippet "emerg?e?n?c?y?s?t?t?r?" "emergencystretch" ir
+\\emergencystretch=$1em
+endsnippet

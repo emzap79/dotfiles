@@ -246,6 +246,42 @@ Position}}
 \newcount\yoursex
 \yoursex=${14:0 für männlich bzw 1 für weiblich}
 endsnippet
+snippet qrc "fresh qrc tex-file" !b
+% vim:fdm=marker:filetype=tex:ts=2:expandtab
+% $1 Quick Reference Card
+% Copyright (c) 2014 Jonas Petong.
+
+% version
+\def\content{${1}}
+\def\versionnumber{0.1}  % Version of this reference card
+\def\year{$2}
+\def\month{$3}
+\def\version{v\versionnumber\ \month\ \year}
+
+% include definitions
+\input mydefs.sty
+
+% Card content
+% Header
+\title{\content QUICK REFERENCE CARD}${4:{$5}}
+
+% \shortcopyrightnotice
+\shortintro
+
+\section{$6}{$7}
+$8
+
+%% Footer
+\copyrightnotice
+
+% Ending
+\supereject
+\if L\lr \else\null\vfill\eject\fi
+\if L\lr \else\null\vfill\eject\fi
+\bye
+
+% EOF
+endsnippet
 snippet "preamble" "Preamble for TeX-Docs" br
 %% ****************
 %% Preamble

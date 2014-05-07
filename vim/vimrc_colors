@@ -15,9 +15,9 @@ syntax enable
 " http://stackoverflow.com/a/7619174
 " http://vim.1045645.n5.nabble.com/Cursor-line-and-cursor-column-highlighting-tc1843171.html#none
 if &bg == 'dark' 
-	hi  CursorColumn ctermbg=Yellow ctermfg=None
+    hi  CursorColumn ctermbg=Yellow ctermfg=None
 else 
-	hi  CursorColumn ctermbg=Black ctermfg=None
+    hi  CursorColumn ctermbg=Black ctermfg=None
 endif 
 "hi clear CursorColumn
 "hi! link CursorColumn CursorLine 
@@ -64,6 +64,7 @@ autocmd ColorScheme * highlight LanguageToolSpellingError ctermbg=55 ctermfg=non
 " autocmd ColorScheme * hi PmenuSel                       ctermbg=2  ctermfg=7    cterm=none
 
 
+" Syntastic
 highlight SyntasticErrorSign guifg=white guibg=red
 highlight SyntasticWarningLine guifg=white guibg=red
 highlight SyntasticErrorLine guibg=#2f0000
