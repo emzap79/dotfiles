@@ -28,7 +28,6 @@
 	staged = diff --cached
 	rem = !gitremote
 	alias = config --get-regexp ^alias\\.
-	la =  "!grep '\t=' ~/.gitconfig | sed -e 's/=/^[[0;31m=^[[0m/g' | sed -e 's/#.*/^[[0;32m&^[[0m/g' | less -R"
 
 # 'git h' for help, 'git la' to list aliases
 # http://stackoverflow.com/a/11613251
@@ -38,7 +37,7 @@
 	h	= help							    # (...<git command>)
 	ha	= !git help -a | less
 	hi	= help -i						    # ... yet to find out how to use the 'info' program
-	la	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g' | less -R"
+	al	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g' | less -R"
 
 #	=================================
 #	=	commit to project	=
@@ -67,7 +66,7 @@
 									    # tag
 	t	= tag							    # (...<tag name>), arguments: none/-f/-m
 	tl	= tag -n						    # show existing tags with messages
-	td	= tag -d						    # ...<tag name>
+	td	= tag -d						    # ...<tag name>, delete existing tag name
 									    # notes
 	n	= !git notes list | sed -e 's/\\([a-z0-9]\\{4\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
 	nv	= !git notes list | sed -e 's/\\([a-z0-9]\\{7\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
@@ -135,7 +134,7 @@
 #  merge your way back into madness
 	m	= merge --no-ff						    # ...<branch name>
 	rb	= rebase						    # ...<branch name>
-	rbi	= rebase -i
+	rbi	= rebase -i --autosquash
 	rbc	= rebase --continue
 	rbs	= rebase --skip
 	rba	= rebase --abort
@@ -146,7 +145,7 @@
 #  interact with the rest of the world
 	f	= fetch
 	p	= pull
-	pp	= push
+	pp	= push origin
 	pup	= !git p && git pp					    # pull and push, not nice but sometimes convenient
 	rmrb	= push --delete origin					    # ...<branch name> remote branch to be deleted
 	fp	= !git mca && git pup					    # fast push script, be wary!
@@ -168,8 +167,8 @@
 #  dig in history what went wrong
 	rl	= reflog
 	l	= log --graph --oneline --decorate=short --all
-	ls	= log --stat						    # show log with added/droped files
 	lp	= log -p						    # ...<filename> shows diffs for file in question
+	lst	= log --stat						    # show log with added/droped files
 	lf	= log --follow						    # history <filename> including renames
 	ll	= log --graph --abbrev-commit --decorate=short --pretty=short
 	lll	= log --graph --abbrev-commit --decorate=short		    # --pretty=medium

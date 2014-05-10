@@ -1,11 +1,17 @@
-" ----------------------------
-" Mapping Function
-" ----------------------------
-
+" vim:fdm=marker
 " Mappings for Vim-R"{{{
+
+" some previous notes"{{{
 
 " NOTE: Only *(ivn)map* will work!
 " Start R from inside vim by hitting: <,rf>
+
+" the prefix RE means "echo"; RD, "cursor down";
+" RED, both "echo" and "down", eg. RDSendLine: send line under cursor and
+" jump to next line of code!
+
+" some previous notes"}}}
+" start & close R"{{{
 
 " Start R
 nmap <localleader>R <Plug>RStart
@@ -17,18 +23,33 @@ nmap <localleader>qq <Plug>RClose
 imap <localleader>qq <esc><Plug>RClose
 vmap <localleader>qq <Plug>RClose
 
-" Send Line And Jump To Next Codechunk
-nmap L <Plug>RDSendLine
-vmap L <Plug>RDSendSelection
+" start & close R"}}}
+" send code to console"{{{
 
 " Send Line And Jump To Next Codechunk
-nmap <M-l> <Plug>RSendLine
-vmap <M-l> <Plug>RSendSelection
+nmap <esc>l <Plug>RDSendLine
+vmap <esc>l <Plug>REDSendSelection
 
-" Custom Keybindings
-nmap <C-kMinus> <Space><-<Space>
+" Send Line
+nmap <c-s-l> <Plug>RSendLine
+vmap <c-s-l> <Plug>RESendSelection
+
+" Send Chunks
+nmap <esc>k <Plug>RDSendParagraph
+vmap <esc>k <Plug>RESendSelection
+
+" Send Chunks
+nmap <esc>f <Plug>RSendFile
+
+" send code to console"}}}
+" Code editing mappings"{{{
+
+" assing value to variable ('<-')
 imap <C-kMinus> <esc> <Space><-<Space>
-vmap <C-kMinus> <Space><-<Space>
+nmap <C-kMinus> a<Space><-<Space>
+
+" Code editing mappings"}}}
+" GVIM-Mappings"{{{
 
 nmap <M-1> 1gt
 imap <M-1> <esc>1gt
@@ -50,17 +71,9 @@ nmap <M-5> 5gt
 imap <M-5> <esc>5gt
 vmap <M-5> 5gt
 
-"}}}
-" Benutzung (Kommandozeile)"{{{
+" GVIM-Mappings"}}}
 
-" http://wiki.ubuntuusers.de/R#Benutzung-Kommandozeile
-" Unter Linux verfügt R über keine Standardoberfläche. Es wird über ein Terminal
-" mit dem Befehl: R gestartet. Am Befehlsprompt können nur R-Befehle eingegeben
-" werden, die direkt ausgeführt werden. Die umfangreiche Hilfe von R lässt sich
-" mit dem Befehl: help.start() in einem Browser aufrufen.  Um R zu beenden,
-" führt man den Befehl : q() aus.
-
-"}}}
+" Mappings for Vim-R"}}}
 " Configurations for R in Gvim"{{{
 
 " ----------------------------
@@ -91,4 +104,5 @@ vmap <M-5> 5gt
 " aunmenu ToolBar.Einfügen
 " aunmenu ToolBar.Replace
 
-"}}}
+
+" Configurations for R in Gvim"}}}

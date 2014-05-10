@@ -1,4 +1,4 @@
-# vim:fdm=marker
+# vim:fdm=marker:ft=sh
 
 # export aliases="~/.bash/aliases"
 
@@ -9,11 +9,11 @@
 # on linux:
 # https://github.com/sjas/.dotfiles
 if [[ `uname` ==  Linux ]]; then
-        export LS1='--color=always'
-# on mac:
+    export LS1='--color=always'
+    # on mac:
 elif [[ `uname` ==  Darwin* ]]; then
-        export LS1='-G'
-# on windows/cygwin/mingw/other
+    export LS1='-G'
+    # on windows/cygwin/mingw/other
 else
     export LS1='--color=auto'
 fi
@@ -44,6 +44,7 @@ alias du='du -h'
 alias dul="du --max-depth=1 -k | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
 alias dull="du -hsx * | sort -rh | head -10"  # http://www.commandlinefu.com/commands/view/13328/provide-the-ten-largest-subfolders-in-the-current-folder
 alias dulll="du -ks .?* | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
+alias dus=fun_dus
 
 # }}}
 # find # {{{
@@ -60,7 +61,7 @@ alias dupetrack2="find . -type f -regextype sed -iregex '^.*\.[[:digit:]]\.\(mp3
 # }}}
 # cd # {{{
 
-alias cd="fun_cd"
+alias cd=fun_cd
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -93,6 +94,7 @@ alias cdpodc="cd $HOME/Podcasts"
 # alias cdpwd="cd $(xclip -o)"
 alias cdsem="cd $UNI/$SEM"
 alias cdtmp="cd $HOME/tmp"
+alias cdgh="cd $HOME/.gitclones"
 alias cduni="cd $UNI"
 alias cdvim="cd $HOME/.vim"
 alias cdwallp="cd $HOME/.wallpapers"
@@ -106,6 +108,7 @@ alias cdbew="cd $DOK/Bewerbungen"
 alias cddok="cd $DOK"
 alias cdlatex="cd $DOK/LaTeX"
 alias cdlinux="cd $DOK/Linux"
+alias cdr="cd $DOK/Linux/R"
 alias cdpers="cd $DOK/PersDok"
 alias cdpeug="cd $DOK/Gebrauchtwagen"
 alias cdqrc="cd $DOK/Linux/QRCs"
@@ -140,44 +143,9 @@ alias convflv="ffmpeg -sameq -ar 22051 -strict experimental output.mp4 -i"
 # grep# {{{
 
 alias grepv='fun_grepv'
+alias grep='grep --color=always -i -n'
 
 # grep# }}}
-
-# }}}
-# remote tracking# {{{
-
-# ssh# {{{
-
-alias uoek="rsync --progress -auve ssh --iconv=UTF-8,ISO8859-1 --exclude '^.' --exclude '*~' --delete $UNI/$SEM/CompOek/ sdjopeto@student.uni-due.de:public_html/CompOek"
-alias usync="/bin/bash $HOME/bin/cronSyncSsh"
-
-# }}}
-# git# {{{
-
-alias g='git'
-alias gla='git la'
-alias gd="$HOME/bin/cronGithub backup"
-alias gitadd="git add -A . "
-alias gitremote="fun_gitrem"
-alias gitpush="git push origin master"
-alias gitp="git push origin"
-
-## }}}
-# curl # {{{
-
-alias expandurl="fun_expandurl"
-
-## }}}
-# aptitude# {{{
-
-alias inst="sudo apt-get install -y"
-alias agi='sudo apt-get install -y'
-alias acs='apt-cache search'
-alias apt-get='sudo apt-get'
-alias yum='sudo yum'
-alias upgr="/bin/bash ~/bin/upgrSoftw.sh && /usr/bin/python ~/bin/upgrPipPackages.py"
-
-# }}}
 
 # }}}
 # programs# {{{
@@ -199,10 +167,10 @@ alias pwdc="pwd | xclip; source ~/.bashrc"
 if [[ -e /home/${USER}/Dokumente ]];
 then
     alias vimg='vim -u ~/.vim/vimrc_vimgolf -W ~/.vim-last-scriptout \
-    /tmp/foo.golf \
-    $DOK/Linux/Vim/vimgolf/VimGolfTricks_DotMacros.vg \
-    $DOK/Linux/Vim/vimgolf/chall*.vg \
-    && cat ~/.vim-last-scriptout | wc -c'
+        /tmp/foo.golf \
+        $DOK/Linux/Vim/vimgolf/VimGolfTricks_DotMacros.vg \
+        $DOK/Linux/Vim/vimgolf/chall*.vg \
+        && cat ~/.vim-last-scriptout | wc -c'
 fi
 
 # encrypted password file
@@ -219,7 +187,7 @@ alias vimg="vim ~/.gitconfig"
 # open vim sessions
 alias v='vim'
 alias vi="vim -c 'startinsert'"
-alias vv="fun_vim"  # 'vv tex' will open /etc/foo.tex in vim
+alias vv=fun_vim  # 'vv tex' will open /etc/foo.tex in vim
 alias vimu="vim -u NONE"
 alias vims="vim -S Session.vim"
 
@@ -238,8 +206,8 @@ fi
 
 alias pdfbar="pdftk *.pdf cat output bar.pdf; evince bar.pdf; rm -v bar.pdf"
 alias pdfgrayscale="gs -sOutputFile=grayscale.pdf -sDEVICE=pdfwrite \
-                    -sCompatibilityLevel=1.5 -dProcessColorModel=/DeviceGray \
-                    -sColorConversionStrategy=Gray -dNOPAUSE -dBATCH"
+    -sCompatibilityLevel=1.5 -dProcessColorModel=/DeviceGray \
+    -sColorConversionStrategy=Gray -dNOPAUSE -dBATCH"
 
 # }}}
 # latex# {{{
@@ -276,11 +244,12 @@ alias tvzdfinfo='vlc rtsp://3gp-livestreaming1.zdf.de/liveedge2/de08_v1_710.sdp'
 # }}}
 # youtube# {{{
 
-alias youtbdl="youtube-dl -x --audio-format mp3"
-alias youtbmps="mps-youtube"
-alias youtbvlc-ascii="vlc -V aa "
-alias youtbvlc-novideo="cvlc -V novideo "
-alias youtbmp="fun_youtbmp"
+alias yt-dl="youtube-dl -x --audio-format mp3"
+alias yt-mps="mpsyt"
+alias yt-vlc-ascii="vlc -V aa "
+alias yt-vlc-novideo="cvlc -V novideo "
+alias yt-mplayer=fun_youtbmp
+alias yt="mpsyt"
 
 # }}}
 
@@ -289,63 +258,303 @@ alias youtbmp="fun_youtbmp"
 
 # alert # {{{
 
-    alias alert='notify-send --urgency=low -i "$([ $?=0 ] && echo \
+alias alert='notify-send --urgency=low -i "$([ $?=0 ] && echo \
     terminal || echo error)" "$(history|tail -n1|sed -e \
     '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'    # Use like so:sleep 10; alert
 
 # }}}
+# short commands# {{{
+
+# some of it taken from https://github.com/sjas/.dotfiles
+
+alias t='tail -n200'
+alias h='head -n20'
+alias d='dirs -v'
+alias poweroff='sudo poweroff'
+alias reboot='sudo reboot'
+alias halt='sudo halt'
+alias shutdown='sudo shutdown'
+alias rmf="rm -rf"
+alias rmfa="rm -rf *"
+alias info='info --vi-keys'
+alias pwgen='pwgen -cn 12'
+alias echon="echo -n"
+alias mkdir='mkdir -p'
+alias chkwlan="nm-tool | grep Strength | egrep -v '(WEP|WPA)' | sed 's/^ *//g' \
+    | sort -t ',' -k 5'"     # check available wlan-ports
+alias ips=fun_ips
+alias pss=fun_pss
+alias clock="watch -t -n 1 date +%T"
+alias journ="less /var/log/syslog"
+alias mousereset="sudo rmmod psmouse; sudo modprobe psmouse"
+alias pandoc='/home/zapata/.cabal/bin/pandoc'
+alias quitord="rdesktop -uXime -dquito-pc 192.168.2.100 -z -P -xl -g 1024x768 -k de"
+alias sdn="usync up; cmus-remote -C q; sudo shutdown -h now"
+alias trs="trs {=de}"   # google translator
+alias unlckkeyr="sudo /usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh"
+
+# }}}
+
+# }}}
+# ssh, git, aptitude# {{{
+
+# ssh# {{{
+
+alias uoek="rsync --progress -auve ssh --iconv=UTF-8,ISO8859-1 --exclude '^.' --exclude '*~' --delete $UNI/$SEM/CompOek/ sdjopeto@student.uni-due.de:public_html/CompOek"
+alias usync="/bin/bash $HOME/bin/cronSyncSsh"
+
+# }}}
+# git# {{{
+
+alias g='git'
+alias gla='git la'
+alias gitadd="git add -A . "
+alias gitremote="fun_gitrem"
+alias gitpush="git push origin master"
+# alias gp="git push origin"
+
+alias g="git"
+alias gh="git h"
+alias gha="git ha"
+alias ghi="git hi"
+alias gal="git al"
+alias gcl="git cl"
+alias ga="git a"
+alias gaa="git aa"
+alias gai="git ai"
+alias gr="git r"
+alias grc="git rc"
+alias gc=fun_gitcommit
+alias gfc="git fc"
+alias gca=fun_gitcommitall
+alias gmc="git mc"
+alias gmca="git mca"
+alias gcam="git cam"
+alias gfcam="git fcam"
+alias grs="git rs"
+alias grshh="git rshh"
+alias gccm="git ccm"
+alias gt="git t"
+alias gtl="git tl"
+alias gtd="git td"
+alias gn="git n"
+alias gnv="git nv"
+alias gna="git na"
+alias gnap="git nap"
+alias gne="git ne"
+alias gns="git ns"
+alias gnr="git nr"
+alias gds="git ds"
+alias gdu="git du"
+alias gdt="git dt"
+alias gdh="git dh"
+alias gdf="$HOME/bin/cronGithub backup"
+alias gdhc="git dhc"
+alias gdhp="git dhp"
+alias gst="git st"
+alias gstl="git stl"
+alias gstp="git stp"
+alias gsta="git sta"
+alias gs="git s"
+alias gss="git ss"
+alias gsa="git sa"
+alias gssa="git ssa"
+alias gsh="git sh"
+alias gls="git ls"
+alias glsd="git lsd"
+alias glsf="git lsf"
+alias glsfd="git lsfd"
+alias glsfa="git lsfa"
+alias glsfad="git lsfad"
+alias glsfav="git lsfav"
+alias glsfavd="git lsfavd"
+alias gsb="git sb"
+alias gsba="git sba"
+alias gsbaf="git sbaf"
+alias gsbl="git sbl"
+alias gsblf="git sblf"
+alias gsl="git sl"
+alias gb="git b"
+alias gba="git ba"
+alias gbd="git bd"
+alias gco="git co"
+alias gcob="git cob"
+alias gm="git m"
+alias grb="git rb"
+alias grbi="git rbi"
+alias grbc="git rbc"
+alias grbs="git rbs"
+alias grba="git rba"
+alias gp="git p"
+alias gpp="git pp"
+alias gpup="git pup"
+alias grmrb="git rmrb"
+alias gfp=gitfastpush
+alias gf="git f"
+alias grem="git rem"
+alias grems="git rems"
+alias garem="git arem"
+alias grrem="git rrem"
+alias gsco="git sco"
+alias gsci="git sci"
+alias gsup="git sup"
+alias gllc="git llc"
+alias glsha="git lsha"
+alias glshaf="git lshaf"
+alias gd="git d"
+alias grl="git rl"
+alias gl="git l"
+alias glp="git lp"
+alias gll="git ll"
+alias glll="git lll"
+alias glo="git lo"
+alias gllo="git llo"
+alias glllo="git lllo"
+
+alias gstats=fun_gitstats
+alias ignore=fun_ignore
+alias clean=fun_clean
+alias swap=fun_swap
+alias gitcommit=fun_gitcommit
+alias gitcommitall=fun_gitcommitall
+alias gitfastpush=fun_gitfastpush
+alias gitinfo=fun_gitinfo
+alias gitstats=fun_gitstats
+
+#gitinfo
+alias gi=gitinfo
+
+## }}}
+# curl # {{{
+
+alias expandurl=fun_expandurl
+
+## }}}
+# aptitude# {{{
+
+alias inst="sudo apt-get install -y"
+alias agi='sudo apt-get install -y'
+alias acs='apt-cache search'
+alias apt-get='sudo apt-get'
+alias yum='sudo yum'
+alias upgr="/bin/bash ~/bin/upgrSoftw.sh && /usr/bin/python ~/bin/upgrPipPackages.py"
+
+# }}}
+
+# ssh, git, aptitude# }}}
+# tmux #{{{
+
+# Change the TERM environment variable (to get 256 colors) and make Vim
+# connecting to X Server even if running in a terminal emulator (to get
+# dynamic update of syntax highlight and Object Browser):
+if [ "x$DISPLAY" != "x" ]
+then
+    if [ "screen" = "$TERM" ]
+    then
+        export TERM=screen-256color
+    else
+        export TERM=xterm-256color
+    fi
+    alias vim='vim --servername VIM'
+    if [ "x$TERM" == "xxterm" ] || [ "x$TERM" == "xxterm-256color" ]
+    then
+        function tvim(){ tmux -2 new-session "TERM=screen-256color vim --servername VIM $@" ; }
+    else
+        function tvim(){ tmux new-session "vim --servername VIM $@" ; }
+    fi
+else
+    if [ "x$TERM" == "xxterm" ] || [ "x$TERM" == "xxterm-256color" ]
+    then
+        function tvim(){ tmux -2 new-session "TERM=screen-256color vim $@" ; }
+    else
+        function tvim(){ tmux new-session "vim $@" ; }
+    fi
+fi
+
+# sources tmux-plugin
+if [[ -f "/home/${USER}/.vim/bundle/tmux-config/tmux-autwrite/autowrite-vim.sh" ]]; then
+    # enable VIM autosaving
+    # https://github.com/pivotal/tmux-config
+    source ~/.vim/bundle/tmux-config/tmux-autowrite/autowrite-vim.sh
+fi
+
+# TMUX#}}}
 # functions# {{{
 
-# find
+# general# {{{
+
+# find - find files#{{{
+
 fun_ff() {
     find . -iname "*$**"
 }
 
-# grep to vim
+# find - find files#}}}
+# grep - grep to vim#{{{
+
 fun_grepv(){
     vim `\grep -irl "$*" .`
 }
 
-# make dir and change into it instantly
+# grep - grep to vim#}}}
+# mkdir - create dir and changedir to it#{{{
+
 fun_mkcd(){
-        mkdir -p "$1"
-        cd "$1"
+    mkdir -p "$1"
+    cd "$1"
 }
 
-# currently this prints more than needed, some time i need to fix this.
-function ips {
-        sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac
+# mkdir - create dir and changedir to it#}}}
+# ifconfig - print ip address#{{{
+
+fun_ips() {
+sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac | grep -i adr
+echo "---"
+sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| grep -i adr
 }
 
-# this rocks
-function dus () {
-du --max-depth=0 -k * | sort -nr | awk '{ if($1>=1024*1024) {size=$1/1024/1024; unit="G"} else if($1>=1024) {size=$1/1024; unit="M"} else {size=$1; unit="K"}; if(size<10) format="%.1f%s"; else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }'
+# ifconfig - print ip address#}}}
+# ls - sort content by size#{{{
+
+fun_dus () {
+du --max-depth=0 -k * | sort -n | awk '{ if($1>=1024*1024) {size=$1/1024/1024; unit="G"} else if($1>=1024) {size=$1/1024; unit="M"} else {size=$1; unit="K"}; if(size<10) format="%.1f%s"; else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }'
 }
 
-# this rocks, too
-# pss ssh
+# ls - sort content by size#}}}
+# pss ssh#{{{
+
 # kk <nr. of line to kill from prev. command>
+#kk() {
+    #sudo kill # Expecting a pid
+#}
 alias kk='sudo kill'
-pss() {
+fun_pss() {
     [[ ! -n ${1} ]] && return; # bail if no argument
     pro="[${1:0:1}]${1:1}"; # process-name –> [p]rocess-name (makes grep better)
     ps axo pid,command | \grep -i ${pro}; # show matching processes
     processids="$(ps axo pid,command | \grep -i ${pro} | awk '{print $1}')"; # get pids
-    if [[ "$SHELL" ==  "/bin/bash" ]]; then
+    if [[ "$SHELL" == "/bin/bash" ]]; then
         complete -W "${processids}" kk; # make a completion list for kk, bash
-    else
+    else 
         return;
     fi
 }
-# show absolute path to file
+
+# pss ssh#}}}
+# ls - show absolute path to file#{{{
+
 # http://stackoverflow.com/a/14984302
 fun_absolute_path() { echo "$PWD/$1"; }  # alt: readlink -f
 
-# expand shortened urls
+# ls - show absolute path to file#}}}
+# curl - expand shortened urls#{{{
+
 # http://www.commandlinefu.com/commands/view/9515/expand-shortened-urls
 fun_expandurl() { curl -sIL $1 | grep ^Location; }
 
-# edit new file with vim
+# curl - expand shortened urls#}}}
+# vim - edit new file with vim#{{{
+
 fun_vim() {
     if [ "$#" -eq 0 ]; then
         vim /tmp/foo.txt
@@ -354,17 +563,18 @@ fun_vim() {
     fi
 }
 
-# play yt-videos as ascii video
+# vim - edit new file with vim#}}}
+# yt-dl - youtube-videos as ascii video#{{{
+
 # http://annasagrera.com/on-ascii-youtube-and-letting-go/?lang=en
 fun_youtbmp() { youtube-dl $1 -o - | mplayer -vo aa -monitorpixelaspect 0.5 -; }
 
-# add repo to remote tracking file
-fun_gitrem() { git remote add origin ssh://git@github.com/emzap79/$1 ; }
+# yt-dl - youtube-videos as ascii video#}}}
+# cd - show last edited files#{{{
 
-# show content when changing into subdir
 # http://www.reddit.com/r/linux/comments/1zsn7r/a_bash_alias_i_cannot_function_without/cfwldex
 fun_cd() {
-    count=20
+    count=10
     dir="${@:-$HOME}"  # ~ isn't expanded when in quotes
     [ -z "${dir}" ] && dir=~
     if ! builtin cd "$dir"
@@ -373,55 +583,148 @@ fun_cd() {
         if builtin cd "$dir"
         then
             clear
-            pwd
+            # pwd
             ls -lrtc
         fi
     else
         clear
         if [ $(ls -lt | wc -l) -gt $count ]
         then
-            echo -e "                                                     .\n"
-            echo -e "                                                     .\n"
-            echo -e "                                                     .\n"
-        pwd
+            echo -e "                                                     ."
+            echo -e "                                                     ."
+            echo -e "                                                     ."
+            # pwd
             ls -lrtc | tail -n $count
         else
-        pwd
+            # pwd
             ls -ltrc
         fi
     fi
 }
 
-## }}}
-# short commands# {{{
+# cd - show last edited files#}}}
 
-# some of it taken from https://github.com/sjas/.dotfiles
+# general# }}}
+# gitfunctions# {{{
 
-    alias t='tail -n200'
-        alias h='head -n20'
-        alias d='dirs -v'
-        alias poweroff='sudo poweroff'
-        alias reboot='sudo reboot'
-        alias halt='sudo halt'
-        alias shutdown='sudo shutdown'
-        alias grep='grep --color=always -i -n'
-        alias rmf="rm -rf"
-        alias rmfa="rm -rf *"
-        alias info='info --vi-keys'
-        alias pwgen='pwgen -cn 12'
-        alias echo="echo -n"
-        alias mkdir='mkdir -p'
-        alias chkwlan="nm-tool | grep Strength | egrep -v '(WEP|WPA)' | sed 's/^ *//g' \
-        | sort -t ',' -k 5'"     # check available wlan-ports
-        alias clock="watch -t -n 1 date +%T"
-        alias journ="less /var/log/syslog"
-        alias mousereset="sudo rmmod psmouse; sudo modprobe psmouse"
-        alias pandoc='/home/zapata/.cabal/bin/pandoc'
-        alias quitord="rdesktop -uXime -dquito-pc 192.168.2.100 -z -P -xl -g 1024x768 -k de"
-        alias sdn="usync up; cmus-remote -C q; sudo shutdown -h now"
-        alias trs="trs {=de}"   # google translator
-        alias unlckkeyr="sudo /usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh"
+# gitinfo#{{{
 
-# }}}
+fun_gitinfo() {
+    if [ -n "$(git symbolic-ref HEAD 2> /dev/null)" ]; then
+        echo "Git Repository Overview"
+        echo "-----------------------"
+        echo
+        # List all remotes
+        for remote in $(git remote show); do
+            echo $remote:
+            git remote show $remote
+            echo
+        done
+        # Show status of working repo
+        echo "Status:"
+        if [ -n "$(git status -s 2> /dev/null)" ]; then
+            git status -s
+        else
+            echo "Working directory is clean"
+        fi
+        # Print 5 most recent logs
+        echo
+        echo "Log:"
+        git log -5 --oneline
+        echo
+    else
+        echo `pwd` "is not a Git repository"
+    fi
+}
+
+# gitinfo#}}}
+# gitstats#{{{
+
+# Get various Git statistics
+# Awesome work from https://github.com/esc/git-stats
+# including some modifications from BASH_IT
+fun_gitstats() {
+    if [ -n "$(git symbolic-ref HEAD 2> /dev/null)" ]; then
+        echo "Number of commits per author:"
+        git --no-pager shortlog -sn --all
+        AUTHORS=$( git shortlog -sn --all | cut -f2 | cut -f1 -d' ')
+        LOGOPTS=""
+        if [ "$1" == '-w' ]; then
+            LOGOPTS="$LOGOPTS -w"
+            shift
+        fi
+        if [ "$1" == '-M' ]; then
+            LOGOPTS="$LOGOPTS -M"
+            shift
+        fi
+        if [ "$1" == '-C' ]; then
+            LOGOPTS="$LOGOPTS -C --find-copies-harder"
+            shift
+        fi
+        for a in $AUTHORS
+        do
+            echo '-------------------'
+            echo "Statistics for: $a"
+            echo -n "Number of files changed: "
+            git log $LOGOPTS --all --numstat --format="%n" --author=$a | cut -f3 | sort -iu | wc -l
+            echo -n "Number of lines added: "
+            git log $LOGOPTS --all --numstat --format="%n" --author=$a | cut -f1 | awk '{s+=$1} END {print s}'
+            echo -n "Number of lines deleted: "
+            git log $LOGOPTS --all --numstat --format="%n" --author=$a | cut -f2 | awk '{s+=$1} END {print s}'
+            echo -n "Number of merges: "
+            git log $LOGOPTS --all --merges --author=$a | grep -c '^commit'
+        done
+    else
+        echo `pwd` "is not a Git repository"
+    fi
+}
+
+# gitstats#}}}
+# git commit/push/remote#{{{
+
+# add repo to remote tracking file
+fun_gitrem() { git remote add origin ssh://git@github.com/emzap79/$1 ; }
+
+fun_gitcommit(){
+    git c "$*"
+}
+
+fun_gitcommitall(){
+    git ca "$*"
+}
+
+fun_gitfastpush(){
+    git ca "$*";
+    git p
+}
+
+# git commit/push/remote#}}}
+# clean tempfiles/swapfiles#{{{
+
+fun_clean() {
+    find . -name "#*#" | xargs rm
+    find . -name "*.sw*" | xargs rm
+    find . -name "*~" | xargs rm
+}
+fun_swap() {
+    find . -name "#*#"
+    find . -name "*.sw*"
+    find . -name "*~"
+}
+
+# clean tempfiles/swapfiles#}}}
+# add vim and tmux tempfiles#{{{
+
+fun_ignore() {
+    touch .gitignore 
+    # echo "*.sw*\n*#\ntags\n*~\n" | cat >> .gitignore
+    echo "*.sw*\n*~\n" | cat >> .gitignore
+    git add .gitignore
+    git commit -am "gitignore ignores vim and tmux tempfiles"
+}
+
+# add vim and tmux tempfiles#}}}
+
+# gitfunctions# }}}
 
 # }}}

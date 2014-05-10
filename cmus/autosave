@@ -1,4 +1,4 @@
-set aaa_mode=album
+set aaa_mode=all
 set altformat_current= %F 
 set altformat_playlist= %f%= %g %d 
 set altformat_title=%f
@@ -63,9 +63,9 @@ set mixer.pulse.restore_volume=1
 set output_plugin=pulse
 set passwd=
 set pl_sort=
-set play_library=true
+set play_library=false
 set play_sorted=false
-set repeat=false
+set repeat=true
 set repeat_current=false
 set replaygain=track
 set replaygain_limit=true
@@ -76,7 +76,7 @@ set set_term_title=true
 set show_current_bitrate=false
 set show_hidden=true
 set show_remaining_time=true
-set shuffle=false
+set shuffle=true
 set skip_track_info=false
 set smart_artist_sort=true
 set softvol=false

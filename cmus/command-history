@@ -1,4 +1,6 @@
 clear 
+save ../plSingles_ESC2014.pl
+save esc2014.pl
 bind -f common ^Y shell /home/zapata/bin/cmusCopyDir_Curr
 cl
 add ~/tmp/house.pl

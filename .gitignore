@@ -2,3 +2,4 @@
 *.pl
 LanguageTool*
 bundle
+*.swp$

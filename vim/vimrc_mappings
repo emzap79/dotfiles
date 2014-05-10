@@ -28,6 +28,9 @@
 " all special keys
 " see - :h keycodes
 
+" a workaround for the <Alt> vs. <ESC> issue:
+" http://stackoverflow.com/a/10216459
+
 "}}}
 " set leader-keys"{{{
 
@@ -37,6 +40,7 @@ let plug=";"
 let mapleader="\<space>"
 let maplocalleader=","
 " let r-plugin-localleader="\<space>"
+" xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 ""}}}
 
@@ -65,11 +69,11 @@ vnoremap <s-f1> <esc>:echo expand('%:p')<cr>
 
 "save file and source vimrc
 if has("gui_running")
-    nnoremap <silent><f2> :w<cr> :so ~/.gvimrc<cr>
-    inoremap <silent><f2> <esc>:w<cr> :so ~/.gvimrc<cr>
+    nnoremap <silent><f2> :w<cr> :so ~/.gvimrc<cr>zR
+    inoremap <silent><f2> <esc>:w<cr> :so ~/.gvimrc<cr>zR
 else
-    nnoremap <silent><f2> :w<cr> :so $MYVIMRC<cr>
-    inoremap <silent><f2> <esc>:w<cr>:so $MYVIMRC<cr>
+    nnoremap <silent><f2> :w<cr> :so $MYVIMRC<cr>zRk
+    inoremap <silent><f2> <esc>:w<cr>:so $MYVIMRC<cr>zRk
 endif
 
 "save & exit
@@ -348,7 +352,6 @@ vnoremap <space><space> <ESC>:wall!<CR>
 vnoremap <Leader>y "+y
 vnoremap <Leader>d "+d
 nnoremap <Leader>P "+P
-vnoremap <Leader>p "+p
 vnoremap <Leader>P "+P
 
 "}}}
@@ -370,10 +373,10 @@ vnoremap <C-V> v
 nnoremap Y y$
 
 "}}}
-" productivity-boosts"{{{
+" productivity-boosts
 
-" http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 " Automatically jump to end of text you pasted:"{{{
+" http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 
 " vnoremap <silent> y y`]
 " vnoremap <silent> p p`]
@@ -384,9 +387,9 @@ nnoremap Y y$
 
 noremap gV `[v`]
 
-"}}}
+" Quickly select text you just pasted:"}}}
 
-" producitivity boosts"}}}
+" producitivity boosts
 
 " basic key remaps"}}}
 " open & edit vimrc-files"{{{
@@ -428,24 +431,24 @@ fun! ToggleYCM()
 endfun
 
 " "}}}
-" " Func: Foldexpressions"{{{
+" Func: Foldexpressions"{{{
 
-" " fold braces
-" " http://vim.wikia.com/wiki/Folding_functions_with_the_prototype_included
-" function! FoldBrace()
-  " if getline(v:lnum+1)[0] == '{'
-    " return 1
-  " endif
-  " if getline(v:lnum) =~ '{'
-    " return 1
-  " endif
-  " if getline(v:lnum)[0] =~ '}'
-    " return '<1'
-  " endif
-  " return -1
-" endfunction
+" fold braces
+" http://vim.wikia.com/wiki/Folding_functions_with_the_prototype_included
+function! FoldBrace()
+  if getline(v:lnum+1)[0] == '{'
+    return 1
+  endif
+  if getline(v:lnum) =~ '{'
+    return 1
+  endif
+  if getline(v:lnum)[0] =~ '}'
+    return '<1'
+  endif
+  return -1
+endfunction
 
-"}}}
+" }}}
 " Func: Save and Restore Cursorposition"{{{
 
 " http://vim.wikia.com/wiki/Maintain_cursor_and_screen_position
@@ -554,7 +557,6 @@ function! ResCur()
 endfunction
 
 " ""}}}
-
 
 ""}}}
 " Other Mappings"{{{
@@ -666,26 +668,33 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 " Plugin-Maps"}}}
 " Folds & Marks"{{{
 
+" jump to last position
+nnoremap <silent>_ ``
+
+" jump to last position
 " jump back to marked position"{{{
 
 nnoremap M `m
 vnoremap M `m
 
-""}}}
+" jump back to marked position"}}}
 " fold commands"{{{
 
 " activating 'visual-folding' by pressing <enter>
 " http://vim.wikia.com/wiki/Folding
 " nnoremap <silent> <space> @=(foldlevel('.')?'za':"\<Space>")<space>
 
-"}}}
-" add emptyline between beginning / ending of folds "{{{
+" add emptyline between beginning / ending of folds
+nnoremap <silent><leader>fo :exe "%s/\\v^.*(\\}\\}\\})/\\r\&/g \| %v/}}}\\n.*{{{/s/\\v(\\{\\{\\{)/&\\r/g \| %s/^$\\n^$//g"<cr>
 
-nnoremap <silent><leader>fo :exec "%s/\\v^.*(\\}\\}\\})/\\r\&/g \| %v/}}}\\n.*{{{/s/\\v(\\{\\{\\{)/&\\r/g \| %s/^$\\n^$//g"<cr>
+" set foldmarkers automatically
+nnoremap <silent><leader>fl :normal yyma<cr>
+nnoremap <silent><leader>fk :normal pzf'a<cr>
+vnoremap <silent><leader>fk :normal pzf'a<cr>
 
-" add emptyline between beginning / ending of folds "}}}
+" fold commands"}}}
 
-""}}}
+" Folds & Marks"}}}
 " Buffers & Tabs"{{{
 
 " tab movements"{{{
@@ -971,6 +980,12 @@ endfun
 "}}}
 
 ""}}}
+" 'very magic' string search as default"{{{
+
+nnoremap / /\v
+cnoremap s/ s/\v
+
+" 'very magic' string search as default"}}}
 
 " ""}}}
 " Edit Words & Lines"{{{
@@ -1017,7 +1032,7 @@ xnoremap <leader>R :<C-u>%s/<C-r>=GetVisualSelection()<CR>/
 
 " remove duplicate lines
 " http://vim.wikia.com/wiki/Power_of_g
-nnoremap <silent><leader>dd :%g/\^\\(.*\\)\\(\\r\\?\\n\\1\\)\\+$/d  \\| %!uniq<CR>
+nnoremap <silent><leader>dd :exe '%g/^\(.*\)\(\r\?\n\1\)\+$/d \| %!uniq'<cr>``
 
 " remove trailing whitespaces
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
@@ -1052,6 +1067,18 @@ nnoremap <silent> <esc> :nohl<cr>
 "}}}
 
 " Compile and show documents"{{{
+
+" compile and start latex viewer
+" see: http://plankenau.com/blog/post-8/latexInVim
+nnoremap <leader>ct :TexCompilePDF<CR>
+inoremap <leader>ct <ESC>:TexCompilePDF<CR>
+vnoremap <leader>ct <ESC>:TexCompilePDF<CR>
+nnoremap <leader>cl :LatexCompilePDF<CR>
+inoremap <leader>cl <ESC>:LatexCompilePDF<CR>
+vnoremap <leader>cl <ESC>:LatexCompilePDF<CR>
+nnoremap <leader>cx :XeLatexCompilePDF<CR>
+inoremap <leader>cx <ESC>:XeLatexCompilePDF<CR>
+vnoremap <leader>cx <ESC>:XeLatexCompilePDF<CR>
 
 " Open any kind of files as pdf (requires pandoc installed!)
 " http://stackoverflow.com/a/20799071

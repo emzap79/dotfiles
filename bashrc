@@ -126,8 +126,6 @@ export LESS_TERMCAP_ue=$'\E[0m'                       # end underline
 
 # include aliases
 source "/home/${USER}/.bash/aliases"      # ~/.bash/aliases
-source "/home/${USER}/.bash/gitaliases"   # ~/.bash/gitaliases
-source "/home/${USER}/.bash/tmuxaliases"  # ~/.bash/tmuxaliases
 
 # source#}}}
 # bash completion#{{{

@@ -248,34 +248,34 @@ set com+=s2:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,b:-
 
 " fold settings
 
-" foldopen: specifies for which type of commands folds will be opened, if the
-" command moves the cursor into a closed fold.  It is a comma separated list of items.
-set fdo+=block     " fdo: "(", "{", "[[", "[{", etc.
-set fdo+=hor       " fdo: horizontal movements: "l", "w", "fx", etc.
-set fdo+=insert    " fdo: any command in Insert mode
-set fdo+=jump      " fdo: far jumps: "G", "gg", etc.
-set fdo+=mark      " fdo: jumping to a mark: "'m", CTRL-O, etc.
-set fdo+=percent   " fdo: "%"
-set fdo+=quickfix  " fdo: ":cn", ":crew", ":make", etc.
-set fdo+=search    " fdo: search for a pattern: "/", "n", "*", "gd", etc.  (not for
-           " a search pattern in a ":" command) Also for |[s| and |]s|.
-set fdo+=tag       " fdo: jumping to a tag: ":ta", CTRL-T, etc.
-set fdo+=undo      " fdo: undo or redo: "u" and CTRL-R
-" set fdo=all      " fdo: any
-
 set fen            " fen: enable folding
 set fdl=1          " foldlevel: Folds with a higher level will be closed.
-           " Setting this option to zero will close all folds.  Higher numbers will
-           " close fewer folds.
+                   " Setting this option to zero will close all folds.  Higher numbers will
+                   " close fewer folds.
 set fdls=0         " foldlevelstart: Sets 'foldlevel' when starting to edit another buffer in a window.
-           " Useful to always start editing with all folds closed (value zero),
-           " some folds closed (one) or no folds closed (99).
-set fdc=4          " foldcolumn: sets rows to show fold information
+                   " Useful to always start editing with all folds closed (value zero),
+                   " some folds closed (one) or no folds closed (99).
 set fcl=all        " foldclose: When set to "all", a fold is closed when the cursor isn't in it and
-           " its level is higher than 'foldlevel'.  Useful if you want folds to
-           " automatically close when moving out of them.
+                   " its level is higher than 'foldlevel'.  Useful if you want folds to
+                   " automatically close when moving out of them.
+set fdc=4          " foldcolumn: sets rows to show fold information
 set fdn=2          " foldnestmax: Sets the maximum nesting of folds for the "indent" and "syntax" methods (with max = 20)
 set fdm=syntax     " foldmethod: manual, indent, expr, marker, syntax or diff
+
+" foldopen: specifies for which type of commands folds will be opened, if the
+" command moves the cursor into a closed fold.  It is a comma separated list of items.
+set fdo+=block     " "(", "{", "[[", "[{", etc.
+set fdo+=hor       " horizontal movements: "l", "w", "fx", etc.
+set fdo+=insert    " any command in Insert mode
+set fdo+=jump      " far jumps: "G", "gg", etc.
+set fdo+=mark      " jumping to a mark: "'m", CTRL-O, etc.
+set fdo+=percent   " "%"
+set fdo+=quickfix  " ":cn", ":crew", ":make", etc.
+set fdo+=search    " search for a pattern: "/", "n", "*", "gd", etc.  (not for
+                   " a search pattern in a ":" command) Also for |[s| and |]s|.
+set fdo+=tag       " jumping to a tag: ":ta", CTRL-T, etc.
+set fdo+=undo      " undo or redo: "u" and CTRL-R
+" set fdo=all      " any
 
 " define folds for different syntaxes
 " http://stackoverflow.com/a/4789615
@@ -287,7 +287,6 @@ let ruby_fold=1                   " Ruby
 let sh_fold_enabled=1             " sh
 let vimsyn_folding='af'           " Vim script
 let xml_syntax_folding=1          " XML
-
 
 " TeX
 " http://www.kph.tuwien.ac.at/bertle/tex_vim/README.txt
