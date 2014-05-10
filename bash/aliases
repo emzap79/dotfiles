@@ -1,191 +1,240 @@
 # vim:fdm=marker
-# # some personal aliases
-export aliases="~/.bash/aliases"
 
-# setting strings# {{{
+# export aliases="~/.bash/aliases"
 
-export SEM="Sommer2014"
-export UNI="/home/zapata/Unimaterialien"
-export DOK="/home/zapata/Dokumente"
-export LIX="$DOK/Linux"
-export VOL="/media/zapata/Volume"
-export USB="/media/zapata/ES02224159"
-
-# }}}
 # basic aliases# {{{
 
-# # bash-commands# {{{
+# ls # {{{
 
-alias histgr="history|grep "
-alias echo="echo -n"
-alias his="history"
-alias cd="fun_cd"
+# on linux:
+# https://github.com/sjas/.dotfiles
+if [[ `uname` ==  Linux ]]; then
+        export LS1='--color=always'
+# on mac:
+elif [[ `uname` ==  Darwin* ]]; then
+        export LS1='-G'
+# on windows/cygwin/mingw/other
+else
+    export LS1='--color=auto'
+fi
+export LS2='-hF'
+export LS3='--time-style=long-iso'
+
+alias ls='ls $LS1 $LS2 $LS3 -B '
+alias la='ls $LS1 $LS2 $LS3 -A '                            # also lists hidden files
+alias l='ls $LS1 $LS2 $LS3 -lA'                            # listing view of all files
+alias ll='ls $LS1 $LS2 $LS3 -lB'                            # like before, but w/o hidden files
+alias lst='ls $LS1 $LS2 $LS3 -lrtc'                          # show last edited files in folder
+alias lp='fun_absolute_path'                                # show fullpathname to file
+
+# only directories
+alias lsd='ls $LS1 $LS2 $LS3 -d -- */ | sed -e "s/\/$//g"'
+
+# for very long listings use less
+alias vls='ls $LS1 $LS2 $LS3 -B  | grep ".*" | less -R'
+alias vla='ls $LS1 $LS2 $LS3 -A  | grep ".*" | less -R'      # also lists hidden files
+alias vl='ls $LS1 $LS2 $LS3 -Al | grep ".*" | less -R'      # list of files
+alias vll='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R'      # like before, but lists hidden files, too
 
 # }}}
-# # aptitude# {{{
-
-alias inst="sudo apt-get install -y"
-alias aptsearch="apt-cache search"
-alias upgr="/bin/bash ~/bin/upgrSoftw.sh && /usr/bin/python ~/bin/upgrPipPackages.py"
-
-# }}}
-# # list directories and sort them by their size# {{{
-
-# show fullpathname to file
-alias ap='fun_absolute_path'
-alias lsa='ls -A'
-
-# show last edited files in folder
-alias lst='ls -lrtc'
-
-# show files only
-alias lsl="ls -Altcr --color=auto | grep ^-"
-
-# show dirs only
-alias lsd="ls -d *"
+# du# {{{
 
 # show size of current folder/subfolder/dotfiles
-alias l="du --max-depth=1 -k | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
-alias ll="du -hsx * | sort -rh | head -10"  # http://www.commandlinefu.com/commands/view/13328/provide-the-ten-largest-subfolders-in-the-current-folder
-alias lll="du -ks .?* | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
+alias du='du -h'
+alias dul="du --max-depth=1 -k | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
+alias dull="du -hsx * | sort -rh | head -10"  # http://www.commandlinefu.com/commands/view/13328/provide-the-ten-largest-subfolders-in-the-current-folder
+alias dulll="du -ks .?* | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
 
 # }}}
-# # finding files# {{{
+# find # {{{
 
-alias findgrep="find . -type f -exec egrep -iH"
-alias findeurod="find . -type f -exec id3v2 --TCON Eurodance {} \;"
-alias findf="find . -type f -exec"
-alias findf="find . -type d -exec"
+alias ff="fun_ff"
+alias fff="find . -type f -exec"
+alias ffd="find . -type d -exec"
+alias ffg="find . -type f -exec egrep -iH"
+
+# aliases related to music
+alias dupetrack1="find . -type f | sed -e 's/^\(.*\)\.\([[:digit:]]\)\.\(mp3\|ogg\|flac\)/\1/g;s/^\(.*\)\.\(mp3\|ogg\|flac\)/\1/g' | uniq -d"
+alias dupetrack2="find . -type f -regextype sed -iregex '^.*\.[[:digit:]]\.\(mp3\|flac\|ogg\)'"
 
 # }}}
-# # change working directories# {{{
+# cd # {{{
 
-alias cdarb="cd $DOK/Arbeitsordner"
+alias cd="fun_cd"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias mkcd='fun_mkcd'     # mkdir -p $1; cd $1
+
+# permanent folders
 alias cdatt="cd $HOME/tmp/attachments"
-alias cdbank="cd $DOK/Banking"
 alias cdbeam="cd $UNI/$SEM/Seminararbeit/beamer"
-alias cdbew="cd $DOK/Bewerbungen"
 alias cdbin="cd $HOME/bin"
 alias cdblb="cd $UNI/$SEM/Bloomberg"
 alias cdbst="cd $HOME/texmf/bibtex/bst/emzap"
 alias cdcmus="cd $HOME/.cmus"
 alias cddevpie="cd $HOME/.devilspie"
 alias cddl="cd $HOME/Downloads"
-alias cddok="cd $DOK"
-alias cddropbox="cd $HOME/Cloudfolder/Dropbox"
 alias cddtf="cd $HOME/dotfiles"
 alias cdebay="cd $HOME/tmp/ebay"
 alias cdfig="cd $UNI/$SEM/Seminararbeit/latex/data/figs"
 alias cdgvim="cd $HOME/.gvim"
 alias cdklr="cd $UNI/$SEM/KLR"
-alias cdlatex="cd $DOK/LaTeX"
-alias cdqrc="cd $DOK/Linux/QRCs"
-alias cdlinux="cd $DOK/Linux"
 alias cdlog="cd $HOME/.logfiles"
 alias cdmails="cd $HOME/mails/Inbox"
 alias cdmnt="cd $HOME/mnt"
 alias cdmutt="cd $HOME/.mutt"
 alias cdnewsb="cd $HOME/.newsbeuter"
-alias cdpers="cd $DOK/PersDok"
-alias cdpeug="cd $DOK/Gebrauchtwagen"
 alias cdpics="cd $HOME/Bilder"
 alias cdplugs="cd $HOME/.vim/bundle"
 alias cdpodc="cd $HOME/Podcasts"
-alias cdpwd="cd $(xclip -o)"
+# alias cdpwd="cd $(xclip -o)"
+alias cdsem="cd $UNI/$SEM"
+alias cdtmp="cd $HOME/tmp"
+alias cduni="cd $UNI"
+alias cdvim="cd $HOME/.vim"
+alias cdwallp="cd $HOME/.wallpapers"
+alias cdxime="cd $HOME/Xime"
+
+# temporary mounted folders
 alias cdquito="cd ~/.gvfs/smb-share\:server\=quito-pc\,share\=users/Xime"
+alias cdarb="cd $DOK/Arbeitsordner"
+alias cdbank="cd $DOK/Banking"
+alias cdbew="cd $DOK/Bewerbungen"
+alias cddok="cd $DOK"
+alias cdlatex="cd $DOK/LaTeX"
+alias cdlinux="cd $DOK/Linux"
+alias cdpers="cd $DOK/PersDok"
+alias cdpeug="cd $DOK/Gebrauchtwagen"
+alias cdqrc="cd $DOK/Linux/QRCs"
 alias cdrechn="cd $DOK/Rechnungen"
 alias cdrez="cd $DOK/Rezepte"
-alias cdsem="cd $UNI/$SEM"
 alias cdsonst="cd $DOK/Sonstiges"
-alias cdtmp="cd $HOME/tmp"
 alias cdtosh="cd /media/zapata/Musica"
-alias cduni="cd $UNI"
-alias cdvimg="cd $HOME/Dokumente/Linux/Vim/vimgolf"
 alias cdusb="cd /media/zapata/ES02224159/$SEM"
 alias cdvers="cd $DOK/Versicherungen"
-alias cdvim="cd $HOME/.vim"
+alias cdvimg="cd $HOME/Dokumente/Linux/Vim/vimgolf"
 alias cdvol="cd $VOL"
-alias cdwallp="cd $HOME/.wallpapers"
 alias cdwdp="cd /media/zapata/WDP"
-alias cdxime="cd $HOME/Xime"
-alias mvxsane="mv -v $HOME/tmp/xsane.pdf"
 
 # }}}
-# # alias for copy to clipboard# {{{
+# history# {{{
 
-alias pwdc="pwd | xclip; source $aliases"
-alias pwdp="cd `xclip -o`"
-alias c='xclip -selection c'
-alias v='xclip -selection o'
-alias xcc='xclip'
-alias xcv='xclip -o'
+alias c='clear'
+alias h='history 100'
+alias his="history"
+alias hg="history|grep"
 
 # }}}
+# sed # {{{
 
-## }}}
-# unimaterialien# {{{
-
-# # alias spicker# {{{
-
-alias spick="sed -i 's/$/ /g;s/ allgemein / allg /g;s/ Kosten- und Leistungsrechnung / KLR /g\
-;s/ Rechnungswesen / RW /g;s/ speziell / spez /g;s/ von / v /g;s/ Planungsvorh / Planungsvorh /g\
-;s/ierung /rg /g;s/igung /gg /g;s/haftigkeit/hftk/g;s/igkeit /igk /g;s/ oder / o /g\
-;s/rechnung/rechng/g;s/ierungs/rgs/g;s/ Informationen / Infos /g;s/ichen / /g\
-;s/ unferti[[:alpha:]]* / unfert /g;s/wirksamen/wirks/g;s/ichkeit/chk/g;s/igkeit/gk/g\
-;s/bestimmung/bestmg/g\
-;s/erung \ /erg /g;s/ der / d /g;s/veränderung/verändrg/g;s/ungen /ugn /g;s/ung /g /g\
-;s/\(gleichm\|bilanziel\|begleit\|durchgef\|üblicherw\|kalkul\|period\|kurzfr\|innerbetr\|kostenst\|vorh\|gekennz\|ergebn\|altern\|abschr\|grem\|zeitr\|kalkulat\|Untern\|Grundl\)[[:alpha:]]* /\1 /g'"
-#sed -i 's/ *$//g'"
+alias convbib="sed -i 's/^ *owner=.*/   owner={Jonas Petong},/g;s/{{/{/g;s/}}/}/g'"
+alias convuml="sed -i 's/Ã¶/ö/g;s/Ã¼/ü/g;s/ÃŸ/ß/g;s/Ã¤/ä/g;s/Ã„/Ä/g;s/Ãœ/Ü/g;s/Ã–/Ö/g;s/Ã©/Ë/g'"
+alias convdir="sed -i 's/\([\&\)\(]\)/\\\1/g;s/\(.*\)\/.*/ \1/'"
+alias html2pdf="for i in *.html; do wkhtmltopdf $i $(basename $i .html).pdf; done"
+alias convflv="ffmpeg -sameq -ar 22051 -strict experimental output.mp4 -i"
 
 # }}}
-# # open pdfs from cli# {{{
+# grep# {{{
 
-### uni# {{{
+alias grepv='fun_grepv'
 
-alias evincegoek="evince $UNI/$SEM/GOEK/klausur.pdf $UNI/$SEM/GOEK/WS1314*.pdf $UNI/$SEM/GOEK/WS1112MikroII_Mitschrift.pdf $UNI/$SEM/GOEK/SS11MikroI_Mitschrift.pdf &"
-alias evinceim="evince $UNI/$SEM/IM/WS1314IMUebAufg_*.pdf $UNI/$SEM/IM/WS1314IMVorl_Investitionsmanagement_Teil_I-IV.pdf &"
-alias evincekdp="evince $UNI/$SEM/KDP/WS1314KDPVorl_*.pdf $UNI/$SEM/KDP/WS1314KDPUeb_*.pdf $UNI/$SEM/KDP/WS1314KDPKlausur_AlteKlausuren.pdf $UNI/$SEM/KDP/WS1314KDPZusAufg_Sara.pdf &"
-alias evinceiuf="evince $UNI/$SEM/IF/WS1314IFVorl_Skript_01-09.pdf $UNI/$SEM/IF/WS1314IFUebAufg_Mitschrift_01-20_Christian-FB.pdf $UNI/$SEM/IF/WS1314IFTutAufg_Mitschrift_01-08_Facebook.pdf $UNI/$SEM/IF/WS1314IFTutAufg_Mitschrift_01-08_Christan-FB.pdf $UNI/$SEM/IF/WS1213IFUebAufg_01-19_Mitschrift.pdf $UNI/$SEM/IF/WS1112IF*.pdf &"
-alias evincewup="evince $UNI/$SEM/WUP/WS1314WUPVorlFolien_Alle.pdf $UNI/$SEM/WUP/WS1314WUPUebAufg_mit_Loesung_01-09.pdf $UNI/$SEM/WUP/WS1213WUPUebAufg_Mitschr_01-09_Loesung.pdf $UNI/$SEM/WUP/SS12MikroIIIZusMat_MikroI*.pdf $UNI/$SEM/WUP/WS1314WUPZusFassg_Mitschrift.pdf $UNI/$SEM/WUP/klausur.pdf &"
+# grep# }}}
 
-#### }}}
-### latex
+# }}}
+# remote tracking# {{{
 
-alias evincetexsymb="evince $DOK/LaTeX/docLatex_Sonderzeichen.pdf &"
-###
-
-## }}}
-
-## }}}
-# ssh and/or github# {{{
-
-# # ssh# {{{
+# ssh# {{{
 
 alias uoek="rsync --progress -auve ssh --iconv=UTF-8,ISO8859-1 --exclude '^.' --exclude '*~' --delete $UNI/$SEM/CompOek/ sdjopeto@student.uni-due.de:public_html/CompOek"
 alias usync="/bin/bash $HOME/bin/cronSyncSsh"
 
 # }}}
-# # github# {{{
+# git# {{{
 
-alias gitadd="git add -A . && git branch -a && git status"
-alias gitcom="git commit -m "
-alias gitgit="git add -A . && git commit -m "
-alias gitremote="git remote add origin"
-alias gitpush="git push origin"
+alias g='git'
+alias gla='git la'
+alias gd="$HOME/bin/cronGithub backup"
+alias gitadd="git add -A . "
+alias gitremote="fun_gitrem"
+alias gitpush="git push origin master"
 alias gitp="git push origin"
-alias gitdot="$HOME/bin/cronGithub backup"
 
 ## }}}
-# # urls & http# {{{
+# curl # {{{
 
 alias expandurl="fun_expandurl"
 
 ## }}}
+# aptitude# {{{
+
+alias inst="sudo apt-get install -y"
+alias agi='sudo apt-get install -y'
+alias acs='apt-cache search'
+alias apt-get='sudo apt-get'
+alias yum='sudo yum'
+alias upgr="/bin/bash ~/bin/upgrSoftw.sh && /usr/bin/python ~/bin/upgrPipPackages.py"
+
+# }}}
+
+# }}}
+# programs# {{{
+
+# xclip# {{{
+
+alias c='xclip -selection c'
+alias v='xclip -selection o'
+alias xc='xclip'
+alias xv='xclip -o'
+alias pwdc="pwd | xclip; source ~/.bashrc"
+# alias pwdp=`xclip -o`     # Error: target STRING not available
+
+# }}}
+# vim# {{{
+
+# vimgolf
+# http://stackoverflow.com/a/8931728/3569509
+if [[ -e /home/${USER}/Dokumente ]];
+then
+    alias vimg='vim -u ~/.vim/vimrc_vimgolf -W ~/.vim-last-scriptout \
+    /tmp/foo.golf \
+    $DOK/Linux/Vim/vimgolf/VimGolfTricks_DotMacros.vg \
+    $DOK/Linux/Vim/vimgolf/chall*.vg \
+    && cat ~/.vim-last-scriptout | wc -c'
+fi
+
+# encrypted password file
+if [[ -e /media/${USER}/ES02224159 ]];
+then
+    alias vimenc="vim -u $USB/VIM/_vimrc $USB/VIM/_passw.encr"
+fi
+
+# bashrc & aliases
+alias vima="vim ~/.bash/aliases; source ~/.bashrc"
+alias vimb="vim ~/.bashrc; source ~/.bashrc"
+alias vimg="vim ~/.gitconfig"
+
+# open vim sessions
+alias v='vim'
+alias vi="vim -c 'startinsert'"
+alias vv="fun_vim"  # 'vv tex' will open /etc/foo.tex in vim
+alias vimu="vim -u NONE"
+alias vims="vim -S Session.vim"
+
+# }}}
+# evince # {{{
+
+# alias egoek="evince $UNI/$SEM/GOEK/klausur.pdf $UNI/$SEM/GOEK/WS1314*.pdf $UNI/$SEM/GOEK/WS1112MikroII_Mitschrift.pdf $UNI/$SEM/GOEK/SS11MikroI_Mitschrift.pdf &"
+
+# latex symbols
+if [[ -e /home/${USER}/Dokumente ]]; then
+    alias esymb="evince $DOK/LaTeX/docLatex_Sonderzeichen.pdf &"
+fi
 
 ## }}}
-# pdf & media# {{{
-
-# pdf-aliases# {{{
+# pdf# {{{
 
 alias pdfbar="pdftk *.pdf cat output bar.pdf; evince bar.pdf; rm -v bar.pdf"
 alias pdfgrayscale="gs -sOutputFile=grayscale.pdf -sDEVICE=pdfwrite \
@@ -193,51 +242,29 @@ alias pdfgrayscale="gs -sOutputFile=grayscale.pdf -sDEVICE=pdfwrite \
                     -sColorConversionStrategy=Gray -dNOPAUSE -dBATCH"
 
 # }}}
-# aliases related to music# {{{
+# latex# {{{
 
-alias dupetrack1="find . -type f | sed -e 's/^\(.*\)\.\([[:digit:]]\)\.\(mp3\|ogg\|flac\)/\1/g;s/^\(.*\)\.\(mp3\|ogg\|flac\)/\1/g' | uniq -d"
-alias dupetrack2="find . -type f -regextype sed -iregex '^.*\.[[:digit:]]\.\(mp3\|flac\|ogg\)'"
-
-# }}}
-# convert files# {{{
-
-alias convbib="sed -i 's/^ *owner = .*/   owner = {Jonas Petong},/g;s/{{/{/g;s/}}/}/g'"
-alias convflv="ffmpeg -sameq -ar 22051 -strict experimental output.mp4 -i"
-alias convuml="sed -i 's/Ã¶/ö/g;s/Ã¼/ü/g;s/ÃŸ/ß/g;s/Ã¤/ä/g;s/Ã„/Ä/g;s/Ãœ/Ü/g;s/Ã–/Ö/g;s/Ã©/Ë/g'"
-alias convdir="sed -i 's/\([\&\)\(]\)/\\\1/g;s/\(.*\)\/.*/ \1/'"
-alias html2pdf="for i in *.html; do wkhtmltopdf $i $(basename $i .html).pdf; done"
+alias mr="make read"
 
 # }}}
-# alias cmus="cmus; bt"# {{{
+# mutt, newsbeuter # {{{
 
-#alias mutt='/usr/bin/mutt -y'
 alias muttt='pkill fetchmail; fetchmail -v --ssl; mutt'
+alias muttb="/bin/bash $HOME/bin/muttb"
+alias newsb="pkill newsbeuter; newsbeuter"
+# alias mutt='/usr/bin/mutt -y'
+
+# }}}
+# beet# {{{
+
 alias bc="bc -l"
 alias bt='ls "$VOL/$mus"; du -h -d0 "$VOL/$mus"; beet ls; head -n 2 ~/.logfiles/beets.list'
 alias btls='ls "$VOL/$(ls -tcr $VOL | grep MSK | tail -n 1)"'
 alias btmv='beet mv -d "$VOL/$(ls $VOL/ | grep MSK | sort | tail -n 1)"; yes y | beet rm; killall beet; killall beet'
 alias btst='while true; do cronBeet; done'
-alias clock="watch -t -n 1 date +%T"
-alias unlckkeyr="sudo /usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh"
-alias journ="less /var/log/syslog"
-alias mk="make all; make read; make cleanall"
-alias makeclean="rm -f *.aux *.log *.dvi"
-alias mousereset="sudo rmmod psmouse; sudo modprobe psmouse"
-alias quitord="rdesktop -uXime -dquito-pc 192.168.2.100 -z -P -xl -g 1024x768 -k de"
-alias sdn="usync up; cmus-remote -C q; sudo shutdown -h now"
-alias snip="cat $HOME/.vim/snippets/tex.snippets | grep snip"
-alias muttb="/bin/bash $HOME/bin/muttb"
-# alias muttb="pkill newsbeuter && newsbeuter -r; mutt; podbeuter"
-# alias muttb="pkill fetchmail; fetchmail -v --ssl 2>&1 > $HOME/.logfiles/fetchmail.log; pkill newsbeuter && newsbeuter -r; mutt; podbeuter"
-alias newsb="pkill newsbeuter; newsbeuter"
-alias youtbdl="youtube-dl -x --audio-format mp3"
-alias youtbmps="mps-youtube"
-alias youtbvlc-ascii="vlc -V aa "
-alias youtbvlc-novideo="cvlc -V novideo "
-alias youtbmp="fun_youtbmp"
 
 # }}}
-# mediatheken der öffentlich-rechtlichen# {{{
+# vlc# {{{
 
 # http://linuxundich.de/ubuntu/den-live-stream-der-ard-unter-linux-mit-vlc-oder-mplayer-ansehen/
 alias tvard='vlc rtsp://daserste.edges.wowza.gl-systemhaus.de/live/mp4:daserste_int_1600'
@@ -247,84 +274,69 @@ alias tvzdfkultur='vlc rtsp://3gp-livestreaming1.zdf.de/liveedge2/de07_v1_710.sd
 alias tvzdfinfo='vlc rtsp://3gp-livestreaming1.zdf.de/liveedge2/de08_v1_710.sdp'
 
 # }}}
-# looping images# {{{
+# youtube# {{{
 
-alias loopjpg="for i in *.jpg; do display "$i"; done"
-alias looppng="for i in *.png; do display "$i"; done"
+alias youtbdl="youtube-dl -x --audio-format mp3"
+alias youtbmps="mps-youtube"
+alias youtbvlc-ascii="vlc -V aa "
+alias youtbvlc-novideo="cvlc -V novideo "
+alias youtbmp="fun_youtbmp"
 
-## }}}
-# compile files # {{{
-
-alias mr="make read"
-
-# convert markdownfiles to epub: pandoc -S in.md -o out.epub
-alias pandoc='/home/zapata/.cabal/bin/pandoc'
-
-## }}}
+# }}}
 
 # }}}
 # miscellanious# {{{
 
-## edit files in vim# {{{
+# alert # {{{
 
-alias ve="vim -c ':VE %:p:h'"
-alias vi="vim -c 'startinsert'"
-alias vifoosh="touch ~/bin/foo.sh; chmod 0755 ~/bin/foo.sh; vim -c 'startinsert' ~/bin/foo.sh"
-alias vifootex="vim -c 'startinsert' /tmp/foo.tex"
-alias vima="vim ~/.bash/aliases; source ~/.bashrc"
-alias vimb="vim ~/.bashrc; source ~/.bashrc"
-alias vimbashrc="vim ~/.bashrc; source ~/.bashrc"
-alias vimcalc="vim -c ':Calc'"  # VimCalculator
-alias vimenc="vim -u $USB/VIM/_vimrc $USB/VIM/_passw.encr"
-alias vimfoo="vim -u ~/.vim/vimrc_testing_foobar /tmp/foo.test"
-# http://stackoverflow.com/a/8931728/3569509
-alias vimg='vim -u ~/.vim/vimrc_vimgolf -W ~/.vim-last-scriptout /tmp/foo.golf $DOK/Linux/Vim/vimgolf/VimGolfTricks_DotMacros.vg \
-    $DOK/Linux/Vim/vimgolf/chall*.vg \
-    && cat ~/.vim-last-scriptout | wc -c'
-alias vimm="vim -c ':FufMruFile'"      # opens MRUs
-alias vimmutt="vim ~/.muttrc"
-alias vims="vim -S Session.vim"
-alias vimtmpl="vim ~/bin/tmplAte.sh"
-alias vimu="vim -u NONE"
-alias vimvim="vim ~/.vimrc"
-alias vv="fun_vim"
-
-# }}}
-## translate words in command line# {{{
-
-alias trs="trs {=de}"
-
-# }}}
-## add an "alert" alias for long running commands.  # {{{
-
-## Use like so:sleep 10; alert
-    alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo \
+    alias alert='notify-send --urgency=low -i "$([ $?=0 ] && echo \
     terminal || echo error)" "$(history|tail -n1|sed -e \
-    '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+    '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'    # Use like so:sleep 10; alert
 
 # }}}
-# # enable color support of ls and also add handy aliases# {{{
-
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -A --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# }}}
-# # check available wlan-ports# {{{
-
-alias chkwlan="nm-tool | grep Strength | egrep -v '(WEP|WPA)' | sed 's/^ *//g' | sort -t ',' -k 5'"
-
-## }}}
-
-## }}}
 # functions# {{{
 
+# find
+fun_ff() {
+    find . -iname "*$**"
+}
+
+# grep to vim
+fun_grepv(){
+    vim `\grep -irl "$*" .`
+}
+
+# make dir and change into it instantly
+fun_mkcd(){
+        mkdir -p "$1"
+        cd "$1"
+}
+
+# currently this prints more than needed, some time i need to fix this.
+function ips {
+        sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac
+}
+
+# this rocks
+function dus () {
+du --max-depth=0 -k * | sort -nr | awk '{ if($1>=1024*1024) {size=$1/1024/1024; unit="G"} else if($1>=1024) {size=$1/1024; unit="M"} else {size=$1; unit="K"}; if(size<10) format="%.1f%s"; else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }'
+}
+
+# this rocks, too
+# pss ssh
+# kk <nr. of line to kill from prev. command>
+alias kk='sudo kill'
+pss() {
+    [[ ! -n ${1} ]] && return; # bail if no argument
+    pro="[${1:0:1}]${1:1}"; # process-name –> [p]rocess-name (makes grep better)
+    ps axo pid,command | \grep -i ${pro}; # show matching processes
+    processids="$(ps axo pid,command | \grep -i ${pro} | awk '{print $1}')"; # get pids
+    if [[ "$SHELL" ==  "/bin/bash" ]]; then
+        complete -W "${processids}" kk; # make a completion list for kk, bash
+    else
+        return;
+    fi
+}
 # show absolute path to file
 # http://stackoverflow.com/a/14984302
 fun_absolute_path() { echo "$PWD/$1"; }  # alt: readlink -f
@@ -345,6 +357,9 @@ fun_vim() {
 # play yt-videos as ascii video
 # http://annasagrera.com/on-ascii-youtube-and-letting-go/?lang=en
 fun_youtbmp() { youtube-dl $1 -o - | mplayer -vo aa -monitorpixelaspect 0.5 -; }
+
+# add repo to remote tracking file
+fun_gitrem() { git remote add origin ssh://git@github.com/emzap79/$1 ; }
 
 # show content when changing into subdir
 # http://www.reddit.com/r/linux/comments/1zsn7r/a_bash_alias_i_cannot_function_without/cfwldex
@@ -378,3 +393,35 @@ fun_cd() {
 }
 
 ## }}}
+# short commands# {{{
+
+# some of it taken from https://github.com/sjas/.dotfiles
+
+    alias t='tail -n200'
+        alias h='head -n20'
+        alias d='dirs -v'
+        alias poweroff='sudo poweroff'
+        alias reboot='sudo reboot'
+        alias halt='sudo halt'
+        alias shutdown='sudo shutdown'
+        alias grep='grep --color=always -i -n'
+        alias rmf="rm -rf"
+        alias rmfa="rm -rf *"
+        alias info='info --vi-keys'
+        alias pwgen='pwgen -cn 12'
+        alias echo="echo -n"
+        alias mkdir='mkdir -p'
+        alias chkwlan="nm-tool | grep Strength | egrep -v '(WEP|WPA)' | sed 's/^ *//g' \
+        | sort -t ',' -k 5'"     # check available wlan-ports
+        alias clock="watch -t -n 1 date +%T"
+        alias journ="less /var/log/syslog"
+        alias mousereset="sudo rmmod psmouse; sudo modprobe psmouse"
+        alias pandoc='/home/zapata/.cabal/bin/pandoc'
+        alias quitord="rdesktop -uXime -dquito-pc 192.168.2.100 -z -P -xl -g 1024x768 -k de"
+        alias sdn="usync up; cmus-remote -C q; sudo shutdown -h now"
+        alias trs="trs {=de}"   # google translator
+        alias unlckkeyr="sudo /usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh"
+
+# }}}
+
+# }}}

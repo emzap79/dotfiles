@@ -19,7 +19,7 @@ source ~/.vim/vimrc_abbrev
 source ~/.vim/vimrc_colors
 
 " This source sets R configs
-" source ~/.vim/ftplugin/r.vim
+source ~/.vim/ftplugin/r.vim
 " This source sets LaTeX configs
 " source ~/.vim/ftplugin/tex.vim
 

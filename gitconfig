@@ -25,5 +25,209 @@
 [alias]
 	upd = !git add . -A && git commit
 	grep-conf = config --get-regexp
-	ll = log --graph --oneline --decorate --all
 	staged = diff --cached
+	rem = !gitremote
+	alias = config --get-regexp ^alias\\.
+	la =  "!grep '\t=' ~/.gitconfig | sed -e 's/=/^[[0;31m=^[[0m/g' | sed -e 's/#.*/^[[0;32m&^[[0m/g' | less -R"
+
+# 'git h' for help, 'git la' to list aliases
+# http://stackoverflow.com/a/11613251
+#	=================================
+#	=	   show help		=
+#	=================================
+	h	= help							    # (...<git command>)
+	ha	= !git help -a | less
+	hi	= help -i						    # ... yet to find out how to use the 'info' program
+	la	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g' | less -R"
+
+#	=================================
+#	=	commit to project	=
+#	=================================
+	cl	= clone --progress -v					    # -v needs to be set AFTER --progress, else it won't work
+									    # choose
+	a	= add -A						    # ...<filename>
+	aa	= add -A .
+	ai	= add -i
+									    # unchoose
+	r	= rm -rf						    # ...<filename> unversion and delete
+	rc	= rm -r --cached					    # ...<filename> unversion, but leave in working copy
+									    # do
+	c	= commit -m						    # ..commitmessage.
+	fc	= commit -am fastcommit
+	ca	= commit -am						    # ...commitmessage
+	mc	= commit						    # think 'message-commit
+	mca	= commit -a
+	cam	= commit --amend -c HEAD				    # update last commit
+	fcam	= commit --amend -C HEAD				    # update last commit, and use same commit message
+									    # undo
+	rs	= reset HEAD						    # ...<filename> --- take a single added file off the index again
+	rshh	= reset --hard HEAD					    # undos all changes in working copy, cannot be reverted
+
+#  name stuff properly
+									    # tag
+	t	= tag							    # (...<tag name>), arguments: none/-f/-m
+	tl	= tag -n						    # show existing tags with messages
+	td	= tag -d						    # ...<tag name>
+									    # notes
+	n	= !git notes list | sed -e 's/\\([a-z0-9]\\{4\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
+	nv	= !git notes list | sed -e 's/\\([a-z0-9]\\{7\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
+	na	= notes add
+	nap	= notes append
+	ne	= notes edit
+	nr	= notes remove
+
+#	=================================
+#	=	    show diffs		=
+#	=================================
+									    # show everything related to a SHA1
+	sh	= show
+									    # check current local changes you have made
+	d	= diff HEAD						    # (...<filename>) diff staged + unstaged against HEAD = add . && commit
+	ds	= diff --staged						    # diff staged against HEAD = commit
+	du	= diff							    # diff unstaged against HEAD = commit -a
+	dt	= difftool
+									    # check current changes residing in origin/master (= main repository)
+									    # local changes are shown in red!!!
+	dh	= diff ..origin/master					    # all changes, including non-commited ones
+	dhc	= diff HEAD..origin/master				    # against head, includes just local commits
+	dhp	= diff HEAD...origin/master				    # pure against head, excludes all local changes and commmits
+
+#  check current state locally
+									    # index status
+	s	= status --short
+	ss	= status -uno --short					    # don't show untracked stuff
+	sa	= status
+	ssa	= status -uno						    # don't show untracked stuff
+									    # currently versioned files at HEAD
+	lsf	= !git ls-tree HEAD --full-tree -r -t --name-only | less    # all
+	lsfd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less # just dirs
+	ls	= ls-tree -r --name-only				    # ... revision
+	lsd	= ls-tree -r -t -d --name-only				    # ... revision
+	lsfa	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less
+	lsfad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4 | less
+	lsfav	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=7 | less
+	lsfadv	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=7 | less
+
+#	=================================
+#	=	stashes & branches	=
+#	=================================
+#  tempsave stuff without branching or committing
+	st	= stash
+	stl	= stash list
+	stp	= stash pop
+	sta	= stash apply
+
+#  check what is going on everywhere
+	sb	= show-branch -a --list					    # just list with current commit
+	sba	= show-branch --color=always -a --more=10 --no-name	    # all
+	sbaf	= show-branch --color=always -a --more=10		    # all full
+	sbl	= show-branch --color=always --reflog=10 --no-name	    # local
+	sblf	= show-branch --color=always --reflog=10		    # local full
+	sl	= shortlog -nse
+
+#  branch your way to victory, add <branch name>
+	b	= branch						    # (...<branch name>), without argument show existing ones
+	ba	= branch -a						    # shows all local and remote branches
+	bd	= branch -D						    # ...<branch name>
+	co	= checkout						    # ...
+	cob	= checkout -b						    # ...<branch name> create + checkout branch
+
+#  merge your way back into madness
+	m	= merge --no-ff						    # ...<branch name>
+	rb	= rebase						    # ...<branch name>
+	rbi	= rebase -i
+	rbc	= rebase --continue
+	rbs	= rebase --skip
+	rba	= rebase --abort
+
+#	=================================
+#	=	    contribute		=
+#	=================================
+#  interact with the rest of the world
+	f	= fetch
+	p	= pull
+	pp	= push
+	pup	= !git p && git pp					    # pull and push, not nice but sometimes convenient
+	rmrb	= push --delete origin					    # ...<branch name> remote branch to be deleted
+	fp	= !git mca && git pup					    # fast push script, be wary!
+									    # handling remote connections
+	rem	= remote -v						    # (...<lookup man page for this>) withough argument
+#		=							    # just shows remotes, else does all kinds of funny stuff
+	rems	= remote show						    # ... <label for remote> show info for specific remote
+	arem	= remote add						    # ... <label for remote> <URL to remote>
+	rrem	= remote rm						    # ... <label of remote to be deleted>
+
+#  use svn if you have to
+	sco	= svn clone						    # ...<svn repository url>
+	sci	= svn dcommit						    # push locally committed changes to svn
+	sup	= svn rebase						    # = svn update
+
+#	=================================
+#	=	    show history	=
+#	=================================
+#  dig in history what went wrong
+	rl	= reflog
+	l	= log --graph --oneline --decorate=short --all
+	ls	= log --stat						    # show log with added/droped files
+	lp	= log -p						    # ...<filename> shows diffs for file in question
+	lf	= log --follow						    # history <filename> including renames
+	ll	= log --graph --abbrev-commit --decorate=short --pretty=short
+	lll	= log --graph --abbrev-commit --decorate=short		    # --pretty=medium
+	lo	= log --graph --oneline --decorate=short --abbrev=7
+	llo	= log --graph --abbrev=7 --decorate=short --pretty=short
+	lllo	= log --graph --abbrev=7 --decorate=short		    # --pretty=medium
+
+[core]
+	abbrev = 4
+	
+									    # FIXME: and god told, the day will come, when this mess below will be fixed properly! and so it shall be...
+
+									    # best is to use autoclrf 'false'. others have a slight chance of corrupting binary data files mistaken as text... bah WTF, live hard!
+	autoclrf = input						    # on mac and linux, on win it's 'true'... i hope so!
+
+# ===============
+# AUTOCLRF HOWTO:
+# ===============
+# 1. new project from scratch, let git handle things: <minimal risk>
+# ------------------------------------------------------------------
+# As long as there are no created files yet, before starting to
+# develop developers set things OS dependent:
+# 
+# -- on Mac:
+# autoclrf = input
+# -- on Linux:
+# autoclrf = input
+# -- on Windows:
+# autoclrf = true
+# 
+# That way git handles line endings automatically. This works almost
+# always, except when git accidentally treats binary files as text
+# files and converts them, too. Then it might bite your ass. Of
+# course this can only happen if you have binary files present in
+# your repository. ;)
+# ==================================================================
+# 2. new project from scratch, handle things yourself: <no risk>
+# ------------------------------------------------------------------
+# If every developer handles the line ending stuff herself/himself,
+# use this:
+# 
+# -- on every type of OS:
+# autoclrf = false
+# 
+# All developers must set their development environments to create
+# files in the same line endings  all others use, and not safe files
+# differently after editing. (I.e. all use 'unix' line endings.
+# Only LF endings, not CR, not CRLF.) Of course, all need to use
+# the same encoding, too. :)
+# With things set this way git won't interfere at all, and
+# responsibility is with the devs themselves.
+# ==================================================================
+# 3. existing project: <risk depends on given surroundings>
+# ------------------------------------------------------------------
+# 
+# in a mixed environment, rethink if you use 'input' ... helps.
+# if things are fucked, use almighty vim scripts to fix things...
+# 
+# there also exist .gitattributes files now... how do they relate?
+
+# vim: ts=8:

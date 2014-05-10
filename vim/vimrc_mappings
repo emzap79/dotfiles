@@ -599,8 +599,17 @@ nnoremap <leader>slc :scalcvsplit<cr>
 "}}}
 " alignment <plugin>"{{{
 
-nnoremap <leader>al :'a,'sAlign!<space>
-vnoremap <leader>al <esc>:'a,'sAlign!<space>
+" Align
+nnoremap <leader>al :'a,'sAlign!<space>p
+vnoremap <leader>al :'<,'>Align!<space>p
+nnoremap <leader>ap :'{,'}Align!<space>p
+vnoremap <leader>ap <esc>:'{,'}Align!<space>p
+
+" AlignCtrl
+nnoremap <leader>acg :AlignCtrl g<space>
+vnoremap <leader>acg <esc>:AlignCtrl g<space>
+nnoremap <leader>acv :AlignCtrl v<space>
+vnoremap <leader>acv <esc>:AlignCtrl v<space>
 
 "}}}
 " frisk <plugin>"{{{
