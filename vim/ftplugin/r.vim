@@ -1,5 +1,5 @@
 " vim:fdm=marker
-" Mappings for Vim-R"{{{
+" Mappings for Vim-R
 
 " some previous notes"{{{
 
@@ -28,18 +28,25 @@ vmap <localleader>qq <Plug>RClose
 
 " Send Line And Jump To Next Codechunk
 nmap <esc>l <Plug>RDSendLine
-vmap <esc>l <Plug>REDSendSelection
+vmap <esc>l <Plug>RDSendSelection
 
 " Send Line
-nmap <c-s-l> <Plug>RSendLine
-vmap <c-s-l> <Plug>RESendSelection
+nmap <localleader>l <Plug>RSendLine
+vmap <localleader>l <Plug>RSendSelection
 
 " Send Chunks
 nmap <esc>k <Plug>RDSendParagraph
-vmap <esc>k <Plug>RESendSelection
+vmap <esc>k <Plug>RSendSelection
 
-" Send Chunks
-nmap <esc>f <Plug>RSendFile
+" Send Marked Blocks ('marks')
+" If the cursor is below the last mark, the plugin will send from the
+" mark to the end of the file. The mark above the cursor is included and
+" the mark below is excluded from the block to be sent to R.
+nmap <esc>b <Plug>RDSendMBlock
+vmap <esc>b <Plug>RDSendMBlock
+
+" Send File
+nmap <localleader>f <Plug>RSendFile
 
 " send code to console"}}}
 " Code editing mappings"{{{
@@ -49,7 +56,7 @@ imap <C-kMinus> <esc> <Space><-<Space>
 nmap <C-kMinus> a<Space><-<Space>
 
 " Code editing mappings"}}}
-" GVIM-Mappings"{{{
+" GVIM - Mappings"{{{
 
 nmap <M-1> 1gt
 imap <M-1> <esc>1gt
@@ -72,11 +79,8 @@ imap <M-5> <esc>5gt
 vmap <M-5> 5gt
 
 " GVIM-Mappings"}}}
+" GVIM - disable menue items"{{{
 
-" Mappings for Vim-R"}}}
-" Configurations for R in Gvim"{{{
-
-" ----------------------------
 " Nicht genutzte Schaltflächen
 " aunmenu ToolBar.-sep1-
 " aunmenu ToolBar.-sep2-
@@ -104,5 +108,5 @@ vmap <M-5> 5gt
 " aunmenu ToolBar.Einfügen
 " aunmenu ToolBar.Replace
 
-
-" Configurations for R in Gvim"}}}
+" Menuepunkte ausblenden
+" GVIM - disable menue items"}}}

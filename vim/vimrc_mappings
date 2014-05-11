@@ -11,7 +11,7 @@
 
 " config"{{{
 
-" mapping examples {{{
+" mapping examples "{{{
 
 " map (all modes)
 " vnoremap (visual mode)
@@ -31,7 +31,7 @@
 " a workaround for the <Alt> vs. <ESC> issue:
 " http://stackoverflow.com/a/10216459
 
-"}}}
+" mapping examples "}}}
 " set leader-keys"{{{
 
 " change the mapleader from \ to,
@@ -42,9 +42,9 @@ let maplocalleader=","
 " let r-plugin-localleader="\<space>"
 " xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
-""}}}
+" set leader-keys"}}}
 
-""}}}
+" config"}}}
 " f-keys"{{{
 
 " <f1>  " show current directory "{{{
@@ -64,23 +64,23 @@ nnoremap <s-f1> :echo expand('%:p')<cr>
 inoremap <s-f1> <esc>:echo expand('%:p')<cr>
 vnoremap <s-f1> <esc>:echo expand('%:p')<cr>
 
-"}}}
+" <f1>  " show current directory "}}}
 " <f2>  " save file "{{{
 
 "save file and source vimrc
 if has("gui_running")
-    nnoremap <silent><f2> :w<cr> :so ~/.gvimrc<cr>zR
-    inoremap <silent><f2> <esc>:w<cr> :so ~/.gvimrc<cr>zR
+    nnoremap <silent><f2> :exe "w \| so $MYGVIMRC \| %foldo!"<cr>
+    inoremap <silent><f2> <esc>:exe "w \| so $MYGVIMRC \| %foldo!"<cr>
 else
-    nnoremap <silent><f2> :w<cr> :so $MYVIMRC<cr>zRk
-    inoremap <silent><f2> <esc>:w<cr>:so $MYVIMRC<cr>zRk
+    nnoremap <silent><f2> :exe "w \| so $MYVIMRC \| %foldo!"<cr>
+    inoremap <silent><f2> <esc>:exe "w \| so $MYVIMRC \| %foldo!"<cr>
 endif
 
 "save & exit
 nnoremap <s-c-f2> :mks!<cr>:wqall!<cr>
 inoremap <s-c-f2> <esc>:mks!<cr>:wqall!<cr>
 
-"}}}
+" <f2>  " save file "}}}
 " <f3>  " bufferlist "{{{
 
 " " select buffer
@@ -92,8 +92,8 @@ inoremap <f3> <esc>:FufBuffer<cr>
 nnoremap <s-f3> :buffer<cr>
 inoremap <s-f3> <esc>:buffer<cr>
 
-"}}}
-" <f4>  " open file {{{
+" <f3>  " bufferlist "}}}
+" <f4>  " open file "{{{
 
 "call fuzzyfinder for files in current buffer
 nnoremap <f4> :FufFileWithCurrentBufferDir<cr>
@@ -107,7 +107,7 @@ inoremap <s-f4> <esc>:FufMruFile<cr>
 nnoremap <c-f4> :FufFile<cr>
 inoremap <c-f4> <esc>:FufFile<cr>
 
-" "}}}
+" <f4>  " open file "}}}
 " <F5>  " enable plugins"{{{
 
 " toggle YouCompleteMe
@@ -135,7 +135,7 @@ inoremap <F5> <ESC>:call ToggleYCM()<CR>
 " inoremap <s-f5> <esc>:fufmrucmd<cr>
 """""""""""""""""""""""""""""""""""""""""""
 
-"}}}
+" <F5>  " enable plugins"}}}
 " <f6>  " manage plugins through vundle "{{{
 
 "call bundlelist
@@ -154,11 +154,11 @@ inoremap <s-f6> <esc> :BundleInstall<cr>
 nnoremap <s-c-f6> :BundleInstall!<cr>
 inoremap <s-c-f6> <esc>:BundleInstall!<cr>
 
-"}}}
+" <f6>  " manage plugins through vundle "}}}
 " <f7>  " *** no functions yet *** " {{{
 
 "}}}
-" <f8>  " toggle linewrapping, -numbers and foldcolumn etc.{{{
+" <f8>  " toggle linewrapping, -numbers and foldcolumn etc."{{{
 
 " toggling textwidth
 " func: toggle through textwidth"{{{
@@ -185,7 +185,7 @@ nnoremap <f8> :call ToggleTextwidth()<CR>
 vnoremap <f8> <ESC>:call ToggleTextwidth()<CR>
 inoremap <f8> <ESC>:call ToggleTextwidth()<CR>
 
-"" "toggle linewrapping
+"toggle linewrapping
 " func: ToggleWrap{{{
 
 fun! ToggleWrap()
@@ -224,7 +224,7 @@ inoremap <c-f8> <ESC>:call ToggleFoldColumn()<cr>
 nnoremap <s-c-f8> :call TogglePaste()<cr>
 inoremap <s-c-f8> <c-o>:call TogglePaste()<cr>
 
-" " f-keys"}}}
+" <f8>  " toggle linewrapping, -numbers and foldcolumn etc."}}}
 " <f9>  " language tools & spellcheck"{{{
 
 " switch spellcheck languages
@@ -268,7 +268,7 @@ nnoremap <s-m-f9> :call AutoCorrect()<CR>
 vnoremap <s-m-f9> <ESC>:call AutoCorrect()<CR>
 inoremap <s-m-f9> <ESC>:call AutoCorrect()<CR>
 
-"}}}
+" <f9>  " language tools & spellcheck"}}}
 " <f10> " show vim-explorer/nerdtree"{{{
 
 "displaying vim-explorer
@@ -281,7 +281,7 @@ nnoremap <silent> <s-f10> :NERDTree %:p:h<cr> " to display NERDTree
 inoremap <silent> <s-f10> :NERDTree %:p:h<cr> " to display NERDTree"
 vnoremap <silent> <s-f10> :NERDTree %:p:h<cr> " to display NERDTree"
 
-"}}}
+" <f10> " show vim-explorer/nerdtree"}}}
 " <f11> " *** no functions yet***{{{
 
 "}}}
@@ -334,7 +334,7 @@ endfun
 
 " "}}}
 
-""}}}
+" <f12> " compile docs (eg. latex) from within vim "}}}
 
 " f-keys"}}}
 " basic key remaps "{{{
@@ -415,7 +415,7 @@ nnoremap <leader>slp :lcd %:p:h <cr> "set local path of currently edited file.
 
 ""}}}
 
-""}}}
+" Basic Mappings"}}}
 " Functions"{{{
 
 " " Func: YouCompleteMe <Plugin>"{{{
@@ -558,7 +558,7 @@ endfunction
 
 " ""}}}
 
-""}}}
+" Functions"}}}
 " Other Mappings"{{{
 
 " Plugin-Maps"{{{
@@ -652,7 +652,8 @@ nnoremap <space>gpl :Dispatch! git pull<CR>
 
 " autocomd so that 'd' in visual mode doesn't cause a pause outside of diff-mode
 " http://www.reddit.com/r/vim/comments/21f4gm/best_workflow_when_using_fugitive/cgcrfwz
-autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<cr>|xnoremap <buffer> do :diffget<cr>
+autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<cr>
+autocmd BufRead fugitive\:* xnoremap <buffer> do :diffget<cr>
 
 " fugitive"}}}
 " tmux-navigator <plugin>"{{{
@@ -664,6 +665,34 @@ nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 " tmux-navigator <plugin>"}}}
+" showmarks <plugin>"{{{
+
+" show marks
+nnoremap <silent><leader>ms :DoShowMarks<CR>
+vnoremap <silent><leader>ms <ESC>:DoShowMarks<CR>
+inoremap <silent><localleader>ms <ESC>:DoShowMarks<CR>
+
+" unshow marks
+nnoremap <silent><leader>mn :NoShowMarks<CR>
+vnoremap <silent><leader>mn <ESC>:NoShowMarks<CR>
+inoremap <silent><localleader>mn <ESC>:NoShowMarks<CR>
+
+" delete marks
+nnoremap <silent><leader>md :exe 'delm! \| delm A-Z0-9 \| echom "all marks removed!"'<CR>
+vnoremap <silent><leader>md <ESC>:exe 'delm! \| delm A-Z0-9 \| echom "all marks removed!"'<CR>
+inoremap <silent><localleader>md <ESC>:exe 'delm! \| delm A-Z0-9 \| echom "all marks removed!"'<CR>
+
+" :[count]ShowMarksOnce
+   " Display marks for [count] Cursorhold
+   " events. Mostly for mapping it like :
+   " nnoremap ` :ShowMarksOnce<cr>`
+
+" :[count]PreviewMarks
+   " Display marks of current buffer in pvw.
+   " Like ':marks', but at the top of the window ;-).
+   " [count] is the same as above.
+
+" showmarks <plugin>"}}}
 
 " Plugin-Maps"}}}
 " Folds & Marks"{{{
@@ -674,8 +703,8 @@ nnoremap <silent>_ ``
 " jump to last position
 " jump back to marked position"{{{
 
-nnoremap M `m
-vnoremap M `m
+nnoremap M `m :ShowMarksOnce<enter>
+vnoremap M `m :ShowMarksOnce<enter>
 
 " jump back to marked position"}}}
 " fold commands"{{{
@@ -983,7 +1012,7 @@ endfun
 " 'very magic' string search as default"{{{
 
 nnoremap / /\v
-cnoremap s/ s/\v
+cnoremap :s/ :s/\v
 
 " 'very magic' string search as default"}}}
 

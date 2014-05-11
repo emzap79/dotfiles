@@ -26,3 +26,11 @@ http://127.0.0.1:15743/library/base/html/subset.html
 http://127.0.0.1:15743/doc/html/Search?pattern=dat
 http://127.0.0.1:17392/library/base/html/Random.html
 http://127.0.0.1:28390/library/utils/html/read.table.html
+http://127.0.0.1:27413/library/utils/html/read.table.html
+http://127.0.0.1:17278/library/utils/html/read.table.html
+http://127.0.0.1:28324/library/base/html/merge.html
+http://127.0.0.1:14134/library/utils/html/read.table.html
+http://127.0.0.1:14134/library/base/html/tempfile.html
+http://127.0.0.1:14134/library/base/html/writeLines.html
+http://127.0.0.1:20227/library/base/html/system.html
+http://127.0.0.1:20227/library/base/html/paste.html

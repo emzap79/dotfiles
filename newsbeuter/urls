@@ -63,7 +63,7 @@ http://superuser.com/feeds/tag/vim "999. StackExch :: VIM"
 ### Podcasts #{{{
 
 http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml "999. Podcasts - TTT"
-http://vimcasts.org/feeds/ogg "999. Podcasts - VIMCasts.org"
+http://vimcasts.org/feeds/ogg.rss "999. Podcasts - VIMCasts.org"
 
 #}}}
 ### Stellenmarkt#{{{

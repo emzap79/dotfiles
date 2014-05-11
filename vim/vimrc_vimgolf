@@ -35,6 +35,8 @@ if argc() > 1
   silent bfirst " switch back to the first
 endif
 
+nnoremap ZZ :wqall!<cr>
+
 " paste to clipboard
 set cb+=unnamed                        " clipboard: yank and copy to X clipboard
 set cb+=unnamedplus                    " clipboard: use yanking to clipboard as default

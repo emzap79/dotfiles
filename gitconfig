@@ -1,3 +1,4 @@
+# vim:set noet
 [user]
 		name = emzap79
 		email = kaktuuus@gmx.de
@@ -101,7 +102,7 @@
 	lsf	= !git ls-tree HEAD --full-tree -r -t --name-only | less    # all
 	lsfd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less # just dirs
 	ls	= ls-tree -r --name-only				    # ... revision
-	lsd	= ls-tree -r -t -d --name-only				    # ... revision
+	lsd	= ls-tree -r -d --name-only				    # id., but only the named tree entry, without childrens(!)
 	lsfa	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less
 	lsfad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4 | less
 	lsfav	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=7 | less
@@ -110,11 +111,12 @@
 #	=================================
 #	=	stashes & branches	=
 #	=================================
-#  tempsave stuff without branching or committing
+#	= tempsave stuff without branching or committing
 	st	= stash
-	stl	= stash list
-	stp	= stash pop
-	sta	= stash apply
+	stl	= stash list						    # see the list of available stashes
+	stp	= stash pop						    # re-apply the stashed changes and delete the stash from the list of stashes
+	sta	= stash apply						    # you can use the ID to apply a stash, eg stash@{0}
+	std	= stash drop						    # remove a stashed change without applying it
 
 #  check what is going on everywhere
 	sb	= show-branch -a --list					    # just list with current commit
@@ -146,6 +148,7 @@
 	f	= fetch
 	p	= pull
 	pp	= push origin
+	ppf	= push --fast-forward origin
 	pup	= !git p && git pp					    # pull and push, not nice but sometimes convenient
 	rmrb	= push --delete origin					    # ...<branch name> remote branch to be deleted
 	fp	= !git mca && git pup					    # fast push script, be wary!
@@ -178,7 +181,7 @@
 
 [core]
 	abbrev = 4
-	
+
 									    # FIXME: and god told, the day will come, when this mess below will be fixed properly! and so it shall be...
 
 									    # best is to use autoclrf 'false'. others have a slight chance of corrupting binary data files mistaken as text... bah WTF, live hard!
@@ -191,14 +194,14 @@
 # ------------------------------------------------------------------
 # As long as there are no created files yet, before starting to
 # develop developers set things OS dependent:
-# 
+#
 # -- on Mac:
 # autoclrf = input
 # -- on Linux:
 # autoclrf = input
 # -- on Windows:
 # autoclrf = true
-# 
+#
 # That way git handles line endings automatically. This works almost
 # always, except when git accidentally treats binary files as text
 # files and converts them, too. Then it might bite your ass. Of
@@ -209,10 +212,10 @@
 # ------------------------------------------------------------------
 # If every developer handles the line ending stuff herself/himself,
 # use this:
-# 
+#
 # -- on every type of OS:
 # autoclrf = false
-# 
+#
 # All developers must set their development environments to create
 # files in the same line endings  all others use, and not safe files
 # differently after editing. (I.e. all use 'unix' line endings.
@@ -223,10 +226,10 @@
 # ==================================================================
 # 3. existing project: <risk depends on given surroundings>
 # ------------------------------------------------------------------
-# 
+#
 # in a mixed environment, rethink if you use 'input' ... helps.
 # if things are fucked, use almighty vim scripts to fix things...
-# 
+#
 # there also exist .gitattributes files now... how do they relate?
 
 # vim: ts=8:

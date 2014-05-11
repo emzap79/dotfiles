@@ -1,6 +1,7 @@
 # vim:fdm=marker:ft=sh
 
 # export aliases="~/.bash/aliases"
+export chall=reformat_surnames
 
 # basic aliases# {{{
 
@@ -94,7 +95,7 @@ alias cdpodc="cd $HOME/Podcasts"
 # alias cdpwd="cd $(xclip -o)"
 alias cdsem="cd $UNI/$SEM"
 alias cdtmp="cd $HOME/tmp"
-alias cdgh="cd $HOME/.gitclones"
+alias cdgc="cd $HOME/.gitclones"
 alias cduni="cd $UNI"
 alias cdvim="cd $HOME/.vim"
 alias cdwallp="cd $HOME/.wallpapers"
@@ -116,7 +117,8 @@ alias cdrechn="cd $DOK/Rechnungen"
 alias cdrez="cd $DOK/Rezepte"
 alias cdsonst="cd $DOK/Sonstiges"
 alias cdtosh="cd /media/zapata/Musica"
-alias cdusb="cd /media/zapata/ES02224159/$SEM"
+alias cdusb="cd /media/zapata/ES02224159"
+alias cdusbsem="cd /media/zapata/ES02224159/$SEM"
 alias cdvers="cd $DOK/Versicherungen"
 alias cdvimg="cd $HOME/Dokumente/Linux/Vim/vimgolf"
 alias cdvol="cd $VOL"
@@ -136,8 +138,6 @@ alias hg="history|grep"
 alias convbib="sed -i 's/^ *owner=.*/   owner={Jonas Petong},/g;s/{{/{/g;s/}}/}/g'"
 alias convuml="sed -i 's/Ã¶/ö/g;s/Ã¼/ü/g;s/ÃŸ/ß/g;s/Ã¤/ä/g;s/Ã„/Ä/g;s/Ãœ/Ü/g;s/Ã–/Ö/g;s/Ã©/Ë/g'"
 alias convdir="sed -i 's/\([\&\)\(]\)/\\\1/g;s/\(.*\)\/.*/ \1/'"
-alias html2pdf="for i in *.html; do wkhtmltopdf $i $(basename $i .html).pdf; done"
-alias convflv="ffmpeg -sameq -ar 22051 -strict experimental output.mp4 -i"
 
 # }}}
 # grep# {{{
@@ -152,10 +152,8 @@ alias grep='grep --color=always -i -n'
 
 # xclip# {{{
 
-alias c='xclip -selection c'
-alias v='xclip -selection o'
-alias xc='xclip'
-alias xv='xclip -o'
+alias xc='xclip -selection c'
+alias xv='xclip -selection o'
 alias pwdc="pwd | xclip; source ~/.bashrc"
 # alias pwdp=`xclip -o`     # Error: target STRING not available
 
@@ -164,32 +162,26 @@ alias pwdc="pwd | xclip; source ~/.bashrc"
 
 # vimgolf
 # http://stackoverflow.com/a/8931728/3569509
-if [[ -e /home/${USER}/Dokumente ]];
-then
-    alias vimg='vim -u ~/.vim/vimrc_vimgolf -W ~/.vim-last-scriptout \
-        /tmp/foo.golf \
-        $DOK/Linux/Vim/vimgolf/VimGolfTricks_DotMacros.vg \
-        $DOK/Linux/Vim/vimgolf/chall*.vg \
-        && cat ~/.vim-last-scriptout | wc -c'
+if [[ -e /home/${USER}/Dokumente ]]; then
+    alias vgolf='/bin/bash ~/bin/vgolf.sh'
 fi
 
 # encrypted password file
-if [[ -e /media/${USER}/ES02224159 ]];
-then
-    alias vimenc="vim -u $USB/VIM/_vimrc $USB/VIM/_passw.encr"
-fi
+alias ve="vim -u $USB/VIM/_vimrc $USB/VIM/_passw.encr"
 
 # bashrc & aliases
-alias vima="vim ~/.bash/aliases; source ~/.bashrc"
-alias vimb="vim ~/.bashrc; source ~/.bashrc"
-alias vimg="vim ~/.gitconfig"
+alias va="vim ~/.bash/aliases; source ~/.bashrc"
+alias vb="vim ~/.bashrc; source ~/.bashrc"
+alias vg="vim ~/.gitconfig"
 
 # open vim sessions
-alias v='vim'
+alias v=fun_vim  # 'vv tex' will open /etc/foo.tex in vim
+alias vm="vim /tmp/foo.md"
+alias vt="vim /tmp/foo.tex"
 alias vi="vim -c 'startinsert'"
-alias vv=fun_vim  # 'vv tex' will open /etc/foo.tex in vim
-alias vimu="vim -u NONE"
-alias vims="vim -S Session.vim"
+alias vu="vim -u NONE"
+alias vs="vim -S Session.vim"
+alias vv="echo "" > /tmp/foo.bar; vim -c startinsert /tmp/foo.bar"
 
 # }}}
 # evince # {{{
@@ -256,6 +248,13 @@ alias yt="mpsyt"
 # }}}
 # miscellanious# {{{
 
+# conversion#{{{
+
+alias html2pdf="for i in *.html; do wkhtmltopdf $i $(basename $i .html).pdf; done"
+alias convflv="ffmpeg -sameq -ar 22051 -strict experimental output.mp4 -i"
+alias xls2csv="ssconvert -S"
+
+# conversion#}}}
 # alert # {{{
 
 alias alert='notify-send --urgency=low -i "$([ $?=0 ] && echo \
@@ -387,6 +386,7 @@ alias grbs="git rbs"
 alias grba="git rba"
 alias gp="git p"
 alias gpp="git pp"
+alias gppf="git ppf"
 alias gpup="git pup"
 alias grmrb="git rmrb"
 alias gfp=gitfastpush
@@ -509,8 +509,6 @@ fun_mkcd(){
 
 fun_ips() {
 sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac | grep -i adr
-echo "---"
-sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| grep -i adr
 }
 
 # ifconfig - print ip address#}}}
@@ -535,7 +533,7 @@ fun_pss() {
     processids="$(ps axo pid,command | \grep -i ${pro} | awk '{print $1}')"; # get pids
     if [[ "$SHELL" == "/bin/bash" ]]; then
         complete -W "${processids}" kk; # make a completion list for kk, bash
-    else 
+    else
         return;
     fi
 }
@@ -716,7 +714,7 @@ fun_swap() {
 # add vim and tmux tempfiles#{{{
 
 fun_ignore() {
-    touch .gitignore 
+    touch .gitignore
     # echo "*.sw*\n*#\ntags\n*~\n" | cat >> .gitignore
     echo "*.sw*\n*~\n" | cat >> .gitignore
     git add .gitignore

@@ -1,11 +1,11 @@
-# Disable "save workspace (y/n/c):" prompt
-# http://stackoverflow.com/a/4996252
-# Set hook to be run when Defaults is attached
-setHook(packageEvent("Defaults", "attach"),
-  function(...) { setDefaults(q, save="no"); useDefaults(q) })
-# add Defaults to the default packages loaded on startup
-old <- getOption("defaultPackages");
-options(defaultPackages = c(old, "Defaults"))
+# # Disable "save workspace (y/n/c):" prompt
+# # http://stackoverflow.com/a/4996252
+# # Set hook to be run when Defaults is attached
+# setHook(packageEvent("Defaults", "attach"),
+        # function(...) { setDefaults(q, save="no"); useDefaults(q) })
+# # add Defaults to the default packages loaded on startup
+# old <- getOption("defaultPackages");
+# options(defaultPackages = c(old, "Defaults"))
 
 if(interactive()){
 # Get startup messages of three packages and set Vim as R pager:

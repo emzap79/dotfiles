@@ -1,6 +1,7 @@
 """""""""""""
 "  Plugins  "
 """""""""""""
+" vim: fdm=marker
 
 call vundle#rc()
 Bundle 'gmarik/vundle'
@@ -25,7 +26,9 @@ Bundle 'gmarik/vundle'
 " Bundles "{{{
 
 " active bundles
+Bundle 'jacquesbh/vim-showmarks'
 Bundle 'BufOnly.vim'
+Bundle 'honza/vim-snippets'
 Bundle 'L9'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'Shougo/neocomplete.vim'
@@ -87,6 +90,7 @@ Bundle 'wellle/targets.vim'
 " Bundle 'tpope/vim-rails.git'
 
 " "No more used repos
+
 " "Bundles"}}}
 " Plugin Settings "{{{
 
@@ -157,11 +161,6 @@ let g:tex_fold_allow_marker = 1
 
 " On Text Operators"{{{
 
-" VIS"{{{
-
-" " apply commmand only to Visual Block ":'<,'>B <command>"
-
-" VIS"}}}
 " CamelCase Motions"{{{
 
 " Example: Replace the default 'w', 'b' and 'e' mappings instead of defining additional mappings ',w', ',b' and ',e':
@@ -187,14 +186,28 @@ map <silent> e <Plug>CamelCaseMotion_e
 " let alignctrl= Align#AlignCtrl()
 
 " Align"}}}
+" VIS"{{{
+
+" " apply commmand only to Visual Block ":'<,'>B <command>"
+
+" VIS"}}}
+
+" On Text Operators"}}}
+" Comments & Marks"{{{
+
 " NERDCommenter"{{{
 
 " Leave 1 space after comment
 let NERDSpaceDelims = 1
 
 " NERDCommenter"}}}
+" ShowMarks"{{{
 
-" On Text Operators"}}}
+let g:showmarks_marks = "abcdefghijklmnopqrstuvwxyz"
+
+" ShowMarks"}}}
+
+" Comments & Marks"}}}
 " Braces/Brackets/Parenthesis"{{{
 
 " Targets"{{{
@@ -459,7 +472,6 @@ let g:syntastic_enable_signs = 1
 " Example: >
 " let g:syntastic_error_symbol = '✗'
 " let g:syntastic_warning_symbol = '⚠'
-
 
 " Default: 1
 " Use this option to tell syntastic whether to display error messages in balloons
@@ -740,5 +752,4 @@ let g:tmux_navigator_no_mappings = 1
 
 " Extensions"}}}
 
-" Plugin Settings
-" vim: fdm=marker
+" Plugin Settings "}}}

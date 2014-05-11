@@ -5,8 +5,8 @@
 prog="github"
 LOGDIR="$HOME/.logfiles"
 
-gitdir=$HOME/dotfiles                                           # dotfiles directory
-git_old_dir=$HOME/dotfiles_old                                  # old dotfiles backup directory
+gitdir="$HOME/dotfiles"                                           # dotfiles directory
+git_old_dir="$HOME/dotfiles_old"                                  # old dotfiles backup directory
 folders="w3m bash cmus devilspie newsbeuter \
 dictionaries podget sane spamassassin vim xournal mutt"  # list of files/folders to symlink in homedir
 files="gitconfig inputrc Rprofile tmux.conf vimrc bashrc dingrc gvimrc muttrc"
@@ -67,8 +67,9 @@ commit_changes() {
 
     # stage changes in dotfiles
     echo ""
+    cd "$gitdir" && git add -A .
     read -p "git commit -m " message
-    cd $gitdir && git add -A . && git commit -m "$message"
+    git commit -m "$message"
 
 }
 github_push ()
