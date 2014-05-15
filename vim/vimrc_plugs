@@ -1,7 +1,6 @@
 """""""""""""
 "  Plugins  "
 """""""""""""
-" vim: fdm=marker
 
 call vundle#rc()
 Bundle 'gmarik/vundle'
@@ -38,7 +37,6 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'arecarn/frisk.git'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'jalvesaq/VimCom'
 Bundle 'jcfaria/Vim-R-plugin'
 Bundle 'matchit.zip'
 Bundle 'matze/vim-tex-fold'
@@ -108,9 +106,77 @@ autocmd FileType tex so ~/.vim/bundle/LaTeX-Box/ftplugin/tex_LatexBox.vim
 " Latex Box Plugin"}}}
 " Vim-R-Plugin: needs to have VimCom installed!"{{{
 
-" Configuration in ~/.vim/vimrc_R
+Bundle 'jalvesaq/VimCom'
 
-""}}}
+" At startup"{{{
+
+" let vimrplugin_source = "$HOME/R,/usr/lib/R/site-library/,/usr/lib/R/library/"
+let vimrplugin_r_args = "--no-save --quiet"  " arguments at R startup
+let vimrplugin_vimcom_wait = 1000            " Time in ms to wait for vimcom.plus loading
+let vimrplugin_vsplit = 1                    " Make Tmux split the window vertically
+let vimrplugin_rconsole_width = 80           " The number of columns of R Console (Tmux split)
+let vimrplugin_allnames = 1                  " Show names which begin with a dot
+let vimrplugin_maxdeparse = 300
+let r_syntax_folding = 1                     " Allow for syntax-folding
+
+" At startup"}}}
+" Command line output"{{{
+
+let vimrplugin_term = "xterm"                " Define which terminal emulator to start
+let vimrplugin_routmorecolors = 1            " R commands in the R output are highlighted
+let vimrplugin_rconsole_width = 50           " The number of columns of R Console (Tmux split)
+
+" Command line output"}}}
+" Comments"{{{
+
+let vimrplugin_rcomment_string = "# "
+let r_indent_comment_column = 20
+
+" Comments"}}}
+" Inside Insertmode"{{{
+
+let vimrplugin_assign = 1                    " Enable mapping for 'assign'
+let vimrplugin_assign_map = "_"              " Map (' <- ') to given key in insert mode
+let g:vimrplugin_insert_mode_cmds = 1        " 0 to make commands work in insert mode
+
+" Inside Insertmode"}}}
+" Vimpager"{{{
+
+let vimrplugin_vimpager = "no"              " If set vim, enable html support
+                                            " in .Rconfig (see documentation)
+
+" available options are:
+" "tab"       : Show the help document in a new tab. If there is already a
+"               tab with an R help document tab, use it.
+"               This is the default.
+" "vertical"  : Split the window vertically if the editor width is large
+"               enough; otherwise, split the window horizontally and attempt
+"               to set the window height to at least 20 lines.
+" "horizontal": Split the window horizontally.
+" "tabnew"    : Show the help document in a new tab.
+" "no"        : Do not show R documentation in Vim.
+
+" Vimpager"}}}
+" Object Browser"{{{
+
+let vimrplugin_objbr_w = 30                  " Number of minimum columns for Objectbrowser
+let vimrplugin_objbr_place = "script,right"  " Valid values for the Object Browser placement are 'script' or
+                                             " 'console' and 'right' or 'left' separated by a comma.
+
+" Object Browser"}}}
+" Set config for FileType R"{{{
+
+augroup RFiles
+    au!
+    au FileType r set isk+=.                 " make cursor stop at dots as well
+    " au FileType r setlocal expandtab
+    " au FileType r setlocal shiftwidth=4
+    " au FileType r setlocal tabstop=8
+augroup END
+
+" Set config for FileType R"}}}
+
+" Vim-R-Plugin: needs to have VimCom installed!"}}}
 " Vim-Markdown"{{{
 
 " Set to '1' to disable folding
@@ -749,7 +815,35 @@ let g:tmux_navigator_no_mappings = 1
 " Vim-Tmux-Navigator"}}}
 
 " Tmux-Extensions"}}}
+" Mutt"{{{
+
+" Extract Links"{{{
+
+" Plugin requires additional:
+Bundle 'vim-scripts/ingo-library'
+Bundle 'vim-scripts/extractmatches'
+Bundle 'vim-scripts/PatternsOnText'
+
+" Dictionary (to avoid multiple identical entries) containing regular
+" expressions (as keys, the values are irrelevant) to capture links in the
+" buffer:
+" let g:ExtractLinks_Expressions = {'\<link: \S\+\>', 1}
+
+" The replacement of the matched link inside the buffer:
+let g:ExtractLinks_ReplacementInline = '[\#]'
+
+" The replacement of the matched link for the link table:
+let g:ExtractLinks_ReplacementExtraction = '[\#] &\n'
+
+" Extract Links"}}}
+
+" Mutt"}}}
 
 " Extensions"}}}
 
 " Plugin Settings "}}}
+"""""""
+""" EOF
+"""""""
+
+" vim: fdm=marker

@@ -120,7 +120,7 @@ alias cdtosh="cd /media/zapata/Musica"
 alias cdusb="cd /media/zapata/ES02224159"
 alias cdusbsem="cd /media/zapata/ES02224159/$SEM"
 alias cdvers="cd $DOK/Versicherungen"
-alias cdvimg="cd $HOME/Dokumente/Linux/Vim/vimgolf"
+alias cdvg="cd $HOME/Dokumente/Linux/Vim/vimgolf"
 alias cdvol="cd $VOL"
 alias cdwdp="cd /media/zapata/WDP"
 
@@ -142,7 +142,7 @@ alias convdir="sed -i 's/\([\&\)\(]\)/\\\1/g;s/\(.*\)\/.*/ \1/'"
 # }}}
 # grep# {{{
 
-alias grepv='fun_grepv'
+alias vgrep='fun_grepv'
 alias grep='grep --color=always -i -n'
 
 # grep# }}}
@@ -173,11 +173,13 @@ alias ve="vim -u $USB/VIM/_vimrc $USB/VIM/_passw.encr"
 alias va="vim ~/.bash/aliases; source ~/.bashrc"
 alias vb="vim ~/.bashrc; source ~/.bashrc"
 alias vg="vim ~/.gitconfig"
+alias vt="vim ~/.tmux.conf"
+alias vrc="vim ~/.vimrc"
+alias vtmp="vim ~/bin/tmplAte.sh"
 
 # open vim sessions
 alias v=fun_vim  # 'vv tex' will open /etc/foo.tex in vim
 alias vm="vim /tmp/foo.md"
-alias vt="vim /tmp/foo.tex"
 alias vi="vim -c 'startinsert'"
 alias vu="vim -u NONE"
 alias vs="vim -S Session.vim"
@@ -202,11 +204,15 @@ alias pdfgrayscale="gs -sOutputFile=grayscale.pdf -sDEVICE=pdfwrite \
     -sColorConversionStrategy=Gray -dNOPAUSE -dBATCH"
 
 # }}}
-# latex# {{{
+# latex# #{{{
 
-alias mr="make read"
+alias mr="make r"
+alias mg="make git"
+alias mb="make bash"
+alias mt="make tmux"
+alias mv="make vim"
 
-# }}}
+# latex# #}}}
 # mutt, newsbeuter # {{{
 
 alias muttt='pkill fetchmail; fetchmail -v --ssl; mutt'
@@ -257,9 +263,12 @@ alias xls2csv="ssconvert -S"
 # conversion#}}}
 # alert # {{{
 
-alias alert='notify-send --urgency=low -i "$([ $?=0 ] && echo \
-    terminal || echo error)" "$(history|tail -n1|sed -e \
-    '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'    # Use like so:sleep 10; alert
+# Add an "alert" alias for long running commands.
+# http://askubuntu.com/questions/339499/bash-taking-a-lot-of-time-to-load
+# Use like so: sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal ||\
+    echo error)" "$(history|tail -n1|sed -e \
+    '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # }}}
 # short commands# {{{
@@ -405,6 +414,7 @@ alias gd="git d"
 alias grl="git rl"
 alias gl="git l"
 alias glp="git lp"
+alias glpf="git lpf"
 alias gll="git ll"
 alias glll="git lll"
 alias glo="git lo"
@@ -469,6 +479,7 @@ else
     else
         function tvim(){ tmux new-session "vim $@" ; }
     fi
+        git add -A .
 fi
 
 # sources tmux-plugin
@@ -479,7 +490,7 @@ if [[ -f "/home/${USER}/.vim/bundle/tmux-config/tmux-autwrite/autowrite-vim.sh" 
 fi
 
 # TMUX#}}}
-# functions# {{{
+# functions#{{{
 
 # general# {{{
 
@@ -725,4 +736,4 @@ fun_ignore() {
 
 # gitfunctions# }}}
 
-# }}}
+# functions#}}}

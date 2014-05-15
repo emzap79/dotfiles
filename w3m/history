@@ -34,3 +34,11 @@ http://127.0.0.1:14134/library/base/html/tempfile.html
 http://127.0.0.1:14134/library/base/html/writeLines.html
 http://127.0.0.1:20227/library/base/html/system.html
 http://127.0.0.1:20227/library/base/html/paste.html
+http://127.0.0.1:28621/library/utils/help/showMethods
+http://127.0.0.1:28621/doc/html/Search?pattern=methods.as
+http://127.0.0.1:28621/doc/html/Search?pattern=methods
+http://127.0.0.1:28621/library/utils/html/methods.html
+http://127.0.0.1:10912/library/base/html/subset.html
+http://127.0.0.1:15933/library/base/html/subset.html
+http://127.0.0.1:11673/library/base/html/subset.html
+http://127.0.0.1:21608/library/utils/html/install.packages.html

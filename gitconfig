@@ -1,4 +1,4 @@
-# vim:set noet
+# vim:noet
 [user]
 		name = emzap79
 		email = kaktuuus@gmx.de
@@ -43,7 +43,7 @@
 #	=================================
 #	=	commit to project	=
 #	=================================
-	cl	= clone --progress -v					    # -v needs to be set AFTER --progress, else it won't work
+	cl	= clone --progress -v                                       # -v needs to be set AFTER --progress, else it won't work
 									    # choose
 	a	= add -A						    # ...<filename>
 	aa	= add -A .
@@ -148,7 +148,7 @@
 	f	= fetch
 	p	= pull
 	pp	= push origin
-	ppf	= push --fast-forward origin
+	ppf	= push origin -f					    # overwrite external changes to remote (use with care!!)
 	pup	= !git p && git pp					    # pull and push, not nice but sometimes convenient
 	rmrb	= push --delete origin					    # ...<branch name> remote branch to be deleted
 	fp	= !git mca && git pup					    # fast push script, be wary!
@@ -158,6 +158,7 @@
 	rems	= remote show						    # ... <label for remote> show info for specific remote
 	arem	= remote add						    # ... <label for remote> <URL to remote>
 	rrem	= remote rm						    # ... <label of remote to be deleted>
+	prem	= remote update --prune 				    # remove all local branches which are not in the remote anymore
 
 #  use svn if you have to
 	sco	= svn clone						    # ...<svn repository url>
@@ -168,11 +169,11 @@
 #	=	    show history	=
 #	=================================
 #  dig in history what went wrong
-	rl	= reflog
+	rl	= reflog						    # show changes of the HEAD pointer (including all indices)
 	l	= log --graph --oneline --decorate=short --all
 	lp	= log -p						    # ...<filename> shows diffs for file in question
+	lpf	= log -p --follow					    # ...<filename> shows diffs for file in question, including renames
 	lst	= log --stat						    # show log with added/droped files
-	lf	= log --follow						    # history <filename> including renames
 	ll	= log --graph --abbrev-commit --decorate=short --pretty=short
 	lll	= log --graph --abbrev-commit --decorate=short		    # --pretty=medium
 	lo	= log --graph --oneline --decorate=short --abbrev=7

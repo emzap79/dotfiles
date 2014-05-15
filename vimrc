@@ -6,22 +6,22 @@
 " Last Modified: Januar 04, 2014
 
 " This source imports all of my general settings. Indent, hilight, etc.
-source $VIM/vimrc_general
+source ~/.vim/vimrc_general
 " This source imports all plugins
-source $VIM/vimrc_plugs
+source ~/.vim/vimrc_plugs
 " This source imports all of my plugin settings and bindings.
-source $VIM/vimrc_mappings
+source ~/.vim/vimrc_mappings
 " This source sets mutt configs
-source $VIM/vimrc_mutt
+source ~/.vim/vimrc_mutt
 " This source sets Abbreviations
-source $VIM/vimrc_abbrev
+source ~/.vim/vimrc_abbrev
 " This source sets Colorscheme etc.
-source $VIM/vimrc_colors
+source ~/.vim/vimrc_colors
 
 " This source sets R configs
-source $VIM/ftplugin/r.vim
+source ~/.vim/after/ftplugin/r.vim
 " This source sets LaTeX configs
-" source $VIM/ftplugin/tex.vim
+" source ~/.vim/ftplugin/tex.vim
 
 "------------------
 " Xterm-Style-Keys

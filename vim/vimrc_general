@@ -185,10 +185,14 @@ let tex_fold_environments=1
 set sta                                        " smarttab: smart tab handling for indenting
 set bs=indent,eol,start                        " backspace: Allow backspacing over everything in insert mode
 set et                                         " expandtab: tabs are converted to spaces, use only when required
-set nocin                                      " indent: enables automatic C program indenting.
-                                               " options: smart-/auto-/cindent
+set sr                                         " shiftround: use multiple of shiftwidth when indenting with '<' and '>'
 set ci                                         " copyindent: copy the previous indentation on autoindenting
 set si                                         " smartindent: turn on smart indenting. Availabile
+                                               " options: smart-/auto-/cindent
+
+set sw=4                                       " shiftwidth: number of spaces to use for autoindenting
+set sts=4                                      " softtabstop: make the four spaces feel like a tab
+set ts=4                                       " tabstop: number of spaces a tab counts for
 
 " If you prefer to work with tab characters then it is a good idea to ensure
 " that tabstop == softtabstop. This makes it less likely that you’ll end up
@@ -198,15 +202,11 @@ set si                                         " smartindent: turn on smart inde
 " softtabstop == shiftwidth. This way, you can expect the same number of
 " spaces to be inserted whether you press the tab key in insert mode, or use
 " the indentation commands in normal/visual modes.
-set sw=4                                       " shiftwidth: number of spaces to use for autoindenting
-set sts=4                                      " softtabstop: make the four spaces feel like a tab
-set ts=4                                       " tabstop: number of spaces a tab counts for
 
 " indentation "}}}
 " linewrapping"{{{
 
 set sbr=""                                     " showbreak: note trailing space at end of next line
-set sr                                         " shiftround: use multiple of shiftwidth when indenting with '<' and '>'
 set lbr                                        " linebreak: wrap at word
 set ww=b,s,h,l,<,>,[,]                         " whichwrap: allow specified keys that move the cursor left/right.
 

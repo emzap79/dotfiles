@@ -1,12 +1,3 @@
-# # Disable "save workspace (y/n/c):" prompt
-# # http://stackoverflow.com/a/4996252
-# # Set hook to be run when Defaults is attached
-# setHook(packageEvent("Defaults", "attach"),
-        # function(...) { setDefaults(q, save="no"); useDefaults(q) })
-# # add Defaults to the default packages loaded on startup
-# old <- getOption("defaultPackages");
-# options(defaultPackages = c(old, "Defaults"))
-
 if(interactive()){
 # Get startup messages of three packages and set Vim as R pager:
     options(setwidth.verbose = 1,
@@ -21,7 +12,7 @@ if(interactive()){
                 if(nchar(Sys.getenv("DISPLAY")) > 1)
                     options(editor = 'gvim -f -c "set ft=r"')
                 else
-                    options(editor = 'vim -c "set ft=r"')
+                    options(editor = 'vim -c "set ft=r" -c "set isk+=."')
 # Load the colorout library:
                         library(colorout)
                         if(Sys.getenv("TERM") != "linux" && Sys.getenv("TERM") != ""){

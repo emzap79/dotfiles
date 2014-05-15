@@ -164,7 +164,7 @@ inoremap <s-c-f6> <esc>:BundleInstall!<cr>
 " func: toggle through textwidth"{{{
 
 let b:mytextwidth=0
-let g:mytextwidthlist=["0","72","80"]
+let g:mytextwidthlist=["0","72","80","115"]
 fun! ToggleTextwidth()
     call clearmatches()
     let b:mytextwidth=b:mytextwidth+1
@@ -403,8 +403,8 @@ nnoremap <silent> <leader>ea :sp ~/.vim/vimrc_abbrev<cr>
 nnoremap <silent> <leader>ec :sp ~/.vim/vimrc_colors<cr>
 nnoremap <silent> <leader>eb :sp ~/.vim/vimrc_mappings<cr>
 nnoremap <silent> <leader>em :sp ~/.vim/vimrc_mutt<cr>
-nnoremap <silent> <leader>er :sp ~/.vim/ftplugin/r.vim<cr>
-nnoremap <silent> <leader>et :sp ~/.vim/ftplugin/tex.vim<cr>
+nnoremap <silent> <leader>er :sp ~/.vim/after/ftplugin/r.vim<cr>
+nnoremap <silent> <leader>et :sp ~/.vim/after/ftplugin/tex.vim<cr>
 nnoremap <silent> <leader>ea :sp ~/.vim/plugin/vim-autocorrect/plugin/autocorrect.vim<cr>
 
 " edit config file in vertical split mode
@@ -602,18 +602,19 @@ nnoremap <leader>slc :scalcvsplit<cr>
 " alignment <plugin>"{{{
 
 " Align
+nnoremap <leader>aa :%Align!<space>p
 nnoremap <leader>al :'a,'sAlign!<space>p
 vnoremap <leader>al :'<,'>Align!<space>p
 nnoremap <leader>ap :'{,'}Align!<space>p
 vnoremap <leader>ap <esc>:'{,'}Align!<space>p
 
 " AlignCtrl
-nnoremap <leader>acg :AlignCtrl g<space>
-vnoremap <leader>acg <esc>:AlignCtrl g<space>
-nnoremap <leader>acv :AlignCtrl v<space>
-vnoremap <leader>acv <esc>:AlignCtrl v<space>
+nnoremap <leader>ag :AlignCtrl g<space>
+vnoremap <leader>ag <esc>:AlignCtrl g<space>
+nnoremap <leader>av :AlignCtrl v<space>
+vnoremap <leader>av <esc>:AlignCtrl v<space>
 
-"}}}
+" alignment <plugin>"}}}
 " frisk <plugin>"{{{
 
 nnoremap <leader>fr :frisk<space>-
@@ -1011,12 +1012,12 @@ endfun
 ""}}}
 " 'very magic' string search as default"{{{
 
-nnoremap / /\v
-cnoremap :s/ :s/\v
+" nnoremap / /\v
+cnoremap s/ s/\v
 
 " 'very magic' string search as default"}}}
 
-" ""}}}
+" String-Searches & Spell-Checking"}}}
 " Edit Words & Lines"{{{
 
 " flip text horizontally"{{{
