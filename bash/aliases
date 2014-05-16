@@ -210,7 +210,9 @@ alias mr="make r"
 alias mg="make git"
 alias mb="make bash"
 alias mt="make tmux"
-alias mv="make vim"
+alias mvi="make vim"
+alias mvim="make vim"
+alias mv=mv
 
 # latex# #}}}
 # mutt, newsbeuter # {{{

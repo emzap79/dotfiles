@@ -54,7 +54,7 @@ esac
 endsnippet
 snippet elif "elif .. (elif)"
 elif ${2:[[ ${1:condition} ]]}; then
- ${0:${VISUAL}}
+ ${3:${VISUAL}}$0
 endsnippet
 snippet for "for ... done (for)"
 for (( i = 0; i < ${1:10}; i++ )); do
