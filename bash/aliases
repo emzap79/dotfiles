@@ -130,7 +130,7 @@ alias cdwdp="cd /media/zapata/WDP"
 alias c='clear'
 alias h='history 100'
 alias his="history"
-alias hg="history|grep"
+#alias hg="history|grep"
 
 # }}}
 # sed # {{{
@@ -170,7 +170,7 @@ fi
 alias ve="vim -u $USB/VIM/_vimrc $USB/VIM/_passw.encr"
 
 # bashrc & aliases
-alias va="vim ~/.bash/aliases; source ~/.bashrc"
+alias va="vim ~/.bash/aliases; source ~/.bashrc ~/.bash/aliases"
 alias vb="vim ~/.bashrc; source ~/.bashrc"
 alias vg="vim ~/.gitconfig"
 alias vt="vim ~/.tmux.conf"
@@ -336,6 +336,7 @@ alias gr="git r"
 alias grc="git rc"
 alias gc=fun_gitcommit
 alias gfc="git fc"
+alias gcf="git cf"
 alias gca=fun_gitcommitall
 alias gmc="git mc"
 alias gmca="git mca"

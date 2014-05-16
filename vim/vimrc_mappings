@@ -5,7 +5,7 @@
 " File: vimrc_mappings
 " Author: Jonas Petong
 " Description: VIM related Mappings & Keybinds
-" Last Modified: Mai 04, 2014
+" Last Modified: Mai 16, 2014
 
 " Basic Mappings"{{{
 
@@ -357,12 +357,15 @@ vnoremap <Leader>P "+P
 "}}}
 " visual mode mappings"{{{
 
-" change visual mode to visual-block-mode"{{{
+" change visual mappings"{{{
 
 nnoremap v <C-V>
-nnoremap <C-V> v
+nnoremap <S-V> v
+nnoremap <C-V> <S-V>
+
 vnoremap v <C-V>
-vnoremap <C-V> v
+vnoremap <S-V> v
+vnoremap <C-V> <S-V>
 
 ""}}}
 
@@ -406,10 +409,9 @@ nnoremap <silent> <leader>em :sp ~/.vim/vimrc_mutt<cr>
 nnoremap <silent> <leader>er :sp ~/.vim/after/ftplugin/r.vim<cr>
 nnoremap <silent> <leader>et :sp ~/.vim/after/ftplugin/tex.vim<cr>
 nnoremap <silent> <leader>ea :sp ~/.vim/plugin/vim-autocorrect/plugin/autocorrect.vim<cr>
+nnoremap <silent> <leader>ep :sp ~/.vim/vimrc_plugs<cr>
 
-" edit config file in vertical split mode
-nnoremap <silent> <leader>ep :vs ~/.vim/vimrc_plugs<cr>
-
+" set (local) path
 nnoremap <leader>sp :cd %:p:h <cr>
 nnoremap <leader>slp :lcd %:p:h <cr> "set local path of currently edited file.
 
@@ -694,6 +696,19 @@ inoremap <silent><localleader>md <ESC>:exe 'delm! \| delm A-Z0-9 \| echom "all m
    " [count] is the same as above.
 
 " showmarks <plugin>"}}}
+" NERDCommenter <plugin>"{{{
+
+nmap css <plug>NERDCommenterSexy
+nmap cii <plug>NERDCommenterInvert
+nmap cu <plug>NERDCommenterUncomment
+nmap cy <plug>NERDCommenterYank
+
+vmap cu <plug>NERDCommenterUncomment
+vmap cs <plug>NERDCommenterSexy
+vmap ci <plug>NERDCommenterInvert
+vmap cy <plug>NERDCommenterYank
+
+" NERDCommenter <plugin>"}}}
 
 " Plugin-Maps"}}}
 " Folds & Marks"{{{

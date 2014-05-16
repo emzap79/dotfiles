@@ -1,6 +1,12 @@
 priority -50
-snippet ";(\S\+) "create generic command" ir
-`!p snip.rv = match.group(1) if match.group is not None else c`($1)
+snippet "\.\.(\S+)?" "create generic command" ir
+`!p snip.rv = match.group(1) if match.group(1) is not None else "c"`(${1:${VISUAL}})
+endsnippet
+snippet "(\s|^)lib( (\S+))?" "Import a library" wr
+library(`!p snip.rv = match.group(3) if match.group(2) is not None else ""`)$0
+endsnippet
+snippet "(\s|^)inst( (\S+))?" "Install a package" wr
+install.packages(`!p snip.rv = match.group(3) if match.group(2) is not None else ""`)$0
 endsnippet
 snippet #! "Hashbang for Rscript (#!)" bi
 #!/usr/bin/env Rscript
@@ -11,7 +17,7 @@ endsnippet
 snippet req "Require a file" i
 require(${0:package})
 endsnippet
-snippet source "Source a file" i
+snippet src "Source a file" i
 source('${0:file}')
 endsnippet
 snippet if "If statement" i
@@ -65,25 +71,25 @@ endsnippet
 snippet mat "matrix function" i
 matrix(${1:data}, nrow = ${2:rows}, ncol = ${0:cols})
 endsnippet
-snippet apply "apply function" i
+snippet apply "ap function" i
 apply(${1:array}, ${2:margin}, ${0:function})
 endsnippet
-snippet lapply "lapply function" i
+snippet lap "lapply function" i
 lapply(${1:list}, ${0:function})
 endsnippet
-snippet sapply "sapply function" i
+snippet sap "sapply function" i
 sapply(${1:list}, ${0:function})
 endsnippet
-snippet vapply "vapply function" i
+snippet vap "vapply function" i
 vapply(${1:list}, ${2:function}, ${0:type})
 endsnippet
-snippet mapply "mapply function" i
+snippet map "mapply function" i
 mapply(${1:function}, ${0:...})
 endsnippet
-snippet tapply "tapply function" i
+snippet tap "tapply function" i
 tapply(${1:vector}, ${2:index}, ${0:function})
 endsnippet
-snippet rapply "rapply function" i
+snippet rap "rapply function" i
 rapply(${1:list}, ${0:function})
 endsnippet
 snippet pl "Plot function" i

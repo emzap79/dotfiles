@@ -52,11 +52,12 @@
 	r	= rm -rf						    # ...<filename> unversion and delete
 	rc	= rm -r --cached					    # ...<filename> unversion, but leave in working copy
 									    # do
-	c	= commit -m						    # ..commitmessage.
-	fc	= commit -am fastcommit
-	ca	= commit -am						    # ...commitmessage
+	c	= commit -m						    # ...commitmessage.
+	cf	= commit -m fix!					    # ...commit and discard message when doing an interactive rebase
+	ca	= commit -am						    # ...
+	fc	= commit -am fastcommit					    # ...commit and discard message when doing an interactive rebase
 	mc	= commit						    # think 'message-commit
-	mca	= commit -a
+	mca	= commit -a						    # id. + commit modified and deleted files (but no new files)
 	cam	= commit --amend -c HEAD				    # update last commit
 	fcam	= commit --amend -C HEAD				    # update last commit, and use same commit message
 									    # undo
@@ -82,9 +83,9 @@
 									    # show everything related to a SHA1
 	sh	= show
 									    # check current local changes you have made
-	d	= diff HEAD						    # (...<filename>) diff staged + unstaged against HEAD = add . && commit
-	ds	= diff --staged						    # diff staged against HEAD = commit
-	du	= diff							    # diff unstaged against HEAD = commit -a
+	d	= diff HEAD						    # (...<filename>) diff staged + unstaged against HEAD
+	ds	= diff --staged						    # diff staged against HEAD
+	du	= diff							    # diff unstaged against HEAD
 	dt	= difftool
 									    # check current changes residing in origin/master (= main repository)
 									    # local changes are shown in red!!!
@@ -102,9 +103,9 @@
 	lsf	= !git ls-tree HEAD --full-tree -r -t --name-only | less    # all
 	lsfd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less # just dirs
 	ls	= ls-tree -r --name-only				    # ... revision
-	lsd	= ls-tree -r -d --name-only				    # id., but only the named tree entry, without childrens(!)
-	lsfa	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less
-	lsfad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4 | less
+	lsd	= ls-tree -r -d --name-only				    # id., but only the named tree entry, no children
+	lsfa	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less  # show children as well
+	lsfad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less # only tree, no children
 	lsfav	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=7 | less
 	lsfadv	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=7 | less
 

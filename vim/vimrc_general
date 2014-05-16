@@ -127,6 +127,7 @@ set bkc=auto                     " When writing a file and a backup is made, thi
 set magic                                      " magic: change the way backslashes are used in search patterns
 set hls                                        " hlsearch: When there is a previous search pattern, highlight all
 set is                                         " incsearch: While typing a search command, show results immediately
+set ic
 set sc                                         " smartcase: Override the 'ignorecase' option if the search
                                                " pattern contains upper case characters.
 set ws                                         " wrapscan: end of search has been achieved!
