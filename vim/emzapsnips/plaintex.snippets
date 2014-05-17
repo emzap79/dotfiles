@@ -13,7 +13,10 @@ endglobal
 #.#.General.Snippets
 #.##################
 snippet ",,(\S+)?" "Insert Tex-command" !ir
-\\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`${1:[${2}]}{${3}}{${4:${VISUAL}}}
+\\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`{${1}}{${2:${VISUAL}}}
+endsnippet
+snippet ",,,(\S+)?" "Insert Tex-command" !ir
+\\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`[${1}]{${2}}{${3:${VISUAL}}}
 endsnippet
 snippet "\.\.(\S+)?" "Insert Tex-command" !ir
 {\\`!p snip.rv = match.group(1) if match.group(1) is not None else ""` ${1:${VISUAL}}}

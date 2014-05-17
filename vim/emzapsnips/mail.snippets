@@ -10,8 +10,8 @@ endglobal
 
 # # Signaturen
 snippet sig "Appending Signature" b
-${0:sig $1`!p snip.rv=complete(t[1], ['[p]rivate','[s]tudent','[e]bay','[b]loomb'])`
-}${1/(p)$|(s)$|(e)$|(b)/(?1:---
+${0:sig $1`!p snip.rv=complete(t[1], ['[p]rivate','[s]tudent','[e]bay','[b]loomb','[n]ame only'])`
+}${1/(p)$|(s)$|(e)$|(b)$|(n)/(?1:---
 jonas petong
 
 beckhausstr. 11
@@ -37,6 +37,8 @@ Universität Duisburg-Essen, Campus Essen
 http\:\/\/www.lef.wiwi.uni-due.de\/handelsraum\/
 Mail\: handelsraum@uni-due.de
 Tel.\: +49(0)201\/183-6049
+)(?4:---
+jonas petong
 )/
 }
 

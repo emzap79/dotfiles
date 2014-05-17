@@ -53,9 +53,8 @@
 	rc	= rm -r --cached					    # ...<filename> unversion, but leave in working copy
 									    # do
 	c	= commit -m						    # ...commitmessage.
-	cf	= commit -m fix!					    # ...commit and discard message when doing an interactive rebase
-	ca	= commit -am						    # ...
-	fc	= commit -am fastcommit					    # ...commit and discard message when doing an interactive rebase
+	cf	= commit -am fixup!					    # ...commit changes and discard message later (rebase -i)
+	ca	= commit -am						    # ...commit modified and deleted files + message
 	mc	= commit						    # think 'message-commit
 	mca	= commit -a						    # id. + commit modified and deleted files (but no new files)
 	cam	= commit --amend -c HEAD				    # update last commit
@@ -100,14 +99,15 @@
 	sa	= status
 	ssa	= status -uno						    # don't show untracked stuff
 									    # currently versioned files at HEAD
-	lsf	= !git ls-tree HEAD --full-tree -r -t --name-only | less    # all
-	lsfd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less # just dirs
 	ls	= ls-tree -r --name-only				    # ... revision
 	lsd	= ls-tree -r -d --name-only				    # id., but only the named tree entry, no children
-	lsfa	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less  # show children as well
-	lsfad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less # only tree, no children
-	lsfav	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=7 | less
-	lsfadv	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=7 | less
+	lfs	= ls-files --stage					    # state of the files at each level
+	lsf	= !git ls-tree HEAD --full-tree -r -t --name-only | less    # all
+	lsfd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less # just dirs
+	lsfa	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less  # mnemonic 'list full tree abbreviated'
+	lsfad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less # id, folders only
+	lsfav	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=7 | less  # show children (files) as well
+	lsfadv	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=7 | less   # only tree, i.e. folders, no children
 
 #	=================================
 #	=	stashes & branches	=

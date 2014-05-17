@@ -107,38 +107,38 @@ autocmd FileType tex so ~/.vim/bundle/LaTeX-Box/ftplugin/tex_LatexBox.vim
 
 Bundle 'jalvesaq/VimCom'
 
-" " At startup"{{{
+" At startup"{{{
 
-" " let vimrplugin_source = "$HOME/R,/usr/lib/R/site-library/,/usr/lib/R/library/"
-" let vimrplugin_r_args = "--no-save --quiet"  " arguments at R startup
-" let vimrplugin_vimcom_wait = 1000            " Time in ms to wait for vimcom.plus loading
-" let vimrplugin_vsplit = 0                    " Make Tmux split the window vertically
-" let vimrplugin_rconsole_width = 80           " The number of columns of R Console (Tmux split)
-" let vimrplugin_allnames = 1                  " Show names which begin with a dot
-" let vimrplugin_maxdeparse = 300
+" let vimrplugin_source = "$HOME/R,/usr/lib/R/site-library/,/usr/lib/R/library/"
+let vimrplugin_r_args = "--no-save --quiet"  " arguments at R startup
+let vimrplugin_vimcom_wait = 1000            " Time in ms to wait for vimcom.plus loading
+let vimrplugin_vsplit = 0                    " Make Tmux split the window vertically
+let vimrplugin_rconsole_width = 80           " The number of columns of R Console (Tmux split)
+let vimrplugin_allnames = 1                  " Show names which begin with a dot
+let vimrplugin_maxdeparse = 300
 
-" " At startup"}}}
-" " Comments + Folding"{{{
+" At startup"}}}
+" Comments + Folding"{{{
 
-" let vimrplugin_rcomment_string = "# "
-" let r_indent_comment_column = 20
-" let r_syntax_folding = 1                     " Allow for syntax-folding
+let vimrplugin_rcomment_string = "# "
+let r_indent_comment_column = 20
+let r_syntax_folding = 1                     " Allow for syntax-folding
 
-" " Comments + Folding"}}}
-" " Command line output"{{{
+" Comments + Folding"}}}
+" Command line output"{{{
 
-" let vimrplugin_term = "xterm"                " Define which terminal emulator to start
-" let vimrplugin_routmorecolors = 1            " R commands in the R output are highlighted
-" let vimrplugin_rconsole_width = 50           " The number of columns of R Console (Tmux split)
+let vimrplugin_term = "xterm"                " Define which terminal emulator to start
+let vimrplugin_routmorecolors = 1            " R commands in the R output are highlighted
+let vimrplugin_rconsole_width = 50           " The number of columns of R Console (Tmux split)
 
-" " Command line output"}}}
-" " Inside Insertmode"{{{
+" Command line output"}}}
+" Inside Insertmode"{{{
 
-" let vimrplugin_assign = 1                    " Enable mapping for 'assign'
-" let vimrplugin_assign_map = "_"              " Map (' <- ') to given key in insert mode
-" let g:vimrplugin_insert_mode_cmds = 1        " 0 to make commands work in insert mode
+let vimrplugin_assign = 1                    " Enable mapping for 'assign'
+let vimrplugin_assign_map = "_"              " Map (' <- ') to given key in insert mode
+let g:vimrplugin_insert_mode_cmds = 1        " 0 to make commands work in insert mode
 
-" " Inside Insertmode"}}}
+" Inside Insertmode"}}}
 " Object Browser"{{{
 
 " let vimrplugin_vimpager = "no"              " If set vim, enable html support
@@ -305,11 +305,12 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
 " UltiSnips"{{{
 
 " UltiSnips#ExpandSnippet
+let g:snips_author = "emzap79"
+" let g:UltiSnipsExpandTrigger = "\<tab>"
 let g:UltiSnipsExpandTrigger = "<s-tab>"
 let g:UltiSnipsListSnippets = "<s-c-tab>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-let g:snips_author = "Jonas Petong"
 let g:UltiSnipsEditSplit = "horizontal"
 let g:UltiSnipsSnippetsDir = "~/.vim/emzapsnips"
 let g:UltiSnipsSnippetDirectories= ["emzapsnips"]
@@ -334,20 +335,20 @@ inoremap <silent> <leader>K <C-R>=(ExpandPossibleShorterSnippet() == 0? '': Ulti
 
 " Adding anonymous snippets
 inoremap <silent> $$ $$<C-R>=UltiSnips#Anon(':latex:\$1\', '$$')<cr>
+inoremap <silent> [[ [[<C-R>=UltiSnips#Anon(':latex:\$1\', '[[')<cr>
 inoremap <silent> (( ((<C-R>=UltiSnips#Anon('(${1:${VISUAL}})', '((', '', 'i')<cr>
 
-" let g:autoclose = 1
 " let loaded_matchit = 1
 " let fortran_free_source=1                                                " use fortran free form
 " let g:acp_behaviorSnipmateLength = -1                                    " allows using autocompl plugin together with snipmate
 
 " This option when set to 1 makes <C-J> in insert mode delete
 " non-descriptive (empty) placeholders and enters insert mode.
-"let g:Imap_DeleteEmptyPlaceHolders = 1
+let g:Imap_DeleteEmptyPlaceHolders = 1
 
 " When set to 1, in visual mode, <C-J> takes you to the next placeholder
 " without deleting the current placeholder.
-"let g:Imap_StickyPlaceHolders = 1
+let g:Imap_StickyPlaceHolders = 1
 
 " UltiSnips"}}}
 " Fuzzyfinder Bindings"{{{
@@ -618,28 +619,28 @@ let g:ycm_semantic_triggers = {
 \ }
 
 " settings"}}}
-"" To work with ultisnips"{{{
+" To work with ultisnips"{{{
 
-"" https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-15451411
-"" UltiSnips completion function that tries to expand a snippet. If there's
-"" no snippet for expanding, it checks for completion window and if it's
-"" shown, selects first element. If there's no completion window it tries
-"" to jump to next placeholder. If there's no placeholder it just returns
-"" TAB key
-"function! g:UltiSnips_Complete()
-    "call UltiSnips_ExpandSnippet()
-    "if g:ulti_expand_res == 0
-        "if pumvisible()
-            "return "\<C-n>"
-        "else
-            "call UltiSnips_JumpForwards()
-            "if g:ulti_jump_forwards_res == 0
-               "return "\<TAB>"
-            "endif
-        "endif
-    "endif
-    "return ""
-"endfunction
+" " https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-15451411
+" " UltiSnips completion function that tries to expand a snippet. If there's
+" " no snippet for expanding, it checks for completion window and if it's
+" " shown, selects first element. If there's no completion window it tries
+" " to jump to next placeholder. If there's no placeholder it just returns
+" " TAB key
+" function! g:UltiSnips_Complete()
+    " call UltiSnips_ExpandSnippet()
+    " if g:ulti_expand_res == 0
+        " if pumvisible()
+            " return "\<C-n>"
+        " else
+            " call UltiSnips_JumpForwards()
+            " if g:ulti_jump_forwards_res == 0
+               " return "\<TAB>"
+            " endif
+        " endif
+    " endif
+    " return ""
+" endfunction
 
 "exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 

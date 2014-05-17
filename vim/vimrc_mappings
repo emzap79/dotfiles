@@ -285,29 +285,7 @@ vnoremap <silent> <s-f10> :NERDTree %:p:h<cr> " to display NERDTree"
 " <f11> " *** no functions yet***{{{
 
 "}}}
-" <f12> " compile docs (eg. latex) from within vim "{{{
-
-" http://plankenau.com/blog/post-8/latexInVim
-
-" Commands: ((Xe)La)TeX Compile"{{{
-
-command!  LatexCompilePDF execute "silent !latexmk\ -pdf\ % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
-command!  TexCompilePDF execute "silent !pdftex % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
-command!  XeLatexCompilePDF execute "silent !xelatex\ % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
-
-"}}}
-" compiling and viewing its.tex file
-" compile and start latex viewer
-" see: http://plankenau.com/blog/post-8/latexInVim
-nnoremap <a-f12> :TexCompilePDF<CR>
-inoremap <a-f12> <ESC>:TexCompilePDF<CR>
-vnoremap <a-f12> <ESC>:TexCompilePDF<CR>
-nnoremap <s-f12> :LatexCompilePDF<CR>
-inoremap <s-f12> <ESC>:LatexCompilePDF<CR>
-vnoremap <s-f12> <ESC>:LatexCompilePDF<CR>
-nnoremap <s-c-f12> :XeLatexCompilePDF<CR>
-inoremap <s-c-f12> <ESC>:XeLatexCompilePDF<CR>
-vnoremap <s-c-f12> <ESC>:XeLatexCompilePDF<CR>
+" <f12> " add abbreviations "{{{
 
 "mapping to automatically add an abbreviation
 nnoremap <leader><f12> <sid>:call AddAbbr()<cr>
@@ -334,7 +312,7 @@ endfun
 
 " "}}}
 
-" <f12> " compile docs (eg. latex) from within vim "}}}
+" <f12> " add abbreviations "}}}
 
 " f-keys"}}}
 " basic key remaps "{{{
@@ -702,21 +680,19 @@ nmap css <plug>NERDCommenterSexy
 nmap cii <plug>NERDCommenterInvert
 nmap cu <plug>NERDCommenterUncomment
 nmap cy <plug>NERDCommenterYank
+nmap cp <plug>NERDCommenterYankp
 
 vmap cu <plug>NERDCommenterUncomment
 vmap cs <plug>NERDCommenterSexy
 vmap ci <plug>NERDCommenterInvert
 vmap cy <plug>NERDCommenterYank
+vmap cp <plug>NERDCommenterYankp
 
 " NERDCommenter <plugin>"}}}
 
 " Plugin-Maps"}}}
 " Folds & Marks"{{{
 
-" jump to last position
-nnoremap <silent>_ ``
-
-" jump to last position
 " jump back to marked position"{{{
 
 nnoremap M `m :ShowMarksOnce<enter>
@@ -1028,7 +1004,7 @@ endfun
 " 'very magic' string search as default"{{{
 
 " nnoremap / /\v
-cnoremap s/ s/\v
+cnoremap :s/ :s/\v
 
 " 'very magic' string search as default"}}}
 
@@ -1110,19 +1086,18 @@ nnoremap gm :call cursor(0, virtcol('$')/2)<cr>
 nnoremap <silent> <esc> :nohl<cr>
 
 "}}}
-
 " Compile and show documents"{{{
 
 " compile and start latex viewer
 " see: http://plankenau.com/blog/post-8/latexInVim
 nnoremap <leader>ct :TexCompilePDF<CR>
-inoremap <leader>ct <ESC>:TexCompilePDF<CR>
+inoremap <localleader>ct <ESC>:TexCompilePDF<CR>
 vnoremap <leader>ct <ESC>:TexCompilePDF<CR>
 nnoremap <leader>cl :LatexCompilePDF<CR>
-inoremap <leader>cl <ESC>:LatexCompilePDF<CR>
+inoremap <localleader>cl <ESC>:LatexCompilePDF<CR>
 vnoremap <leader>cl <ESC>:LatexCompilePDF<CR>
 nnoremap <leader>cx :XeLatexCompilePDF<CR>
-inoremap <leader>cx <ESC>:XeLatexCompilePDF<CR>
+inoremap <localleader>cx <ESC>:XeLatexCompilePDF<CR>
 vnoremap <leader>cx <ESC>:XeLatexCompilePDF<CR>
 
 " Open any kind of files as pdf (requires pandoc installed!)
@@ -1131,10 +1106,11 @@ vnoremap <leader>cx <ESC>:XeLatexCompilePDF<CR>
 command! -nargs=* RunSilent
       \ | execute ':silent !'.'<args>'
       \ | execute ':redraw!'
-noremap <Leader>pc :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
+noremap <Leader>cp :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
 noremap <Leader>pp :RunSilent gnome-open /tmp/vim-pandoc-out.pdf<CR>
 
-"}}}
+
+" Compile and show documents"}}}
 " when you forgot to sudo before editing a file that requires root privileges"{{{
 
 "(typically /etc/hosts). this lets you use w!! to do that after you opened the

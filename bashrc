@@ -1,5 +1,5 @@
 # vim:fdm=marker
-# export # {{{
+# export # #{{{
 
 # env#{{{
 
@@ -49,42 +49,6 @@ export HISTIGNORE="history:\
     vv"
 
 # histcontrol#}}}
-# prompt#{{{
-
-# base layout:
-# PS1='[\u@\H \W]\$'
-# \e[37;40m equals 'white on black'
-# \e[32;40m equals 'green on black'
-# but background color can be omitted
-# when using 1m font will be bold
-# and further all non-printing chars (not part of base layout)
-# should be enveloped in '\[ \]'...
-# ... if it is not, strange errors may occur:
-# deleting the prompt with backspace after having typed something?
-# afterwards use '\[\e[0m\]' to reset things for following line...
-# 31 = red
-# 32 = green
-# 33 = yellow
-# 36 = cyan
-
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color)
-        color_prompt=yes
-        # If this is an xterm-color set the title to user@host:dir
-        # PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$ "
-        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-        ;;
-    xterm*|rxvt*)
-        PS1='\[\e[31;1m\][\[\e[37;1m\]\u\[\e[33;1m\]@\[\e[37;1m\]\H \[\e[32;1m\]\w\[\e[31;1m\]]\[\e[36;1m\]\$ \[\e[0m\]'
-        export TERM=xterm-256color
-        ;;
-esac
-
-export PS1="$PS1"
-
-#}}}
 # less#{{{
 
 # ignorecase in search, status, no bell
@@ -121,13 +85,60 @@ export LESS_TERMCAP_ue=$'\E[0m'                       # end underline
 
 #}}}
 
-# }}}
+# export # #}}}
 # source#{{{
 
 # include aliases
 source "/home/${USER}/.bash/aliases"      # ~/.bash/aliases
 
+# source git-prompt shell script
+source "/home/${USER}/.bash/git-sh-prompt"
+
 # source#}}}
+# prompt (PS1)#{{{
+
+# base layout:
+# PS1='[\u@\H \W]\$'
+# \e[37;40m equals 'white on black'
+# \e[32;40m equals 'green on black'
+# but background color can be omitted
+# when using 1m font will be bold
+# and further all non-printing chars (not part of base layout)
+# should be enveloped in '\[ \]'...
+# ... if it is not, strange errors may occur:
+# deleting the prompt with backspace after having typed something?
+# afterwards use '\[\e[0m\]' to reset things for following line...
+# 31 = red
+# 32 = green
+# 33 = yellow
+# 36 = cyan
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+# we add an additional *git* variable to show status of branches $(__git_ps1)
+case "$TERM" in
+    xterm-color)
+        color_prompt=yes
+        # If this is an xterm-color set the title to user@host:dir
+        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$ "
+        # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+        ;;
+    xterm*|rxvt*)
+        # PS1='\[\e[31;1m\][\[\e[37;1m\]\u\[\e[33;1m\]@\[\e[37;1m\]\H \[\e[32;1m\]\w\[\e[31;1m\]]\[\e[36;1m\]\$ \[\e[0m\]'
+        PS1='\[\e[31;1m\][\[\e[37;1m\]\u\[\e[33;1m\]@$(__git_ps1 " (%s)") \[\e[32;1m\]\w\[\e[31;1m\]]\[\e[36;1m\]\$ \[\e[0m\]'
+        export TERM=xterm-256color
+        ;;
+esac
+export PS1="$PS1"
+
+# Add additional options for git-prompt in shell
+# http://alblue.bandlem.com/2011/07/git-tip-of-week-autocompletion-in.html
+export GIT_PS1_SHOWDIRTYSTATE=true        # will show a * if there are unstaged and + if there are staged (but uncommitted) changes
+export GIT_PS1_SHOWSTASHSTATE=true        # will show a $ if there are stashed files
+export GIT_PS1_SHOWTRACKEDFILES=true      # will show a % if there are tracked files
+export GIT_PS1_SHOWUPSTREAM=auto          # will show a = if you are at the same commit, < if you are behind, >
+                                          # if you are ahead and <> if you have diverged from the upstream branch.
+
+# prompt (PS1)#}}}
 # bash completion#{{{
 
 # enable programmable completion features (you don't need to enable
@@ -217,7 +228,7 @@ export LESS=' -R '
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
         # We have color support; assume it's compliant with Ecma-48

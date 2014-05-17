@@ -82,9 +82,9 @@ vmap <esc>l <Plug>RDSendSelection
 nmap <localleader>l <Plug>RSendLine
 vmap <localleader>l <Plug>RSendSelection
 
-" Send Chunks
-nmap <esc>k <Plug>RDSendParagraph
-vmap <esc>k <Plug>RSendSelection
+" Send Paragraph
+nmap <localleader>p <Plug>RSendParagraph
+vmap <localleader>p <Plug>RSendSelection
 
 " Send Marked Blocks ('marks')
 " If the cursor is below the last mark, the plugin will send from the

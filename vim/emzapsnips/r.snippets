@@ -1,4 +1,17 @@
 priority -50
+#.#.Mailsnips
+global !p
+def complete(t, opts):
+    if t:
+        opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+    if len(opts) == 1:
+        return opts[0]
+    return "" + ' '.join(opts) + ''
+endglobal
+
+snippet "(a|i)s" "Appending Signature" ir
+`!p snip.rv=match.group(1)`s.$1`!p snip.rv=complete(t[1], ['   [l]ogical','[c]haracter','[n]umeric','[d]ata.frame','[m]atrix','[li]st'])`${1/(l)$|(c)$|(n)$|(d)$|(m)$|(li)$/(?1:ogical)(?2:haracter)(?3:umeric)(?4:ata.frame)(?5:atrix)(?6:st)/g}(${2}${VISUAL})
+endsnippet
 snippet "\.\.(\S+)?" "create generic command" ir
 `!p snip.rv = match.group(1) if match.group(1) is not None else "c"`(${1:${VISUAL}})
 endsnippet
@@ -10,9 +23,6 @@ install.packages(`!p snip.rv = match.group(3) if match.group(2) is not None else
 endsnippet
 snippet #! "Hashbang for Rscript (#!)" bi
 #!/usr/bin/env Rscript
-endsnippet
-snippet lib "Import a library" i
-library(${0:package})
 endsnippet
 snippet req "Require a file" i
 require(${0:package})
@@ -119,3 +129,6 @@ endsnippet
 snippet kvt "KV test" i
 kv.test(${1:x}, ${0:y})
 endsnippet
+# snippet lib "Import a library" i
+# library(${0:package})
+# endsnippet
