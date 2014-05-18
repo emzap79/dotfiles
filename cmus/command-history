@@ -1,4 +1,5 @@
 clear 
+ce
 save ../plSingles_ESC2014.pl
 save esc2014.pl
 bind -f common ^Y shell /home/zapata/bin/cmusCopyDir_Curr
@@ -15,7 +16,6 @@ e ~/tmp/radio/radio977_Radio.pl
 add Podcasts//
 add ~/tmp/radio/radio977_Radio.pl
 filter (gen_reg_dancehall|gen_electr_house)&(1990s|2000s|2010s)
-ce
 filter (gen_electr_house)&(1990s|2000s|2010s)
 filter (gen_reg_dancehall|gen_electr_dance|gen_electr_house)&(1990s|2000s|2010s)
 live-filter estelle

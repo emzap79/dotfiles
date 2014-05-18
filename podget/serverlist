@@ -1,3 +1,4 @@
+# vim:fdm=marker
 # Default Server List for podget
 # FORMAT: <url> <category> <name>
 # NOTES:
@@ -10,7 +11,9 @@
 #
 # Poddirections
 # Electronic# {{{
+
 # # House# {{{
+
 http://www.housedeelings.com/feed/podcast/ House HouseDeelings
 http://feeds.deepershades.net/dsoh House DeeperShades
 # http://www.play.fm/recordings/rss/radioshow/deepgrooveradioshow House DeepGroove
@@ -27,30 +30,47 @@ http://lowdowndirtymotherfunkinhouse.podomatic.com/rss2.xml House DavidNaylor195
 # http://scotchflavio.podomatic.com/rss2.xml House ScotchFlavio
 http://soulfortune.podomatic.com/rss2.xml House SoulFortune
 http://thedeephousepodcast.podomatic.com/rss2.xml House DeepHousePodcast
+
 # }}}
 # # DnB & Dubstep# {{{
-http://www.dnbradio.com/feeds DnB DnBRadio
+
+# http://www.dnbradio.com/feeds DnB DnBRadio
+http://feeds2.feedburner.com/benxo-xposure-show DnB XpoSure
+http://www.kongkretebass.com/podcasts/kongkast.xml DnB Kongkast
+http://feeds.feedburner.com/trustinbass DnB TrustInBass
+http://fusiion.podomatic.com/rss2.xml DnB Fusion
 http://www.dubstep.fm/archive.xml Dubstep DubStep.FM
-# }}}
+
+# # DnB & Dubstep# }}}
+
 # }}}
 # Funk# {{{
+
 http://www.wefunkradio.com/rss-currentshow64.xml Funk Wefunk
 http://feeds.feedburner.com/PodOfFunk Funk PodOfFunk
+
 # }}}
 # Reggaeton# {{{
+
 http://www.corrientelatina.com/rss2.xml Reggaeton CorrienteLatina
+
 # }}}
 # Hip Hop# {{{
+
 http://thehiphoppodcast.com/rss HipHop TheHipHopPodcast
 http://djmodesty.podomatic.com/rss2.xml HipHop DjModesty
 http://planet-hiphop.podomatic.com/rss2.xml HipHop PlanetHipHop
 http://fade-em.podomatic.com/rss2.xml HipHop FadeEm
+
 # }}}
 # 80s# {{{
+
 http://cafe80s.podomatic.com/rss2.xml 80s Cafe80s
 http://retro80s.podomatic.com/rss2.xml 80s Retro80s
+
 # }}}
 # *** No longer working ***# {{{
+
 # # http://www.mixcloud.com/soundthriller/ House SoundThriller
 # # http//ladyduracellqueenoffunk.podOmatic.com/rss2.xml House LadyDuracell
 # # http://funkzone.podomatic.com/rss2.xml Funk Funkzone
@@ -58,4 +78,5 @@ http://retro80s.podomatic.com/rss2.xml 80s Retro80s
 # # http://boombox.podomatic.com/rss2.xml HipHop Boombox
 # # http://theretro80show.podomatic.com/rss2.xml 80s TheRetro80Show
 # # http://sebabatso4u.podomatic.com/rss2.xml House Sebabatso # bad quality!
+
 ## }}}

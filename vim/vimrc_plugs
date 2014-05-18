@@ -136,6 +136,7 @@ let vimrplugin_rconsole_width = 50           " The number of columns of R Consol
 
 let vimrplugin_assign = 1                    " Enable mapping for 'assign'
 let vimrplugin_assign_map = "_"              " Map (' <- ') to given key in insert mode
+
 let g:vimrplugin_insert_mode_cmds = 1        " 0 to make commands work in insert mode
 
 " Inside Insertmode"}}}

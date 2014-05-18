@@ -149,6 +149,11 @@ alias vgrep='fun_grepv'
 alias grep='grep --color=always -i -n'
 
 # grep# }}}
+# locate#{{{
+
+alias lc="locate -i"
+alias ud="sudo updatedb"
+# locate#}}}
 
 # }}}
 # programs# {{{
@@ -174,6 +179,7 @@ alias ve="vim -u $USB/VIM/_vimrc $USB/VIM/_passw.encr"
 
 # bashrc & aliases
 alias va="vim ~/.bash/aliases; source ~/.bashrc ~/.bash/aliases"
+alias vp="vim ~/.podget/serverlist"
 alias vb="vim ~/.bashrc; source ~/.bashrc"
 alias vg="vim ~/.gitconfig"
 alias vt="vim ~/.tmux.conf"

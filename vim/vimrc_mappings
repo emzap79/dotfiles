@@ -539,8 +539,6 @@ endfunction
 " ""}}}
 
 " Functions"}}}
-" Other Mappings"{{{
-
 " Plugin-Maps"{{{
 
 " better-/hudigraphs <plugin>"{{{
@@ -686,11 +684,13 @@ vmap cu <plug>NERDCommenterUncomment
 vmap cs <plug>NERDCommenterSexy
 vmap ci <plug>NERDCommenterInvert
 vmap cy <plug>NERDCommenterYank
-vmap cp <plug>NERDCommenterYankp
+vmap cp <plug>NERDCommenterYankP
 
 " NERDCommenter <plugin>"}}}
 
 " Plugin-Maps"}}}
+" Other Mappings"{{{
+
 " Folds & Marks"{{{
 
 " jump back to marked position"{{{
@@ -1089,6 +1089,10 @@ nnoremap <silent> <esc> :nohl<cr>
 " Compile and show documents"{{{
 
 " compile and start latex viewer
+command!  LatexCompilePDF execute "silent !latexmk\ -pdf\ % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
+command!  TexCompilePDF execute "silent !pdftex % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
+command!  XeLatexCompilePDF execute "silent !xelatex\ % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
+
 " see: http://plankenau.com/blog/post-8/latexInVim
 nnoremap <leader>ct :TexCompilePDF<CR>
 inoremap <localleader>ct <ESC>:TexCompilePDF<CR>

@@ -61,12 +61,17 @@ set isk+=192-255"
 " some previous notes"}}}
 " Start & Close R"{{{
 
-" Start R
+" Menu entry                                Default shortcut~
+" Start/Close
+" . Start R (default)
+" . Start R --vanilla
+" . Start R (custom)
 nmap <localleader>R <Plug>RStart
 imap <localleader>R <esc><Plug>RStart
 vmap <localleader>R <Plug>RStart
 
-" Close R
+" -----------------------------------------------
+" Close R (no save)
 nmap <localleader>qq <Plug>RClose
 imap <localleader>qq <esc><Plug>RClose
 vmap <localleader>qq <Plug>RClose
@@ -74,13 +79,16 @@ vmap <localleader>qq <Plug>RClose
 " start & close R"}}}
 " Send Code to Console"{{{
 
-" Send Line And Jump To Next Codechunk
-nmap <esc>l <Plug>RDSendLine
-vmap <esc>l <Plug>RDSendSelection
+" Send File
+nmap <localleader>f <Plug>RSendFile
 
 " Send Line
 nmap <localleader>l <Plug>RSendLine
 vmap <localleader>l <Plug>RSendSelection
+
+" Send Line And Jump To Next Code
+nmap <esc>l <Plug>RDSendLine
+vmap <esc>l <Plug>RDSendSelection
 
 " Send Paragraph
 nmap <localleader>p <Plug>RSendParagraph
@@ -93,17 +101,77 @@ vmap <localleader>p <Plug>RSendSelection
 nmap <esc>b <Plug>RDSendMBlock
 vmap <esc>b <Plug>RDSendMBlock
 
-" Send File
-nmap <localleader>f <Plug>RSendFile
-
 " send code to console"}}}
-" Code editing mappings"{{{
+" Editing Commands"{{{
+
+" Command
+" . List space
+" . Clear console
+" . Clear all
+nmap <silent><localleader>l <Plug>RListSpace
+vmap <silent><localleader>l <Plug>RListSpace
+nmap <silent><localleader>l <Plug>RClearConsole
+vmap <silent><localleader>l <Plug>RClearConsole
+nmap <silent><localleader>l <Plug>RClearAll
+vmap <silent><localleader>l <Plug>RClearAll
+" -----------------------------------------------
+
+" . Print (cur)
+" . Names (cur)
+" . Structure (cur)
+nmap <silent><localleader>p <Plug>RObjectPr
+vmap <silent><localleader>p <Plug>RObjectPr
+nmap <silent><localleader>n <Plug>RObjectNames
+vmap <silent><localleader>n <Plug>RObjectNames
+nmap <silent><localleader>t <Plug>RObjectStr
+vmap <silent><localleader>t <Plug>RObjectStr
+" -----------------------------------------------
+
+" . Arguments (cur)
+" . Example (cur)
+" . Help (cur)
+nmap <silent><localleader>a <Plug>RShowArgs
+vmap <silent><localleader>a <Plug>RShowArgs
+nmap <silent><localleader>e <Plug>RShowEx
+vmap <silent><localleader>e <Plug>RShowEx
+nmap <silent><localleader>h <Plug>RHelp
+vmap <silent><localleader>h <Plug>RHelp
+" -----------------------------------------------
+
+" . Summary (cur)
+" . Plot (cur)
+" . Plot and summary (cur)
+nmap <silent><localleader>s <Plug>RSummary
+vmap <silent><localleader>s <Plug>RSummary
+nmap <silent><localleader>p <Plug>RPlot
+vmap <silent><localleader>p <Plug>RPlot
+nmap <silent><localleader>g <Plug>RSPlot
+vmap <silent><localleader>g <Plug>RSPlot
+" -----------------------------------------------
+
+" . Set working directory (cur file path)
+nmap <silent><localleader>d <Plug>RSetwd
+vmap <silent><localleader>d <Plug>RSetwd
+" -----------------------------------------------
+
+" Editing Commands"}}}
+" Custom mappings & functions "{{{
+
+" assign argument under cursor in next line
+nmap <silent><localleader>, :normal! o0 <- <CR>a
+vmap <silent><localleader>, :<C-u>exec "s/$/\r" . GetVisualSelection() . "<Space><-<Space>"<cr>A
+" -----------------------------------------------
+
+" define commands & actions
+map <silent> <localleader>rs :call g:SendCmdToR("search()")<CR>
+map <silent> <localleader>rl :call RAction("levels")<CR>
+" -----------------------------------------------
 
 " assing value to variable ('<-')
-imap <C-kMinus> <esc> <Space><-<Space>
-nmap <C-kMinus> a<Space><-<Space>
+nmap <esc>- hEa<Space><-<Space>
+" -----------------------------------------------
 
-" Code editing mappings"}}}
+" Custom mappings & functions "}}}
 " GVIM - Mappings"{{{
 
 nmap <M-1> 1gt
