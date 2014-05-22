@@ -695,8 +695,7 @@ vmap cp <plug>NERDCommenterYankP
 
 " jump back to marked position"{{{
 
-nnoremap M `m :ShowMarksOnce<enter>
-vnoremap M `m :ShowMarksOnce<enter>
+nnoremap M `m :ShowMarksOnce<cr>:foldo<cr>
 
 " jump back to marked position"}}}
 " fold commands"{{{

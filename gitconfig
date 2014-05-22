@@ -53,7 +53,8 @@
 	rc	= rm -r --cached					    # ...<filename> unversion, but leave in working copy
 									    # do
 	c	= commit -m						    # ...commitmessage.
-	cf	= commit -am fixup!					    # ...commit changes and discard message later (rebase -i)
+	cf	= commit -m fixup!					    # ...commit changes and discard message later
+	cs	= commit -m squash!					    # ...commit changes and change message later (rebase -i)
 	ca	= commit -am						    # ...commit modified and deleted files + message
 	mc	= commit						    # think 'message-commit
 	mca	= commit -a						    # id. + commit modified and deleted files (but no new files)
@@ -101,19 +102,16 @@
 									    # currently versioned files at HEAD
 	ls	= ls-tree -r --name-only				    # ... revision
 	lsd	= ls-tree -r -d --name-only				    # id., but only the named tree entry, no children
-	lfs	= ls-files --stage					    # state of the files at each level
-	lsf	= !git ls-tree HEAD --full-tree -r -t --name-only | less    # all
-	lsfd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less # just dirs
-	lsfa	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less  # mnemonic 'list full tree abbreviated'
-	lsfad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less # id, folders only
-	lsfav	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=7 | less  # show children (files) as well
-	lsfadv	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=7 | less   # only tree, i.e. folders, no children
+	lst	= !git ls-tree HEAD --full-tree -r -t --name-only | less    # all
+	lstd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less # just dirs
+	lsta	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less  # mnemonic 'list full tree abbreviated'
+	lstad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less # id, folders only
+	lsf	= ls-files --stage					    # state of the files at each level
 
 #	=================================
 #	=	stashes & branches	=
 #	=================================
-#	= tempsave stuff without branching or committing
-	st	= stash
+	st	= stash							    # tempsave stuff without branching or committing
 	stl	= stash list						    # see the list of available stashes
 	stp	= stash pop						    # re-apply the stashed changes and delete the stash from the list of stashes
 	sta	= stash apply						    # you can use the ID to apply a stash, eg stash@{0}
@@ -148,7 +146,7 @@
 #  interact with the rest of the world
 	f	= fetch
 	p	= pull
-	pp	= push origin
+	pp	= !git rbi && git push origin				    # push, after interactive rebase
 	ppf	= push origin -f					    # overwrite external changes to remote (use with care!!)
 	pup	= !git p && git pp					    # pull and push, not nice but sometimes convenient
 	rmrb	= push --delete origin					    # ...<branch name> remote branch to be deleted
@@ -174,12 +172,12 @@
 	l	= log --graph --oneline --decorate=short --all
 	lp	= log -p						    # ...<filename> shows diffs for file in question
 	lpf	= log -p --follow					    # ...<filename> shows diffs for file in question, including renames
-	lst	= log --stat						    # show log with added/droped files
 	ll	= log --graph --abbrev-commit --decorate=short --pretty=short
 	lll	= log --graph --abbrev-commit --decorate=short		    # --pretty=medium
 	lo	= log --graph --oneline --decorate=short --abbrev=7
 	llo	= log --graph --abbrev=7 --decorate=short --pretty=short
 	lllo	= log --graph --abbrev=7 --decorate=short		    # --pretty=medium
+	lstat	= log --stat						    # show log with added/droped files
 
 [core]
 	abbrev = 4

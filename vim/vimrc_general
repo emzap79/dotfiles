@@ -241,28 +241,18 @@ set nospell                                    " spell: set spell spelllang=de,e
 set nocp " compatible: makes VIMs behaviour similar to vi
 
 " http://vi-improved.org/vimrc.html
-set cpoptions=aABceFsmq
-"   |||||||||
-"   ||||||||+-- When joining lines, leave the cursor between joined lines
-"   |||||||+-- When a new match is created (showmatch) pause for .5
-"   ||||||+-- Set buffer options when entering the buffer
-"   |||||+-- :write command updates current file name automatically add <CR> to the last line when using :@r
-"   |||+-- Searching continues at the end of the match at the cursor position
-"   ||+-- A backslash has no special meaning in mappings
-"   |+-- :write updates alternative file name
-"   +-- :read updates alternative file name
+set cpo+=aABceFsmq
+"        |||||||||
+"        ||||||||+-- When joining lines, leave the cursor between joined lines
+"        |||||||+-- When a new match is created (showmatch) pause for .5
+"        ||||||+-- Set buffer options when entering the buffer
+"        |||||+-- :write command updates current file name automatically add <CR> to the last line when using :@r
+"        |||+-- Searching continues at the end of the match at the cursor position
+"        ||+-- A backslash has no special meaning in mappings
+"        |+-- :write updates alternative file name
+"        +-- :read updates alternative file name
 
 " cpoptions"}}}
-" shortmessage"{{{
-
-" shortmess: abbreviate messages
-set shm+=atI
-"        |||
-"        ||+--  don't give the intro message when starting Vim
-"        |+--  truncate file message at the start if it is too long to fit
-"        +--  all abbreviations (filmnrwx) - see :h 'shm'
-
-" shortmessage"}}}
 " formatoptions"{{{
 
 " How to set formatoptions depending on filetype is described here:
@@ -275,14 +265,25 @@ set shm+=atI
 "       |||>    or deleted the paragraph will be reformatted. When the 'c' flag is present thisonly happens for recognized comments.
 "       ||||
 set fo-=towa
-set fo+=cqrn
-"       ||||
+set fo+=cqrnl
+"       |||||
+"       ||||+-- Long lines are not broken in insert mode.
 "       |||+-- When formatting text, recognize numbered lists. This actually uses the 'formatlistpat' option, thus any kind of list can be used
 "       ||+-- Automatically insert the current comment leader after hitting <Enter> in Insert mode.
 "       |+-- Allow formatting of comments with "gq".
 "       +-- Auto-wrap comments using textwidth, inserting the current comment leader automatically.
 
 " formatoptions"}}}
+" shortmessage"{{{
+
+" shortmess: abbreviate messages
+set shm+=atI
+"        |||
+"        ||+--  don't give the intro message when starting Vim
+"        |+--  truncate file message at the start if it is too long to fit
+"        +--  all abbreviations (filmnrwx) - see :h 'shm'
+
+" shortmessage"}}}
 " runtimepath"{{{
 
 " default

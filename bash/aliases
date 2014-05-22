@@ -53,9 +53,9 @@ alias dus=fun_dus
 # }}}
 # find # {{{
 
-alias ff="fun_ff"
-alias fff="find . -type f -exec"
-alias ffd="find . -type d -exec"
+alias ff=fun_ff
+alias fff="find . -type f -iname"
+alias ffd="find . -type d -iname"
 alias ffg="find . -type f -exec egrep -iH"
 
 # aliases related to music
@@ -63,7 +63,7 @@ alias dupetrack1="find . -type f | sed -e 's/^\(.*\)\.\([[:digit:]]\)\.\(mp3\|og
 alias dupetrack2="find . -type f -regextype sed -iregex '^.*\.[[:digit:]]\.\(mp3\|flac\|ogg\)'"
 
 # }}}
-# cd # {{{
+# cd#{{{
 
 alias cd=fun_cd
 alias ..='cd ..'
@@ -71,38 +71,29 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-alias mkcd='fun_mkcd'     # mkdir -p $1; cd $1
+alias mkcd=fun_mkcd     # mkdir -p $1 && cd $1
 
 # permanent folders
 alias cdatt="cd $HOME/tmp/attachments"
-alias cdbeam="cd $UNI/$SEM/Seminararbeit/beamer"
 alias cdbin="cd $HOME/bin"
-alias cdblb="cd $UNI/$SEM/Bloomberg"
 alias cdbst="cd $HOME/texmf/bibtex/bst/emzap"
-alias cdcmus="cd $HOME/.cmus"
-alias cddevpie="cd $HOME/.devilspie"
 alias cddl="cd $HOME/Downloads"
 alias cddtf="cd $HOME/dotfiles"
 alias cdebay="cd $HOME/tmp/ebay"
-alias cdfig="cd $UNI/$SEM/Seminararbeit/latex/data/figs"
-alias cdgvim="cd $HOME/.gvim"
-alias cdklr="cd $UNI/$SEM/KLR"
-alias cdlog="cd $HOME/.logfiles"
 alias cdmails="cd $HOME/mails/Inbox"
 alias cdmnt="cd $HOME/mnt"
-alias cdmutt="cd $HOME/.mutt"
-alias cdnewsb="cd $HOME/.newsbeuter"
 alias cdpics="cd $HOME/Bilder"
-alias cdplugs="cd $HOME/.vim/bundle"
 alias cdpodc="cd $HOME/Podcasts"
-# alias cdpwd="cd $(xclip -o)"
-alias cdsem="cd $UNI/$SEM"
 alias cdtmp="cd $HOME/tmp"
-alias cdgc="cd $HOME/.gitclones"
 alias cduni="cd $UNI"
-alias cdvim="cd $HOME/.vim"
-alias cdwallp="cd $HOME/.wallpapers"
 alias cdxime="cd $HOME/Xime"
+
+# folders related to uni
+alias cdr="cd $UNI/$SEM/R"
+alias cdsem="cd $UNI/$SEM"
+alias cdblb="cd $UNI/$SEM/Bloomberg"
+alias cdfig="cd $UNI/$SEM/Seminararbeit/latex/data/figs"
+alias cdklr="cd $UNI/$SEM/KLR"
 
 # temporary mounted folders
 alias cdquito="cd ~/.gvfs/smb-share\:server\=quito-pc\,share\=users/Xime"
@@ -112,22 +103,23 @@ alias cdbew="cd $DOK/Bewerbungen"
 alias cddok="cd $DOK"
 alias cdlatex="cd $DOK/LaTeX"
 alias cdlinux="cd $DOK/Linux"
-alias cdr="cd $DOK/Linux/R"
 alias cdpers="cd $DOK/PersDok"
 alias cdpeug="cd $DOK/Gebrauchtwagen"
 alias cdqrc="cd $DOK/Linux/QRCs"
 alias cdrechn="cd $DOK/Rechnungen"
 alias cdrez="cd $DOK/Rezepte"
 alias cdsonst="cd $DOK/Sonstiges"
-alias cdtosh="cd /media/zapata/Musica"
-alias cdusb="cd /media/zapata/ES02224159"
-alias cdusbsem="cd /media/zapata/ES02224159/$SEM"
 alias cdvers="cd $DOK/Versicherungen"
 alias cdvg="cd $HOME/Dokumente/Linux/Vim/vimgolf"
 alias cdvol="cd $VOL"
+
+# usb & other media
+alias cdtosh="cd /media/zapata/Musica"
+alias cdusb="cd /media/zapata/ES02224159"
+alias cdusbsem="cd /media/zapata/ES02224159/$SEM"
 alias cdwdp="cd /media/zapata/WDP"
 
-# }}}
+# cd#}}}
 # history# {{{
 
 alias c='clear'
@@ -153,10 +145,11 @@ alias grep='grep --color=always -i -n'
 
 alias lc="locate -i"
 alias ud="sudo updatedb"
+
 # locate#}}}
 
 # }}}
-# programs# {{{
+# programs# #{{{
 
 # xclip# {{{
 
@@ -173,6 +166,7 @@ alias pwdc="pwd | xclip; source ~/.bashrc"
 if [[ -e /home/${USER}/Dokumente ]]; then
     alias vgolf='/bin/bash ~/bin/vgolf.sh'
 fi
+alias vimgolf="sudo vimgolf"
 
 # encrypted password file
 alias ve="vim -u $USB/VIM/_vimrc $USB/VIM/_passw.encr"
@@ -221,6 +215,7 @@ alias mg="make git"
 alias mb="make bash"
 alias mt="make tmux"
 alias mvi="make vim"
+alias mrd="make read"
 alias mvim="make vim"
 
 # latex# #}}}
@@ -262,7 +257,7 @@ alias yt="mpsyt"
 
 # }}}
 
-# }}}
+# programs# #}}}
 # miscellanious# {{{
 
 # conversion#{{{
@@ -303,6 +298,7 @@ alias chkwlan="nm-tool | grep Strength | egrep -v '(WEP|WPA)' | sed 's/^ *//g' \
     | sort -t ',' -k 5'"     # check available wlan-ports
 alias ips=fun_ips
 alias pss=fun_pss
+alias calc=fun_calc
 alias clock="watch -t -n 1 date +%T"
 alias journ="less /var/log/syslog"
 alias mousereset="sudo rmmod psmouse; sudo modprobe psmouse"
@@ -323,134 +319,133 @@ alias uoek="rsync --progress -auve ssh --iconv=UTF-8,ISO8859-1 --exclude '^.' --
 alias usync="/bin/bash $HOME/bin/cronSyncSsh"
 
 # }}}
-# git# {{{
+# # git# {{{
 
-alias g='git'
-alias gla='git la'
-alias gitadd="git add -A . "
-alias gitremote="fun_gitrem"
-alias gitpush="git push origin master"
-# alias gp="git push origin"
+# alias g='git'
+# alias gla='git la'
+# alias gitadd="git add -A . "
+# alias gitremote="fun_gitrem"
+# alias gitpush="git push origin master"
+# # alias gp="git push origin"
 
-alias g="git"
-alias ga="git a"
-alias gaa="git aa"
-alias gai="git ai"
-alias gal="git al"
-alias garem="git arem"
-alias gb="git b"
-alias gba="git ba"
-alias gbd="git bd"
-alias gc=fun_gitcommit
-alias gca=fun_gitcommitall
-alias gcam="git cam"
-alias gccm="git ccm"
-alias gcf="git cf"
-alias gcl="git cl"
-alias gco="git co"
-alias gcob="git cob"
-alias gd="git d"
-alias gdf="$HOME/bin/cronGithub backup"
-alias gdh="git dh"
-alias gdhc="git dhc"
-alias gdhp="git dhp"
-alias gds="git ds"
-alias gdt="git dt"
-alias gdu="git du"
-alias gf="git f"
-alias gfc="git fc"
-alias gfcam="git fcam"
-alias gfp=gitfastpush
-alias gh="git h"
-alias gha="git ha"
-alias ghi="git hi"
-alias gl="git l"
-alias gll="git ll"
-alias gllc="git llc"
-alias glll="git lll"
-alias glllo="git lllo"
-alias gllo="git llo"
-alias glo="git lo"
-alias glp="git lp"
-alias glpf="git lpf"
-alias gls="git ls"
-alias glst="git lst"
-alias glsd="git lsd"
-alias glfs="git lfs"
-alias glsf="git lsf"
-alias glsfa="git lsfa"
-alias glsfad="git lsfad"
-alias glsfav="git lsfav"
-alias glsfavd="git lsfavd"
-alias glsfd="git lsfd"
-alias glsha="git lsha"
-alias glshaf="git lshaf"
-alias glt="git lst"
-alias gm="git m"
-alias gmc="git mc"
-alias gmca="git mca"
-alias gn="git n"
-alias gna="git na"
-alias gnap="git nap"
-alias gne="git ne"
-alias gnr="git nr"
-alias gns="git ns"
-alias gnv="git nv"
-alias gp="git p"
-alias gpp="git pp"
-alias gppf="git ppf"
-alias gpup="git pup"
-alias gr="git r"
-alias grb="git rb"
-alias grba="git rba"
-alias grbc="git rbc"
-alias grbi="git rbi"
-alias grbs="git rbs"
-alias grc="git rc"
-alias grem="git rem"
-alias grems="git rems"
-alias grl="git rl"
-alias grmrb="git rmrb"
-alias grrem="git rrem"
-alias gprem="git prem"
-alias grs="git rs"
-alias grshh="git rshh"
-alias gs="git s"
-alias gsa="git sa"
-alias gsb="git sb"
-alias gsba="git sba"
-alias gsbaf="git sbaf"
-alias gsbl="git sbl"
-alias gsblf="git sblf"
-alias gsci="git sci"
-alias gsco="git sco"
-alias gsh="git sh"
-alias gsl="git sl"
-alias gss="git ss"
-alias gssa="git ssa"
-alias gst="git st"
-alias gsta="git sta"
-alias gstl="git stl"
-alias gstp="git stp"
-alias gsup="git sup"
-alias gt="git t"
-alias gtd="git td"
-alias gtl="git tl"
+# alias g="git"
+# alias ga="git a"
+# alias gaa="git aa"
+# alias gai="git ai"
+# alias gal="git al"
+# alias garem="git arem"
+# alias gb="git b"
+# alias gba="git ba"
+# alias gbd="git bd"
+# alias gc=fun_gitcommit
+# alias gca=fun_gitcommitall
+# alias gcam="git cam"
+# alias gccm="git ccm"
+# alias gcf="git cf"
+# alias gcs="git cs"
+# alias gcl="git cl"
+# alias gco="git co"
+# alias gcob="git cob"
+# alias gd="git d"
+# alias gdf="$HOME/bin/cronGithub backup"
+# alias gdh="git dh"
+# alias gdhc="git dhc"
+# alias gdhp="git dhp"
+# alias gds="git ds"
+# alias gdt="git dt"
+# alias gdu="git du"
+# alias gf="git f"
+# alias gfc="git fc"
+# alias gfcam="git fcam"
+# alias gfp=gitfastpush
+# alias gh="git h"
+# alias gha="git ha"
+# alias ghi="git hi"
+# alias gl="git l"
+# alias gll="git ll"
+# alias gllc="git llc"
+# alias glll="git lll"
+# alias glllo="git lllo"
+# alias gllo="git llo"
+# alias glo="git lo"
+# alias glp="git lp"
+# alias glpf="git lpf"
+# alias gls="git ls"
+# alias glst="git lst"
+# alias glsd="git lsd"
+# alias glfs="git lfs"
+# alias glsf="git lsf"
+# alias glsfa="git lsfa"
+# alias glsfad="git lsfad"
+# alias glsfd="git lsfd"
+# alias glsha="git lsha"
+# alias glshaf="git lshaf"
+# alias glt="git lst"
+# alias gm="git m"
+# alias gmc="git mc"
+# alias gmca="git mca"
+# alias gn="git n"
+# alias gna="git na"
+# alias gnap="git nap"
+# alias gne="git ne"
+# alias gnr="git nr"
+# alias gns="git ns"
+# alias gnv="git nv"
+# alias gp="git p"
+# alias gpp="git pp"
+# alias gppf="git ppf"
+# alias gpup="git pup"
+# alias gr="git r"
+# alias grb="git rb"
+# alias grba="git rba"
+# alias grbc="git rbc"
+# alias grbi="git rbi"
+# alias grbs="git rbs"
+# alias grc="git rc"
+# alias grem="git rem"
+# alias grems="git rems"
+# alias grl="git rl"
+# alias grmrb="git rmrb"
+# alias grrem="git rrem"
+# alias gprem="git prem"
+# alias grs="git rs"
+# alias grshh="git rshh"
+# alias gs="git s"
+# alias gsa="git sa"
+# alias gsb="git sb"
+# alias gsba="git sba"
+# alias gsbaf="git sbaf"
+# alias gsbl="git sbl"
+# alias gsblf="git sblf"
+# alias gsci="git sci"
+# alias gsco="git sco"
+# alias gsh="git sh"
+# alias gsl="git sl"
+# alias gss="git ss"
+# alias gssa="git ssa"
+# alias gst="git st"
+# alias gsta="git sta"
+# alias gstl="git stl"
+# alias gstp="git stp"
+# alias gsup="git sup"
+# alias gt="git t"
+# alias gtd="git td"
+# alias gtl="git tl"
 
-alias gstats=fun_gitstats
-alias ignore=fun_ignore
-alias clean=fun_clean
-alias swap=fun_swap
-alias gitcommit=fun_gitcommit
-alias gitcommitall=fun_gitcommitall
-alias gitfastpush=fun_gitfastpush
-alias gitinfo=fun_gitinfo
-alias gitstats=fun_gitstats
+# alias gstats=fun_gitstats
+# alias ignore=fun_ignore
+# alias clean=fun_clean
+# alias swap=fun_swap
+# alias gitcommit=fun_gitcommit
+# alias gitcommitall=fun_gitcommitall
+# alias gitfastpush=fun_gitfastpush
+# alias gitinfo=fun_gitinfo
+# alias gitstats=fun_gitstats
 
-#gitinfo
-alias gi=gitinfo
+# #gitinfo
+# alias gi=gitinfo
 
-## }}}
+# ## }}}
 # curl # {{{
 
 alias expandurl=fun_expandurl
@@ -508,128 +503,6 @@ fi
 # TMUX#}}}
 # functions#{{{
 
-# general# {{{
-
-# find - find files#{{{
-
-fun_ff() {
-    find . -iname "*$**"
-}
-
-# find - find files#}}}
-# grep - grep to vim#{{{
-
-fun_grepv(){
-    vim `\grep -irl "$*" .`
-}
-
-# grep - grep to vim#}}}
-# mkdir - create dir and changedir to it#{{{
-
-fun_mkcd(){
-    mkdir -p "$1"
-    cd "$1"
-}
-
-# mkdir - create dir and changedir to it#}}}
-# ifconfig - print ip address#{{{
-
-fun_ips() {
-sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac | grep -i adr
-}
-
-# ifconfig - print ip address#}}}
-# ls - sort content by size#{{{
-
-fun_dus () {
-du --max-depth=0 -k * | sort -n | awk '{ if($1>=1024*1024) {size=$1/1024/1024; unit="G"} else if($1>=1024) {size=$1/1024; unit="M"} else {size=$1; unit="K"}; if(size<10) format="%.1f%s"; else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }'
-}
-
-# ls - sort content by size#}}}
-# pss ssh#{{{
-
-# kk <nr. of line to kill from prev. command>
-#kk() {
-    #sudo kill # Expecting a pid
-#}
-alias kk='sudo kill'
-fun_pss() {
-    [[ ! -n ${1} ]] && return; # bail if no argument
-    pro="[${1:0:1}]${1:1}"; # process-name –> [p]rocess-name (makes grep better)
-    ps axo pid,command | \grep -i ${pro}; # show matching processes
-    processids="$(ps axo pid,command | \grep -i ${pro} | awk '{print $1}')"; # get pids
-    if [[ "$SHELL" == "/bin/bash" ]]; then
-        complete -W "${processids}" kk; # make a completion list for kk, bash
-    else
-        return;
-    fi
-}
-
-# pss ssh#}}}
-# ls - show absolute path to file#{{{
-
-# http://stackoverflow.com/a/14984302
-fun_absolute_path() { echo "$PWD/$1"; }  # alt: readlink -f
-
-# ls - show absolute path to file#}}}
-# curl - expand shortened urls#{{{
-
-# http://www.commandlinefu.com/commands/view/9515/expand-shortened-urls
-fun_expandurl() { curl -sIL $1 | grep ^Location; }
-
-# curl - expand shortened urls#}}}
-# vim - edit new file with vim#{{{
-
-fun_vim() {
-    if [ "$#" -eq 0 ]; then
-        vim /tmp/foo.txt
-    else
-        vim /tmp/foo.$1
-    fi
-}
-
-# vim - edit new file with vim#}}}
-# yt-dl - youtube-videos as ascii video#{{{
-
-# http://annasagrera.com/on-ascii-youtube-and-letting-go/?lang=en
-fun_youtbmp() { youtube-dl $1 -o - | mplayer -vo aa -monitorpixelaspect 0.5 -; }
-
-# yt-dl - youtube-videos as ascii video#}}}
-# cd - show last edited files#{{{
-
-# http://www.reddit.com/r/linux/comments/1zsn7r/a_bash_alias_i_cannot_function_without/cfwldex
-fun_cd() {
-    count=10
-    dir="${@:-$HOME}"  # ~ isn't expanded when in quotes
-    [ -z "${dir}" ] && dir=~
-    if ! builtin cd "$dir"
-    then
-        dir=`compgen -d "${dir}" | head -1`
-        if builtin cd "$dir"
-        then
-            clear
-            # pwd
-            ls -lrtc
-        fi
-    else
-        clear
-        if [ $(ls -lt | wc -l) -gt $count ]
-        then
-            echo -e "                                                     ."
-            echo -e "                                                     ."
-            echo -e "                                                     ."
-            # pwd
-            ls -lrtc | tail -n $count
-        else
-            # pwd
-            ls -ltrc
-        fi
-    fi
-}
-
-# cd - show last edited files#}}}
-
-# general# }}}
 # gitfunctions# {{{
 
 # gitinfo#{{{
@@ -751,5 +624,160 @@ fun_ignore() {
 # add vim and tmux tempfiles#}}}
 
 # gitfunctions# }}}
+# command_not_found#{{{
+
+# http://superuser.com/a/756845/322005
+command_not_found_handle() {
+    case $1 in
+        cd*) if [[ -d "$HOME/.${1#cd}" ]]; then
+            cd "$HOME/.${1#cd}"
+            return 0
+        fi
+        # On failure, falls through to the error message
+        ;;
+    ffd*) find . -type d -iname "*${1#ffd}*"
+        return 0
+        ;;
+    g*) git${1#g}
+        return 0
+        ;;
+    esac
+
+  # If nothing else works, just do what bash would have done
+  printf "%s: command not found\n" "$1" >&2
+  return 127
+}
+
+# command_not_found#}}}
+# other#{{{
+
+# find - find files#{{{
+
+fun_ff() {
+    find . -iname "*$**"
+}
+
+# find - find files#}}}
+# grep - grep to vim#{{{
+
+fun_grepv(){
+    vim `\grep -irl "$*" .`
+}
+
+# grep - grep to vim#}}}
+# mkdir - create dir and changedir to it#{{{
+
+fun_mkcd(){
+    mkdir -p "$1"
+    cd "$1"
+}
+
+# mkdir - create dir and changedir to it#}}}
+# ifconfig - print ip address#{{{
+
+fun_ips() {
+sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac | grep -i adr
+}
+
+# ifconfig - print ip address#}}}
+# ls - sort content by size#{{{
+
+fun_dus () {
+du --max-depth=0 -k * | sort -n | awk '{ if($1>=1024*1024) {size=$1/1024/1024; unit="G"} else if($1>=1024) {size=$1/1024; unit="M"} else {size=$1; unit="K"}; if(size<10) format="%.1f%s"; else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }'
+}
+
+# ls - sort content by size#}}}
+# pss ssh#{{{
+
+# kk <nr. of line to kill from prev. command>
+#kk() {
+    #sudo kill # Expecting a pid
+#}
+alias kk='sudo kill'
+fun_pss() {
+    [[ ! -n ${1} ]] && return; # bail if no argument
+    pro="[${1:0:1}]${1:1}"; # process-name –> [p]rocess-name (makes grep better)
+    ps axo pid,command | \grep -i ${pro}; # show matching processes
+    processids="$(ps axo pid,command | \grep -i ${pro} | awk '{print $1}')"; # get pids
+    if [[ "$SHELL" == "/bin/bash" ]]; then
+        complete -W "${processids}" kk; # make a completion list for kk, bash
+    else
+        return;
+    fi
+}
+
+# pss ssh#}}}
+# ls - show absolute path to file#{{{
+
+# http://stackoverflow.com/a/14984302
+fun_absolute_path() { echo "$PWD/$1"; }  # alt: readlink -f
+
+# ls - show absolute path to file#}}}
+# curl - expand shortened urls#{{{
+
+# http://www.commandlinefu.com/commands/view/9515/expand-shortened-urls
+fun_expandurl() { curl -sIL $1 | grep ^Location; }
+
+# curl - expand shortened urls#}}}
+# vim - edit new file with vim#{{{
+
+fun_vim() {
+    if [ "$#" -eq 0 ]; then
+        vim /tmp/foo.txt
+    else
+        vim /tmp/foo.$1
+    fi
+}
+
+# vim - edit new file with vim#}}}
+# yt-dl - youtube-videos as ascii video#{{{
+
+# http://annasagrera.com/on-ascii-youtube-and-letting-go/?lang=en
+fun_youtbmp() { youtube-dl $1 -o - | mplayer -vo aa -monitorpixelaspect 0.5 -; }
+
+# yt-dl - youtube-videos as ascii video#}}}
+# cd - show last edited files#{{{
+
+# http://www.reddit.com/r/linux/comments/1zsn7r/a_bash_alias_i_cannot_function_without/cfwldex
+fun_cd() {
+    count=10
+    dir="${@:-$HOME}"  # ~ isn't expanded when in quotes
+    [ -z "${dir}" ] && dir=~
+    if ! builtin cd "$dir"
+    then
+        dir=`compgen -d "${dir}" | head -1`
+        if builtin cd "$dir"
+        then
+            clear
+            # pwd
+            ls -lrtc
+        fi
+    else
+        clear
+        if [ $(ls -lt | wc -l) -gt $count ]
+        then
+            echo -e "                                                     ."
+            echo -e "                                                     ."
+            echo -e "                                                     ."
+            # pwd
+            ls -lrtc | tail -n $count
+        else
+            # pwd
+            ls -ltrc
+        fi
+    fi
+}
+
+# cd - show last edited files#}}}
+# calc - easy calculating in bash#{{{
+
+# http://unix.stackexchange.com/a/30486
+fun_calc () {
+    bc -l <<< "$@"
+}
+
+# calc - easy calculating in bash#}}}
+
+# other#}}}
 
 # functions#}}}

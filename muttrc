@@ -198,6 +198,7 @@ source ~/.mutt/muttScoring.priv             # Scorings
 # Accounts & Folders # {{{
 
 set folder="/home/zapata/mails"
+set sleep_time = 0  # fast folder switch
 
 # legt fest, welche Mailboxen zu Anfang bekannt sind und beim Start abgerufen werden sollen
 mailboxes /var/mail/zapata

@@ -70,7 +70,6 @@ nmap <localleader>R <Plug>RStart
 imap <localleader>R <esc><Plug>RStart
 vmap <localleader>R <Plug>RStart
 
-" -----------------------------------------------
 " Close R (no save)
 nmap <localleader>qq <Plug>RClose
 imap <localleader>qq <esc><Plug>RClose
@@ -86,13 +85,19 @@ nmap <localleader>f <Plug>RSendFile
 nmap <localleader>l <Plug>RSendLine
 vmap <localleader>l <Plug>RSendSelection
 
+" Send Part of current line
+nmap <localleader>j <Plug>RNLeftPart
+" imap <localleader>j <Plug>RILeftPart
+nmap <localleader>k <Plug>RNRightPart
+" imap <localleader>k <Plug>RIRightPart
+
 " Send Line And Jump To Next Code
 nmap <esc>l <Plug>RDSendLine
 vmap <esc>l <Plug>RDSendSelection
 
 " Send Paragraph
-nmap <localleader>p <Plug>RSendParagraph
-vmap <localleader>p <Plug>RSendSelection
+nmap <esc>p <Plug>RDSendParagraph
+vmap <esc>p <Plug>RDSendSelection
 
 " Send Marked Blocks ('marks')
 " If the cursor is below the last mark, the plugin will send from the
@@ -114,18 +119,16 @@ nmap <silent><localleader>l <Plug>RClearConsole
 vmap <silent><localleader>l <Plug>RClearConsole
 nmap <silent><localleader>l <Plug>RClearAll
 vmap <silent><localleader>l <Plug>RClearAll
-" -----------------------------------------------
 
 " . Print (cur)
 " . Names (cur)
 " . Structure (cur)
-nmap <silent><localleader>p <Plug>RObjectPr
-vmap <silent><localleader>p <Plug>RObjectPr
-nmap <silent><localleader>n <Plug>RObjectNames
-vmap <silent><localleader>n <Plug>RObjectNames
-nmap <silent><localleader>t <Plug>RObjectStr
-vmap <silent><localleader>t <Plug>RObjectStr
-" -----------------------------------------------
+nmap <silent><localleader>op <Plug>RObjectPr
+vmap <silent><localleader>op <Plug>RObjectPr
+nmap <silent><localleader>on <Plug>RObjectNames
+vmap <silent><localleader>on <Plug>RObjectNames
+nmap <silent><localleader>ot <Plug>RObjectStr
+vmap <silent><localleader>ot <Plug>RObjectStr
 
 " . Arguments (cur)
 " . Example (cur)
@@ -136,7 +139,6 @@ nmap <silent><localleader>e <Plug>RShowEx
 vmap <silent><localleader>e <Plug>RShowEx
 nmap <silent><localleader>h <Plug>RHelp
 vmap <silent><localleader>h <Plug>RHelp
-" -----------------------------------------------
 
 " . Summary (cur)
 " . Plot (cur)
@@ -147,12 +149,10 @@ nmap <silent><localleader>p <Plug>RPlot
 vmap <silent><localleader>p <Plug>RPlot
 nmap <silent><localleader>g <Plug>RSPlot
 vmap <silent><localleader>g <Plug>RSPlot
-" -----------------------------------------------
 
 " . Set working directory (cur file path)
 nmap <silent><localleader>d <Plug>RSetwd
 vmap <silent><localleader>d <Plug>RSetwd
-" -----------------------------------------------
 
 " Editing Commands"}}}
 " Custom mappings & functions "{{{
@@ -160,16 +160,14 @@ vmap <silent><localleader>d <Plug>RSetwd
 " assign argument under cursor in next line
 nmap <silent><localleader>, :normal! o0 <- <CR>a
 vmap <silent><localleader>, :<C-u>exec "s/$/\r" . GetVisualSelection() . "<Space><-<Space>"<cr>A
-" -----------------------------------------------
 
 " define commands & actions
 map <silent> <localleader>rs :call g:SendCmdToR("search()")<CR>
+map <silent> <localleader>rh :call RAction("help.search")<CR>
 map <silent> <localleader>rl :call RAction("levels")<CR>
-" -----------------------------------------------
 
-" assing value to variable ('<-')
+" assine value to variable ('<-')
 nmap <esc>- hEa<Space><-<Space>
-" -----------------------------------------------
 
 " Custom mappings & functions "}}}
 " GVIM - Mappings"{{{
