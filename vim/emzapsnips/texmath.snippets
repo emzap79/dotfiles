@@ -309,7 +309,7 @@ snippet "preamble" "Preamble for TeX-Docs" br
     headsepline,                                %%  ... same with headline!
     %% fleqn,                                   %%  equations are left-justified instead of being centered
     %% leqno,                                   %%  equation numbers are on the left side
-%% ${1/(scrartcl)$|(scrlttr2)$|(newlfm)/
+%% ${1/(scrartcl)$|(newlfm)/
 %% (?1:%-- scrartcl\: settings
     bibliography=totoc,
     cleardoublepage=plain,                      %%  like cleardoublepage, if a blank page is inserted it uses the style plain
@@ -323,32 +323,13 @@ snippet "preamble" "Preamble for TeX-Docs" br
     parskip=off,                                %%  paragraph formatting. default\: off
     toc=index,                                  %%  put stuff to toc
     twocolumn=false,                            %%  true\: split page in two columns)
-    %% (?2:%-- scrlttr2\: settings
-    %% Briefkopf und Anschrift
-    addrfield=on,                               %%  Adressfeld fuer Fensterkuverts
-    backaddress=on,                             %%  ...und Absender im Fenster
-    draft=on,
-    enlargefirstpage=on,                        %%  Erste Seite anders
-    foldmarks=blmtP,
-    foldmarks=on,                               %%  Faltmarken setzen
-    fromaddress=on,
-    fromalign=center,                           %%  Platzierung des Briefkopfs (left, right, center, on_off)
-    fromemail=on,                               %%  Emailadresse
-    fromfax=off,                                %%  Faxnummer
-    fromlogo=on,                                %%  Firmenlogo
-    fromphone=on,                               %%  Telefonnummer im Absender
-    fromrule=on,                                %%  Linie im Absender (aftername, afteraddress)
-    headsepline=on,                             %%  Linie unter der Seitenzahl
-    pagenumber=headright,                       %%  Seitenzahl oben mittig
-    parskip=half,                               %%  Abstand zwischen Absaetzen
-    version=last,)
-    %% (?3:%-- newlfm\: settings
+    %% (?2:%-- newlfm\: settings
     sigleft,stdletter,orderfromtodate,
                                                 %%  sigleft\: signature to the left
                                                 %%  letter styles\: stdletter, stdletternofrom, busletter, busletternofrom
                                                 %%  orderfromtodate\: and date reordered to appear after the to-address)
-/g}]{${1:scrartcl|scrlttr2|newlfm}}
-%% scrartcl|scrlttr2|newlfm %%
+/g}]{${1:scrartcl|newlfm}}
+%% scrartcl|newlfm %%
 %% documentclass %}}}
 
 %% %%%%%%%%%%%%%%%%
@@ -708,7 +689,7 @@ pdftex,
 \date{\today}
 
 %% Press <Tab> to begin Document
-${1/(scrartcl)$|(scrlttr2)$|(newlfm)/(?1:begin document)(?2:letter scrlttr2)(?3:letter newlfm)/g}$0
+${1/(scrartcl)$|(newlfm)/(?1:begin document)(?2:letter newlfm)/g}$0
 
 % \maketitle
 % \pagebreak
@@ -822,114 +803,7 @@ snippet graphix
 endsnippet
 #.##.letter-templates
 snippet letter "Letter" b
-letter $1`!p snip.rv=complete(t[1], ['scrlttr2','newlfm'])`
-endsnippet
-snippet "letter scrlttr2" "Letter Koma2" b
-
-%.%%%%%%%%%%%%
-%.%%.Briefkopf.(KOMA-Classes)
-%.%%%%%%%%%%%%
-%\setkomavar{fromname}{Jonas Petong}
-%\setkomafont{fromname}{\sffamily \large} %% Wird weiter unten erklärt.
-%\setkomavar{fromaddress}{Lohbergstr. 6, 44789 Bochum}
-%\setkomavar{fromphone}{\,+49\,(0)\,176\,533\,47\,208}
-%\setkomavar{fromemail}{jonas.petong@web.de}
-%
-%.%%%%%%%%%%%%%%%%%%%%
-%.%.Available.Komavars
-%.%%%%%%%%%%%%%%%%%%%%
-%%{{{
-% addresseeimage       %% Anweisungen zum Setzen des Port-Payé-Kopfes bei Einstellung addrfield=backgroundimage oder der Port-Payé-Anschrift bei Einstellung addrfield=image
-% backaddress          %% Rücksendeadresse für Fensterbriefumschläge
-% backaddressseparator %% Trennzeichen innerhalb der Rücksendeadresse
-% ccseparator          %% Trennzeichen zwischen Verteilertitel und Verteiler
-% customer             %% Geschäftszeilenfeld »Kundennummer«
-% date                 %% Datum
-% emailseparator       %% Trennzeichen zwischen E-Mail-Bezeichner und E-Mail-Adresse
-% enclseparator        %% Trennzeichen zwischen Anlagetitel und Anlagen
-% firstfoot            %% Seitenfuß des Briefbogens
-% firsthead            %% Kopf des Briefbogens
-% faxseparator         %% Trennzeichen zwischen Faxbezeichner und Faxnummer
-% fromaddress          %% Absenderadresse ohne Absendername
-% frombank             %% Bankverbindung des Absenders
-% fromemail            %% E-Mail-Adresse des Absenders
-% fromfax              %% Faxnummer des Absenders
-% fromlogo             %% Anweisungen zum Setzen des Absenderlogos
-% fromname             %% vollständiger Absendername
-% fromphone            %% Telefonnummer des Absenders
-% fromurl              %% eine URL des Absenders
-% fromzipcode          %% Postleitzahl des Absenders für den Port-Payé-Kopf
-% addrfield=PP
-% location             %% erweiterte Absenderangabe
-% myref                %% Geschäftszeilenfeld »Mein Zeichen«
-% nextfoot             %% Seitenfuß im Seitenstil headings oder myheadings
-% nexthead             %% Kopf im Seitenstil headings oder myheadings
-% phoneseparator       %% Trennzeichen zwischen Telefonbezeichner und Telefonnummer
-% place                %% Ort
-% placeseparator       %% Trennzeichen zwischen Ort und Datum
-% PPdatamatrix         %% Anweisungen zum Setzen einer Data-Matrix bei der Einstellung addrfield=PP
-% PPcode               %% Code zur Identifizierung des Absenders bei Einstellung addrfield=PP
-% signature            %% Signatur unter Unterschrift und Grußformel
-% specialmail          %% Versandart
-% subject              %% Betreff
-% subjectseparator     %% Trennzeichen zwischen Betrefftitel und Betreff
-% title                %% Brieftitel
-% toaddress            %% Empfängeradresse ohne Empfängername
-% toname               %% vollständiger Empfängername
-% yourmail             %% Geschäftszeilenfeld »Ihr Schreiben«
-% yourref              %% Geschäftszeilenfeld »Ihr Zeichen«
-% zipcodeseparator     %% Trennzeichen zwischen dem Bezeichner und dem Inhalt der Variablen fromzipcode
-%%%.Available.Komavars.%}}}
-%
-%.%%%%%%%%%%%
-%.%%.Absender
-%.%%%%%%%%%%%
-% \setkomavar{location}{%
-% \usekomavar{fromname}\newline
-% Lohgbergstr. 6\newline
-% \usekomavar{fromaddress}\newline
-% Tel.: \usekomavar{fromphone}}
-
-% %%%%%%%%%%%%%%%%%
-% %% Betreff.&.Datum
-% %%%%%%%%%%%%%%%%%
-\setkomavar{subject}{${1:Betreff}}
-\setkomavar{place}{${2:Stadt}}
-\setkomavar{placeseparator}{, den }
-\setkomavar{date}{\today}
-\setkomavar{phoneseparator}{}
-\newcount\yoursex
-\yoursex=${3:wähle 0 für männlich, 1 für weiblich}
-% \setkomavar{signature}{\includegraphic[scale=0.5]{${4:path to sig}}
-\newcommand{\firstname}{${5}}
-\newcommand{\lastname}{${6}}
-\providecommand{\academictitle}{${7} }
-\newcommand{\street}[2]{#1 #2}
-\newcommand{\city}[2]{#1 #2}
-
-\begin{document}
-
-% %%%%%%%%%%%
-% %% Empfänger
-% %%%%%%%%%%%
-\begin{letter} {%
-\firstname\ \lastname\newline
-\street{${8}}{${9}}\newline
-\city{${10}}{${11}}
-}
-
-\ifnum\yoursex=0
-\opening{Sehr geehrter Herr \academictitle \lastname,}       %% Sehr geehrter Herr/ geehrte Frau
-\else
-\opening{Sehr geehrte Frau \academictitle \lastname,}        %% Sehr geehrter Herr/ geehrte Frau
-\fi
-${0:Schreiben}
-\closing{Mit freundlichen Grüßen}
-\setkomavar*{enclseparator}{Anlage}
-% \encl{${12:Beschreibung der Anlage}}
-% \cc{${13:Carbon Copy}}
-\end{letter}
-\end{document}
+letter $1`!p snip.rv=complete(t[1], ['newlfm'])`
 endsnippet
 snippet "letter newlfm" "Letter Newlfm" b
 %.%%%%%%%%%%%%

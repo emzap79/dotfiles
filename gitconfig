@@ -24,11 +24,6 @@
 [rebase]
 	autosquash = true
 [alias]
-	upd = !git add . -A && git commit
-	grep-conf = config --get-regexp
-	staged = diff --cached
-	rem = !gitremote
-	alias = config --get-regexp ^alias\\.
 
 # 'git h' for help, 'git la' to list aliases
 # http://stackoverflow.com/a/11613251
@@ -39,11 +34,12 @@
 	ha	= !git help -a | less
 	hi	= help -i						    # ... yet to find out how to use the 'info' program
 	al	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g' | less -R"
+	grc	= config --get-regexp					    # search for custom regexpression
 
 #	=================================
 #	=	commit to project	=
 #	=================================
-	cl	= clone --progress -v                                       # -v needs to be set AFTER --progress, else it won't work
+	cl	= clone --progress -v					    # -v needs to be set AFTER --progress, else it won't work
 									    # choose
 	a	= add -A						    # ...<filename>
 	aa	= add -A .
@@ -81,7 +77,7 @@
 #	=	    show diffs		=
 #	=================================
 									    # show everything related to a SHA1
-	sh	= show
+	sw	= show
 									    # check current local changes you have made
 	d	= diff HEAD						    # (...<filename>) diff staged + unstaged against HEAD
 	ds	= diff --staged						    # diff staged against HEAD
@@ -95,10 +91,10 @@
 
 #  check current state locally
 									    # index status
-	s	= status --short
-	ss	= status -uno --short					    # don't show untracked stuff
-	sa	= status
-	ssa	= status -uno						    # don't show untracked stuff
+	st	= status
+	sts	= status --short
+	stt	= status -uno						    # don't show untracked stuff
+	stst	= status -uno --short					    # don't show untracked stuff
 									    # currently versioned files at HEAD
 	ls	= ls-tree -r --name-only				    # ... revision
 	lsd	= ls-tree -r -d --name-only				    # id., but only the named tree entry, no children
@@ -111,11 +107,11 @@
 #	=================================
 #	=	stashes & branches	=
 #	=================================
-	st	= stash							    # tempsave stuff without branching or committing
-	stl	= stash list						    # see the list of available stashes
-	stp	= stash pop						    # re-apply the stashed changes and delete the stash from the list of stashes
-	sta	= stash apply						    # you can use the ID to apply a stash, eg stash@{0}
-	std	= stash drop						    # remove a stashed change without applying it
+	sh	= stash							    # tempsave stuff without branching or committing
+	shl	= stash list						    # see the list of available stashes
+	shp	= stash pop						    # re-apply the stashed changes and delete the stash from the list of stashes
+	sha	= stash apply						    # you can use the ID to apply a stash, eg stash@{0}
+	shd	= stash drop						    # remove a stashed change without applying it
 
 #  check what is going on everywhere
 	sb	= show-branch -a --list					    # just list with current commit
@@ -136,6 +132,7 @@
 	m	= merge --no-ff						    # ...<branch name>
 	rb	= rebase						    # ...<branch name>
 	rbi	= rebase -i --autosquash
+	rbip	= !git rebase -i --autosquash && git push origin	    # first rebasem, than push changes
 	rbc	= rebase --continue
 	rbs	= rebase --skip
 	rba	= rebase --abort
@@ -146,7 +143,8 @@
 #  interact with the rest of the world
 	f	= fetch
 	p	= pull
-	pp	= !git rbi && git push origin				    # push, after interactive rebase
+	pp	= push origin						    # push origin <branch>
+	ppu	= push -u origin					    # push and add upstream reference <branch>
 	ppf	= push origin -f					    # overwrite external changes to remote (use with care!!)
 	pup	= !git p && git pp					    # pull and push, not nice but sometimes convenient
 	rmrb	= push --delete origin					    # ...<branch name> remote branch to be deleted
@@ -155,9 +153,10 @@
 	rem	= remote -v						    # (...<lookup man page for this>) withough argument
 #		=							    # just shows remotes, else does all kinds of funny stuff
 	rems	= remote show						    # ... <label for remote> show info for specific remote
-	arem	= remote add						    # ... <label for remote> <URL to remote>
-	rrem	= remote rm						    # ... <label of remote to be deleted>
-	prem	= remote update --prune 				    # remove all local branches which are not in the remote anymore
+	rema	= remote add						    # ... <label for remote> <URL to remote>
+	remrm	= remote rm						    # ... <label of remote to be deleted>
+	remr	= remote rename						    # ... <label of remote to be renamed> <label of new remote>
+	remp	= remote update --prune 				    # remove all local branches which are not in the remote anymore
 
 #  use svn if you have to
 	sco	= svn clone						    # ...<svn repository url>

@@ -25,11 +25,11 @@ export LS2='-hF'
 export LS3='--time-style=long-iso'
 
 alias ls='ls $LS1 $LS2 $LS3 -B '
-alias la='ls $LS1 $LS2 $LS3 -A '                            # also lists hidden files
-alias l='ls $LS1 $LS2 $LS3 -lA'                            # listing view of all files
-alias ll='ls $LS1 $LS2 $LS3 -lB'                            # like before, but w/o hidden files
-alias lst='ls $LS1 $LS2 $LS3 -lrtc'                          # show last edited files in folder
-alias lp='fun_absolute_path'                                # show fullpathname to file
+alias la='ls $LS1 $LS2 $LS3 -A '       # also lists hidden files
+alias l='ls $LS1 $LS2 $LS3 -lA'        # listing view of all files
+alias ll='ls $LS1 $LS2 $LS3 -lB'       # like before, but w/o hidden files
+alias lst='ls $LS1 $LS2 $LS3 -lrtcA'   # show last edited files in folder
+alias lp=fun_absolute_path             # show fullpathname to file
 
 # only directories
 alias lsd='ls $LS1 $LS2 $LS3 -d -- */ | sed -e "s/\/$//g"'
@@ -72,10 +72,18 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias mkcd=fun_mkcd     # mkdir -p $1 && cd $1
+alias cdmk=fun_mkcd
+
+# dotfiles
+alias cdvim="cd $HOME/.vim"
+alias cdbash="cd $HOME/.bash"
+alias cdnewsb="cd $HOME/.newsbeuter"
+alias cdmutt="cd $HOME/.mutt"
+alias cdcmus="cd $HOME/.cmus"
+alias cdgc="cd $HOME/.gitclones"
 
 # permanent folders
 alias cdatt="cd $HOME/tmp/attachments"
-alias cdbin="cd $HOME/bin"
 alias cdbst="cd $HOME/texmf/bibtex/bst/emzap"
 alias cddl="cd $HOME/Downloads"
 alias cddtf="cd $HOME/dotfiles"
@@ -87,12 +95,12 @@ alias cdpodc="cd $HOME/Podcasts"
 alias cdtmp="cd $HOME/tmp"
 alias cduni="cd $UNI"
 alias cdxime="cd $HOME/Xime"
+alias cdbin="cd $HOME/bin"
 
 # folders related to uni
 alias cdr="cd $UNI/$SEM/R"
 alias cdsem="cd $UNI/$SEM"
 alias cdblb="cd $UNI/$SEM/Bloomberg"
-alias cdfig="cd $UNI/$SEM/Seminararbeit/latex/data/figs"
 alias cdklr="cd $UNI/$SEM/KLR"
 
 # temporary mounted folders
@@ -214,6 +222,8 @@ alias mr="make r"
 alias mg="make git"
 alias mb="make bash"
 alias mt="make tmux"
+alias mtx="make tex"
+alias ml="make latex"
 alias mvi="make vim"
 alias mrd="make read"
 alias mvim="make vim"
@@ -293,7 +303,7 @@ alias rmfa="rm -rf *"
 alias info='info --vi-keys'
 alias pwgen='pwgen -cn 12'
 alias echon="echo -n"
-alias mkdir='mkdir -p'
+alias mkd='mkdir -p'
 alias chkwlan="nm-tool | grep Strength | egrep -v '(WEP|WPA)' | sed 's/^ *//g' \
     | sort -t ',' -k 5'"     # check available wlan-ports
 alias ips=fun_ips
@@ -319,133 +329,31 @@ alias uoek="rsync --progress -auve ssh --iconv=UTF-8,ISO8859-1 --exclude '^.' --
 alias usync="/bin/bash $HOME/bin/cronSyncSsh"
 
 # }}}
-# # git# {{{
+# git# {{{
 
-# alias g='git'
-# alias gla='git la'
-# alias gitadd="git add -A . "
-# alias gitremote="fun_gitrem"
-# alias gitpush="git push origin master"
-# # alias gp="git push origin"
+# few git aliases which are not getting called by 'fun_git'
+alias gst="g st"    # originally mapped to GNU Smalltalk
+alias gcl="g cl"
+# alias grema="g rema"
 
-# alias g="git"
-# alias ga="git a"
-# alias gaa="git aa"
-# alias gai="git ai"
-# alias gal="git al"
-# alias garem="git arem"
-# alias gb="git b"
-# alias gba="git ba"
-# alias gbd="git bd"
-# alias gc=fun_gitcommit
-# alias gca=fun_gitcommitall
-# alias gcam="git cam"
-# alias gccm="git ccm"
-# alias gcf="git cf"
-# alias gcs="git cs"
-# alias gcl="git cl"
-# alias gco="git co"
-# alias gcob="git cob"
-# alias gd="git d"
-# alias gdf="$HOME/bin/cronGithub backup"
-# alias gdh="git dh"
-# alias gdhc="git dhc"
-# alias gdhp="git dhp"
-# alias gds="git ds"
-# alias gdt="git dt"
-# alias gdu="git du"
-# alias gf="git f"
-# alias gfc="git fc"
-# alias gfcam="git fcam"
-# alias gfp=gitfastpush
-# alias gh="git h"
-# alias gha="git ha"
-# alias ghi="git hi"
-# alias gl="git l"
-# alias gll="git ll"
-# alias gllc="git llc"
-# alias glll="git lll"
-# alias glllo="git lllo"
-# alias gllo="git llo"
-# alias glo="git lo"
-# alias glp="git lp"
-# alias glpf="git lpf"
-# alias gls="git ls"
-# alias glst="git lst"
-# alias glsd="git lsd"
-# alias glfs="git lfs"
-# alias glsf="git lsf"
-# alias glsfa="git lsfa"
-# alias glsfad="git lsfad"
-# alias glsfd="git lsfd"
-# alias glsha="git lsha"
-# alias glshaf="git lshaf"
-# alias glt="git lst"
-# alias gm="git m"
-# alias gmc="git mc"
-# alias gmca="git mca"
-# alias gn="git n"
-# alias gna="git na"
-# alias gnap="git nap"
-# alias gne="git ne"
-# alias gnr="git nr"
-# alias gns="git ns"
-# alias gnv="git nv"
-# alias gp="git p"
-# alias gpp="git pp"
-# alias gppf="git ppf"
-# alias gpup="git pup"
-# alias gr="git r"
-# alias grb="git rb"
-# alias grba="git rba"
-# alias grbc="git rbc"
-# alias grbi="git rbi"
-# alias grbs="git rbs"
-# alias grc="git rc"
-# alias grem="git rem"
-# alias grems="git rems"
-# alias grl="git rl"
-# alias grmrb="git rmrb"
-# alias grrem="git rrem"
-# alias gprem="git prem"
-# alias grs="git rs"
-# alias grshh="git rshh"
-# alias gs="git s"
-# alias gsa="git sa"
-# alias gsb="git sb"
-# alias gsba="git sba"
-# alias gsbaf="git sbaf"
-# alias gsbl="git sbl"
-# alias gsblf="git sblf"
-# alias gsci="git sci"
-# alias gsco="git sco"
-# alias gsh="git sh"
-# alias gsl="git sl"
-# alias gss="git ss"
-# alias gssa="git ssa"
-# alias gst="git st"
-# alias gsta="git sta"
-# alias gstl="git stl"
-# alias gstp="git stp"
-# alias gsup="git sup"
-# alias gt="git t"
-# alias gtd="git td"
-# alias gtl="git tl"
 
-# alias gstats=fun_gitstats
-# alias ignore=fun_ignore
-# alias clean=fun_clean
-# alias swap=fun_swap
-# alias gitcommit=fun_gitcommit
-# alias gitcommitall=fun_gitcommitall
-# alias gitfastpush=fun_gitfastpush
-# alias gitinfo=fun_gitinfo
-# alias gitstats=fun_gitstats
+# function commands
+alias gdf="$HOME/bin/cronGithub backup"
+alias gi=fun_gitinfo  #gitinfo
+alias gitremote=fun_gitrem
+alias gc=fun_gitcommit
+alias gca=fun_gitcommitall
+alias gstats=fun_gitstats
+alias ignore=fun_ignore
+alias clean=fun_clean
+alias swap=fun_swap
+alias gitcommit=fun_gitcommit
+alias gitcommitall=fun_gitcommitall
+alias gitfastpush=fun_gitfastpush
+alias gitinfo=fun_gitinfo
+alias gitstats=fun_gitstats
 
-# #gitinfo
-# alias gi=gitinfo
-
-# ## }}}
+## }}}
 # curl # {{{
 
 alias expandurl=fun_expandurl
@@ -626,22 +534,24 @@ fun_ignore() {
 # gitfunctions# }}}
 # command_not_found#{{{
 
+# this function lets you call your git aliases without explicitly defining an
+# alias for each one of them, eg. gco triggers automatically 'g co' etc.
 # http://superuser.com/a/756845/322005
 command_not_found_handle() {
     case $1 in
-        cd*) if [[ -d "$HOME/.${1#cd}" ]]; then
-            cd "$HOME/.${1#cd}"
-            return 0
-        fi
-        # On failure, falls through to the error message
-        ;;
+        # cd*) if [[ -d "$HOME/.${1#cd}" ]]; then
+            # cd "$HOME/.${1#cd}"
+            # # On failure, falls through to the error message
+            # return 0
+        # fi
+        # ;;
     ffd*) find . -type d -iname "*${1#ffd}*"
         return 0
         ;;
-    g*) git${1#g}
+    g*) git ${1#g} "${@:2}"
         return 0
         ;;
-    esac
+esac
 
   # If nothing else works, just do what bash would have done
   printf "%s: command not found\n" "$1" >&2
@@ -750,7 +660,7 @@ fun_cd() {
         then
             clear
             # pwd
-            ls -lrtc
+            ls -lrtcA
         fi
     else
         clear
@@ -760,10 +670,10 @@ fun_cd() {
             echo -e "                                                     ."
             echo -e "                                                     ."
             # pwd
-            ls -lrtc | tail -n $count
+            ls -lrtcA | tail -n $count
         else
             # pwd
-            ls -ltrc
+            ls -ltrcA
         fi
     fi
 }

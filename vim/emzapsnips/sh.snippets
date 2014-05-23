@@ -104,24 +104,17 @@ endsnippet
 snippet src "Source command in .bashrc" !b
 source "/home/\$\{USER\}/$1"
 endsnippet
-snippet "func?t?" "Create Function" !br
-# $1 {{{
-start ${1} ()
-{
-${0}
+snippet fun "Create function" !b
+${1}() {
+
+${2:${VISUAL}}
+
 }
-# $1 }}}
 endsnippet
 # vim:ft=snippets:
 ###########################################################################
 # Emzap Snippets #
 ###########################################################################
-snippet fun "create new function" b
-${1:funct_name} ()#{{{
-{
-	${0}
-}#}}}
-endsnippet
 snippet cron "templ: cronjobs" !b
 # # Konfiguration
 prog="${1}"
