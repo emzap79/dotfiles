@@ -203,12 +203,15 @@ alias vv="echo "" > /tmp/foo.bar; vim -c startinsert /tmp/foo.bar"
 
 # alias egoek="evince $UNI/$SEM/GOEK/klausur.pdf $UNI/$SEM/GOEK/WS1314*.pdf $UNI/$SEM/GOEK/WS1112MikroII_Mitschrift.pdf $UNI/$SEM/GOEK/SS11MikroI_Mitschrift.pdf &"
 
+# compile and clean latex related files
+alias ltmk="latexmk -pvc"
+alias ltpdfl="pdflatex"
+alias ltcl="rm -f *.aux *.toc *.bbl *.idx *.ilg *.ind *.log *.toc *.blg *.out *.glg *.glo *.gls *.ist *.maf *.mtc *.gz *.backup *.lot *.lof *.fls"
+
 # latex symbols
 if [[ -e /home/${USER}/Dokumente ]]; then
     alias esymb="evince $DOK/LaTeX/docLatex_Sonderzeichen.pdf &"
 fi
-
-alias clntex="rm -f *.aux *.toc *.bbl *.idx *.ilg *.ind *.log *.toc *.blg *.out *.glg *.glo *.gls *.ist *.maf *.mtc *.gz *.backup *.lot *.lof *.fls"
 
 # latex # #}}}
 # pdf# {{{

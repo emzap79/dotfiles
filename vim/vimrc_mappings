@@ -1090,10 +1090,13 @@ nnoremap <silent> <esc> :nohl<cr>
 
 " compile and start latex viewer
 command!  LatexCompilePDF execute "silent !latexmk\ -pdf\ % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
+command!  RnwCompilePDF execute "silent !latexmk\ -pdf\ % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
 command!  TexCompilePDF execute "silent !pdftex % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
 command!  XeLatexCompilePDF execute "silent !xelatex\ % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
 
 " see: http://plankenau.com/blog/post-8/latexInVim
+nnoremap <leader>cr :RnwCompilePDF<CR>
+inoremap <localleader>ct <ESC>:RnwCompilePDF<CR>
 nnoremap <leader>ct :TexCompilePDF<CR>
 inoremap <localleader>ct <ESC>:TexCompilePDF<CR>
 vnoremap <leader>ct <ESC>:TexCompilePDF<CR>

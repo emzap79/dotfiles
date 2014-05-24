@@ -26,6 +26,12 @@ download.file("${1:${VISUAL:url to package}}", destfile = "${2:${1/.*\/(.*)$/(?1
 install.packages("$2", type = "source", repos = NULL)
 library("${3:${2/^(\w+)_.*$/(?1:$1)/ga}}")
 endsnippet
+snippet "upd|knitr" "Install and update package from repo" !br
+install.packages(c("digest", "evaluate", "formatR", "highlight", "knitr", "parser", "plyr", "Rcpp", "stringr"), repos = c('http://rforge.net', 'http://cran.rstudio.org'), type = 'source')
+update.packages(ask = FALSE, repos = $2)
+install.packages('${1:knitr}', repos = ${2:c('http://rforge.net', 'http://cran.rstudio.org')}, type = 'source')
+library("$1")
+endsnippet
 snippet "#!" "Hashbang for Rscript (#!)" br
 #!/usr/bin/env Rscript
 endsnippet
