@@ -552,6 +552,9 @@ command_not_found_handle() {
             # return 0
         # fi
         # ;;
+    fff*) find . -type f -iname "*${1#ffd}*"
+        return 0
+        ;;
     ffd*) find . -type d -iname "*${1#ffd}*"
         return 0
         ;;

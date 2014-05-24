@@ -155,17 +155,13 @@ let vimrplugin_objbr_place = "console,left"  " Valid values for the Object Brows
                                              " 'console' and 'right' or 'left' separated by a comma.
 
 " Object Browser"}}}
-" Set config for FileType R"{{{
+" Sweave & KnitR"{{{
 
-augroup RFiles
-    au!
-    au FileType r set isk+=.                 " make cursor stop at dots as well
-    " au FileType r setlocal expandtab
-    " au FileType r setlocal shiftwidth=4
-    " au FileType r setlocal tabstop=8
-augroup END
 
-" Set config for FileType R"}}}
+" In Rnoweb files, a '<' is replaced with '<<>>=\n@'. Set to 0 to disable this feature.
+let vimrplugin_rnowebchunk = 1
+
+" Sweave & KnitR"}}}
 
 " Vim-R-Plugin: needs to have VimCom installed!"}}}
 " Markdown"{{{

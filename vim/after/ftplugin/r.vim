@@ -61,7 +61,7 @@ set isk+=192-255"
 " some previous notes"}}}
 " Start & Close R"{{{
 
-" Menu entry                                Default shortcut~
+" Menu entry
 " Start/Close
 " . Start R (default)
 " . Start R --vanilla

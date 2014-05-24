@@ -547,9 +547,10 @@ aug END
 " http://www.r-bloggers.com/sweave-syntax-highlighting-in-vim/
 
 augroup filetypedetect
-  au! BufRead,BufNewFile *.r         setfiletype r
-  au! BufRead,BufNewFile *.R         setfiletype r
+  au! BufRead,BufNewFile *.r         setf r
+  au! BufRead,BufNewFile *.R         setf r
   au! BufRead,BufNewFile *.Rnw       setf noweb
+  au! BufRead,BufNewFile *.textmpl   setf textmpl
 augroup END
 
 " Filetypedetect"}}}
