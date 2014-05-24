@@ -41,9 +41,7 @@ Bundle 'matchit.zip'
 Bundle 'matze/vim-tex-fold'
 Bundle 'navicore/vis.vim'
 Bundle 'nelstrom/vim-markdown-folding'
-Bundle 'plasticboy/vim-markdown'
 Bundle 'scrooloose/syntastic'
-Bundle 'suan/vim-instant-markdown'
 Bundle 'terryma/vim-expand-region'
 Bundle 'tommcdo/vim-exchange'
 Bundle 'tpope/vim-fugitive'
@@ -60,6 +58,8 @@ Bundle 'wellle/targets.vim'
 Bundle 'Valloric/YouCompleteMe'
 
 " No more used repos
+" Bundle 'plasticboy/vim-markdown'
+" Bundle 'suan/vim-instant-markdown'
 " Bundle 'vim-scripts/VimExplorer'
 " Bundle 'Shougo/neocomplete.vim'
 " Bundle 'pivotal/tmux-config'
@@ -117,6 +117,12 @@ let vimrplugin_rconsole_width = 80           " The number of columns of R Consol
 let vimrplugin_allnames = 1                  " Show names which begin with a dot
 let vimrplugin_maxdeparse = 300
 
+" If you use Linux or other Unix and eventually use the system console (without
+" the X server) you may want to put in your vimrc:
+   if $DISPLAY != ""
+       let vimrplugin_openpdf = 1
+   endif
+
 " At startup"}}}
 " Comments + Folding"{{{
 
@@ -162,13 +168,17 @@ augroup END
 " Set config for FileType R"}}}
 
 " Vim-R-Plugin: needs to have VimCom installed!"}}}
+" Markdown"{{{
+
 " Vim-Markdown"{{{
 
-" Set to '1' to disable folding
-let g:vim_markdown_folding_disabled=1
+" Bundle 'plasticboy/vim-markdown'
+
+" Set to '0' to enable folding
+let g:vim_markdown_folding_disabled=0
 
 " Set Initial Foldlevel
-let g:vim_markdown_initial_foldlevel=1
+let g:vim_markdown_initial_foldlevel=3
 
 " Enable/Disable (0/1) Default Key Mappings
 let g:vim_markdown_no_default_key_mappings=0
@@ -181,13 +191,24 @@ let g:vim_markdown_no_default_key_mappings=0
 " ]c: go to Current header. <Plug>(Markdown_MoveToCurHeader)
 " ]u: go to parent header (Up). <Plug>(Markdown_MoveToParentHeader)
 
-""}}}
+" Vim-Markdown"}}}
+" Vim-Markdown-Folding"{{{
+
+" If set to 0, the fold text will not be overriden:>
+let g:markdown_fold_override_foldtext = 0
+
+" Available options are stacked/nested
+let g:markdown_fold_style = 'nested'
+
+" Vim-Markdown-Folding"}}}
 " Vim-Instant-Markdown"{{{
 
-let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 0
+" let g:instant_markdown_slow = 1
+" let g:instant_markdown_autostart = 0
 
-""}}}
+" Vim-Instant-Markdown"}}}
+
+" Markdown"}}}
 " TeX-Folding"{{{
 
 " Use these options to customize tex-fold:

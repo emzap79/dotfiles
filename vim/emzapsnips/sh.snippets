@@ -17,6 +17,7 @@ def getShell():
  return shell
  return "sh"
 endglobal
+
 ###########################################################################
 # TextMate Snippets #
 ###########################################################################
@@ -49,7 +50,9 @@ endsnippet
 snippet case "case .. esac (case)"
 case ${1:word} in
  ${2:pattern} )
- $0;;
+ ${3:${VISUAL}};;
+ ${4:${5:pattern} )
+$0;;}
 esac
 endsnippet
 snippet elif "elif .. (elif)"

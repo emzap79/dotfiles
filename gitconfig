@@ -169,8 +169,8 @@
 #  dig in history what went wrong
 	rl	= reflog						    # show changes of the HEAD pointer (including all indices)
 	l	= log --graph --oneline --decorate=short --all
-	lp	= log -p						    # ...<filename> shows diffs for file in question
-	lpf	= log -p --follow					    # ...<filename> shows diffs for file in question, including renames
+	lp	= log -p						    # ...shows diffs for file in question
+	lpf	= log -p --follow					    # ...id + <filename>, show renamings of file as well
 	ll	= log --graph --abbrev-commit --decorate=short --pretty=short
 	lll	= log --graph --abbrev-commit --decorate=short		    # --pretty=medium
 	lo	= log --graph --oneline --decorate=short --abbrev=7

@@ -675,6 +675,7 @@ inoremap <silent><localleader>md <ESC>:exe 'delm! \| delm A-Z0-9 \| echom "all m
 " NERDCommenter <plugin>"{{{
 
 nmap css <plug>NERDCommenterSexy
+nmap csi 2<plug>NERDCommenterInvert
 nmap cii <plug>NERDCommenterInvert
 nmap cu <plug>NERDCommenterUncomment
 nmap cy <plug>NERDCommenterYank

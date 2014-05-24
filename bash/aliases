@@ -75,6 +75,7 @@ alias mkcd=fun_mkcd     # mkdir -p $1 && cd $1
 alias cdmk=fun_mkcd
 
 # dotfiles
+alias cddp="cd $HOME/.devilspie"
 alias cdvim="cd $HOME/.vim"
 alias cdbash="cd $HOME/.bash"
 alias cdnewsb="cd $HOME/.newsbeuter"
@@ -115,7 +116,7 @@ alias cdpers="cd $DOK/PersDok"
 alias cdpeug="cd $DOK/Gebrauchtwagen"
 alias cdqrc="cd $DOK/Linux/QRCs"
 alias cdrechn="cd $DOK/Rechnungen"
-alias cdrez="cd $DOK/Rezepte"
+alias cdrez="cd $DOK/Rezepte/EigeneRezepte"
 alias cdsonst="cd $DOK/Sonstiges"
 alias cdvers="cd $DOK/Versicherungen"
 alias cdvg="cd $HOME/Dokumente/Linux/Vim/vimgolf"
@@ -198,7 +199,7 @@ alias vs="vim -S Session.vim"
 alias vv="echo "" > /tmp/foo.bar; vim -c startinsert /tmp/foo.bar"
 
 # }}}
-# evince # {{{
+# latex # #{{{
 
 # alias egoek="evince $UNI/$SEM/GOEK/klausur.pdf $UNI/$SEM/GOEK/WS1314*.pdf $UNI/$SEM/GOEK/WS1112MikroII_Mitschrift.pdf $UNI/$SEM/GOEK/SS11MikroI_Mitschrift.pdf &"
 
@@ -207,7 +208,9 @@ if [[ -e /home/${USER}/Dokumente ]]; then
     alias esymb="evince $DOK/LaTeX/docLatex_Sonderzeichen.pdf &"
 fi
 
-## }}}
+alias clntex="rm -f *.aux *.toc *.bbl *.idx *.ilg *.ind *.log *.toc *.blg *.out *.glg *.glo *.gls *.ist *.maf *.mtc *.gz *.backup *.lot *.lof *.fls"
+
+# latex # #}}}
 # pdf# {{{
 
 alias pdfbar="pdftk *.pdf cat output bar.pdf; evince bar.pdf; rm -v bar.pdf"
@@ -334,6 +337,7 @@ alias usync="/bin/bash $HOME/bin/cronSyncSsh"
 # few git aliases which are not getting called by 'fun_git'
 alias gst="g st"    # originally mapped to GNU Smalltalk
 alias gcl="g cl"
+alias gaa="g aa"
 # alias grema="g rema"
 
 

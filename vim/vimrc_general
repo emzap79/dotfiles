@@ -173,6 +173,7 @@ let ruby_fold=1                                " Ruby
 let sh_fold_enabled=1                          " sh
 let vimsyn_folding='af'                        " Vim script
 let xml_syntax_folding=1                       " XML
+let markdown_syntax_folding=1                  " Markdown
 
 " TeX
 " http://www.kph.tuwien.ac.at/bertle/tex_vim/README.txt
@@ -542,5 +543,20 @@ aug BWE
 aug END
 
 " BufWinEnter"}}}
+" Filetypedetect"{{{
+" http://www.r-bloggers.com/sweave-syntax-highlighting-in-vim/
 
+augroup filetypedetect
+  au! BufRead,BufNewFile *.r         setfiletype r
+  au! BufRead,BufNewFile *.R         setfiletype r
+  au! BufRead,BufNewFile *.Rnw       setf noweb
+augroup END
+
+" Filetypedetect"}}}
 " autogroups"}}}
+" autocmds"{{{
+
+" Markdown
+" au BufNewFile,BufReadPost *.markdown,*.mdown,*.mkd,*.mkdn,README.md  set ft=markdown
+
+" autocmds"}}}
