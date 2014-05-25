@@ -15,7 +15,7 @@ endglobal
 snippet ",,(\S+)?" "Insert Tex-command" !ir
 \\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`{${1}}{${2:${VISUAL}}}
 endsnippet
-snippet ",,,(\S+)?" "Insert Tex-command" !ir
+snippet ".,(\S+)?" "Insert Tex-command" !ir
 \\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`[${1}]{${2}}{${3:${VISUAL}}}
 endsnippet
 snippet "\.\.(\S+)?" "Insert Tex-command" !ir
@@ -105,8 +105,9 @@ snippet "abbre?v?" "env: abbreviations" !br
 	acro${0}
 \end{acronym}
 endsnippet
-snippet "acro?n?y?m?s?" "Define Acronym" rb
+snippet "acro(\w+)?" "Define Acronym" rb
 \acro{${1}}[${2:${1/(\w+)/(?1:\U$1\E)/g}}]{${3}}
+${6:\acrodefplural{$1}[$2$4]{$3$5}}
 endsnippet
 snippet "(\s|^)ac( (\S+))?" "Set Acronym" wr
  \ac{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
@@ -115,6 +116,9 @@ snippet "(\s|^)acl( (\S+))?" "Set Acronym" wr
 \acl{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
 endsnippet
 snippet "(\s|^)acs( (\S+))?" "Set Acronym" wr
+\acs{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
+endsnippet
+snippet "(\s|^)acp( (\S+))?" "Set Acronym" wr
 \acs{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
 endsnippet
 # .##.tabulars,.arrays,.boxes
@@ -241,4 +245,10 @@ endsnippet
 # .##.utilities
 snippet pac "Package" b
 \usepackage[${1:options}]{${2:package}}$0
+endsnippet
+snippet "(cmd(\S+)?)" "set cmd in QRCs" br!
+\\`!p snip.rv = match.group(1)`{${1:${VISUAL}}}	{$2}
+endsnippet
+snippet "emerg?e?n?c?y?s?t?t?r?" "emergencystretch" ir
+\\emergencystretch=$1em
 endsnippet

@@ -1,2 +1,11 @@
 # set editing-mode vi
 # set keymap vi
+
+# Backwardsearch through arrow keys
+# http://www.reddit.com/r/linux/comments/245jt9/ssh_kung_fu/ch479qo
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+set show-all-if-ambiguous on
+set completion-ignore-case on

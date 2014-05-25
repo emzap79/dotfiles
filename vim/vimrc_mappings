@@ -108,34 +108,13 @@ nnoremap <c-f4> :FufFile<cr>
 inoremap <c-f4> <esc>:FufFile<cr>
 
 " <f4>  " open file "}}}
-" <F5>  " enable plugins"{{{
+" <f5>  " open mru file "{{{
 
-" toggle YouCompleteMe
-nnoremap <F5> :call ToggleYCM()<CR>
-inoremap <F5> <ESC>:call ToggleYCM()<CR>
+"call fuzzyfinder for mru-files
+nnoremap <f5> :FufMruFile<cr>
+inoremap <f5> <esc>:FufMruFile<cr>
 
-" "Enable Neocomplete <Plugin>"{{{
-
-" nnoremap <S-F5> :NeoCompleteToggle<cr>
-" vnoremap <S-F5> <esc>:NeoCompleteToggle<cr>
-
-"nnoremap <F5> :NeoCompleteEnable<CR>
-"inoremap <F5> <ESC>:NeoCompleteEnable<CR>
-"vnoremap <F5> <ESC>:NeoCompleteEnable<CR>
-
-"}}}
-" note: disabled due to performance issues!
-"""""""""""""""""""""""""""""""""""""""""""
-" "call fuzzyfinder for mru-files
-" nnoremap <f5> :fufmrufile<cr>
-" inoremap <f5> <esc>:fufmrufile<cr>
-
-" " call most recent used commands
-" nnoremap <s-f5> :fufmrucmd<cr>
-" inoremap <s-f5> <esc>:fufmrucmd<cr>
-"""""""""""""""""""""""""""""""""""""""""""
-
-" <F5>  " enable plugins"}}}
+" <f5>  " open mru file "}}}
 " <f6>  " manage plugins through vundle "{{{
 
 "call bundlelist
@@ -269,19 +248,34 @@ vnoremap <s-m-f9> <ESC>:call AutoCorrect()<CR>
 inoremap <s-m-f9> <ESC>:call AutoCorrect()<CR>
 
 " <f9>  " language tools & spellcheck"}}}
-" <f10> " show vim-explorer/nerdtree"{{{
+" <f10>  " enable plugins"{{{
 
-"displaying vim-explorer
-nnoremap <silent> <f10> :VE %:p:h<cr> " to display vimexplorer
-inoremap <silent> <f10> :VE %:p:h<cr> " to display vimexplorer
-vnoremap <silent> <f10> :VE %:p:h<cr> " to display vimexplorer
+" toggle YouCompleteMe
+nnoremap <f10> :call ToggleYCM()<CR>
+inoremap <f10> <ESC>:call ToggleYCM()<CR>
 
-"displaying nerdtree
-nnoremap <silent> <s-f10> :NERDTree %:p:h<cr> " to display NERDTree
-inoremap <silent> <s-f10> :NERDTree %:p:h<cr> " to display NERDTree"
-vnoremap <silent> <s-f10> :NERDTree %:p:h<cr> " to display NERDTree"
+" "Enable Neocomplete <Plugin>"{{{
 
-" <f10> " show vim-explorer/nerdtree"}}}
+" nnoremap <S-f10> :NeoCompleteToggle<cr>
+" vnoremap <S-f10> <esc>:NeoCompleteToggle<cr>
+
+"nnoremap <f10> :NeoCompleteEnable<CR>
+"inoremap <f10> <ESC>:NeoCompleteEnable<CR>
+"vnoremap <f10> <ESC>:NeoCompleteEnable<CR>
+
+"}}}
+" note: disabled due to performance issues!
+"""""""""""""""""""""""""""""""""""""""""""
+" "call fuzzyfinder for mru-files
+" nnoremap <f10> :fufmrufile<cr>
+" inoremap <f10> <esc>:fufmrufile<cr>
+
+" " call most recent used commands
+" nnoremap <s-f10> :fufmrucmd<cr>
+" inoremap <s-f10> <esc>:fufmrucmd<cr>
+"""""""""""""""""""""""""""""""""""""""""""
+
+" <f10>  " enable plugins"}}}
 " <f11> " *** no functions yet***{{{
 
 "}}}
