@@ -1,5 +1,4 @@
-# set editing-mode vi
-# set keymap vi
+$include /etc/inputrc
 
 # Backwardsearch through arrow keys
 # http://www.reddit.com/r/linux/comments/245jt9/ssh_kung_fu/ch479qo
@@ -9,3 +8,9 @@
 "\e[D": backward-char
 set show-all-if-ambiguous on
 set completion-ignore-case on
+
+# Vim-Style Keybinds
+# set editing-mode vi
+# set keymap vi
+
+set bell-style none

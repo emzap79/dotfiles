@@ -91,7 +91,7 @@
 
 #  check current state locally
 									    # index status
-	st	= status
+	st	= !git status|less
 	sts	= status --short
 	stt	= status -uno						    # don't show untracked stuff
 	stst	= status -uno --short					    # don't show untracked stuff
@@ -100,7 +100,7 @@
 	lsd	= ls-tree -r -d --name-only				    # id., but only the named tree entry, no children
 	lst	= !git ls-tree HEAD --full-tree -r -t --name-only | less    # all
 	lstd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less # just dirs
-	lsta	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less  # mnemonic 'list full tree abbreviated'
+	lsta	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less  # mnemonic 'ls tree abbreviated'
 	lstad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less # id, folders only
 	lsf	= ls-files --stage					    # state of the files at each level
 

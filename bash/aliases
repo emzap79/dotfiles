@@ -214,14 +214,17 @@ if [[ -e /home/${USER}/Dokumente ]]; then
 fi
 
 # latex # #}}}
-# pdf# {{{
+# pdf# #{{{
 
 alias pdfbar="pdftk *.pdf cat output bar.pdf; evince bar.pdf; rm -v bar.pdf"
 alias pdfgrayscale="gs -sOutputFile=grayscale.pdf -sDEVICE=pdfwrite \
     -sCompatibilityLevel=1.5 -dProcessColorModel=/DeviceGray \
     -sColorConversionStrategy=Gray -dNOPAUSE -dBATCH"
+alias pdfgs="pdfgrayscale"
+alias pdfresize="/bin/bash $HOME/bin/pdfResize.sh"
+alias pdfsplit="/bin/bash $HOME/bin/pdfPagesToParts.sh"
 
-# }}}
+# pdf# #}}}
 # latex# #{{{
 
 alias mr="make r"
@@ -329,13 +332,13 @@ alias unlckkeyr="sudo /usr/bin/gnome-keyring-daemon --start --components=gpg,pkc
 # }}}
 # ssh, git, aptitude# {{{
 
-# ssh# {{{
+# ssh# #{{{
 
 alias uoek="rsync --progress -auve ssh --iconv=UTF-8,ISO8859-1 --exclude '^.' --exclude '*~' --delete $UNI/$SEM/CompOek/ sdjopeto@student.uni-due.de:public_html/CompOek"
 alias usync="/bin/bash $HOME/bin/cronSyncSsh"
 
-# }}}
-# git# {{{
+# ssh# #}}}
+# git# #{{{
 
 # few git aliases which are not getting called by 'fun_git'
 alias gst="g st"    # originally mapped to GNU Smalltalk
@@ -360,13 +363,13 @@ alias gitfastpush=fun_gitfastpush
 alias gitinfo=fun_gitinfo
 alias gitstats=fun_gitstats
 
-## }}}
-# curl # {{{
+# git# #}}}
+# curl # #{{{
 
 alias expandurl=fun_expandurl
 
-## }}}
-# aptitude# {{{
+# curl # #}}}
+# aptitude# #{{{
 
 alias inst="sudo apt-get install -y"
 alias agi='sudo apt-get install -y'
@@ -375,7 +378,7 @@ alias apt-get='sudo apt-get'
 alias yum='sudo yum'
 alias upgr="/bin/bash ~/bin/upgrSoftw.sh && /usr/bin/python ~/bin/upgrPipPackages.py"
 
-# }}}
+# aptitude# #}}}
 
 # ssh, git, aptitude# }}}
 # tmux #{{{
