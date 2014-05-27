@@ -93,7 +93,7 @@ snippet yesno "case: yes or no" !b
 read -p "${1} (Y|n)? " answer
 case "$answer" in
 Yes|yes|Y|y|"")
- echo "${2}
+ echo "${2:${VISUAL}}
  ;;
 No|no|N|n)
  echo "${3}

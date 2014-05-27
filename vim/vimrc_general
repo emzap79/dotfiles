@@ -297,6 +297,7 @@ set rtp+=$HOME/.vim/after
 " extra
 set rtp+=~/.vim/plugin/                " runtimepath: some extra plugins
 set rtp+=~/.vim/bundle/vundle/         " runtimepath: adding vundle to runtimepath
+
 set path=$PWD/**,$HOME/Unimaterialien  " path: sets current path variable for find command
 
 " runtimepath"}}}
@@ -397,7 +398,8 @@ set com+=b:-
 " iskeyword/-fname/-print"{{{
 
 " iskeyword: Keywords for recognizing beginning/end of word eg. in movements like w,e...
-set isk+=.
+set isk-=.  " add dots as end of word (isk-=.)
+
 set isk+="@
 set isk+=48-57
 set isk+=_

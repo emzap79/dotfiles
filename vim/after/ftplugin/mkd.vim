@@ -1,1 +1,0 @@
-bundle/vim-markdown/after/ftplugin/mkd.vim

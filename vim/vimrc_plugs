@@ -282,7 +282,7 @@ let g:showmarks_marks = "abcdefghijklmnopqrstuvwxyz"
 
 " Defines the space separated list of pair objects you wish to use, along with
 " optional one letter aliases for them.
-let g:targets_pairs = '()b {}B []r <>a'
+let g:targets_pairs = '()b {}B []r <>a ``t'
 
 " Default: let g:targets_quotes = '" '' `'
 " Defines the space separated list of quoting objects you wish to use. Note that
@@ -290,7 +290,7 @@ let g:targets_pairs = '()b {}B []r <>a'
 " optionally be followed by a single one letter alias. For example, to set 'd'
 " as an alias for double quotes, allowing such commands as 'cid' to be
 " equivalent to 'ci"', you could define:
-let g:targets_quotes = '"d '' `'
+let g:targets_quotes = '"d '' ``t'
 
 " Default: let g:targets_separators = ', . ; : + - ~ _ * / \ |'
 " Defines the space separated list of separator objects you wish to use. Like
@@ -300,7 +300,7 @@ let g:targets_quotes = '"d '' `'
 let g:targets_separators = ',c . ; : + - ~ _ * / \ |'
 "
 
-""}}}
+" Targets"}}}
 " VIM-Surround"{{{
 
 " When this replacement is used,  the user is prompted with an "environment: "

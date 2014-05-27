@@ -33,7 +33,7 @@
 	h	= help							    # (...<git command>)
 	ha	= !git help -a | less
 	hi	= help -i						    # ... yet to find out how to use the 'info' program
-	al	= "!gitrep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g' | less -R"
+	al	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g' | less -R"
 	grc	= config --get-regexp					    # search for custom regexpression
 
 #	=================================

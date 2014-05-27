@@ -350,7 +350,12 @@ pdftex,
 %% %% Subfloats & Captions %%{{{
 %% %%%%%%%%%%%%%%%%
 %% Sidecaptions [optional]
-\usepackage[outercaption]{sidecap} %%  innercap: on left side, ridecap: on the right
+\usepackage[<options>]{sidecap}
+%% outercaption (default): Caption appears left on left pages and right on right pages.
+%% innercaption: Caption appears right on left pages and left on right pages.
+%% leftcaption, rightcaption: Caption is always on the left or right, respectively.
+%% wide: The floating objects may extend into the margin area.
+%% raggedright: Better justification for small captions. The ragged2e package is used if available.
 \usepackage[%
        capbesideposition={top,outside},
        facing=yes,capbesidesep=quad,
@@ -580,12 +585,21 @@ pdftex,
 \newcommand{\cmdCiteAuth}[2][]{\citeauthor{#2}\ifthenelse{\isempty{#1}}{}{; #1}}
 \newcommand{\cmdCiteYear}[2][]{\citeyear{#2}\ifthenelse{\isempty{#1}}{}{; #1}}
 \newcommand{\cmdCiteTxt}[2][]{\citeauthor{#2} (\citeyear{#2}\ifthenelse{\isempty{#1}}{}{; #1})}
-\newcommand* \rootDir {`pwd`/}
-\newcommand* \srcDir {\rootDir sections/}
-\newcommand* \imgDir {\srcDir img/}
-\newcommand* \contDir {\srcDir cont/}
+
 %%}}}
+
 % commands %}}}
+
+%% define directories%{{{
+
+\newcommand* \rootDir {/home/zapata/Unimaterialien/Sommer2014/BAArbeit/vorlage/}
+\newcommand* \srcDir {\rootDir sections/}
+\newcommand* \bibDir {\srcDir bib/}
+\newcommand* \figDir {\srcDir fig/}
+\newcommand* \contDir {\srcDir cont/}
+
+%% define directories%}}}
+
 % preamble %}}}
 
 %% ****************
