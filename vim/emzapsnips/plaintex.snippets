@@ -100,6 +100,13 @@ ${2:${VISUAL:% includgraphic here!}}
 endsnippet
 # .##.acronyms
 snippet "abbre?v?" "env: abbreviations" !br
+% ac{...}: Gibt bei der ersten Verwendung die Langform mit der Abkürzung in
+% Klammern aus, ab dann stets die Kurzform.
+% acs{...}: Gibt die Abkürzung aus.
+% acf{...}: Gibt die Langform und die Kurzform aus.
+% acl{...}: Gibt nur die Langform ohne die Kurzform aus.
+% acp{...}: Gibt nur die Pluralform aus.
+
 \begin{acronym}[AAAA] % longest acronym as option for the acronym-environment
 \setlength{\itemsep}{-\parsep} % less line distance
 	acro${0}

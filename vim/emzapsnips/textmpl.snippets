@@ -580,8 +580,10 @@ pdftex,
 \newcommand{\cmdCiteAuth}[2][]{\citeauthor{#2}\ifthenelse{\isempty{#1}}{}{; #1}}
 \newcommand{\cmdCiteYear}[2][]{\citeyear{#2}\ifthenelse{\isempty{#1}}{}{; #1}}
 \newcommand{\cmdCiteTxt}[2][]{\citeauthor{#2} (\citeyear{#2}\ifthenelse{\isempty{#1}}{}{; #1})}
-\newcommand* \srcDir {`pwd`}
-\newcommand* \currDir {\srcDir sections/}
+\newcommand* \rootDir {`pwd`/}
+\newcommand* \srcDir {\rootDir sections/}
+\newcommand* \imgDir {\srcDir img/}
+\newcommand* \contDir {\srcDir cont/}
 %%}}}
 % commands %}}}
 % preamble %}}}

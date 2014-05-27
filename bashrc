@@ -27,11 +27,28 @@ export USB="/media/zapata/ES02224159"
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-export HISTCONTROL="ignoreboth"
+export HISTCONTROL="ignoreboth:ignoredups:erasedups"
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTSIZE=1000
-export HISTFILESIZE=2000
+# Preserve bash history in multiple terminal windows
+# http://unix.stackexchange.com/a/48116
+HISTSIZE=9000
+HISTFILESIZE=$HISTSIZE
+
+history() {
+  _bash_history_sync
+  builtin history "$@"
+}
+
+_bash_history_sync() {
+  builtin history -a         #1
+  HISTFILESIZE=$HISTSIZE     #2
+  builtin history -c         #3
+  builtin history -r         #4
+}
+
+PROMPT_COMMAND=_bash_history_sync
+
+# Commands to ignore in history prompt
 export HISTIGNORE="history:\
     cd:\
     cd\ \-:\

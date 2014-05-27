@@ -18,5 +18,4 @@ find any issues I'd be happy you get in contact at :octocat:
 
 # Author
 
-<emzap79 [at] gmail [dot] com>
-
+< emzap79 [at] gmail [dot] com >

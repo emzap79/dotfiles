@@ -54,8 +54,10 @@ alias dus=fun_dus
 # find # {{{
 
 alias ff=fun_ff
-alias fff="find . -type f -iname"
-alias ffd="find . -type d -iname"
+alias fff="find . -type f"
+alias ffd="find . -type d"
+alias fffs="find . -type f|sort"
+alias ffds="find . -type d|sort"
 alias ffg="find . -type f -exec egrep -iH"
 
 # aliases related to music
@@ -72,16 +74,25 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias mkcd=fun_mkcd     # mkdir -p $1 && cd $1
-alias cdmk=fun_mkcd
+alias mkcp=fun_mkcp
 
 # dotfiles
 alias cddp="cd $HOME/.devilspie"
 alias cdvim="cd $HOME/.vim"
 alias cdbash="cd $HOME/.bash"
-alias cdnewsb="cd $HOME/.newsbeuter"
+alias cdnb="cd $HOME/.newsbeuter"
+alias cdpg="cd $HOME/.podget"
 alias cdmutt="cd $HOME/.mutt"
 alias cdcmus="cd $HOME/.cmus"
+alias cdlog="cd $HOME/.logfiles"
 alias cdgc="cd $HOME/.gitclones"
+
+# folders related to uni
+alias cdba="cd $UNI/$SEM/BAArbeit"
+alias cdr="cd $UNI/$SEM/R"
+alias cdsem="cd $UNI/$SEM"
+alias cdblb="cd $UNI/$SEM/Bloomberg"
+alias cdklr="cd $UNI/$SEM/KLR"
 
 # permanent folders
 alias cdatt="cd $HOME/tmp/attachments"
@@ -97,12 +108,6 @@ alias cdtmp="cd $HOME/tmp"
 alias cduni="cd $UNI"
 alias cdxime="cd $HOME/Xime"
 alias cdbin="cd $HOME/bin"
-
-# folders related to uni
-alias cdr="cd $UNI/$SEM/R"
-alias cdsem="cd $UNI/$SEM"
-alias cdblb="cd $UNI/$SEM/Bloomberg"
-alias cdklr="cd $UNI/$SEM/KLR"
 
 # temporary mounted folders
 alias cdquito="cd ~/.gvfs/smb-share\:server\=quito-pc\,share\=users/Xime"
@@ -133,8 +138,8 @@ alias cdwdp="cd /media/zapata/WDP"
 
 alias c='clear'
 alias h='history 100'
-alias his="history"
-#alias hg="history|grep"
+alias hs="history"
+alias hsg="history|grep -i"
 
 # }}}
 # sed # {{{
@@ -165,7 +170,7 @@ alias ud="sudo updatedb"
 alias xc='xclip -selection c'
 alias xv='xclip -selection o'
 alias pwdc="pwd | xclip; source ~/.bashrc"
-# alias pwdp=`xclip -o`     # Error: target STRING not available
+alias pwdp=`xclip -o`     # Error: target STRING not available
 
 # }}}
 # vim# {{{
@@ -362,6 +367,7 @@ alias gitcommitall=fun_gitcommitall
 alias gitfastpush=fun_gitfastpush
 alias gitinfo=fun_gitinfo
 alias gitstats=fun_gitstats
+alias gbt=fun_git_set_tracking_information
 
 # git# #}}}
 # curl # #{{{
@@ -514,6 +520,10 @@ fun_gitfastpush(){
     git p
 }
 
+fun_git_set_tracking_information() {
+    git branch --set-upstream-to=origin/$1 $1
+}
+
 # git commit/push/remote#}}}
 # clean tempfiles/swapfiles#{{{
 
@@ -549,22 +559,19 @@ fun_ignore() {
 # http://superuser.com/a/756845/322005
 command_not_found_handle() {
     case $1 in
-        # cd*) if [[ -d "$HOME/.${1#cd}" ]]; then
-            # cd "$HOME/.${1#cd}"
-            # # On failure, falls through to the error message
-            # return 0
-        # fi
-        # ;;
-    fff*) find . -type f -iname "*${1#ffd}*"
-        return 0
-        ;;
-    ffd*) find . -type d -iname "*${1#ffd}*"
-        return 0
-        ;;
-    g*) git ${1#g} "${@:2}"
-        return 0
-        ;;
-esac
+        ff*) find . -type f -iname "*${1#ffd}*"
+            return 0
+            ;;
+        fd*) find . -type d -iname "*${1#ffd}*"
+            return 0
+            ;;
+        g*) git ${1#g} "${@:2}"
+            return 0
+            ;;
+        pd2*) pandoc "$2" -o "${2%%.*}"."${1#pd2}"
+            return 0
+            ;;
+    esac
 
   # If nothing else works, just do what bash would have done
   printf "%s: command not found\n" "$1" >&2
@@ -596,6 +603,18 @@ fun_mkcd(){
 }
 
 # mkdir - create dir and changedir to it#}}}
+# mkcp - create dir and insert copied files#{{{
+# http://stackoverflow.com/questions/1215538/bash-extract-parameters-before-last-parameter-in#comment8487178_1215592
+
+fun_mkcp(){
+
+    # start with creating new directory
+    mkdir -p "${!#}"
+    # now copy all arguments but pathname (last arg) to new created dir
+    cp -v "${@:1:$(($#-1))}" "${!#}"
+}
+
+# mkcp - create dir and insert copied files#}}}
 # ifconfig - print ip address#{{{
 
 fun_ips() {

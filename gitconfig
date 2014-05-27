@@ -33,7 +33,7 @@
 	h	= help							    # (...<git command>)
 	ha	= !git help -a | less
 	hi	= help -i						    # ... yet to find out how to use the 'info' program
-	al	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g' | less -R"
+	al	= "!gitrep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g' | less -R"
 	grc	= config --get-regexp					    # search for custom regexpression
 
 #	=================================
@@ -125,6 +125,7 @@
 	b	= branch						    # (...<branch name>), without argument show existing ones
 	ba	= branch -a						    # shows all local and remote branches
 	bd	= branch -D						    # ...<branch name>
+	bt	= "git branch --set-upstream=origin/"			    # ...origin/<branch name> master -- set remote-track to master
 	co	= checkout						    # ...
 	cob	= checkout -b						    # ...<branch name> create + checkout branch
 
@@ -132,7 +133,6 @@
 	m	= merge --no-ff						    # ...<branch name>
 	rb	= rebase						    # ...<branch name>
 	rbi	= rebase -i --autosquash
-	rbip	= !git rebase -i --autosquash && git push origin	    # first rebasem, than push changes
 	rbc	= rebase --continue
 	rbs	= rebase --skip
 	rba	= rebase --abort
@@ -144,6 +144,7 @@
 	f	= fetch
 	p	= pull
 	pp	= push origin						    # push origin <branch>
+	ppp	= !git rebase -i --autosquash && git push origin	    # first rebase -i, than push changes
 	ppu	= push -u origin					    # push and add upstream reference <branch>
 	ppf	= push origin -f					    # overwrite external changes to remote (use with care!!)
 	pup	= !git p && git pp					    # pull and push, not nice but sometimes convenient
@@ -156,7 +157,7 @@
 	rema	= remote add						    # ... <label for remote> <URL to remote>
 	remrm	= remote rm						    # ... <label of remote to be deleted>
 	remr	= remote rename						    # ... <label of remote to be renamed> <label of new remote>
-	remp	= remote update --prune 				    # remove all local branches which are not in the remote anymore
+	remp	= remote update --prune					    # remove all local branches which are not in the remote anymore
 
 #  use svn if you have to
 	sco	= svn clone						    # ...<svn repository url>

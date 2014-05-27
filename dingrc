@@ -24,7 +24,7 @@ set param(tfont) {fixed 14 normal}
 set param(ifont) {helvetica 12 "" italic}
 set param(maxhistory) {50}
 set param(width) {750}
-set param(height) {343}
+set param(height) {341}
 set param(search_prop) {2}
 set param(win_prop) {2}
 set opts(word) {0}
