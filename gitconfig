@@ -13,6 +13,7 @@
 	status = auto
 	branch = auto
 [core]
+	abbrev = 4
 	editor = vim
 	excludesfile = /home/zapata/.gitignore
 [merge]
@@ -24,6 +25,37 @@
 [rebase]
 	autosquash = true
 [alias]
+
+#	=================================
+#	=	    show history	=
+#	=================================
+#  dig in history what went wrong
+	rl	= reflog						    # show changes of the HEAD pointer (including all indices)
+	l	= log --graph --oneline --decorate=short --all
+	lp	= log -p						    # ...shows diffs for file in question
+	lpf	= log -p --follow					    # ...id + <filename>, show renamings of file as well
+	ll	= log --graph --abbrev-commit --decorate=short --pretty=short
+	lll	= log --graph --abbrev-commit --decorate=short		    # --pretty=medium
+	lo	= log --graph --oneline --decorate=short --abbrev=7
+	llo	= log --graph --abbrev=7 --decorate=short --pretty=short
+	lllo	= log --graph --abbrev=7 --decorate=short		    # --pretty=medium
+	lstat	= log --stat						    # show log with added/droped files
+
+#  check current state locally
+									    # index status
+	st	= !git status|less
+	sts	= status --short
+	stt	= status -uno						    # don't show untracked stuff
+	stst	= status -uno --short					    # don't show untracked stuff
+									    # currently versioned files at HEAD
+	ls	= ls-tree -r --name-only				    # ... revision
+	lsd	= ls-tree -r -d --name-only				    # id., but only the named tree entry, no children
+	lst	= !git ls-tree HEAD --full-tree -r -t --name-only | less    # all
+	lstd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less # just dirs
+	lsta	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less  # mnemonic 'ls tree abbreviated'
+	lstad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less # id, folders only
+	lsf	= !git ls-files --abbrev=4 --stage | less		    # show levels of staged files only
+
 
 # 'git h' for help, 'git la' to list aliases
 # http://stackoverflow.com/a/11613251
@@ -58,7 +90,9 @@
 	fcam	= commit --amend -C HEAD				    # update last commit, and use same commit message
 									    # undo
 	rs	= reset HEAD						    # ...<filename> --- take a single added file off the index again
-	rshh	= reset --hard HEAD					    # undos all changes in working copy, cannot be reverted
+	rsh	= reset --hard						    # <HEAD> undos all changes in working copy, cannot be reverted
+	rsm	= reset --mixed						    # <HEAD> moves HEAD pointer + staged changes to <HEAD>
+	rss	= reset --soft 						    # <HEAD> moves HEAD pointer only to <HEAD>
 
 #  name stuff properly
 									    # tag
@@ -81,6 +115,7 @@
 									    # check current local changes you have made
 	d	= diff HEAD						    # (...<filename>) diff staged + unstaged against HEAD
 	ds	= diff --staged						    # diff staged against HEAD
+	dsn	= diff --cached --name-only				    # show recently staged files (name-only)
 	du	= diff							    # diff unstaged against HEAD
 	dt	= difftool
 									    # check current changes residing in origin/master (= main repository)
@@ -88,21 +123,6 @@
 	dh	= diff ..origin/master					    # all changes, including non-commited ones
 	dhc	= diff HEAD..origin/master				    # against head, includes just local commits
 	dhp	= diff HEAD...origin/master				    # pure against head, excludes all local changes and commmits
-
-#  check current state locally
-									    # index status
-	st	= !git status|less
-	sts	= status --short
-	stt	= status -uno						    # don't show untracked stuff
-	stst	= status -uno --short					    # don't show untracked stuff
-									    # currently versioned files at HEAD
-	ls	= ls-tree -r --name-only				    # ... revision
-	lsd	= ls-tree -r -d --name-only				    # id., but only the named tree entry, no children
-	lst	= !git ls-tree HEAD --full-tree -r -t --name-only | less    # all
-	lstd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less # just dirs
-	lsta	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less  # mnemonic 'ls tree abbreviated'
-	lstad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less # id, folders only
-	lsf	= ls-files --stage					    # state of the files at each level
 
 #	=================================
 #	=	stashes & branches	=
@@ -143,8 +163,8 @@
 #  interact with the rest of the world
 	f	= fetch
 	p	= pull
-	pp	= push origin						    # push origin <branch>
-	ppp	= !git rebase -i --autosquash && git push origin	    # first rebase -i, than push changes
+	pp	= !git rebase -i --autosquash && git push origin	    # first rebase -i, than push changes
+	ppp	= push origin						    # push origin <branch>
 	ppu	= push -u origin					    # push and add upstream reference <branch>
 	ppf	= push origin -f					    # overwrite external changes to remote (use with care!!)
 	pup	= !git p && git pp					    # pull and push, not nice but sometimes convenient
@@ -163,24 +183,6 @@
 	sco	= svn clone						    # ...<svn repository url>
 	sci	= svn dcommit						    # push locally committed changes to svn
 	sup	= svn rebase						    # = svn update
-
-#	=================================
-#	=	    show history	=
-#	=================================
-#  dig in history what went wrong
-	rl	= reflog						    # show changes of the HEAD pointer (including all indices)
-	l	= log --graph --oneline --decorate=short --all
-	lp	= log -p						    # ...shows diffs for file in question
-	lpf	= log -p --follow					    # ...id + <filename>, show renamings of file as well
-	ll	= log --graph --abbrev-commit --decorate=short --pretty=short
-	lll	= log --graph --abbrev-commit --decorate=short		    # --pretty=medium
-	lo	= log --graph --oneline --decorate=short --abbrev=7
-	llo	= log --graph --abbrev=7 --decorate=short --pretty=short
-	lllo	= log --graph --abbrev=7 --decorate=short		    # --pretty=medium
-	lstat	= log --stat						    # show log with added/droped files
-
-[core]
-	abbrev = 4
 
 									    # FIXME: and god told, the day will come, when this mess below will be fixed properly! and so it shall be...
 
