@@ -63,6 +63,8 @@ export HISTIGNORE="history:\
     muttt:\
     vima:\
     vimb:\
+    hs:\
+    v:\
     vv"
 
 # histcontrol#}}}
@@ -109,15 +111,15 @@ export LESS_TERMCAP_ue=$'\E[0m'                       # end underline
 # shut down every tmux session quickly from the same terminal at logout.
 # https://wiki.archlinux.org/index.php/tmux#Start_tmux_on_every_shell_login
 
-# # TMUX
-# if which tmux 2>&1 >/dev/null; then
-    # # if no session is started, start a new session
-    # test -z ${TMUX} && tmux
-    # # when quitting tmux, try to attach
-    # while test -z ${TMUX}; do
-        # tmux attach || break
-    # done
-# fi
+# TMUX
+if which tmux 2>&1 >/dev/null; then
+    # if no session is started, start a new session
+    test -z ${TMUX} && tmux
+    # when quitting tmux, try to attach
+    while test -z ${TMUX}; do
+        tmux attach || break
+    done
+fi
 
 # start tmux#}}}
 
@@ -168,7 +170,13 @@ source "/home/${USER}/.bash/git-sh-prompt"
 # This will limit the path to 30 characters.
 # http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html#comment-143559
 PROMPT_COMMAND='if [ ${#PWD} -gt 30 ]; then myPWD=${PWD:0:8}...${PWD:${#PWD}-19}; else myPWD=$PWD; fi'
-[ -n $TMUX ] && myTMUX=" $TMUX_PANE "
+
+# show # of tmux-pane in bashprompt
+# http://superuser.com/a/385890/322005
+tmux_winidx() {
+    local winidx=$(tmux display-message -p '#{pane_id}')
+    [ -n $TMUX ] && echo " $winidx "
+}
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 # we add an additional *git* variable to show status of branches $(__git_ps1)
@@ -182,9 +190,9 @@ case "$TERM" in
     xterm*|rxvt*)
         PS1='\[\e[31;1m\]['
         PS1+='\[\e[32;1m\]\u'
-        PS1+='\[\e[33;1m\]@'
-        PS1+='\[\e[35;1m\]$(__git_ps1 " [%s]")'
-        PS1+='\[\e[36;1m\]$(echo "$myTMUX")'
+        PS1+='\[\e[32;1m\]@'
+        PS1+='\[\e[36;1m\]$(tmux_winidx)'
+        PS1+='\[\e[35;1m\]$(__git_ps1 "[%s] ")'
         PS1+='\[\e[32;1m\]$myPWD'
         PS1+='\[\e[31;1m\]]'
         PS1+='\[\e[36;1m\]\$ '

@@ -54,7 +54,6 @@ set cul                                        " cursorline: show me where i am
 set sc                                         " showcmd: show typed command in status bar
 set sm                                         " showmatch: Show matching braces, somewhat annoying...
 set smd                                        " showmode: show mode in status bar (insert/replace/...)
-set ls=2                                       " laststatus: use 2 lines for the status bar
 set mps+=<:>                                   " matchpairs: specially for html
 set mat=2                                      " matchtime: show matching bracket for 0.2 seconds
 set nu                                         " number: show line numbers
@@ -64,13 +63,13 @@ set title                                      " title: show title in console ti
 set t_ut=                                      " fix tmux color issues
 set cwh=3                                      " cmdwinheight
 set ch=3                                       " cmdheight: Number of screen lines to use for the
-                                               " command-line. surpress errormessage when
-                                               " working with buffers
+                                            " command-line. surpress errormessage when
+                                            " working with buffers
 set wmh=0                                      " winminheight: windows minimum height (values 0-3)
 set wmw=1                                      " winminwidth: windows minimum width in columns (val 0-12)
 au VimEnter * set wh=30                        " winheight: Minimal number of lines for the current window.
-                                               " This is not a hard minimum, Vim will use fewer
-                                               " lines if there is not enough room. I
+                                            " This is not a hard minimum, Vim will use fewer
+                                            " lines if there is not enough room. I
 au VimEnter * set wiw=55                       " winwidth: Minimal number of columns for the current window.
 
 " rulerline
@@ -79,9 +78,9 @@ set ruf=%25(%n%m%r:\ %Y\ [%l,%v]\ %p%%%)       " rulerformat
 
 " statusline
 set ls=2                                       " last window will have a status line, options:
-                                               " 0 - never,
-                                               " 1 - only if there are at least two windows,
-                                               " 2 - always
+                                            " 0 - never,
+                                            " 1 - only if there are at least two windows,
+                                            " 2 - always
 
 " listchars: vim can highlight whitespaces for you in a convenient way
 exec "set lcs=tab:\uBB\uBB,trail:\uB7,nbsp:~"
@@ -92,9 +91,8 @@ exec "set lcs=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set ek                           " esckeys: map missed escape sequences (enables keypad keys)
 set t_Co=257
 set enc=utf-8                    " encoding: 8-bit (latin1, iso-8859), 2-bit or unicode (utf-8)
-set ls=2                         " laststatus: always show status line
 set nf=octal,hex                 " nrformats: defines characters to increase by CTRL+A.
-                                 " options: octal,hex,alpha
+                                " options: octal,hex,alpha
 set cf                           " confirm: get a dialog when :q, :w, or :wq fails
 set lz                           " lazyredraw: screen will only redraw once the macro has completed (speed up macros)
 set nopaste                      " paste: this is needed for use of abbreviations to be off
@@ -107,17 +105,17 @@ set mls=3                        " modelines: number lines checked for modelines
 set nosol                        " startofline: jump to first character when paging
 set ofu=syntaxcomplete#Complete  " omnifunc: completion http://vim.wikia.com/wiki/Omni_completion
 set swb+=useopen,usetab          " switchbuf: This option controls the behavior when switching between buffers.
-                                 " options are - useopen, usetab, split, newtab
+                                " options are - useopen, usetab, split, newtab
 set noaw                         " autowrite: auto saves changes when quitting and swiching buffer
 set noar                         " autoread: Set to auto read when a file is changed from the outside
 set sm                           " showmatch: Show matching braces, somewhat annoying...
 set ul=1000                      " undolevels: number of undos
 set hi=2000                      " history: remember last 2000 typed commands
 set hid                          " hidden: It hides
-                                 " buffers instead of closing them. This means that you can have unwritten
-                                 " changes to a file and open a new file using :e, without being forced to
-                                 " write or undo your changes first. Also, undo buffers and marks are
-                                 " preserved while the buffer is open.
+                                " buffers instead of closing them. This means that you can have unwritten
+                                " changes to a file and open a new file using :e, without being forced to
+                                " write or undo your changes first. Also, undo buffers and marks are
+                                " preserved while the buffer is open.
 set nobk                         " backup: backup~ files.
 set bkc=auto                     " When writing a file and a backup is made, this option tells how it's done.
 
@@ -129,7 +127,7 @@ set hls                                        " hlsearch: When there is a previ
 set is                                         " incsearch: While typing a search command, show results immediately
 set ic
 set sc                                         " smartcase: Override the 'ignorecase' option if the search
-                                               " pattern contains upper case characters.
+                                            " pattern contains upper case characters.
 set ws                                         " wrapscan: end of search has been achieved!
 
 " search"}}}
@@ -138,14 +136,14 @@ set ws                                         " wrapscan: end of search has bee
 " fold settings
 set fen                                        " fen: enable folding
 set fdl=1                                      " foldlevel: Folds with a higher level will be closed.
-                                               " Setting this option to zero will close all folds. Higher numbers will
-                                               " close fewer folds.
+                                            " Setting this option to zero will close all folds. Higher numbers will
+                                            " close fewer folds.
 set fdls=0                                     " foldlevelstart: Sets 'foldlevel' when starting to edit another buffer in a window.
-                                               " Useful to always start editing with all folds closed (value zero),
-                                               " some folds closed (one) or no folds closed (99).
+                                            " Useful to always start editing with all folds closed (value zero),
+                                            " some folds closed (one) or no folds closed (99).
 set fcl=all                                    " foldclose: When set to "all", a fold is closed when the cursor isn't in it and
-                                               " its level is higher than 'foldlevel'. Useful if you want folds to
-                                               " automatically close when moving out of them.
+                                            " its level is higher than 'foldlevel'. Useful if you want folds to
+                                            " automatically close when moving out of them.
 set fdc=4                                      " foldcolumn: sets rows to show fold information
 set fdn=2                                      " foldnestmax: Sets the maximum nesting of folds for the "indent" and "syntax" methods (with max = 20)
 " set fdm=marker                                 " foldmethod: manual, indent, expr, marker, syntax or diff
@@ -156,9 +154,9 @@ set fdt=MyFoldText()
 " func_myfoldtext"{{{
 
 fun! MyFoldText()
-    let line = getline(v:foldstart)
-    let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
-    return v:folddashes . sub
+let line = getline(v:foldstart)
+let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
+return v:folddashes . sub
 endfunction "}}}
 
 " func_myfoldtext"}}}
@@ -190,7 +188,7 @@ set et                                         " expandtab: tabs are converted t
 set sr                                         " shiftround: use multiple of shiftwidth when indenting with '<' and '>'
 set ci                                         " copyindent: copy the previous indentation on autoindenting
 set si                                         " smartindent: turn on smart indenting. Availabile
-                                               " options: smart-/auto-/cindent
+                                            " options: smart-/auto-/cindent
 
 set sw=4                                       " shiftwidth: number of spaces to use for autoindenting
 set sts=4                                      " softtabstop: make the four spaces feel like a tab
@@ -229,7 +227,7 @@ set tsr+=~/.vim/thesaurus/thes_eng.txt         " thesaurus: using thesaurus by C
 setlocal keywordprg=trs\ {en=@en+de}           " googletranslate word under cursor - english
 setlocal keywordprg=trs\ {es=@es+de}           " googletranslate word under cursor - español
 set nolisp                                     " nolisp: When <Enter> is typed in insert mode set the indent for the next line to Lisp
-                                               " standards (default: off)
+                                            " standards (default: off)
 set nospell                                    " spell: set spell spelllang=de,en
 
 " dictionary & thesaurus"}}}
@@ -318,7 +316,7 @@ set ffs+=mac
 " first match highlighted (overwriting the status line, if there is one).
 set wmnu      " wildmenu: completion with menu
 set wc=<Tab>  " wildchar: Character you have to type to start wildcard
-              " expansion in the command-line, as specified with 'wildmode'.
+            " expansion in the command-line, as specified with 'wildmode'.
 
 " wildignore: patterns are ignored when expanding, completing file or
 " directory names
@@ -475,7 +473,7 @@ set fdo+=mark      " jumping to a mark: "'m", CTRL-O, etc.
 set fdo+=percent   " "%"
 set fdo+=quickfix  " ":cn", ":crew", ":make", etc.
 set fdo+=search    " search for a pattern: "/", "n", "*", "gd", etc. (not for
-                   " a search pattern in a ":" command) Also for |[s| and |]s|.
+                " a search pattern in a ":" command) Also for |[s| and |]s|.
 set fdo+=tag       " jumping to a tag: ":ta", CTRL-T, etc.
 set fdo+=undo      " undo or redo: "u" and CTRL-R
 " set fdo=all      " any
@@ -483,18 +481,23 @@ set fdo+=undo      " undo or redo: "u" and CTRL-R
 " foldopen"}}}
 " statusline"{{{
 
-" " number of current buffer
-set stl=%n:
-" " filename and -type
-set stl+=[%f],[%{&fileencoding},%{&fileformat}]%<
-" " options
-set stl+=%m%r%h%w
-" " formatoptions
-set stl+=,[%{&fo}]
-" " editorname
-set stl+=,%y
+" laststatus: always show status line
+set ls=2
+
+" number of current buffer
+set stl=%02n\|
+" filename
+set stl+=%t\|
+" formatoptions
+set stl+=\|%{&fo}\|
+" filetype
+set stl+=\|%{strlen(&ft)?&ft:'none'}\|
+
+" filencoding, fileformat
+" http://stackoverflow.com/a/5375338/3569509
+set stl+=%=%({%{&ff}\|%{(&fenc==\"\"?&enc:&fenc)}%k\|%Y}%)
 " " current positon in file
-set stl+=%=%-10.(%<\%l,%v%)\ %p%%
+set stl+=\ %(\|%l,%v\|\|%p%%\|\ %)
 
 " statusline"}}}
 
@@ -510,38 +513,38 @@ set stl+=%=%-10.(%<\%l,%v%)\ %p%%
 " VimEnter"{{{
 
 aug VE
-    au!
+au!
 aug END
 
 " VimEnter"}}}
 " InsertEnter"{{{
 
 aug IE
-    au!
-    " change delay-time depending on mode
-    " http://www.reddit.com/r/vim/comments/2362q1/let_mapleader_now_how_do_i_get_rid_of_that_delay/
-    au InsertEnter * set timeoutlen=10
-    au InsertLeave * set timeoutlen=1000
+au!
+" change delay-time depending on mode
+" http://www.reddit.com/r/vim/comments/2362q1/let_mapleader_now_how_do_i_get_rid_of_that_delay/
+au InsertEnter * set timeoutlen=10
+au InsertLeave * set timeoutlen=1000
 aug END
 
 " InsertEnter"}}}
 " BufWritePre"{{{
 
 aug BWP
-    au!
-    " automatically remove trailing whitespace
-    au BufWritePre * :%s/\s\+$//e
+au!
+" automatically remove trailing whitespace
+au BufWritePre * :%s/\s\+$//e
 aug END
 
 " BufWritePre"}}}
 " BufWinEnter"{{{
 
 aug BWE
-    au!
-    " restores the cursor position and its au so that it gets triggered
-    au BufWinEnter * call ResCur()
-    " show all marks for [count] movements when entering buffer
-    au BufWinEnter * :15ShowMarksOnce
+au!
+" restores the cursor position and its au so that it gets triggered
+au BufWinEnter * call ResCur()
+" show all marks for [count] movements when entering buffer
+au BufWinEnter * :15ShowMarksOnce
 aug END
 
 " BufWinEnter"}}}
@@ -549,10 +552,10 @@ aug END
 " http://www.r-bloggers.com/sweave-syntax-highlighting-in-vim/
 
 augroup filetypedetect
-  au! BufRead,BufNewFile *.r         setf r
-  au! BufRead,BufNewFile *.R         setf r
-  au! BufRead,BufNewFile *.Rnw       setf noweb
-  au! BufRead,BufNewFile *.textmpl   setf textmpl
+au! BufRead,BufNewFile *.r         setf r
+au! BufRead,BufNewFile *.R         setf r
+au! BufRead,BufNewFile *.Rnw       setf noweb
+au! BufRead,BufNewFile *.textmpl   setf textmpl
 augroup END
 
 " Filetypedetect"}}}

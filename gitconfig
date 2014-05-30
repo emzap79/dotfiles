@@ -78,7 +78,7 @@
 	ai	= add -i
 									    # unchoose
 	r	= rm -rf						    # ...<filename> unversion and delete
-	rc	= rm -r --cached					    # ...<filename> unversion, but leave in working copy
+	rc	= rm -r --staged					    # ...<filename> unversion, but leave in working copy
 									    # do
 	c	= commit -m						    # ...commitmessage.
 	cf	= commit -m fixup!					    # ...commit changes and discard message later
@@ -115,8 +115,7 @@
 									    # check current local changes you have made
 	d	= diff HEAD						    # (...<filename>) diff staged + unstaged against HEAD
 	ds	= diff --staged						    # diff staged against HEAD
-	dsn	= diff --cached --name-only				    # show recently staged files (name-only)
-	du	= diff							    # diff unstaged against HEAD
+	dsn	= diff --staged --name-only				    # show recently staged files (name-only)
 	dt	= difftool
 									    # check current changes residing in origin/master (= main repository)
 									    # local changes are shown in red!!!

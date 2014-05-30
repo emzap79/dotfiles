@@ -1,3 +1,4 @@
-[2014-05-30 00:16:29] Fehler beim Abholen von http://fussballblog.espace.ch/atom/: nicht unterstütztes Feed-Format
-[2014-05-30 00:16:31] Fehler beim Abholen von http://www.nba.com/mavericks/rss.xml: nicht unterstütztes Feed-Format
-[2014-05-30 00:16:33] Fehler beim Abholen von http://www.dallasbasketball.com/rss/MainRss.xml: HTTP response code said error
+[2014-05-30 00:59:26] Fehler beim Abholen von http://fussballblog.espace.ch/atom/: nicht unterstütztes Feed-Format
+[2014-05-30 00:59:28] Fehler beim Abholen von http://www.nba.com/mavericks/rss.xml: nicht unterstütztes Feed-Format
+[2014-05-30 00:59:30] Fehler beim Abholen von http://www.dallasbasketball.com/rss/MainRss.xml: HTTP response code said error
+[2014-05-30 00:59:36] Fehler beim Abholen von http://www.kickz.com/five/?feed=rss2: nicht unterstütztes Feed-Format
