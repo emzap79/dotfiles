@@ -27,79 +27,76 @@
 [alias]
 
 #	=================================
-#	=	    show history	=
+#	=	 show history		=
 #	=================================
 #  dig in history what went wrong
-	rl	= reflog						    # show changes of the HEAD pointer (including all indices)
+	ref	= reflog			# show changes of the HEAD pointer (including all indices)
 	l	= log --graph --oneline --decorate=short --all
-	lp	= log -p						    # ...shows diffs for file in question
-	lpf	= log -p --follow					    # ...id + <filename>, show renamings of file as well
-	ll	= log --graph --abbrev-commit --decorate=short --pretty=short
-	lll	= log --graph --abbrev-commit --decorate=short		    # --pretty=medium
+	lp	= log -p			# ...shows diffs for entire history
+	lpf	= log -p --follow		# ...id + <filename>, show renamings of file as well
+	ll	= log --graph --abbrev-commit --decorate=short --pretty=medium
 	lo	= log --graph --oneline --decorate=short --abbrev=7
-	llo	= log --graph --abbrev=7 --decorate=short --pretty=short
-	lllo	= log --graph --abbrev=7 --decorate=short		    # --pretty=medium
-	lstat	= log --stat						    # show log with added/droped files
+	llo	= log --graph --abbrev=7 --decorate=short --pretty=medium
+	lllo	= log --graph --abbrev=7 --decorate=short --pretty=short
+	lstat	= log --stat			# show log with added/droped files
 
 #  check current state locally
-									    # index status
-	st	= !git status|less
+	st	= !git status|less		# index status
 	sts	= status --short
-	stt	= status -uno						    # don't show untracked stuff
-	stst	= status -uno --short					    # don't show untracked stuff
-									    # currently versioned files at HEAD
-	ls	= ls-tree -r --name-only				    # ... revision
-	lsd	= ls-tree -r -d --name-only				    # id., but only the named tree entry, no children
-	lst	= !git ls-tree HEAD --full-tree -r -t --name-only | less    # all
-	lstd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less # just dirs
-	lsta	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less  # mnemonic 'ls tree abbreviated'
-	lstad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less # id, folders only
-	lsf	= !git ls-files --abbrev=4 --stage | less		    # show levels of staged files only
+	stt	= status -uno			# don't show untracked stuff
+	stst	= status -uno --short		# don't show untracked stuff
 
+# currently versioned files at HEAD
+	ls	= ls-tree -r --name-only	# ... revision
+	lsd	= ls-tree -r -d --name-only	# id., but only the named tree entry, no children
+	lst	= !git ls-tree HEAD --full-tree -r -t --name-only|less		# all
+	lstd	= !git ls-tree HEAD --full-tree -r -t -d --name-only|less	# just dirs
+	lsta	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4|less	# mnemonic 'ls tree abbreviated'
+	lstad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less	# id, folders only
+	lsf	= !git ls-files --abbrev=4 --stage|less				# show levels of staged files only
 
 # 'git h' for help, 'git la' to list aliases
 # http://stackoverflow.com/a/11613251
 #	=================================
 #	=	   show help		=
 #	=================================
-	h	= help							    # (...<git command>)
-	ha	= !git help -a | less
-	hi	= help -i						    # ... yet to find out how to use the 'info' program
-	al	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g' | less -R"
-	grc	= config --get-regexp					    # search for custom regexpression
+	h	= help				# (...<git command>)
+	ha	= !git help -a|less
+	hi	= help -i			# ... yet to find out how to use the 'info' program
+	al	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g'|less -R"
+	grc	= config --get-regexp		# search for custom regexpression
 
 #	=================================
 #	=	commit to project	=
 #	=================================
-	cl	= clone --progress -v					    # -v needs to be set AFTER --progress, else it won't work
-									    # choose
-	a	= add -A						    # ...<filename>
+	cl	= clone --progress -v		# -v needs to be set AFTER --progress, else it won't work
+						# choose
+	a	= add -A			# ...<filename>
 	aa	= add -A .
 	ai	= add -i
-									    # unchoose
-	r	= rm -rf						    # ...<filename> unversion and delete
-	rc	= rm -r --staged					    # ...<filename> unversion, but leave in working copy
-									    # do
-	c	= commit -m						    # ...commitmessage.
-	cf	= commit -m fixup!					    # ...commit changes and discard message later
-	cs	= commit -m squash!					    # ...commit changes and change message later (rebase -i)
-	ca	= commit -am						    # ...commit modified and deleted files + message
-	mc	= commit						    # think 'message-commit
-	mca	= commit -a						    # id. + commit modified and deleted files (but no new files)
-	cam	= commit --amend -c HEAD				    # update last commit
-	fcam	= commit --amend -C HEAD				    # update last commit, and use same commit message
-									    # undo
-	rs	= reset HEAD						    # ...<filename> --- take a single added file off the index again
-	rsh	= reset --hard						    # <HEAD> undos all changes in working copy, cannot be reverted
-	rsm	= reset --mixed						    # <HEAD> moves HEAD pointer + staged changes to <HEAD>
-	rss	= reset --soft 						    # <HEAD> moves HEAD pointer only to <HEAD>
+						# unchoose
+	rm	= rm -rf			# ...<filename> unversion and delete
+	rms	= rm -r --cached		# ...<filename> unversion, but leave in working copy
+						# do
+	c	= commit -m			# ...commitmessage.
+	cf	= commit -m fixup!		# ...commit changes and discard message later
+	cs	= commit -m squash!		# ...commit changes and change message later (rebase -i)
+	ca	= commit -am			# ...commit modified and deleted files + message
+	mc	= commit			# think 'message-commit
+	mca	= commit -a				# id. + commit modified and deleted files (but no new files)
+	cam	= commit --amend -c HEAD		# update last commit
+	fcam	= commit --amend -C HEAD	# update last commit, and use same commit message
+						# undo
+	rs	= reset --mixed HEAD		# ...<filename> --- take a single added file off the index again
+	rsh	= reset --hard			# <HEAD> undos all changes in working copy, cannot be reverted
+	rss	= reset --soft			# <HEAD> moves HEAD pointer only to <HEAD>
 
 #  name stuff properly
-									    # tag
-	t	= tag							    # (...<tag name>), arguments: none/-f/-m
-	tl	= tag -n						    # show existing tags with messages
-	td	= tag -d						    # ...<tag name>, delete existing tag name
-									    # notes
+						# tag
+	t	= tag				# (...<tag name>), arguments: none/-f/-m
+	tl	= tag -n			# show existing tags with messages
+	td	= tag -d			# ...<tag name>, delete existing tag name
+						# notes
 	n	= !git notes list | sed -e 's/\\([a-z0-9]\\{4\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
 	nv	= !git notes list | sed -e 's/\\([a-z0-9]\\{7\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
 	na	= notes add
@@ -108,85 +105,85 @@
 	nr	= notes remove
 
 #	=================================
-#	=	    show diffs		=
+#	=	show diffs		=
 #	=================================
-									    # show everything related to a SHA1
+						# show everything related to a SHA1
 	sw	= show
-									    # check current local changes you have made
-	d	= diff HEAD						    # (...<filename>) diff staged + unstaged against HEAD
-	ds	= diff --staged						    # diff staged against HEAD
-	dsn	= diff --staged --name-only				    # show recently staged files (name-only)
+						# check current local changes you have made
+	d	= diff HEAD			# (...<filename>) diff staged + unstaged against HEAD
+	ds	= diff --staged			# diff staged against HEAD
+	dsn	= diff --staged --name-only	# show recently staged files (name-only)
 	dt	= difftool
-									    # check current changes residing in origin/master (= main repository)
-									    # local changes are shown in red!!!
-	dh	= diff ..origin/master					    # all changes, including non-commited ones
-	dhc	= diff HEAD..origin/master				    # against head, includes just local commits
-	dhp	= diff HEAD...origin/master				    # pure against head, excludes all local changes and commmits
+						# check current changes residing in origin/master (= main repository)
+						# local changes are shown in red!!!
+	dh	= diff ..origin/master		# all changes, including non-commited ones
+	dhc	= diff HEAD..origin/master	# against head, includes just local commits
+	dhp	= diff HEAD...origin/master	# pure against head, excludes all local changes and commmits
 
 #	=================================
 #	=	stashes & branches	=
 #	=================================
-	sh	= stash							    # tempsave stuff without branching or committing
-	shl	= stash list						    # see the list of available stashes
-	shp	= stash pop						    # re-apply the stashed changes and delete the stash from the list of stashes
-	sha	= stash apply						    # you can use the ID to apply a stash, eg stash@{0}
-	shd	= stash drop						    # remove a stashed change without applying it
+	sh	= stash				# tempsave stuff without branching or committing
+	shl	= stash list			# see the list of available stashes
+	shp	= stash pop				# re-apply the stashed changes and delete the stash from the list of stashes
+	sha	= stash apply			# you can use the ID to apply a stash, eg stash@{0}
+	shd	= stash drop			# remove a stashed change without applying it
 
 #  check what is going on everywhere
-	sb	= show-branch -a --list					    # just list with current commit
-	sba	= show-branch --color=always -a --more=10 --no-name	    # all
-	sbaf	= show-branch --color=always -a --more=10		    # all full
-	sbl	= show-branch --color=always --reflog=10 --no-name	    # local
-	sblf	= show-branch --color=always --reflog=10		    # local full
+	sb	= show-branch -a --list		# just list with current commit
+	sba	= show-branch --color=always -a --more=10 --no-name			# all
+	sbaf	= show-branch --color=always -a --more=10			# all full
+	sbl	= show-branch --color=always --reflog=10 --no-name			# local
+	sblf	= show-branch --color=always --reflog=10			# local full
 	sl	= shortlog -nse
 
 #  branch your way to victory, add <branch name>
-	b	= branch						    # (...<branch name>), without argument show existing ones
-	ba	= branch -a						    # shows all local and remote branches
-	bd	= branch -D						    # ...<branch name>
-	bt	= "git branch --set-upstream=origin/"			    # ...origin/<branch name> master -- set remote-track to master
-	co	= checkout						    # ...
-	cob	= checkout -b						    # ...<branch name> create + checkout branch
+	b	= branch			# (...<branch name>), without argument show existing ones
+	ba	= branch -a			# shows all local and remote branches
+	bd	= branch -D			# ...<branch name>
+	bt	= "git branch --set-upstream=origin/"				# ...origin/<branch name> master -- set remote-track to master
+	co	= checkout			# ...
+	cob	= checkout -b			# ...<branch name> create + checkout branch
 
 #  merge your way back into madness
-	m	= merge --no-ff						    # ...<branch name>
-	rb	= rebase						    # ...<branch name>
-	rbi	= rebase -i --autosquash
+	m	= merge --no-ff			# ...<branch name>
+	rb	= rebase			# ...<branch name>
+	rbi	= rebase -i --autosquash	# ...<branch name>
 	rbc	= rebase --continue
 	rbs	= rebase --skip
 	rba	= rebase --abort
+	rbe	= rebase --edit-todo
 
 #	=================================
-#	=	    contribute		=
+#	=	contribute		=
 #	=================================
 #  interact with the rest of the world
 	f	= fetch
 	p	= pull
-	pp	= !git rebase -i --autosquash && git push origin	    # first rebase -i, than push changes
-	ppp	= push origin						    # push origin <branch>
-	ppu	= push -u origin					    # push and add upstream reference <branch>
-	ppf	= push origin -f					    # overwrite external changes to remote (use with care!!)
-	pup	= !git p && git pp					    # pull and push, not nice but sometimes convenient
-	rmrb	= push --delete origin					    # ...<branch name> remote branch to be deleted
-	fp	= !git mca && git pup					    # fast push script, be wary!
-									    # handling remote connections
-	rem	= remote -v						    # (...<lookup man page for this>) withough argument
-#		=							    # just shows remotes, else does all kinds of funny stuff
-	rems	= remote show						    # ... <label for remote> show info for specific remote
-	rema	= remote add						    # ... <label for remote> <URL to remote>
-	remrm	= remote rm						    # ... <label of remote to be deleted>
-	remr	= remote rename						    # ... <label of remote to be renamed> <label of new remote>
-	remp	= remote update --prune					    # remove all local branches which are not in the remote anymore
+	pp	= push origin			# push origin <branch>
+	ppu	= push -u origin		# push and add upstream reference <branch>
+	ppf	= push origin -f		# overwrite external changes to remote (use with care!!)
+	pup	= !git pull && git push origin	# pull and push, not nice but sometimes convenient
+	rmrb	= push --delete origin		# ...<branch name> remote branch to be deleted
+	fp	= !git mca && git pup		# fast push script, be wary!
+						# handling remote connections
+	rem	= remote -v			# (...<lookup man page for this>) withough argument
+#		=				# just shows remotes, else does all kinds of funny stuff
+	rs	= remote show			# ... <label for remote> show info for specific remote
+	ra	= remote add			# ... <label for remote> <URL to remote>
+	rrm	= remote rm			# ... <label of remote to be deleted>
+	rr	= remote rename			# ... <label of remote to be renamed> <label of new remote>
+	rp	= remote update --prune		# remove all local branches which are not in the remote anymore
 
 #  use svn if you have to
-	sco	= svn clone						    # ...<svn repository url>
-	sci	= svn dcommit						    # push locally committed changes to svn
-	sup	= svn rebase						    # = svn update
+	sco	= svn clone			# ...<svn repository url>
+	sci	= svn dcommit			# push locally committed changes to svn
+	sup	= svn rebase			#	 = svn update
 
-									    # FIXME: and god told, the day will come, when this mess below will be fixed properly! and so it shall be...
+						# FIXME: and god told, the day will come, when this mess below will be fixed properly! and so it shall be...
 
-									    # best is to use autoclrf 'false'. others have a slight chance of corrupting binary data files mistaken as text... bah WTF, live hard!
-	autoclrf = input						    # on mac and linux, on win it's 'true'... i hope so!
+						# best is to use autoclrf 'false'. others have a slight chance of corrupting binary data files mistaken as text... bah WTF, live hard!
+	autoclrf	= input			# on mac and linux, on win it's 'true'... i hope so!
 
 # ===============
 # AUTOCLRF HOWTO:
@@ -215,7 +212,7 @@
 # use this:
 #
 # -- on every type of OS:
-# autoclrf = false
+# autoclrf  = false
 #
 # All developers must set their development environments to create
 # files in the same line endings  all others use, and not safe files
@@ -224,7 +221,7 @@
 # the same encoding, too. :)
 # With things set this way git won't interfere at all, and
 # responsibility is with the devs themselves.
-# ==================================================================
+#==================================================================
 # 3. existing project: <risk depends on given surroundings>
 # ------------------------------------------------------------------
 #

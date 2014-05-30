@@ -17,13 +17,13 @@ set background=light
 
 " http://stackoverflow.com/a/7619174
 " http://vim.1045645.n5.nabble.com/Cursor-line-and-cursor-column-highlighting-tc1843171.html#none
-if &bg == 'dark' 
+if &bg == 'dark'
     hi  CursorColumn ctermbg=Yellow ctermfg=None
-else 
+else
     hi  CursorColumn ctermbg=Black ctermfg=None
-endif 
+endif
 "hi clear CursorColumn
-"hi! link CursorColumn CursorLine 
+"hi! link CursorColumn CursorLine
 
 " Set Cursor"}}}
 " Customized"{{{
@@ -59,13 +59,13 @@ autocmd ColorScheme * highlight LanguageToolSpellingError ctermbg=55 ctermfg=non
 " Search & Spellcheck"}}}
 " " Menu"{{{
 
-" autocmd ColorScheme *  " -> Menu
-" autocmd ColorScheme *  hi PmenuSbar                     ctermbg=0  cterm=none
-" autocmd ColorScheme *  hi PmenuThumb                    ctermbg=4  cterm=none
-" autocmd ColorScheme *  hi Pmenu                         ctermbg=7  ctermfg=2    cterm=none
-" autocmd ColorScheme * hi ModeMsg                        ctermbg=2  ctermfg=7    cterm=none
-" autocmd ColorScheme * hi MoreMsg                        ctermbg=2  ctermfg=7    cterm=none
-" autocmd ColorScheme * hi PmenuSel                       ctermbg=2  ctermfg=7    cterm=none
+" autocmd  ColorScheme  *  "   ->          Menu
+autocmd  ColorScheme  *  hi  PmenuSbar   ctermbg=1  ctermfg=2  cterm=none
+autocmd  ColorScheme  *  hi  PmenuThumb  ctermbg=4  ctermfg=2  cterm=none
+autocmd  ColorScheme  *  hi  Pmenu       ctermbg=7  ctermfg=2  cterm=none
+autocmd  ColorScheme  *  hi  ModeMsg     ctermbg=2  ctermfg=7  cterm=none
+autocmd  ColorScheme  *  hi  MoreMsg     ctermbg=2  ctermfg=7  cterm=none
+autocmd  ColorScheme  *  hi  PmenuSel    ctermbg=2  ctermfg=7  cterm=none
 
 " " Menu"}}}
 " Plugins"{{{
@@ -85,5 +85,13 @@ highlight hlShowMarks ctermbg=55 ctermfg=none cterm=none
 " Showmarks"}}}
 
 " Plugins"}}}
+" Statusline"{{{
+" http://stackoverflow.com/a/10416234/3569509
+
+hi User1 ctermfg=7  ctermbg=0 cterm=bold
+hi User2 ctermfg=2  ctermbg=0 cterm=none
+hi User3 ctermfg=2  ctermbg=0 cterm=none
+
+" Statusline"}}}
 
 " Highlighting"}}}

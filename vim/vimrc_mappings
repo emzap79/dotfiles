@@ -99,9 +99,9 @@ inoremap <s-f3> <esc>:buffer<cr>
 nnoremap <f4> :FufFileWithCurrentBufferDir<cr>
 inoremap <f4> <esc>:FufFileWithCurrentBufferDir<cr>
 
-"call fuzzyfinder for mru-files
-nnoremap <s-f4> :FufMruFile<cr>
-inoremap <s-f4> <esc>:FufMruFile<cr>
+"call fuzzyfinder for files in current buffer
+nnoremap <s-f4> :FufFileWithFullCwd<cr>
+inoremap <s-f4> <esc>:FufFileWithFullCwd<cr>
 
 "call fuzzyfinder for files in homedir
 nnoremap <c-f4> :FufFile<cr>
@@ -134,10 +134,59 @@ nnoremap <s-c-f6> :BundleInstall!<cr>
 inoremap <s-c-f6> <esc>:BundleInstall!<cr>
 
 " <f6>  " manage plugins through vundle "}}}
-" <f7>  " *** no functions yet *** " {{{
+" <f7>  " language tool"{{{
+
+"enable languagetool
+"for use with latex: http://tex.stackexchange.com/questions/6333/grammar-checking-tool-for-use-with-latex/6552#6552
+nnoremap  <f7>  :'a,'sLanguageToolCheck<cr>:vertical  lopen  80<CR>
+inoremap  <f7>  :'a,'sLanguageToolCheck<cr>:vertical  lopen  80<CR>
+vnoremap  <f7>  :'a,'sLanguageToolCheck<cr>:vertical  lopen  80<CR>
+
+"enable languagetool
+"for use with latex: http://tex.stackexchange.com/questions/6333/grammar-checking-tool-for-use-with-latex/6552#6552
+nnoremap  <s-f7>  :LanguageToolCheck<cr>:vertical  lopen  80<CR>
+inoremap  <s-f7>  :LanguageToolCheck<cr>:vertical  lopen  80<CR>
+vnoremap  <s-f7>  :LanguageToolCheck<cr>:vertical  lopen  80<CR>
+
+" <f7>  " language tool"}}}
+" <f8>  " spellcheck"{{{
+
+" switch spellcheck languages
+" func: toggle languages"{{{
+" http://vim.wikia.com/wiki/toggle_spellcheck_with_function_keys
+
+let b:mylang=0
+let g:mylanglist=["nospell","de_de","en_us","es"]
+fun! ToggleSpell()
+    let b:mylang=b:mylang+1
+    if b:mylang>=len(g:mylanglist) | let b:mylang=0 | endif
+    if b:mylang==0
+        setlocal nospell
+    else
+        execute "setlocal spell spelllang=".get(g:mylanglist, b:mylang)
+    endif
+    echo "spell checking language:" g:mylanglist[b:mylang]
+endfun
 
 "}}}
-" <f8>  " toggle linewrapping, -numbers and foldcolumn etc."{{{
+nnoremap <f8> :call ToggleSpell()<cr>
+inoremap <f8> <c-o>:call ToggleSpell()<cr>
+
+"aspell spellcheck
+nnoremap <c-f8> :w!<cr>:!/usr/bin/aspell --dont-backup --dont-tex-check-comments check %<cr>:e! %<cr>
+inoremap <c-f8> :w!<cr>:!/usr/bin/aspell --dont-backup --dont-tex-check-comments check %<cr>:e! %<cr>
+
+"count words in latex
+nnoremap <a-f8> :w !detex \| wc -w<cr>
+inoremap <a-f8> :w !detex \| wc -w<cr>
+
+" Autocorrect typos
+nnoremap <s-m-f8> :call AutoCorrect()<CR>
+vnoremap <s-m-f8> <ESC>:call AutoCorrect()<CR>
+inoremap <s-m-f8> <ESC>:call AutoCorrect()<CR>
+
+" <f8>  " spellcheck"}}}
+" <f9>  " toggle linewrapping, -numbers and foldcolumn etc."{{{
 
 " toggling textwidth
 " func: toggle through textwidth"{{{
@@ -160,9 +209,9 @@ fun! ToggleTextwidth()
 endfun
 
 " func: toggle through textwidth"}}}
-nnoremap <f8> :call ToggleTextwidth()<CR>
-vnoremap <f8> <ESC>:call ToggleTextwidth()<CR>
-inoremap <f8> <ESC>:call ToggleTextwidth()<CR>
+nnoremap <f9> :call ToggleTextwidth()<CR>
+vnoremap <f9> <ESC>:call ToggleTextwidth()<CR>
+inoremap <f9> <ESC>:call ToggleTextwidth()<CR>
 
 "toggle linewrapping
 " func: ToggleWrap{{{
@@ -180,8 +229,8 @@ fun! ToggleWrap()
 endfun
 
 " func: ToggleWrap"}}}
-nnoremap <s-f8> :call ToggleWrap()<cr>
-nnoremap <s-f8> <esc>:call ToggleWrap()<cr>
+nnoremap <s-f9> :call ToggleWrap()<cr>
+nnoremap <s-f9> <esc>:call ToggleWrap()<cr>
 
 " toggle foldcolumn on left
 "" func: toggle foldcolumn {{{
@@ -195,59 +244,15 @@ fun! ToggleFoldColumn()
 endfun
 
 " "}}}
-nnoremap <c-f8> :call ToggleFoldColumn()<cr>
-vnoremap <c-f8> <ESC>:call ToggleFoldColumn()<cr>
-inoremap <c-f8> <ESC>:call ToggleFoldColumn()<cr>
+nnoremap <c-f9> :call ToggleFoldColumn()<cr>
+vnoremap <c-f9> <ESC>:call ToggleFoldColumn()<cr>
+inoremap <c-f9> <ESC>:call ToggleFoldColumn()<cr>
 
 " call matchadd('ColorColumn', '\%81v', 100)
-nnoremap <s-c-f8> :call TogglePaste()<cr>
-inoremap <s-c-f8> <c-o>:call TogglePaste()<cr>
+nnoremap <s-c-f9> :call TogglePaste()<cr>
+inoremap <s-c-f9> <c-o>:call TogglePaste()<cr>
 
-" <f8>  " toggle linewrapping, -numbers and foldcolumn etc."}}}
-" <f9>  " language tools & spellcheck"{{{
-
-" switch spellcheck languages
-" func: toggle languages"{{{
-
-" http://vim.wikia.com/wiki/toggle_spellcheck_with_function_keys
-
-let b:mylang=0
-let g:mylanglist=["nospell","de_de","en_us","es"]
-fun! ToggleSpell()
-    let b:mylang=b:mylang+1
-    if b:mylang>=len(g:mylanglist) | let b:mylang=0 | endif
-    if b:mylang==0
-        setlocal nospell
-    else
-        execute "setlocal spell spelllang=".get(g:mylanglist, b:mylang)
-    endif
-    echo "spell checking language:" g:mylanglist[b:mylang]
-endfun
-
-"}}}
-nnoremap <f9> :call ToggleSpell()<cr>
-inoremap <f9> <c-o>:call ToggleSpell()<cr>
-
-"enable languagetool
-"for use with latex: http://tex.stackexchange.com/questions/6333/grammar-checking-tool-for-use-with-latex/6552#6552
-noremap <s-f9> :LanguageToolCheck<cr>:lopen 25<CR>
-inoremap <s-f9> :LanguageToolCheck<cr>:lopen 25<CR>
-vnoremap <s-f9> :LanguageToolCheck<cr>:lopen 25<CR>
-
-"aspell spellcheck
-nnoremap <c-f9> :w!<cr>:!/usr/bin/aspell --dont-backup --dont-tex-check-comments check %<cr>:e! %<cr>
-inoremap <c-f9> :w!<cr>:!/usr/bin/aspell --dont-backup --dont-tex-check-comments check %<cr>:e! %<cr>
-
-"count words in latex
-nnoremap <a-f9> :w !detex \| wc -w<cr>
-inoremap <a-f9> :w !detex \| wc -w<cr>
-
-" Autocorrect typos
-nnoremap <s-m-f9> :call AutoCorrect()<CR>
-vnoremap <s-m-f9> <ESC>:call AutoCorrect()<CR>
-inoremap <s-m-f9> <ESC>:call AutoCorrect()<CR>
-
-" <f9>  " language tools & spellcheck"}}}
+" <f9>  " toggle linewrapping, -numbers and foldcolumn etc."}}}
 " <f10>  " enable plugins"{{{
 
 " toggle YouCompleteMe
@@ -390,7 +395,7 @@ nnoremap <leader>slp :lcd %:p:h <cr> "set local path of currently edited file.
 ""}}}
 
 " Basic Mappings"}}}
-" Functions"{{{
+" Functions & Operator"{{{
 
 " " Func: YouCompleteMe <Plugin>"{{{
 
@@ -422,7 +427,7 @@ function! FoldBrace()
   return -1
 endfunction
 
-" }}}
+" Func: Foldexpressions"}}}
 " Func: Save and Restore Cursorposition"{{{
 
 " http://vim.wikia.com/wiki/Maintain_cursor_and_screen_position
@@ -465,7 +470,8 @@ function! CurPos(action)
   return ""
 endfunction
 
-"}}}
+
+" Func: Save and Restore Cursorposition"}}}
 " Func: Get Visual Selection"{{{
 
 function! GetVisualSelection()
@@ -476,7 +482,7 @@ function! GetVisualSelection()
     return substitute(escape(raw_search, '\/.*$^~[]'), "\n", '\\n', "g")
 endfunction
 
-"}}}
+" Func: Get Visual Selection"}}}
 " Func: Save Folds"{{{
 " https://github.com/tpope/vim-fugitive/issues/194
 
@@ -520,7 +526,7 @@ nnoremap <silent> <leader><c-a> :<c-u>call AddSubtract("\<c-a>", 'b')<cr>
 nnoremap <silent>         <c-x> :<c-u>call AddSubtract("\<c-x>", '')<cr>
 nnoremap <silent> <leader><c-x> :<c-u>call AddSubtract("\<c-x>", 'b')<cr>
 
-""}}}
+" Func: Enhanced Increase Number"}}}
 " Func: Restore Key Position"{{{
 
 function! ResCur()
@@ -530,9 +536,47 @@ function! ResCur()
   endif
 endfunction
 
-" ""}}}
+" Func: Restore Key Position"}}}
+" Oper: Grep"{{{
 
-" Functions"}}}
+" Operator to 'grep' word(s) in current directory
+" http://learnvimscriptthehardway.stevelosh.com/chapters/34.html
+function! s:GrepOperator(type)
+    let saved_unnamed_register = @@
+
+    if a:type ==# 'v'
+        normal! `<v`>y
+    elseif a:type ==# 'char'
+        normal! `[v`]y
+    else
+        return
+    endif
+
+    silent execute "grep! -R " . shellescape(@@) . " ."
+    copen
+
+    let @@ = saved_unnamed_register
+endfunction
+
+" Oper: Grep"}}}
+" Oper: Open URL"{{{
+
+function! s:UrlOperator(type)
+    let saved_unnamed_register = @@
+    if a:type ==# 'v'
+        normal! `<v`>y
+    elseif a:type ==# 'char'
+        normal! `[v`]y
+    else
+        return
+    endif
+    silent execute "!firefox " . shellescape(@@)
+    let @@ = saved_unnamed_register
+endfunction
+
+" Oper: Open URL"}}}
+
+" Functions & Operator"}}}
 " Plugin-Maps"{{{
 
 " better-/hudigraphs <plugin>"{{{
@@ -540,7 +584,7 @@ endfunction
 inoremap <expr> <K> BDG_GetDigraph()
 " inoremap <expr> <K> HUDG_GetDigraph()
 
-""}}}
+" better-/hudigraphs <plugin>"}}}
 " vmath <plugin>"{{{
 
 " press ++ to get mathematical data of visual block
@@ -915,92 +959,26 @@ nnoremap <leader>thes :exe "!thes " . shellescape(expand("<cword>"))<cr>
 vnoremap <leader>thes :<c-u>!othes <c-r>=getvisualselection()<cr>
 
 "}}}
-" search word under cursor with grep"{{{
-
-" http://learnvimscriptthehardway.stevelosh.com/chapters/33.html
-
-nnoremap <leader>g :set operatorfunc=GrepOperator<cr>g@
-vnoremap <leader>g :<c-u>call GrepOperator(visualmode())<cr>
-" fun: grep word under cursor "{{{
-
-function! GrepOperator(type)
-    if a:type ==# 'v'
-        normal! `<v`>y
-    elseif a:type ==# 'char'
-        normal! `[v`]y
-    else
-        return
-    endif
-    silent execute "grep! -r " . shellescape(@@) . " ."
-    copen
-endfunction
-
-"}}}
-
-""}}}
 
 " offline searches"}}}
-" spell-checking"{{{
-
-" enable general spell-check:"{{{
-
-noremap <leader>sc :set spell spelllang=de,en,es<cr>
-vnoremap <leader>sc :set spell spelllang=de,en,es<cr>
-
-"}}}
-" spellcheck: german"{{{
-
-"enable spell checking for german:
-noremap <leader>scg :call <sid>spell_de()<cr>
-vnoremap <leader>scg :call <sid>spell_de()<cr>
-
-" " painless spell checking
-" " for german, you'll need
-" " wget -p ~/.vim/spell/ http://ftp.vim.org/pub/vim/runtime/spell/de.utf-8.sug
-" " wget -p ~/.vim/spell/ http://ftp.vim.org/pub/vim/runtime/spell/de.utf-8.spl
-" func: spell-de "{{{
-
-fun! s:spell_de()
-    if !exists("s:spell_check") || s:spell_check == 0
-        echo "spell checking activated (german)"
-        let s:spell_check = 1
-        setlocal spell spelllang=de
-    else
-        echo "spell checking canceled"
-        let s:spell_check = 0
-        setlocal spell spelllang=
-    endif
-endfun
-
-"}}}
-
-"}}}
-" spellcheck: english"{{{
-
-"enable spell checking for english :
-noremap <leader>sce :call <sid>spell_en()<cr>
-vnoremap <leader>sce :call <sid>spell_en()<cr>
-fun! s:spell_en()
-    if !exists("s:spell_check") || s:spell_check == 0
-        echo "spell checking activated (english)"
-        let s:spell_check = 1
-        setlocal spell spelllang=en
-    else
-        echo "spell checking canceled"
-        let s:spell_check = 0
-        setlocal spell spelllang=
-    endif
-endfun
-
-"}}}
-
-""}}}
-" 'very magic' string search as default"{{{
+" make 'very magic' string search the default"{{{
 
 " nnoremap / /\v
 cnoremap :s/ :s/\v
 
 " 'very magic' string search as default"}}}
+" operator: grep for word in dir"{{{
+
+nnoremap <silent>gr :set operatorfunc=<SID>GrepOperator<cr>g@
+vnoremap <silent>gr :<c-u>call <SID>GrepOperator(visualmode())<cr>
+
+" operator: grep for word in dir"}}}
+" operator: open url in external browser"{{{
+
+nnoremap <silent>gz :set operatorfunc=<SID>UrlOperator<cr>g@
+vnoremap <silent>gz :<c-u>call <SID>UrlOperator(visualmode())<cr>
+
+" operator: open url in external browser"}}}
 
 " String-Searches & Spell-Checking"}}}
 " Edit Words & Lines"{{{
@@ -1057,13 +1035,12 @@ nnoremap <silent><space>d0 :'{,'}s/^\s\+//g<CR>:nohl<CR>``
 nnoremap <silent><space>d$ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>``
 nnoremap <silent><space>da :%s/\s\s\+/ /g<CR>:nohl<CR>``
 
-"}}}
+" remove (trailing) spaces"}}}
 " count character under cursor in line"{{{
 
 nnoremap <leader>ct xP:s/<c-r>-/&/gn<CR><esc>
 
-" }}}
-
+" count character under cursor in line"}}}
 " paste yanked input at end of line"{{{
 
 nnoremap <s-c-p> :call CurPos("save")<cr>$p :call CurPos("restore")<cr>
@@ -1107,8 +1084,8 @@ vnoremap <leader>cx <ESC>:XeLatexCompilePDF<CR>
 command! -nargs=* RunSilent
       \ | execute ':silent !'.'<args>'
       \ | execute ':redraw!'
-noremap <Leader>cp :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
-noremap <Leader>pp :RunSilent gnome-open /tmp/vim-pandoc-out.pdf<CR>
+nnoremap <Leader>cp :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
+nnoremap <Leader>pp :RunSilent gnome-open /tmp/vim-pandoc-out.pdf<CR>
 
 
 " Compile and show documents"}}}
@@ -1119,7 +1096,6 @@ noremap <Leader>pp :RunSilent gnome-open /tmp/vim-pandoc-out.pdf<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 "}}}
-
 " execute cmd within visual"{{{
 
 nnoremap <leader>v :'<,'>
@@ -1147,6 +1123,6 @@ nnoremap <leader>m :'a,'s
 
 "}}}
 
-""}}}
+" Miscellaneous"}}}
 
 " Other Mappings"}}}

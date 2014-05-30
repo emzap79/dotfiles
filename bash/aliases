@@ -88,7 +88,7 @@ alias cdlog="cd $HOME/.logfiles"
 alias cdgc="cd $HOME/.gitclones"
 
 # folders related to uni
-alias cdba="cd $UNI/$SEM/BAArbeit"
+alias cdba="cd $UNI/$SEM/BAArbeit/main"
 alias cdr="cd $UNI/$SEM/R"
 alias cdsem="cd $UNI/$SEM"
 alias cdblb="cd $UNI/$SEM/Bloomberg"
@@ -98,7 +98,7 @@ alias cdklr="cd $UNI/$SEM/KLR"
 alias cdatt="cd $HOME/tmp/attachments"
 alias cdbst="cd $HOME/texmf/bibtex/bst/emzap"
 alias cddl="cd $HOME/Downloads"
-alias cddtf="cd $HOME/dotfiles"
+alias cddf="cd $HOME/dotfiles"
 alias cdebay="cd $HOME/tmp/ebay"
 alias cdmails="cd $HOME/mails/Inbox"
 alias cdmnt="cd $HOME/mnt"
@@ -107,7 +107,7 @@ alias cdpodc="cd $HOME/Podcasts"
 alias cdtmp="cd $HOME/tmp"
 alias cduni="cd $UNI"
 alias cdxime="cd $HOME/Xime"
-alias cdbin="cd $HOME/bin"
+alias cdb="cd $HOME/bin"
 
 # temporary mounted folders
 alias cdquito="cd ~/.gvfs/smb-share\:server\=quito-pc\,share\=users/Xime"
@@ -174,12 +174,12 @@ alias pwdc="pwd | xclip; source ~/.bashrc"
 alias pwdp=`xclip -o`     # Error: target STRING not available
 
 # }}}
-# vim# {{{
+# vim# #{{{
 
 # vimgolf
 # http://stackoverflow.com/a/8931728/3569509
 if [[ -e /home/${USER}/Dokumente ]]; then
-    alias vgolf='/bin/bash ~/bin/vimGolf.sh'
+    alias vgolf='/bin/bash $VGOLF/vimGolf.sh'
 fi
 alias vimgolf="sudo vimgolf"
 
@@ -198,13 +198,14 @@ alias vtmp="vim ~/bin/tmplAte.sh"
 
 # open vim sessions
 alias v=fun_vim  # 'vv tex' will open /etc/foo.tex in vim
+alias vf=fun_vim_find   # 'vf tex' will open every tex-file in subdirectory as buffer
 alias vm="vim /tmp/foo.md"
 alias vi="vim -c 'startinsert'"
 alias vu="vim -u NONE"
 alias vs="vim -S Session.vim"
 alias vv="echo "" > /tmp/foo.bar; vim -c startinsert /tmp/foo.bar"
 
-# }}}
+# vim# #}}}
 # latex # #{{{
 
 # alias egoek="evince $UNI/$SEM/GOEK/klausur.pdf $UNI/$SEM/GOEK/WS1314*.pdf $UNI/$SEM/GOEK/WS1112MikroII_Mitschrift.pdf $UNI/$SEM/GOEK/SS11MikroI_Mitschrift.pdf &"
@@ -213,6 +214,7 @@ alias vv="echo "" > /tmp/foo.bar; vim -c startinsert /tmp/foo.bar"
 alias ltmk="latexmk -pvc"
 alias ltpdfl="pdflatex"
 alias ltcl="rm -f *.aux *.toc *.bbl *.idx *.ilg *.ind *.log *.toc *.blg *.out *.glg *.glo *.gls *.ist *.maf *.mtc *.gz *.backup *.lot *.lof *.fls"
+alias ltsw=fun_latex_sweave
 
 # latex symbols
 if [[ -e /home/${USER}/Dokumente ]]; then
@@ -233,6 +235,8 @@ alias pdfsplit="/bin/bash $HOME/bin/pdfPagesToParts.sh"
 # pdf# #}}}
 # latex# #{{{
 
+alias md="make read"
+alias ma="make all"
 alias mr="make r"
 alias mg="make git"
 alias mb="make bash"
@@ -240,7 +244,6 @@ alias mt="make tmux"
 alias mtx="make tex"
 alias ml="make latex"
 alias mvi="make vim"
-alias mrd="make read"
 alias mvim="make vim"
 
 # latex# #}}}
@@ -404,16 +407,16 @@ then
     alias vim='vim --servername VIM'
     if [ "x$TERM" == "xxterm" ] || [ "x$TERM" == "xxterm-256color" ]
     then
-        function tvim(){ tmux -2 new-session "TERM=screen-256color vim --servername VIM $@" ; }
+        function vimt(){ tmux -2 new-session "TERM=screen-256color vim --servername VIM $@" ; }
     else
-        function tvim(){ tmux new-session "vim --servername VIM $@" ; }
+        function vimt(){ tmux new-session "vim --servername VIM $@" ; }
     fi
 else
     if [ "x$TERM" == "xxterm" ] || [ "x$TERM" == "xxterm-256color" ]
     then
-        function tvim(){ tmux -2 new-session "TERM=screen-256color vim $@" ; }
+        function vimt(){ tmux -2 new-session "TERM=screen-256color vim $@" ; }
     else
-        function tvim(){ tmux new-session "vim $@" ; }
+        function vimt(){ tmux new-session "vim $@" ; }
     fi
         git add -A .
 fi
@@ -572,6 +575,12 @@ command_not_found_handle() {
         pd2*) pandoc "$2" -o "${2%%.*}"."${1#pd2}"
             return 0
             ;;
+        m*) make ${1#m}
+            return 0
+            ;;
+        v*) vim ${2%%.*}.${1#v}
+            return 0
+            ;;
     esac
 
   # If nothing else works, just do what bash would have done
@@ -677,6 +686,14 @@ fun_vim() {
     fi
 }
 
+fun_vim_find() {
+
+    # open multiple files with given suffix in vim
+    # http://blog.sanctum.geek.nz/series/unix-as-ide/
+    find -type f -iname "*$1" -exec vim {} +
+
+}
+
 # vim - edit new file with vim#}}}
 # yt-dl - youtube-videos as ascii video#{{{
 
@@ -717,6 +734,14 @@ fun_cd() {
 }
 
 # cd - show last edited files#}}}
+# latex#{{{
+
+fun_latex_sweave() {
+    # http://stackoverflow.com/a/4922768/3569509
+    R CMD Sweave "${1%%.*}.Rnw" && R CMD pdflatex "${1%%.*}.tex" && R CMD bibtex "${1%%.*}.aux" && evince "$1".pdf &
+}
+
+# latex#}}}
 # calc - easy calculating in bash#{{{
 
 # http://unix.stackexchange.com/a/30486

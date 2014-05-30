@@ -19,6 +19,7 @@ export SEM="Sommer2014"
 export UNI="/home/zapata/Unimaterialien"
 export DOK="/home/zapata/Dokumente"
 export LIX="$DOK/Linux"
+export VGOLF="$LIX/Vim/vimgolf"
 export VOL="/media/zapata/Volume"
 export USB="/media/zapata/ES02224159"
 
@@ -50,22 +51,22 @@ PROMPT_COMMAND=_bash_history_sync
 
 # Commands to ignore in history prompt
 export HISTIGNORE="history:\
-    cd:\
-    cd\ \-:\
-    cd\ \.\.:\
-    clear:\
-    cmus:\
-    fg:\
-    lst:\
-    ls:\
-    mutt:\
-    muttb:\
-    muttt:\
-    vima:\
-    vimb:\
-    hs:\
-    v:\
-    vv"
+cd:\
+cd\ \-:\
+cd\ \.\.:\
+clear:\
+cmus:\
+fg:\
+lst:\
+ls:\
+mutt:\
+muttb:\
+muttt:\
+vima:\
+vimb:\
+hs:\
+v:\
+vv"
 
 # histcontrol#}}}
 # less#{{{

@@ -48,39 +48,41 @@ filetype indent on " This enables automatic indentation as you type
 " display"{{{
 
 set list
-set ut=1000                                    " updatetime: interval in msec for bufferupdate (def: 4000)
-set cuc                                        " cursorcolumn: highlight current column
-set cul                                        " cursorline: show me where i am
-set sc                                         " showcmd: show typed command in status bar
-set sm                                         " showmatch: Show matching braces, somewhat annoying...
-set smd                                        " showmode: show mode in status bar (insert/replace/...)
-set mps+=<:>                                   " matchpairs: specially for html
-set mat=2                                      " matchtime: show matching bracket for 0.2 seconds
-set nu                                         " number: show line numbers
-set rnu                                        " rnu: relative line numbers
-set so=5                                       " scrolloff: keep at least 5 lines above/below cursor
-set title                                      " title: show title in console title bar
-set t_ut=                                      " fix tmux color issues
-set cwh=3                                      " cmdwinheight
-set ch=3                                       " cmdheight: Number of screen lines to use for the
-                                            " command-line. surpress errormessage when
-                                            " working with buffers
-set wmh=0                                      " winminheight: windows minimum height (values 0-3)
-set wmw=1                                      " winminwidth: windows minimum width in columns (val 0-12)
-au VimEnter * set wh=30                        " winheight: Minimal number of lines for the current window.
-                                            " This is not a hard minimum, Vim will use fewer
-                                            " lines if there is not enough room. I
-au VimEnter * set wiw=55                       " winwidth: Minimal number of columns for the current window.
+set ut=1000               " updatetime: interval in msec for bufferupdate (def: 4000)
+set cuc                   " cursorcolumn: highlight current column
+set cul                   " cursorline: show me where i am
+set sc                    " showcmd: show typed command in status bar
+set sm                    " showmatch: Show matching braces, somewhat annoying...
+set smd                   " showmode: show mode in status bar (insert/replace/...)
+set mps+=<:>              " matchpairs: specially for html
+set mat=2                 " matchtime: show matching bracket for 0.2 seconds
+set nu                    " number: show line numbers
+set rnu                   " rnu: relative line numbers
+set so=5                  " scrolloff: keep at least 5 lines above/below cursor
+set title                 " title: show title in console title bar
+set t_ut=                 " fix tmux color issues
+set cwh=3                 " cmdwinheight
+set ch=3                  " cmdheight: Number of screen lines to use for the
+                          " command-line. surpress errormessage when
+                          " working with buffers
+set wmh=0                 " winminheight: windows minimum height (values 0-3)
+set wmw=1                 " winminwidth: windows minimum width in columns (val 0-12)
+
+" winheight/-width: Minimal number of lines for the current window. This
+" is not a hard minimum, Vim will use fewer lines if there is not enough room.
+
+" exclude predefined filetypes from settings
+" http://stackoverflow.com/a/10410590/3569509
+let blacklist = ['gitcommit', 'quickfix']
+aug whatever
+    au!
+    au VimEnter,BufWritePre * if index(blacklist, &ft) < 0 | set wh=30
+    au VimEnter,BufWritePre * if index(blacklist, &ft) < 0 | set wiw=55
+aug END
 
 " rulerline
 set ru                                         " ruler: show cursor position in status bar
 set ruf=%25(%n%m%r:\ %Y\ [%l,%v]\ %p%%%)       " rulerformat
-
-" statusline
-set ls=2                                       " last window will have a status line, options:
-                                            " 0 - never,
-                                            " 1 - only if there are at least two windows,
-                                            " 2 - always
 
 " listchars: vim can highlight whitespaces for you in a convenient way
 exec "set lcs=tab:\uBB\uBB,trail:\uB7,nbsp:~"
@@ -220,15 +222,16 @@ set vb t_vb=                                   " visualbell: no beep or flash is
 " dictionary & thesaurus"{{{
 
 set dict+=~/.aspell.de.pws
-set dict+=~/.vim/spell                         " dict: set dirs of dictionaries
-set cpt+=k                                     " complete: enable dictionary completion
+set dict+=~/.vim/spell                  " dict: set dirs of dictionaries
+set cpt+=k                              " complete: enable dictionary completion
 set tsr+=~/.vim/thesaurus/thes_de.txt
-set tsr+=~/.vim/thesaurus/thes_eng.txt         " thesaurus: using thesaurus by CTR+X CTRL+T in insert mode.
-setlocal keywordprg=trs\ {en=@en+de}           " googletranslate word under cursor - english
-setlocal keywordprg=trs\ {es=@es+de}           " googletranslate word under cursor - español
-set nolisp                                     " nolisp: When <Enter> is typed in insert mode set the indent for the next line to Lisp
-                                            " standards (default: off)
-set nospell                                    " spell: set spell spelllang=de,en
+set tsr+=~/.vim/thesaurus/thes_eng.txt  " thesaurus: using thesaurus by CTR+X CTRL+T in insert mode.
+setlocal keywordprg=trs\ {en=@en+de}    " googletranslate word under cursor - english
+setlocal keywordprg=trs\ {es=@es+de}    " googletranslate word under cursor - español
+set nolisp                              " nolisp: When <Enter> is typed in insert mode set the indent for the next line to Lisp
+                                        " standards (default: off)
+set nospell                             " spell: set spell spelllang=de,en
+set dg                                  " digraph: with the digraph option set you can enter 'a <BS> >' to retreive â
 
 " dictionary & thesaurus"}}}
 
@@ -481,23 +484,35 @@ set fdo+=undo      " undo or redo: "u" and CTRL-R
 " foldopen"}}}
 " statusline"{{{
 
-" laststatus: always show status line
+" printf blank spaces
+" http://www.codingunit.com/printf-format-specifiers-format-conversions-and-formatted-output
+" %d     (print as a decimal integer)
+" %6d    (print as a decimal integer with a width of at least 6 wide)
+" %f     (print as a floating point)
+" %4f    (print as a floating point with a width of at least 4 wide)
+" %.4f   (print as a floating point with a precision of four characters after the decimal point)
+" %3.2f  (print as a floating point at least 3 wide and a precision of 2)
+
+" enable statusline
 set ls=2
+" 0 - never,
+" 1 - only if there are at least two windows,
+" 2 - always
 
-" number of current buffer
-set stl=%02n\|
-" filename
-set stl+=%t\|
-" formatoptions
-set stl+=\|%{&fo}\|
-" filetype
-set stl+=\|%{strlen(&ft)?&ft:'none'}\|
+" statusline: <%nr> defines <usernr> in colorscheme
+set stl=%2*%02n                                                   " current buffer
+set stl+=%1*\|%t\|                                                " filename
+set stl+=%2*%{&fo}\|                                              " formatoptions
 
-" filencoding, fileformat
+" statusline: show current branch
+set stl+=%3*%{(fugitive#head()!=\"\"?'\ <\ ':'')}                   " git branch
+set stl+=%3*%{(fugitive#head()!=\"\"?fugitive#head():'')}
+set stl+=%3*%{(fugitive#head()!=\"\"?'\ \ \>':'')}
+
+" statusline: filencoding, fileformat
 " http://stackoverflow.com/a/5375338/3569509
-set stl+=%=%({%{&ff}\|%{(&fenc==\"\"?&enc:&fenc)}%k\|%Y}%)
-" " current positon in file
-set stl+=\ %(\|%l,%v\|\|%p%%\|\ %)
+set stl+=%2*%=%((%{&ff}\|%{(strlen(&fenc)?&enc:&fenc)}%k\|%Y)%)
+set stl+=%2*\ %(%l,%v\|%02p%%\ %)                                 " current positon in file
 
 " statusline"}}}
 
@@ -566,3 +581,4 @@ augroup END
 " au BufNewFile,BufReadPost *.markdown,*.mdown,*.mkd,*.mkdn,README.md  set ft=markdown
 
 " autocmds"}}}
+" CursorHold
