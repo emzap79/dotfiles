@@ -24,6 +24,36 @@ export VOL="/media/zapata/Volume"
 export USB="/media/zapata/ES02224159"
 
 # paths#}}}
+# shopt #{{{
+
+# shopt                   # lists all entries
+# shopt -s <list-entry>   # activates shopentry
+# shopt -u <list-entry>   # deactivates shopentry
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+## reedit a history substitution line if it failed
+shopt -s histreedit
+## edit a recalled history line before executing
+shopt -u histverify
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+shopt -s globstar
+
+# more shopt-options
+shopt -s cdspell
+shopt -s cmdhist
+shopt -s expand_aliases
+shopt -s extglob
+shopt -s extquote
+shopt -s force_fignore
+shopt -s interactive_comments
+shopt -s progcomp
+shopt -s promptvars
+shopt -s sourcepath
+shopt -s checkwinsize
+
+# shopt #}}}
 # histcontrol#{{{
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -32,22 +62,8 @@ export HISTCONTROL="ignoreboth:ignoredups:erasedups"
 
 # Preserve bash history in multiple terminal windows
 # http://unix.stackexchange.com/a/48116
-HISTSIZE=9000
+HISTSIZE=10000
 HISTFILESIZE=$HISTSIZE
-
-history() {
-  _bash_history_sync
-  builtin history "$@"
-}
-
-_bash_history_sync() {
-  builtin history -a         #1
-  HISTFILESIZE=$HISTSIZE     #2
-  builtin history -c         #3
-  builtin history -r         #4
-}
-
-PROMPT_COMMAND=_bash_history_sync
 
 # Commands to ignore in history prompt
 export HISTIGNORE="history:\
@@ -212,6 +228,32 @@ export GIT_PS1_SHOWUPSTREAM=auto          # will show a = if you are at the same
                                           # if you are ahead and <> if you have diverged from the upstream branch.
 
 # prompt (PS1)#}}}
+# tmux#{{{
+# http://stackoverflow.com/a/14396443/3569509
+
+case ${TERM} in
+
+    screen*)
+
+        # user command to change default pane title on demand
+        function title { TMUX_PANE_TITLE="$*"; }
+
+        # function that performs the title update (invoked as PROMPT_COMMAND)
+        function update_title { printf "\033]2;%s\033\\" "${1:-$TMUX_PANE_TITLE}"; }
+
+        # default pane title is the name of the current process (i.e. 'bash')
+        TMUX_PANE_TITLE=$(ps -o comm $$ | tail -1)
+
+        # Reset title to the default before displaying the command prompt
+        PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'update_title'   
+
+        # Update title before executing a command: set it to the command
+        trap 'update_title "$BASH_COMMAND"' DEBUG
+
+        ;;
+esac
+
+# tmux#}}}
 # bash completion#{{{
 
 # enable programmable completion features (you don't need to enable
@@ -234,29 +276,6 @@ GREP_OPTIONS="--exclude-dir=\.svn"
 export GREP_OPTIONS
 
 #}}}
-# shopt #{{{
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-shopt -s globstar
-
-# more shopt-options
-shopt -s cdspell
-shopt -s cmdhist
-shopt -s expand_aliases
-shopt -s extglob
-shopt -s extquote
-shopt -s force_fignore
-shopt -s interactive_comments
-shopt -s progcomp
-shopt -s promptvars
-shopt -s sourcepath
-shopt -s checkwinsize
-
-# shopt #}}}
 # other settings#{{{
 
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)

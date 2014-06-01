@@ -1,7 +1,7 @@
 # vim:fdm=marker:textwidth=0
 ### Filter {{{
 
-"query:Jobsinecuador: tags =~ \"jobs\" and title =~ \"ecuador\""       "00. Filter"
+# "query:Jobsinecuador: tags =~ \"jobs\" and title =~ \"ecuador\""       "00. Filter"
 "query:Podcasts: tags =~ \"999. Podcasts\""                            "00. Filter"
 "query:Reddit: tags =~ \"999. Reddit\" and tags =~ \"inbox\""          "00. Filter"
 "query:Ebooks: tags =~ \"999. angebote\" and (title =~ \" ebook\" and title !~ \"ebookers\")"     "00. Filter"
@@ -10,7 +10,9 @@
 ### url-list# {{{
 
 "query:Uni Due: tags =~ \"999. Uni Due\" and tags =~ \"Uni Due\""                                                                        "01. Uni Due :: Uni Due"
-"query:Mavs: tags =~ \"999. Sport\" and (title =~ \"Mavs\" or title =~ \"Mavericks\" or title =~ \"Nowitzki\")"                          "03.1 Sport :: Basketball"
+# "query:Mavs: tags =~ \"999. Sport\" and (title =~ \"Mavs\" or title =~ \"Mavericks\" or title =~ \"Nowitzki\")"                          "03.1 Sport :: Basketball"
+# "query:Sport: tags =~ \"999. Sport\" and tags =~ \"Basketball\" and title =~ \"playoff\""                                                                       "03. Sport :: Basketball"
+"query:Sport: tags =~ \"999. Sport\" and tags =~ \"Basketball\""                                                                         "03.1 Sport :: NBA"
 "query:Sport: tags =~ \"999. Sport\" and tags =~ \"Fussball\" and link =~\"spielbericht\""                                               "03.2 Sport :: Fussball"
 "query:News: tags =~ \"999. News\" and (tags =~ \"nachrichten\" or tags =~ \"latinamerica\")"                                            "04. News :: Nachrichten"
 "query:News: tags =~ \"999. News\" and tags =~ \"Technik\""                                                                              "04.2 News :: Technik"
@@ -30,7 +32,6 @@
 "query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"VIM\""                                                                        "07.1 StackExch :: VIM"
 "query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"Bash\""                                                                       "07.2 StackExch :: Bash"
 "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Technik\""                                                                      "09. Angebote :: Technik"
-# "query:Sport: tags =~ \"999. Sport\" and tags =~ \"Basketball\""                                                                       "03. Sport :: Basketball"
 # "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Kleidung\""                                                                   "09. Angebote :: Kleidung"
 # "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Sonstige\""                                                                   "09. Angebote :: Sonstige"
 # "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Ruhrgebiet\""                                                                 "09. Angebote :: Ruhrgebiet"
@@ -138,6 +139,7 @@ http://www.wiwi.uni-due.de/rss/                                                 
 ### Linux# {{{
 
 http://alblue.bandlem.com/atom.xml                                "999. Unix - Git"
+http://neovim.org/news.xml                                        "999. Unix - Vim"
 http://feeds.feedburner.com/usevim                                "999. Unix - Vim"
 http://feeds.vimgolf.com/latest-challenges?format=xml             "999. Unix - Vim"
 http://udioica.blogspot.com/feeds/posts/default?alt=rss           "999. Unix - Vim"
@@ -213,28 +215,28 @@ http://www.fedora-blog.de/feed/                                   "999. Unix - F
 # http://feeds.feedburner.com/Noobslab                            "999. Unix - Ubuntu"
 
 ### Linux# }}}
-### Sport#{{{
+### Sport## {{{
 
 http://fivefilters.org/content-only/makefulltextfeed.php?url=http://www.spox.com/pub/rss/us-sport-nba.xml&key=&max=4&links=preserve&submit=Create+Feed "999. Sport - Basketball"
-http://www.nba.com/powerrankings/rss.xml                                "999. Sport - Basketball"
-http://www.sport1.de/de_1/basketball/rss.xml                            "999. Sport - Basketball"
-http://mavsblog.dallasnews.com/atom.xml                                 "999. Sport - Basketball"
-http://blogmaverick.com/feed/                                           "999. Sport - Basketball"
-http://www.spiegel.de/thema/basketball_em_2011/index.rss                "999. Sport - Basketball"
-http://www.spiegel.de/thema/national_basketball_association/index.rss   "999. Sport - Basketball"
-http://www.nba.com/dunkofthenight/rss.xml                               "999. Sport - Basketball"
-http://sports.yahoo.com/nba/rss.xml                                     "999. Sport - Basketball"
-http://www.spox.com/pub/rss/basketball.xml                              "999. Sport - Basketball"
 http://rss.kicker.de/team/vflbochum                                     "999. Sport - Fussball"
 http://rss.kicker.de/news/clnews                                        "999. Sport - Fussball"
 http://rss.kicker.de/news/bundesliga                                    "999. Sport - Fussball"
 http://www.sport1.de/de_1/fussball/fussball_championsleague/rss.xml     "999. Sport - Fussball"
-# http://www.kickz.com/five/?feed=rss2                                    "999. Sport - Basketball"
-# http://www.dallasbasketball.com/rss/MainRss.xml                         "999. Sport - Basketball"
-# http://www.nba.com/mavericks/rss.xml                                    "999. Sport - Basketball"
-# http://fussballblog.espace.ch/atom/                                     "999. Sport - Fussball"
+http://fussballblog.espace.ch/atom/                                     "999. Sport - Fussball"
+http://www.spiegel.de/thema/basketball_em_2011/index.rss                "998. Sport - Basketball"
+http://www.spiegel.de/thema/national_basketball_association/index.rss   "998. Sport - Basketball"
+http://www.sport1.de/de_1/basketball/rss.xml                            "998. Sport - Basketball"
+http://www.spox.com/pub/rss/basketball.xml                              "998. Sport - Basketball"
+http://www.nba.com/powerrankings/rss.xml                                "999. Sport - Basketball"
+http://mavsblog.dallasnews.com/atom.xml                                 "999. Sport - Basketball"
+http://blogmaverick.com/feed/                                           "999. Sport - Basketball"
+http://www.nba.com/dunkofthenight/rss.xml                               "999. Sport - Basketball"
+http://sports.yahoo.com/nba/rss.xml                                     "999. Sport - Basketball"
+http://www.kickz.com/five/?feed=rss2                                    "999. Sport - Basketball"
+http://www.dallasbasketball.com/rss/MainRss.xml                         "999. Sport - Basketball"
+http://www.nba.com/mavericks/rss.xml                                    "999. Sport - Basketball"
 
-#}}}
+### Sport## }}}
 ### Other# {{{
 
 http://feeds.gawker.com/lifehacker/full                            "999. Other - Lifehacker"

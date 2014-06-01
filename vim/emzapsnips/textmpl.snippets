@@ -257,14 +257,14 @@ snippet "preamble" "Preamble for TeX-Docs" br
 %% %%%%%%%%%%%%%%%%
 \usepackage{fixltx2e}                           %%  use superscript in text-mode: \textsubscript
 \usepackage[percent]{overpic}                   %%  overlaying pic above another
-\usepackage[printonlyused]{acronym}             %%  printonlyused: only used acronyms are printed; other options: withpage
+\usepackage[printonlyused]{acronym}             %%  http://www.ctan.org/pkg/acronym
 \usepackage{blindtext, xfrac}                   %%  dummytext with '\blindtext'
 \usepackage{charter}                            %%  use the charter font for the document text
 \usepackage{color}                              %%  coloring eg. \textcolor{red}{... text}
 \usepackage[shortlabels]{enumitem}              %%  if you want to customize list (don't use with enumerate-package at
                                                 %%  same time!) see: http://tug.org/pipermail/texhax/2010-August/015420.html
 \usepackage{paralist}                           %%  use 'compactitem' or 'compactenum' for a compact list variation
-\usepackage{eurosym}                            %%  eurosymbol-package
+\usepackage[gen]{eurosym}                       %%  http://en.wikibooks.org/wiki/LaTeX/Special_Characters#Euro_.E2.82.AC_currency_symbol
 \usepackage{pdfpages}                           %%  inserting pdffiles
 \usepackage{tabto}                              %%  tabstops ('\tab') in list-environment
 \usepackage{textcomp}                           %%  additional characters
@@ -331,8 +331,10 @@ pdftex,
 %% %%%%%%%%%%%%%%%%
 %% %% Bibliography & Makeidx Packages %%{{{
 %% %%%%%%%%%%%%%%%%
-%\usepackage[numbers]{natbib}       %%  an extension to allow
-                                    %%  author-year citations along wih
+%\usepackage[%                      %%  an extension to allow author-year citation
+%numbers,%                          %%  along with numerical citations
+%sort&compress
+%]{natbib}
                                     %%  numerical citations. For more
                                     %%  informations, texdoc Natbib
                                     %%  options: numbers,super,sort&compress
@@ -477,9 +479,9 @@ pdftex,
 %% %% Indendation %%{{{
 %% %%%%%%%%%%%%%%%%
 %\setlength\parindent{0pt}                             %% globally suppress indentation
+%\usepackage{parskip}                                  %% package turns off the indentation and adds a
 %\setlength{\parskip}{6pt}
 %\setcounter{secnumdepth}{0}                           %% unnumbers all headings (\parts, \subsections etc.), even when supposed to be numbered
-%\usepackage{parskip}                                  %% package turns off the indentation and adds a
                                                        %% little bit of (stretchable) space in between paragraphs
 %%}}}
 

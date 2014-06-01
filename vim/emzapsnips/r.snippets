@@ -8,7 +8,10 @@ def complete(t, opts):
         return opts[0]
     return "" + ' '.join(opts) + ''
 endglobal
-
+snippet setwd "Set Workingdir" !b
+setwd("${1:`!p import os
+snip.rv = os.getcwd()`}")
+endsnippet
 snippet "(a|i)s" "Apply/Test type on variable" ir
 `!p snip.rv=match.group(1)`s.$1`!p snip.rv=complete(t[1],
 [' [l]ogical','[c]haracter','[i]nteger','[n]umeric','[v]ector','[li]st','[m]atrix','[d]ata.frame'])`${1/

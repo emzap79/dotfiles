@@ -1,3 +1,5 @@
+" vim:fdm=marker
+
 " =============================================================================
 " File: ftplugin/tex.vim
 " Description: Provide foldexpr and foldtext for TeX files
@@ -105,3 +107,8 @@ else
   let b:undo_ftplugin = "setl foldexpr< foldmethod< foldtext<"
 endif
 "}}}
+" autocorrections"{{{
+
+abbr " ``''
+
+" autocorrections"}}}

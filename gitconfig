@@ -13,7 +13,7 @@
 	status = auto
 	branch = auto
 [core]
-	abbrev = 4
+	abbrev = 5
 	editor = vim
 	excludesfile = /home/zapata/.gitignore
 [merge]
@@ -31,29 +31,26 @@
 #	=================================
 #  dig in history what went wrong
 	ref	= reflog			# show changes of the HEAD pointer (including all indices)
-	l	= log --graph --oneline --decorate=short --all
-	lp	= log -p			# ...shows diffs for entire history
+	l	= log --graph --abbrev=7 --decorate=short --oneline --all
+	lp	= log -p --graph --decorate=short --pretty=medium --oneline --stat	# ...shows diffs for entire history
 	lpf	= log -p --follow		# ...id + <filename>, show renamings of file as well
-	ll	= log --graph --abbrev-commit --decorate=short --pretty=medium
-	lo	= log --graph --oneline --decorate=short --abbrev=7
-	llo	= log --graph --abbrev=7 --decorate=short --pretty=medium
-	lllo	= log --graph --abbrev=7 --decorate=short --pretty=short
-	lstat	= log --stat			# show log with added/droped files
+	lo	= log --graph --abbrev=7 --decorate=short --pretty=medium --oneline
+	ll	= log --graph --abbrev-commit --decorate=short --pretty=medium --stat	# show log with added/droped files
+	lll	= log --graph --abbrev=7 --decorate=short --pretty=short
 
 #  check current state locally
-	st	= !git status|less		# index status
-	sts	= status --short
+	st	= status --short
 	stt	= status -uno			# don't show untracked stuff
-	stst	= status -uno --short		# don't show untracked stuff
+	stts	= status -uno --short		# don't show untracked stuff
 
 # currently versioned files at HEAD
-	ls	= ls-tree -r --name-only	# ... revision
-	lsd	= ls-tree -r -d --name-only	# id., but only the named tree entry, no children
-	lst	= !git ls-tree HEAD --full-tree -r -t --name-only|less		# all
-	lstd	= !git ls-tree HEAD --full-tree -r -t -d --name-only|less	# just dirs
-	lsta	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4|less	# mnemonic 'ls tree abbreviated'
-	lstad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less	# id, folders only
-	lsf	= !git ls-files --abbrev=4 --stage|less				# show levels of staged files only
+	lt	= ls-tree -r --name-only	# ... revision
+	ltd	= ls-tree -r -d --name-only	# id., but only the named tree entry, no children
+	ltt	= !git ls-tree HEAD --full-tree -r -t --name-only|less		# all
+	lttd	= !git ls-tree HEAD --full-tree -r -t -d --name-only|less	# just dirs
+	ltta	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4|less	# mnemonic 'ls tree abbreviated'
+	ltad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less	# id, folders only
+	lttf	= !git ls-files --abbrev=4 --stage|less				# show levels of staged files only
 
 # 'git h' for help, 'git la' to list aliases
 # http://stackoverflow.com/a/11613251
@@ -83,17 +80,18 @@
 	cs	= commit -m squash!		# ...commit changes and change message later (rebase -i)
 	ca	= commit -am			# ...commit modified and deleted files + message
 	mc	= commit			# think 'message-commit
-	mca	= commit -a				# id. + commit modified and deleted files (but no new files)
-	cam	= commit --amend -c HEAD		# update last commit
+	mca	= commit -a			# id. + commit modified and deleted files (but no new files)
+	cam	= commit --amend -c HEAD	# update last commit
 	fcam	= commit --amend -C HEAD	# update last commit, and use same commit message
 						# undo
 	rs	= reset --mixed HEAD		# ...<filename> --- take a single added file off the index again
 	rsh	= reset --hard			# <HEAD> undos all changes in working copy, cannot be reverted
 	rss	= reset --soft			# <HEAD> moves HEAD pointer only to <HEAD>
+	rv	= revert			# <HEAD> undo all commited stages to the point of <HEAD>
 
 #  name stuff properly
 						# tag
-	t	= tag				# (...<tag name>), arguments: none/-f/-m
+	t	= tag				# create annotaded tag: <tag> -m <explanation>
 	tl	= tag -n			# show existing tags with messages
 	td	= tag -d			# ...<tag name>, delete existing tag name
 						# notes
@@ -112,7 +110,7 @@
 						# check current local changes you have made
 	d	= diff HEAD			# (...<filename>) diff staged + unstaged against HEAD
 	ds	= diff --staged			# diff staged against HEAD
-	dsn	= diff --staged --name-only	# show recently staged files (name-only)
+	dsn	= diff --staged --name-only	# show staged files (name-only)
 	dt	= difftool
 						# check current changes residing in origin/master (= main repository)
 						# local changes are shown in red!!!
@@ -125,23 +123,20 @@
 #	=================================
 	sh	= stash				# tempsave stuff without branching or committing
 	shl	= stash list			# see the list of available stashes
-	shp	= stash pop				# re-apply the stashed changes and delete the stash from the list of stashes
+	shp	= stash pop			# re-apply the stashed changes and delete the stash from the list of stashes
 	sha	= stash apply			# you can use the ID to apply a stash, eg stash@{0}
 	shd	= stash drop			# remove a stashed change without applying it
 
 #  check what is going on everywhere
-	sb	= show-branch -a --list		# just list with current commit
-	sba	= show-branch --color=always -a --more=10 --no-name			# all
-	sbaf	= show-branch --color=always -a --more=10			# all full
-	sbl	= show-branch --color=always --reflog=10 --no-name			# local
+	sb	= show-branch --color=always -a --more=10			# all full
+	sbl	= show-branch --color=always --reflog=10 --no-name		# local
 	sblf	= show-branch --color=always --reflog=10			# local full
 	sl	= shortlog -nse
 
 #  branch your way to victory, add <branch name>
 	b	= branch			# (...<branch name>), without argument show existing ones
-	ba	= branch -a			# shows all local and remote branches
-	bd	= branch -D			# ...<branch name>
-	bt	= "git branch --set-upstream=origin/"				# ...origin/<branch name> master -- set remote-track to master
+	ba	= branch -av			# show branches + SHA1 tags
+	bd	= branch --delete		# ...<branch name>, remove a branch
 	co	= checkout			# ...
 	cob	= checkout -b			# ...<branch name> create + checkout branch
 
@@ -159,10 +154,9 @@
 #	=================================
 #  interact with the rest of the world
 	f	= fetch
-	p	= pull
-	pp	= push origin			# push origin <branch>
-	ppu	= push -u origin		# push and add upstream reference <branch>
-	ppf	= push origin -f		# overwrite external changes to remote (use with care!!)
+	p	= push origin			# push origin <branch>
+	pu	= push -u origin		# push and add upstream reference <branch>
+	pf	= push origin -f		# overwrite external changes to remote (use with care!!)
 	pup	= !git pull && git push origin	# pull and push, not nice but sometimes convenient
 	rmrb	= push --delete origin		# ...<branch name> remote branch to be deleted
 	fp	= !git mca && git pup		# fast push script, be wary!

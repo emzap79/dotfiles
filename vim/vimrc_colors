@@ -11,8 +11,16 @@ colorscheme default
 set background=light
 
 " Colorscheme"}}}
-" Highlighting"{{{
+" " Highlighting"{{{
+"
+" VimDiff"{{{
 
+autocmd ColorScheme * highlight DiffAdd     ctermbg=green      ctermfg=0
+autocmd ColorScheme * highlight DiffDelete  ctermbg=0       ctermfg=blue
+autocmd ColorScheme * highlight DiffText    ctermbg=0       ctermfg=white
+autocmd ColorScheme * highlight DiffChange  ctermbg=0       ctermfg=magenta
+
+" VimDiff"}}}
 " Set Cursor"{{{
 
 " http://stackoverflow.com/a/7619174
@@ -34,14 +42,6 @@ endif
 autocmd ColorScheme * highlight ColorColumn               ctermbg=magenta ctermfg=none cterm=none
 
 " Customized"}}}
-" VimDiff"{{{
-
-autocmd ColorScheme * highlight DiffAdd                   ctermbg=154 ctermfg=none cterm=none
-autocmd ColorScheme * highlight DiffDelete                ctermbg=165 ctermfg=none cterm=none
-autocmd ColorScheme * highlight DiffText                  ctermbg=250 ctermfg=none cterm=none
-autocmd ColorScheme * highlight DiffChange                ctermbg=252 ctermfg=none cterm=none
-
-" VimDiff"}}}
 " Search & Spellcheck"{{{
 
 autocmd ColorScheme * highlight Search                    ctermbg=255 ctermfg=none cterm=none
@@ -93,5 +93,5 @@ hi User2 ctermfg=2  ctermbg=0 cterm=none
 hi User3 ctermfg=2  ctermbg=0 cterm=none
 
 " Statusline"}}}
-
-" Highlighting"}}}
+"
+" " Highlighting"}}}

@@ -61,6 +61,8 @@ set rnu                   " rnu: relative line numbers
 set so=5                  " scrolloff: keep at least 5 lines above/below cursor
 set title                 " title: show title in console title bar
 set t_ut=                 " fix tmux color issues
+
+" winheigth & -width
 set cwh=3                 " cmdwinheight
 set ch=3                  " cmdheight: Number of screen lines to use for the
                           " command-line. surpress errormessage when
@@ -71,7 +73,7 @@ set wmw=1                 " winminwidth: windows minimum width in columns (val 0
 " winheight/-width: Minimal number of lines for the current window. This
 " is not a hard minimum, Vim will use fewer lines if there is not enough room.
 
-" exclude predefined filetypes from settings
+" exclude predefined filetypes from windowsettings
 " http://stackoverflow.com/a/10410590/3569509
 let blacklist = ['gitcommit', 'quickfix']
 aug whatever
@@ -124,31 +126,32 @@ set bkc=auto                     " When writing a file and a backup is made, thi
 " editor"}}}
 " search"{{{
 
-set magic                                      " magic: change the way backslashes are used in search patterns
-set hls                                        " hlsearch: When there is a previous search pattern, highlight all
-set is                                         " incsearch: While typing a search command, show results immediately
+set nows      " wrapscan: messaging when 'end of search has been achieved'
+set magic     " magic: change the way backslashes are used in search patterns
+set hls       " hlsearch: When there is a previous search pattern, highlight all
+set is        " incsearch: While typing a search command, show results immediately
 set ic
-set sc                                         " smartcase: Override the 'ignorecase' option if the search
-                                            " pattern contains upper case characters.
-set ws                                         " wrapscan: end of search has been achieved!
+set sc        " smartcase: Override the 'ignorecase' option if the search
+              " pattern contains upper case characters.
 
 " search"}}}
 " folding"{{{
 
 " fold settings
-set fen                                        " fen: enable folding
-set fdl=1                                      " foldlevel: Folds with a higher level will be closed.
-                                            " Setting this option to zero will close all folds. Higher numbers will
-                                            " close fewer folds.
-set fdls=0                                     " foldlevelstart: Sets 'foldlevel' when starting to edit another buffer in a window.
-                                            " Useful to always start editing with all folds closed (value zero),
-                                            " some folds closed (one) or no folds closed (99).
-set fcl=all                                    " foldclose: When set to "all", a fold is closed when the cursor isn't in it and
-                                            " its level is higher than 'foldlevel'. Useful if you want folds to
-                                            " automatically close when moving out of them.
-set fdc=4                                      " foldcolumn: sets rows to show fold information
-set fdn=2                                      " foldnestmax: Sets the maximum nesting of folds for the "indent" and "syntax" methods (with max = 20)
-" set fdm=marker                                 " foldmethod: manual, indent, expr, marker, syntax or diff
+set fen           " fen: enable folding
+set fdl=1         " foldlevel: Folds with a higher level will be closed.
+                  " Setting this option to zero will close all folds. Higher numbers will
+                  " close fewer folds.
+set fdls=0        " foldlevelstart: Sets 'foldlevel' when starting to edit another buffer in a window.
+                  " Useful to always start editing with all folds closed (value zero),
+                  " some folds closed (one) or no folds closed (99).
+set fcl=all       " foldclose: When set to " all", a fold is closed when the cursor isn't in it and
+                  " its level is higher than 'foldlevel'. Useful if you want folds to
+                  " automatically close when moving out of them.
+set fdc=4         " foldcolumn: sets rows to show fold information
+set fdn=2         " foldnestmax: Sets the maximum nesting of folds for the
+                  " indent" and "syntax" methods (with max = 20)
+" set fdm=marker  " foldmethod: manual, indent, expr, marker, syntax or diff
 
 " foldtext: a string option that specifies an expression. This
 " expression is evaluated to obtain the text displayed for a closed fold.
@@ -189,8 +192,9 @@ set bs=indent,eol,start                        " backspace: Allow backspacing ov
 set et                                         " expandtab: tabs are converted to spaces, use only when required
 set sr                                         " shiftround: use multiple of shiftwidth when indenting with '<' and '>'
 set ci                                         " copyindent: copy the previous indentation on autoindenting
-set si                                         " smartindent: turn on smart indenting. Availabile
-                                            " options: smart-/auto-/cindent
+set nosi                                       " smartindent: turn on smart indenting. Availabile
+                                               " options: smart-/auto-/cindent
+set noci
 
 set sw=4                                       " shiftwidth: number of spaces to use for autoindenting
 set sts=4                                      " softtabstop: make the four spaces feel like a tab
@@ -231,7 +235,7 @@ setlocal keywordprg=trs\ {es=@es+de}    " googletranslate word under cursor - es
 set nolisp                              " nolisp: When <Enter> is typed in insert mode set the indent for the next line to Lisp
                                         " standards (default: off)
 set nospell                             " spell: set spell spelllang=de,en
-set dg                                  " digraph: with the digraph option set you can enter 'a <BS> >' to retreive â
+set nodg                                " digraph: with the digraph option set you can enter 'a <BS> >' to retreive â
 
 " dictionary & thesaurus"}}}
 
@@ -243,6 +247,10 @@ set dg                                  " digraph: with the digraph option set y
 set nocp " compatible: makes VIMs behaviour similar to vi
 
 " http://vi-improved.org/vimrc.html
+
+"        +-- necessary to make 'iab' work with functions
+"        |
+set cpo-=<
 set cpo+=aABceFsmq
 "        |||||||||
 "        ||||||||+-- When joining lines, leave the cursor between joined lines
@@ -395,16 +403,20 @@ set com+=b:-
 " set com+=:\\item
 " set com+=:#
 
+set cms+=#\ %s           " commentstring: The "%s" in the value is replaced with the comment text.
+set cms+=%\ %s
+
 " comments"}}}
 " iskeyword/-fname/-print"{{{
 
 " iskeyword: Keywords for recognizing beginning/end of word eg. in movements like w,e...
-set isk-=.  " add dots as end of word (isk-=.)
 
 set isk+="@
 set isk+=48-57
 set isk+=_
 set isk+=192-255"
+
+set isk-=.  " add dots as end of word (isk-=.)
 
 " isfname: The characters specified by this option are included in file names and path
 " names. Filenames are used for commands like "gf", "[i" and in the tags file.
@@ -548,7 +560,7 @@ aug END
 aug BWP
 au!
 " automatically remove trailing whitespace
-au BufWritePre * :%s/\s\+$//e
+au BufWritePre *.tex,*.rnw :%s/\s\+$//e
 aug END
 
 " BufWritePre"}}}
@@ -567,9 +579,6 @@ aug END
 " http://www.r-bloggers.com/sweave-syntax-highlighting-in-vim/
 
 augroup filetypedetect
-au! BufRead,BufNewFile *.r         setf r
-au! BufRead,BufNewFile *.R         setf r
-au! BufRead,BufNewFile *.Rnw       setf noweb
 au! BufRead,BufNewFile *.textmpl   setf textmpl
 augroup END
 
@@ -580,5 +589,10 @@ augroup END
 " Markdown
 " au BufNewFile,BufReadPost *.markdown,*.mdown,*.mkd,*.mkdn,README.md  set ft=markdown
 
+" " Add filetypes to tcomment
+" " http://stackoverflow.com/a/4002291/3569509
+" if exists('loaded_tcomment')
+"     call tcomment#DefineType('noweb',       '%% %s'             )
+" endif
+
 " autocmds"}}}
-" CursorHold

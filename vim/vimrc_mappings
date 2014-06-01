@@ -284,34 +284,6 @@ inoremap <f10> <ESC>:call ToggleYCM()<CR>
 " <f11> " *** no functions yet***{{{
 
 "}}}
-" <f12> " add abbreviations "{{{
-
-"mapping to automatically add an abbreviation
-nnoremap <leader><f12> <sid>:call AddAbbr()<cr>
-vnoremap <leader><f12> <sid>:call AddAbbr()<cr>
-""" func: abbreviations"{{{
-
-"" an abbreviation is a short form of long text e.g. mfg mit freundlichen grüßen
-"" its found in ~/.vim/ftplugin/tex.vim (at the eof)
-
-"abbreviation
-fun! AddAbbr()
-    normal! byw
-    let stringchar = lh#visual#selection()
-    let val = input("enter the abbreviation you wish to use for '". stringchar. "' :")
-    exec "ia" stringchar val
-    silent call SaveAbbr(stringchar, val)
-endfun
-
-fun! SaveAbbr(val, abbr)
-    redir >>~/.vim/ftplugin/tex.vim
-    echo "iab" a:abbr a:val
-    redir end
-endfun
-
-" "}}}
-
-" <f12> " add abbreviations "}}}
 
 " f-keys"}}}
 " basic key remaps "{{{
@@ -675,13 +647,22 @@ autocmd BufRead fugitive\:* xnoremap <buffer> do :diffget<cr>
 " fugitive"}}}
 " tmux-navigator <plugin>"{{{
 
-nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+" " https://github.com/christoomey/vim-tmux-navigator#vim-1
+" " must disable c-[ljkh] mappings first
+" nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+" nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+" nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+" nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 " tmux-navigator <plugin>"}}}
+" obsession <plugin>"{{{
+
+nnoremap <silent><leader>ob :Obsession <CR>
+vnoremap <silent><leader>ob :Obsession <ESC><CR>
+inoremap <silent><localleader>ob :Obsession <ESC><CR>
+
+" obsession <plugin>"}}}
 " showmarks <plugin>"{{{
 
 " show marks
@@ -710,22 +691,22 @@ inoremap <silent><localleader>md <ESC>:exe 'delm! \| delm A-Z0-9 \| echom "all m
    " [count] is the same as above.
 
 " showmarks <plugin>"}}}
-" NERDCommenter <plugin>"{{{
+" " NERDCommenter <plugin>"{{{
 
-nmap css <plug>NERDCommenterSexy
-nmap csi 2<plug>NERDCommenterInvert
-nmap cii <plug>NERDCommenterInvert
-nmap cu <plug>NERDCommenterUncomment
-nmap cy <plug>NERDCommenterYank
-nmap cp <plug>NERDCommenterYankp
+" nmap css <plug>NERDCommenterSexy
+" nmap csi 2<plug>NERDCommenterInvert
+" nmap cii <plug>NERDCommenterInvert
+" nmap cuu <plug>NERDCommenterUncomment
+" nmap cy <plug>NERDCommenterYank
+" nmap cp <plug>NERDCommenterYankp
 
-vmap cu <plug>NERDCommenterUncomment
-vmap cs <plug>NERDCommenterSexy
-vmap ci <plug>NERDCommenterInvert
-vmap cy <plug>NERDCommenterYank
-vmap cp <plug>NERDCommenterYankP
+" vmap cu <plug>NERDCommenterUncomment
+" vmap cs <plug>NERDCommenterSexy
+" vmap ci <plug>NERDCommenterInvert
+" vmap cy <plug>NERDCommenterYank
+" vmap cp <plug>NERDCommenterYankP
 
-" NERDCommenter <plugin>"}}}
+" " NERDCommenter <plugin>"}}}
 
 " Plugin-Maps"}}}
 " Other Mappings"{{{
@@ -807,21 +788,21 @@ nnoremap <silent> <leader>pw :call DoWindowSwap()<cr>
 " changes to previous buffer
 nnoremap <esc>ß :b #<cr>
 
-" " move around between buffers
-" nnoremap <c-k> <c-w><up>
-" nnoremap <c-j> <c-w><down>
-" nnoremap <c-h> <c-w><left>
-" nnoremap <c-l> <c-w><right>
+" move around between buffers
+nnoremap <c-k> <c-w><up>
+nnoremap <c-j> <c-w><down>
+nnoremap <c-h> <c-w><left>
+nnoremap <c-l> <c-w><right>
 
-" }}}
+" switching buffers"}}}
 " switch to alternate file"{{{
 
 nnoremap <c-tab> :bnext<cr>
 nnoremap <c-s-tab> :bprevious<cr>
 
-" }}}
+" switch to alternate file"}}}
 
-"}}}
+" window-movements"}}}
 " reload session.vim"{{{
 
 nnoremap <leader>ss :lcd %:p:h<CR>:so Session.vim<CR>
@@ -899,17 +880,8 @@ nnoremap <silent> <Leader>- :exe "vert resize " . (winwidth(0) * 2/3)<CR>
 " buffers & tabs"}}}
 " String-Searches & Spell-Checking"{{{
 
-" online searches{{{
+" online searches"{{{
 
-"open link under curser in firefox"{{{
-
-" " will search the word in firefox where
-" " the cursor is when typing <leader>fg in visual mode
-" " found on http://la.firme.perso.esil.univmed.fr/website/article.php3?id_article=70
-nnoremap \ :exe "!firefox " . shellescape(expand("<cword>"))<cr>
-xnoremap \ :<c-u>!firefox <c-r>=GetVisualSelection()<cr>
-
-"}}}
 "search wikipedia from within vim"{{{
 
 nnoremap <leader>fw <esc>:! firefox 'http://de.wikipedia.org/w/index.php?search=<c-r>=wikipedia()<cr>'<cr><cr>
@@ -940,7 +912,7 @@ endfun
 
 " key mapping for wikipedia search "}}}
 
-"}}}
+" online searches"}}}
 " offline searches"{{{
 
 "appending to the previous search pattern the current word under the cursor"{{{
@@ -964,9 +936,38 @@ vnoremap <leader>thes :<c-u>!othes <c-r>=getvisualselection()<cr>
 " make 'very magic' string search the default"{{{
 
 " nnoremap / /\v
-cnoremap :s/ :s/\v
+" cnoremap :s/ :s/\v
 
 " 'very magic' string search as default"}}}
+" add abbreviations"{{{#
+
+"mapping to automatically add an abbreviation
+nnoremap <leader>ab <sid>:call AddAbbr()<cr>
+vnoremap <leader>ab <sid>:call AddAbbr()<cr>
+""" func: abbreviations"{{{
+
+"" an abbreviation is a short form of long text e.g. mfg mit freundlichen grüßen
+"" its found in ~/.vim/ftplugin/tex.vim (at the eof)
+
+"abbreviation
+fun! AddAbbr()
+    normal! byw
+    let stringchar = lh#visual#selection()
+    let val = input("enter the abbreviation you wish to use for '". stringchar. "' :")
+    exec "ia" stringchar val
+    silent call SaveAbbr(stringchar, val)
+endfun
+
+fun! SaveAbbr(val, abbr)
+    redir >>~/.vim/ftplugin/tex.vim
+    redir >>~/.vim/ftplugin/noweb.vim
+    echo "iab" a:abbr a:val
+    redir end
+endfun
+
+" "}}}
+
+" add abbreviations ""}}}
 " operator: grep for word in dir"{{{
 
 nnoremap <silent>gr :set operatorfunc=<SID>GrepOperator<cr>g@

@@ -29,7 +29,7 @@ Bundle 'BufOnly.vim'
 Bundle 'L9'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'SirVer/ultisnips.git'
-Bundle 'The-NERD-Commenter'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'arecarn/frisk.git'
 Bundle 'bkad/CamelCaseMotion'
@@ -43,7 +43,6 @@ Bundle 'navicore/vis.vim'
 Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'scrooloose/syntastic'
 Bundle 'terryma/vim-expand-region'
-Bundle 'tommcdo/vim-exchange'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-obsession'
@@ -54,37 +53,39 @@ Bundle 'tracyone/Align.git'
 Bundle 'vim-scripts/ExtractLinks'
 Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'vim-scripts/LanguageTool'
+Bundle 'vim-scripts/tComment'
 Bundle 'wellle/targets.vim'
-Bundle 'Valloric/YouCompleteMe'
+Bundle 'panozzaj/vim-autocorrect'
 
 " No more used repos
-" Bundle 'plasticboy/vim-markdown'
-" Bundle 'suan/vim-instant-markdown'
-" Bundle 'vim-scripts/VimExplorer'
-" Bundle 'Shougo/neocomplete.vim'
-" Bundle 'pivotal/tmux-config'
-" Bundle 'scrooloose/nerdtree'
-" Bundle 'airblade/vim-gitgutter'
-" Bundle 'vim-scripts/DrawIt'
-" Bundle 'panozzaj/vim-autocorrect'
-" Bundle 'mru.vim'
+" Bundle 'tommcdo/vim-exchange'
 " Bundle 'CheckAttach.vim'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'ScrollColors'
+" Bundle 'Shougo/neocomplete.vim'
 " Bundle 'SpellChecker'
 " Bundle 'Tabmerge'
+" Bundle 'The-NERD-Commenter'
 " Bundle 'The-NERD-tree'
+" Bundle 'airblade/vim-gitgutter'
 " Bundle 'check-mutt-attachments.vim'
 " Bundle 'email.vim'
 " Bundle 'git://git.wincent.com/command-t.git'
 " Bundle 'https://github.com/lightxue/SwissCalc'
 " Bundle 'https://github.com/vim-scripts/AutoComplPop'
 " Bundle 'https://github.com/vim-scripts/spreadsheet.vim'
+" Bundle 'mru.vim'
 " Bundle 'mutt-aliases'
 " Bundle 'muttaliasescomplete.vim'
+" Bundle 'pivotal/tmux-config'
+" Bundle 'plasticboy/vim-markdown'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'screen.vim'
+" Bundle 'scrooloose/nerdtree'
+" Bundle 'suan/vim-instant-markdown'
 " Bundle 'tpope/vim-rails.git'
+" Bundle 'vim-scripts/DrawIt'
+" Bundle 'vim-scripts/VimExplorer'
 
 " "No more used repos
 
@@ -269,6 +270,13 @@ map <silent> e <Plug>CamelCaseMotion_e
 let NERDSpaceDelims = 1
 
 " NERDCommenter"}}}
+" tCommentor"{{{
+
+let g:tcommentMapLeaderOp1 = 'gc'
+let g:tcommentMapLeaderOp2 = 'gC'
+" tcomment#DefineType(tex, '%', ?cdef={'%'}, ?anyway=0)
+
+" tCommentor"}}}
 " ShowMarks"{{{
 
 let g:showmarks_marks = "abcdefghijklmnopqrstuvwxyz"
@@ -327,7 +335,7 @@ let g:snips_author = "emzap79"
 " let g:UltiSnipsExpandTrigger = "\<tab>"
 let g:UltiSnipsExpandTrigger = "<s-tab>"
 let g:UltiSnipsListSnippets = "<s-c-tab>"
-let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger = "<s-c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsEditSplit = "horizontal"
 let g:UltiSnipsSnippetsDir = "~/.vim/emzapsnips"
@@ -682,17 +690,13 @@ let g:ycm_semantic_triggers = {
 " fugitive statusline
 " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" Fugitive-Buffer nach verlassen löschen
+autocmd BufReadPre,BufRead fugitive://* set wmh=20
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
 " vim-fugitive"}}}
 
 " Github "}}}
-" Language-Tool"{{{
-
-" let g:languagetool_lang = de-DE           " language expected automatically, if unset
-" let g:languagetool_win_width = 18
-let g:languagetool_win_height = -1          " enable/disable languagetool-scratch buffer, if negative value: 14pt
-let g:languagetool_jar = '$HOME/.dictionaries/LanguageTool-2.5-SNAPSHOT/languagetool-commandline.jar'
-
-" Language-Tool"}}}
 " Frisk - Search Engine"{{{
 
 call frisk#DefaultEngine('google')
@@ -845,6 +849,23 @@ let g:ExtractLinks_ReplacementExtraction = '[\#] &\n'
 " Mutt"}}}
 
 " Extensions"}}}
+" Language & Spellchecking"{{{
+
+" Language-Tool"{{{
+
+" let g:languagetool_lang = de-DE           " language expected automatically, if unset
+" let g:languagetool_win_width = 18
+let g:languagetool_win_height = -1          " enable/disable languagetool-scratch buffer, if negative value: 14pt
+let g:languagetool_jar = '$HOME/.dictionaries/LanguageTool-2.5-SNAPSHOT/languagetool-commandline.jar'
+
+" Language-Tool"}}}
+" vim-autocorrect"{{{
+
+au! filetype tex call AutoCorrect()
+
+" vim-autocorrect"}}}
+
+" Language & Spellchecking"}}}
 
 " Plugin Settings "}}}
 """""""

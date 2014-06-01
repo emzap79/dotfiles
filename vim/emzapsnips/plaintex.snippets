@@ -15,7 +15,7 @@ endglobal
 snippet ",,(\S+)?" "Insert Tex-command" !ir
 \\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`{${1}}{${2:${VISUAL}}}
 endsnippet
-snippet ".,(\S+)?" "Insert Tex-command" !ir
+snippet "\.,(\S+)?" "Insert Tex-command" !ir
 \\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`[${1}]{${2}}{${3:${VISUAL}}}
 endsnippet
 snippet "\.\.(\S+)?" "Insert Tex-command" !ir
@@ -25,7 +25,7 @@ snippet ";(\S+)?" "Insert Tex-command" !ir
 \\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`{${1:${VISUAL}}}
 endsnippet
 snippet "\:(\S+)?" "Insert Tex-command" !ir
-\\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`${1:${VISUAL}}
+\\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`$1
 endsnippet
 #.##.header
 snippet % "chapter header" b
@@ -81,8 +81,7 @@ ${1:${VISUAL}}
 \end{`!p snip.rv = match.group(3) if match.group(2) is not None else "document"`}$0
 endsnippet
 snippet "((pic)|(graph))(s)?" "Include Pictures" rwb!
-\\includegraphics[${1:[ scale | height | width ]}${1/(h)$|(w)$|(s)/(?1:eight)(?2:idth)(?3:cale)/}=0.5\text${1/(h)$|(w)$|(.)/(?1:$1eight)(?2:$2idth)(?3:)/},${2:trim=${3: l b r t} $3 $3 $3, clip}]
-{${4:\currDir ${5}}}
+\\includegraphics[${1:[ scale | height | width ]}]{${4:../${5}}}
 endsnippet
 snippet caption "comm: define caption" b
 \caption[${1}]{$1${2}}
@@ -113,8 +112,8 @@ snippet "abbre?v?" "env: abbreviations" !br
 \end{acronym}
 endsnippet
 snippet "acro(\w+)?" "Define Acronym" rb
-\acro{${1}}[${2:${1/(\w+)/(?1:\U$1\E)/g}}]{${3}}
-${6:\acrodefplural{$1}[$2$4]{$3$5}}
+\acro{${1}}[${2:${1/(\w+)/(?1:\U$1\E)/g}}]{${3}}${6:
+\acroplural{$1}[$2$4]{$3$5}}
 endsnippet
 snippet "(\s|^)ac( (\S+))?" "Set Acronym" wr
  \ac{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
@@ -167,7 +166,7 @@ snippet "part" "Part" br
 \part{${1:part name}}
 \label{prt:${2:${1/(\w+)|\W+/(?1:\L$0\E:_)/ga}}}
 
-${3:${VISUAL:\\input{\\currDir }$0.tex}}
+${3:${VISUAL:\\input{\./}$0.tex}}
 
 endsnippet
 snippet "cha?p?t?e?r?" "Chapter" br
@@ -182,7 +181,7 @@ endsnippet
 snippet "sec?t?i?o?n?" "Section" br
 \section{${1:section name}}
 ${2:\label{sec:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}
-${4:\input{\currDir cont/$3.tex}}
+${4:\input{../cont/$3.tex}}
 
 ${5:${VISUAL}}
 
@@ -191,7 +190,7 @@ endsnippet
 snippet "(subs?e?c?)|(ssec)" "Subsection" br
 \subsection{${1:subsection name}}
 ${2:\label{sec:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}
-${4:\input{\currDir cont/$3.tex}}
+${4:\input{../cont/$3.tex}}
 
 ${5:${VISUAL}}
 
@@ -200,7 +199,7 @@ endsnippet
 snippet "(subsub?s?e?c?)|(sssec)" "Subsection" br
 \subsubsection{${1:subsection name}}
 ${2:\label{sec:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}
-${4:\input{\currDir cont/$3.tex}}
+${4:\input{../cont/$3.tex}}
 
 ${5:${VISUAL}}
 
@@ -235,10 +234,16 @@ endsnippet
 snippet "ref" "Reference to" wr!
 ${VISUAL}~\ref{${1: [f]ig [s]ec [p]ar}${1/(f)$|(s)$|(p)$/(?1:ig\:)(?2:ec\:)(?3:ar\:)/g}${2}}
 endsnippet
-snippet " "Single Quotation Marks" i
-\frq ${1:${VISUAL}}\flq{}
+snippet "[^\"]\"" "Single Quotation Marks" ir
+\` ${1:${VISUAL}}'
 endsnippet
 snippet "" "Double Quotation Marks" i
+\`\` ${1:${VISUAL}}''
+endsnippet
+snippet "[^']'" "Single Quotation Marks" ir
+\frq ${1:${VISUAL}}\flq{}
+endsnippet
+snippet '' "Double Quotation Marks" i
 \frqq ${1:${VISUAL}}\flqq{}
 endsnippet
 snippet from "Absender" w

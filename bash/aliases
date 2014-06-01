@@ -1,4 +1,4 @@
-# vim:fdm=marker:ft=sh
+# vim:fdm=marker:ft=sh:set isk=-.
 
 # in case you need to unbind one of the
 # following aliases, do: unbind -a < expr >
@@ -6,7 +6,7 @@
 # export aliases="~/.bash/aliases"
 export chall=reformat_surnames
 
-# basic aliases# {{{
+# basic aliases# #{{{
 
 # ls # {{{
 
@@ -29,6 +29,7 @@ alias la='ls $LS1 $LS2 $LS3 -A '       # also lists hidden files
 alias l='ls $LS1 $LS2 $LS3 -lA'        # listing view of all files
 alias ll='ls $LS1 $LS2 $LS3 -lB'       # like before, but w/o hidden files
 alias lst='ls $LS1 $LS2 $LS3 -lrtcA'   # show last edited files in folder
+alias lsg="ls|sort|grep -i"
 alias lp=fun_absolute_path             # show fullpathname to file
 
 # only directories
@@ -56,8 +57,6 @@ alias dus=fun_dus
 alias ff=fun_ff
 alias fff="find . -type f"
 alias ffd="find . -type d"
-alias fffs="find . -type f|sort"
-alias ffds="find . -type d|sort"
 alias ffg="find . -type f -exec egrep -iH"
 
 # aliases related to music
@@ -162,8 +161,13 @@ alias lc="locate -i"
 alias ud="sudo updatedb"
 
 # locate#}}}
+# remove#{{{
 
-# }}}
+alias chmrm=fun_chmod_remove
+
+# remove#}}}
+
+# basic aliases# #}}}
 # programs# #{{{
 
 # xclip# {{{
@@ -179,7 +183,7 @@ alias pwdp=`xclip -o`     # Error: target STRING not available
 # vimgolf
 # http://stackoverflow.com/a/8931728/3569509
 if [[ -e /home/${USER}/Dokumente ]]; then
-    alias vgolf='/bin/bash $VGOLF/vimGolf.sh'
+    alias vgolf='cd $VGOLF && /bin/bash $VGOLF/vimGolf.sh'
 fi
 alias vimgolf="sudo vimgolf"
 
@@ -244,14 +248,16 @@ alias mt="make tmux"
 alias mtx="make tex"
 alias ml="make latex"
 alias mvi="make vim"
+alias mvip="make vimp"
 alias mvim="make vim"
+alias mw=fun_loop_pdflatex
 
 # latex# #}}}
 # mutt, newsbeuter # {{{
 
 alias muttt='pkill fetchmail; fetchmail -v --ssl; mutt'
-alias muttb="/bin/bash $HOME/bin/muttb"
-alias newsb="pkill newsbeuter; newsbeuter"
+alias mb="/bin/bash $HOME/bin/muttb"
+alias nb="pkill newsbeuter; newsbeuter"
 # alias mutt='/usr/bin/mutt -y'
 
 # }}}
@@ -286,15 +292,14 @@ alias yt="mpsyt"
 # }}}
 
 # programs# #}}}
-# miscellanious# {{{
+# miscellanious# #{{{
 
-# conversion#{{{
+# dictionaries#{{{
 
-alias html2pdf="for i in *.html; do wkhtmltopdf $i $(basename $i .html).pdf; done"
-alias convflv="ffmpeg -sameq -ar 22051 -strict experimental output.mp4 -i"
-alias xls2csv="ssconvert -S"
+alias trs="trs {=de}"   # google translator
+alias ot=fun_open_thesaurus
 
-# conversion#}}}
+# dictionaries#}}}
 # alert # {{{
 
 # Add an "alert" alias for long running commands.
@@ -305,7 +310,12 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal ||\
     '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # }}}
-# short commands# {{{
+# birthday#{{{
+
+alias bday="cat $HOME/.birthdays | grep -i"
+
+# birthday#}}}
+# short commands# #{{{
 
 # some of it taken from https://github.com/sjas/.dotfiles
 
@@ -333,12 +343,12 @@ alias mousereset="sudo rmmod psmouse; sudo modprobe psmouse"
 alias pandoc='/home/zapata/.cabal/bin/pandoc'
 alias quitord="rdesktop -uXime -dquito-pc 192.168.2.100 -z -P -xl -g 1024x768 -k de"
 alias sdn="usync up; cmus-remote -C q; sudo shutdown -h now"
-alias trs="trs {=de}"   # google translator
 alias unlckkeyr="sudo /usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh"
+alias html2pdf="for i in *.html; do wkhtmltopdf $i $(basename $i .html).pdf; done"
 
-# }}}
+# short commands# #}}}
 
-# }}}
+# miscellanious# #}}}
 # ssh, git, aptitude# {{{
 
 # ssh# #{{{
@@ -546,9 +556,10 @@ fun_swap() {
 # add vim and tmux tempfiles#{{{
 
 fun_ignore() {
-    touch .gitignore
+    echo "" > .gitignore
     # echo "*.sw*\n*#\ntags\n*~\n" | cat >> .gitignore
     echo "*.sw*\n*~\n" | cat >> .gitignore
+    echo "Session.vim" | cat >> .gitignore
     git add .gitignore
     git commit -am "gitignore ignores vim and tmux tempfiles"
 }
@@ -558,18 +569,30 @@ fun_ignore() {
 # gitfunctions# }}}
 # command_not_found#{{{
 
-# this function lets you call your git aliases without explicitly defining an
-# alias for each one of them, eg. gco triggers automatically 'g co' etc.
+# this function lets you call predefined snippet-commands from the CLI, which
+# makes spaces after a command obsolete. no need to explicitly define an alias
+# for each command in your bashrc any more. This means you may call any program
+# while the function automatically parses all trailing characters as arguments:
+
+# `fflinux` finds any file in the current directory (plus childs) by executing
+# `find . -type f -iname "*linux*"` etc.
+
 # http://superuser.com/a/756845/322005
 command_not_found_handle() {
     case $1 in
-        ff*) find . -type f -iname "*${1#ffd}*"
+        ff*) find . -type f -iname "*${1#ff}*" | sort
             return 0
             ;;
-        fd*) find . -type d -iname "*${1#ffd}*"
+        fd*) find . -type d -iname "*${1#fd}*" | sort
             return 0
             ;;
         g*) git ${1#g} "${@:2}"
+            return 0
+            ;;
+        xls2*) ssconvert -S "$2" "${2%%.*}"."${1#xls2}"
+            return 0
+            ;;
+        *2mp4) ffmpeg -sameq -ar 22051 -strict experimental "${1%%.*}".mp4 -i
             return 0
             ;;
         pd2*) pandoc "$2" -o "${2%%.*}"."${1#pd2}"
@@ -579,6 +602,9 @@ command_not_found_handle() {
             return 0
             ;;
         v*) vim ${2%%.*}.${1#v}
+            return 0
+            ;;
+        pk*) pkill ${1#pk}
             return 0
             ;;
     esac
@@ -617,11 +643,10 @@ fun_mkcd(){
 # http://stackoverflow.com/questions/1215538/bash-extract-parameters-before-last-parameter-in#comment8487178_1215592
 
 fun_mkcp(){
-
     # start with creating new directory
     mkdir -p "${!#}"
     # now copy all arguments but pathname (last arg) to new created dir
-    cp -v "${@:1:$(($#-1))}" "${!#}"
+    cp -rv "${@:1:$(($#-1))}" "${!#}"
 }
 
 # mkcp - create dir and insert copied files#}}}
@@ -738,10 +763,38 @@ fun_cd() {
 
 fun_latex_sweave() {
     # http://stackoverflow.com/a/4922768/3569509
-    R CMD Sweave "${1%%.*}.Rnw" && R CMD pdflatex "${1%%.*}.tex" && R CMD bibtex "${1%%.*}.aux" && evince "$1".pdf &
+    R CMD Sweave "${1%%.*}.rnw" && R CMD pdflatex "${1%%.*}.tex" && R CMD bibtex "${1%%.*}.aux" && evince "$1".pdf &
+}
+
+fun_loop_pdflatex() {
+
+    echo start;
+    while [[ $? == 0 ]];
+    do
+        for i in {45..1};
+        do echo $i && sleep 1;
+        done
+        make loop
+    done
+    /usr/bin/yad --center --on-top --title="pdflatex failed"
+
 }
 
 # latex#}}}
+# open theasaurus#{{{
+
+fun_open_thesaurus() {
+egrep -i "$@" --color -h $HOME/.dictionaries/openthesaurus.txt
+}
+
+# open theasaurus#}}}
+# chmod + remove#{{{
+
+fun_chmod_remove() {
+    chmod 777 -R "$*" && rm -rv "$*"
+}
+
+# chmod + remove#}}}
 # calc - easy calculating in bash#{{{
 
 # http://unix.stackexchange.com/a/30486
