@@ -39,6 +39,7 @@ filetype off       " VUNDLE requires to set off
 syntax enable      " switch on syntax highlight
 filetype plugin on " This makes vim invoke Latex-Suite when you open a tex file
 filetype indent on " This enables automatic indentation as you type
+set esckeys        " no delay for ESC, but cannot use ESC as beginning of key sequence (which is fine by me)
 
 " filetype "}}}
 
@@ -47,31 +48,40 @@ filetype indent on " This enables automatic indentation as you type
 
 " display"{{{
 
-set list
-set ut=1000               " updatetime: interval in msec for bufferupdate (def: 4000)
-set cuc                   " cursorcolumn: highlight current column
-set cul                   " cursorline: show me where i am
-set sc                    " showcmd: show typed command in status bar
-set sm                    " showmatch: Show matching braces, somewhat annoying...
-set smd                   " showmode: show mode in status bar (insert/replace/...)
-set mps+=<:>              " matchpairs: specially for html
-set mat=2                 " matchtime: show matching bracket for 0.2 seconds
-set nu                    " number: show line numbers
-set rnu                   " rnu: relative line numbers
-set so=5                  " scrolloff: keep at least 5 lines above/below cursor
-set title                 " title: show title in console title bar
-set t_ut=                 " fix tmux color issues
+set cuc        " cursorcolumn: highlight current column
+set cul        " cursorline: show me where i am
+set go-=L      " guioptions: remove sidebars
+set go-=r      " guioptions: remove sidebars
+set list       " list: display $ after end of line.  Further changed by the 'listchars' option.
+set mat=2      " matchtime: show matching bracket for 0.2 seconds
+set mouse-=a   " mouse support for terminal vim
+set mps+=<:>   " matchpairs: specially for html
+set nojs       " joinspaces: when joining paragraphs, don't seperate by space
+set nu         " number: show line numbers
+set rnu        " rnu: relative line numbers
+set sc         " showcmd: show typed command in status bar
+set sm         " showmatch: Show matching braces, somewhat annoying...
+set smc=200    " synmaxcol: vim is often slow with long lines that are syntax
+               " highlighted, so limit to 200 characters in length
+set smd        " showmode: show mode in status bar (insert/replace/...)
+set so=5       " scrolloff: keep at least 5 lines above/below cursor
+set t_ut=      " fix tmux color issues
+set title      " terminal title set to buffer name
+set ut=1000    " updatetime: interval in msec for bufferupdate (def: 4000)
 
 " winheigth & -width
-set cwh=3                 " cmdwinheight
-set ch=3                  " cmdheight: Number of screen lines to use for the
-                          " command-line. surpress errormessage when
-                          " working with buffers
-set wmh=0                 " winminheight: windows minimum height (values 0-3)
-set wmw=1                 " winminwidth: windows minimum width in columns (val 0-12)
-
+set cwh=3      " cmdwinheight
+set ch=3       " cmdheight: Number of screen lines to use for the
+               " command-line. surpress errormessage when
+               " working with buffers
+set wmh=0      " winminheight: windows minimum height (values 0-3)
+set wmw=1      " winminwidth: windows minimum width in columns (val 0-12)
 " winheight/-width: Minimal number of lines for the current window. This
 " is not a hard minimum, Vim will use fewer lines if there is not enough room.
+
+" open split buffers below and to right instead of above and to left
+set sb         " splitbelow
+set spr        " splitright
 
 " exclude predefined filetypes from windowsettings
 " http://stackoverflow.com/a/10410590/3569509
@@ -115,11 +125,8 @@ set noar                         " autoread: Set to auto read when a file is cha
 set sm                           " showmatch: Show matching braces, somewhat annoying...
 set ul=1000                      " undolevels: number of undos
 set hi=2000                      " history: remember last 2000 typed commands
-set hid                          " hidden: It hides
-                                " buffers instead of closing them. This means that you can have unwritten
-                                " changes to a file and open a new file using :e, without being forced to
-                                " write or undo your changes first. Also, undo buffers and marks are
-                                " preserved while the buffer is open.
+set hid  " hidden: It hides buffers instead of closing them. Also, undo buffers and marks are
+         " preserved while the buffer is open.
 set nobk                         " backup: backup~ files.
 set bkc=auto                     " When writing a file and a backup is made, this option tells how it's done.
 
@@ -529,6 +536,8 @@ set stl+=%2*\ %(%l,%v\|%02p%%\ %)                                 " current posi
 " statusline"}}}
 
 " advanced settings "}}}
+" functions & autocommands"{{{
+
 " autogroups"{{{
 
 " To enter autocommands for a specific group, use this method:
@@ -559,8 +568,8 @@ aug END
 
 aug BWP
 au!
-" automatically remove trailing whitespace
-au BufWritePre *.tex,*.rnw :%s/\s\+$//e
+" automatically remove trailing whitespaces
+au BufWritePre *.tex,*.rnw,*.r :%s/\s\+$//e
 aug END
 
 " BufWritePre"}}}
@@ -596,3 +605,5 @@ augroup END
 " endif
 
 " autocmds"}}}
+
+" functions & autocommands"}}}

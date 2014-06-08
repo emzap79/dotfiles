@@ -81,15 +81,15 @@ vmap <localleader>qq <Plug>RClose
 " Send File
 nmap <localleader>f <Plug>RSendFile
 
-" Send Line
-nmap <localleader>l <Plug>RSendLine
-vmap <localleader>l <Plug>RESendSelection
-
 " Send Part of current line
 nmap <localleader>j <Plug>RNLeftPart
 " imap <localleader>j <Plug>RILeftPart
 nmap <localleader>k <Plug>RNRightPart
 " imap <localleader>k <Plug>RIRightPart
+
+" Send Line
+nmap <localleader>l <Plug>RSendLine
+vmap <localleader>l <Plug>RDSendSelection``
 
 " Send Line And Jump To Next Code
 nmap <esc>l <Plug>RDSendLine
@@ -113,12 +113,12 @@ vmap <esc>b <Plug>RDSendMBlock
 " . List space
 " . Clear console
 " . Clear all
-nmap <silent><localleader>l <Plug>RListSpace
-vmap <silent><localleader>l <Plug>RListSpace
-nmap <silent><localleader>l <Plug>RClearConsole
-vmap <silent><localleader>l <Plug>RClearConsole
-nmap <silent><localleader>l <Plug>RClearAll
-vmap <silent><localleader>l <Plug>RClearAll
+nmap <silent><localleader>ls <Plug>RListSpace
+vmap <silent><localleader>ls <Plug>RListSpace
+nmap <silent><localleader>cc <Plug>RClearConsole
+vmap <silent><localleader>cc <Plug>RClearConsole
+nmap <silent><localleader>ca <Plug>RClearAll
+vmap <silent><localleader>ca <Plug>RClearAll
 
 " . Print (cur)
 " . Names (cur)
