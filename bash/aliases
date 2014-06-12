@@ -345,6 +345,7 @@ alias quitord="rdesktop -uXime -dquito-pc 192.168.2.100 -z -P -xl -g 1024x768 -k
 alias sdn="usync up; cmus-remote -C q; sudo shutdown -h now"
 alias unlckkeyr="sudo /usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh"
 alias html2pdf="for i in *.html; do wkhtmltopdf $i $(basename $i .html).pdf; done"
+alias architecture="echo $(lsb_release -sri | tr '\n' ' ') && echo $(gnome-shell --version) && uname -srm"
 
 # short commands# #}}}
 
@@ -781,13 +782,13 @@ fun_loop_pdflatex() {
 }
 
 # latex#}}}
-# open theasaurus#{{{
+# open thesaurus#{{{
 
 fun_open_thesaurus() {
 egrep -i "$@" --color -h $HOME/.dictionaries/openthesaurus.txt
 }
 
-# open theasaurus#}}}
+# open thesaurus#}}}
 # chmod + remove#{{{
 
 fun_chmod_remove() {

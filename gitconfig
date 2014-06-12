@@ -167,7 +167,8 @@
 	ra	= remote add			# ... <label for remote> <URL to remote>
 	rrm	= remote rm			# ... <label of remote to be deleted>
 	rr	= remote rename			# ... <label of remote to be renamed> <label of new remote>
-	rp	= remote update --prune		# remove all local branches which are not in the remote anymore
+	rp	= remote prune origin		# remove all stale remote-tracking branches under <origin>
+	rpu	= remote update --prune		# remove all local branches which are not in the remote anymore
 
 #  use svn if you have to
 	sco	= svn clone			# ...<svn repository url>

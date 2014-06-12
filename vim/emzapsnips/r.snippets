@@ -1,33 +1,44 @@
 priority -50
-#.#.Mailsnips
+
 global !p
-def complete(t, opts):
-    if t:
-        opts = [ m[len(t):] for m in opts if m.startswith(t) ]
-    if len(opts) == 1:
-        return opts[0]
-    return "" + ' '.join(opts) + ''
+import os
+from vimsnippets import complete
+
+FIELD_TYPES = [
+'character',
+'data.frame',
+'integer',
+'list',
+'logical',
+'matrix',
+'numeric',
+'vector']
 endglobal
-snippet setwd "Set Workingdir" !b
-setwd("${1:`!p import os
-snip.rv = os.getcwd()`}")
+
+snippet setwd "Set workingdir" b
+setwd("${1:`!p snip.rv = os.getcwd()`}")
 endsnippet
-snippet "(a|i)s" "Apply/Test type on variable" ir
-`!p snip.rv=match.group(1)`s.$1`!p snip.rv=complete(t[1],
-[' [l]ogical','[c]haracter','[i]nteger','[n]umeric','[v]ector','[li]st','[m]atrix','[d]ata.frame'])`${1/
-|(l)$|(c)$|(i)$|(n)$|(v)$|(li)$|(m)$|(d)$/(?1:ogical)(?2:haracter)(?3:nteger)(?4:umeric)(?5:ector)(?6:st)(?7:atrix)(?8:ata.frame)/
-g}(${2}${VISUAL})
+
+snippet as "Apply type on variable" w
+as.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
+
+snippet is "Test type on variable" w
+as.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
+endsnippet
+
+snippet dl "Download and install a package" b
+download.file("${1:${VISUAL:url to package}}", destfile = "${2:${1/.*\/(\S*)$/(?1:$1)/ga}}")
+install.packages("$2", type = "source", repos = NULL)
+library("${3:${2/^(\w+)_.*$/(?1:$1)/ga}}")
+endsnippet
+
 snippet "\:(\S+)?" "create generic command" ir
 `!p snip.rv = match.group(1) if match.group(1) is not None else "c"`(${1:${VISUAL}})
 endsnippet
+
 snippet "(\s|^)lib( (\S+))?" "Import a library" wr
 library(${1:`!p snip.rv = match.group(3) if match.group(2) is not None else ""`})$0
-endsnippet
-snippet dl "Download and install a package" !b
-download.file("${1:${VISUAL:url to package}}", destfile = "${2:${1/.*\/(.*)$/(?1:$1)/ga}}")
-install.packages("$2", type = "source", repos = NULL)
-library("${3:${2/^(\w+)_.*$/(?1:$1)/ga}}")
 endsnippet
 snippet "upd|knitr" "Install and update package from repo" !br
 install.packages(c("digest", "evaluate", "formatR", "highlight", "knitr", "parser", "plyr", "Rcpp", "stringr"), repos = c('http://rforge.net', 'http://cran.rstudio.org'), type = 'source')

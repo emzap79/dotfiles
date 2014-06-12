@@ -356,188 +356,6 @@ nnoremap <leader>slp :lcd %:p:h <cr> "set local path of currently edited file.
 ""}}}
 
 " Basic Mappings"}}}
-" Functions & Operator"{{{
-
-" " Func: YouCompleteMe <Plugin>"{{{
-
-fun! ToggleYCM()
-    if g:ycm_auto_trigger == 1
-        let g:ycm_auto_trigger = 0
-        echo "Plugin YCM disabled"
-    else
-        let g:ycm_auto_trigger = 1
-        echo "Plugin YCM enabled"
-    endif
-endfun
-
-" "}}}
-" Func: Foldexpressions"{{{
-
-" fold braces
-" http://vim.wikia.com/wiki/Folding_functions_with_the_prototype_included
-function! FoldBrace()
-  if getline(v:lnum+1)[0] == '{'
-    return 1
-  endif
-  if getline(v:lnum) =~ '{'
-    return 1
-  endif
-  if getline(v:lnum)[0] =~ '}'
-    return '<1'
-  endif
-  return -1
-endfunction
-
-" Func: Foldexpressions"}}}
-" Func: Save and Restore Cursorposition"{{{
-
-" http://vim.wikia.com/wiki/Maintain_cursor_and_screen_position
-
-function! CurPos(action)
-  if a:action == "save"
-    let b:saveve = &virtualedit
-    let b:savesiso = &sidescrolloff
-    set virtualedit=all
-    set sidescrolloff=0
-    let b:curline = line(".")
-    let b:curvcol = virtcol(".")
-    let b:curwcol = wincol()
-    normal! g0
-    let b:algvcol = virtcol(".")
-    normal! M
-    let b:midline = line(".")
-    execute "normal! ".b:curline."G".b:curvcol."|"
-    let &virtualedit = b:saveve
-    let &sidescrolloff = b:savesiso
-  elseif a:action == "restore"
-    let b:saveve = &virtualedit
-    let b:savesiso = &sidescrolloff
-    set virtualedit=all
-    set sidescrolloff=0
-    execute "normal! ".b:midline."Gzz".b:curline."G0"
-    let nw = wincol() - 1
-    if b:curvcol != b:curwcol - nw
-      execute "normal! ".b:algvcol."|zs"
-      let s = wincol() - nw - 1
-      if s != 0
-        execute "normal! ".s."zl"
-      endif
-    endif
-    execute "normal! ".b:curvcol."|"
-    let &virtualedit = b:saveve
-    let &sidescrolloff = b:savesiso
-    unlet b:saveve b:savesiso b:curline b:curvcol b:curwcol b:algvcol b:midline
-  endif
-  return ""
-endfunction
-
-
-" Func: Save and Restore Cursorposition"}}}
-" Func: Get Visual Selection"{{{
-
-function! GetVisualSelection()
-    let old_reg = @v
-    normal! gv"vy
-    let raw_search = @v
-    let @v = old_reg
-    return substitute(escape(raw_search, '\/.*$^~[]'), "\n", '\\n', "g")
-endfunction
-
-" Func: Get Visual Selection"}}}
-" Func: Save Folds"{{{
-" https://github.com/tpope/vim-fugitive/issues/194
-
-function! SaveFolds()
-    let match = matchstr(bufname('%'), '^\(\(fugitive.*\)\@!.\)*$')
-    if !empty(match)
-        au! BufWinLeave silent mkview!
-        au! BufWinEnter silent loadview
-        silent loadview
-    endif
-endfunction
-au BufReadPost * call SaveFolds()
-
-" Func: Save Folds"}}}
-" Func: Clear all registers"{{{
-
-" http://kba49.wordpress.com/2013/03/21/clear-all-registers-and-macros-in-vim/
-function! ClearRegisters()
-    let regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
-    let i=0
-    while (i<strlen(regs))
-        exec 'let @'.regs[i].'=""'
-        let i=i+1
-    endwhile
-endfunction
-
-command! ClearRegisters call ClearRegisters()
-
-" Func: Clear all registers"}}}
-" Func: Enhanced Increase Number"{{{
-
-" http://vim.wikia.com/wiki/Increasing_or_decreasing_numbers?action=edit&section=3
-function! AddSubtract(char, back)
-  let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
-  call search(pattern, 'cw' . a:back)
-  execute 'normal! ' . v:count1 . a:char
-  silent! call repeat#set(":\<c-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<cr>")
-endfunction
-nnoremap <silent>         <c-a> :<c-u>call AddSubtract("\<c-a>", '')<cr>
-nnoremap <silent> <leader><c-a> :<c-u>call AddSubtract("\<c-a>", 'b')<cr>
-nnoremap <silent>         <c-x> :<c-u>call AddSubtract("\<c-x>", '')<cr>
-nnoremap <silent> <leader><c-x> :<c-u>call AddSubtract("\<c-x>", 'b')<cr>
-
-" Func: Enhanced Increase Number"}}}
-" Func: Restore Key Position"{{{
-
-function! ResCur()
-  if line("'\"") <= line("$")
-    normal! g`"
-    return 1
-  endif
-endfunction
-
-" Func: Restore Key Position"}}}
-" Oper: Grep"{{{
-
-" Operator to 'grep' word(s) in current directory
-" http://learnvimscriptthehardway.stevelosh.com/chapters/34.html
-function! s:GrepOperator(type)
-    let saved_unnamed_register = @@
-
-    if a:type ==# 'v'
-        normal! `<v`>y
-    elseif a:type ==# 'char'
-        normal! `[v`]y
-    else
-        return
-    endif
-
-    silent execute "grep! -R " . shellescape(@@) . " ."
-    copen
-
-    let @@ = saved_unnamed_register
-endfunction
-
-" Oper: Grep"}}}
-" Oper: Open URL"{{{
-
-function! s:UrlOperator(type)
-    let saved_unnamed_register = @@
-    if a:type ==# 'v'
-        normal! `<v`>y
-    elseif a:type ==# 'char'
-        normal! `[v`]y
-    else
-        return
-    endif
-    silent execute "!firefox " . shellescape(@@)
-    let @@ = saved_unnamed_register
-endfunction
-
-" Oper: Open URL"}}}
-
-" Functions & Operator"}}}
 " Plugin-Maps"{{{
 
 " better-/hudigraphs <plugin>"{{{
@@ -1035,6 +853,23 @@ xnoremap <leader>R :<C-u>%s/<C-r>=GetVisualSelection()<CR>/
 " change word under cursor "}}}
 
 " Edit Words & Lines"}}}
+" copy current file name (relative/absolute) to system clipboard"{{{
+" https://github.com/panozzaj/conf/blob/master/common/etc/.vimrc#L176
+
+if has("mac") || has("gui_macvim") || has("gui_mac")
+  nnoremap <leader>exp :let @*=expand("%")<CR>     " relative path  (src/foo.txt)
+  nnoremap <leader>exP :let @*=expand("%:p")<CR>   " absolute path  (/something/src/foo.txt)
+  nnoremap <leader>exf :let @*=expand("%:t")<CR>   " filename       (foo.txt)
+  nnoremap <leader>exh :let @*=expand("%:p:h")<CR> " directory name (/something/src)
+endif
+if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
+  nnoremap <leader>exp :let @+=expand("%")<CR>     " relative path  (src/foo.txt)
+  nnoremap <leader>exP :let @+=expand("%:p")<CR>   " absolute path  (/something/src/foo.txt)
+  nnoremap <leader>exf :let @+=expand("%:t")<CR>   " filename       (foo.txt)
+  nnoremap <leader>exh :let @+=expand("%:p:h")<CR> " directory name (/something/src)
+endif
+
+" copy current file name (relative/absolute) to system clipboard"}}}
 " Miscellaneous"{{{
 
 " remove (trailing) spaces"{{{
@@ -1052,9 +887,14 @@ nnoremap <silent><space>d$ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<
 nnoremap <silent><space>da :%s/\s\s\+/ /g<CR>:nohl<CR>``
 
 " remove (trailing) spaces"}}}
+" create tabular from selected text"{{{
+
+nnoremap <silent><leader>tab :exe "'{,'}!column -t"<cr>
+
+" create tabular from selected text"}}}
 " count character under cursor in line"{{{
 
-nnoremap <leader>ct xP:s/<c-r>-/&/gn<CR><esc>
+nnoremap <leader>char xP:s/<c-r>-/&/gn<CR><esc>
 
 " count character under cursor in line"}}}
 " paste yanked input at end of line"{{{
@@ -1140,22 +980,187 @@ nnoremap <leader>m :'a,'s
 "}}}
 
 " Miscellaneous"}}}
-" copy current file name (relative/absolute) to system clipboard"{{{
-" https://github.com/panozzaj/conf/blob/master/common/etc/.vimrc#L176
-
-if has("mac") || has("gui_macvim") || has("gui_mac")
-  nnoremap <leader>cf :let @*=expand("%")<CR>     " relative path  (src/foo.txt)
-  nnoremap <leader>cF :let @*=expand("%:p")<CR>   " absolute path  (/something/src/foo.txt)
-  nnoremap <leader>ct :let @*=expand("%:t")<CR>   " filename       (foo.txt)
-  nnoremap <leader>ch :let @*=expand("%:p:h")<CR> " directory name (/something/src)
-endif
-if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
-  nnoremap <leader>cf :let @+=expand("%")<CR>     " relative path  (src/foo.txt)
-  nnoremap <leader>cF :let @+=expand("%:p")<CR>   " absolute path  (/something/src/foo.txt)
-  nnoremap <leader>ct :let @+=expand("%:t")<CR>   " filename       (foo.txt)
-  nnoremap <leader>ch :let @+=expand("%:p:h")<CR> " directory name (/something/src)
-endif
-
-" copy current file name (relative/absolute) to system clipboard"}}}
 
 " Other Mappings"}}}
+" Functions & Operator"{{{
+
+" " Func: YouCompleteMe <Plugin>"{{{
+
+fun! ToggleYCM()
+    if g:ycm_auto_trigger == 1
+        let g:ycm_auto_trigger = 0
+        echo "Plugin YCM disabled"
+    else
+        let g:ycm_auto_trigger = 1
+        echo "Plugin YCM enabled"
+    endif
+endfun
+
+" "}}}
+" Func: Foldexpressions"{{{
+
+" fold braces
+" http://vim.wikia.com/wiki/Folding_functions_with_the_prototype_included
+function! FoldBrace()
+  if getline(v:lnum+1)[0] == '{'
+    return 1
+  endif
+  if getline(v:lnum) =~ '{'
+    return 1
+  endif
+  if getline(v:lnum)[0] =~ '}'
+    return '<1'
+  endif
+  return -1
+endfunction
+
+" Func: Foldexpressions"}}}
+" Func: Save and Restore Cursorposition"{{{
+
+" http://vim.wikia.com/wiki/Maintain_cursor_and_screen_position
+
+function! CurPos(action)
+  if a:action == "save"
+    let b:saveve = &virtualedit
+    let b:savesiso = &sidescrolloff
+    set virtualedit=all
+    set sidescrolloff=0
+    let b:curline = line(".")
+    let b:curvcol = virtcol(".")
+    let b:curwcol = wincol()
+    normal! g0
+    let b:algvcol = virtcol(".")
+    normal! M
+    let b:midline = line(".")
+    execute "normal! ".b:curline."G".b:curvcol."|"
+    let &virtualedit = b:saveve
+    let &sidescrolloff = b:savesiso
+  elseif a:action == "restore"
+    let b:saveve = &virtualedit
+    let b:savesiso = &sidescrolloff
+    set virtualedit=all
+    set sidescrolloff=0
+    execute "normal! ".b:midline."Gzz".b:curline."G0"
+    let nw = wincol() - 1
+    if b:curvcol != b:curwcol - nw
+      execute "normal! ".b:algvcol."|zs"
+      let s = wincol() - nw - 1
+      if s != 0
+        execute "normal! ".s."zl"
+      endif
+    endif
+    execute "normal! ".b:curvcol."|"
+    let &virtualedit = b:saveve
+    let &sidescrolloff = b:savesiso
+    unlet b:saveve b:savesiso b:curline b:curvcol b:curwcol b:algvcol b:midline
+  endif
+  return ""
+endfunction
+
+
+" Func: Save and Restore Cursorposition"}}}
+" Func: Get Visual Selection"{{{
+
+function! GetVisualSelection()
+    let old_reg = @v
+    normal! gv"vy
+    let raw_search = @v
+    let @v = old_reg
+    return substitute(escape(raw_search, '\/.*$^~[]'), "\n", '\\n', "g")
+endfunction
+
+" Func: Get Visual Selection"}}}
+" Func: Save Folds"{{{
+" https://github.com/tpope/vim-fugitive/issues/194
+
+function! SaveFolds()
+    let match = matchstr(bufname('%'), '^\(\(fugitive.*\)\@!.\)*$')
+    if !empty(match)
+        au! BufWinLeave silent mkview!
+        au! BufWinEnter silent loadview
+        silent loadview
+    endif
+endfunction
+au BufReadPost * call SaveFolds()
+
+" Func: Save Folds"}}}
+" Func: Clear all registers"{{{
+
+" http://kba49.wordpress.com/2013/03/21/clear-all-registers-and-macros-in-vim/
+function! ClearRegisters()
+    let regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
+    let i=0
+    while (i<strlen(regs))
+        exec 'let @'.regs[i].'=""'
+        let i=i+1
+    endwhile
+endfunction
+
+command! ClearRegisters call ClearRegisters()
+
+" Func: Clear all registers"}}}
+" Func: Enhanced Increase Number"{{{
+
+" http://vim.wikia.com/wiki/Increasing_or_decreasing_numbers?action=edit&section=3
+function! AddSubtract(char, back)
+  let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
+  call search(pattern, 'cw' . a:back)
+  execute 'normal! ' . v:count1 . a:char
+  silent! call repeat#set(":\<c-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<cr>")
+endfunction
+nnoremap <silent>         <c-a> :<c-u>call AddSubtract("\<c-a>", '')<cr>
+nnoremap <silent> <leader><c-a> :<c-u>call AddSubtract("\<c-a>", 'b')<cr>
+nnoremap <silent>         <c-x> :<c-u>call AddSubtract("\<c-x>", '')<cr>
+nnoremap <silent> <leader><c-x> :<c-u>call AddSubtract("\<c-x>", 'b')<cr>
+
+" Func: Enhanced Increase Number"}}}
+" Func: Restore Key Position"{{{
+
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+" Func: Restore Key Position"}}}
+" Oper: Grep"{{{
+
+" Operator to 'grep' word(s) in current directory
+" http://learnvimscriptthehardway.stevelosh.com/chapters/34.html
+function! s:GrepOperator(type)
+    let saved_unnamed_register = @@
+
+    if a:type ==# 'v'
+        normal! `<v`>y
+    elseif a:type ==# 'char'
+        normal! `[v`]y
+    else
+        return
+    endif
+
+    silent execute "grep! -R " . shellescape(@@) . " ."
+    copen
+
+    let @@ = saved_unnamed_register
+endfunction
+
+" Oper: Grep"}}}
+" Oper: Open URL"{{{
+
+function! s:UrlOperator(type)
+    let saved_unnamed_register = @@
+    if a:type ==# 'v'
+        normal! `<v`>y
+    elseif a:type ==# 'char'
+        normal! `[v`]y
+    else
+        return
+    endif
+    silent execute "!firefox " . shellescape(@@)
+    let @@ = saved_unnamed_register
+endfunction
+
+" Oper: Open URL"}}}
+
+" Functions & Operator"}}}
