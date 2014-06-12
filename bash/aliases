@@ -58,6 +58,7 @@ alias ff=fun_ff
 alias fff="find . -type f"
 alias ffd="find . -type d"
 alias ffg="find . -type f -exec egrep -iH"
+alias ffi="find -type f -exec file {} \; | grep -o -P '^.+: \w+ image'"     # find all images
 
 # aliases related to music
 alias dupetrack1="find . -type f | sed -e 's/^\(.*\)\.\([[:digit:]]\)\.\(mp3\|ogg\|flac\)/\1/g;s/^\(.*\)\.\(mp3\|ogg\|flac\)/\1/g' | uniq -d"
@@ -243,7 +244,7 @@ alias md="make read"
 alias ma="make all"
 alias mr="make r"
 alias mg="make git"
-alias mb="make bash"
+alias mcli="make cli"
 alias mt="make tmux"
 alias mtx="make tex"
 alias ml="make latex"
@@ -400,6 +401,12 @@ alias yum='sudo yum'
 alias upgr="/bin/bash ~/bin/upgrSoftw.sh && /usr/bin/python ~/bin/upgrPipPackages.py"
 
 # aptitude# #}}}
+# vpnc#{{{
+
+alias vpnc="sudo vpnc"  # /etc/vpnc/default.conf
+alias vpnd="sudo vpnc-disconnect"
+
+# vpnc#}}}
 
 # ssh, git, aptitude# }}}
 # tmux #{{{
@@ -581,12 +588,6 @@ fun_ignore() {
 # http://superuser.com/a/756845/322005
 command_not_found_handle() {
     case $1 in
-        ff*) find . -type f -iname "*${1#ff}*" | sort
-            return 0
-            ;;
-        fd*) find . -type d -iname "*${1#fd}*" | sort
-            return 0
-            ;;
         g*) git ${1#g} "${@:2}"
             return 0
             ;;

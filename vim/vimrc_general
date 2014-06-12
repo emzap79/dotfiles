@@ -594,16 +594,7 @@ augroup END
 " Filetypedetect"}}}
 " autogroups"}}}
 " autocmds"{{{
-
-" Markdown
-" au BufNewFile,BufReadPost *.markdown,*.mdown,*.mkd,*.mkdn,README.md  set ft=markdown
-
-" " Add filetypes to tcomment
-" " http://stackoverflow.com/a/4002291/3569509
-" if exists('loaded_tcomment')
-"     call tcomment#DefineType('noweb',       '%% %s'             )
-" endif
-
 " autocmds"}}}
+"
 
 " functions & autocommands"}}}

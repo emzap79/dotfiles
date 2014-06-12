@@ -1,52 +1,75 @@
+fun! TeXAbbreviations()
+    iab ... \ldots
+    iab dh. d.~h.
+    iab eg. e.~g.
+    iab oä. o.~ä.
+    iab zb. z.~B.
+endfun
+autocmd! filetype noweb,rnoweb,tex call TeXAbbreviations()
+
+fun! MailAbbreviations()
+    iab fg Freundliche Grüße
+    iab lg Liebe Grüße
+    iab bg Beste Grüße
+    iab vg Viele Grüße
+    iab ch cheers
+    iab kr Kind Regards
+    iab mfg Mit freundlichen Grüßen
+\<cr>--
+\<cr>jonas petong
+\<cr>
+endfun
+autocmd! filetype mail call MailAbbreviations()
+
 fun! BasicAbbreviations()
   iab wrt with respect to
-  iabbrev otoh on the other hand
-  iabbrev btw by the way
-  iabbrev Wrt With respect to
-  iabbrev Otoh On the other hand
-  iabbrev Btw By the way
-  iabbrev imo in my opinion
-  iabbrev Imo in my opinion
+  iab otoh on the other hand
+  iab btw by the way
+  iab Wrt With respect to
+  iab Otoh On the other hand
+  iab Btw By the way
+  iab imo in my opinion
+  iab Imo in my opinion
 
   " I commonly fat-finger these ruby commands
-  iabbrev 3nd end
-  iabbrev ned end
-  iabbrev od do
-  iabbrev p[ []
+  iab 3nd end
+  iab ned end
+  iab od do
+  iab p[ []
 
   " some spelling mistakes not (yet) caught by autocorrect.vim
-  iabbrev testamonial testimonial
-  iabbrev testamonials testimonials
-  iabbrev Testamonial Testimonial
-  iabbrev Testamonials Testimonials
+  iab testamonial testimonial
+  iab testamonials testimonials
+  iab Testamonial Testimonial
+  iab Testamonials Testimonials
 
-  iabbrev soultion solution
-  iabbrev soultions solutions
-  iabbrev Soultion Solution
-  iabbrev Soultions Solutions
+  iab soultion solution
+  iab soultions solutions
+  iab Soultion Solution
+  iab Soultions Solutions
 
-  iabbrev facililty facility
-  iabbrev facilty facility
+  iab facililty facility
+  iab facilty facility
 
-  iabbrev prenset present
-  iabbrev Prenset Present
+  iab prenset present
+  iab Prenset Present
 
-  iabbrev everythign everything
-  iabbrev Everythign Everything
+  iab everythign everything
+  iab Everythign Everything
 
-  iabbrev propogated propagated
-  iabbrev Propogated Propagated
+  iab propogated propagated
+  iab Propogated Propagated
 
-  iabbrev defecit deficit
-  iabbrev Defecit Deficit
+  iab defecit deficit
+  iab Defecit Deficit
 
   " programming expansions
-  iabbrev _pry require 'pry'; binding.pry
-  iabbrev _fgc FactoryGirl.create
-  iabbrev _saop save_and_open_page
+  iab _pry require 'pry'; binding.pry
+  iab _fgc FactoryGirl.create
+  iab _saop save_and_open_page
 
   " Some helpful shortcuts
-  iabbrev dtt <C-R>=strftime("%Y%m%d")<CR>
-  iabbrev dts <C-R>=strftime("%Y%m%d - %H%M")<CR>
+  iab dtt <C-R>=strftime("%Y%m%d")<CR>
+  iab dts <C-R>=strftime("%Y%m%d - %H%M")<CR>
 endfu
 call BasicAbbreviations()

@@ -1,95 +1,7 @@
-global !p
-import vim
-# Tests for the existence of a variable declared by Vim's filetype detection
-# suggesting the type of shell script of the current file
-def testShell(scope, shell):
- return vim.eval("exists('" + scope + ":is_" + shell + "')")
-# Loops over the possible variables, checking for global variables
-# first since they indicate an override by the user.
-def getShell():
- for scope in ["g", "b"]:
- for shell in ["bash", "posix", "sh", "kornshell"]:
- if testShell(scope, shell) == "1":
- if shell == "kornshell":
- return "ksh"
- if shell == "posix":
- return "sh"
- return shell
- return "sh"
-endglobal
+# vim:ft=snippets:
+priority +50
 
-###########################################################################
-# TextMate Snippets #
-###########################################################################
-snippet #!
-`!p snip.rv = '#!/bin/' + getShell() + "\n\n" `
-endsnippet
-snippet sh "#!/bin/bash" !b
-#!/bin/bash
-$0
-endsnippet
-snippet !env "#!/usr/bin/env (!env)"
-`!p snip.rv = '#!/usr/bin/env ' + getShell() + "\n\n" `
-endsnippet
-snippet "chkinst?a?l?l?" "check if program installed" r
-# check to make sure that ${1} is installed
-if ! command -v $1 ${2:|| ! command -v ${3}}; then
-echo "ERROR: $1 must be installed"
-sudo apt-get install $1 $2
-fi
-endsnippet
-snippet temp "Tempfile"
-${1:TMPFILE}="$(mktemp -t ${2:`!p
-snip.rv = re.sub(r'[^a-zA-Z]', '_', snip.fn) or "untitled"
-`})"
-${3:${4/(.+)/trap "/}${4:rm -f '$${1/.*\s//}'}${4/(.+)/" 0 # EXIT\n/}${5/(.+)/trap "/}${5:rm -f '$${1/.*\s//}'; exit 1}${5/(.+)/" 2 # INT\n/}${6/(.+)/trap "/}${6:rm -f '$${1/.*\s//}'; exit 1}${6/(.+)/" 1 15 # HUP TERM\n/}}
-endsnippet
-snippet echo "echo ..." w
-echo "$1"
-endsnippet
-snippet case "case .. esac (case)"
-case ${1:word} in
- ${2:pattern} )
- ${3:${VISUAL}};;
- ${4:${5:pattern} )
-$0;;}
-esac
-endsnippet
-snippet elif "elif .. (elif)"
-elif ${2:[[ ${1:condition} ]]}; then
- ${3:${VISUAL}}$0
-endsnippet
-snippet for "for ... done (for)"
-for (( i = 0; i < ${1:10}; i++ )); do
- ${0:${VISUAL}}
-done
-endsnippet
-snippet forin "for ... in ... done (forin)"
-for ${1:i}${2/.+/ in /}${2:words}; do
- ${0:${VISUAL}}
-done
-endsnippet
-snippet here "here document (here)"
-<<-${2:'${1:TOKEN}'}
- $0
-${1/['"`](.+)['"`]/$1/}
-endsnippet
-snippet if "if ... then (if)"
-if ${2:[[ ${1:condition} ]]}; then
- ${0:${VISUAL}}
-fi
-endsnippet
-snippet until "until ... (done)"
-until ${2:[[ ${1:condition} ]]}; do
- ${0:${VISUAL}}
-done
-endsnippet
-snippet while "while ... (done)"
-while ${2:[[ ${1:condition} ]]}; do
- ${0:${VISUAL}}
-done
-endsnippet
-snippet yesno "case: yes or no" !b
+snippet yesno "case: yes or no" b
 read -p "${1} (Y|n)? " answer
 case "$answer" in
 Yes|yes|Y|y|"")
@@ -104,21 +16,7 @@ ${4:*)
  ;;}
 esac
 endsnippet
-snippet src "Source command in .bashrc" !b
-source "/home/\$\{USER\}/$1"
-endsnippet
-snippet fun "Create function" !b
-${1}() {
-
-${2:${VISUAL}}
-
-}
-endsnippet
-# vim:ft=snippets:
-###########################################################################
-# Emzap Snippets #
-###########################################################################
-snippet cron "templ: cronjobs" !b
+snippet cron "templ: cronjobs" b
 # # Konfiguration
 prog="${1}"
 LOG="$HOME/.logfiles"
@@ -172,4 +70,21 @@ runProg () {
 chkConnect
 runProg
 testProg
+endsnippet
+snippet chkinst "check if program installed" b
+# check to make sure that ${1} is installed
+if ! command -v $1 ${2:|| ! command -v ${3}}; then
+echo "ERROR: $1 must be installed"
+sudo apt-get install $1 $2
+fi
+endsnippet
+snippet src "Source command in .bashrc" !b
+source "/home/\$\{USER\}/$1"
+endsnippet
+snippet fun "Create function" b
+${1}() {
+
+${2:${VISUAL}}
+
+}
 endsnippet

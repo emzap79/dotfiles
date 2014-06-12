@@ -70,6 +70,7 @@
 						# choose
 	a	= add -A			# ...<filename>
 	aa	= add -A .
+	aac	= "!git add -A . && git commit -m"
 	ai	= add -i
 						# unchoose
 	rm	= rm -rf			# ...<filename> unversion and delete

@@ -272,6 +272,9 @@ let NERDSpaceDelims = 1
 " NERDCommenter"}}}
 " tCommentor"{{{
 
+" If true, set maps.
+let g:tcommentMaps=1
+
 let g:tcommentMapLeaderOp1 = 'gc'
 let g:tcommentMapLeaderOp2 = 'gC'
 " tcomment#DefineType(tex, '%', ?cdef={'%'}, ?anyway=0)
@@ -332,14 +335,13 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
 
 " UltiSnips#ExpandSnippet
 let g:snips_author = "emzap79"
-" let g:UltiSnipsExpandTrigger = "\<tab>"
 let g:UltiSnipsExpandTrigger = "<s-tab>"
 let g:UltiSnipsListSnippets = "<s-c-tab>"
 let g:UltiSnipsJumpForwardTrigger = "<s-c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsEditSplit = "horizontal"
 let g:UltiSnipsSnippetsDir = "~/.vim/emzapsnips"
-let g:UltiSnipsSnippetDirectories= ["emzapsnips"]
+let g:UltiSnipsSnippetDirectories= ["UltiSnips","emzapsnips"]
 " let g:UltiSnipsUsePythonVersion = 3
 " let g:UltiSnipsRemoveSelectModeMappings = 1
 " let g:UltiSnipsMappingsToIgnore = [ "somePlugin", "otherPlugin" ]

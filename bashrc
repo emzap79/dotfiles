@@ -54,37 +54,6 @@ shopt -s sourcepath
 shopt -s checkwinsize
 
 # shopt #}}}
-# histcontrol#{{{
-
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-export HISTCONTROL="ignoreboth:ignoredups:erasedups"
-
-# Preserve bash history in multiple terminal windows
-# http://unix.stackexchange.com/a/48116
-HISTSIZE=10000
-HISTFILESIZE=$HISTSIZE
-
-# Commands to ignore in history prompt
-export HISTIGNORE="history:\
-cd:\
-cd\ \-:\
-cd\ \.\.:\
-clear:\
-cmus:\
-fg:\
-lst:\
-ls:\
-mutt:\
-muttb:\
-muttt:\
-vima:\
-vimb:\
-hs:\
-v:\
-vv"
-
-# histcontrol#}}}
 # less#{{{
 
 # ignorecase in search, status, no bell
@@ -141,6 +110,51 @@ fi
 # start tmux#}}}
 
 # export # #}}}
+# history#{{{
+
+# histcontrol#{{{
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+export HISTCONTROL="ignoreboth:ignoredups:erasedups"
+
+# Preserve bash history in multiple terminal windows
+# http://unix.stackexchange.com/a/48116
+HISTSIZE=10000
+HISTFILESIZE=$HISTSIZE
+
+# Commands to ignore in history prompt
+export HISTIGNORE="history:\
+cd:\
+cd\ \-:\
+cd\ \.\.:\
+clear:\
+cmus:\
+fg:\
+lst:\
+ls:\
+mutt:\
+muttb:\
+muttt:\
+vima:\
+vimb:\
+hs:\
+v:\
+vv"
+
+
+# histcontrol#}}}
+# hist-settings#{{{
+
+# disable the appearence of the simbol ^C after pressing CTRL-C
+set echo-control-characters off
+
+# only necessary to press TAB once
+set show-all-if-ambiguous on
+
+# hist-settings#}}}
+
+# history#}}}
 # source#{{{
 
 # include aliases

@@ -72,8 +72,8 @@ if has("gui_running")
     nnoremap <silent><f2> :exe "w \| so $MYGVIMRC \| %foldo!"<cr>
     inoremap <silent><f2> <esc>:exe "w \| so $MYGVIMRC \| %foldo!"<cr>
 else
-    nnoremap <silent><f2> :exe "w \| so $MYVIMRC \| %foldo!"<cr>
-    inoremap <silent><f2> <esc>:exe "w \| so $MYVIMRC \| %foldo!"<cr>
+    nnoremap <silent><f2> :exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
+    inoremap <silent><f2> <esc>:exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
 endif
 
 "save & exit
@@ -317,7 +317,14 @@ vnoremap <S-V> v
 vnoremap <C-V> <S-V>
 
 ""}}}
+" visually select rows from exe"{{{
 
+" http://unix.stackexchange.com/a/58748
+command! -range Vis call setpos('.', [0,<line1>,0,0]) |
+                    \ exe "normal V" |
+                    \ call setpos('.', [0,<line2>,0,0])
+
+" visually select rows from exe"}}}
 "visual mode mappings"}}}
 " yank/delete from cursor to eol with Y"{{{
 
@@ -340,13 +347,12 @@ nnoremap <silent> <leader>erc :sp ~/.vimrc<cr>
 nnoremap <silent> <leader>es :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>ee :sp ~/.vim/vimrc_general<cr>
 nnoremap <silent> <leader>ef :sp ~/.vim/vimrc_foldexpr<cr>
-nnoremap <silent> <leader>ea :sp ~/.vim/vimrc_abbrev<cr>
 nnoremap <silent> <leader>ec :sp ~/.vim/vimrc_colors<cr>
 nnoremap <silent> <leader>eb :sp ~/.vim/vimrc_mappings<cr>
 nnoremap <silent> <leader>em :sp ~/.vim/vimrc_mutt<cr>
 nnoremap <silent> <leader>er :sp ~/.vim/after/ftplugin/r.vim<cr>
 nnoremap <silent> <leader>et :sp ~/.vim/after/ftplugin/tex.vim<cr>
-nnoremap <silent> <leader>ea :sp ~/.vim/plugin/vim-autocorrect/plugin/autocorrect.vim<cr>
+nnoremap <silent> <leader>ea :sp ~/.vim/plugin/vim-autocorrect.vim<cr>
 nnoremap <silent> <leader>ep :sp ~/.vim/vimrc_plugs<cr>
 
 " set (local) path
@@ -498,22 +504,13 @@ inoremap <silent><localleader>md <ESC>:exe 'delm! \| delm A-Z0-9 \| echom "all m
    " [count] is the same as above.
 
 " showmarks <plugin>"}}}
-" " NERDCommenter <plugin>"{{{
+" tCommenter <plugin>"{{{
 
-" nmap css <plug>NERDCommenterSexy
-" nmap csi 2<plug>NERDCommenterInvert
-" nmap cii <plug>NERDCommenterInvert
-" nmap cuu <plug>NERDCommenterUncomment
-" nmap cy <plug>NERDCommenterYank
-" nmap cp <plug>NERDCommenterYankp
+nmap cy :normal yygcc<cr>
+nmap cp :normal yygccp<cr>
+nmap yp :normal yyp<cr>
 
-" vmap cu <plug>NERDCommenterUncomment
-" vmap cs <plug>NERDCommenterSexy
-" vmap ci <plug>NERDCommenterInvert
-" vmap cy <plug>NERDCommenterYank
-" vmap cp <plug>NERDCommenterYankP
-
-" " NERDCommenter <plugin>"}}}
+" tCommenter <plugin>"}}}
 
 " Plugin-Maps"}}}
 " Other Mappings"{{{
@@ -677,12 +674,12 @@ nnoremap gF :lcd %:p:h<cr>:e! ./<cfile><cr>
 ""}}}
 
 "}}}
-" buffer to 2/3 width
+" buffer to 2/3 width"{{{
 
 nnoremap <silent> <Leader>+ :exe "vert resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "vert resize " . (winwidth(0) * 2/3)<CR>
 
-" buffer to 2/3 width
+" buffer to 2/3 width"}}}
 
 " buffers & tabs"}}}
 " String-Searches & Spell-Checking"{{{
@@ -822,7 +819,7 @@ vnoremap <silent>gz :<c-u>call <SID>UrlOperator(visualmode())<cr>
 nnoremap <leader>fh :Mirror<CR>
 command! -bar -range Mirror <line1>,<line2>call setline('.', join(reverse(split(getline('.'), '\zs')), ''))
 
-""}}}
+" flip text horizontally"}}}
 " uppercase beginning of word/line"{{{
 
 " first character of word capitalised
@@ -887,6 +884,12 @@ nnoremap <silent><space>d$ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<
 nnoremap <silent><space>da :%s/\s\s\+/ /g<CR>:nohl<CR>``
 
 " remove (trailing) spaces"}}}
+" replace spaces through semicolon"{{{
+
+" mnemonic: [s]pace to [s]emicolon
+nmap <leader>ss :exe "s/\[^,\]\\zs\\s/\\; /g \| nohls"<cr>
+
+" replace spaces through semicolon"}}}
 " create tabular from selected text"{{{
 
 nnoremap <silent><leader>tab :exe "'{,'}!column -t"<cr>

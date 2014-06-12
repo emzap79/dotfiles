@@ -15,8 +15,6 @@ source ~/.vim/vimrc_plugs
 source ~/.vim/vimrc_mappings
 " This source sets mutt configs
 source ~/.vim/vimrc_mutt
-" This source sets Abbreviations
-source ~/.vim/vimrc_abbrev
 
 " This source sets R configs
 source ~/.vim/after/ftplugin/r.vim

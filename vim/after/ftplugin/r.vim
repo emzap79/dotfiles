@@ -158,8 +158,8 @@ vmap <silent><localleader>d <Plug>RSetwd
 " Custom mappings & functions "{{{
 
 " assign argument under cursor in next line
-nmap <silent><localleader>, :normal! o0<CR>0
-vmap <silent><localleader>, :<C-u>exec "s/$/\r" . GetVisualSelection()<cr>0
+nmap <silent><localleader>, :normal! o0<CR>0v$
+vmap <silent><localleader>, :<C-u>exec "s/$/\r" . GetVisualSelection()<cr>0v$
 
 " define commands & actions
 map <silent> <localleader>rs :call g:SendCmdToR("search()")<CR>

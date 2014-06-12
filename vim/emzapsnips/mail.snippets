@@ -1,84 +1,31 @@
+# vim:ft=snippets:
+
 #.#.Mailsnips
 global !p
-def complete(t, opts):
-    if t:
-        opts = [ m[len(t):] for m in opts if m.startswith(t) ]
-    if len(opts) == 1:
-        return opts[0]
-    return "" + ' '.join(opts) + ''
+import os, string, random
+from vimsnippets import complete
+
+MAIL_FIELD_TYPES = [
+'jonas petong\n',
+'beckhausstr. 11\nco / stefan ickler\n44892 bochum\n+49 17653347208\n',
+'es02224159\nvolkswirtschaft\nuni duisburg-essen\n+49 176 53347208\n',
+'Handelsraum - Team\nLehrstuhl fuer Energiehandel und Finanzdienstleistungen\nFachbereich Wirtschaftswissenschaften\nUniversitaet Duisburg-Essen, Campus Essen\nhttp://www.lef.wiwi.uni-due.de/handelsraum/\nMail: handelsraum@uni-due.de\nTel.: +49(0)201/183-6049\n']
 endglobal
 
+
 # # Signaturen
-snippet sig "Appending Signature" b
-${0:sig $1`!p snip.rv=complete(t[1], ['[p]rivate','[s]tudent','[b]loomb','[n]ame only'])`
-}${1/(p)$|(s)$|(b)$|(n)/(?1:---
-jonas petong
-
-beckhausstr. 11
-co \/ stefan ickler
-44892 bochum
-+49 17653347208)(?2:---
-jonas petong
-
-es02224159
-volkswirtschaft
-uni duisburg-essen
-+49 176 53347208)(?3:---
-jonas petong
-
-Handelsraum - Team
-Lehrstuhl für Energiehandel und Finanzdienstleistungen
-Fachbereich Wirtschaftswissenschaften
-Universität Duisburg-Essen, Campus Essen
-http\:\/\/www.lef.wiwi.uni-due.de\/handelsraum\/
-Mail\: handelsraum@uni-due.de
-Tel.\: +49(0)201\/183-6049
-)(?4:---
-jonas petong
-)/
-}
-
+snippet sig "Append signature" b
+$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
 endsnippet
 snippet "cite?" "Insert Citation" !br
 ---
 jonas petong
 
 `!p
-import string, random
 quotes = open("/home/zapata/.sigdata").read()
 quotes = string.split( quotes, '\n\n' )
 quotes = filter( None, map( string.strip, quotes ))
 qotd = random.choice(quotes)` `!p snip.rv = qotd`
-
-endsnippet
-
-# # Grußklauseln
-snippet fg "Freundliche Grüße" b
-Freundliche Grüße
-
-endsnippet
-snippet lg "Liebe Grüße" b
-Liebe Grüße
-
-endsnippet
-snippet bg "Beste Grüße" b
-Beste Grüße
-
-endsnippet
-snippet vg "Viele Grüße" b
-Viele Grüße
-
-endsnippet
-snippet "chr?s?" "Cheers" br
-cheers
-
-endsnippet
-snippet kr "Kind Regards" !b
-Kind regards,
-
-endsnippet
-snippet mfg
-Mit freundlichen Grüßen,
 
 endsnippet
 
