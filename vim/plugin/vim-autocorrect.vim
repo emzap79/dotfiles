@@ -4,22 +4,15 @@ fun! TeXAbbreviations()
     iab eg. e.~g.
     iab oä. o.~ä.
     iab zb. z.~B.
+    iab ua. u.~a.
+    iab S.  S.~<C-R>
 endfun
 autocmd! filetype noweb,rnoweb,tex call TeXAbbreviations()
 
 fun! MailAbbreviations()
-    iab fg Freundliche Grüße
-    iab lg Liebe Grüße
-    iab bg Beste Grüße
-    iab vg Viele Grüße
-    iab ch cheers
-    iab kr Kind Regards
-    iab mfg Mit freundlichen Grüßen
-\<cr>--
-\<cr>jonas petong
-\<cr>
-endfun
-autocmd! filetype mail call MailAbbreviations()
+    iab addr Beckhausstr. 11, c/o Stefan Ickler, 44892 Bochum<C-R>
+endf
+autocmd! filetype mail,eml call MailAbbreviations()
 
 fun! BasicAbbreviations()
   iab wrt with respect to

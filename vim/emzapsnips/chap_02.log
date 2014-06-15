@@ -1,0 +1,21 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdftex 2013.11.11)  27 JUN 2014 12:08
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**/home/zapata/Unimaterialien/Sommer2014/BAArbeit/main/sections/cont/chap_02.rn
+w
+
+(/home/zapata/Unimaterialien/Sommer2014/BAArbeit/main/sections/cont/chap_02.rnw
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¤ in font cmr10!
+! Undefined control sequence.
+l.2 Wertanlage gesprochen, so ist damit die \emph
+                                                 {Spotrate} oder zu deutsch der
+
+? 
+! Emergency stop.
+l.2 Wertanlage gesprochen, so ist damit die \emph
+                                                 {Spotrate} oder zu deutsch der
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!

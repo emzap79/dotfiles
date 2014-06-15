@@ -93,5 +93,11 @@ hi User2 ctermfg=2  ctermbg=0 cterm=none
 hi User3 ctermfg=2  ctermbg=0 cterm=none
 
 " Statusline"}}}
+" Folds"{{{
+
+hi Folded ctermbg=grey ctermfg=blue
+hi FoldColumn ctermbg=darkgrey ctermfg=white
+
+" Folds"}}}
 "
 " " Highlighting"}}}

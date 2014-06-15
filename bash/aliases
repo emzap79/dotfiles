@@ -57,7 +57,7 @@ alias dus=fun_dus
 alias ff=fun_ff
 alias fff="find . -type f"
 alias ffd="find . -type d"
-alias ffg="find . -type f -exec egrep -iH"
+alias ffg='find . -type f -regextype egrep -iregex'
 alias ffi="find -type f -exec file {} \; | grep -o -P '^.+: \w+ image'"     # find all images
 
 # aliases related to music
@@ -68,6 +68,7 @@ alias dupetrack2="find . -type f -regextype sed -iregex '^.*\.[[:digit:]]\.\(mp3
 # cd#{{{
 
 alias cd=fun_cd
+alias cdd=fun_fd
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -139,7 +140,8 @@ alias cdwdp="cd /media/zapata/WDP"
 
 alias c='clear'
 alias h='history 100'
-alias hs="history"
+# alias hs="history"
+alias hs="history | fzf +s"
 alias hsg="history|grep -i"
 
 # }}}
@@ -154,6 +156,7 @@ alias convdir="sed -i 's/\([\&\)\(]\)/\\\1/g;s/\(.*\)\/.*/ \1/'"
 
 alias vgrep='fun_grepv'
 alias grep='grep --color=always -i -n'
+alias grepc=fun_grepc
 
 # grep# }}}
 # locate#{{{
@@ -200,6 +203,7 @@ alias vt="vim ~/.tmux.conf"
 alias vrc="vim ~/.vimrc"
 alias vn="vim ~/.newsbeuter/urls"
 alias vtmp="vim ~/bin/tmplAte.sh"
+alias tvim="tvim"
 
 # open vim sessions
 alias v=fun_vim  # 'vv tex' will open /etc/foo.tex in vim
@@ -250,7 +254,7 @@ alias mtx="make tex"
 alias ml="make latex"
 alias mvi="make vim"
 alias mvip="make vimp"
-alias mvim="make vim"
+alias mmc="make mc"
 alias mw=fun_loop_pdflatex
 
 # latex# #}}}
@@ -291,6 +295,14 @@ alias yt-mplayer=fun_youtbmp
 alias yt="mpsyt"
 
 # }}}
+# fzf - fuzzyfinder#{{{
+
+alias fe=fun_fe
+alias fd=fun_fd
+alias fh=fun_fh
+alias fkill=fun_fkill
+
+# fzf - fuzzyfinder#}}}
 
 # programs# #}}}
 # miscellanious# #{{{
@@ -323,12 +335,12 @@ alias bday="cat $HOME/.birthdays | grep -i"
 alias t='tail -n200'
 alias h='head -n20'
 alias d='dirs -v'
+alias makecoffee='printf "\xE2\x98\x95\n"'
 alias poweroff='sudo poweroff'
-alias reboot='sudo reboot'
-alias halt='sudo halt'
-alias shutdown='sudo shutdown'
 alias rmf="rm -rf"
 alias rmfa="rm -rf *"
+alias liveticker1="watch -n10 --no-title \"w3m http://www.livescore.com/ |egrep 'live [0-9H]+[^ ]'\""
+alias liveticker2="watch -n10 --no-title \"w3m http://www.livescore.com/ |awk '/live [0-9H]+[^ ]/,/red cards/'\""
 alias info='info --vi-keys'
 alias pwgen='pwgen -cn 12'
 alias echon="echo -n"
@@ -338,6 +350,7 @@ alias chkwlan="nm-tool | grep Strength | egrep -v '(WEP|WPA)' | sed 's/^ *//g' \
 alias ips=fun_ips
 alias pss=fun_pss
 alias calc=fun_calc
+alias extr=fun_extract
 alias clock="watch -t -n 1 date +%T"
 alias journ="less /var/log/syslog"
 alias mousereset="sudo rmmod psmouse; sudo modprobe psmouse"
@@ -349,6 +362,29 @@ alias html2pdf="for i in *.html; do wkhtmltopdf $i $(basename $i .html).pdf; don
 alias architecture="echo $(lsb_release -sri | tr '\n' ' ') && echo $(gnome-shell --version) && uname -srm"
 
 # short commands# #}}}
+# sudo commands#{{{
+
+alias reboot='sudo reboot'
+alias halt='sudo halt'
+alias shutdown='sudo shutdown'
+alias dpkg='sudo dpkg'
+
+# do sudo, or sudo the last command if no argument given
+# http://serverfault.com/a/3847
+s() {
+    if [[ $# == 0 ]]; then
+    	sudo $(history -p '!!')
+    else
+    	sudo "$@"
+    fi
+}
+
+# sudo commands#}}}
+# set wallpaper#{{{
+
+alias wallpaper=fun_set_wallp
+
+# set wallpaper#}}}
 
 # miscellanious# #}}}
 # ssh, git, aptitude# {{{
@@ -378,11 +414,11 @@ alias gstats=fun_gitstats
 alias ignore=fun_ignore
 alias clean=fun_clean
 alias swap=fun_swap
-alias gitcommit=fun_gitcommit
-alias gitcommitall=fun_gitcommitall
-alias gitfastpush=fun_gitfastpush
-alias gitinfo=fun_gitinfo
-alias gitstats=fun_gitstats
+alias gcommit=fun_gitcommit
+alias gcommitall=fun_gitcommitall
+alias gfastpush=fun_gitfastpush
+alias ginfo=fun_gitinfo
+alias gstats=fun_gitstats
 alias gbt=fun_git_set_tracking_information
 
 # git# #}}}
@@ -449,6 +485,54 @@ fi
 # TMUX#}}}
 # functions#{{{
 
+# command_not_found#{{{
+
+# this function lets you call predefined snippet-commands from the CLI, which
+# makes spaces after a command obsolete. no need to explicitly define an alias
+# for each command in your bashrc any more. This means you may call any program
+# while the function automatically parses all trailing characters as arguments:
+
+# `fflinux` finds any file in the current directory (plus childs) by executing
+# `find . -type f -iname "*linux*"` etc.
+
+# http://superuser.com/a/756845/322005
+command_not_found_handle() {
+    case $1 in
+        xls2*) ssconvert -S "$2" "${2%%.*}"."${1#xls2}"
+            return 0
+            ;;
+        *2mp4) ffmpeg -sameq -ar 22051 -strict experimental "${1%%.*}".mp4 -i
+            return 0
+            ;;
+        pd2*) pandoc "$2" -o "${2%%.*}"."${1#pd2}"
+            return 0
+            ;;
+        img2*) convert "$2" "${2%%.*}"."${1#img2}"
+            return 0
+            ;;
+        show*) display vid:*."${1#show}"
+            return 0
+            ;;
+        pk*) pkill ${1#pk}
+            return 0
+            ;;
+        m*) make ${1#m}
+            return 0
+            ;;
+        v*) vim ${2%%.*}.${1#v}
+            return 0
+            ;;
+        g*) git ${1#g} "${@:2}"
+            return 0
+            ;;
+    esac
+
+  # If nothing else works, just do what bash would have done
+  printf "%s: command not found\n" "$1" >&2
+  return 127
+}
+
+# command_not_found#}}}
 # gitfunctions# {{{
 
 # gitinfo#{{{
@@ -575,57 +659,110 @@ fun_ignore() {
 # add vim and tmux tempfiles#}}}
 
 # gitfunctions# }}}
-# command_not_found#{{{
+# fuzzy finder for shell#{{{
 
-# this function lets you call predefined snippet-commands from the CLI, which
-# makes spaces after a command obsolete. no need to explicitly define an alias
-# for each command in your bashrc any more. This means you may call any program
-# while the function automatically parses all trailing characters as arguments:
+# fzf - examples#{{{
 
-# `fflinux` finds any file in the current directory (plus childs) by executing
-# `find . -type f -iname "*linux*"` etc.
-
-# http://superuser.com/a/756845/322005
-command_not_found_handle() {
-    case $1 in
-        g*) git ${1#g} "${@:2}"
-            return 0
-            ;;
-        xls2*) ssconvert -S "$2" "${2%%.*}"."${1#xls2}"
-            return 0
-            ;;
-        *2mp4) ffmpeg -sameq -ar 22051 -strict experimental "${1%%.*}".mp4 -i
-            return 0
-            ;;
-        pd2*) pandoc "$2" -o "${2%%.*}"."${1#pd2}"
-            return 0
-            ;;
-        m*) make ${1#m}
-            return 0
-            ;;
-        v*) vim ${2%%.*}.${1#v}
-            return 0
-            ;;
-        pk*) pkill ${1#pk}
-            return 0
-            ;;
-    esac
-
-  # If nothing else works, just do what bash would have done
-  printf "%s: command not found\n" "$1" >&2
-  return 127
+# https://github.com/junegunn/fzf#useful-examples
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+fun_fe() {
+  local file
+  file=$(fzf --query="$1" --select-1 --exit-0)
+  [ -n "$file" ] && ${EDITOR:-vim} "$file"
 }
 
-# command_not_found#}}}
+# fd - cd to selected directory
+fun_fd() {
+  local dir
+  dir=$(find ${1:-*} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+                  fun_cd "$dir"
+}
+
+# fh - repeat history
+fun_fh() {
+  eval $(([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s | sed 's/ *[0-9]* *//')
+}
+#))
+
+# fkill - kill process
+fun_fkill() {
+  ps -ef | sed 1d | fzf -m | awk '{print $2}' | xargs kill -${1:-9}
+}
+
+# fzf - examples#}}}
+# fzf - tmux#{{{
+# https://github.com/junegunn/fzf#using-fzf-with-tmux-splits
+
+# This is a helper function that splits the current pane to start the given
+# command ($1) and sends its output back to the original pane with any number of
+# optional keys (shift; $*).
+fzf_tmux_helper() {
+  [ -n "$TMUX_PANE" ] || return
+  local cmd=$1
+  shift
+  tmux split-window -p 40 \
+    "bash -c \"\$(tmux send-keys -t $TMUX_PANE \"\$(source ~/.fzf.bash; $cmd)\" $*)\""
+}
+
+# This is the function we are going to run in the split pane.
+# - "find" to list the directories
+# - "sed" will escape spaces in the paths.
+# - "paste" will join the selected paths into a single line
+fzf_tmux_dir() {
+  fzf_tmux_helper \
+    'find * -path "*/\.*" -prune -o -type d -print 2> /dev/null |
+     fzf --multi |
+     sed "s/ /\\\\ /g" |
+     paste -sd" " -' Space
+}
+
+# Bind CTRL-X-CTRL-D to fzf_tmux_dir
+bind '"\C-x\C-d": "$(fzf_tmux_dir)\e\C-e"'
+
+# fzf - tmux#}}}
+
+# fuzzy finder for shell#}}}
+# extract#{{{
+
+# http://serverfault.com/a/3842
+fun_extract () {
+   if [ -f $1 ] ; then
+       case $1 in
+           *.tar.bz2)   tar xvjf $1    ;;
+           *.tar.gz)    tar xvzf $1    ;;
+           *.bz2)       bunzip2 $1     ;;
+           *.rar)       unrar x $1       ;;
+           *.gz)        gunzip $1      ;;
+           *.tar)       tar xvf $1     ;;
+           *.tbz2)      tar xvjf $1    ;;
+           *.tgz)       tar xvzf $1    ;;
+           *.zip)       unzip $1       ;;
+           *.Z)         uncompress $1  ;;
+           *.7z)        7z x $1        ;;
+           *)           echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file!"
+   fi
+ }
+# comment: Newer versions of tar detect automatically the archive type, so can
+# extract all supported formats by just 'tar xvf' (to be tested!!)
+
+# extract#}}}
 # other#{{{
 
-# find - find files#{{{
+# fun: find#{{{
 
 fun_ff() {
     find . -iname "*$**"
 }
 
-# find - find files#}}}
+# find#}}}
+# fun: grep#{{{
+
 # grep - grep to vim#{{{
 
 fun_grepv(){
@@ -633,25 +770,39 @@ fun_grepv(){
 }
 
 # grep - grep to vim#}}}
-# mkdir - create dir and changedir to it#{{{
+# grep - grep colored#{{{
+# https://twitter.com/climagic/status/473916085541277696
+
+fun_grepc() {
+grep -rail "${@:1:$(($#-1))}" "${!#}"
+}
+
+# grep - grep colored#}}}
+
+# fun: grep#}}}
+# fun: mkdir#{{{
+
+# mkcd - create dir and changedir to it#{{{
 
 fun_mkcd(){
     mkdir -p "$1"
     cd "$1"
 }
 
-# mkdir - create dir and changedir to it#}}}
+# mkcd - create dir and changedir to it#}}}
 # mkcp - create dir and insert copied files#{{{
-# http://stackoverflow.com/questions/1215538/bash-extract-parameters-before-last-parameter-in#comment8487178_1215592
 
 fun_mkcp(){
     # start with creating new directory
     mkdir -p "${!#}"
     # now copy all arguments but pathname (last arg) to new created dir
+    # http://stackoverflow.com/questions/1215538/bash-extract-parameters-before-last-parameter-in#comment8487178_1215592
     cp -rv "${@:1:$(($#-1))}" "${!#}"
 }
 
 # mkcp - create dir and insert copied files#}}}
+
+# fun: mkdir#}}}
 # ifconfig - print ip address#{{{
 
 fun_ips() {
@@ -805,7 +956,15 @@ fun_calc () {
 }
 
 # calc - easy calculating in bash#}}}
+# set wallpaper#{{{
+
+fun_set_wallp() {
+gsettings set org.gnome.desktop.background picture-uri "file:///`pwd`/$1"
+}
+
+# set wallpaper#}}}
 
 # other#}}}
 
 # functions#}}}
+

@@ -31,26 +31,24 @@
 #	=================================
 #  dig in history what went wrong
 	ref	= reflog			# show changes of the HEAD pointer (including all indices)
+	sl	= shortlog -nse			# summarizes git log output, each commit grouped by author and title
 	l	= log --graph --abbrev=7 --decorate=short --oneline --all
 	lp	= log -p --graph --decorate=short --pretty=medium --oneline --stat	# ...shows diffs for entire history
 	lpf	= log -p --follow		# ...id + <filename>, show renamings of file as well
-	lo	= log --graph --abbrev=7 --decorate=short --pretty=medium --oneline
 	ll	= log --graph --abbrev-commit --decorate=short --pretty=medium --stat	# show log with added/droped files
 	lll	= log --graph --abbrev=7 --decorate=short --pretty=short
 
 #  check current state locally
 	st	= status --short
 	stt	= status -uno			# don't show untracked stuff
-	stts	= status -uno --short		# don't show untracked stuff
+	sts	= status -uno --short		# don't show untracked stuff, no additional information
 
 # currently versioned files at HEAD
 	lt	= ls-tree -r --name-only	# ... revision
-	ltd	= ls-tree -r -d --name-only	# id., but only the named tree entry, no children
-	ltt	= !git ls-tree HEAD --full-tree -r -t --name-only|less		# all
-	lttd	= !git ls-tree HEAD --full-tree -r -t -d --name-only|less	# just dirs
-	ltta	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4|less	# mnemonic 'ls tree abbreviated'
-	ltad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less	# id, folders only
-	lttf	= !git ls-files --abbrev=4 --stage|less				# show levels of staged files only
+	ltf	= !git ls-tree HEAD --full-tree -r -t -d --name-only|less	# just dirs
+	ltt	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4|less	# show object size of blob entries
+	ltd	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less	# id, folders only
+	lts	= !git ls-files --abbrev=4 --stage|less				# show levels of staged files only
 
 # 'git h' for help, 'git la' to list aliases
 # http://stackoverflow.com/a/11613251
@@ -68,10 +66,10 @@
 #	=================================
 	cl	= clone --progress -v		# -v needs to be set AFTER --progress, else it won't work
 						# choose
-	a	= add -A			# ...<filename>
+	a	= add -A			# ...<filename> or regexpr
 	aa	= add -A .
 	aac	= "!git add -A . && git commit -m"
-	ai	= add -i
+	ai	= add -i			# add modified contents interactively to the index
 						# unchoose
 	rm	= rm -rf			# ...<filename> unversion and delete
 	rms	= rm -r --cached		# ...<filename> unversion, but leave in working copy
@@ -79,16 +77,14 @@
 	c	= commit -m			# ...commitmessage.
 	cf	= commit -m fixup!		# ...commit changes and discard message later
 	cs	= commit -m squash!		# ...commit changes and change message later (rebase -i)
-	ca	= commit -am			# ...commit modified and deleted files + message
-	mc	= commit			# think 'message-commit
-	mca	= commit -a			# id. + commit modified and deleted files (but no new files)
+	ca	= commit -am			# ...commit modified and deleted files only + message
 	cam	= commit --amend -c HEAD	# update last commit
 	fcam	= commit --amend -C HEAD	# update last commit, and use same commit message
 						# undo
+	rv	= revert			# <HEAD> undo all commited stages to the point of <HEAD>
 	rs	= reset --mixed HEAD		# ...<filename> --- take a single added file off the index again
 	rsh	= reset --hard			# <HEAD> undos all changes in working copy, cannot be reverted
 	rss	= reset --soft			# <HEAD> moves HEAD pointer only to <HEAD>
-	rv	= revert			# <HEAD> undo all commited stages to the point of <HEAD>
 
 #  name stuff properly
 						# tag
@@ -110,8 +106,8 @@
 	sw	= show
 						# check current local changes you have made
 	d	= diff HEAD			# (...<filename>) diff staged + unstaged against HEAD
-	ds	= diff --staged			# diff staged against HEAD
-	dsn	= diff --staged --name-only	# show staged files (name-only)
+	ds	= diff --staged --name-only	# show staged files (name-only)
+	dss	= diff --staged			# diff staged against HEAD
 	dt	= difftool
 						# check current changes residing in origin/master (= main repository)
 						# local changes are shown in red!!!
@@ -131,12 +127,11 @@
 #  check what is going on everywhere
 	sb	= show-branch --color=always -a --more=10			# all full
 	sbl	= show-branch --color=always --reflog=10 --no-name		# local
-	sblf	= show-branch --color=always --reflog=10			# local full
-	sl	= shortlog -nse
+	sbf	= show-branch --color=always --reflog=10			# local full
 
 #  branch your way to victory, add <branch name>
 	b	= branch			# (...<branch name>), without argument show existing ones
-	ba	= branch -av			# show branches + SHA1 tags
+	bl	= branch -av			# show branches + SHA1 tags
 	bd	= branch --delete		# ...<branch name>, remove a branch
 	co	= checkout			# ...
 	cob	= checkout -b			# ...<branch name> create + checkout branch
@@ -164,7 +159,7 @@
 						# handling remote connections
 	rem	= remote -v			# (...<lookup man page for this>) withough argument
 #		=				# just shows remotes, else does all kinds of funny stuff
-	rs	= remote show			# ... <label for remote> show info for specific remote
+	rl	= remote show			# ... <label for remote> show info for specific remote
 	ra	= remote add			# ... <label for remote> <URL to remote>
 	rrm	= remote rm			# ... <label of remote to be deleted>
 	rr	= remote rename			# ... <label of remote to be renamed> <label of new remote>
@@ -174,7 +169,7 @@
 #  use svn if you have to
 	sco	= svn clone			# ...<svn repository url>
 	sci	= svn dcommit			# push locally committed changes to svn
-	sup	= svn rebase			#	 = svn update
+	scu	= svn rebase			#	 = svn update
 
 						# FIXME: and god told, the day will come, when this mess below will be fixed properly! and so it shall be...
 

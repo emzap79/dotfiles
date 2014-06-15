@@ -1,3 +1,4 @@
+" vim: fdm=marker
 """""""""""""
 "  Plugins  "
 """""""""""""
@@ -25,6 +26,7 @@ Bundle 'gmarik/vundle'
 " Bundles "{{{
 
 " active bundles
+
 Bundle 'BufOnly.vim'
 Bundle 'L9'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
@@ -41,8 +43,10 @@ Bundle 'matchit.zip'
 Bundle 'matze/vim-tex-fold'
 Bundle 'navicore/vis.vim'
 Bundle 'nelstrom/vim-markdown-folding'
+Bundle 'panozzaj/vim-autocorrect'
 Bundle 'scrooloose/syntastic'
 Bundle 'terryma/vim-expand-region'
+Bundle 'tommcdo/vim-exchange'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-obsession'
@@ -53,12 +57,11 @@ Bundle 'tracyone/Align.git'
 Bundle 'vim-scripts/ExtractLinks'
 Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'vim-scripts/LanguageTool'
-Bundle 'vim-scripts/tComment'
+Bundle 'tomtom/tcomment_vim'
 Bundle 'wellle/targets.vim'
-Bundle 'panozzaj/vim-autocorrect'
 
 " No more used repos
-" Bundle 'tommcdo/vim-exchange'
+" Bundle 'vim-scripts/tComment'
 " Bundle 'CheckAttach.vim'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'ScrollColors'
@@ -141,23 +144,24 @@ let vimrplugin_rconsole_width = 50           " The number of columns of R Consol
 " Command line output"}}}
 " Inside Insertmode"{{{
 
+" set <M-->=^[-
 let vimrplugin_assign = 1                    " Enable mapping for 'assign'
-let vimrplugin_assign_map = "_"              " Map (' <- ') to given key in insert mode
-
+let vimrplugin_assign_map = "_"              " Map (' <- ') to custom key in insert mode
 let g:vimrplugin_insert_mode_cmds = 1        " 0 to make commands work in insert mode
 
 " Inside Insertmode"}}}
 " Object Browser"{{{
 
-" let vimrplugin_vimpager = "no"              " If set vim, enable html support
-                                            " in .Rconfig (see documentation)
-let vimrplugin_objbr_w = 30                  " Number of minimum columns for Objectbrowser
-let vimrplugin_objbr_place = "console,left"  " Valid values for the Object Browser placement are 'script' or
-                                             " 'console' and 'right' or 'left' separated by a comma.
+let vimrplugin_vimpager = "no"                 " If set vim, enable html support in .Rconfig (see documentation)
+let vimrplugin_help_w = 30
+let vimrplugin_objbr_w = 30                    " Number of minimum columns for Objectbrowser
+let vimrplugin_objbr_place = "console,left"    " Valid values for the Object Browser placement are 'script' or
+                                               " 'console' and 'right' or 'left' separated by a comma.
+let vimrplugin_openpdf = 1
+let vimrplugin_openhtml = 1
 
 " Object Browser"}}}
 " Sweave & KnitR"{{{
-
 
 " In Rnoweb files, a '<' is replaced with '<<>>=\n@'. Set to 0 to disable this feature.
 let vimrplugin_rnowebchunk = 1
@@ -870,7 +874,3 @@ au! filetype tex call AutoCorrect()
 " Language & Spellchecking"}}}
 
 " Plugin Settings "}}}
-"""""""
-""" EOF
-"""""""
-" vim: fdm=marker

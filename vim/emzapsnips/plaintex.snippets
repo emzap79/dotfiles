@@ -13,6 +13,13 @@ BOX_FIELD_TYPES = [
 'makebox',
 'parbox',
 'rule']
+
+REF_FIELD_TYPES = [
+'eq',
+'sec',
+'fig',
+'par']
+
 endglobal
 
 #.#.General.Snippets
@@ -116,8 +123,8 @@ snippet abbr "env: abbreviations" b
 \end{acronym}
 endsnippet
 snippet "acro(\w+)?" "Define acronym" rb
-\acro{${1}}[${2:${1/(\w+)/(?1:\U$1\E)/g}}]{${3}}${6:
-\acroplural{$1}[$2$4]{$3$5}}
+\acro{${1}}[${2:${1/(\w+)/(?1:\U$1\E)/g}}]{${3}}${4:
+\acroplural{$1}[$2$5]{$3$6}}
 endsnippet
 snippet "(\s|^)ac( (\S+))?" "Set acronym" wr
  \ac{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
@@ -234,17 +241,19 @@ endsnippet
 snippet underbr "Underbrace text or formula" w
 \\underbrace{${1:${VISUAL}}}_{${2}}
 endsnippet
-snippet ref "Reference to" w
-${VISUAL}~\ref{${1: [f]ig [s]ec [p]ar}${1/(f)$|(s)$|(p)$/(?1:ig\:)(?2:ec\:)(?3:ar\:)/g}${2}}
+snippet "(\s)?ref" "Reference to" wr
+~\ref{$1`!p snip.rv = complete(t[1], REF_FIELD_TYPES)`:$2} $0
+endsnippet
+snippet "cite?" "Insert Citation" !br
 endsnippet
 snippet "[^\"]\"" "Single Quotation Marks" ir
-\` ${1:${VISUAL}}'
+ \`${1:${VISUAL}}'
 endsnippet
 snippet "" "Double Quotation Marks" i
 \`\` ${1:${VISUAL}}''
 endsnippet
 snippet "[^']'" "Single Quotation Marks" ir
-\frq ${1:${VISUAL}}\flq{}
+ \frq ${1:${VISUAL}}\flq{}
 endsnippet
 snippet '' "Double Quotation Marks" i
 \frqq ${1:${VISUAL}}\flqq{}

@@ -298,11 +298,12 @@ snippet "preamble" "Preamble for TeX-Docs" br
 %% %%.see: http://tex.stackexchange.com/a/42345
 %.%%%%%%%%%%%%%%%%%%
 \usepackage[%
-%       bookmarks,%                                  %%  make bookmarks
-%       pdfpagelabels,%                              %%  set PDF page labels
-       hidelinks,                                   %%  remove red borders around hyperlinks
-]{hyperref}%                                    %%  add navigation window with TOC to pdf
-\usepackage{hypcap}                             %%  links should always anchor at the image not the caption.
+      linktoc=all,
+      hidelinks,%                                  %%  remove red borders around hyperlinks
+      bookmarks,%                                  %%  make bookmarks
+      pdfpagelabels,%                              %%  set PDF page labels
+      pdfmenubar%
+]{hyperref}%                                    %%  http://mirrors.ctan.org/macros/latex/contrib/hyperref/doc/options.pdf
 \hypersetup{
 allcolors=blue
 colorlinks=true,
@@ -310,15 +311,19 @@ pdftex,
 %       bookmarksnumbered=true,
 %       bookmarksopen=true,
 %       bookmarksopenlevel=1,
-%       colorlinks=true,
+%       colorlinks=false,
+%       linkbordercolor = {1 0 1},              %% 101 = pink
+%       citebordercolor = {1 1 0},              %% 110 = yellow
 %       pdfauthor={Your name here},
 %       pdfkeywords={keyword1, keyword2},
 %       pdfpagelayout=TwoPageRight
-%       pdfpagemode=UseOutlines,                     %%  Open list of contents by default
+%       pdfpagemode=UseOutlines,                %%  Open list of contents by default
 %       pdfstartview=Fit,
 %       pdfsubject={Your subject here},
 %       pdftitle={Your title here},
 }
+\usepackage{hypcap}                             %%  links should always anchor at the image not the caption.
+
 %%}}}
 
 %% %%%%%%%%%%%%%%%%

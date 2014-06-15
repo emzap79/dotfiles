@@ -138,15 +138,8 @@ inoremap <s-c-f6> <esc>:BundleInstall!<cr>
 
 "enable languagetool
 "for use with latex: http://tex.stackexchange.com/questions/6333/grammar-checking-tool-for-use-with-latex/6552#6552
-nnoremap  <f7>  :'a,'sLanguageToolCheck<cr>:vertical  lopen  80<CR>
-inoremap  <f7>  :'a,'sLanguageToolCheck<cr>:vertical  lopen  80<CR>
-vnoremap  <f7>  :'a,'sLanguageToolCheck<cr>:vertical  lopen  80<CR>
-
-"enable languagetool
-"for use with latex: http://tex.stackexchange.com/questions/6333/grammar-checking-tool-for-use-with-latex/6552#6552
-nnoremap  <s-f7>  :LanguageToolCheck<cr>:vertical  lopen  80<CR>
-inoremap  <s-f7>  :LanguageToolCheck<cr>:vertical  lopen  80<CR>
-vnoremap  <s-f7>  :LanguageToolCheck<cr>:vertical  lopen  80<CR>
+nnoremap  <f7>  :'{,'}LanguageToolCheck<cr>:vertical  lopen  80<CR>
+vnoremap  <f7>  :'<,'>LanguageToolCheck<cr>:vertical  lopen  80<CR>
 
 " <f7>  " language tool"}}}
 " <f8>  " spellcheck"{{{
@@ -156,7 +149,7 @@ vnoremap  <s-f7>  :LanguageToolCheck<cr>:vertical  lopen  80<CR>
 " http://vim.wikia.com/wiki/toggle_spellcheck_with_function_keys
 
 let b:mylang=0
-let g:mylanglist=["nospell","de_de","en_us","es"]
+let g:mylanglist=["nospell","de_de","en_us","es","de_de,en_us"]
 fun! ToggleSpell()
     let b:mylang=b:mylang+1
     if b:mylang>=len(g:mylanglist) | let b:mylang=0 | endif
@@ -520,6 +513,7 @@ nmap yp :normal yyp<cr>
 " jump back to marked position"{{{
 
 nnoremap M `m :ShowMarksOnce<cr>:foldo<cr>
+" nnoremap M :exe "ShowMarksOnce \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
 
 " jump back to marked position"}}}
 " fold commands"{{{

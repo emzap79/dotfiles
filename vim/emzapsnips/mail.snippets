@@ -6,7 +6,7 @@ import os, string, random
 from vimsnippets import complete
 
 MAIL_FIELD_TYPES = [
-'jonas petong\n',
+'\n',
 'beckhausstr. 11\nco / stefan ickler\n44892 bochum\n+49 17653347208\n',
 'es02224159\nvolkswirtschaft\nuni duisburg-essen\n+49 176 53347208\n',
 'Handelsraum - Team\nLehrstuhl fuer Energiehandel und Finanzdienstleistungen\nFachbereich Wirtschaftswissenschaften\nUniversitaet Duisburg-Essen, Campus Essen\nhttp://www.lef.wiwi.uni-due.de/handelsraum/\nMail: handelsraum@uni-due.de\nTel.: +49(0)201/183-6049\n']
@@ -15,6 +15,9 @@ endglobal
 
 # # Signaturen
 snippet sig "Append signature" b
+---
+jonas petong
+
 $1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
 endsnippet
 snippet "cite?" "Insert Citation" !br
@@ -33,24 +36,13 @@ endsnippet
 snippet tel
 0176 53347208
 endsnippet
-snippet "add?r" "Vollständige Adresse" r
+snippet addr "Vollständige Adresse" w
 maashänserweg 18
 44892 bochum
 tel: 0176 53347208
 endsnippet
 snippet link "Link zu Ebay Kleinanzeigen" !w
 http://kleinanzeigen.ebay.de/anzeigen/s-bestandsliste.html?userId=3413793
-endsnippet
-snippet reply "Antwort auf Ebay Anzeige" !b
-Hallo ${1}, ${2:<der Artikel>} steht noch zum Verkauf. Wenn sie möchten, können
-sie gerne unter der Woche ab 16 uhr vorbeikommen. Wann passt es ihnen am
-besten? Ich wohne in Bochum Mitte, nahe der Kreuzung Lohring und Wittenerstraße.
-
-Viele Grüße
----
-jonas petong
-+49 17653347208
-
 endsnippet
 
 # # Anrede
@@ -66,3 +58,93 @@ snippet sdh "Sehr geehrte Damen und Herren" !b
 Sehr geehrte Damen und Herren,
 
 endsnippet
+snippet mfg "Mit freundlichen Grüßen" w
+
+Mit freundlichen Grüßen
+---
+jonas petong
+
+$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
+endsnippet
+
+
+snippet fg "Freundliche Grüße" w
+
+Freundliche Grüße
+
+---
+jonas petong
+
+$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
+endsnippet
+
+snippet lg "Liebe Grüße" w
+
+Liebe Grüße
+
+---
+jonas petong
+
+$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
+endsnippet
+
+snippet bg "Beste Grüße" w
+
+Beste Grüße
+
+---
+jonas petong
+
+$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
+endsnippet
+
+snippet bg "Beste Grüße" w
+
+Beste Grüße
+
+---
+jonas petong
+
+$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
+endsnippet
+
+snippet vg "Viele Grüße" w
+
+Viele Grüße
+
+---
+jonas petong
+
+$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
+endsnippet
+
+snippet ch "cheers" w
+
+cheers
+
+---
+jonas petong
+
+$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
+endsnippet
+
+snippet kr "Kind Regards" w
+
+Kind Regards
+
+---
+jonas petong
+
+$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
+endsnippet
+
+snippet mfg "Mit freundlichen Grüßen" w
+
+Mit freundlichen Grüßen
+
+---
+jonas petong
+
+$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
+endsnippet
+

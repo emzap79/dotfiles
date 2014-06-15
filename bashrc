@@ -32,19 +32,23 @@ export USB="/media/zapata/ES02224159"
 
 # append to the history file, don't overwrite it
 shopt -s histappend
-## reedit a history substitution line if it failed
+# reedit a history substitution line if it failed
 shopt -s histreedit
-## edit a recalled history line before executing
+# edit a recalled history line before executing
 shopt -u histverify
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 shopt -s globstar
+#use extra globing features. See man bash, search extglob.
+shopt -s extglob
+#include .files when globbing.
+shopt -s dotglob
+# fix spelling errors for cd, only in interactive shell
+shopt -s cdspell
 
 # more shopt-options
-shopt -s cdspell
 shopt -s cmdhist
 shopt -s expand_aliases
-shopt -s extglob
 shopt -s extquote
 shopt -s force_fignore
 shopt -s interactive_comments
@@ -52,6 +56,7 @@ shopt -s progcomp
 shopt -s promptvars
 shopt -s sourcepath
 shopt -s checkwinsize
+shopt -u nullglob
 
 # shopt #}}}
 # less#{{{
@@ -157,6 +162,10 @@ set show-all-if-ambiguous on
 # history#}}}
 # source#{{{
 
+# eval $(ssh-agent|\grep -v echo)
+# ssh-add > /dev/null
+source ~/.fzf.bash
+
 # include aliases
 source "/home/${USER}/.bash/aliases"      # ~/.bash/aliases
 
@@ -222,8 +231,8 @@ case "$TERM" in
         PS1='\[\e[31;1m\]['
         PS1+='\[\e[32;1m\]\u'
         PS1+='\[\e[32;1m\]@'
-        PS1+='\[\e[36;1m\]$(tmux_winidx)'
-        PS1+='\[\e[35;1m\]$(__git_ps1 "[%s] ")'
+        # PS1+='\[\e[36;1m\]$(tmux_winidx)'
+        PS1+='\[\e[35;1m\]$(__git_ps1 "[%s]")'
         PS1+='\[\e[32;1m\]$myPWD'
         PS1+='\[\e[31;1m\]]'
         PS1+='\[\e[36;1m\]\$ '
@@ -351,6 +360,3 @@ unset color_prompt force_color_prompt
 # colored prompt#}}}
 
 # colorscheme and paths#}}}
-
-# eval $(ssh-agent|\grep -v echo)
-# ssh-add > /dev/null

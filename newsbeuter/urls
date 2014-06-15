@@ -5,14 +5,13 @@
 "query:Podcasts: tags =~ \"999. Podcasts\""                            "00. Filter"
 "query:Reddit: tags =~ \"999. Reddit\" and tags =~ \"inbox\""          "00. Filter"
 "query:Ebooks: tags =~ \"999. angebote\" and (title =~ \" ebook\" and title !~ \"ebookers\")"     "00. Filter"
+"query:StackExch: tags =~ \"999. StackExch\" and (tag =~ \"questions\")"     "00. Filter"
 
 # }}} Filter #
 ### url-list# {{{
 
 "query:Uni Due: tags =~ \"999. Uni Due\" and tags =~ \"Uni Due\""                                                                        "01. Uni Due :: Uni Due"
-# "query:Mavs: tags =~ \"999. Sport\" and (title =~ \"Mavs\" or title =~ \"Mavericks\" or title =~ \"Nowitzki\")"                          "03.1 Sport :: Basketball"
-# "query:Sport: tags =~ \"999. Sport\" and tags =~ \"Basketball\" and title =~ \"playoff\""                                                                       "03. Sport :: Basketball"
-"query:Sport: tags =~ \"999. Sport\" and tags =~ \"Basketball\""                                                                         "03.1 Sport :: NBA"
+"query:Mavs: tags =~ \"999. Sport\" and (title =~ \"Mavs\" or title =~ \"Mavericks\" or title =~ \"Nowitzki\")"                          "03.1 Sport :: Basketball"
 "query:Sport: tags =~ \"999. Sport\" and tags =~ \"Fussball\" and link =~\"spielbericht\""                                               "03.2 Sport :: Fussball"
 "query:News: tags =~ \"999. News\" and (tags =~ \"nachrichten\" or tags =~ \"latinamerica\")"                                            "04. News :: Nachrichten"
 "query:News: tags =~ \"999. News\" and tags =~ \"Technik\""                                                                              "04.2 News :: Technik"
@@ -30,8 +29,11 @@
 "query:Unix: tags =~ \"999. Unix\" and tags =~ \"Fedora\""                                                                               "06.3 Unix :: Fedora"
 "query:Rasppi: tags =~ \"999.\" and (tags =~ \"Lifehacker\" or tags =~ \"Rasppi\") and (title =~ \"rasppi\" or title =~ \"raspberry\")"  "06.3 Unix :: RaspPi"
 "query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"VIM\""                                                                        "07.1 StackExch :: VIM"
-"query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"Bash\""                                                                       "07.2 StackExch :: Bash"
+"query:StackExch: tags =~ \"999. StackExch\" and (tags =~ \"SED\" or tags =~ \"R\")"                                                     "07.2 StackExch :: SED"
 "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Technik\""                                                                      "09. Angebote :: Technik"
+# "query:Sport: tags =~ \"999. Sport\" and tags =~ \"Basketball\" and title =~ \"playoff\""                                                                       "03. Sport :: Basketball"
+# "query:Sport: tags =~ \"999. Sport\" and tags =~ \"Basketball\""                                                                         "03.1 Sport :: NBA"
+# "query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"Bash\""                                                                       "07.2 StackExch :: Bash"
 # "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Kleidung\""                                                                   "09. Angebote :: Kleidung"
 # "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Sonstige\""                                                                   "09. Angebote :: Sonstige"
 # "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Ruhrgebiet\""                                                                 "09. Angebote :: Ruhrgebiet"
@@ -57,8 +59,11 @@ http://www.reddit.com/r/vimgolf/.rss                  "999. Reddit - Vimgolf"
 
 http://stackoverflow.com/feeds/tag?tagnames=bash&sort=newest "999. StackExch :: Bash"
 http://stackoverflow.com/feeds/tag?tagnames=vim&sort=newest "999. StackExch :: VIM"
-http://superuser.com/feeds/tag/bash "999. StackExch :: Bash"
+# http://superuser.com/feeds/tag/bash "999. StackExch :: Bash"
+http://superuser.com/feeds/tag/sed "999. StackExch :: SED"
+http://superuser.com/feeds/tag/r "999. StackExch :: R"
 http://superuser.com/feeds/tag/vim "999. StackExch :: VIM"
+http://stackoverflow.com/feeds/question/24448683  "999. StackExch :: Questions"
 
 #}}}
 ### Podcasts #{{{

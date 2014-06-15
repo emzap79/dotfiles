@@ -39,7 +39,6 @@ filetype off       " VUNDLE requires to set off
 syntax enable      " switch on syntax highlight
 filetype plugin on " This makes vim invoke Latex-Suite when you open a tex file
 filetype indent on " This enables automatic indentation as you type
-set esckeys        " no delay for ESC, but cannot use ESC as beginning of key sequence (which is fine by me)
 
 " filetype "}}}
 
@@ -102,11 +101,11 @@ exec "set lcs=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 " display"}}}
 " editor"{{{
 
-set ek                           " esckeys: map missed escape sequences (enables keypad keys)
+set ek                           " esckeys: no delay for ESC, but cannot use ESC as beginning of key sequence
 set t_Co=257
 set enc=utf-8                    " encoding: 8-bit (latin1, iso-8859), 2-bit or unicode (utf-8)
 set nf=octal,hex                 " nrformats: defines characters to increase by CTRL+A.
-                                " options: octal,hex,alpha
+                               " options: octal,hex,alpha
 set cf                           " confirm: get a dialog when :q, :w, or :wq fails
 set lz                           " lazyredraw: screen will only redraw once the macro has completed (speed up macros)
 set nopaste                      " paste: this is needed for use of abbreviations to be off
@@ -119,7 +118,7 @@ set mls=3                        " modelines: number lines checked for modelines
 set nosol                        " startofline: jump to first character when paging
 set ofu=syntaxcomplete#Complete  " omnifunc: completion http://vim.wikia.com/wiki/Omni_completion
 set swb+=useopen,usetab          " switchbuf: This option controls the behavior when switching between buffers.
-                                " options are - useopen, usetab, split, newtab
+                               " options are - useopen, usetab, split, newtab
 set noaw                         " autowrite: auto saves changes when quitting and swiching buffer
 set noar                         " autoread: Set to auto read when a file is changed from the outside
 set sm                           " showmatch: Show matching braces, somewhat annoying...
@@ -142,6 +141,21 @@ set sc        " smartcase: Override the 'ignorecase' option if the search
               " pattern contains upper case characters.
 
 " search"}}}
+" diffopt"{{{
+
+" diffopt: Option settings for diff mode.
+set dip=filler,context:6
+
+" filler: Show filler lines, to keep the
+" text synchronized with a window that has
+" inserted lines at the same position.
+
+" context: Use a context of {n} lines
+" between a change and a fold that
+" contains unchanged lines. When omitted a
+" context of six lines is used.
+
+" diffopt"}}}
 " folding"{{{
 
 " fold settings
@@ -158,7 +172,6 @@ set fcl=all       " foldclose: When set to " all", a fold is closed when the cur
 set fdc=4         " foldcolumn: sets rows to show fold information
 set fdn=2         " foldnestmax: Sets the maximum nesting of folds for the
                   " indent" and "syntax" methods (with max = 20)
-" set fdm=marker  " foldmethod: manual, indent, expr, marker, syntax or diff
 
 " foldtext: a string option that specifies an expression. This
 " expression is evaluated to obtain the text displayed for a closed fold.
@@ -192,6 +205,13 @@ let tex_fold_multilinecomments=1
 let tex_fold_environments=1
 
 " folding"}}}
+" timeout"{{{
+
+set to tm=3000 ttm=100      " timeout, timeoutlen, ttimeoutlen: time out on
+                            " mapping after three seconds, time out on key
+                            " codes after a tenth of a second.
+
+" timeout"}}}
 " indentation "{{{
 
 set sta                                        " smarttab: smart tab handling for indenting
@@ -505,12 +525,15 @@ set fdo+=undo      " undo or redo: "u" and CTRL-R
 
 " printf blank spaces
 " http://www.codingunit.com/printf-format-specifiers-format-conversions-and-formatted-output
-" %d     (print as a decimal integer)
-" %6d    (print as a decimal integer with a width of at least 6 wide)
-" %f     (print as a floating point)
-" %4f    (print as a floating point with a width of at least 4 wide)
-" %.4f   (print as a floating point with a precision of four characters after the decimal point)
-" %3.2f  (print as a floating point at least 3 wide and a precision of 2)
+" %d    print as a decimal integer
+" %6d   print as a decimal integer with a width of at least 6 wide
+" %f    print as a floating point
+" %4f   print as a floating point with a width of at least 4 wide
+" %.4f  print as a floating point with a precision of four characters after the decimal point
+" %3.2f print as a floating point at least 3 wide and a precision of 2
+" %=%   right align
+" xy%<  always show 'xy'
+" xy%>  contract until 'xy' (if necessary)
 
 " enable statusline
 set ls=2
@@ -524,9 +547,9 @@ set stl+=%1*\|%t\|                                                " filename
 set stl+=%2*%{&fo}\|                                              " formatoptions
 
 " statusline: show current branch
-set stl+=%3*%{(fugitive#head()!=\"\"?'\ <\ ':'')}                   " git branch
-set stl+=%3*%{(fugitive#head()!=\"\"?fugitive#head():'')}
-set stl+=%3*%{(fugitive#head()!=\"\"?'\ \ \>':'')}
+set stl+=%3*%{(fugitive#head()!=\"\"?'\(':'')}                   " git branch
+set stl+=%3*%<%{(fugitive#head()!=\"\"?fugitive#head():'')}
+set stl+=%3*%{(fugitive#head()!=\"\"?'\)':'')}
 
 " statusline: filencoding, fileformat
 " http://stackoverflow.com/a/5375338/3569509
@@ -568,8 +591,6 @@ aug END
 
 aug BWP
 au!
-" automatically remove trailing whitespaces
-au BufWritePre *.tex,*.rnw,*.r :%s/\s\+$//e
 aug END
 
 " BufWritePre"}}}
@@ -584,6 +605,15 @@ au BufWinEnter * :15ShowMarksOnce
 aug END
 
 " BufWinEnter"}}}
+" Filetype"{{{
+
+aug Filet
+    au!
+    " automatically remove trailing whitespaces
+    au filetype tex,rnoweb,noweb,vim :%s/\s\+$//e
+aug END
+
+" Filetype"}}}
 " Filetypedetect"{{{
 " http://www.r-bloggers.com/sweave-syntax-highlighting-in-vim/
 
