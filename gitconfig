@@ -1,7 +1,7 @@
 # vim:noet
 [user]
 		name = emzap79
-		email = kaktuuus@gmx.de
+	email = emzap79@gmail.com
 [credential]
 		helper = cache
 [push]
@@ -140,6 +140,7 @@
 	m	= merge --no-ff			# ...<branch name>
 	rb	= rebase			# ...<branch name>
 	rbi	= rebase -i --autosquash	# ...<branch name>
+	rbip	= !git rebase -i --autosquash && git push origin	# ...<branch name>
 	rbc	= rebase --continue
 	rbs	= rebase --skip
 	rba	= rebase --abort

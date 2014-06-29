@@ -22,6 +22,7 @@ export LIX="$DOK/Linux"
 export VGOLF="$LIX/Vim/vimgolf"
 export VOL="/media/zapata/Volume"
 export USB="/media/zapata/ES02224159"
+export QRC="$LIX/QRCs"
 
 # paths#}}}
 # shopt #{{{

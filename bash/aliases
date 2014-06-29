@@ -52,19 +52,6 @@ alias dulll="du -ks .?* | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
 alias dus=fun_dus
 
 # du#}}}
-# find # {{{
-
-alias ff=fun_ff
-alias fff="find . -type f"
-alias ffd="find . -type d"
-alias ffg='find . -type f -regextype egrep -iregex'
-alias ffi="find -type f -exec file {} \; | grep -o -P '^.+: \w+ image'"     # find all images
-
-# aliases related to music
-alias dupetrack1="find . -type f | sed -e 's/^\(.*\)\.\([[:digit:]]\)\.\(mp3\|ogg\|flac\)/\1/g;s/^\(.*\)\.\(mp3\|ogg\|flac\)/\1/g' | uniq -d"
-alias dupetrack2="find . -type f -regextype sed -iregex '^.*\.[[:digit:]]\.\(mp3\|flac\|ogg\)'"
-
-# }}}
 # cd#{{{
 
 alias cd=fun_cd
@@ -74,8 +61,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-alias mkcd=fun_mkcd     # mkdir -p $1 && cd $1
-alias mkcp=fun_mkcp
 
 # dotfiles
 alias cddp="cd $HOME/.devilspie"
@@ -87,9 +72,10 @@ alias cdmutt="cd $HOME/.mutt"
 alias cdcmus="cd $HOME/.cmus"
 alias cdlog="cd $HOME/.logfiles"
 alias cdgc="cd $HOME/.gitclones"
+alias cdsr="cd $HOME/.mozilla/firefox/cxt887c7.default/searchplugins"   # Mozilla Searchplugins
 
 # folders related to uni
-alias cdba="cd $UNI/$SEM/BAArbeit/main"
+alias cdba="cd $UNI/$SEM/BAArbeit"
 alias cdr="cd $UNI/$SEM/R"
 alias cdsem="cd $UNI/$SEM"
 alias cdblb="cd $UNI/$SEM/Bloomberg"
@@ -136,6 +122,14 @@ alias cdusbsem="cd /media/zapata/ES02224159/$SEM"
 alias cdwdp="cd /media/zapata/WDP"
 
 # cd#}}}
+# mkdir#{{{
+
+alias mkdir='mkdir -p'
+alias mkmailb='mkdir -p $HOME/tmp/mails/{cur,new,tmp}'
+alias mkcd=fun_mkcd     # mkdir -p $1 && cd $1
+alias mkcp=fun_mkcp
+
+# mkdir#}}}
 # history# {{{
 
 alias c='clear'
@@ -159,12 +153,26 @@ alias grep='grep --color=always -i -n'
 alias grepc=fun_grepc
 
 # grep# }}}
-# locate#{{{
+# find & locate # #{{{
 
+# locate
 alias lc="locate -i"
 alias ud="sudo updatedb"
+alias lcd=fun_locate_dir
+alias lcf=fun_locate_dat
 
-# locate#}}}
+# find
+alias ff=fun_ff
+alias fff="find . -type f"
+alias ffd="find . -type d"
+alias ffg='find . -type f -regextype egrep -iregex'
+alias ffi="find -type f -exec file {} \; | grep -o -P '^.+: \w+ image'"     # find all images
+
+# aliases related to music
+alias dupetrack1="find . -type f | sed -e 's/^\(.*\)\.\([[:digit:]]\)\.\(mp3\|ogg\|flac\)/\1/g;s/^\(.*\)\.\(mp3\|ogg\|flac\)/\1/g' | uniq -d"
+alias dupetrack2="find . -type f -regextype sed -iregex '^.*\.[[:digit:]]\.\(mp3\|flac\|ogg\)'"
+
+# find & locate # #}}}
 # remove#{{{
 
 alias chmrm=fun_chmod_remove
@@ -172,6 +180,61 @@ alias chmrm=fun_chmod_remove
 # remove#}}}
 
 # basic aliases# #}}}
+# command_not_found#{{{
+
+# this function lets you call predefined snippet-commands from the CLI, which
+# makes spaces after a command obsolete. no need to explicitly define an alias
+# for each command in your bashrc any more. This means you may call any program
+# while the function automatically parses all trailing characters as arguments:
+
+# `fflinux` finds any file in the current directory (plus childs) by executing
+# `find . -type f -iname "*linux*"` etc.
+
+# http://superuser.com/a/756845/322005
+command_not_found_handle() {
+    case $1 in
+        rip2*) mkdir -p "$2"
+            pacpl --rip all --to "${1#rip2}" --outdir="$2"
+            return 0
+            ;;
+        # *2mp4) ffmpeg -sameq -ar 22051 -strict experimental "${1%%.*}".mp4 -i
+        #     return 0
+        #     ;;
+        xlsx2*) ssconvert -S "$2" "${2%%.*}"."${1#xlsx2}"
+            return 0
+            ;;
+        xls2*) ssconvert -S "$2" "${2%%.*}"."${1#xls2}"
+            return 0
+            ;;
+        pd2*) pandoc "$2" -o "${2%%.*}"."${1#pd2}"
+            return 0
+            ;;
+        img2*) convert "$2" "${2%%.*}"."${1#img2}"
+            return 0
+            ;;
+        show*) display vid:*."${1#show}"
+            return 0
+            ;;
+        pk*) pkill ${1#pk}
+            return 0
+            ;;
+        m*) make ${1#m}
+            return 0
+            ;;
+        v*) vim ${2%%.*}.${1#v}
+            return 0
+            ;;
+        g*) git ${1#g} "${@:2}"
+            return 0
+            ;;
+    esac
+
+  # If nothing else works, just do what bash would have done
+  printf "%s: command not found\n" "$1" >&2
+  return 127
+}
+
+# command_not_found#}}}
 # programs# #{{{
 
 # xclip# {{{
@@ -192,7 +255,7 @@ fi
 alias vimgolf="sudo vimgolf"
 
 # encrypted password file
-alias ve="vim -u $USB/VIM/_vimrc $USB/VIM/_passw.encr"
+alias ve=fun_vim_passw
 
 # bashrc & aliases
 alias va="vim ~/.bash/aliases; source ~/.bashrc ~/.bash/aliases"
@@ -253,6 +316,7 @@ alias mt="make tmux"
 alias mtx="make tex"
 alias ml="make latex"
 alias mvi="make vim"
+# alias mvip="$QRC/make vimp"
 alias mvip="make vimp"
 alias mmc="make mc"
 alias mw=fun_loop_pdflatex
@@ -335,16 +399,17 @@ alias bday="cat $HOME/.birthdays | grep -i"
 alias t='tail -n200'
 alias h='head -n20'
 alias d='dirs -v'
+alias live="watch -n10 --no-title \"w3m http://www.livescore.com/ |awk '/live [0-9H]+[^ ]/,/red cards/'\""  # liveticker for worldcup
+alias pd="pushd ."
+alias pp="popd"
 alias makecoffee='printf "\xE2\x98\x95\n"'
 alias poweroff='sudo poweroff'
+alias ripcd=fun_rip_cd
 alias rmf="rm -rf"
 alias rmfa="rm -rf *"
-alias liveticker1="watch -n10 --no-title \"w3m http://www.livescore.com/ |egrep 'live [0-9H]+[^ ]'\""
-alias liveticker2="watch -n10 --no-title \"w3m http://www.livescore.com/ |awk '/live [0-9H]+[^ ]/,/red cards/'\""
 alias info='info --vi-keys'
 alias pwgen='pwgen -cn 12'
 alias echon="echo -n"
-alias mkd='mkdir -p'
 alias chkwlan="nm-tool | grep Strength | egrep -v '(WEP|WPA)' | sed 's/^ *//g' \
     | sort -t ',' -k 5'"     # check available wlan-ports
 alias ips=fun_ips
@@ -356,9 +421,9 @@ alias journ="less /var/log/syslog"
 alias mousereset="sudo rmmod psmouse; sudo modprobe psmouse"
 alias pandoc='/home/zapata/.cabal/bin/pandoc'
 alias quitord="rdesktop -uXime -dquito-pc 192.168.2.100 -z -P -xl -g 1024x768 -k de"
-alias sdn="usync up; cmus-remote -C q; sudo shutdown -h now"
 alias unlckkeyr="sudo /usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh"
 alias html2pdf="for i in *.html; do wkhtmltopdf $i $(basename $i .html).pdf; done"
+alias img2pdf=fun_conv_img_to_pdf
 alias architecture="echo $(lsb_release -sri | tr '\n' ' ') && echo $(gnome-shell --version) && uname -srm"
 
 # short commands# #}}}
@@ -393,6 +458,8 @@ alias wallpaper=fun_set_wallp
 
 alias uoek="rsync --progress -auve ssh --iconv=UTF-8,ISO8859-1 --exclude '^.' --exclude '*~' --delete $UNI/$SEM/CompOek/ sdjopeto@student.uni-due.de:public_html/CompOek"
 alias usync="/bin/bash $HOME/bin/cronSyncSsh"
+alias cruzer='usync cruzer'
+alias sshkey="ssh-keygen -t rsa -C" # "your_email@example.com"
 
 # ssh# #}}}
 # git# #{{{
@@ -424,7 +491,8 @@ alias gbt=fun_git_set_tracking_information
 # git# #}}}
 # curl # #{{{
 
-alias expandurl=fun_expandurl
+alias urlexpd=fun_expandurl
+alias urlshrt="/bin/bash $HOME/urlShortener.sh"
 
 # curl # #}}}
 # aptitude# #{{{
@@ -439,7 +507,7 @@ alias upgr="/bin/bash ~/bin/upgrSoftw.sh && /usr/bin/python ~/bin/upgrPipPackage
 # aptitude# #}}}
 # vpnc#{{{
 
-alias vpnc="sudo vpnc"  # /etc/vpnc/default.conf
+alias vpnc="sudo vpnc /etc/vpnc/default.conf"
 alias vpnd="sudo vpnc-disconnect"
 
 # vpnc#}}}
@@ -485,54 +553,6 @@ fi
 # TMUX#}}}
 # functions#{{{
 
-# command_not_found#{{{
-
-# this function lets you call predefined snippet-commands from the CLI, which
-# makes spaces after a command obsolete. no need to explicitly define an alias
-# for each command in your bashrc any more. This means you may call any program
-# while the function automatically parses all trailing characters as arguments:
-
-# `fflinux` finds any file in the current directory (plus childs) by executing
-# `find . -type f -iname "*linux*"` etc.
-
-# http://superuser.com/a/756845/322005
-command_not_found_handle() {
-    case $1 in
-        xls2*) ssconvert -S "$2" "${2%%.*}"."${1#xls2}"
-            return 0
-            ;;
-        *2mp4) ffmpeg -sameq -ar 22051 -strict experimental "${1%%.*}".mp4 -i
-            return 0
-            ;;
-        pd2*) pandoc "$2" -o "${2%%.*}"."${1#pd2}"
-            return 0
-            ;;
-        img2*) convert "$2" "${2%%.*}"."${1#img2}"
-            return 0
-            ;;
-        show*) display vid:*."${1#show}"
-            return 0
-            ;;
-        pk*) pkill ${1#pk}
-            return 0
-            ;;
-        m*) make ${1#m}
-            return 0
-            ;;
-        v*) vim ${2%%.*}.${1#v}
-            return 0
-            ;;
-        g*) git ${1#g} "${@:2}"
-            return 0
-            ;;
-    esac
-
-  # If nothing else works, just do what bash would have done
-  printf "%s: command not found\n" "$1" >&2
-  return 127
-}
-
-# command_not_found#}}}
 # gitfunctions# {{{
 
 # gitinfo#{{{
@@ -659,7 +679,137 @@ fun_ignore() {
 # add vim and tmux tempfiles#}}}
 
 # gitfunctions# }}}
-# fuzzy finder for shell#{{{
+# vimfunctions#{{{
+
+fun_vim() {
+    if [ "$#" -eq 0 ]; then
+        vim /tmp/foo.txt
+    else
+        vim /tmp/foo.$1
+    fi
+}
+
+fun_vim_find() {
+
+    # open multiple files with given suffix in vim
+    # http://blog.sanctum.geek.nz/series/unix-as-ide/
+    find -type f -iname "*$1" -exec vim {} +
+
+}
+
+fun_vim_passw() {
+    if grep -qs 'ES02224159' /proc/mounts; then
+        FILEDIR=$USB/Vim
+    else
+        FILEDIR=$HOME/tmp
+    fi
+    vim -u $FILEDIR/_vimrc $FILEDIR/_config.pw
+}
+
+# vimfunctions#}}}
+# extract & convert#{{{
+
+# fun: conv images to pdf#{{{
+
+fun_conv_img_to_pdf() {
+sam2p -e -pdf:2 "${1%%.*}"."${1##*.}" "${1%%.*}".pdf
+}
+
+# fun: conv images to pdf#}}}
+# fun: enroll packed files #{{{
+
+# http://serverfault.com/a/3842
+fun_extract () {
+   if [ -f $1 ] ; then
+       case $1 in
+           *.tar.bz2)   tar xvjf $1    ;;
+           *.tar.gz)    tar xvzf $1    ;;
+           *.bz2)       bunzip2 $1     ;;
+           *.rar)       unrar x $1       ;;
+           *.gz)        gunzip $1      ;;
+           *.tar)       tar xvf $1     ;;
+           *.tbz2)      tar xvjf $1    ;;
+           *.tgz)       tar xvzf $1    ;;
+           *.zip)       unzip $1       ;;
+           *.Z)         uncompress $1  ;;
+           *.7z)        7z x $1        ;;
+           *)           echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file!"
+   fi
+ }
+# comment: Newer versions of tar detect automatically the archive type, so can
+# extract all supported formats by just 'tar xvf' (to be tested!!)
+
+# fun: enroll packed files #}}}
+
+# extract & convert#}}}
+# other#{{{
+
+# fun: locate#{{{
+
+# http://serverfault.com/a/365843
+fun_locate_dir() {
+locate "$@" | xargs file -NF '|' |grep '| directory' | sed 's/| directory//g'
+}
+
+# http://serverfault.com/a/365843
+fun_locate_dat() {
+locate "$@" | xargs file -NF '|' |grep 'data$' | sed 's/|.*data//g'
+}
+
+# fun: locate#}}}
+# fun: find#{{{
+
+fun_ff() {
+    find . -iname "*$**"
+}
+
+# find#}}}
+# fun: grep#{{{
+
+# grep - grep to vim#{{{
+
+fun_grepv(){
+    vim `\grep -irl "$*" .`
+}
+
+# grep - grep to vim#}}}
+# grep - grep colored#{{{
+# https://twitter.com/climagic/status/473916085541277696
+
+fun_grepc() {
+grep -rail "${@:1:$(($#-1))}" "${!#}"
+}
+
+# grep - grep colored#}}}
+
+# fun: grep#}}}
+# fun: mkdir#{{{
+
+# mkcd - create dir and changedir to it#{{{
+
+fun_mkcd(){
+    mkdir -p "$1"
+    cd "$1"
+}
+
+# mkcd - create dir and changedir to it#}}}
+# mkcp - create dir and insert copied files#{{{
+
+fun_mkcp(){
+    # start with creating new directory
+    mkdir -p "${!#}"
+    # now copy all arguments but pathname (last arg) to new created dir
+    # http://stackoverflow.com/questions/1215538/bash-extract-parameters-before-last-parameter-in#comment8487178_1215592
+    cp -rv "${@:1:$(($#-1))}" "${!#}"
+}
+
+# mkcp - create dir and insert copied files#}}}
+
+# fun: mkdir#}}}
+# fun: fuzzy finder for shell#{{{
 
 # fzf - examples#{{{
 
@@ -724,85 +874,7 @@ bind '"\C-x\C-d": "$(fzf_tmux_dir)\e\C-e"'
 
 # fzf - tmux#}}}
 
-# fuzzy finder for shell#}}}
-# extract#{{{
-
-# http://serverfault.com/a/3842
-fun_extract () {
-   if [ -f $1 ] ; then
-       case $1 in
-           *.tar.bz2)   tar xvjf $1    ;;
-           *.tar.gz)    tar xvzf $1    ;;
-           *.bz2)       bunzip2 $1     ;;
-           *.rar)       unrar x $1       ;;
-           *.gz)        gunzip $1      ;;
-           *.tar)       tar xvf $1     ;;
-           *.tbz2)      tar xvjf $1    ;;
-           *.tgz)       tar xvzf $1    ;;
-           *.zip)       unzip $1       ;;
-           *.Z)         uncompress $1  ;;
-           *.7z)        7z x $1        ;;
-           *)           echo "don't know how to extract '$1'..." ;;
-       esac
-   else
-       echo "'$1' is not a valid file!"
-   fi
- }
-# comment: Newer versions of tar detect automatically the archive type, so can
-# extract all supported formats by just 'tar xvf' (to be tested!!)
-
-# extract#}}}
-# other#{{{
-
-# fun: find#{{{
-
-fun_ff() {
-    find . -iname "*$**"
-}
-
-# find#}}}
-# fun: grep#{{{
-
-# grep - grep to vim#{{{
-
-fun_grepv(){
-    vim `\grep -irl "$*" .`
-}
-
-# grep - grep to vim#}}}
-# grep - grep colored#{{{
-# https://twitter.com/climagic/status/473916085541277696
-
-fun_grepc() {
-grep -rail "${@:1:$(($#-1))}" "${!#}"
-}
-
-# grep - grep colored#}}}
-
-# fun: grep#}}}
-# fun: mkdir#{{{
-
-# mkcd - create dir and changedir to it#{{{
-
-fun_mkcd(){
-    mkdir -p "$1"
-    cd "$1"
-}
-
-# mkcd - create dir and changedir to it#}}}
-# mkcp - create dir and insert copied files#{{{
-
-fun_mkcp(){
-    # start with creating new directory
-    mkdir -p "${!#}"
-    # now copy all arguments but pathname (last arg) to new created dir
-    # http://stackoverflow.com/questions/1215538/bash-extract-parameters-before-last-parameter-in#comment8487178_1215592
-    cp -rv "${@:1:$(($#-1))}" "${!#}"
-}
-
-# mkcp - create dir and insert copied files#}}}
-
-# fun: mkdir#}}}
+# fun: fuzzy finder for shell#}}}
 # ifconfig - print ip address#{{{
 
 fun_ips() {
@@ -854,25 +926,6 @@ fun_absolute_path() { echo "$PWD/$1"; }  # alt: readlink -f
 fun_expandurl() { curl -sIL $1 | grep ^Location; }
 
 # curl - expand shortened urls#}}}
-# vim - edit new file with vim#{{{
-
-fun_vim() {
-    if [ "$#" -eq 0 ]; then
-        vim /tmp/foo.txt
-    else
-        vim /tmp/foo.$1
-    fi
-}
-
-fun_vim_find() {
-
-    # open multiple files with given suffix in vim
-    # http://blog.sanctum.geek.nz/series/unix-as-ide/
-    find -type f -iname "*$1" -exec vim {} +
-
-}
-
-# vim - edit new file with vim#}}}
 # yt-dl - youtube-videos as ascii video#{{{
 
 # http://annasagrera.com/on-ascii-youtube-and-letting-go/?lang=en
@@ -967,4 +1020,3 @@ gsettings set org.gnome.desktop.background picture-uri "file:///`pwd`/$1"
 # other#}}}
 
 # functions#}}}
-

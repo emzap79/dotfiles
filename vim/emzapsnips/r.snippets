@@ -21,20 +21,48 @@ endsnippet
 snippet is "Test type on variable" w
 is.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
-snippet "\.(\S+)?" "create generic command" ir
+snippet "\.\.(\S+)?" "create generic command" ir
 `!p snip.rv = match.group(1) if match.group(1) is not None else "c"`(${1:${VISUAL}})
 endsnippet
+snippet "\:(\S+)?" "surround by parenthesis" ir
+(${1:`!p snip.rv = match.group(1) if match.group(1) is not None else "c"`})
+endsnippet
 snippet "(\s|^)lib( (\S+))?" "Import a library" wr
-library(${1:`!p snip.rv = match.group(3) if match.group(2) is not None else ""`})$0
+library("${1:`!p snip.rv = match.group(3) if match.group(2) is not None else ""`}")$0
 endsnippet
 snippet knitr "Install and update package from repo" b
 install.packages(c("digest", "evaluate", "formatR", "highlight", "knitr", "parser", "plyr", "Rcpp", "stringr"), repos = c('http://rforge.net', 'http://cran.rstudio.org'), type = 'source')
 endsnippet
 snippet inst "Install and update package from repo" b
-${3:update.packages(ask = FALSE, repos = $2)}
-install.packages('${1:knitr}', repos = ${2:c('http://rforge.net', 'http://cran.rstudio.org')}, type = 'source')
+${4:# update.packages(ask = FALSE, repos = 'http://rforge.net',
+'http://cran.rstudio.org', 'http://cran.r-project.org')
+}install.packages('${1:package name}',
+repos = c('http://rforge.net', 'http://cran.rstudio.org', 'http://cran.r-project.org'${2:, '$3'}),
+type = 'source')
 library("$1")
 endsnippet
 snippet str "Internal structure of an object" w
 str(${1:${VISUAL}})
+endsnippet
+
+snippet dim "Show objects dimension" w
+dim(${1:${VISUAL}})
+endsnippet
+snippet names "Show objects names" w
+names(${1:${VISUAL}})
+endsnippet
+snippet c "Concatenate" w
+c(${1:${VISUAL}})
+endsnippet
+snippet mean "Mean" w
+mean(${1:${VISUAL}})
+endsnippet
+snippet list "list" w
+list(${1:${VISUAL}})
+endsnippet
+snippet range "range" w
+range(${1:${VISUAL}})
+endsnippet
+snippet print "print" w
+print(${1:${VISUAL}})
 endsnippet

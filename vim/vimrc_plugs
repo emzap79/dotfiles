@@ -234,16 +234,16 @@ let g:tex_fold_allow_marker = 1
 
 " On Text Operators"{{{
 
-" CamelCase Motions"{{{
+" CamelCase Motions""{{{
 
 " Example: Replace the default 'w', 'b' and 'e' mappings instead of defining additional mappings ',w', ',b' and ',e':
 
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
-" sunmap w
-" sunmap b
-" sunmap e
+sunmap w
+sunmap b
+sunmap e
 
 " Example: Replace default 'iw' text-object and define 'ib' and 'ie' motions:
 " omap <silent> iw <Plug>CamelCaseMotion_iw
@@ -253,7 +253,7 @@ map <silent> e <Plug>CamelCaseMotion_e
 " omap <silent> ie <Plug>CamelCaseMotion_ie
 " xmap <silent> ie <Plug>CamelCaseMotion_ie
 
-"}}}
+" CamelCase Motions""}}}
 " Align"{{{
 
 " let alignctrl= Align#AlignCtrl()

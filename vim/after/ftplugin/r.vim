@@ -78,14 +78,10 @@ vmap <localleader>qq <Plug>RClose
 " start & close R"}}}
 " Send Code to Console"{{{
 
-" Send File
-nmap <localleader>f <Plug>RSendFile
-
 " Send Part of current line
 nmap <localleader>j <Plug>RNLeftPart
 " imap <localleader>j <Plug>RILeftPart
 nmap <localleader>k <Plug>RNRightPart
-" imap <localleader>k <Plug>RIRightPart
 
 " Send Line
 nmap <localleader>l <Plug>RSendLine
@@ -94,6 +90,9 @@ vmap <localleader>l <Plug>RDSendSelection``
 " Send Line And Jump To Next Code
 nmap <esc>l <Plug>RDSendLine
 vmap <esc>l <Plug>RDSendSelection
+
+" Send File
+nmap <localleader>f <Plug>RSendFile
 
 " Send Paragraph
 nmap <esc>p <Plug>RDSendParagraph
@@ -105,6 +104,8 @@ vmap <esc>p <Plug>RDSendSelection
 " the mark below is excluded from the block to be sent to R.
 nmap <esc>b <Plug>RDSendMBlock
 vmap <esc>b <Plug>RDSendMBlock
+nmap <localleader>b <Plug>RSendMBlock
+vmap <localleader>b <Plug>RSendMBlock
 
 " send code to console"}}}
 " Editing Commands"{{{
@@ -158,13 +159,25 @@ vmap <silent><localleader>d <Plug>RSetwd
 " Custom mappings & functions "{{{
 
 " assign argument under cursor in next line
-nmap <silent><localleader>, :normal! o0<CR>0v$
-vmap <silent><localleader>, :<C-u>exec "s/$/\r" . GetVisualSelection()<cr>0v$
+nmap <silent><localleader>; :normal! o0<CR>0v$
+vmap <silent><localleader>; :<C-u>exec "s/$/\r" . GetVisualSelection()<cr>0v$
 
 " define commands & actions
-map <silent> <localleader>rs :call g:SendCmdToR("search()")<CR>
-map <silent> <localleader>rh :call RAction("help.search")<CR>
-map <silent> <localleader>rl :call RAction("levels")<CR>
+
+"" search help
+map <silent> <localleader>sh :call RAction("help.search")<CR>
+map <silent> <localleader>ss :call g:SendCmdToR("search()")<CR>
+"" range/min/max
+map <silent> <LocalLeader>mi :call RAction("min")<CR>
+map <silent> <LocalLeader>ma :call RAction("max")<CR>
+map <silent> <LocalLeader>ra :call RAction("range")<CR>
+"" data characteristical information
+map <silent> <LocalLeader>hd :call RAction("head")<CR>
+map <silent> <LocalLeader>tl :call RAction("tail")<CR>
+map <silent> <localleader>at :call RAction("attributes")<CR>
+map <silent> <localleader>lt :call RAction("length")<CR>
+map <silent> <localleader>lv :call RAction("levels")<CR>
+map <silent> <localleader>st :call RAction("str")<CR>
 
 " assine value to variable ('<-')
 nmap <esc>- hEa<Space><-<Space>

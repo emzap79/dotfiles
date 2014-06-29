@@ -610,7 +610,7 @@ aug END
 aug Filet
     au!
     " automatically remove trailing whitespaces
-    au filetype tex,rnoweb,noweb,vim :%s/\s\+$//e
+    au filetype tex,rnoweb,noweb,vim,r :%s/\s\+$//e
 aug END
 
 " Filetype"}}}

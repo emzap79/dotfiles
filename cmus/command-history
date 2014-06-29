@@ -1,4 +1,13 @@
 clear 
+add ~/tmp/music/
+lqueue *
+lqueue all
+lqueue ~/tmp/music/*
+tqueue ~/tmp/music/*
+tqueue ~/tmp/music
+ ~/tmp/music/
+e ~/tmp/music/
+add ~/tmp/music/*
 ce
 save ../plSingles_ESC2014.pl
 save esc2014.pl

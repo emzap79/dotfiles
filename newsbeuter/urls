@@ -31,6 +31,7 @@
 "query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"VIM\""                                                                        "07.1 StackExch :: VIM"
 "query:StackExch: tags =~ \"999. StackExch\" and (tags =~ \"SED\" or tags =~ \"R\")"                                                     "07.2 StackExch :: SED"
 "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Technik\""                                                                      "09. Angebote :: Technik"
+
 # "query:Sport: tags =~ \"999. Sport\" and tags =~ \"Basketball\" and title =~ \"playoff\""                                                                       "03. Sport :: Basketball"
 # "query:Sport: tags =~ \"999. Sport\" and tags =~ \"Basketball\""                                                                         "03.1 Sport :: NBA"
 # "query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"Bash\""                                                                       "07.2 StackExch :: Bash"
@@ -55,17 +56,17 @@ http://www.reddit.com/r/vimgolf/.rss                  "999. Reddit - Vimgolf"
 # http://www.reddit.com/r/LinuxActionShow/.rss reddit "999. Reddit - Linux"
 
 #}}}
-### StackExch #{{{
-
-http://stackoverflow.com/feeds/tag?tagnames=bash&sort=newest "999. StackExch :: Bash"
-http://stackoverflow.com/feeds/tag?tagnames=vim&sort=newest "999. StackExch :: VIM"
+# ### StackExch ## {{{
+#
+# http://stackoverflow.com/feeds/tag?tagnames=bash&sort=newest "999. StackExch :: Bash"
+# http://stackoverflow.com/feeds/tag?tagnames=vim&sort=newest "999. StackExch :: VIM"
 # http://superuser.com/feeds/tag/bash "999. StackExch :: Bash"
-http://superuser.com/feeds/tag/sed "999. StackExch :: SED"
-http://superuser.com/feeds/tag/r "999. StackExch :: R"
-http://superuser.com/feeds/tag/vim "999. StackExch :: VIM"
-http://stackoverflow.com/feeds/question/24448683  "999. StackExch :: Questions"
-
-#}}}
+# http://superuser.com/feeds/tag/sed "999. StackExch :: SED"
+# http://superuser.com/feeds/tag/r "999. StackExch :: R"
+# http://superuser.com/feeds/tag/vim "999. StackExch :: VIM"
+# http://stackoverflow.com/feeds/question/24448683  "999. StackExch :: Questions"
+#
+# ### StackExch ## }}}
 ### Podcasts #{{{
 
 http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml "999. Podcasts - TTT"

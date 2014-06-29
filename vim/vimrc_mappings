@@ -861,6 +861,18 @@ if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
 endif
 
 " copy current file name (relative/absolute) to system clipboard"}}}
+" copy matches to register"{{{
+
+" http://vim.wikia.com/wiki/Copy_search_matches
+function! CopyMatches(reg)
+  let hits = []
+  %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/ge
+  let reg = empty(a:reg) ? '+' : a:reg
+  execute 'let @'.reg.' = join(hits, "\n") . "\n"'
+endfunction
+command! -register CopyMatches call CopyMatches(<q-reg>)
+
+" copy matches to register"}}}
 " Miscellaneous"{{{
 
 " remove (trailing) spaces"{{{
@@ -886,7 +898,7 @@ nmap <leader>ss :exe "s/\[^,\]\\zs\\s/\\; /g \| nohls"<cr>
 " replace spaces through semicolon"}}}
 " create tabular from selected text"{{{
 
-nnoremap <silent><leader>tab :exe "'{,'}!column -t"<cr>
+nnoremap <silent><leader>col :exe "'{,'}!column -t"<cr>
 
 " create tabular from selected text"}}}
 " count character under cursor in line"{{{
