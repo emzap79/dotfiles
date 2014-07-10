@@ -409,6 +409,7 @@ alias rmf="rm -rf"
 alias rmfa="rm -rf *"
 alias info='info --vi-keys'
 alias pwgen='pwgen -cn 12'
+alias top='top -n2'
 alias echon="echo -n"
 alias chkwlan="nm-tool | grep Strength | egrep -v '(WEP|WPA)' | sed 's/^ *//g' \
     | sort -t ',' -k 5'"     # check available wlan-ports

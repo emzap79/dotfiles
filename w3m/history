@@ -81,3 +81,11 @@ http://127.0.0.1:25260/library/psych/html/describe.html
 http://127.0.0.1:25248/library/base/html/as.POSIXlt.html
 http://127.0.0.1:25248/library/base/html/typeof.html
 http://127.0.0.1:25248/library/graphics/html/plot.html
+http://127.0.0.1:25248/library/base/html/lapply.html
+http://127.0.0.1:30276/library/base/html/date.html
+http://127.0.0.1:30276/library/ggplot2/html/qplot.html
+http://127.0.0.1:29079/library/ggplot2/html/aes.html
+http://127.0.0.1:29079/library/ggplot2/html/ggplot.html
+http://127.0.0.1:29079/library/ggplot2/html/geom_line.html
+http://127.0.0.1:29079/library/ggplot2/html/aes_colour_fill_alpha.html
+http://127.0.0.1:12634/library/stats/html/predict.html
