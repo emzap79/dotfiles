@@ -13,7 +13,7 @@ endif
 
 let b:did_ftplugin = 1
 
-"{{{ Globals
+" Globals"{{{
 
 if !exists('g:tex_fold_sec_char')
     let g:tex_fold_sec_char = '➜'
@@ -31,8 +31,8 @@ if !exists('g:tex_fold_allow_marker')
     let g:tex_fold_allow_marker = 1
 endif
 
-"}}}
-"{{{ Fold options
+" Globals"}}}
+" Fold options"{{{
 
 setlocal foldmethod=expr
 setlocal foldexpr=TeXFold(v:lnum)
@@ -41,7 +41,7 @@ if g:tex_fold_override_foldtext
     setlocal foldtext=TeXFoldText()
 endif
 
-"}}}
+" Fold options"}}}
 " Functions"{{{
 
 " " texfold"{{{
@@ -112,7 +112,27 @@ else
 endif
 
 " Undo Filetype"}}}
+" insert \item"{{{
+
+" " http://stackoverflow.com/a/2551652
+function! CR()
+    if searchpair('\\begin{itemize}', '', '\\end{itemize}', '') || searchpair('\\begin{enumerate}', '', '\\end{enumerate}', '')
+        return "\r\\item "
+    elseif searchpair('\\begin{description}', '', '\\end{description}', '')
+        return "\r\\item["
+    elseif searchpair('\\begin{align}', '', '\\end{align}', '') || searchpair('\\begin{align\*}', '', '\\end{align\*}', '')
+        return "\r\&"
+    elseif searchpair('\\begin{acronym}', '', '\\end{acronym}', '')
+        return "\racro"
+    endif
+    return "\r"
+endfunction
+inoremap <expr><buffer> <CR> CR()
+
+" insert \item"}}}
+" texabbrevs"{{{
 
 call TeXAbbreviations()
 
+" texabbrevs"}}}
 " Functions"}}}

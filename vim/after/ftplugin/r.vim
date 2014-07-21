@@ -80,8 +80,11 @@ vmap <localleader>qq <Plug>RClose
 
 " Send Part of current line
 nmap <localleader>j <Plug>RNLeftPart
-" imap <localleader>j <Plug>RILeftPart
+nmap <localleader>jj <Plug>RILeftPart
 nmap <localleader>k <Plug>RNRightPart
+
+" Send CodeChunk
+nmap <localleader>c <Plug>REDSendChunk
 
 " Send Line
 nmap <localleader>l <Plug>RSendLine
@@ -159,18 +162,27 @@ vmap <silent><localleader>d <Plug>RSetwd
 " Custom mappings & functions "{{{
 
 " assign argument under cursor in next line
-nmap <silent><localleader>; :normal! o0<CR>0v$
-vmap <silent><localleader>; :<C-u>exec "s/$/\r" . GetVisualSelection()<cr>0v$
+nmap <silent><localleader>- :normal! o0<CR>0v$
+vmap <silent><localleader>- :<C-u>exec "s/$/\r" . GetVisualSelection()<cr>0v$
 
 " define commands & actions
 
-"" search help
-map <silent> <localleader>sh :call RAction("help.search")<CR>
+"" SendCmdToR
+""" search help
 map <silent> <localleader>ss :call g:SendCmdToR("search()")<CR>
-"" range/min/max
-map <silent> <LocalLeader>mi :call RAction("min")<CR>
-map <silent> <LocalLeader>ma :call RAction("max")<CR>
-map <silent> <LocalLeader>ra :call RAction("range")<CR>
+map <silent> <localleader>ls :call g:SendCmdToR("ls()")<CR>
+map <silent> <localleader>di :call g:SendCmdToR("dir()")<CR>
+map <silent> <localleader>ma :call g:SendCmdToR("methods(as)")<CR>
+map <silent> <localleader>mi :call g:SendCmdToR("methods(is)")<CR>
+map <silent> <localleader>rr :call 'g:SendCmdToR("' . shellescape(expand("<cword>")) . '")'<CR>
+
+"" RAction
+""" help on object
+map <silent> <localleader>sh :call RAction("help.search")<CR>
+""" range/min/max
+map <silent> <LocalLeader>mn :call RAction("min")<CR>
+map <silent> <LocalLeader>mx :call RAction("max")<CR>
+map <silent> <LocalLeader>rg :call RAction("range")<CR>
 "" data characteristical information
 map <silent> <LocalLeader>hd :call RAction("head")<CR>
 map <silent> <LocalLeader>tl :call RAction("tail")<CR>
@@ -178,6 +190,7 @@ map <silent> <localleader>at :call RAction("attributes")<CR>
 map <silent> <localleader>lt :call RAction("length")<CR>
 map <silent> <localleader>lv :call RAction("levels")<CR>
 map <silent> <localleader>st :call RAction("str")<CR>
+map <silent> <localleader>nm :call RAction("names")<CR>
 
 " assine value to variable ('<-')
 nmap <esc>- hEa<Space><-<Space>
@@ -208,3 +221,22 @@ vmap <M-5> 5gt
 " GVIM-Mappings"}}}
 
 " Mappings"}}}
+
+nnoremap <silent>gr :set operatorfunc=<SID>ROperator<cr>g@
+vnoremap <silent>gr :<c-u>call <SID>ROperator(visualmode())<cr>
+
+function! s:ROperator(type)
+    let saved_unnamed_register = @@
+    if a:type ==# 'v'
+        normal! `<v`>
+    elseif a:type ==# 'char'
+        normal! `[v`]
+    else
+        return
+    endif
+    " silent execute "!firefox " . shellescape(@@)
+    " silent execute <Plug>RDSendSelection
+    exe "normal! <esc>p"
+    let @@ = saved_unnamed_register
+endfunction
+

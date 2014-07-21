@@ -15,10 +15,11 @@ BOX_FIELD_TYPES = [
 'rule']
 
 REF_FIELD_TYPES = [
+'cha',
 'eq',
-'sec',
 'fig',
-'par']
+'par',
+'sec']
 
 endglobal
 
@@ -67,8 +68,8 @@ endsnippet
 snippet fig "env: Figure" b
 \begin{figure}${1:%}[${2:h t b p !}]
  ${3:${VISUAL:\includegraphics}}
- \caption[$4]{${4:caption}}
- \label{fig:${5:${4/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+ \caption[${4:small caption}]{${5:caption}}
+ \label{fig:${6:${5/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 \end{figure}
 endsnippet
 snippet twofigure "env: Two Figures" b
@@ -126,17 +127,17 @@ snippet "acro(\w+)?" "Define acronym" rb
 \acro{${1}}[${2:${1/(\w+)/(?1:\U$1\E)/g}}]{${3}}${4:
 \acroplural{$1}[$2$5]{$3$6}}
 endsnippet
-snippet "(\s|^)ac( (\S+))?" "Set acronym" wr
+snippet "(\s|^)ac( (\S+))?" "Set acronym" r
  \ac{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
 endsnippet
-snippet "(\s|^)acl( (\S+))?" "Set long acronym" wr
-\acl{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
+snippet "(\s|^)acl( (\S+))?" "Set long acronym" r
+ \acl{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
 endsnippet
-snippet "(\s|^)acs( (\S+))?" "Set short acronym" wr
-\acs{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
+snippet "(\s|^)acs( (\S+))?" "Set short acronym" r
+ \acs{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
 endsnippet
-snippet "(\s|^)acp( (\S+))?" "Set plural acronym" wr
-\acs{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
+snippet "(\s|^)acp( (\S+))?" "Set plural acronym" r
+ \acp{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
 endsnippet
 # .##.tabulars,.arrays,.boxes
 snippet strut "invisible rule with specific height" w
@@ -244,13 +245,11 @@ endsnippet
 snippet "(\s)?ref" "Reference to" wr
 ~\ref{$1`!p snip.rv = complete(t[1], REF_FIELD_TYPES)`:$2} $0
 endsnippet
-snippet "cite?" "Insert Citation" !br
-endsnippet
 snippet "[^\"]\"" "Single Quotation Marks" ir
- \`${1:${VISUAL}}'
+\`${1:${VISUAL}}'
 endsnippet
 snippet "" "Double Quotation Marks" i
-\`\` ${1:${VISUAL}}''
+\`\`${1:${VISUAL}}''
 endsnippet
 snippet "[^']'" "Single Quotation Marks" ir
  \frq ${1:${VISUAL}}\flq{}
@@ -269,6 +268,9 @@ endsnippet
 # .##.utilities
 snippet "(cmd(\S+)?)" "Set cmd in qrcs" br
 \\`!p snip.rv = match.group(1)`{${1:${VISUAL}}}	{$2}
+endsnippet
+snippet "cit(\S+)?" "Insert Citation" ir
+\\cmdCite`!p snip.rv = match.group(1) if match.group(1) is not None else ""`[${1:${VISUAL}}]{$2}
 endsnippet
 snippet emerg "emergencystretch" i
 \\emergencystretch=$1em

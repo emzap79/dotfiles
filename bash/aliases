@@ -8,7 +8,7 @@ export chall=reformat_surnames
 
 # basic aliases# #{{{
 
-# ls # {{{
+# ls # #{{{
 
 # on linux:
 # https://github.com/sjas/.dotfiles
@@ -41,7 +41,7 @@ alias vla='ls $LS1 $LS2 $LS3 -A  | grep ".*" | less -R'      # also lists hidden
 alias vl='ls $LS1 $LS2 $LS3 -Al | grep ".*" | less -R'      # list of files
 alias vll='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R'      # like before, but lists hidden files, too
 
-# }}}
+# ls # #}}}
 # du#{{{
 
 # show size of current folder/subfolder/dotfiles
@@ -65,17 +65,18 @@ alias ......='cd ../../../../..'
 # dotfiles
 alias cddp="cd $HOME/.devilspie"
 alias cdvim="cd $HOME/.vim"
-alias cdbash="cd $HOME/.bash"
 alias cdnb="cd $HOME/.newsbeuter"
 alias cdpg="cd $HOME/.podget"
 alias cdmutt="cd $HOME/.mutt"
+alias cdmus="cd $HOME/Musik"
 alias cdcmus="cd $HOME/.cmus"
 alias cdlog="cd $HOME/.logfiles"
 alias cdgc="cd $HOME/.gitclones"
 alias cdsr="cd $HOME/.mozilla/firefox/cxt887c7.default/searchplugins"   # Mozilla Searchplugins
 
 # folders related to uni
-alias cdba="cd $UNI/$SEM/BAArbeit"
+alias cdba="cd $UNI/$SEM/BAArbeit/main"
+alias cdbar="cd $UNI/$SEM/BAArbeit/main/sections/rcode"
 alias cdr="cd $UNI/$SEM/R"
 alias cdsem="cd $UNI/$SEM"
 alias cdblb="cd $UNI/$SEM/Bloomberg"
@@ -163,9 +164,9 @@ alias lcf=fun_locate_dat
 
 # find
 alias ff=fun_ff
-alias fff="find . -type f"
-alias ffd="find . -type d"
-alias ffg='find . -type f -regextype egrep -iregex'
+alias fff='find -type f -iname'
+alias ffd='find -type d -iname'
+alias ffg='find -type f -regextype egrep -iregex'
 alias ffi="find -type f -exec file {} \; | grep -o -P '^.+: \w+ image'"     # find all images
 
 # aliases related to music
@@ -276,6 +277,7 @@ alias vi="vim -c 'startinsert'"
 alias vu="vim -u NONE"
 alias vs="vim -S Session.vim"
 alias vv="echo "" > /tmp/foo.bar; vim -c startinsert /tmp/foo.bar"
+alias vcl=fun_clean
 
 # vim# #}}}
 # latex # #{{{
@@ -413,7 +415,6 @@ alias top='top -n2'
 alias echon="echo -n"
 alias chkwlan="nm-tool | grep Strength | egrep -v '(WEP|WPA)' | sed 's/^ *//g' \
     | sort -t ',' -k 5'"     # check available wlan-ports
-alias ips=fun_ips
 alias pss=fun_pss
 alias calc=fun_calc
 alias extr=fun_extract
@@ -480,8 +481,7 @@ alias gc=fun_gitcommit
 alias gca=fun_gitcommitall
 alias gstats=fun_gitstats
 alias ignore=fun_ignore
-alias clean=fun_clean
-alias swap=fun_swap
+alias swapignore=fun_swap
 alias gcommit=fun_gitcommit
 alias gcommitall=fun_gitcommitall
 alias gfastpush=fun_gitfastpush
@@ -493,7 +493,7 @@ alias gbt=fun_git_set_tracking_information
 # curl # #{{{
 
 alias urlexpd=fun_expandurl
-alias urlshrt="/bin/bash $HOME/urlShortener.sh"
+alias urlshrt="/bin/bash $HOME/bin/urlShortener.sh"
 
 # curl # #}}}
 # aptitude# #{{{
@@ -512,6 +512,15 @@ alias vpnc="sudo vpnc /etc/vpnc/default.conf"
 alias vpnd="sudo vpnc-disconnect"
 
 # vpnc#}}}
+# wlan & ip-adresse#{{{
+
+alias ips=fun_ips           # IP-Adresse and more
+alias mac="netstat -ei"     # Mit dem Befehl "netstat -ei" erhält man die
+                            # Übersicht über die Netzwerkkarten. Im Normalfall
+                            # hat die primäre Netzwerkkarte die Bezeichnung
+                            # "eth0" (Hardware-Adresse = MAC Adresse)
+
+# wlan & ip-adresse#}}}
 
 # ssh, git, aptitude# }}}
 # tmux #{{{
@@ -655,9 +664,9 @@ fun_git_set_tracking_information() {
 # clean tempfiles/swapfiles#{{{
 
 fun_clean() {
-    find . -name "#*#" | xargs rm
-    find . -name "*.sw*" | xargs rm
-    find . -name "*~" | xargs rm
+    find . -name "#*#" | xargs -n1 -i rm -v {}
+    find . -name "*.sw*" | xargs -n1 -i rm -v {}
+    find . -name "*~" | xargs -n1 -i rm -v {}
 }
 fun_swap() {
     find . -name "#*#"
@@ -975,10 +984,10 @@ fun_latex_sweave() {
 
 fun_loop_pdflatex() {
 
-    echo start;
+    echo start; make read
     while [[ $? == 0 ]];
     do
-        for i in {45..1};
+        for i in {90..1};
         do echo $i && sleep 1;
         done
         make loop

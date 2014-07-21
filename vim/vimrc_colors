@@ -11,7 +11,7 @@ colorscheme default
 set background=light
 
 " Colorscheme"}}}
-" " Highlighting"{{{
+" Highlighting"{{{
 "
 " VimDiff"{{{
 
@@ -57,7 +57,7 @@ autocmd ColorScheme * highlight LanguageToolErrorCount    ctermbg=53 ctermfg=non
 autocmd ColorScheme * highlight LanguageToolSpellingError ctermbg=55 ctermfg=none cterm=none
 
 " Search & Spellcheck"}}}
-" " Menu"{{{
+" Menu"{{{
 
 " autocmd  ColorScheme  *  "   ->          Menu
 autocmd  ColorScheme  *  hi  PmenuSbar   ctermbg=1  ctermfg=2  cterm=none
@@ -67,7 +67,7 @@ autocmd  ColorScheme  *  hi  ModeMsg     ctermbg=2  ctermfg=7  cterm=none
 autocmd  ColorScheme  *  hi  MoreMsg     ctermbg=2  ctermfg=7  cterm=none
 autocmd  ColorScheme  *  hi  PmenuSel    ctermbg=2  ctermfg=7  cterm=none
 
-" " Menu"}}}
+" Menu"}}}
 " Plugins"{{{
 
 " Syntastic"{{{
@@ -88,8 +88,8 @@ highlight hlShowMarks ctermbg=55 ctermfg=none cterm=none
 " Statusline"{{{
 " http://stackoverflow.com/a/10416234/3569509
 
-hi User1 ctermfg=7  ctermbg=0 cterm=bold
-hi User2 ctermfg=2  ctermbg=0 cterm=none
+hi User1 ctermfg=2  ctermbg=0 cterm=none
+hi User2 ctermfg=7  ctermbg=0 cterm=bold
 hi User3 ctermfg=2  ctermbg=0 cterm=none
 
 " Statusline"}}}
@@ -100,4 +100,4 @@ hi FoldColumn ctermbg=darkgrey ctermfg=white
 
 " Folds"}}}
 "
-" " Highlighting"}}}
+" Highlighting"}}}

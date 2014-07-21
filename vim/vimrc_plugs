@@ -22,11 +22,12 @@ Bundle 'gmarik/vundle'
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle commands are not allowed.
 
-"}}}
+" Brief help"}}}
 " Bundles "{{{
 
 " active bundles
 
+Bundle 'mattn/flappyvird-vim'
 Bundle 'BufOnly.vim'
 Bundle 'L9'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'

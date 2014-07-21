@@ -21,10 +21,10 @@ endsnippet
 snippet is "Test type on variable" w
 is.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
-snippet "\.\.(\S+)?" "create generic command" ir
+snippet "-(\S+)?" "create generic command" ir
 `!p snip.rv = match.group(1) if match.group(1) is not None else "c"`(${1:${VISUAL}})
 endsnippet
-snippet "\:(\S+)?" "surround by parenthesis" ir
+snippet "--(\S+)?" "surround by parenthesis" ir
 (${1:`!p snip.rv = match.group(1) if match.group(1) is not None else "c"`})
 endsnippet
 snippet "(\s|^)lib( (\S+))?" "Import a library" wr
@@ -45,43 +45,6 @@ snippet str "Internal structure of an object" w
 str(${1:${VISUAL}})
 endsnippet
 
-snippet dim "Show objects dimension" w
-dim(${1:${VISUAL}})
-endsnippet
-snippet names "Show objects names" w
-names(${1:${VISUAL}})
-endsnippet
-snippet c "Concatenate" w
-c(${1:${VISUAL}})
-endsnippet
-snippet mean "Mean" w
-mean(${1:${VISUAL}})
-endsnippet
-snippet list "list" w
-list(${1:${VISUAL}})
-endsnippet
-snippet range "range" w
-range(${1:${VISUAL}})
-endsnippet
-snippet max "max" w
-max(${1:${VISUAL}})
-endsnippet
-snippet min "min" w
-min(${1:${VISUAL}})
-endsnippet
-snippet print "print" w
-print(${1:${VISUAL}})
-endsnippet
-snippet get "get" w
-get(${1:${VISUAL}})
-endsnippet
-snippet head "head" w
-head(${1:${VISUAL}})
-endsnippet
-snippet tail "tail" w
-tail(${1:${VISUAL}})
-endsnippet
-
 snippet req "Require a file"
 require(${0:package})
 endsnippet
@@ -90,7 +53,7 @@ source('${0:file}')
 endsnippet
 snippet if "If statement"
 if (${1}) {
-	${0}
+	${0:${VISUAL}}
 }
 endsnippet
 snippet eif "Else-If statement"
@@ -122,7 +85,7 @@ for (${1:item} in ${2:list}) {
 endsnippet
 snippet fun "Function definition"
 ${1:name} <- function (${2}) {
-	${0}
+	${0:${VISUAL}}
 }
 endsnippet
 snippet ret "Return call"
@@ -184,4 +147,109 @@ var.test(${1:x}, ${0:y})
 endsnippet
 snippet kvt "KV test"
 kv.test(${1:x}, ${0:y})
+endsnippet
+
+snippet xts "package: xts" w
+xts(${1:${VISUAL}})
+endsnippet
+
+snippet ifel "ifelse"
+ifelse (${1:cond}, ${2:yes}, ${3:no})
+endsnippet
+snippet dim "Show objects dimension" w
+dim(${1:${VISUAL}})
+endsnippet
+snippet nms "Show objects names" w
+names(${1:${VISUAL}})
+endsnippet
+snippet c "Concatenate" w
+c(${1:${VISUAL}})
+endsnippet
+snippet m "Mean" w
+mean(${1:${VISUAL}})
+endsnippet
+snippet ls "list" w
+list(${1:${VISUAL}})
+endsnippet
+snippet rge "range" w
+range(${1:${VISUAL}})
+endsnippet
+snippet mx "max" w
+max(${1:${VISUAL}})
+endsnippet
+snippet mn "min" w
+min(${1:${VISUAL}})
+endsnippet
+snippet gt "get" w
+get(${1:${VISUAL}})
+endsnippet
+snippet hd "head" w
+head(${1:${VISUAL}})
+endsnippet
+snippet tl "tail" w
+tail(${1:${VISUAL}})
+endsnippet
+snippet lt "length" w
+length(${1:${VISUAL}})
+endsnippet
+snippet rb "rbind" w
+rbind(${1:${VISUAL}})
+endsnippet
+snippet cb "cbind" w
+cbind(${1:${VISUAL}})
+endsnippet
+snippet na.omit "na.omit" w
+na.omit(${1:${VISUAL}})
+endsnippet
+snippet unl "unlist" w
+unlist(${1:${VISUAL}})
+endsnippet
+snippet sq "seq" w
+seq(${1:${VISUAL}})
+endsnippet
+snippet pt "paste" w
+paste(${1:${VISUAL}})
+endsnippet
+snippet pt0 "paste" w
+paste0(${1:${VISUAL}})
+endsnippet
+snippet pr "print" w
+print(${1:${VISUAL}})
+endsnippet
+snippet ass "assign" w
+assign(${1:${VISUAL}})
+endsnippet
+snippet rp "rep" w
+rep(${1:${VISUAL}})
+endsnippet
+snippet gwd "getwd" w
+getwd(${1:${VISUAL}})
+endsnippet
+snippet ex "exists" w
+exists(${1:${VISUAL}})
+endsnippet
+snippet wh "which" w
+which(${1:${VISUAL}})
+endsnippet
+snippet st "subset" w
+subset(${1:${VISUAL}})
+endsnippet
+snippet lv "levels" w
+levels(${1:${VISUAL}})
+endsnippet
+snippet mc "match" w
+match(${1:${VISUAL}})
+endsnippet
+snippet rd "round" w
+round(${1:${VISUAL}})
+endsnippet
+snippet cln "colnames" w
+colnames(${1:${VISUAL}})
+endsnippet
+snippet rwn "rownames" w
+rownames(${1:${VISUAL}})
+endsnippet
+
+snippet mc "mc" w
+mc(${1:${VISUAL}})
 endsnippet

@@ -611,7 +611,7 @@ vnoremap <leader>ss <ESC>:lcd %:p:h<CR>:so Session.vim<CR>
 
 " close non-open buffers"{{{
 
-" func: Wipeout"{{{
+" func: Wipeout""{{{
 
 " http://stackoverflow.com/a/1536094
 function! Wipeout()
@@ -646,12 +646,14 @@ function! Wipeout()
         execute 'tabnext' l:currentTab
     endtry
 
-endfunction"}}}
-nnoremap <leader>co :call Wipeout()<CR>
-vnoremap <leader>co <ESC>:call Wipeout()<CR>
+endfunction
+" func: Wipeout""}}}
+
+nnoremap <leader>wo :call Wipeout()<CR>
+vnoremap <leader>wo <ESC>:call Wipeout()<CR>
 
 "}}}
-" open new buffer"{{{
+" open new buffer""{{{
 
 nnoremap <leader>e :lcd %:p:h<cr>:e<space>
 nnoremap <leader>vf :ldc %:p:h<cr>:vertical find<space>
@@ -659,7 +661,8 @@ nnoremap <leader>ht :helptags ~/.vim/doc<cr>
 nnoremap <leader>v :lcd %:p:h<cr>:vertical<space>
 nnoremap <leader>vb :lcd %:p:h<cr>:vertical sb<space>
 
-"}}}
+" open new buffer""}}}
+
 " open nonexisting file under cursor"{{{
 
 " http://stackoverflow.com/a/6159415
@@ -680,18 +683,34 @@ nnoremap <silent> <Leader>- :exe "vert resize " . (winwidth(0) * 2/3)<CR>
 
 " online searches"{{{
 
-"search wikipedia from within vim"{{{
+" "search wikipedia from within vim
+" nnoremap <leader>fw :exe "!firefox 'http://de.wikipedia.org/w/index.php?search='<c-r>=" . "call Wikipedia()<cr>"<cr><cr>
 
-nnoremap <leader>fw <esc>:! firefox 'http://de.wikipedia.org/w/index.php?search=<c-r>=wikipedia()<cr>'<cr><cr>
+"search wikipedia from within vim
+nnoremap <leader>fw <esc>:! firefox
+            \ 'http://de.wikipedia.org/w/index.php?search=<c-r>=Wikipedia()<cr>'
+            \ <cr><cr>
+
+"search google from within vim
+nnoremap <leader>fg <esc>:! firefox
+            \ 'http://google.de/search?q=<c-r>=Google()<cr>'
+            \ <cr><cr>
+
 "search tex-stackexchange from within vim
-nnoremap <leader>ft <esc>:! firefox 'http://tex.stackexchange.com/search?q=<c-r>=tex()<cr>'<cr><cr>
+nnoremap <leader>ft <esc>:! firefox
+            \ 'http://tex.stackexchange.com/search?q=<c-r>=Tex()<cr>'
+            \ <cr><cr>
 
-""}}}
+"search stackoverflow from within vim
+nnoremap <leader>fs <esc>:! firefox
+            \ 'http://stackoverflow.com/search?q=<c-r>=StackOverflow()<cr>'
+            \ <cr><cr>
+
+"search wikipedia from within vim
 " func: execute online searches (eg. wikipedia)"{{{
 
 "" found on http://alexanderle.com/blog/2012/my-vimrc.html
 " key mapping for tex-stackexchange search
-
 fun! Tex()
     call inputsave()
     let searchterm = input('stackexchange: ')
@@ -699,11 +718,26 @@ fun! Tex()
     return searchterm
 endfun
 
-" key mapping for wikipedia search
+" key mapping for google search
+fun! Google()
+    call inputsave()
+    let searchterm = input('google: ')
+    call inputrestore()
+    return searchterm
+endfun
 
+" key mapping for wikipedia search
 fun! Wikipedia()
     call inputsave()
     let searchterm = input('wikipedia: ')
+    call inputrestore()
+    return searchterm
+endfun
+
+" key mapping for stackoverflow search
+fun! StackOverflow()
+    call inputsave()
+    let searchterm = input('stackoverflow: ')
     call inputrestore()
     return searchterm
 endfun
@@ -719,16 +753,19 @@ endfun
 nnoremap <leader>as :let @/.='\\|\<'.expand("<cword>").'\>'<cr>
 
 " "}}}
-"search for a word in ding/dict/thes"{{{
+"search for a word in ding/dict/thes""{{{
 
-nnoremap <leader>ding :exe "!ding " . shellescape(expand("<cword>"))<cr>
-vnoremap <leader>ding :<c-u>!ding <c-r>=getvisualselection()<cr>
-nnoremap <leader>dict :exe "!dict " . shellescape(expand("<cword>"))<cr>
-vnoremap <leader>dict :<c-u>!dict <c-r>=getvisualselection()<cr>
-nnoremap <leader>thes :exe "!thes " . shellescape(expand("<cword>"))<cr>
-vnoremap <leader>thes :<c-u>!othes <c-r>=getvisualselection()<cr>
+" ding
+nnoremap <leader>dg :exe "!ding " . shellescape(expand("<cword>"))<cr><cr>
+vnoremap <leader>dg :<c-u>!ding <c-r>=GetVisualSelection()<cr><cr>
+" dictionary
+nnoremap <leader>di :exe "!dict " . shellescape(expand("<cword>"))<cr>
+vnoremap <leader>di :<c-u>!dict <c-r>=GetVisualSelection()<cr>
+" open thesaurus
+nnoremap <leader>dt :exe "!othes " . shellescape(expand("<cword>"))<cr>
+vnoremap <leader>dt :<c-u>!othes <c-r>=GetVisualSelection()<cr>
 
-"}}}
+"search for a word in ding/dict/thes""}}}
 
 " offline searches"}}}
 " make 'very magic' string search the default"{{{
@@ -779,11 +816,11 @@ function! VisualSearch(direction) range
     let l:pattern = escape(@", '\\/.*$^~[]')
     let l:pattern = substitute(l:pattern, "\n$", "", "")
 
-    if a:direction == 'b'
+    if a:direction == 'f'
         execute "normal ?" . l:pattern . "^M"
     elseif a:direction == 'gv'
         call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-    elseif a:direction == 'f'
+    elseif a:direction == 'b'
         execute "normal /" . l:pattern . "^M"
     endif
 
@@ -961,6 +998,13 @@ nnoremap <Leader>pp :RunSilent gnome-open /tmp/vim-pandoc-out.pdf<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 "}}}
+" align inside paragraph"{{{
+
+nnoremap <leader>pp gqip``
+vnoremap <leader>pp <ESC>gqip``
+inoremap <localleader>pp <ESC>gqip``
+
+" align inside paragraph"}}}
 " execute cmd within visual"{{{
 
 nnoremap <leader>v :'<,'>
@@ -981,12 +1025,22 @@ nnoremap <leader>p :'{,'}
 vnoremap <leader>p <ESC>:'{,'}
 inoremap <localleader>p <ESC>:'{,'}
 
-"}}}
+" execute cmd within paragraph"}}}
 " execute cmd within marks 'a and 's"{{{
 
-nnoremap <leader>m :'a,'s
+nnoremap <leader>mm :'a,'s
 
-"}}}
+" execute cmd within marks 'a and 's"}}}
+" omnicompletion with ctrl+space"{{{
+
+" Use Ctrl+Space to do omnicompletion:
+if has("gui_running")
+    inoremap <C-Space> <C-x><C-o>
+else
+    inoremap <Nul> <C-x><C-o>
+endif
+
+" omnicompletion with ctrl+space"}}}
 
 " Miscellaneous"}}}
 

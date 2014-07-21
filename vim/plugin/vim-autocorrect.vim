@@ -1,11 +1,16 @@
 fun! TeXAbbreviations()
     iab ... \ldots
-    iab dh. d.~h.
-    iab eg. e.~g.
-    iab oä. o.~ä.
-    iab zb. z.~B.
-    iab ua. u.~a.
-    iab S.  S.~<C-R>
+
+    iab dh d.~h.
+    iab eg e.~g.
+    iab oä o.~ä.
+    iab zb z.~B.
+    iab ua u.~a.
+
+    iab bzw bzw.
+    iab usw usw.
+    iab etc etc.
+    iab S. S.~<C-R>
 endfun
 autocmd! filetype noweb,rnoweb,tex call TeXAbbreviations()
 
@@ -15,14 +20,21 @@ endf
 autocmd! filetype mail,eml call MailAbbreviations()
 
 fun! BasicAbbreviations()
-  iab wrt with respect to
-  iab otoh on the other hand
-  iab btw by the way
-  iab Wrt With respect to
-  iab Otoh On the other hand
-  iab Btw By the way
-  iab imo in my opinion
-  iab Imo in my opinion
+
+    " emzap79
+    iab ANleger Anleger
+    iab dont don't
+
+    " abbreviations
+    iab wrt with respect to
+    iab otoh on the other hand
+    iab btw by the way
+    iab Wrt With respect to
+    iab Otoh On the other hand
+    iab Btw By the way
+    iab imo in my opinion
+    iab Imo in my opinion
+    iab fyi for your information
 
   " I commonly fat-finger these ruby commands
   iab 3nd end

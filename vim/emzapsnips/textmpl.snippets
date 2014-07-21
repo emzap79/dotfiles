@@ -84,7 +84,7 @@ headings=small
 \usepackage{courier}                                      %% standard cmtt font has no bold typeface
                                                           %% However, bold is nice for keywords
 
-\title{${1:title}}
+\title{${3:title}}
 \author{Jonas Petong}
 \date{\today}
 \begin{document}
@@ -100,9 +100,8 @@ snippet versand "Versandzettel erstellen" b
 
 ${1:\newcommand{\fromaddress}{%
 from${2}% press <tab>
-}
+}}
 
-\begin{document}}
 % \begin{center}
 % {\Huge -- Buchsendung --}\newline
 % {\Huge -- Warensendung --}\newline
@@ -118,14 +117,17 @@ from${2}% press <tab>
 % %% Addresse des Empfängers (jwls mit \newline)
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hspace{3cm}
-\parbox{9cm}{%
-{\scshape\LARGE Empfänger}\newline\newline
+\parbox{25cm}{%
+{\scshape\Huge Empfänger}\newline\newline
 {\large
 ${3:Adresse des Empfängers}}}
 
-\vspace{1cm} \hrule \vspace{3cm} \hrule \vspace{1cm}
+% change in preamble
+% 22pt, landscape		% fontsize:		22pt
+% \pagestyle{empty}		% pagenumber:	off
 
-\end{document}
+% \vspace{1cm} \hrule \vspace{3cm} \hrule \vspace{1cm}
+
 endsnippet
 #.##.applicate
 snippet applicate "Application" b
@@ -209,9 +211,9 @@ snippet "preamble" "Preamble for TeX-Docs" br
 %% documentclass %{{{
 %%
 \documentclass[
-    12pt,                                       %%  fontsize
+    ${1:12pt},                                       %%  fontsize
+    ${2:portrait},                                   %%  paper-format: portrait & landscape
     a4paper,                                    %%  paper-size
-    portrait,                                   %%  paper-format: portrait & landscape
     oneside,                                    %%  onesided layout for print; alternatively: twoside
     openany,                                    %%  openany: chapters start at the next empty page;
                                                 %%  openright: chapters start at the next empty RIGHT page
@@ -224,7 +226,7 @@ snippet "preamble" "Preamble for TeX-Docs" br
     headsepline,                                %%  ... same with headline!
     %% fleqn,                                   %%  equations are left-justified instead of being centered
     %% leqno,                                   %%  equation numbers are on the left side
-%% ${1/(scrartcl)$|(newlfm)/
+%% ${3/(scrartcl)$|(newlfm)/
 %% (?1:%-- scrartcl\: settings
     bibliography=totoc,
     cleardoublepage=plain,                      %%  like cleardoublepage, if a blank page is inserted it uses the style plain
@@ -243,7 +245,7 @@ snippet "preamble" "Preamble for TeX-Docs" br
                                                 %%  sigleft\: signature to the left
                                                 %%  letter styles\: stdletter, stdletternofrom, busletter, busletternofrom
                                                 %%  orderfromtodate\: and date reordered to appear after the to-address)
-/g}]{${1:scrartcl|newlfm}}
+/g}]{${3:scrartcl|newlfm}}
 %% scrartcl|newlfm %%
 %% documentclass %}}}
 
@@ -406,7 +408,7 @@ pdftex,
 %%   myheadings:                                 %%  Similar to the 'headings' page style, except you specify the "other
 %%                                               %%  information" that goes in the head, using the \markboth and \markright commands
 %%                                               %%  described below.
-\pagestyle{${2:plain}}
+\pagestyle{${4:plain}}
 
 %% %%%%%%%%%%%%%%%%
 %%.%% Page.Geometry %%{{{
@@ -523,6 +525,11 @@ pdftex,
 %% %% Mit PDF-LaTeX
 %% %% see: http://stackoverflow.com/a/877670
 %% \renewcommand{\familydefault}{\sfdefault} %% This changes the default font family to sans-serif.
+%%
+%% Define fontsize \HUGE
+%% http://www.latex-kurs.de/fragen/schriftgroesse.html
+\usepackage{lmodern}
+\newcommand{\HUGE}[1]{{\fontsize{40}{48} \selectfont #1}}
 %%
 %% If you want other fonts, try the following
 %% \setmainfont{Charis SIL}

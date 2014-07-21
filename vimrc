@@ -52,3 +52,9 @@ if &term !~ '^gnome'
     execute "set <F11>=\e[23;*~"
     execute "set <F12>=\e[24;*~"
 endif
+
+" Lines added by the Vim-R-plugin command :RpluginConfig (2014-Jul-16 09:45):
+" Force Vim to use 256 colors if running in a capable terminal emulator:
+" if &term =~ "xterm" || &term =~ "256" || $DISPLAY != "" || $HAS_256_COLORS == "yes"
+"     set t_Co=256
+" endif
