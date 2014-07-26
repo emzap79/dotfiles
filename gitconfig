@@ -33,29 +33,44 @@
 	ref	= reflog			# show changes of the HEAD pointer (including all indices)
 	sl	= shortlog -nse			# summarizes git log output, each commit grouped by author and title
 	l	= log --graph --abbrev=7 --decorate=short --oneline --all
-	lp	= log -p --graph --decorate=short --pretty=medium --oneline --stat	# ...shows diffs for entire history
-	lpf	= log -p --follow		# ...id + <filename>, show renamings of file as well
-	ll	= log --graph --abbrev-commit --decorate=short --pretty=medium --stat	# show log with added/droped files
-	lll	= log --graph --abbrev=7 --decorate=short --pretty=short
+	lp	= log -p --graph --decorate=short --pretty=medium --stat		# ...shows diffs for entire history
+	lpf	= log -p --follow							# ...id + <filename>, show renamings of file as well
+	ll	= log --graph --abbrev=7 --decorate=short --pretty=medium
+	lll	= log --graph --abbrev=7 --decorate=short --pretty=medium --stat	# show log with added/droped files
 
 #  check current state locally
-	st	= status --short
-	stt	= status -uno			# don't show untracked stuff
-	sts	= status -uno --short		# don't show untracked stuff, no additional information
+	st	= status -u normal --short
+	stn	= status -u no								# don't show untracked stuff
+	snn	= status -u no --short							# don't show untracked stuff, no additional information
 
 # currently versioned files at HEAD
-	lt	= ls-tree -r --name-only	# ... revision
-	ltf	= !git ls-tree HEAD --full-tree -r -t -d --name-only|less	# just dirs
-	ltt	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4|less	# show object size of blob entries
-	ltd	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less	# id, folders only
-	lts	= !git ls-files --abbrev=4 --stage|less				# show levels of staged files only
+	lt	= ls-tree -r --name-only						# ... revision
+	ltt	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4|less		# show object size of blob entries
+	ltd	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less		# id, folders only
+	lts	= !git ls-files --abbrev=4 --stage|less					# show levels of staged files only
+
+#	=================================
+#	=	show diffs		=
+#	=================================
+						# show everything related to a SHA1
+	sw	= show
+						# check current local changes you have made
+	d	= diff HEAD			# (...<filename>) diff staged + unstaged against HEAD
+	ds	= diff --staged			# diff staged against HEAD
+	dss	= diff --staged --name-only	# show staged files (name-only)
+	dt	= difftool
+						# check current changes residing in origin/master (= main repository)
+						# local changes are shown in red!!!
+	dh	= diff ..origin/master		# all changes, including non-commited ones
+	dhc	= diff HEAD..origin/master	# against head, includes just local commits
+	dhp	= diff HEAD...origin/master	# pure against head, excludes all local changes and commmits
 
 # 'git h' for help, 'git la' to list aliases
 # http://stackoverflow.com/a/11613251
 #	=================================
 #	=	   show help		=
 #	=================================
-	h	= help				# (...<git command>)
+	h	= !git help|more		# (...<git command>)
 	ha	= !git help -a|less
 	hi	= help -i			# ... yet to find out how to use the 'info' program
 	al	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g'|less -R"
@@ -66,9 +81,9 @@
 #	=================================
 	cl	= clone --progress -v		# -v needs to be set AFTER --progress, else it won't work
 						# choose
-	a	= add -A			# ...<filename> or regexpr
-	aa	= add -A .
-	aac	= "!git add -A . && git commit -m"
+	a	= add -A .
+	aa	= add -A			# ...<filename> or regexpr
+	ac	= "!git add -A . && git commit -m"
 	ai	= add -i			# add modified contents interactively to the index
 						# unchoose
 	rm	= rm -rf			# ...<filename> unversion and delete
@@ -100,53 +115,6 @@
 	nr	= notes remove
 
 #	=================================
-#	=	show diffs		=
-#	=================================
-						# show everything related to a SHA1
-	sw	= show
-						# check current local changes you have made
-	d	= diff HEAD			# (...<filename>) diff staged + unstaged against HEAD
-	ds	= diff --staged --name-only	# show staged files (name-only)
-	dss	= diff --staged			# diff staged against HEAD
-	dt	= difftool
-						# check current changes residing in origin/master (= main repository)
-						# local changes are shown in red!!!
-	dh	= diff ..origin/master		# all changes, including non-commited ones
-	dhc	= diff HEAD..origin/master	# against head, includes just local commits
-	dhp	= diff HEAD...origin/master	# pure against head, excludes all local changes and commmits
-
-#	=================================
-#	=	stashes & branches	=
-#	=================================
-	sh	= stash				# tempsave stuff without branching or committing
-	shl	= stash list			# see the list of available stashes
-	shp	= stash pop			# re-apply the stashed changes and delete the stash from the list of stashes
-	sha	= stash apply			# you can use the ID to apply a stash, eg stash@{0}
-	shd	= stash drop			# remove a stashed change without applying it
-
-#  check what is going on everywhere
-	sb	= show-branch --color=always -a --more=10			# all full
-	sbl	= show-branch --color=always --reflog=10 --no-name		# local
-	sbf	= show-branch --color=always --reflog=10			# local full
-
-#  branch your way to victory, add <branch name>
-	b	= branch			# (...<branch name>), without argument show existing ones
-	bl	= branch -av			# show branches + SHA1 tags
-	bd	= branch --delete		# ...<branch name>, remove a branch
-	co	= checkout			# ...
-	cob	= checkout -b			# ...<branch name> create + checkout branch
-
-#  merge your way back into madness
-	m	= merge --no-ff			# ...<branch name>
-	rb	= rebase			# ...<branch name>
-	rbi	= rebase -i --autosquash	# ...<branch name>
-	rbip	= !git rebase -i --autosquash && git push origin	# ...<branch name>
-	rbc	= rebase --continue
-	rbs	= rebase --skip
-	rba	= rebase --abort
-	rbe	= rebase --edit-todo
-
-#	=================================
 #	=	contribute		=
 #	=================================
 #  interact with the rest of the world
@@ -176,6 +144,38 @@
 
 						# best is to use autoclrf 'false'. others have a slight chance of corrupting binary data files mistaken as text... bah WTF, live hard!
 	autoclrf	= input			# on mac and linux, on win it's 'true'... i hope so!
+
+#	=================================
+#	=	stashes & branches	=
+#	=================================
+	sh	= stash				# tempsave stuff without branching or committing
+	shl	= stash list			# see the list of available stashes
+	shp	= stash pop			# re-apply the stashed changes and delete the stash from the list of stashes
+	sha	= stash apply			# you can use the ID to apply a stash, eg stash@{0}
+	shd	= stash drop			# remove a stashed change without applying it
+
+#  check what is going on everywhere
+	sb	= show-branch --color=always -a --more=10		# all full
+	sbl	= show-branch --color=always --reflog=10 --no-name	# local
+	sbf	= show-branch --color=always --reflog=10		# local full
+
+#  branch your way to victory, add <branch name>
+	b	= branch			# (...<branch name>), without argument show existing ones
+	bl	= branch -av			# show branches + SHA1 tags
+	bd	= branch --delete		# ...<branch name>, remove a branch
+	co	= checkout			# ...
+	cob	= checkout -b			# ...<branch name> create + checkout branch
+
+#  merge your way back into madness
+	m	= merge --no-ff			# ...<branch name>
+	rb	= rebase			# ...<branch name>
+	rbp	= !git rebase --autosquash && git push origin
+	rbi	= rebase -i --autosquash	# ...<branch name>
+	rbip	= !git rebase -i --autosquash && git push origin
+	rbc	= rebase --continue
+	rbs	= rebase --skip
+	rba	= rebase --abort
+	rbe	= rebase --edit-todo
 
 # ===============
 # AUTOCLRF HOWTO:

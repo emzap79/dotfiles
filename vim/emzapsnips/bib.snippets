@@ -1,0 +1,32 @@
+global !p
+import os, time
+from vimsnippets import complete
+
+ENTRY_TYPES = [
+'Article',
+'Misc',
+'TechReport',
+'InCollection',
+'Book']
+endglobal
+
+snippet " "New Entry" b
+@${4:$1`!p snip.rv = complete(t[1], ENTRY_TYPES)`}{${3/[^\w]\{-\}|(\,.*)/(?1::\L$1\E)/ga}$4,
+  Author                   = {${3}},
+  Year                     = {${4}},
+  Title                    = {${5:${VISUAL}}},
+  ${1/^(A).*$|^(M).*$|^(T).*$|^(I).*$|^(B).*$/(?1:Journal)(?2:Url)(?3:Url)(?4:Booktitle)(?5:Booktitle)/ga}                 = {${6}},
+  Editor                   = {${7}},
+  Publisher                = {${8}},
+  Number                   = {${9}},
+  Volume                   = {${10}},
+  Annote                   = {${11}},
+  Pages                    = {${12}},
+  Abstract                 = {${14}},
+  File                     = {${15}},
+  ISSN                     = {${16}},
+  Keywords                 = {${17}}
+}
+endsnippet
+# http://stackoverflow.com/a/14320620/3569509
+# Annote                   = {`!p snip.rv = time.strftime("%Y-%m-%d %H:%M")`},

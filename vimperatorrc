@@ -1,0 +1,150 @@
+""""""""""""""""
+"""" Config """"
+""""""""""""""""
+""" set mapleader
+let mapleader=","
+""" vertical bar CANNOT be used here
+set urlseparator=;
+""" define runtimepath
+set runtimepath=~/myvimperator,~/.vimperator
+" List of directories searched for runtime files:
+" colors/
+" macros/
+" plugin/
+
+""""""""""""""""""""""
+"""" Keybindings """""
+""""""""""""""""""""""
+" Vimium key binding for Vimperator
+" https://github.com/kunal-/.vimperatorrc/blob/master/.vimperatorrc
+" map J gT
+" map K gt
+" "down
+" map d <C-d>
+" "up
+" map u <C-u>
+" map H <C-o>
+" map L <C-i>
+" noremap x d
+" noremap X u
+noremap j 2j
+noremap k 2k
+
+""" Display
+"""" show only the tab bar
+set gui=tabs
+"""" show numbers on each tab
+set tabnumbers
+"""" see http://code.google.com/p/vimperator-labs/issues/detail?id=311
+set popups=tab,resized
+set focuscontent
+"""" output all ExCommand results in a new tab
+set newtab=all
+
+""" Find
+"""" perform incremental searching
+set incsearch
+"""" highlight search results
+set hlsearch
+"""" typically (see below) ignore case
+set ignorecase
+"""" only consider case if an upper case char is used
+set smartcase
+
+""" Other
+set complete=slfbh
+set "editor=mintty -e vim"
+set errorbells
+set noscrollbars
+set "titlestring=Pale Moon"
+set hintchars=sadfjklewcmpgh
+
+""" Tabs
+"""" Groups
+inoremap <Leader>tg <Esc>:tabgroups<Space>
+cnoremap <Leader>tg :tabgroups<Space>
+noremap <Leader>tg :tabgroups<Space>
+"""" Add
+inoremap <Leader>ta <Esc>:tabgroups add<Space>
+cnoremap <Leader>ta :tabgroups add<Space>
+noremap <Leader>ta :tabgroups add<Space>
+"""" Switch
+inoremap <Leader>ts <Esc>:tabgroups switch<Space>
+cnoremap <Leader>ts :tabgroups switch<Space>
+noremap <Leader>ts :tabgroups switch<Space>
+"""" List
+inoremap <Leader>tl <Esc>:tabgroups list<Return>
+cnoremap <Leader>tl :tabgroups list<Return>
+noremap <Leader>tl :tabgroups list<Return>
+
+"""" open in background, tabclose, tabmove
+map <A-f> ;b
+map <A-d> :tabclose<Space>-select=lastactive<Return>
+map J :tabnext<Return>
+map K :tabprevious<Return>
+
+""" Downloads
+noremap <C-j> :downloads<CR>
+inoremap <C-j> <Esc>:downloads<CR>
+cnoremap <C-j> :downloads<CR>
+
+""" Insert Mode
+imap <C-t> <Esc><C-t>
+imap <C-w> <Esc><C-w>
+""" Command Mode
+cmap <C-k> <Esc><C-k>
+cmap <C-l> <Esc><C-l>
+" cmap <C-t> <Esc><C-t>
+
+""" Deactivate FF genuine keybinds
+inoremap <C-a> <Insert><C-a><Insert>
+noremap <C-S-T> <Nop>
+" noremap <C-t> <Nop>
+noremap <C-w> <Nop>
+noremap <C-Tab> <Nop>
+noremap <C-S-Tab> <Nop>
+noremap <BS> <Nop>
+noremap <F5> <Nop>
+noremap <C-o> <Nop>
+noremap <C-i> <Nop>
+
+" https://github.com/Griffinhart/vimperatorrc/blob/master/_vimperatorrc
+"""" Colorsscheme """""
+"""""""""""""""""""""""
+"""""""""""""""""""""""
+"source! "C:\\Users\\Griffinhart\\_vimperatorrc.local"
+command! -description="Toggles the tab bar" tb set gui=noaddons,nobookmarks,nomenu,navigation,invtabs
+command! -nargs=+ -description="Query Wolfram Alpha" calculate tabopen http://www.wolframalpha.com/input/?i=<args>
+command! -nargs=+ -description="Translates the given argument from Japanese to English" translate tabopen http://translate.google.com/#ja|en|<args>
+highlight Boolean color: #f00;
+highlight CmdLine color: #0ff; background: #000; font-family: Inconsolata; font-size: 12px; padding: 0px; vertical-align: middle; border: none;
+highlight CompDesc color: #080; width: 50%;
+highlight CompItem[selected] background: #333;
+highlight CompResult color: #0ff; width: 45%; overflow: hidden;
+highlight CompTitle color: #ddc; background: #000; font-weight: bold;
+highlight CompTitle>* color: #aaa; font-weight: bold; border-top: 1px solid gray; border-bottom: 1px solid #BBB; padding: 1px 0.5ex;
+highlight ContentSeparator border:none;
+highlight ErrorMsg color: #c22; background-color: #000; font-weight: bold;
+highlight Function color: #04c;
+" highlight Hint color: #f00; background-color: #0ff; border-color: ButtonShadow; font-family: Inconsolata; font-size: 12px; border-width: 0px; border-style: solid; padding 0 1px;
+" highlight HintActive color: black; background: #0ff;
+" highlight HintElem color: white; background-color: #000;
+highlight InfoMsg color: #ddc; background: #000;
+highlight Keyword color: #CC0;
+highlight LineNr color: orange; background-color: #000;
+highlight ModeMsg color: #ddc; background: #000;
+highlight MoreMsg color: #080; background: #222; font-weight: bold; -moz-border-radius: 5px; padding-left: 5px;
+highlight Normal color: #ddc; background: #000;
+highlight Null color: #00c;
+highlight Number color: #00c;
+highlight Object color: #c40;
+highlight Question color: #080; background: #222; font-weight: bold; -moz-border-radius: 5px; padding-left: 5px;
+highlight StatusLine color: #0ff; background: #000; font-family: Inconsolata; font-size: 14px; margin-top: 1px;
+highlight String color: #0c0;
+highlight TabNumber color: #ddc; font-weight: bold; margin: 0; padding-right: .3ex; text-shadow: #000 -1px 0 0, #000 0 1px 0, #000 1px 0 0, #000 0 -1px 0;
+highlight Tag color: #C00;
+highlight Title color: #ddc; background: #333; font-weight: bold;
+highlight URL color: #080; text-decoration: none; padding: 0 2px;
+highlight URL:hover color: #880; background-color: #222; -moz-border-radius: 5px; cursor: pointer;
+
+" vim: set ft=vim:

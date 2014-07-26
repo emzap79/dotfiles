@@ -198,9 +198,6 @@ command_not_found_handle() {
             pacpl --rip all --to "${1#rip2}" --outdir="$2"
             return 0
             ;;
-        # *2mp4) ffmpeg -sameq -ar 22051 -strict experimental "${1%%.*}".mp4 -i
-        #     return 0
-        #     ;;
         xlsx2*) ssconvert -S "$2" "${2%%.*}"."${1#xlsx2}"
             return 0
             ;;
@@ -406,7 +403,6 @@ alias pd="pushd ."
 alias pp="popd"
 alias makecoffee='printf "\xE2\x98\x95\n"'
 alias poweroff='sudo poweroff'
-alias ripcd=fun_rip_cd
 alias rmf="rm -rf"
 alias rmfa="rm -rf *"
 alias info='info --vi-keys'
@@ -419,7 +415,6 @@ alias pss=fun_pss
 alias calc=fun_calc
 alias extr=fun_extract
 alias clock="watch -t -n 1 date +%T"
-alias journ="less /var/log/syslog"
 alias mousereset="sudo rmmod psmouse; sudo modprobe psmouse"
 alias pandoc='/home/zapata/.cabal/bin/pandoc'
 alias quitord="rdesktop -uXime -dquito-pc 192.168.2.100 -z -P -xl -g 1024x768 -k de"
@@ -454,13 +449,22 @@ alias wallpaper=fun_set_wallp
 # set wallpaper#}}}
 
 # miscellanious# #}}}
-# ssh, git, aptitude# {{{
+# system & internet#{{{
+
+# journal#{{{
+
+alias jrn="less /var/log/syslog"
+alias shwlg="find /var/log -iregex '.*[^\.][^0-9]+$' -not -iregex '.*gz$' 2> /dev/null | xargs tail -n0 -f | ccze -A"  # http://bit.ly/1oK5eNz
+
+# journal#}}}
+# wlan etc#{{{
 
 # ssh# #{{{
 
 alias uoek="rsync --progress -auve ssh --iconv=UTF-8,ISO8859-1 --exclude '^.' --exclude '*~' --delete $UNI/$SEM/CompOek/ sdjopeto@student.uni-due.de:public_html/CompOek"
 alias usync="/bin/bash $HOME/bin/cronSyncSsh"
 alias cruzer='usync cruzer'
+alias backup="/bin/bash $HOME/bin/cronBackup start"
 alias sshkey="ssh-keygen -t rsa -C" # "your_email@example.com"
 
 # ssh# #}}}
@@ -522,7 +526,9 @@ alias mac="netstat -ei"     # Mit dem Befehl "netstat -ei" erhält man die
 
 # wlan & ip-adresse#}}}
 
-# ssh, git, aptitude# }}}
+# wlan etc#}}}
+
+# system & internet#}}}
 # tmux #{{{
 
 # Change the TERM environment variable (to get 256 colors) and make Vim
@@ -984,7 +990,7 @@ fun_latex_sweave() {
 
 fun_loop_pdflatex() {
 
-    echo start; make read
+    echo start; make all
     while [[ $? == 0 ]];
     do
         for i in {90..1};
@@ -1000,7 +1006,7 @@ fun_loop_pdflatex() {
 # open thesaurus#{{{
 
 fun_open_thesaurus() {
-egrep -i "$@" --color -h $HOME/.dictionaries/openthesaurus.txt
+    egrep -i "$@" --color -h $HOME/.dictionaries/openthesaurus.txt | more
 }
 
 # open thesaurus#}}}

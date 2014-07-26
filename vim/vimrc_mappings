@@ -482,9 +482,15 @@ vnoremap <silent><leader>mn <ESC>:NoShowMarks<CR>
 inoremap <silent><localleader>mn <ESC>:NoShowMarks<CR>
 
 " delete marks
-nnoremap <silent><leader>md :exe 'delm! \| delm A-Z0-9 \| echom "all marks removed!"'<CR>
-vnoremap <silent><leader>md <ESC>:exe 'delm! \| delm A-Z0-9 \| echom "all marks removed!"'<CR>
-inoremap <silent><localleader>md <ESC>:exe 'delm! \| delm A-Z0-9 \| echom "all marks removed!"'<CR>
+nnoremap <silent><leader>md :exe 'delm! \|
+            \ delm A-Z0-9 \|
+            \ echom "all marks removed!"'<CR>
+vnoremap <silent><leader>md <ESC>:exe 'delm! \|
+            \ delm A-Z0-9 \|
+            \ echom "all marks removed!"'<CR>
+inoremap <silent><localleader>md <ESC>:exe 'delm! \|
+            \ delm A-Z0-9 \|
+            \ echom "all marks removed!"'<CR>
 
 " :[count]ShowMarksOnce
    " Display marks for [count] Cursorhold
@@ -495,6 +501,12 @@ inoremap <silent><localleader>md <ESC>:exe 'delm! \| delm A-Z0-9 \| echom "all m
    " Display marks of current buffer in pvw.
    " Like ':marks', but at the top of the window ;-).
    " [count] is the same as above.
+
+   "" Show Marks while opening closed folds
+   " nnoremap M :exe "ShowMarksOnce \|
+   " \ if foldclosed(\".\") >= 0 \|
+   " \ %foldo! \|
+   " \ endif"<cr>
 
 " showmarks <plugin>"}}}
 " tCommenter <plugin>"{{{
@@ -512,8 +524,8 @@ nmap yp :normal yyp<cr>
 
 " jump back to marked position"{{{
 
-nnoremap M `m :ShowMarksOnce<cr>:foldo<cr>
-" nnoremap M :exe "ShowMarksOnce \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
+nnoremap - `m :ShowMarksOnce<cr>:foldo<cr>
+nnoremap < `m :ShowMarksOnce<cr>:foldo<cr>
 
 " jump back to marked position"}}}
 " fold commands"{{{
@@ -1227,3 +1239,5 @@ endfunction
 " Oper: Open URL"}}}
 
 " Functions & Operator"}}}
+
+" s/^.\{-}\ze,\s\d\d\d\d\.\s/\\author{&},\r/g | s/,\s\(\d\{4\}\)\./\\year{\1\r/g | s/^\s\(.\{-}\)\s\(\d*\),/\\title{\1},\\journal{},\r\\number{\2},\r/g | s/^s\(\d.*\)\.$/\\pages{\1}/g s\r},

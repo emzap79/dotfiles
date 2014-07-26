@@ -298,7 +298,7 @@ let g:showmarks_marks = "abcdefghijklmnopqrstuvwxyz"
 
 " Defines the space separated list of pair objects you wish to use, along with
 " optional one letter aliases for them.
-let g:targets_pairs = '()b {}B []r <>a ``t'
+let g:targets_pairs = '()b {}B []r <>a ``t --h'
 
 " Default: let g:targets_quotes = '" '' `'
 " Defines the space separated list of quoting objects you wish to use. Note that
@@ -313,7 +313,7 @@ let g:targets_quotes = '"d '' ``t'
 " quote objects, separator objects can optionally be followed by a single one
 " letter alias. To set 'c' as an alias for comma, allowing such commands as
 " 'dic' to be equivalent to 'di,', you could define:
-let g:targets_separators = ',c . ; : + - ~ _ * / \ |'
+let g:targets_separators = ',c . ; : + - ~ _ * / \ | -h'
 "
 
 " Targets"}}}

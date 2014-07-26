@@ -1,6 +1,5 @@
-[2014-07-20 18:58:11] Fehler beim Abholen von http://www.discounto.de/Discounter/get.rss20: HTTP response code said error
-[2014-07-20 18:58:21] Fehler beim Abholen von http://fussballblog.espace.ch/atom/: nicht unterstütztes Feed-Format
-[2014-07-20 18:58:24] Fehler beim Abholen von http://www.nba.com/mavericks/rss.xml: nicht unterstütztes Feed-Format
-[2014-07-20 18:58:26] Fehler beim Abholen von http://www.it-hall.com/feed/: nicht unterstütztes Feed-Format
-[2014-07-20 18:58:27] Fehler beim Abholen von http://www.dallasbasketball.com/rss/MainRss.xml: HTTP response code said error
-[2014-07-20 18:58:34] Fehler beim Abholen von http://www.kickz.com/five/?feed=rss2: Number of redirects hit maximum amount
+[2014-07-31 22:19:35] Fehler beim Abholen von http://fussballblog.espace.ch/atom/: nicht unterstütztes Feed-Format
+[2014-07-31 22:19:42] Fehler beim Abholen von http://www.nba.com/mavericks/rss.xml: nicht unterstütztes Feed-Format
+[2014-07-31 22:19:48] Fehler beim Abholen von http://www.dallasbasketball.com/rss/MainRss.xml: HTTP response code said error
+[2014-07-31 22:19:51] Fehler beim Abholen von http://www.it-hall.com/feed/: nicht unterstütztes Feed-Format
+[2014-07-31 22:20:13] Fehler beim Abholen von http://www.kickz.com/five/?feed=rss2: Number of redirects hit maximum amount

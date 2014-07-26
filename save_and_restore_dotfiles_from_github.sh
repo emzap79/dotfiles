@@ -8,8 +8,8 @@ LOGDIR="$HOME/.logfiles"
 gitdir="$HOME/dotfiles"                                           # dotfiles directory
 git_old_dir="$HOME/dotfiles_old"                                  # old dotfiles backup directory
 folders="w3m bash cmus devilspie newsbeuter \
-dictionaries podget sane spamassassin vim xournal mutt"  # list of files/folders to symlink in homedir
-files="gitconfig inputrc Rprofile tmux.conf vimrc bashrc dingrc gvimrc muttrc"
+dictionaries podget sane spamassassin vim vimperator xournal mutt"  # list of files/folders to symlink in homedir
+files="gitconfig inputrc Rprofile tmux.conf vimrc vimperatorrc bashrc dingrc gvimrc muttrc"
 scripts="$HOME/bin/gitDotfiles"
 
 

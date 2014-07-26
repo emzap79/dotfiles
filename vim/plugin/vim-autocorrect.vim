@@ -2,10 +2,15 @@ fun! TeXAbbreviations()
     iab ... \ldots
 
     iab dh d.~h.
+    iab Dh D.~h.
     iab eg e.~g.
+    iab Eg E.~g.
     iab oä o.~ä.
+    iab Oä O.~ä.
     iab zb z.~B.
+    iab Zb Z.~B.
     iab ua u.~a.
+    iab Ua U.~a.
 
     iab bzw bzw.
     iab usw usw.

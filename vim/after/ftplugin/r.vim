@@ -174,15 +174,19 @@ map <silent> <localleader>ls :call g:SendCmdToR("ls()")<CR>
 map <silent> <localleader>di :call g:SendCmdToR("dir()")<CR>
 map <silent> <localleader>ma :call g:SendCmdToR("methods(as)")<CR>
 map <silent> <localleader>mi :call g:SendCmdToR("methods(is)")<CR>
+map <silent> <localleader>rm :call g:SendCmdToR("rm(list=ls())")<CR>
 map <silent> <localleader>rr :call 'g:SendCmdToR("' . shellescape(expand("<cword>")) . '")'<CR>
 
 "" RAction
+
 """ help on object
 map <silent> <localleader>sh :call RAction("help.search")<CR>
+
 """ range/min/max
 map <silent> <LocalLeader>mn :call RAction("min")<CR>
 map <silent> <LocalLeader>mx :call RAction("max")<CR>
 map <silent> <LocalLeader>rg :call RAction("range")<CR>
+"
 "" data characteristical information
 map <silent> <LocalLeader>hd :call RAction("head")<CR>
 map <silent> <LocalLeader>tl :call RAction("tail")<CR>
