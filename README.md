@@ -36,17 +36,19 @@ printf "%s: command not found\n" "$1" >&2 return 127
 
 ```
 
-The function lets you call predefined snippet-commands from the
-Command-Line, which makes spaces after a command obsolete. This means
-you may call `git` while the function automatically parses all trailing
-characters as arguments.
+the function lets you call predefined snippet-commands from the command-line,
+which makes spaces after a command obsolete. As an example you could define the
+letter `p` as an alias for the `push origin master` command in your
+~/.gitconfig: `p = push origin`
 
-As an example you could define the letter `p` as an alias for the `push
-origin master` command in your ~/.gitconfig. Then call it by executing
-`gp` in a command line of your choice, it's simple as that!
+Then call it by executing `gp` from your shell, and it'll trigger your
+predefined alias from within the config file. Remember: `g` is automatically
+getting replaced by `git` because of your `command_not_found_handle` function!
+
+As you would expect `git push` to work, your commited changes now will be
+pushed to `origin/master`. It's simple as that!
 
 # Author
- In case you find any issues I'd be happy you get in contact at
-:octocat:
+In case you find any issues I'd be happy you get in contact:
 
 < emzap79 [at] gmail [dot] com >
