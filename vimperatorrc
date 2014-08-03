@@ -56,7 +56,7 @@ set complete=slfbh
 set "editor=mintty -e vim"
 set errorbells
 set noscrollbars
-set "titlestring=Pale Moon"
+set "titlestring=EmZap79"
 set hintchars=sadfjklewcmpgh
 
 """ Tabs
@@ -64,6 +64,14 @@ set hintchars=sadfjklewcmpgh
 inoremap <Leader>tg <Esc>:tabgroups<Space>
 cnoremap <Leader>tg :tabgroups<Space>
 noremap <Leader>tg :tabgroups<Space>
+"""" Pull
+inoremap <Leader>tp <Esc>:tabgroups pull<Space>
+cnoremap <Leader>tp :tabgroups pull<Space>
+noremap <Leader>tp :tabgroups pull<Space>
+"""" Push
+inoremap <Leader>tpp <Esc>:tabgroups push<Space>
+cnoremap <Leader>tpp :tabgroups push<Space>
+noremap <Leader>tpp :tabgroups push<Space>
 """" Add
 inoremap <Leader>ta <Esc>:tabgroups add<Space>
 cnoremap <Leader>ta :tabgroups add<Space>
@@ -126,9 +134,11 @@ highlight CompTitle>* color: #aaa; font-weight: bold; border-top: 1px solid gray
 highlight ContentSeparator border:none;
 highlight ErrorMsg color: #c22; background-color: #000; font-weight: bold;
 highlight Function color: #04c;
-" highlight Hint color: #f00; background-color: #0ff; border-color: ButtonShadow; font-family: Inconsolata; font-size: 12px; border-width: 0px; border-style: solid; padding 0 1px;
+
+highlight Hint color: #000; background-color: #0ff; border-color: ButtonShadow font-family: Inconsolata; font-size: 12px; border-width: 0px; border-style: solid; padding 0 1px;
 " highlight HintActive color: black; background: #0ff;
 " highlight HintElem color: white; background-color: #000;
+
 highlight InfoMsg color: #ddc; background: #000;
 highlight Keyword color: #CC0;
 highlight LineNr color: orange; background-color: #000;

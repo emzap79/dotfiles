@@ -275,8 +275,8 @@ endsnippet
 snippet "(cmd(\S+)?)" "Set cmd in qrcs" br
 \\`!p snip.rv = match.group(1)`{${1:${VISUAL}}}	{$2}
 endsnippet
-snippet "cit(\S+)?" "Insert Citation" ir
-\\cmdcit`!p snip.rv = match.group(1) if match.group(1) is not None else ""`[${1}]{$2}
+snippet "(\s)?cit(\S+)?" "Insert Citation" ir
+~\\cmdcit`!p snip.rv = match.group(2) if match.group(2) is not None else ""`[${1}]{$2}
 endsnippet
 snippet emerg "emergencystretch" i
 \\emergencystretch=$1em

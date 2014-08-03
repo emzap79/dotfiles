@@ -13,9 +13,13 @@ fun! TeXAbbreviations()
     iab Ua U.~a.
 
     iab bzw bzw.
+    iab bspw bspw.
     iab usw usw.
     iab etc etc.
+    iab vgl vgl.
+    iab bzgl vgl.
     iab S. S.~<C-R>
+    iab Punkt Punkt~<C-R>
 endfun
 autocmd! filetype noweb,rnoweb,tex call TeXAbbreviations()
 

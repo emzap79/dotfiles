@@ -46,10 +46,10 @@ alias vll='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R'      # like before, but 
 
 # show size of current folder/subfolder/dotfiles
 alias du='du -h'
-alias dul="du --max-depth=1 -k | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
-alias dull="du -hsx * | sort -rh | head -10"  # http://www.commandlinefu.com/commands/view/13328/provide-the-ten-largest-subfolders-in-the-current-folder
-alias dulll="du -ks .?* | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
-alias dus=fun_dus
+alias duf=fun_dus
+# alias dufs="du --max-depth=1 -k | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
+# alias dufss="du -hsx * | sort -rh | head -10"  # http://www.commandlinefu.com/commands/view/13328/provide-the-ten-largest-subfolders-in-the-current-folder
+# alias dufsss="du -ks .?* | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
 
 # du#}}}
 # cd#{{{
@@ -316,7 +316,7 @@ alias mtx="make tex"
 alias ml="make latex"
 alias mvi="make vim"
 # alias mvip="$QRC/make vimp"
-alias mvip="make vimp"
+alias mvip="make vimpr"
 alias mmc="make mc"
 alias mw=fun_loop_pdflatex
 
@@ -372,6 +372,7 @@ alias fkill=fun_fkill
 
 # dictionaries#{{{
 
+# https://github.com/soimort/google-translate-cli
 alias trs="trs {=de}"   # google translator
 alias ot=fun_open_thesaurus
 
@@ -901,8 +902,12 @@ sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac | grep -i adr
 # ls - sort content by size#{{{
 
 fun_dus () {
-du --max-depth=0 -k * | sort -n | awk '{ if($1>=1024*1024) {size=$1/1024/1024; unit="G"} else if($1>=1024) {size=$1/1024; unit="M"} else {size=$1; unit="K"}; if(size<10) format="%.1f%s"; else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }'
-}
+    du --max-depth=0 -k * | sort -n | awk '{
+    if($1>=1024*1024) {size=$1/1024/1024; unit="G"}
+    else if($1>=1024) {size=$1/1024; unit="M"}
+    else {size=$1; unit="K"}; if(size<10) format="%.1f%s";
+    else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }'
+    }
 
 fun_dsp() {
     # Diskspace der 50 größten Programme
@@ -991,14 +996,19 @@ fun_latex_sweave() {
 fun_loop_pdflatex() {
 
     echo start; make all
-    while [[ $? == 0 ]];
+    while true
     do
         for i in {90..1};
         do echo $i && sleep 1;
         done
         make loop
+        if [ $? = 1 ];then
+            /usr/bin/yad --center --on-top --title="pdflatex failed"
+            # notify-send "Backup später durchführen!"
+            # exit 1
+        fi
+
     done
-    /usr/bin/yad --center --on-top --title="pdflatex failed"
 
 }
 

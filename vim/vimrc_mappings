@@ -524,8 +524,7 @@ nmap yp :normal yyp<cr>
 
 " jump back to marked position"{{{
 
-nnoremap - `m :ShowMarksOnce<cr>:foldo<cr>
-nnoremap < `m :ShowMarksOnce<cr>:foldo<cr>
+nnoremap \ `m :ShowMarksOnce<cr>:foldo<cr>
 
 " jump back to marked position"}}}
 " fold commands"{{{

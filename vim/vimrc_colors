@@ -44,17 +44,17 @@ autocmd ColorScheme * highlight ColorColumn               ctermbg=magenta ctermf
 " Customized"}}}
 " Search & Spellcheck"{{{
 
-autocmd ColorScheme * highlight Search                    ctermbg=255 ctermfg=none cterm=none
-autocmd ColorScheme * highlight IncSearch                 ctermbg=192 ctermfg=none cterm=none
-autocmd ColorScheme * highlight SpellBad                  ctermbg=25 ctermfg=none cterm=none
-autocmd ColorScheme * highlight SpellCap                  ctermbg=25 ctermfg=none cterm=none
-autocmd ColorScheme * highlight SpellLocal                ctermbg=25 ctermfg=none cterm=none
-autocmd ColorScheme * highlight SpellRare                 ctermbg=25 ctermfg=none cterm=none
-autocmd ColorScheme * highlight LanguageToolGrammarError  ctermbg=53 ctermfg=none cterm=none
-autocmd ColorScheme * highlight LanguageToolCmd           ctermbg=53 ctermfg=none cterm=none
-autocmd ColorScheme * highlight LanguageToolLabel         ctermbg=53 ctermfg=none cterm=none
-autocmd ColorScheme * highlight LanguageToolErrorCount    ctermbg=53 ctermfg=none cterm=none
-autocmd ColorScheme * highlight LanguageToolSpellingError ctermbg=55 ctermfg=none cterm=none
+autocmd  ColorScheme  *  highlight  SpellBad                   ctermfg=7     ctermbg=10   cterm=none
+autocmd  ColorScheme  *  highlight  SpellCap                   ctermfg=7     ctermbg=10   cterm=none
+autocmd  ColorScheme  *  highlight  SpellLocal                 ctermfg=7     ctermbg=10   cterm=none
+autocmd  ColorScheme  *  highlight  SpellRare                  ctermfg=7     ctermbg=10   cterm=none
+autocmd  ColorScheme  *  highlight  Search                     ctermfg=none  ctermbg=255  cterm=none
+autocmd  ColorScheme  *  highlight  IncSearch                  ctermfg=none  ctermbg=192  cterm=none
+autocmd  ColorScheme  *  highlight  LanguageToolGrammarError   ctermfg=none  ctermbg=53   cterm=none
+autocmd  ColorScheme  *  highlight  LanguageToolCmd            ctermfg=none  ctermbg=53   cterm=none
+autocmd  ColorScheme  *  highlight  LanguageToolLabel          ctermfg=none  ctermbg=53   cterm=none
+autocmd  ColorScheme  *  highlight  LanguageToolErrorCount     ctermfg=none  ctermbg=53   cterm=none
+autocmd  ColorScheme  *  highlight  LanguageToolSpellingError  ctermfg=none  ctermbg=55   cterm=none
 
 " Search & Spellcheck"}}}
 " Menu"{{{
