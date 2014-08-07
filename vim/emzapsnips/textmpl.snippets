@@ -372,10 +372,25 @@ pdftex,
 %% leftcaption, rightcaption: Caption is always on the left or right, respectively.
 %% wide: The floating objects may extend into the margin area.
 %% raggedright: Better justification for small captions. The ragged2e package is used if available.
+\renewcommand{\sidecaptionsep}{0.02\linewidth}
+
 \usepackage[%
        capbesideposition={top,outside},
        facing=yes,capbesidesep=quad,
 ]{floatrow}
+
+% caption
+\usepackage[width=0.8\linewidth,
+            textfont={small},
+            labelfont={small, bf},
+            format=plain,
+            justification=justified,
+            singlelinecheck=false,
+            aboveskip=4pt,
+            parskip=0pt]
+            {caption}
+\usepackage[margin=1.5em, textfont={footnotesize}]{subfig}
+
 
 %% Adjusting Caption- & Subfloatwidth
 %% http://tex.stackexchange.com/questions/51672/change-caption-width-together-with-subfloat

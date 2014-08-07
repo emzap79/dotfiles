@@ -27,6 +27,7 @@ Bundle 'gmarik/vundle'
 
 " active bundles
 
+Bundle 'tpope/vim-dispatch.git'
 Bundle 'mattn/flappyvird-vim'
 Bundle 'dahu/VimGym'
 Bundle 'BufOnly.vim'

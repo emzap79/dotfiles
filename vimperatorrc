@@ -1,16 +1,32 @@
 """"""""""""""""
 """" Config """"
 """"""""""""""""
-""" set mapleader
-let mapleader=","
-""" vertical bar CANNOT be used here
-set urlseparator=;
-""" define runtimepath
-set runtimepath=~/myvimperator,~/.vimperator
-" List of directories searched for runtime files:
-" colors/
-" macros/
-" plugin/
+let mapleader=","                                  " set mapleader
+" set ds=g                                           " definesearch: define standard search enging (g -> google)
+set urlseparator=;                                 " vertical bar CANNOT be used here
+set rtp=~/myvimperator,~/.vimperator               " runtimepath: directories searched for runtime files: colors/, macros/ plugin/
+
+""" Display
+set gui=tabs        " show only the tab bar
+set tabnumbers      " show numbers on each tab
+"""" see http://code.google.com/p/vimperator-labs/issues/detail?id=311
+set popups=tab,resized
+set focuscontent
+set newtab=all      " output all ExCommand results in a new tab
+
+""" Find
+set incsearch       " perform incremental searching
+set hlsearch        " highlight search results
+set ignorecase      " typically (see below) ignore case
+set smartcase       " only consider case if an upper case char is used
+
+""" Other
+set complete=slfbh
+set "editor=mintty -e vim"
+set errorbells
+set noscrollbars
+set "titlestring=emzap79"
+set hintchars=sadfjklewcmpgh
 
 """"""""""""""""""""""
 """" Keybindings """""
@@ -29,35 +45,6 @@ set runtimepath=~/myvimperator,~/.vimperator
 " noremap X u
 noremap j 2j
 noremap k 2k
-
-""" Display
-"""" show only the tab bar
-set gui=tabs
-"""" show numbers on each tab
-set tabnumbers
-"""" see http://code.google.com/p/vimperator-labs/issues/detail?id=311
-set popups=tab,resized
-set focuscontent
-"""" output all ExCommand results in a new tab
-set newtab=all
-
-""" Find
-"""" perform incremental searching
-set incsearch
-"""" highlight search results
-set hlsearch
-"""" typically (see below) ignore case
-set ignorecase
-"""" only consider case if an upper case char is used
-set smartcase
-
-""" Other
-set complete=slfbh
-set "editor=mintty -e vim"
-set errorbells
-set noscrollbars
-set "titlestring=EmZap79"
-set hintchars=sadfjklewcmpgh
 
 """ Tabs
 """" Groups
@@ -80,6 +67,10 @@ noremap <Leader>ta :tabgroups add<Space>
 inoremap <Leader>ts <Esc>:tabgroups switch<Space>
 cnoremap <Leader>ts :tabgroups switch<Space>
 noremap <Leader>ts :tabgroups switch<Space>
+"""" List
+inoremap <Leader>tr <Esc>:tabgroups remove<Return>
+cnoremap <Leader>tr :tabgroups remove<Return>
+noremap <Leader>tr :tabgroups remove<Return>
 """" List
 inoremap <Leader>tl <Esc>:tabgroups list<Return>
 cnoremap <Leader>tl :tabgroups list<Return>

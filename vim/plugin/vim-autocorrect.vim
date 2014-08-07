@@ -1,6 +1,22 @@
 fun! TeXAbbreviations()
     iab ... \ldots
+endfun
+autocmd! filetype noweb,rnoweb,tex call TeXAbbreviations()
 
+fun! MailAbbreviations()
+    iab addr Beckhausstr. 11, c/o Stefan Ickler, 44892 Bochum<C-R>
+endf
+autocmd! filetype mail,eml call MailAbbreviations()
+
+fun! BasicAbbreviations()
+
+    " german spelling
+    iab ANleger Anleger
+    iab Finanzinsitutionen Finanzinstitutionen
+    iab Abwärtsbeweung Abwärtsbewegung
+
+    """ abbreviations
+    iab uu u.~U.
     iab dh d.~h.
     iab Dh D.~h.
     iab eg e.~g.
@@ -13,28 +29,16 @@ fun! TeXAbbreviations()
     iab Ua U.~a.
 
     iab bzw bzw.
+    iab eigtl eigtl.
     iab bspw bspw.
     iab usw usw.
     iab etc etc.
     iab vgl vgl.
-    iab bzgl vgl.
+    iab bzgl bzgl.
     iab S. S.~<C-R>
     iab Punkt Punkt~<C-R>
-endfun
-autocmd! filetype noweb,rnoweb,tex call TeXAbbreviations()
 
-fun! MailAbbreviations()
-    iab addr Beckhausstr. 11, c/o Stefan Ickler, 44892 Bochum<C-R>
-endf
-autocmd! filetype mail,eml call MailAbbreviations()
-
-fun! BasicAbbreviations()
-
-    " emzap79
-    iab ANleger Anleger
     iab dont don't
-
-    " abbreviations
     iab wrt with respect to
     iab otoh on the other hand
     iab btw by the way

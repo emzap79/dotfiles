@@ -81,8 +81,8 @@
 #	=================================
 	cl	= clone --progress -v		# -v needs to be set AFTER --progress, else it won't work
 						# choose
-	a	= add -A .
-	aa	= add -A			# ...<filename> or regexpr
+	a	= add -A			# ...<filename> or regexpr
+	aa	= add -A .
 	ac	= "!git add -A . && git commit -m"
 	ai	= add -i			# add modified contents interactively to the index
 						# unchoose
@@ -97,7 +97,7 @@
 	fcam	= commit --amend -C HEAD	# update last commit, and use same commit message
 						# undo
 	rv	= revert			# <HEAD> undo all commited stages to the point of <HEAD>
-	rs	= reset --mixed HEAD		# ...<filename> --- take a single added file off the index again
+	rs	= reset --			# ...<filename> -- take a single added file off the index again
 	rsh	= reset --hard			# <HEAD> undos all changes in working copy, cannot be reverted
 	rss	= reset --soft			# <HEAD> moves HEAD pointer only to <HEAD>
 
@@ -119,7 +119,8 @@
 #	=================================
 #  interact with the rest of the world
 	f	= fetch
-	p	= push origin			# push origin <branch>
+	p	= !git rebase -i --autosquash && git push origin
+	pp	= push origin			# push origin <branch>
 	pu	= push -u origin		# push and add upstream reference <branch>
 	pf	= push origin -f		# overwrite external changes to remote (use with care!!)
 	pup	= !git pull && git push origin	# pull and push, not nice but sometimes convenient
@@ -171,7 +172,6 @@
 	rb	= rebase			# ...<branch name>
 	rbp	= !git rebase --autosquash && git push origin
 	rbi	= rebase -i --autosquash	# ...<branch name>
-	rbip	= !git rebase -i --autosquash && git push origin
 	rbc	= rebase --continue
 	rbs	= rebase --skip
 	rba	= rebase --abort

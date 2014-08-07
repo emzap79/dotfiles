@@ -44,10 +44,10 @@ autocmd ColorScheme * highlight ColorColumn               ctermbg=magenta ctermf
 " Customized"}}}
 " Search & Spellcheck"{{{
 
+autocmd  ColorScheme  *  highlight  SpellCap                   ctermfg=7     ctermbg=6   cterm=none
+autocmd  ColorScheme  *  highlight  SpellLocal                 ctermfg=7     ctermbg=8   cterm=none
+autocmd  ColorScheme  *  highlight  SpellRare                  ctermfg=7     ctermbg=9   cterm=none
 autocmd  ColorScheme  *  highlight  SpellBad                   ctermfg=7     ctermbg=10   cterm=none
-autocmd  ColorScheme  *  highlight  SpellCap                   ctermfg=7     ctermbg=10   cterm=none
-autocmd  ColorScheme  *  highlight  SpellLocal                 ctermfg=7     ctermbg=10   cterm=none
-autocmd  ColorScheme  *  highlight  SpellRare                  ctermfg=7     ctermbg=10   cterm=none
 autocmd  ColorScheme  *  highlight  Search                     ctermfg=none  ctermbg=255  cterm=none
 autocmd  ColorScheme  *  highlight  IncSearch                  ctermfg=none  ctermbg=192  cterm=none
 autocmd  ColorScheme  *  highlight  LanguageToolGrammarError   ctermfg=none  ctermbg=53   cterm=none

@@ -50,9 +50,9 @@ let maplocalleader=","
 " <f1>  " show current directory "{{{
 
 " change local buffer to current dir
-nnoremap <f1> :lcd %:p:h<cr>:echo expand('%:p')<cr>
-inoremap <f1> <esc>:lcd %:p:h<cr>:echo expand('%:p')<cr>
-vnoremap <f1> <esc>:lcd %:p:h<cr>:echo expand('%:p')<cr>
+nnoremap <f1> :cd %:p:h<cr>:echo expand('%:p')<cr>
+inoremap <f1> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
+vnoremap <f1> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
 
 " change to current dir
 nnoremap <C-F1> :lcd %:p:h<cr>:echo expand('%:p')<cr>
@@ -348,11 +348,7 @@ nnoremap <silent> <leader>et :sp ~/.vim/after/ftplugin/tex.vim<cr>
 nnoremap <silent> <leader>ea :sp ~/.vim/plugin/vim-autocorrect.vim<cr>
 nnoremap <silent> <leader>ep :sp ~/.vim/vimrc_plugs<cr>
 
-" set (local) path
-nnoremap <leader>sp :cd %:p:h <cr>
-nnoremap <leader>slp :lcd %:p:h <cr> "set local path of currently edited file.
-
-""}}}
+" open & edit vimrc-files"}}}
 
 " Basic Mappings"}}}
 " Plugin-Maps"{{{
@@ -998,7 +994,7 @@ command! -nargs=* RunSilent
       \ | execute ':silent !'.'<args>'
       \ | execute ':redraw!'
 nnoremap <Leader>cp :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
-nnoremap <Leader>pp :RunSilent gnome-open /tmp/vim-pandoc-out.pdf<CR>
+nnoremap <Leader>pp :RunSilent xdg-open /tmp/vim-pandoc-out.pdf<CR>
 
 
 " Compile and show documents"}}}
@@ -1011,9 +1007,9 @@ cmap w!! w !sudo tee % >/dev/null
 "}}}
 " align inside paragraph"{{{
 
-nnoremap <leader>pp gqip``
-vnoremap <leader>pp <ESC>gqip``
-inoremap <localleader>pp <ESC>gqip``
+nnoremap <leader>gq gqip``
+vnoremap <leader>gq <ESC>gqip``
+inoremap <localleader>gq <ESC>gqip``
 
 " align inside paragraph"}}}
 " execute cmd within visual"{{{
