@@ -121,6 +121,7 @@
 	f	= fetch
 	p	= !git rebase -i --autosquash && git push origin
 	pp	= push origin			# push origin <branch>
+	pl	= pull --rebase			# pull followed by rebase
 	pu	= push -u origin		# push and add upstream reference <branch>
 	pf	= push origin -f		# overwrite external changes to remote (use with care!!)
 	pup	= !git pull && git push origin	# pull and push, not nice but sometimes convenient

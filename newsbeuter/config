@@ -110,7 +110,7 @@ color article    color244 color234
 search-highlight-colors                     black yellow bold
 highlight all "00\.\ Filter.*"              color251 color234
 highlight all "^0[^0].*"                    color245 color234
-highlight all "99[0-9].*"                       color239 color234
+highlight all "99[0-9].*"                   color239 color234
 
 # # # highlighting # }}}
 

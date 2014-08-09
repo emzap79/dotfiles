@@ -263,7 +263,8 @@ setlocal keywordprg=trs\ {en=@en+de}    " googletranslate word under cursor - en
 setlocal keywordprg=trs\ {es=@es+de}    " googletranslate word under cursor - español
 set nolisp                              " nolisp: When <Enter> is typed in insert mode set the indent for the next line to Lisp
                                         " standards (default: off)
-set nospell                             " spell: set spell spelllang=de,en
+set nospell                             " spell: set spell spelllang=de,...
+" set spell spelllang="de_de,en_us"
 set nodg                                " digraph: with the digraph option set you can enter 'a <BS> >' to retreive â
 
 " dictionary & thesaurus"}}}

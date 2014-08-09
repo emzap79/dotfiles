@@ -33,13 +33,14 @@
 "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Technik\""                                                                      "09. Angebote :: Technik"
 
 # "query:Sport: tags =~ \"999. Sport\" and tags =~ \"Basketball\" and title =~ \"playoff\""                                                                       "03. Sport :: Basketball"
-# "query:Sport: tags =~ \"999. Sport\" and tags =~ \"Basketball\""                                                                         "03.1 Sport :: NBA"
-# "query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"Bash\""                                                                       "07.2 StackExch :: Bash"
-# "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Kleidung\""                                                                   "09. Angebote :: Kleidung"
+"query:Sport: tags =~ \"999. Sport\" and tags =~ \"Basketball\""                                                                         "03.1 Sport :: NBA"
+"query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"Bash\""                                                                       "07.2 StackExch :: Bash"
+"query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Kleidung\""                                                                   "09. Angebote :: Kleidung"
 # "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Sonstige\""                                                                   "09. Angebote :: Sonstige"
 # "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Ruhrgebiet\""                                                                 "09. Angebote :: Ruhrgebiet"
 
-# }}}
+### url-list# }}}
+
 # "999. Single Tags"
 ### Reddit #{{{
 
@@ -269,10 +270,11 @@ http://www.gutschein-finder.org/shops/zalando-gutschein-2/feed/                 
 http://gutscheindeal.info/gutschein-anbieter/zalando/feed/                            "999. Angebote - Kleidung"
 http://api.groupon.de/feed/api/v1/deals/oftheday/DE/ruhrgebiet-special                "999. Angebote - Ruhrgebiet"
 http://api.groupon.de/feed/api/v1/deals/oftheday/DE/bochum                            "999. Angebote - Ruhrgebiet"
+
 # http://www.getgoods.de/smartphones-handys-und-festnetz/handys-und-smartphones?sRss=1  "999. Angebote - Technik"
 # http://www.getgoods.de/smartphones-handys-und-festnetz?sAtom=1                        "999. Angebote - Technik"
 # http://www.amazon.de/gp/rss/movers-and-shakers/ce-de/ref=zg_bsms_ce-de_rsslink        "999. Angebote - Technik"
 # http://www.amazon.de/gp/rss/movers-and-shakers/apparel/ref=zg_bsms_apparel_rsslink    "999. Angebote - Kleidung"
 # http://news.billiger.de/feed                                                          "999. Angebote - Sonstige"
 
-#}}}
+#

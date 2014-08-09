@@ -154,7 +154,8 @@ fun! ToggleSpell()
     let b:mylang=b:mylang+1
     if b:mylang>=len(g:mylanglist) | let b:mylang=0 | endif
     if b:mylang==0
-        setlocal nospell
+        " setlocal nospell
+        setlocal spell spelllang="de_de,en_us"
     else
         execute "setlocal spell spelllang=".get(g:mylanglist, b:mylang)
     endif

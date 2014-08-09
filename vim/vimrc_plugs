@@ -239,7 +239,8 @@ let g:tex_fold_allow_marker = 1
 
 " CamelCase Motions""{{{
 
-" Example: Replace the default 'w', 'b' and 'e' mappings instead of defining additional mappings ',w', ',b' and ',e':
+" Example: Replace the default 'w', 'b' and 'e' mappings instead of defining
+" additional mappings ',w', ',b' and ',e':
 
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b

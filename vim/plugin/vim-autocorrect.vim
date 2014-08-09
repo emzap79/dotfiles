@@ -1,5 +1,6 @@
 fun! TeXAbbreviations()
     iab ... \ldots
+    iab (...) (\ldots)
 endfun
 autocmd! filetype noweb,rnoweb,tex call TeXAbbreviations()
 
@@ -16,6 +17,7 @@ fun! BasicAbbreviations()
     iab Abwärtsbeweung Abwärtsbewegung
 
     """ abbreviations
+    iab va v.~a.
     iab uu u.~U.
     iab dh d.~h.
     iab Dh D.~h.
@@ -87,7 +89,7 @@ fun! BasicAbbreviations()
   iab _saop save_and_open_page
 
   " Some helpful shortcuts
-  iab dtt <C-R>=strftime("%Y%m%d")<CR>
-  iab dts <C-R>=strftime("%Y%m%d - %H%M")<CR>
+  iab dtt <C-R>=strftime("%Y-%m-%d")<CR>
+  iab dts <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 endfu
 call BasicAbbreviations()

@@ -69,7 +69,7 @@ alias cdnb="cd $HOME/.newsbeuter"
 alias cdpg="cd $HOME/.podget"
 alias cdmutt="cd $HOME/.mutt"
 alias cdmus="cd $HOME/Musik"
-alias cdcmus="cd $HOME/.cmus"
+alias cdcm="cd $HOME/.cmus"
 alias cdlog="cd $HOME/.logfiles"
 alias cdgc="cd $HOME/.gitclones"
 alias cdsr="cd $HOME/.mozilla/firefox/cxt887c7.default/searchplugins"   # Mozilla Searchplugins
@@ -348,7 +348,7 @@ alias tvzdfkultur='vlc rtsp://3gp-livestreaming1.zdf.de/liveedge2/de07_v1_710.sd
 alias tvzdfinfo='vlc rtsp://3gp-livestreaming1.zdf.de/liveedge2/de08_v1_710.sdp'
 
 # }}}
-# youtube# {{{
+# youtube# #{{{
 
 alias yt-dl="youtube-dl -x --audio-format mp3"
 alias yt-mps="mpsyt"
@@ -357,7 +357,12 @@ alias yt-vlc-novideo="cvlc -V novideo "
 alias yt-mplayer=fun_youtbmp
 alias yt="mpsyt"
 
-# }}}
+# youtube# #}}}
+# mplayer#{{{
+
+alias mpvh="mpv --list-options|less"
+
+# mplayer#}}}
 # fzf - fuzzyfinder#{{{
 
 alias fe=fun_fe
@@ -448,7 +453,11 @@ s() {
 alias wallpaper=fun_set_wallp
 
 # set wallpaper#}}}
+# gnome settings#{{{
 
+alias gnomeapps=fun_gnome
+
+# gnome settings#}}}
 # miscellanious# #}}}
 # system & internet#{{{
 
@@ -892,14 +901,14 @@ bind '"\C-x\C-d": "$(fzf_tmux_dir)\e\C-e"'
 # fzf - tmux#}}}
 
 # fun: fuzzy finder for shell#}}}
-# ifconfig - print ip address#{{{
+# fun: ifconfig - print ip address#{{{
 
 fun_ips() {
 sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac | grep -i adr
 }
 
-# ifconfig - print ip address#}}}
-# ls - sort content by size#{{{
+# fun: ifconfig - print ip address#}}}
+# fun: ls - sort content by size#{{{
 
 fun_dus () {
     du --max-depth=0 -k * | sort -n | awk '{
@@ -914,10 +923,10 @@ fun_dsp() {
     dpkg-query --show --showformat='${Package;-50}\t${Installed-Size}\n' | sort -k 2 -n | grep -v deinstall | awk '{printf "%.3f MB \t %s\n", $2/(1024), $1}' | tail -n 300
 }
 
-# ls - sort content by size#}}}
-# pss ssh#{{{
+# fun: ls - sort content by size#}}}
+# fun: pss ssh#{{{
 
-# kk <nr. of line to kill from prev. command>
+# fun: kk <nr. of line to kill from prev. command>
 #kk() {
     #sudo kill # Expecting a pid
 #}
@@ -934,28 +943,28 @@ fun_pss() {
     fi
 }
 
-# pss ssh#}}}
-# ls - show absolute path to file#{{{
+# fun: pss ssh#}}}
+# fun: ls - show absolute path to file#{{{
 
-# http://stackoverflow.com/a/14984302
+# fun: http://stackoverflow.com/a/14984302
 fun_absolute_path() { echo "$PWD/$1"; }  # alt: readlink -f
 
-# ls - show absolute path to file#}}}
-# curl - expand shortened urls#{{{
+# fun: ls - show absolute path to file#}}}
+# fun: curl - expand shortened urls#{{{
 
-# http://www.commandlinefu.com/commands/view/9515/expand-shortened-urls
+# fun: http://www.commandlinefu.com/commands/view/9515/expand-shortened-urls
 fun_expandurl() { curl -sIL $1 | grep ^Location; }
 
-# curl - expand shortened urls#}}}
-# yt-dl - youtube-videos as ascii video#{{{
+# fun: curl - expand shortened urls#}}}
+# fun: yt-dl - youtube-videos as ascii video#{{{
 
-# http://annasagrera.com/on-ascii-youtube-and-letting-go/?lang=en
+# fun: http://annasagrera.com/on-ascii-youtube-and-letting-go/?lang=en
 fun_youtbmp() { youtube-dl $1 -o - | mplayer -vo aa -monitorpixelaspect 0.5 -; }
 
-# yt-dl - youtube-videos as ascii video#}}}
-# cd - show last edited files#{{{
+# fun: yt-dl - youtube-videos as ascii video#}}}
+# fun: cd - show last edited files#{{{
 
-# http://www.reddit.com/r/linux/comments/1zsn7r/a_bash_alias_i_cannot_function_without/cfwldex
+# fun: http://www.reddit.com/r/linux/comments/1zsn7r/a_bash_alias_i_cannot_function_without/cfwldex
 fun_cd() {
     count=10
     dir="${@:-$HOME}"  # ~ isn't expanded when in quotes
@@ -985,8 +994,8 @@ fun_cd() {
     fi
 }
 
-# cd - show last edited files#}}}
-# latex#{{{
+# fun: cd - show last edited files#}}}
+# fun: latex#{{{
 
 fun_latex_sweave() {
     # http://stackoverflow.com/a/4922768/3569509
@@ -1012,37 +1021,45 @@ fun_loop_pdflatex() {
 
 }
 
-# latex#}}}
-# open thesaurus#{{{
+# fun: latex#}}}
+# fun: open thesaurus#{{{
 
 fun_open_thesaurus() {
     egrep -i "$@" --color -h $HOME/.dictionaries/openthesaurus.txt | more
 }
 
-# open thesaurus#}}}
-# chmod + remove#{{{
+# fun: open thesaurus#}}}
+# fun: chmod + remove#{{{
 
 fun_chmod_remove() {
     chmod 777 -R "$*" && rm -rv "$*"
 }
 
-# chmod + remove#}}}
-# calc - easy calculating in bash#{{{
+# fun: chmod + remove#}}}
+# fun: calc - easy calculating in bash#{{{
 
-# http://unix.stackexchange.com/a/30486
+# fun: http://unix.stackexchange.com/a/30486
 fun_calc () {
     bc -l <<< "$@"
 }
 
-# calc - easy calculating in bash#}}}
-# set wallpaper#{{{
+# fun: calc - easy calculating in bash#}}}
+# fun: set wallpaper#{{{
 
 fun_set_wallp() {
 gsettings set org.gnome.desktop.background picture-uri "file:///`pwd`/$1"
 }
 
-# set wallpaper#}}}
+# fun: set wallpaper#}}}
+# fun: gnome settings#{{{
 
-# other#}}}
+fun_gnome() {
+    gsettings set org.gnome.shell enabled-extensions "['auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'gnome-shell-imgur@ttll.de', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'notesearch@rrochet.fr', 'SkypeNotification@chrisss404.gmail.com', 'system-monitor@paradoxxx.zero.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'weather-extension@xeked.com', 'windowoverlay-icons@sustmidown.centrum.cz', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']"
+}
 
-# functions#}}}
+# fun: gnome settings#}}}
+
+
+# fun: other#}}}
+
+# fun: functions#}}}

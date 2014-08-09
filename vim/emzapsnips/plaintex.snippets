@@ -14,11 +14,17 @@ BOX_FIELD_TYPES = [
 'parbox',
 'rule']
 
+IMG_SIZE_TYPES = [
+'scale',
+'height',
+'width']
+
 REF_FIELD_TYPES = [
 'cha',
 'eq',
 'fig',
 'par',
+'tab',
 'sec']
 
 endglobal
@@ -93,7 +99,8 @@ ${1:${VISUAL}}
 \end{`!p snip.rv = match.group(3) if match.group(2) is not None else "document"`}$0
 endsnippet
 snippet pic "Include pictures/graphs" wb
-\\includegraphics[${1:[ scale | height | width ]}]{${4:../${5}}}
+\\includegraphics[$1`!p snip.rv = complete(t[1], IMG_SIZE_TYPES)`=$2,trim={0em 0ex 0em 0ex},clip]{${3:../${4}}}
+% trim = <left> <bottom> <right> <top>
 endsnippet
 snippet caption "comm: define caption" b
 \caption[${1}]{$1${2}}
@@ -268,8 +275,8 @@ ${1/((?i)j)\S*$|((?i)x)\S*$|((?i)a)\S*/(?1:\U$1\Eonas)(?2:\U$2\Eimena)(?3:\U$3\E
 Lohbergstraße 6\newline
 44789 Bochum
 endsnippet
-snippet "(\s|^)emph( (.+))?" "comm: emphasize text" wr
-`!p snip.rv = match.group(1)`\emph{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
+snippet "emp?" "comm: emphasize text" ir
+\emph{$1${VISUAL}}
 endsnippet
 # .##.utilities
 snippet "(cmd(\S+)?)" "Set cmd in qrcs" br
@@ -284,7 +291,7 @@ endsnippet
 ############
 #  Rnoweb  #
 ############
-snippet sxp "Sexpression" i
+snippet sx "Sexpression" i
 \Sexpr{${1:${VISUAL}}}
 endsnippet
 
