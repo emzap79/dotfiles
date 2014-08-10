@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/home/zapata/.vim/bundle/vim-snippets'
 let g:netrw_dirhist_2='/home/zapata/.vim/bundle/vim-snippets/UltiSnips'
 let g:netrw_dirhist_3='/home/zapata/Dokumente/Linux/QRCs/.git'
 let g:netrw_dirhist_4='/home/zapata/Unimaterialien/Sommer2014/BAArbeit/main/sections/cont'
+let g:netrw_dirhist_5='/home/zapata/.vimperator'

@@ -90,6 +90,6 @@ fun! BasicAbbreviations()
 
   " Some helpful shortcuts
   iab dtt <C-R>=strftime("%Y-%m-%d")<CR>
-  iab dts <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
+  iab dts <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 endfu
 call BasicAbbreviations()

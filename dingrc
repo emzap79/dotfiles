@@ -26,7 +26,7 @@ set param(maxhistory) {50}
 set param(width) {750}
 set param(height) {341}
 set param(search_prop) {0}
-set param(win_prop) {2}
+set param(win_prop) {0}
 set opts(word) {0}
 set opts(case) {0}
 set opts(errors) {0}

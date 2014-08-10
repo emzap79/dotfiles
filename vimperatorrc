@@ -19,42 +19,35 @@ set runtimepath=~/.vimperator
 
 """ Display
 """" show only the tab bar
-set gui=tabs
-set tabnumbers
+" set hintchars=HJKLASDFGYUIOPQWERTNMZXCVB
+set "editor=mintty -e vim"
+set complete=slfhS
+set defsearch=g
+set errorbells
 set focuscontent
-set titlestring="Mozilla Firefox"
-set messages=100
-set verbose=1
-set defsearch=google
-set toolbars=noaddons,nobookmarks,nomenu,nonavigation,tabs
-" set complete=slS
-set complete=slfbh
+set gui=tabs
+set hintchars=sadfjklewcmpgh
 set history=1000
-set newtab=all
-set popups=tab,resized
-set nohlsearch
 set ignorecase
 set incsearch
-set smartcase
+set messages=100
+set newtab=all
 set nofocuscontent
-set visualbell
-" set hintchars=HJKLASDFGYUIOPQWERTNMZXCVB
-set hintchars=sadfjklewcmpgh
-set urlseparator=;
-set "editor=mintty -e vim"
-set errorbells
+set nohlsearch
 set noscrollbars
-
+set popups=tab,resized
+set smartcase
+set tabnumbers
+set titlestring="Mozilla Firefox"
+set toolbars=noaddons,nobookmarks,nomenu,nonavigation,tabs
+set urlseparator=;
+set verbose=1
+set visualbell
 
 """"""""""""""""""""""
 """" Keybindings """""
 """"""""""""""""""""""
 let mapleader = ","
-
-" Vimium key binding for Vimperator
-" https://github.com/kunal-/.vimperatorrc/blob/master/.vimperatorrc
-noremap j 2j
-noremap k 2k
 
 """ Tabs
 """" Groups
@@ -514,6 +507,8 @@ nnoremap <BS> gu
 nnoremap <C-BS> gU
 
 " scroll
+" Vimium key binding for Vimperator
+" https://github.com/kunal-/.vimperatorrc/blob/master/.vimperatorrc
 nnoremap j 3j
 nnoremap k 3k
 nnoremap J <C-d>

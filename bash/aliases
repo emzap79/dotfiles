@@ -1005,10 +1005,16 @@ fun_latex_sweave() {
 fun_loop_pdflatex() {
 
     echo start; make all
+
+    time=0
     while true
     do
-        for i in {90..1};
-        do echo $i && sleep 1;
+        # http://linux.about.com/od/Bash_Scripting_Solutions/a/How-To-Write-Bash-For-Loops.htm
+        while [[ $time -gt 0 ]]
+        do 
+            echo $time
+            (( time-- ))
+            sleep 1
         done
         make loop
         if [ $? = 1 ];then
@@ -1016,8 +1022,22 @@ fun_loop_pdflatex() {
             # notify-send "Backup später durchführen!"
             # exit 1
         fi
-
+        if [[ -z "$1" ]]; then time=90; else time=$1; fi
     done
+
+#     while true
+#     do
+#         for i in {$time...1};
+#         do echo $i && sleep 1;
+#         done
+#         make loop
+#         if [ $? = 1 ];then
+#             /usr/bin/yad --center --on-top --title="pdflatex failed"
+#             # notify-send "Backup später durchführen!"
+#             # exit 1
+#         fi
+# 
+#     done
 
 }
 
