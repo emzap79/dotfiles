@@ -54,7 +54,7 @@ alias duf=fun_dus
 # du#}}}
 # cd#{{{
 
-alias cd=fun_cd
+# alias cd=fun_cd
 alias cdd=fun_fd
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -207,16 +207,21 @@ command_not_found_handle() {
         pd2*) pandoc "$2" -o "${2%%.*}"."${1#pd2}"
             return 0
             ;;
+        *2jpg) # work to be done!
+            for i in "$(ls *.${1%2jpg})"; do echo "$(i%%.*)"; done
+            return 0
+            ;;
         img2*) convert "$2" "${2%%.*}"."${1#img2}"
             return 0
             ;;
         show*) display vid:*."${1#show}"
             return 0
             ;;
-        pk*) pkill ${1#pk}
+        m*) make ${1#m}
             return 0
             ;;
-        m*) make ${1#m}
+        cd*) # not working, don't know why
+            cd "./${1#cd}"
             return 0
             ;;
         v*) vim ${2%%.*}.${1#v}
@@ -263,6 +268,7 @@ alias vg="vim ~/.gitconfig"
 alias vt="vim ~/.tmux.conf"
 alias vrc="vim ~/.vimrc"
 alias vn="vim ~/.newsbeuter/urls"
+alias vip="vim ~/.vimperatorrc"
 alias vtmp="vim ~/bin/tmplAte.sh"
 alias tvim="tvim"
 
@@ -302,6 +308,7 @@ alias pdfgrayscale="gs -sOutputFile=grayscale.pdf -sDEVICE=pdfwrite \
 alias pdfgs="pdfgrayscale"
 alias pdfresize="/bin/bash $HOME/bin/pdfResize.sh"
 alias pdfsplit="/bin/bash $HOME/bin/pdfPagesToParts.sh"
+alias pdfimg=fun_pdf_image_extract
 
 # pdf# #}}}
 # latex# #{{{
@@ -769,6 +776,15 @@ fun_extract () {
 # extract all supported formats by just 'tar xvf' (to be tested!!)
 
 # fun: enroll packed files #}}}
+# fun: pdf image extract#{{{
+
+fun_pdf_image_extract(){
+
+    pdfimages -j "$1" "${1%%.*}"."${1##*.}"
+
+}
+
+# fun: pdf image extract#}}}
 
 # extract & convert#}}}
 # other#{{{
@@ -1022,7 +1038,7 @@ fun_loop_pdflatex() {
             # notify-send "Backup später durchführen!"
             # exit 1
         fi
-        if [[ -z "$1" ]]; then time=90; else time=$1; fi
+        if [[ -z "$1" ]]; then time=15; else time=$1; fi
     done
 
 #     while true

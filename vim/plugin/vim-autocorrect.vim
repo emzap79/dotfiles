@@ -1,14 +1,21 @@
-fun! TeXAbbreviations()
+fun! TexAbbreviations()
     iab ... \ldots
     iab (...) (\ldots)
+    iab s. S.~<C-R>
 endfun
-autocmd! filetype noweb,rnoweb,tex call TeXAbbreviations()
-
 fun! MailAbbreviations()
     iab addr Beckhausstr. 11, c/o Stefan Ickler, 44892 Bochum<C-R>
+    iab vg Viele Grüße,
+                \<CR><C-R>
+    iab lg Liebe Grüße,
+                \<CR><C-R>
+    iab bg Beste Grüße,
+                \<CR><C-R>
+    iab mfg Mit freundlichen Grüßen,
+                \<CR><C-R>
+    iab fg freundliche Grüßen,
+                \<CR><C-R>
 endf
-autocmd! filetype mail,eml call MailAbbreviations()
-
 fun! BasicAbbreviations()
 
     " german spelling
@@ -37,7 +44,6 @@ fun! BasicAbbreviations()
     iab etc etc.
     iab vgl vgl.
     iab bzgl bzgl.
-    iab S. S.~<C-R>
     iab Punkt Punkt~<C-R>
 
     iab dont don't
@@ -92,4 +98,3 @@ fun! BasicAbbreviations()
   iab dtt <C-R>=strftime("%Y-%m-%d")<CR>
   iab dts <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 endfu
-call BasicAbbreviations()

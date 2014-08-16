@@ -49,9 +49,9 @@ filetype indent on " This enables automatic indentation as you type
 
 set cuc        " cursorcolumn: highlight current column
 set cul        " cursorline: show me where i am
-set go-=L      " guioptions: remove sidebars
-set go-=r      " guioptions: remove sidebars
-set list       " list: display $ after end of line.  Further changed by the 'listchars' option.
+set go-=Lr     " guioptions: remove sidebar, scrollbar
+set list       " list: useful to see the difference between tabs and spaces
+               " and for trailing blanks. Further changed by the 'listchars' option.
 set mat=2      " matchtime: show matching bracket for 0.2 seconds
 set mouse-=a   " mouse support for terminal vim
 set mps+=<:>   " matchpairs: specially for html
@@ -109,8 +109,7 @@ set nf=octal,hex                 " nrformats: defines characters to increase by 
 set cf                           " confirm: get a dialog when :q, :w, or :wq fails
 set lz                           " lazyredraw: screen will only redraw once the macro has completed (speed up macros)
 set nopaste                      " paste: this is needed for use of abbreviations to be off
-set cb-=unnamed                  " clipboard: yank and copy to X clipboard
-set cb-=unnamedplus              " clipboard: use yanking to clipboard as default
+set cb-=unnamed,unnamedplus      " clipboard: yank and copy to clipboard, X clipboard by default
 set tf                           " ttyfast: smoother changes
 set tsl=0                        " ttyscroll: turn off scrolling, didn't work well with PuTTY
 set ml                           " modeline: last lines in document sets vim mode
@@ -172,6 +171,9 @@ set fcl=all       " foldclose: When set to " all", a fold is closed when the cur
 set fdc=4         " foldcolumn: sets rows to show fold information
 set fdn=2         " foldnestmax: Sets the maximum nesting of folds for the
                   " indent" and "syntax" methods (with max = 20)
+set fml=5         " foldminlines: minimum number of screen lines for a fold to
+                  " be displayed closed
+set fmr='{{{,}}}' " foldmarker: default is '{{{,}}}'
 
 " foldtext: a string option that specifies an expression. This
 " expression is evaluated to obtain the text displayed for a closed fold.
@@ -182,7 +184,7 @@ fun! MyFoldText()
 let line = getline(v:foldstart)
 let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
 return v:folddashes . sub
-endfunction "}}}
+endfunction
 
 " func_myfoldtext"}}}
 
@@ -256,15 +258,13 @@ set vb t_vb=                                   " visualbell: no beep or flash is
 
 set dict+=~/.aspell.de.pws
 set dict+=~/.vim/spell                  " dict: set dirs of dictionaries
-set cpt+=k                              " complete: enable dictionary completion
 set tsr+=~/.vim/thesaurus/thes_de.txt
-set tsr+=~/.vim/thesaurus/thes_eng.txt  " thesaurus: using thesaurus by CTR+X CTRL+T in insert mode.
-setlocal keywordprg=trs\ {en=@en+de}    " googletranslate word under cursor - english
-setlocal keywordprg=trs\ {es=@es+de}    " googletranslate word under cursor - español
-set nolisp                              " nolisp: When <Enter> is typed in insert mode set the indent for the next line to Lisp
-                                        " standards (default: off)
+set tsr-=~/.vim/thesaurus/thes_eng.txt  " thesaurus: using thesaurus by CTR+X CTRL+T in insert mode.
+set cpt+=k                              " complete: enable dictionary completion
+setl kp=trs\ {en=@en+de}                " keywordprg: trigger googletranslate for word under cursor with 'K'
+setl kp=trs\ {es=@es+de}
+set nolisp                              " lisp: When <Enter> is typed in insert mode set the indent for the next line to Lisp standards
 set nospell                             " spell: set spell spelllang=de,...
-" set spell spelllang="de_de,en_us"
 set nodg                                " digraph: with the digraph option set you can enter 'a <BS> >' to retreive â
 
 " dictionary & thesaurus"}}}

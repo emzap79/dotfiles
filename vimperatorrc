@@ -51,35 +51,156 @@ let mapleader = ","
 
 """ Tabs
 """" Groups
-inoremap <Leader>tg <Esc>:tabgroups<Space>
-cnoremap <Leader>tg :tabgroups<Space>
-noremap <Leader>tg :tabgroups<Space>
+inoremap <leader>tg <Esc>:tabgroups<Space>
+cnoremap <leader>tg :tabgroups<Space>
+noremap <leader>tg :tabgroups<Space>
 """" Pull
-inoremap <Leader>tp <Esc>:tabgroups pull<Space>
-cnoremap <Leader>tp :tabgroups pull<Space>
-noremap <Leader>tp :tabgroups pull<Space>
+inoremap <leader>tp <Esc>:tabgroups pull<Space>
+cnoremap <leader>tp :tabgroups pull<Space>
+noremap <leader>tp :tabgroups pull<Space>
 """" Push
-inoremap <Leader>tpp <Esc>:tabgroups push<Space>
-cnoremap <Leader>tpp :tabgroups push<Space>
-noremap <Leader>tpp :tabgroups push<Space>
+inoremap <leader>tpp <Esc>:tabgroups push<Space>
+cnoremap <leader>tpp :tabgroups push<Space>
+noremap <leader>tpp :tabgroups push<Space>
 """" Add
-inoremap <Leader>ta <Esc>:tabgroups add<Space>
-cnoremap <Leader>ta :tabgroups add<Space>
-noremap <Leader>ta :tabgroups add<Space>
+inoremap <leader>ta <Esc>:tabgroups add<Space>
+cnoremap <leader>ta :tabgroups add<Space>
+noremap <leader>ta :tabgroups add<Space>
 """" Switch
-inoremap <Leader>ts <Esc>:tabgroups switch<Space>
-cnoremap <Leader>ts :tabgroups switch<Space>
-noremap <Leader>ts :tabgroups switch<Space>
+inoremap <leader>ts <Esc>:tabgroups switch<Space>
+cnoremap <leader>ts :tabgroups switch<Space>
+noremap <leader>ts :tabgroups switch<Space>
 """" List
-inoremap <Leader>tl <Esc>:tabgroups list<Return>
-cnoremap <Leader>tl :tabgroups list<Return>
-noremap <Leader>tl :tabgroups list<Return>
+inoremap <leader>tl <Esc>:tabgroups list<cr>
+cnoremap <leader>tl :tabgroups list<cr>
+noremap <leader>tl :tabgroups list<cr>
+"""" Remove
+inoremap <leader>tr <Esc>:tabgroups remove<cr>
+cnoremap <leader>tr :tabgroups remove<cr>
+noremap <leader>tr :tabgroups remove<cr>
+
+"""" Tabonly
+inoremap <leader>to <Esc>:tabonly<cr><cr>
+cnoremap <leader>to :tabonly<cr><cr>
+noremap <leader>to :tabonly<cr><cr>
+
+"""" AppTab
+inoremap <leader>at <Esc>:set invapptab<cr>
+cnoremap <leader>at :set invapptab<cr>
+noremap <leader>at :set invapptab<cr>
+
+" escape
+nnoremap <C-@> <Esc>
+vnoremap <C-@> <Esc>
+cnoremap <C-@> <Esc>
+inoremap <C-@> <Esc>
+
+" depth
+nnoremap <BS> gu
+nnoremap <C-BS> gU
+
+" scroll
+" Vimium key binding for Vimperator
+" https://github.com/kunal-/.vimperatorrc/blob/master/.vimperatorrc
+nnoremap j 3j
+nnoremap k 3k
+nnoremap J <C-d>
+nnoremap K <C-u>
+nnoremap <A-j> 3j
+nnoremap <A-k> 3k
+nnoremap <A-h> 3h
+nnoremap <A-l> 3l
+
+" tab
+nnoremap l <C-n>
+nnoremap h <C-p>
+nnoremap <silent> <C-l> :tabmove! +1<CR>
+nnoremap <silent> <C-h> :tabmove! -1<CR>
+
+nnoremap y Y
+nnoremap Y y
+nnoremap zi zI
+nnoremap zI zi
+nnoremap zm zM
+nnoremap zM zm
+nnoremap zo zO
+nnoremap zO zo
+nnoremap zr zR
+nnoremap zR zr
+nnoremap zz zZ
+nnoremap zZ zz
+
+noremap <silent> <C-r> :restart<CR>
+noremap <silent> <leader>h :hopen<Space>
+noremap <silent> <leader>H :htabopen<Space>
+noremap <silent> <leader>s :source ~/.vimperatorrc<CR>:echo<Space>"source completed."<CR>
+noremap <silent> <leader>a :autopagerize<CR>
+noremap U :undo<Space>
+
+noremap <silent> eu :set encoding=UTF-8<CR>
+noremap <silent> es :set encoding=Shift_JIS<CR>
+noremap <silent> ee :set encoding=EUC-JP<CR>
+noremap <silent> ei :set encoding=ISO-2022-JP<CR>
+
+cnoremap <C-j> <Nop>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-n> <Tab>
+cnoremap <C-p> <S-Tab>
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+
+"""""""""""""""""""""""
+"" Toggle Operations ""
+"""""""""""""""""""""""
+" show navigation bar
+command! -description="Toggles the navigation bar" nb set gui=invnavigation
+nnoremap <leader>n :nb<CR>
+vnoremap <leader>n <ESC>:nb<CR>
+inoremap <localleader>n <ESC>nb<CR>
+
+" javascript to hide statusbar
+" http://superuser.com/questions/704015/hide-status-line-bottom-bar-in-vimperator
+noremap <silent> <F8> :js toggle_bottombar()<CR>
+noremap : :js toggle_bottombar('on')<CR>:
+noremap o :js toggle_bottombar('on')<CR>o
+noremap O :js toggle_bottombar('on')<CR>O
+noremap t :js toggle_bottombar('on')<CR>t
+noremap T :js toggle_bottombar('on')<CR>T
+noremap / :js toggle_bottombar('on')<CR>/
+cnoremap <CR> <CR>:js toggle_bottombar('off')<CR>
+cnoremap <Esc> <Esc>:js toggle_bottombar('off')<CR>
+
+:js << EOF
+function toggle_bottombar(p) {
+    var bb = document.getElementById('liberator-bottombar');
+    if (!bb)
+        return;
+    if (p == 'on'){
+        bb.style.height = '';
+        bb.style.overflow = '';
+        return;
+    }
+    if (p == 'off'){
+        bb.style.height = '0px';
+        bb.style.overflow = 'hidden';
+        return;
+    }
+    bb.style.height = (bb.style.height == '') ? '0px' : '';
+    bb.style.overflow = (bb.style.height == '') ? '' : 'hidden';
+}
+toggle_bottombar();
+EOF
+
+
 
 """" open in background, tabclose, tabmove
 map <A-f> ;b
-map <A-d> :tabclose<Space>-select=lastactive<Return>
-map J :tabnext<Return>
-map K :tabprevious<Return>
+map <A-d> :tabclose<Space>-select=lastactive<cr>
+map J :tabnext<cr>
+map K :tabprevious<cr>
 
 """ Downloads
 noremap <C-j> :downloads<CR>
@@ -97,7 +218,7 @@ cmap <C-l> <Esc><C-l>
 """ Deactivate FF genuine keybinds
 inoremap <C-a> <Insert><C-a><Insert>
 noremap <C-S-T> <Nop>
-" noremap <C-t> <Nop>
+noremap <C-t> <Nop>
 noremap <C-w> <Nop>
 noremap <C-Tab> <Nop>
 noremap <C-S-Tab> <Nop>
@@ -123,24 +244,29 @@ set! mousewheel.withnokey.sysnumlines=false
 
 
 " QMarks {{{1
-silent qmark c http://www.google.com/calendar/render?hl=ja
+silent qmark c https://bay01.calendar.live.com/calendar/calendar.aspx
+silent qmark C http://www.google.com/calendar/render?hl=de
 silent qmark e https://www.evernote.com/Home.action
 silent qmark f http://facebook.com
 silent qmark F http://favstar.fm/me
 silent qmark g https://github.com/
 silent qmark G http://gist.github.com/
 silent qmark h http://honyaku.yahoo.co.jp/
-silent qmark H http://translate.google.co.jp/translate_t?hl=ja&sl=en&tl=ja#
+silent qmark H http://translate.google.de/translate_t?hl=de&sl=en&tl=de#
+silent qmark i http://www.instapaper.com/u
 silent qmark l http://reader.livedoor.com/reader/
 silent qmark m https://mail.google.com/mail/
-silent qmark r http://www.google.co.jp/reader/
+silent qmark r http://www.reddit.com
 silent qmark M http://mixi.jp/home.pl
+silent qmark s https://soundcloud.com/stream
 silent qmark t http://twitter.com/home/
 silent qmark T http://www.tumblr.com/dashboard/
 silent qmark p http://www.pixiv.net/mypage.php
 silent qmark w http://www.wolframalpha.com/
 silent qmark W https://wave.google.com/wave/
+silent qmark v http://www.vimgolf.com/
 silent qmark y http://search.yahoo.com/
+silent qmark z http://10.10.10.1/dynLoggedOut.html
 
 
 " BMarks {{{1
@@ -178,7 +304,6 @@ command! -nargs=0 -description="ブックマークする" addhatenabookmark open
 command! -nargs=0 -description="外部プレイヤー用URL取得" ustreamliveurl open javascript:(function(){alert('http://www.ustream.tv/flash/live/'+flashvars.cid)})();
 
 "source! "C:\\Users\\Griffinhart\\_vimperatorrc.local"
-command! -description="Toggles the tab bar" tb set gui=noaddons,nobookmarks,nomenu,navigation,invtabs
 command! -nargs=+ -description="Query Wolfram Alpha" calculate tabopen http://www.wolframalpha.com/input/?i=<args>
 command! -nargs=+ -description="Translates the given argument from German to English" translate tabopen http://translate.google.com/#de|en|<args>
 
@@ -193,7 +318,7 @@ lazy js liberator.globalVariables.autoDetectLink.force = true
 let g:browser_object_prefix = ',' 
 
 " copy.js {{{2
-noremap <Leader>c :copy 
+noremap <leader>c :copy 
 javascript <<EOM
 liberator.globalVariables.copy_templates = [
 	{ label: 'titleAndUrl',         value: '%TITLE% %URL%' },
@@ -212,13 +337,13 @@ EOM
 
 
 " direct_bookmark.js {{{2
-let g:direct_sbm_use_services_by_tag = "h"
-let g:direct_sbm_use_services_by_post = "h"   
-noremap <Leader>ba :sbm 
-noremap <Leader>bA :sbm<CR>
-noremap <Leader>be :bentry<CR>
-noremap <Leader>bt :btags<CR>
-noremap <Leader>bi :bicon<CR>
+let g:direct_sbm_use_services_by_tag = "p"
+let g:direct_sbm_use_services_by_post = "p"
+nnoremap <leader>ba :sbm 
+nnoremap <leader>bA :sbm<CR>
+nnoremap <leader>be :bentry<CR>
+nnoremap <leader>bt :btags<CR>
+nnoremap <leader>bi :bicon<CR>
 
 
 " feedSomeKeys_3.js {{{2
@@ -284,7 +409,7 @@ let g:textarea_ime_mode = "inactive"
 
 
 " ldrize_cooperation.js {{{2
-noremap <Leader>, :toggleldrc<CR>
+noremap <leader>, :toggleldrc<CR>
 let g:ldrc_enable = "true"
 let g:ldrc_captureMappings = "['j','k','p','o']" 
 let g:ldrc_intelligence_bind = "true"
@@ -318,11 +443,11 @@ let g:maine_coon_style = "height: 1em; margin: 0; padding: 3px; border: none; te
 
 
 " multi_requester.js {{{2
-noremap <Leader>me :mr<Space>alc<Space>
-noremap <Leader>mt :mr<Space>twitter-search-pcod-no-jp<Space>
-noremap <Leader>mT :mr<Space>twitter-search-pcod-no-jp<Space>mashiroli<CR>
-noremap <Leader>mf :mr<Space>favotter-new<Space>
-noremap <Leader>mF :mr<Space>favotter-new<Space>mashiroli<CR>
+noremap <leader>me :mr<Space>alc<Space>
+noremap <leader>mt :mr<Space>twitter-search-pcod-no-jp<Space>
+noremap <leader>mT :mr<Space>twitter-search-pcod-no-jp<Space>mashiroli<CR>
+noremap <leader>mf :mr<Space>favotter-new<Space>
+noremap <leader>mF :mr<Space>favotter-new<Space>mashiroli<CR>
 
 
 " no_reading.js {{{2
@@ -347,7 +472,7 @@ EOM
 " sbmcommentsviewer.js {{{2
 let g:def_sbm_format = "timestamp,id,tags,comment"
 let g:def_sbms = "h"
-noremap <Leader>bc :viewSBMComments<CR>
+noremap <leader>bc :viewSBMComments<CR>
 
 " epub-reader.js {{{2
 let g:epub_reader_map_next= '>';
@@ -534,14 +659,14 @@ EOM
 
 " Styles {{{1
 style -name liberator-bottombar-fix chrome://* <<EOM
-  #liberator-statusline,
-  #liberator-customize-toolbar {
+  liberator-statusline,
+  liberator-customize-toolbar {
     -moz-appearance: none !important;
     border: none !important;
   }
-  #liberator-bottombar toolbarbutton,
-  #liberator-bottombar toolbaritem,
-  #liberator-bottombar statusbar {
+  liberator-bottombar toolbarbutton,
+  liberator-bottombar toolbaritem,
+  liberator-bottombar statusbar {
     -moz-appearance: none !important;
     margin: 0.05em 0.2em !important;
   }
@@ -552,69 +677,6 @@ EOM
 " Minibuffer オブジェクト取れなくなってしまったのでとりあえず無効に
 "lazy minibuffer LDRize::disable-smooth-scroll
 
-
-" Mappings {{{1
-" escape
-nnoremap <C-@> <Esc>
-vnoremap <C-@> <Esc>
-cnoremap <C-@> <Esc>
-inoremap <C-@> <Esc>
-
-" depth
-nnoremap <BS> gu
-nnoremap <C-BS> gU
-
-" scroll
-" Vimium key binding for Vimperator
-" https://github.com/kunal-/.vimperatorrc/blob/master/.vimperatorrc
-nnoremap j 3j
-nnoremap k 3k
-nnoremap J <C-d>
-nnoremap K <C-u>
-nnoremap <A-j> 3j
-nnoremap <A-k> 3k
-nnoremap <A-h> 3h
-nnoremap <A-l> 3l
-
-" tab
-nnoremap l <C-n>
-nnoremap h <C-p>
-nnoremap <silent> <C-l> :tabmove! +1<CR>
-nnoremap <silent> <C-h> :tabmove! -1<CR>
-
-nnoremap y Y
-nnoremap Y y
-nnoremap zi zI
-nnoremap zI zi
-nnoremap zm zM
-nnoremap zM zm
-nnoremap zo zO
-nnoremap zO zo
-nnoremap zr zR
-nnoremap zR zr
-nnoremap zz zZ
-nnoremap zZ zz
-
-noremap <silent> <C-r> :restart<CR>
-noremap <silent> <Leader>h :htabopen<Space>
-noremap <silent> <Leader>s :source ~/.vimperatorrc<CR>:echo<Space>"source completed."<CR>
-noremap <silent> <Leader>a :autopagerize<CR>
-noremap U :undo<Space>
-
-noremap <silent> eu :set encoding=UTF-8<CR>
-noremap <silent> es :set encoding=Shift_JIS<CR>
-noremap <silent> ee :set encoding=EUC-JP<CR>
-noremap <silent> ei :set encoding=ISO-2022-JP<CR>
-
-cnoremap <C-j> <Nop>
-cnoremap <C-b> <Left>
-cnoremap <C-f> <Right>
-cnoremap <C-n> <Tab>
-cnoremap <C-p> <S-Tab>
-inoremap <C-f> <Right>
-inoremap <C-b> <Left>
-inoremap <C-p> <Up>
-inoremap <C-n> <Down>
 
 " copy/paste
 "javascript <<EOM
@@ -655,12 +717,11 @@ inoremap <C-n> <Down>
 
 
 " End {{{1
-source! ~/.vimperatorrc.local
 
-" https://github.com/Griffinhart/vimperatorrc/blob/master/_vimperatorrc
 """""""""""""""""""""""
 """" Colorsscheme """""
 """""""""""""""""""""""
+" https://github.com/Griffinhart/vimperatorrc/blob/master/_vimperatorrc
 colorscheme indigo
 highlight Bell display: none; 
 

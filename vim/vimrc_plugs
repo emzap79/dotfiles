@@ -56,11 +56,12 @@ Bundle 'tpope/vim-obsession'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-commentary'
 Bundle 'tracyone/Align.git'
 Bundle 'vim-scripts/ExtractLinks'
 Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'vim-scripts/LanguageTool'
-Bundle 'tomtom/tcomment_vim'
+" Bundle 'tomtom/tcomment_vim'
 Bundle 'wellle/targets.vim'
 
 " No more used repos
@@ -272,22 +273,12 @@ sunmap e
 " On Text Operators"}}}
 " Comments & Marks"{{{
 
-" NERDCommenter"{{{
+" vim-commentor"{{{
 
-" Leave 1 space after comment
-let NERDSpaceDelims = 1
+" define new line for comments
+autocmd FileType apache set commentstring=#\ %s
 
-" NERDCommenter"}}}
-" tCommentor"{{{
-
-" If true, set maps.
-let g:tcommentMaps=1
-
-let g:tcommentMapLeaderOp1 = 'gc'
-let g:tcommentMapLeaderOp2 = 'gC'
-" tcomment#DefineType(tex, '%', ?cdef={'%'}, ?anyway=0)
-
-" tCommentor"}}}
+" vim-commentor"}}}
 " ShowMarks"{{{
 
 let g:showmarks_marks = "abcdefghijklmnopqrstuvwxyz"
@@ -863,15 +854,18 @@ let g:ExtractLinks_ReplacementExtraction = '[\#] &\n'
 
 " Language-Tool"{{{
 
-" let g:languagetool_lang = de-DE           " language expected automatically, if unset
 " let g:languagetool_win_width = 18
+" let g:languagetool_lang = de-DE           " language expected automatically, if unset
 let g:languagetool_win_height = -1          " enable/disable languagetool-scratch buffer, if negative value: 14pt
 let g:languagetool_jar = '$HOME/.dictionaries/LanguageTool-2.5-SNAPSHOT/languagetool-commandline.jar'
 
 " Language-Tool"}}}
 " vim-autocorrect"{{{
 
-au! filetype tex call AutoCorrect()
+" au! filetype tex call AutoCorrect()
+au!  BufEnter  call                    BasicAbbreviations()
+au!  filetype  noweb,rnoweb,tex  call  TexAbbreviations()
+au!  filetype  mail,eml          call  MailAbbreviations()
 
 " vim-autocorrect"}}}
 

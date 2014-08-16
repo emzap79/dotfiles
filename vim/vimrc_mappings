@@ -115,25 +115,8 @@ nnoremap <f5> :FufMruFile<cr>
 inoremap <f5> <esc>:FufMruFile<cr>
 
 " <f5>  " open mru file "}}}
-" <f6>  " manage plugins through vundle "{{{
-
-"call bundlelist
-nnoremap <f6> :BundleList<cr>
-inoremap <f6> <esc>:BundleList<cr>
-
-"call bundleclean!
-nnoremap <c-f6> :BundleClean!<cr>
-inoremap <c-f6> <esc>:BundleClean!<cr>
-
-"call bundleinstall!
-nnoremap <s-f6> :BundleInstall<cr>
-inoremap <s-f6> <esc> :BundleInstall<cr>
-
-"call bundleinstall
-nnoremap <s-c-f6> :BundleInstall!<cr>
-inoremap <s-c-f6> <esc>:BundleInstall!<cr>
-
-" <f6>  " manage plugins through vundle "}}}
+" <f6>  " *** no functions yet***"{{{
+" <f6>  " *** no functions yet***"}}}
 " <f7>  " language tool"{{{
 
 "enable languagetool
@@ -154,8 +137,7 @@ fun! ToggleSpell()
     let b:mylang=b:mylang+1
     if b:mylang>=len(g:mylanglist) | let b:mylang=0 | endif
     if b:mylang==0
-        " setlocal nospell
-        setlocal spell spelllang="de_de,en_us"
+        setlocal nospell
     else
         execute "setlocal spell spelllang=".get(g:mylanglist, b:mylang)
     endif
@@ -513,7 +495,25 @@ nmap cp :normal yygccp<cr>
 nmap yp :normal yyp<cr>
 
 " tCommenter <plugin>"}}}
+" tCommenter <plugin>"{{{
 
+"call bundlelist
+nnoremap <leader>bl :BundleList<cr>
+inoremap <leader>bl <esc>:BundleList<cr>
+
+"call bundleclean!
+nnoremap <leader>bc :BundleClean!<cr>
+inoremap <leader>bc <esc>:BundleClean!<cr>
+
+"call bundleinstall
+nnoremap <leader>bi :BundleInstall<cr>
+inoremap <leader>bi <esc> :BundleInstall<cr>
+
+"call bundleinstall!
+nnoremap <leader>bu :BundleInstall!<cr>
+inoremap <leader>bu <esc>:BundleInstall!<cr>
+
+" tCommenter <plugin>"}}}
 " Plugin-Maps"}}}
 " Other Mappings"{{{
 
@@ -879,12 +879,12 @@ nnoremap <leader>x *``cgn
 nnoremap <leader>X #``cgN
 
 " replace word under cursor in paragraph/buffer
-nnoremap <leader>r :'{,'}s/\<<C-r>=expand('<cWORD>')<CR>\>/
-nnoremap <leader>R :%s/\<<C-r>=expand('<cWORD>')<CR>\>/
+nnoremap <leader>r :%s/\<<C-r>=expand('<cWORD>')<CR>\>/
+nnoremap <leader>R :'{,'}s/\<<C-r>=expand('<cWORD>')<CR>\>/
 
 " replace word under cursor in visual selection
-xnoremap <leader>r :<C-u>'{,'}s/<C-r>=GetVisualSelection()<CR>/
-xnoremap <leader>R :<C-u>%s/<C-r>=GetVisualSelection()<CR>/
+xnoremap <leader>r :<C-u>%s/<C-r>=GetVisualSelection()<CR>/
+xnoremap <leader>R :<C-u>'{,'}s/<C-r>=GetVisualSelection()<CR>/
 
 " change word under cursor "}}}
 

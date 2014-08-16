@@ -52,14 +52,17 @@
 #	=================================
 #	=	show diffs		=
 #	=================================
-						# show everything related to a SHA1
-	sw	= show
-						# check current local changes you have made
+
+# show everything related to a SHA1
+	sw	= show 				# check current local changes you have made
+#	=	# git show [reference]:[filename]
+#	=	# # [reference] can be a branch, tag, HEAD or commit ID 
+#	=	# # [filename] is the filename including path
+
 	d	= diff HEAD			# (...<filename>) diff staged + unstaged against HEAD
 	ds	= diff --staged			# diff staged against HEAD
 	dss	= diff --staged --name-only	# show staged files (name-only)
-	dt	= difftool
-						# check current changes residing in origin/master (= main repository)
+	dt	= difftool			# check current changes residing in origin/master (= main repository)
 						# local changes are shown in red!!!
 	dh	= diff ..origin/master		# all changes, including non-commited ones
 	dhc	= diff HEAD..origin/master	# against head, includes just local commits
@@ -79,6 +82,8 @@
 #	=================================
 #	=	commit to project	=
 #	=================================
+
+# clone
 	cl	= clone --progress -v		# -v needs to be set AFTER --progress, else it won't work
 						# choose
 	a	= add -A			# ...<filename> or regexpr
@@ -86,16 +91,22 @@
 	ac	= "!git add -A . && git commit -m"
 	ai	= add -i			# add modified contents interactively to the index
 						# unchoose
+
+#  clean & remove
+	cf	= clean -f			# clean working dir
+	cfd	= clean -fdx			# id., <-d> flag to delete new directories, <-x> hidden files
 	rm	= rm -rf			# ...<filename> unversion and delete
 	rms	= rm -r --cached		# ...<filename> unversion, but leave in working copy
-						# do
+
+# commit
 	c	= commit -m			# ...commitmessage.
-	cf	= commit -m fixup!		# ...commit changes and discard message later
+	cx	= commit -m fixup!		# ...commit changes and discard message later
 	cs	= commit -m squash!		# ...commit changes and change message later (rebase -i)
 	ca	= commit -am			# ...commit modified and deleted files only + message
 	cam	= commit --amend -c HEAD	# update last commit
 	fcam	= commit --amend -C HEAD	# update last commit, and use same commit message
-						# undo
+
+# revert & reset
 	rv	= revert			# <HEAD> undo all commited stages to the point of <HEAD>
 	rs	= reset --			# ...<filename> -- take a single added file off the index again
 	rsh	= reset --hard			# <HEAD> undos all changes in working copy, cannot be reverted
@@ -117,7 +128,8 @@
 #	=================================
 #	=	contribute		=
 #	=================================
-#  interact with the rest of the world
+
+#  push & pull
 	f	= fetch
 	p	= !git rebase -i --autosquash && git push origin
 	pp	= push origin			# push origin <branch>
@@ -126,8 +138,8 @@
 	pf	= push origin -f		# overwrite external changes to remote (use with care!!)
 	pup	= !git pull && git push origin	# pull and push, not nice but sometimes convenient
 	rmrb	= push --delete origin		# ...<branch name> remote branch to be deleted
-	fp	= !git mca && git pup		# fast push script, be wary!
-						# handling remote connections
+
+# handling remote connections
 	rem	= remote -v			# (...<lookup man page for this>) withough argument
 #		=				# just shows remotes, else does all kinds of funny stuff
 	rl	= remote show			# ... <label for remote> show info for specific remote
@@ -150,28 +162,33 @@
 #	=================================
 #	=	stashes & branches	=
 #	=================================
+
+#  stashes
 	sh	= stash				# tempsave stuff without branching or committing
 	shl	= stash list			# see the list of available stashes
 	shp	= stash pop			# re-apply the stashed changes and delete the stash from the list of stashes
 	sha	= stash apply			# you can use the ID to apply a stash, eg stash@{0}
 	shd	= stash drop			# remove a stashed change without applying it
 
-#  check what is going on everywhere
+#  branches
+	b	= branch			# (...<branch name>), without argument show existing ones
+	bl	= branch -av			# show branches + SHA1 tags
+	bd	= branch --delete		# ...<branch name>, remove a branch
+	bs	= git ls-remote 		# <origin> lists branches and tags in the remote repository called origin
+
+##  checkout branches
+	co	= checkout			# ...<branch name> checkout branch
+	cob	= checkout -b			# ...<branch name> create + checkout branch
+	cou	= checkout --			# ...<filename> undo unstaged changes in working tree
+
+##  show branches
 	sb	= show-branch --color=always -a --more=10		# all full
 	sbl	= show-branch --color=always --reflog=10 --no-name	# local
 	sbf	= show-branch --color=always --reflog=10		# local full
 
-#  branch your way to victory, add <branch name>
-	b	= branch			# (...<branch name>), without argument show existing ones
-	bl	= branch -av			# show branches + SHA1 tags
-	bd	= branch --delete		# ...<branch name>, remove a branch
-	co	= checkout			# ...
-	cob	= checkout -b			# ...<branch name> create + checkout branch
-
-#  merge your way back into madness
+#  merges
 	m	= merge --no-ff			# ...<branch name>
 	rb	= rebase			# ...<branch name>
-	rbp	= !git rebase --autosquash && git push origin
 	rbi	= rebase -i --autosquash	# ...<branch name>
 	rbc	= rebase --continue
 	rbs	= rebase --skip
