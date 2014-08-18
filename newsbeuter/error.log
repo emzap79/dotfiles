@@ -1,4 +1,7 @@
-[2014-08-16 20:45:20] Fehler beim Abholen von http://fussballblog.espace.ch/atom/: nicht unterstütztes Feed-Format
-[2014-08-16 20:45:24] Fehler beim Abholen von http://www.it-hall.com/feed/: HTTP response code said error
-[2014-08-16 20:45:39] Fehler beim Abholen von http://www.iloveubuntu.net/rss.xml: nicht unterstütztes Feed-Format
-[2014-08-16 20:45:39] Fehler beim Abholen von http://www.bochum.de/RSSNews.xml: Timeout was reached
+[2014-08-17 21:42:00] Fehler beim Abholen von http://fussballblog.espace.ch/atom/: nicht unterstütztes Feed-Format
+[2014-08-17 21:42:07] Fehler beim Abholen von http://www.it-hall.com/feed/: HTTP response code said error
+[2014-08-17 21:42:13] Fehler beim Abholen von http://www.bochum.de/RSSNews.xml: Timeout was reached
+[2014-08-17 21:42:32] Fehler beim Abholen von http://www.nba.com/mavericks/rss.xml: nicht unterstütztes Feed-Format
+[2014-08-17 21:42:35] Fehler beim Abholen von http://www.dallasbasketball.com/rss/MainRss.xml: HTTP response code said error
+[2014-08-17 21:42:36] Fehler beim Abholen von http://www.iloveubuntu.net/rss.xml: nicht unterstütztes Feed-Format
+[2014-08-17 21:42:45] Fehler beim Abholen von http://www.kickz.com/five/?feed=rss2: Number of redirects hit maximum amount

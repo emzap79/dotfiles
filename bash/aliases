@@ -54,7 +54,7 @@ alias duf=fun_dus
 # du#}}}
 # cd#{{{
 
-# alias cd=fun_cd
+alias cd=fun_cd
 alias cdd=fun_fd
 alias ..='cd ..'
 alias ...='cd ../..'
