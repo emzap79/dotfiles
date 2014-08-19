@@ -255,6 +255,7 @@ silent qmark G http://gist.github.com/
 silent qmark h http://honyaku.yahoo.co.jp/
 silent qmark H http://translate.google.de/translate_t?hl=de&sl=en&tl=de#
 silent qmark i http://www.instapaper.com/u
+silent qmark j http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
 silent qmark l http://reader.livedoor.com/reader/
 silent qmark m https://mail.google.com/mail/
 silent qmark r http://www.reddit.com

@@ -452,12 +452,23 @@ set cms+=%\ %s
 
 " iskeyword: Keywords for recognizing beginning/end of word eg. in movements like w,e...
 
-set isk+="@
-set isk+=48-57
-set isk+=_
-set isk+=192-255"
+" adjust configuration for such hostile environment as Windows {{{
+" http://stackoverflow.com/a/6846949/3569509
+if has("win32") || has("win16")
+    lang C
+    set viminfo='20,\"512,nc:/tmp/_viminfo
+    set iskeyword=48-57,65-90,97-122,_,161,163,166,172,177,179,182,188,191,198,202,209,211,230,234,241,243,143,156,159,165,175,185
+" elseif has('mac')
+elseif has('unix')
+    set shell=/bin/sh
+    set isk+="@
+    set isk+=48-57
+    set isk+=_
+    set isk+=192-255"
+    set isk-=.  " add dots as end of word
+endif
+" }}}
 
-set isk-=.  " add dots as end of word (isk-=.)
 
 " isfname: The characters specified by this option are included in file names and path
 " names. Filenames are used for commands like "gf", "[i" and in the tags file.
@@ -560,10 +571,15 @@ set stl=%1*%02n                                                   " current buff
 set stl+=%2*\|%t\|                                                " filename
 set stl+=%1*%{&fo}\|                                              " formatoptions
 
-" statusline: show current branch
-set stl+=%3*%{(fugitive#head()!=\"\"?'\(':'')}                   " git branch
-set stl+=%3*%<%{(fugitive#head()!=\"\"?fugitive#head():'')}
-set stl+=%3*%{(fugitive#head()!=\"\"?'\)':'')}
+" test whether home or office
+" http://superuser.com/a/194844/322005
+let hostname = substitute(hostname(), '\n', '', '')
+if hostname =~ "zapata"
+    " statusline: show current branch
+    set stl+=%3*%{(fugitive#head()!=\"\"?'\(':'')}                   " git branch
+    set stl+=%3*%<%{(fugitive#head()!=\"\"?fugitive#head():'')}
+    set stl+=%3*%{(fugitive#head()!=\"\"?'\)':'')}
+endif
 
 " statusline: filencoding, fileformat
 " http://stackoverflow.com/a/5375338/3569509

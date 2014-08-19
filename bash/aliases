@@ -368,6 +368,8 @@ alias yt="mpsyt"
 # mplayer#{{{
 
 alias mpvh="mpv --list-options|less"
+alias selfie="mplayer -vo png -frames 1 tv:// -tv width=1280:height=720" # Take a single 1280x720 picture of your TV input, which is often your webcam
+alias mstream=fun_mplayer_stop_stream
 
 # mplayer#}}}
 # fzf - fuzzyfinder#{{{
@@ -1092,9 +1094,6 @@ gsettings set org.gnome.desktop.background picture-uri "file:///`pwd`/$1"
 fun_gnome() {
     gsettings set org.gnome.shell enabled-extensions "['auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'gnome-shell-imgur@ttll.de', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'notesearch@rrochet.fr', 'SkypeNotification@chrisss404.gmail.com', 'system-monitor@paradoxxx.zero.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'weather-extension@xeked.com', 'windowoverlay-icons@sustmidown.centrum.cz', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']"
 }
-
-# fun: gnome settings#}}}
-
 
 # fun: other#}}}
 
