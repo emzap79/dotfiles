@@ -79,3 +79,18 @@ Just rename your alias then to e.g. `sh = show`.
 In case you find any issues I'd be happy you get in contact:
 
 < emzap79 [at] gmail [dot] com >
+
+# License Agreement
+        DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+                Version 2, December 2004
+
+Copyright 2014 Jonas Petong
+
+Everyone is permitted to copy and distribute verbatim or modified
+copies of this license document, and changing it is allowed as long
+as the name is changed.
+
+        DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+ 0. You just DO WHAT THE FUCK YOU WANT TO.
