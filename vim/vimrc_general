@@ -5,11 +5,11 @@
 " File: vimrc_general
 " Author: Jonas Petong
 " Description: basic vimrc settings
-" Last Modified: Mai 13, 2014
+" Last Modified: August 20, 2014
 
-" font matters"{{{
+" Font Matters                                                " {{{1
 
-" description"{{{
+" description                                                 " {{{2
 
 " vim <-- starts Vim normally, reading ~/.vimrc
 " vim -u ~/.vimsqlrc <-- starts Vim using your alternative vimrc
@@ -24,28 +24,24 @@
 " :e ++ff=dos " Edit file again, using dos file format ('fileformats' is ignored).[A 1]
 " :w " Write buffer using dos (CRLF) line endings.
 
-" description"}}}
-" set shell"{{{
+" set shell                                                   " {{{2
 
 " Use aliases from .bashrc
 " https://github.com/tpope/vim-fugitive/issues/387
 set shellcmdflag=-c
 set shell=/bin/bash\ --rcfile\ ~/.bashrc
 
-" set shell"}}}
-" filetype "{{{
+" filetype                                                    " {{{2
 
 filetype off       " VUNDLE requires to set off
 syntax enable      " switch on syntax highlight
 filetype plugin on " This makes vim invoke Latex-Suite when you open a tex file
 filetype indent on " This enables automatic indentation as you type
 
-" filetype "}}}
 
-" font matters"}}}
-" general config"{{{
+" General Config                                              " {{{1
 
-" display"{{{
+" display                                                     " {{{2
 
 set cuc        " cursorcolumn: highlight current column
 set cul        " cursorline: show me where i am
@@ -98,8 +94,7 @@ set ruf=%25(%n%m%r:\ %Y\ [%l,%v]\ %p%%%)       " rulerformat
 " listchars: vim can highlight whitespaces for you in a convenient way
 exec "set lcs=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 
-" display"}}}
-" editor"{{{
+" editor                                                      " {{{2
 
 set ek                           " esckeys: no delay for ESC, but cannot use ESC as beginning of key sequence
 set t_Co=257
@@ -128,8 +123,7 @@ set hid  " hidden: It hides buffers instead of closing them. Also, undo buffers 
 set nobk                         " backup: backup~ files.
 set bkc=auto                     " When writing a file and a backup is made, this option tells how it's done.
 
-" editor"}}}
-" search"{{{
+" search                                                      " {{{2
 
 set nows      " wrapscan: messaging when 'end of search has been achieved'
 set magic     " magic: change the way backslashes are used in search patterns
@@ -139,8 +133,7 @@ set ic
 set sc        " smartcase: Override the 'ignorecase' option if the search
               " pattern contains upper case characters.
 
-" search"}}}
-" diffopt"{{{
+" diffopt                                                     " {{{2
 
 " diffopt: Option settings for diff mode.
 set dip=filler,context:6
@@ -154,8 +147,7 @@ set dip=filler,context:6
 " contains unchanged lines. When omitted a
 " context of six lines is used.
 
-" diffopt"}}}
-" folding"{{{
+" folding                                                     " {{{2
 
 " fold settings
 set fen           " fen: enable folding
@@ -173,12 +165,11 @@ set fdn=2         " foldnestmax: Sets the maximum nesting of folds for the
                   " indent" and "syntax" methods (with max = 20)
 set fml=2         " foldminlines: minimum number of screen lines for a fold to
                   " be displayed closed
-set fmr={{{,}}} " foldmarker: default is '{{{,}}}'
 
 " foldtext: a string option that specifies an expression. This
 " expression is evaluated to obtain the text displayed for a closed fold.
 set fdt=MyFoldText()
-" func_myfoldtext"{{{
+" func_myfoldtext                                             " {{{2
 
 fun! MyFoldText()
 let line = getline(v:foldstart)
@@ -186,7 +177,6 @@ let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
 return v:folddashes . sub
 endfunction
 
-" func_myfoldtext"}}}
 
 " define folds for different syntaxes
 " http://stackoverflow.com/a/4789615
@@ -206,15 +196,13 @@ let tex_fold=1
 let tex_fold_multilinecomments=1
 let tex_fold_environments=1
 
-" folding"}}}
-" timeout"{{{
+" timeout                                                     " {{{2
 
 set to tm=3000 ttm=100      " timeout, timeoutlen, ttimeoutlen: time out on
                             " mapping after three seconds, time out on key
                             " codes after a tenth of a second.
 
-" timeout"}}}
-" indentation "{{{
+" indentation                                                 " {{{2
 
 set bs=indent,eol,start " backspace: Allow backspacing over everything in insert mode
 set sr                  " shiftround: use multiple of shiftwidth when indenting with '<' and '>'
@@ -222,8 +210,7 @@ set nosi                " smartindent: turn on smart indenting. Availabile
                         " options: smart-/auto-/cindent
 set noci                " copyindent: copy the previous indentation on autoindenting
 
-" indentation "}}}
-" tabstops"{{{
+" tabstops                                                    " {{{2
 
 set sta                 " smarttab: smart tab handling for indenting
 set et                  " expandtab: tabs are converted to spaces
@@ -240,21 +227,18 @@ set ts=4                " tabstop: number of spaces a tab counts for
 " spaces to be inserted whether you press the tab key in insert mode, or use
 " the indentation commands in normal/visual modes.
 
-" tabstops"}}}
-" linewrapping"{{{
+" linewrapping                                                " {{{2
 
 set sbr=""                                     " showbreak: note trailing space at end of next line
 set lbr                                        " linebreak: wrap at word
 set ww=b,s,h,l,<,>,[,]                         " whichwrap: allow specified keys that move the cursor left/right.
 
-" linewrapping"}}}
-" error messages"{{{
+" error messages                                              " {{{2
 
 set noeb                                       " noerrorbells: do/don't beep when error
 set vb t_vb=                                   " visualbell: no beep or flash is wanted, use
 
-" error messages"}}}
-" dictionary & thesaurus"{{{
+" dictionary & thesaurus                                      " {{{2
 
 set dict+=~/.aspell.de.pws
 set dict+=~/.vim/spell                  " dict: set dirs of dictionaries
@@ -267,12 +251,10 @@ set nolisp                              " lisp: When <Enter> is typed in insert 
 set nospell                             " spell: set spell spelllang=de,...
 set nodg                                " digraph: with the digraph option set you can enter 'a <BS> >' to retreive â
 
-" dictionary & thesaurus"}}}
 
-" general config"}}}
-" advanced settings "{{{
+" Advanced Settings                                           " {{{1
 
-" cpoptions"{{{
+" cpoptions                                                   " {{{2
 
 set nocp " compatible: makes VIMs behaviour similar to vi
 
@@ -293,8 +275,7 @@ set cpo+=aABceFsmq
 "        |+-- :write updates alternative file name
 "        +-- :read updates alternative file name
 
-" cpoptions"}}}
-" formatoptions"{{{
+" formatoptions                                               " {{{2
 
 " How to set formatoptions depending on filetype is described here:
 " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion#Overriding_format_options_set_by_filetype_plugin
@@ -317,15 +298,13 @@ set fo+=cqrnl
 "       |+-- Allow formatting of comments with "gq".
 "       +-- Auto-wrap comments using textwidth, inserting the current comment leader automatically.
 
-" formatoptions"}}}
-" formatlistpat"{{{
+" formatlistpat                                               " {{{2
 " A pattern that is used to recognize a list header. This is used for
 " the "n" flag in 'formatoptions'.
 
 set flp="^\s*\d\+[\]:.)}\t ]\s*"        " default: ^\s*\d\+[\]:.)}\t ]\s*
 
-" formatlistpat"}}}
-" shortmessage"{{{
+" shortmessage                                                " {{{2
 
 " shortmess: abbreviate messages
 set shm+=atI
@@ -334,8 +313,7 @@ set shm+=atI
 "        |+--  truncate file message at the start if it is too long to fit
 "        +--  all abbreviations (filmnrwx) - see :h 'shm'
 
-" shortmessage"}}}
-" runtimepath"{{{
+" runtimepath                                                 " {{{2
 
 " default
 set rtp+=$HOME/.vim
@@ -350,8 +328,7 @@ set rtp+=~/.vim/bundle/vundle/         " runtimepath: adding vundle to runtimepa
 
 set path=$PWD/**,$HOME/Unimaterialien  " path: sets current path variable for find command
 
-" runtimepath"}}}
-" fileformats"{{{
+" fileformats                                                 " {{{2
 
 " fileformats: only detect unix fileformat, displays ^M for 'newline'
 " with dos files
@@ -359,8 +336,7 @@ set ffs+=unix
 set ffs+=dos
 set ffs+=mac
 
-" fileformats"}}}
-" wildignore"{{{
+" wildignore                                                  " {{{2
 
 " When 'wildmenu' is on, command-line completion operates in an enhanced
 " mode.  On pressing 'wildchar' (usually <Tab>) to invoke completion,
@@ -400,8 +376,7 @@ set wig+=*.ttt
 set wig+=*~
 set wig+=.svn
 
-" wildignore"}}}
-" viminfo"{{{
+" viminfo                                                     " {{{2
 
 " Tell vim to remember certain things when we exit
 set vi='10          " marks will be remembered for up to 10 previously edited files
@@ -410,8 +385,7 @@ set vi+=:20         " up to 20 lines of command-line history will be remembered
 set vi+=%           " saves and restores the buffer list
 set vi+=n~/.viminfo " n... : where to save the viminfo files
 
-" viminfo"}}}
-" comments"{{{
+" comments                                                    " {{{2
 
 " comments: a comma separated list of strings that can start a comment line.
 set com+=s2:/*
@@ -447,12 +421,11 @@ set com+=b:-
 set cms+=#\ %s           " commentstring: The "%s" in the value is replaced with the comment text.
 set cms+=%\ %s
 
-" comments"}}}
-" iskeyword/-fname/-print"{{{
+" iskeyword/-fname/-print                                     " {{{2
 
 " iskeyword: Keywords for recognizing beginning/end of word eg. in movements like w,e...
 
-" adjust configuration for such hostile environment as Windows {{{
+" adjust configuration for such hostile environment as Windows  {{{2
 " http://stackoverflow.com/a/6846949/3569509
 if has("win32") || has("win16")
     lang C
@@ -467,7 +440,6 @@ elseif has('unix')
     set isk+=192-255"
     set isk-=.  " add dots as end of word
 endif
-" }}}
 
 
 " isfname: The characters specified by this option are included in file names and path
@@ -480,8 +452,7 @@ endif
 " in a pattern.
 " set isi+=
 
-" isfname/-keyword/-print"}}}
-" backupskip"{{{
+" backupskip                                                  " {{{2
 
 " backupskip: When one of the patterns matches with the name of the file which
 " is written, no backup file is created. Both the specified file name and the
@@ -498,8 +469,7 @@ set bsk+=*tst*
 set bsk+=*~
 set bsk+=*bak
 
-" backupskip"}}}
-" indentkeys"{{{
+" indentkeys                                                  " {{{2
 
 " indentkeys: a list of keys that, when typed in insert mode, cause reindenting of
 " the current line. only happens if 'indentexpr' isn't empty.
@@ -511,8 +481,7 @@ setlocal indk+=\\fi
 setlocal indk+=\\or
 setlocal indk+=\\]
 
-" indentkeys"}}}
-" suffixes"{{{
+" suffixes                                                    " {{{2
 
 set su=.bak
 set su+=~
@@ -527,8 +496,7 @@ set su+=.blg
 set su+=.out
 set su+=.toc " suffixes: for file names completion
 
-" suffixes"}}}
-" foldopen"{{{
+" foldopen                                                    " {{{2
 
 " foldopen: specifies for which type of commands folds will be opened, if the
 " command moves the cursor into a closed fold. It is a comma separated list of items.
@@ -545,8 +513,7 @@ set fdo+=tag       " jumping to a tag: ":ta", CTRL-T, etc.
 set fdo+=undo      " undo or redo: "u" and CTRL-R
 " set fdo=all      " any
 
-" foldopen"}}}
-" statusline"{{{
+" statusline                                                  " {{{2
 
 " printf blank spaces
 " http://www.codingunit.com/printf-format-specifiers-format-conversions-and-formatted-output
@@ -586,12 +553,10 @@ endif
 set stl+=%2*%=%((%{&ff}\|%{(strlen(&fenc)?&enc:&fenc)}%k\|%Y)%)
 set stl+=%2*\ %(%l,%v\|%02p%%\ %)                                 " current positon in file
 
-" statusline"}}}
 
-" advanced settings "}}}
-" functions & autocommands"{{{
+" Functions & Autocommands                                    " {{{1
 
-" autogroups"{{{
+" autogroups                                                  " {{{2
 
 " To enter autocommands for a specific group, use this method:
 " 1. Select the group with ":augroup {name}".
@@ -599,14 +564,13 @@ set stl+=%2*\ %(%l,%v\|%02p%%\ %)                                 " current posi
 " 3. Define the autocommands.
 " 4. Go back to the default group with "augroup END".
 
-" VimEnter"{{{
+" VimEnter                                                    " {{{2
 
 aug VE
 au!
 aug END
 
-" VimEnter"}}}
-" InsertEnter"{{{
+" InsertEnter                                                 " {{{2
 
 aug IE
 au!
@@ -616,15 +580,13 @@ au InsertEnter * set timeoutlen=10
 au InsertLeave * set timeoutlen=1000
 aug END
 
-" InsertEnter"}}}
-" BufWritePre"{{{
+" BufWritePre                                                 " {{{2
 
 aug BWP
 au!
 aug END
 
-" BufWritePre"}}}
-" BufWinEnter"{{{
+" BufWinEnter                                                 " {{{2
 
 aug BWE
 au!
@@ -634,8 +596,7 @@ au BufWinEnter * call ResCur()
 au BufWinEnter * :15ShowMarksOnce
 aug END
 
-" BufWinEnter"}}}
-" Filetype"{{{
+" Filetype                                                    " {{{2
 
 aug Filet
     au!
@@ -643,17 +604,11 @@ aug Filet
     au filetype tex,rnoweb,noweb,vim,r :%s/\s\+$//e
 aug END
 
-" Filetype"}}}
-" Filetypedetect"{{{
+" Filetypedetect                                              " {{{2
 " http://www.r-bloggers.com/sweave-syntax-highlighting-in-vim/
 
 augroup filetypedetect
 au! BufRead,BufNewFile *.textmpl   setf textmpl
 augroup END
 
-" Filetypedetect"}}}
-" autogroups"}}}
-" autocmds"{{{
-" autocmds"}}}
 
-" functions & autocommands"}}}

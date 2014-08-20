@@ -276,7 +276,7 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
 " UltiSnips                                            {{{2
 
 " UltiSnips#ExpandSnippet
-let g:snips_author = "emzap79"
+let g:snips_author = "Jonas Petong"
 let g:UltiSnipsExpandTrigger = "<s-tab>"
 let g:UltiSnipsListSnippets = "<s-c-tab>"
 let g:UltiSnipsJumpForwardTrigger = "<s-c-j>"

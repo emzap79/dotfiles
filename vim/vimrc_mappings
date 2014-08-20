@@ -4,8 +4,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " File: vimrc_mappings
 " Author: Jonas Petong
-" Description: VIM related Mappings & Keybinds
-" Last Modified: Mai 16, 2014
+" Description: vim mapping configuration
+" Last Modified: August 20, 2014
 
 " Basic Mappings"{{{
 

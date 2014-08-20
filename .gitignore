@@ -1,5 +1,6 @@
 *.priv
 *.pl
+*.log
 LanguageTool*
 bundle
 *.swp
