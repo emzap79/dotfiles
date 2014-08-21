@@ -13,7 +13,7 @@ fun! MailAbbreviations()
                 \<CR><C-R>
     iab mfg Mit freundlichen Grüßen,
                 \<CR><C-R>
-    iab fg freundliche Grüßen,
+    iab fg Freundliche Grüßen,
                 \<CR><C-R>
 endf
 fun! BasicAbbreviations()
