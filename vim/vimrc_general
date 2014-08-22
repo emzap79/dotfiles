@@ -1,4 +1,4 @@
-" vim:fdm=marker
+" vim:ft=vim fdm=marker
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIMRC GENERAL "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -241,9 +241,9 @@ set vb t_vb=                                   " visualbell: no beep or flash is
 " dictionary & thesaurus                                      " {{{2
 
 set dict+=~/.aspell.de.pws
-set dict+=~/.vim/spell                  " dict: set dirs of dictionaries
-set tsr+=~/.vim/thesaurus/thes_de.txt
-set tsr-=~/.vim/thesaurus/thes_eng.txt  " thesaurus: using thesaurus by CTR+X CTRL+T in insert mode.
+set dict+=$HOME/.vim/spell                  " dict: set dirs of dictionaries
+set tsr+=$HOME/.vim/thesaurus/thes_de.txt
+set tsr-=$HOME/.vim/thesaurus/thes_eng.txt  " thesaurus: using thesaurus by CTR+X CTRL+T in insert mode.
 set cpt+=k                              " complete: enable dictionary completion
 setl kp=trs\ {en=@en+de}                " keywordprg: trigger googletranslate for word under cursor with 'K'
 setl kp=trs\ {es=@es+de}
@@ -323,8 +323,8 @@ set rtp+=$VIM/vimfiles/after
 set rtp+=$HOME/.vim/after
 
 " extra
-set rtp+=~/.vim/plugin/                " runtimepath: some extra plugins
-set rtp+=~/.vim/bundle/vundle/         " runtimepath: adding vundle to runtimepath
+set rtp+=$HOME/.vim/plugin/                " runtimepath: some extra plugins
+set rtp+=$HOME/.vim/bundle/vundle/         " runtimepath: adding vundle to runtimepath
 
 set path=$PWD/**,$HOME/Unimaterialien  " path: sets current path variable for find command
 
@@ -430,7 +430,33 @@ set cms+=%\ %s
 if has("win32") || has("win16")
     lang C
     set viminfo='20,\"512,nc:/tmp/_viminfo
-    set iskeyword=48-57,65-90,97-122,_,161,163,166,172,177,179,182,188,191,198,202,209,211,230,234,241,243,143,156,159,165,175,185
+    set isk=48-57
+set isk+=65-90
+set isk+=97-122
+set isk+=_
+set isk+=161
+set isk+=163
+set isk+=166
+set isk+=172
+set isk+=177
+set isk+=179
+set isk+=182
+set isk+=188
+set isk+=191
+set isk+=198
+set isk+=202
+set isk+=209
+set isk+=211
+set isk+=230
+set isk+=234
+set isk+=241
+set isk+=243
+set isk+=143
+set isk+=156
+set isk+=159
+set isk+=165
+set isk+=175
+set isk+=185
 " elseif has('mac')
 elseif has('unix')
     set shell=/bin/sh
@@ -610,5 +636,3 @@ aug END
 augroup filetypedetect
 au! BufRead,BufNewFile *.textmpl   setf textmpl
 augroup END
-
-

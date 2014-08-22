@@ -5,21 +5,23 @@
 " Description: Please feel free to fork my vimrc!!!
 " Last Modified: Januar 04, 2014
 
+" set env VIMRC="/home/zapata/.vim"
+
 " This source imports all of my general settings. Indent, hilight, etc.
-source ~/.vim/vimrc_general
+source $HOME/.vim/vimrc_general
 " This source sets Colorscheme etc.
-source ~/.vim/vimrc_colors
+source $HOME/.vim/vimrc_colors
 " This source imports all plugins
-source ~/.vim/vimrc_plugs
+source $HOME/.vim/vimrc_plugs
 " This source imports all of my plugin settings and bindings.
-source ~/.vim/vimrc_mappings
+source $HOME/.vim/vimrc_mappings
 " This source sets mutt configs
-source ~/.vim/vimrc_mutt
+source $HOME/.vim/vimrc_mutt
 
 " This source sets R configs
-source ~/.vim/after/ftplugin/r.vim
+source $HOME/.vim/after/ftplugin/r.vim
 " This source sets LaTeX configs
-" source ~/.vim/ftplugin/tex.vim
+" source ftplugin/tex.vim
 
 "------------------
 " Xterm-Style-Keys

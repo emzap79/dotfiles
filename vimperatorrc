@@ -1,18 +1,21 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            mashiro vimperatorrc                            "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" https://github.com/mashiro/dot-files/tree/master/.vimperator
-"
-" emzap79 .vimperatorrc
-" firefox-29.0 + vimperator-3.7
+" File: .vimperatorrc
+" Author: Jonas Petong
+" Description: Config File for Vimperator
+" Last Modified: August 21, 2014
 
-" Initialize {{{1
+" firefox-29.0 + vimperator-3.7
+" https://github.com/mashiro/dot-files/tree/master/.vimperator
+
+" Initialize                                         {{{1
 "nmapc
 "vmapc
 "cmapc
 "imapc
 
-" Options {{{1
+" Options                                            {{{1
 
 " List of directories searched for runtime files: colors/ macros/ plugin/
 set runtimepath=~/.vimperator
@@ -237,22 +240,22 @@ set! browser.urlbar.filter.javascript=false
 set! browser.urlbar.maxRichResults=20
 set! browser.sessionstore.max_tabs_undo=20
 set! browser.sessionstore.max_concurrent_tabs=0
-set! browser.startup.homepage=http://www.reddit.com
+set! browser.startup.homepage=https://github.com/
 set! dom.popup_maximum=200
 set! mousewheel.withnokey.numlines=6
 set! mousewheel.withnokey.sysnumlines=false
 
 
-" QMarks {{{1
+" QMarks                                             {{{1
 silent qmark b http://www.bloomberg.com/quote/TSLA:US
 silent qmark c https://bay01.calendar.live.com/calendar/calendar.aspx
 silent qmark C http://www.google.com/calendar/render?hl=de
 silent qmark e https://www.evernote.com/Home.action
 silent qmark f http://facebook.com
 silent qmark F http://favstar.fm/me
-silent qmark g https://github.com/
+silent qmark g https://github.com/emzap79
 silent qmark G http://gist.github.com/
-silent qmark h http://honyaku.yahoo.co.jp/
+silent qmark h http://www.hotmail.com/
 silent qmark H http://translate.google.de/translate_t?hl=de&sl=en&tl=de#
 silent qmark i http://www.instapaper.com/u
 silent qmark j http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
@@ -271,7 +274,7 @@ silent qmark y http://search.yahoo.com/
 silent qmark z http://10.10.10.1/dynLoggedOut.html
 
 
-" BMarks {{{1
+" BMarks                                             {{{1
 javascript <<EOM
 function bmark(title, url, keyword) {
 	if (!bookmarks.isBookmarked(url)) {
@@ -290,7 +293,7 @@ bmark('ニコニコ動画'      , 'http://www.nicovideo.jp/watch/%s'         , '
 EOM
 
 
-" Commands {{{1
+" Commands                                           {{{1
 command! -nargs=* feedkeys js events.feedkeys("<args>")
 command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
 command! -nargs=0 copybufferurl js util.copyToClipboard(buffer.URL)
@@ -309,17 +312,17 @@ command! -nargs=0 -description="外部プレイヤー用URL取得" ustreamliveur
 command! -nargs=+ -description="Query Wolfram Alpha" calculate tabopen http://www.wolframalpha.com/input/?i=<args>
 command! -nargs=+ -description="Translates the given argument from German to English" translate tabopen http://translate.google.com/#de|en|<args>
 
-" Plugins {{{1
-" appendAnchor.js {{{2
+" Plugins                                            {{{1
+" appendAnchor.js                                    {{{2
 let g:auto_append_anchor = "true"
 
-" auto_detect_link.js {{{2
+" auto_detect_link.js                                {{{2
 lazy js liberator.globalVariables.autoDetectLink.force = true
 
-" browser_object.js {{{2
+" browser_object.js                                  {{{2
 let g:browser_object_prefix = ',' 
 
-" copy.js {{{2
+" copy.js                                            {{{2
 noremap <leader>c :copy 
 javascript <<EOM
 liberator.globalVariables.copy_templates = [
@@ -338,7 +341,7 @@ liberator.globalVariables.copy_templates = [
 EOM
 
 
-" direct_bookmark.js {{{2
+" direct_bookmark.js                                 {{{2
 let g:direct_sbm_use_services_by_tag = "p"
 let g:direct_sbm_use_services_by_post = "p"
 nnoremap <leader>ba :sbm 
@@ -348,7 +351,7 @@ nnoremap <leader>bt :btags<CR>
 nnoremap <leader>bi :bicon<CR>
 
 
-" feedSomeKeys_3.js {{{2
+" feedSomeKeys_3.js                                  {{{2
 " LDR / fastladder
 command! -nargs=+ lazyfmapsldr lazy fmaps -urls='http://(reader\.livedoor\.com|fastladder\.com)/reader' <args>
 lazyfmapsldr j k s a p o v r w W J K <Space> <S-Space> c z > <
@@ -395,7 +398,7 @@ lazyfmapspixiv j k p o
 lazyfmapspixiv i,tj
 
 
-" hint-tombloo-mod.js {{{2
+" hint-tombloo-mod.js                                {{{2
 javascript <<EOM
 liberator.globalVariables.hint_tombloo_specified_list = [
 	//['www\\.pixiv\\.net', 'Photo - Upload from Cache', false],
@@ -405,12 +408,12 @@ liberator.globalVariables.hint_tombloo_specified_list = [
 EOM
 
 
-" ime_controller.js {{{2
+" ime_controller.js                                  {{{2
 let g:ex_ime_mode = "inactive"
 let g:textarea_ime_mode = "inactive"
 
 
-" ldrize_cooperation.js {{{2
+" ldrize_cooperation.js                              {{{2
 noremap <leader>, :toggleldrc<CR>
 let g:ldrc_enable = "true"
 let g:ldrc_captureMappings = "['j','k','p','o']" 
@@ -419,7 +422,7 @@ let g:ldrc_hints = "true"
 let g:ldrc_skip = "0.1"
 
 
-" localkeymode.js {{{2
+" localkeymode.js                                    {{{2
 let g:localkeymode_enable = "true"
 js <<EOM
 liberator.globalVariables.localKeyMappings = [
@@ -440,11 +443,11 @@ liberator.globalVariables.localKeyMappings = [
 EOM
 
 
-" maine_coon.js {{{2
+" maine_coon.js                                      {{{2
 let g:maine_coon_style = "height: 1em; margin: 0; padding: 3px; border: none; text-align: left; color: #7090d0; font: 11px/1 sans-serif; background: #0c0c0c;"
 
 
-" multi_requester.js {{{2
+" multi_requester.js                                 {{{2
 noremap <leader>me :mr<Space>alc<Space>
 noremap <leader>mt :mr<Space>twitter-search-pcod-no-jp<Space>
 noremap <leader>mT :mr<Space>twitter-search-pcod-no-jp<Space>mashiroli<CR>
@@ -452,11 +455,11 @@ noremap <leader>mf :mr<Space>favotter-new<Space>
 noremap <leader>mF :mr<Space>favotter-new<Space>mashiroli<CR>
 
 
-" no_reading.js {{{2
+" no_reading.js                                      {{{2
 let g:no_reading_do_echo = 1
 
 
-" refcontrol.js {{{2
+" refcontrol.js                                      {{{2
 let g:refcontrol_enabled = "true"
 javascript <<EOM
 liberator.globalVariables.refcontrol = {
@@ -471,12 +474,12 @@ liberator.globalVariables.refcontrol = {
 EOM
 
 
-" sbmcommentsviewer.js {{{2
+" sbmcommentsviewer.js                               {{{2
 let g:def_sbm_format = "timestamp,id,tags,comment"
 let g:def_sbms = "h"
 noremap <leader>bc :viewSBMComments<CR>
 
-" epub-reader.js {{{2
+" epub-reader.js                                     {{{2
 let g:epub_reader_map_next= '>';
 let g:epub_reader_map_prev= '<';
 let g:epub_reader_map_nextchapter= '<<';
@@ -486,7 +489,7 @@ let g:epub_reader_map_prevchapter= '<<';
 " let g:epub_reader_map_jump= '<<';
 
 
-" uaSwitchLite.js {{{2
+" uaSwitchLite.js                                    {{{2
 
 javascript <<EOM
 liberator.globalVariables.useragent_list = [{
@@ -573,11 +576,11 @@ description: "iPhone 3.0" ,
 }];
 EOM
 
-" statusline-toolbar.js {{{2
+" statusline-toolbar.js                              {{{2
 lazy set statuslinetoolbars=feed-button,lpt_lastpass-compact-btn,greasemonkey-tbb
 
-" Javascripts {{{1
-" はてなブックマーク拡張 {{{2
+" Javascripts                                        {{{1
+" はてなブックマーク拡張                  {{{2
 javascript <<EOF
 if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
 
@@ -622,7 +625,7 @@ liberator.globalVariables.hBookmark_search_max_limit = 100;
 EOF
 
 
-" ユーザースタイルシートを読み込む {{{2
+" ユーザースタイルシートを読み込む   {{{2
 javascript <<EOM
 (function(){
 	let filter = new RegExp('^.*\.css$');
@@ -639,7 +642,7 @@ javascript <<EOM
 EOM
 
 
-" Toggle Autopagerize {{{2
+" Toggle Autopagerize                                {{{2
 javascript <<EOM
 	let (evaluateXPath = util.evaluateXPath || buffer.evaluateXPath) {
 		commands.addUserCommand(
@@ -659,7 +662,7 @@ EOM
 
 
 
-" Styles {{{1
+" Styles                                             {{{1
 style -name liberator-bottombar-fix chrome://* <<EOM
   liberator-statusline,
   liberator-customize-toolbar {
@@ -675,7 +678,7 @@ style -name liberator-bottombar-fix chrome://* <<EOM
 EOM
 
 
-" AutoCmds {{{1
+" AutoCmds                                           {{{1
 " Minibuffer オブジェクト取れなくなってしまったのでとりあえず無効に
 "lazy minibuffer LDRize::disable-smooth-scroll
 
@@ -718,7 +721,7 @@ EOM
 "EOM
 
 
-" End {{{1
+" End                                                {{{1
 
 """""""""""""""""""""""
 """" Colorsscheme """""
@@ -760,4 +763,4 @@ highlight Title color: #ddc; background: #333; font-weight: bold;
 highlight URL color: #080; text-decoration: none; padding: 0 2px;
 highlight URL:hover color: #880; background-color: #222; -moz-border-radius: 5px; cursor: pointer;
 
-" vim: ts=2 sw=2 sts=2 fdm=marker ft=vimperator
+" vim: ts=2 sw=2 sts=2 ft=vimperator fdm=marker

@@ -1,4 +1,4 @@
-" vim: fdm=marker
+" vim:ft=vim fdm=marker
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   MAPPINGS                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -118,7 +118,7 @@ vnoremap  <f7>  :'<,'>LanguageToolCheck<cr>:vertical  lopen  80<CR>
 " <f8>  " spellcheck                                                         " {{{2
 
 " switch spellcheck languages
-" func: toggle languages                                                     " {{{2
+" func: toggle languages                                                     " {{{3
 " http://vim.wikia.com/wiki/toggle_spellcheck_with_function_keys
 
 let b:mylang=0
@@ -153,7 +153,7 @@ inoremap <s-m-f8> <ESC>:call AutoCorrect()<CR>
 " <f9>  " toggle linewrapping, -numbers and foldcolumn etc.                  " {{{2
 
 " toggling textwidth
-" func: toggle through textwidth                                             " {{{2
+" func: toggle through textwidth                                             " {{{3
 
 let b:mytextwidth=0
 let g:mytextwidthlist=["0","72","80","115"]
@@ -177,7 +177,7 @@ vnoremap <f9> <ESC>:call ToggleTextwidth()<CR>
 inoremap <f9> <ESC>:call ToggleTextwidth()<CR>
 
 "toggle linewrapping
-" func: ToggleWrap                                                             {{{2
+" func: ToggleWrap                                                             {{{3
 
 fun! ToggleWrap()
     if &fo =~ "t"
@@ -195,7 +195,7 @@ nnoremap <s-f9> :call ToggleWrap()<cr>
 nnoremap <s-f9> <esc>:call ToggleWrap()<cr>
 
 " toggle foldcolumn on left
-"" func: toggle foldcolumn                                                     {{{2
+"" func: toggle foldcolumn                                                     {{{3
 
 fun! ToggleFoldColumn()
     if &foldcolumn
@@ -219,7 +219,7 @@ inoremap <s-c-f9> <c-o>:call TogglePaste()<cr>
 nnoremap <f10> :call ToggleYCM()<CR>
 inoremap <f10> <ESC>:call ToggleYCM()<CR>
 
-" "Enable Neocomplete <Plugin>                                               " {{{2
+" "Enable Neocomplete <Plugin>                                               " {{{3
 
 " nnoremap <S-f10> :NeoCompleteToggle<cr>
 " vnoremap <S-f10> <esc>:NeoCompleteToggle<cr>
@@ -452,7 +452,7 @@ nmap cy :normal yygcc<cr>
 nmap cp :normal yygccp<cr>
 nmap yp :normal yyp<cr>
 
-" tCommenter <plugin>                                                        " {{{2
+" Vundle <plugin>                                                            " {{{2
 
 "call bundlelist
 nnoremap <leader>bl :BundleList<cr>
@@ -687,12 +687,12 @@ endfun
 
 " offline searches                                                           " {{{2
 
-"appending to the previous search pattern the current word under the cursor  " {{{2
+"appending to the previous search pattern the current word under the cursor  " {{{3
 
 "http://stackoverflow.com/a/9261779
 nnoremap <leader>as :let @/.='\\|\<'.expand("<cword>").'\>'<cr>
 
-"search for a word in ding/dict/thes"                                        " {{{2
+"search for a word in ding/dict/thes"                                        " {{{3
 
 " ding
 nnoremap <leader>dg :exe "!ding " . shellescape(expand("<cword>"))<cr><cr>
@@ -705,17 +705,12 @@ nnoremap <leader>dt :exe "!othes " . shellescape(expand("<cword>"))<cr>
 vnoremap <leader>dt :<c-u>!othes <c-r>=GetVisualSelection()<cr>
 
 
-" make 'very magic' string search the default                                " {{{2
-
-" nnoremap / /\v
-" cnoremap :s/ :s/\v
-
 " Add Abbreviations                                                          " {{{1
 
 "mapping to automatically add an abbreviation
 nnoremap <leader>ab <sid>:call AddAbbr()<cr>
 vnoremap <leader>ab <sid>:call AddAbbr()<cr>
-""" func: abbreviations                                                      " {{{2
+"" func: abbreviations                                                      " {{{2
 
 "" an abbreviation is a short form of long text e.g. mfg mit freundlichen grüßen
 "" its found in ~/.vim/ftplugin/tex.vim (at the eof)

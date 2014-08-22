@@ -80,39 +80,40 @@
 	grc	= config --get-regexp		# search for custom regexpression
 
 #	=================================
-#	=	commit to project	=
+#	=	clean & remove		=
 #	=================================
-
-# clone
-	cl	= clone --progress -v		# -v needs to be set AFTER --progress, else it won't work
-						# choose
-	a	= add -A			# ...<filename> or regexpr
-	aa	= add -A .
-	ac	= "!git add -A . && git commit -m"
-	ai	= add -i			# add modified contents interactively to the index
-						# unchoose
-
-#  clean & remove
 	cf	= clean -f			# clean working dir
 	cfd	= clean -fdx			# id., <-d> flag to delete new directories, <-x> hidden files
 	rm	= rm -rf			# ...<filename> unversion and delete
 	rms	= rm -r --cached		# ...<filename> unversion, but leave in working copy
+	rmc	= rm -r --cached .metadata	# remove and apply .gitignore (grmc && grms <filename>)
 
-# commit
-	c	= commit -m			# ...commitmessage.
+#	=================================
+#	=	commit to project	=
+#	=================================
+	a	= add -A			# ...<filename> or regexpr
+	aa	= add -A .
+	ai	= add -i			# add modified contents interactively to the index
+						# unchoose
+	c	= commit -a			# ...commit.
 	cx	= commit -m fixup!		# ...commit changes and discard message later
 	cs	= commit -m squash!		# ...commit changes and change message later (rebase -i)
-	ca	= commit -am			# ...commit modified and deleted files only + message
+	cm	= commit -am			# ...commit modified and deleted files only + message
+	ca	= "!git add -A . && git commit -m" # ...commit modified, deleted and new files
 	cam	= commit --amend -c HEAD	# update last commit
 	fcam	= commit --amend -C HEAD	# update last commit, and use same commit message
 
-# revert & reset
+#	=================================
+#	=	revert & reset		=
+#	=================================
 	rv	= revert			# <HEAD> undo all commited stages to the point of <HEAD>
-	rs	= reset --			# ...<filename> -- take a single added file off the index again
+	rs	= reset --			# ...<filename> take a single added file off the index again
 	rsh	= reset --hard			# <HEAD> undos all changes in working copy, cannot be reverted
 	rss	= reset --soft			# <HEAD> moves HEAD pointer only to <HEAD>
 
-#  name stuff properly
+#	=================================
+#	=	name stuff properly	=
+#	=================================
 						# tag
 	t	= tag				# create annotaded tag: <tag> -m <explanation>
 	tl	= tag -n			# show existing tags with messages
@@ -130,6 +131,8 @@
 #	=================================
 
 #  push & pull
+	cl	= clone --progress -v		# -v needs to be set AFTER --progress, else it won't work
+						# choose
 	f	= fetch
 	p	= !git rebase -i --autosquash && git push origin
 	pp	= push origin			# push origin <branch>
