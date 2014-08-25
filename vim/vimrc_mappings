@@ -766,7 +766,7 @@ vnoremap <silent>gr :<c-u>call <SID>GrepOperator(visualmode())<cr>
 
 nnoremap <silent>gz :set operatorfunc=<SID>UrlOperator<cr>g@
 vnoremap <silent>gz :<c-u>call <SID>UrlOperator(visualmode())<cr>
-
+nnoremap <silent>gzz :normal gz$<cr>
 
 " Edit Words & Lines                                                         " {{{1
 
