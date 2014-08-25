@@ -113,6 +113,8 @@ nnoremap <A-j> 3j
 nnoremap <A-k> 3k
 nnoremap <A-h> 3h
 nnoremap <A-l> 3l
+nnoremap f F
+nnoremap F f
 
 " tab
 nnoremap l <C-n>
@@ -259,6 +261,7 @@ silent qmark h http://www.hotmail.com/
 silent qmark H http://translate.google.de/translate_t?hl=de&sl=en&tl=de#
 silent qmark i http://www.instapaper.com/u
 silent qmark j http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
+silent qmark k http://www.kicker.de/news/fussball/bundesliga/startseite.html
 silent qmark l http://reader.livedoor.com/reader/
 silent qmark m https://mail.google.com/mail/
 silent qmark r http://www.reddit.com
@@ -266,6 +269,7 @@ silent qmark M http://mixi.jp/home.pl
 silent qmark s https://soundcloud.com/stream
 silent qmark t http://twitter.com/home/
 silent qmark T http://www.tumblr.com/dashboard/
+silent qmark u http://speedtest-1.unitymedia.de/
 silent qmark p http://www.pixiv.net/mypage.php
 silent qmark w http://www.wolframalpha.com/
 silent qmark W https://wave.google.com/wave/

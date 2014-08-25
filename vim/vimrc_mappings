@@ -347,6 +347,10 @@ nnoremap <leader>ap :'{,'}Align!<space>p
 vnoremap <leader>ap <esc>:'{,'}Align!<space>p
 
 " AlignCtrl
+nnoremap <leader>ac :AlignCtrl<space>
+vnoremap <leader>ac <esc>:AlignCtrl<space>
+
+" AlignCtrl
 nnoremap <leader>ag :AlignCtrl g<space>
 vnoremap <leader>ag <esc>:AlignCtrl g<space>
 nnoremap <leader>av :AlignCtrl v<space>

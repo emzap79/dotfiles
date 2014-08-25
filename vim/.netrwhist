@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/zapata/.vim/bundle/vim-snippets'
 let g:netrw_dirhist_2='/home/zapata/.vim/bundle/vim-snippets/UltiSnips'
 let g:netrw_dirhist_3='/home/zapata/Dokumente/Linux/QRCs/.git'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/home/zapata/Unimaterialien/Sommer2014/BAArbeit/main/sect
 let g:netrw_dirhist_5='/home/zapata/.vimperator'
 let g:netrw_dirhist_6='/home/zapata/texmf/bibtex/bst/emzap'
 let g:netrw_dirhist_7='/home/zapata/.vimperator'
+let g:netrw_dirhist_8='/etc/modprobe.d'

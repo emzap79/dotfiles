@@ -6,9 +6,9 @@
 # export aliases="~/.bash/aliases"
 export chall=reformat_surnames
 
-# basic aliases# #{{{
+# basic aliases                             # {{{1
 
-# ls # #{{{
+# ls                                        # {{{2
 
 # on linux:
 # https://github.com/sjas/.dotfiles
@@ -41,8 +41,7 @@ alias vla='ls $LS1 $LS2 $LS3 -A  | grep ".*" | less -R'      # also lists hidden
 alias vl='ls $LS1 $LS2 $LS3 -Al | grep ".*" | less -R'      # list of files
 alias vll='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R'      # like before, but lists hidden files, too
 
-# ls # #}}}
-# du#{{{
+# du                                        # {{{2
 
 # show size of current folder/subfolder/dotfiles
 alias du='du -h'
@@ -51,8 +50,7 @@ alias duf=fun_dus
 # alias dufss="du -hsx * | sort -rh | head -10"  # http://www.commandlinefu.com/commands/view/13328/provide-the-ten-largest-subfolders-in-the-current-folder
 # alias dufsss="du -ks .?* | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
 
-# du#}}}
-# cd#{{{
+# cd                                        # {{{2
 
 alias cd=fun_cd
 alias cdd=fun_fd
@@ -122,16 +120,14 @@ alias cdusb="cd /media/zapata/ES02224159"
 alias cdusbsem="cd /media/zapata/ES02224159/$SEM"
 alias cdwdp="cd /media/zapata/WDP"
 
-# cd#}}}
-# mkdir#{{{
+# mkdir                                     # {{{2
 
 alias mkdir='mkdir -p'
 alias mkmailb='mkdir -p $HOME/tmp/mails/{cur,new,tmp}'
 alias mkcd=fun_mkcd     # mkdir -p $1 && cd $1
 alias mkcp=fun_mkcp
 
-# mkdir#}}}
-# history# {{{
+# history                                   # {{{2
 
 alias c='clear'
 alias h='history 100'
@@ -139,22 +135,19 @@ alias h='history 100'
 alias hs="history | fzf +s"
 alias hsg="history|grep -i"
 
-# }}}
-# sed # {{{
+# sed                                       # {{{2
 
 alias convbib="sed -i 's/^ *owner=.*/   owner={Jonas Petong},/g;s/{{/{/g;s/}}/}/g'"
 alias convuml="sed -i 's/Ã¶/ö/g;s/Ã¼/ü/g;s/ÃŸ/ß/g;s/Ã¤/ä/g;s/Ã„/Ä/g;s/Ãœ/Ü/g;s/Ã–/Ö/g;s/Ã©/Ë/g'"
 alias convdir="sed -i 's/\([\&\)\(]\)/\\\1/g;s/\(.*\)\/.*/ \1/'"
 
-# }}}
-# grep# {{{
+# grep                                      # {{{2
 
 alias vgrep='fun_grepv'
 alias grep='grep --color=always -i -n'
 alias grepc=fun_grepc
 
-# grep# }}}
-# find & locate # #{{{
+# find & locate                             # {{{2
 
 # locate
 alias lc="locate -i"
@@ -173,15 +166,16 @@ alias ffi="find -type f -exec file {} \; | grep -o -P '^.+: \w+ image'"     # fi
 alias dupetrack1="find . -type f | sed -e 's/^\(.*\)\.\([[:digit:]]\)\.\(mp3\|ogg\|flac\)/\1/g;s/^\(.*\)\.\(mp3\|ogg\|flac\)/\1/g' | uniq -d"
 alias dupetrack2="find . -type f -regextype sed -iregex '^.*\.[[:digit:]]\.\(mp3\|flac\|ogg\)'"
 
-# find & locate # #}}}
-# remove#{{{
+# remove                                    # {{{2
 
 alias chmrm=fun_chmod_remove
 
-# remove#}}}
+# sudos
+alias vimgolf="sudo vimgolf"
+alias clamsc="sudo /usr/bin/clamscan --scan-swf=no -r / > /tmp/clamav.log 2>&1" # http://bit.ly/1zrZw4s
+alias clamscan="sudo /usr/bin/clamscan --scan-swf=no -ri"   # <directory> to scan specific path
 
-# basic aliases# #}}}
-# command_not_found#{{{
+# command_not_found                         # {{{2
 
 # this function lets you call predefined snippet-commands from the CLI, which
 # makes spaces after a command obsolete. no need to explicitly define an alias
@@ -237,25 +231,22 @@ command_not_found_handle() {
   return 127
 }
 
-# command_not_found#}}}
-# programs# #{{{
+# programs                                  # {{{1
 
-# xclip# {{{
+# xclip                                     # {{{2
 
 alias xc='xclip -selection c'
 alias xv='xclip -selection o'
 alias pwdc="pwd | xclip; source ~/.bashrc"
 alias pwdp=`xclip -o`     # Error: target STRING not available
 
-# }}}
-# vim# #{{{
+# vim                                       # {{{2
 
 # vimgolf
 # http://stackoverflow.com/a/8931728/3569509
 if [[ -e /home/${USER}/Dokumente ]]; then
     alias vgolf='cd $VGOLF && /bin/bash $VGOLF/vimGolf.sh'
 fi
-alias vimgolf="sudo vimgolf"
 
 # encrypted password file
 alias ve=fun_vim_passw
@@ -282,8 +273,7 @@ alias vs="vim -S Session.vim"
 alias vv="echo "" > /tmp/foo.bar; vim -c startinsert /tmp/foo.bar"
 alias vcl=fun_clean
 
-# vim# #}}}
-# latex # #{{{
+# latex                                     # {{{2
 
 # alias egoek="evince $UNI/$SEM/GOEK/klausur.pdf $UNI/$SEM/GOEK/WS1314*.pdf $UNI/$SEM/GOEK/WS1112MikroII_Mitschrift.pdf $UNI/$SEM/GOEK/SS11MikroI_Mitschrift.pdf &"
 
@@ -298,8 +288,7 @@ if [[ -e /home/${USER}/Dokumente ]]; then
     alias esymb="evince $DOK/LaTeX/docLatex_Sonderzeichen.pdf &"
 fi
 
-# latex # #}}}
-# pdf# #{{{
+# pdf                                       # {{{2
 
 alias pdfbar="pdftk *.pdf cat output bar.pdf; evince bar.pdf; rm -v bar.pdf"
 alias pdfgrayscale="gs -sOutputFile=grayscale.pdf -sDEVICE=pdfwrite \
@@ -310,8 +299,7 @@ alias pdfresize="/bin/bash $HOME/bin/pdfResize.sh"
 alias pdfsplit="/bin/bash $HOME/bin/pdfPagesToParts.sh"
 alias pdfimg=fun_pdf_image_extract
 
-# pdf# #}}}
-# latex# #{{{
+# latex                                     # {{{2
 
 alias md="make read"
 alias ma="make all"
@@ -327,16 +315,14 @@ alias mvip="make vimpr"
 alias mmc="make mc"
 alias mw=fun_loop_pdflatex
 
-# latex# #}}}
-# mutt, newsbeuter # {{{
+# mutt, newsbeuter                          # {{{2
 
 alias muttt='pkill fetchmail; fetchmail -v --ssl; mutt'
 alias mb="/bin/bash $HOME/bin/muttb"
 alias nb="pkill newsbeuter; newsbeuter"
 # alias mutt='/usr/bin/mutt -y'
 
-# }}}
-# beet# {{{
+# beet                                      # {{{2
 
 alias bc="bc -l"
 alias bt='ls "$VOL/$mus"; du -h -d0 "$VOL/$mus"; beet ls; head -n 2 ~/.logfiles/beets.list'
@@ -344,8 +330,7 @@ alias btls='ls "$VOL/$(ls -tcr $VOL | grep MSK | tail -n 1)"'
 alias btmv='beet mv -d "$VOL/$(ls $VOL/ | grep MSK | sort | tail -n 1)"; yes y | beet rm; killall beet; killall beet'
 alias btst='while true; do cronBeet; done'
 
-# }}}
-# vlc# {{{
+# vlc                                       # {{{2
 
 # http://linuxundich.de/ubuntu/den-live-stream-der-ard-unter-linux-mit-vlc-oder-mplayer-ansehen/
 alias tvard='vlc rtsp://daserste.edges.wowza.gl-systemhaus.de/live/mp4:daserste_int_1600'
@@ -354,8 +339,7 @@ alias tvzdfneo='vlc rtsp://3gp-livestreaming1.zdf.de/liveedge2/de09_v1_710.sdp'
 alias tvzdfkultur='vlc rtsp://3gp-livestreaming1.zdf.de/liveedge2/de07_v1_710.sdp'
 alias tvzdfinfo='vlc rtsp://3gp-livestreaming1.zdf.de/liveedge2/de08_v1_710.sdp'
 
-# }}}
-# youtube# #{{{
+# youtube                                   # {{{2
 
 alias yt-dl="youtube-dl -x --audio-format mp3"
 alias yt-mps="mpsyt"
@@ -364,34 +348,29 @@ alias yt-vlc-novideo="cvlc -V novideo "
 alias yt-mplayer=fun_youtbmp
 alias yt="mpsyt"
 
-# youtube# #}}}
-# mplayer#{{{
+# mplayer                                   # {{{2
 
 alias mpvh="mpv --list-options|less"
 alias selfie="mplayer -vo png -frames 1 tv:// -tv width=1280:height=720" # Take a single 1280x720 picture of your TV input, which is often your webcam
 alias mstream=fun_mplayer_stop_stream
 
-# mplayer#}}}
-# fzf - fuzzyfinder#{{{
+# fzf - fuzzyfinder                         # {{{2
 
 alias fe=fun_fe
 alias fd=fun_fd
 alias fh=fun_fh
 alias fkill=fun_fkill
 
-# fzf - fuzzyfinder#}}}
 
-# programs# #}}}
-# miscellanious# #{{{
+# miscellanious                             # {{{1
 
-# dictionaries#{{{
+# dictionaries                              # {{{2
 
 # https://github.com/soimort/google-translate-cli
 alias trs="trs {=de}"   # google translator
 alias ot=fun_open_thesaurus
 
-# dictionaries#}}}
-# alert # {{{
+# alert                                     # {{{2
 
 # Add an "alert" alias for long running commands.
 # http://askubuntu.com/questions/339499/bash-taking-a-lot-of-time-to-load
@@ -400,13 +379,11 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal ||\
     echo error)" "$(history|tail -n1|sed -e \
     '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# }}}
-# birthday#{{{
+# birthday                                  # {{{2
 
 alias bday="cat $HOME/.birthdays | grep -i"
 
-# birthday#}}}
-# short commands# #{{{
+# short commands                            # {{{2
 
 # some of it taken from https://github.com/sjas/.dotfiles
 
@@ -438,8 +415,7 @@ alias html2pdf="for i in *.html; do wkhtmltopdf $i $(basename $i .html).pdf; don
 alias img2pdf=fun_conv_img_to_pdf
 alias architecture="echo $(lsb_release -sri | tr '\n' ' ') && echo $(gnome-shell --version) && uname -srm"
 
-# short commands# #}}}
-# sudo commands#{{{
+# sudo commands                             # {{{2
 
 alias reboot='sudo reboot'
 alias halt='sudo halt'
@@ -456,29 +432,24 @@ s() {
     fi
 }
 
-# sudo commands#}}}
-# set wallpaper#{{{
+# set wallpaper                             # {{{2
 
 alias wallpaper=fun_set_wallp
 
-# set wallpaper#}}}
-# gnome settings#{{{
+# gnome settings                            # {{{2
 
 alias gnomeapps=fun_gnome
 
-# gnome settings#}}}
-# miscellanious# #}}}
-# system & internet#{{{
+# system & internet                         # {{{1
 
-# journal#{{{
+# journal                                   # {{{2
 
 alias jrn="less /var/log/syslog"
 alias shwlg="find /var/log -iregex '.*[^\.][^0-9]+$' -not -iregex '.*gz$' 2> /dev/null | xargs tail -n0 -f | ccze -A"  # http://bit.ly/1oK5eNz
 
-# journal#}}}
-# wlan etc#{{{
+# wlan etc                                  # {{{1
 
-# ssh# #{{{
+# ssh                                       # {{{2
 
 alias uoek="rsync --progress -auve ssh --iconv=UTF-8,ISO8859-1 --exclude '^.' --exclude '*~' --delete $UNI/$SEM/CompOek/ sdjopeto@student.uni-due.de:public_html/CompOek"
 alias usync="/bin/bash $HOME/bin/cronSyncSsh"
@@ -486,8 +457,7 @@ alias cruzer='usync cruzer'
 alias backup="/bin/bash $HOME/bin/cronBackup start"
 alias sshkey="ssh-keygen -t rsa -C" # "your_email@example.com"
 
-# ssh# #}}}
-# git# #{{{
+# git                                       # {{{2
 
 # few git aliases which are not getting called by 'fun_git'
 alias gst="g st"    # originally mapped to GNU Smalltalk
@@ -512,14 +482,12 @@ alias ginfo=fun_gitinfo
 alias gstats=fun_gitstats
 alias gbt=fun_git_set_tracking_information
 
-# git# #}}}
-# curl # #{{{
+# curl                                      # {{{2
 
 alias urlexpd=fun_expandurl
 alias urlshrt="/bin/bash $HOME/bin/urlShortener.sh"
 
-# curl # #}}}
-# aptitude# #{{{
+# aptitude                                  # {{{2
 
 alias inst="sudo apt-get install -y"
 alias agi='sudo apt-get install -y'
@@ -528,14 +496,12 @@ alias apt-get='sudo apt-get'
 alias yum='sudo yum'
 alias upgr="/bin/bash ~/bin/upgrSoftw.sh && /usr/bin/python ~/bin/upgrPipPackages.py"
 
-# aptitude# #}}}
-# vpnc#{{{
+# vpnc                                      # {{{2
 
 alias vpnc="sudo vpnc /etc/vpnc/default.conf"
 alias vpnd="sudo vpnc-disconnect"
 
-# vpnc#}}}
-# wlan & ip-adresse#{{{
+# wlan & ip-adresse                         # {{{2
 
 alias ips=fun_ips           # IP-Adresse and more
 alias mac="netstat -ei"     # Mit dem Befehl "netstat -ei" erhält man die
@@ -543,12 +509,9 @@ alias mac="netstat -ei"     # Mit dem Befehl "netstat -ei" erhält man die
                             # hat die primäre Netzwerkkarte die Bezeichnung
                             # "eth0" (Hardware-Adresse = MAC Adresse)
 
-# wlan & ip-adresse#}}}
 
-# wlan etc#}}}
 
-# system & internet#}}}
-# tmux #{{{
+# tmux                                      # {{{2
 
 # Change the TERM environment variable (to get 256 colors) and make Vim
 # connecting to X Server even if running in a terminal emulator (to get
@@ -585,12 +548,11 @@ if [[ -f "/home/${USER}/.vim/bundle/tmux-config/tmux-autwrite/autowrite-vim.sh" 
     source ~/.vim/bundle/tmux-config/tmux-autowrite/autowrite-vim.sh
 fi
 
-# TMUX#}}}
-# functions#{{{
+# functions                                 # {{{1
 
-# gitfunctions# {{{
+# gitfunctions                              # {{{2
 
-# gitinfo#{{{
+# gitinfo                                   # {{{3
 
 fun_gitinfo() {
     if [ -n "$(git symbolic-ref HEAD 2> /dev/null)" ]; then
@@ -620,8 +582,7 @@ fun_gitinfo() {
     fi
 }
 
-# gitinfo#}}}
-# gitstats#{{{
+# gitstats                                  # {{{3
 
 # Get various Git statistics
 # Awesome work from https://github.com/esc/git-stats
@@ -662,8 +623,7 @@ fun_gitstats() {
     fi
 }
 
-# gitstats#}}}
-# git commit/push/remote#{{{
+# git commit/push/remote                    # {{{3
 
 # add repo to remote tracking file
 fun_gitrem() { git remote add origin ssh://git@github.com/emzap79/$1 ; }
@@ -685,8 +645,7 @@ fun_git_set_tracking_information() {
     git branch --set-upstream-to=origin/$1 $1
 }
 
-# git commit/push/remote#}}}
-# clean tempfiles/swapfiles#{{{
+# clean tempfiles/swapfiles                 # {{{3
 
 fun_clean() {
     find . -name "#*#" | xargs -n1 -i rm -v {}
@@ -699,8 +658,7 @@ fun_swap() {
     find . -name "*~"
 }
 
-# clean tempfiles/swapfiles#}}}
-# add vim and tmux tempfiles#{{{
+# add vim and tmux tempfiles                # {{{3
 
 fun_ignore() {
     echo "" > .gitignore
@@ -711,10 +669,8 @@ fun_ignore() {
     git commit -am "gitignore ignores vim and tmux tempfiles"
 }
 
-# add vim and tmux tempfiles#}}}
 
-# gitfunctions# }}}
-# vimfunctions#{{{
+# vimfunctions                              # {{{3
 
 fun_vim() {
     if [ "$#" -eq 0 ]; then
@@ -741,17 +697,15 @@ fun_vim_passw() {
     vim -u $FILEDIR/_vimrc $FILEDIR/_config.pw
 }
 
-# vimfunctions#}}}
-# extract & convert#{{{
+# extract & convert                         # {{{2
 
-# fun: conv images to pdf#{{{
+# fun: conv images to pdf                   # {{{3
 
 fun_conv_img_to_pdf() {
 sam2p -e -pdf:2 "${1%%.*}"."${1##*.}" "${1%%.*}".pdf
 }
 
-# fun: conv images to pdf#}}}
-# fun: enroll packed files #{{{
+# fun: enroll packed files                  # {{{3
 
 # http://serverfault.com/a/3842
 fun_extract () {
@@ -777,8 +731,7 @@ fun_extract () {
 # comment: Newer versions of tar detect automatically the archive type, so can
 # extract all supported formats by just 'tar xvf' (to be tested!!)
 
-# fun: enroll packed files #}}}
-# fun: pdf image extract#{{{
+# fun: pdf image extract                    # {{{3
 
 fun_pdf_image_extract(){
 
@@ -786,12 +739,10 @@ fun_pdf_image_extract(){
 
 }
 
-# fun: pdf image extract#}}}
 
-# extract & convert#}}}
-# other#{{{
+# other                                     # {{{2
 
-# fun: locate#{{{
+# fun: locate                               # {{{3
 
 # http://serverfault.com/a/365843
 fun_locate_dir() {
@@ -803,44 +754,38 @@ fun_locate_dat() {
 locate "$@" | xargs file -NF '|' |grep 'data$' | sed 's/|.*data//g'
 }
 
-# fun: locate#}}}
-# fun: find#{{{
+# fun: find                                 # {{{3
 
 fun_ff() {
     find . -iname "*$**"
 }
 
-# find#}}}
-# fun: grep#{{{
+# fun: grep                                 # {{{3
 
-# grep - grep to vim#{{{
+# grep - grep to vim                        # {{{4
 
 fun_grepv(){
     vim `\grep -irl "$*" .`
 }
 
-# grep - grep to vim#}}}
-# grep - grep colored#{{{
+# grep - grep colored                       # {{{4
 # https://twitter.com/climagic/status/473916085541277696
 
 fun_grepc() {
 grep -rail "${@:1:$(($#-1))}" "${!#}"
 }
 
-# grep - grep colored#}}}
 
-# fun: grep#}}}
-# fun: mkdir#{{{
+# fun: mkdir                                # {{{3
 
-# mkcd - create dir and changedir to it#{{{
+# mkcd - create dir and changedir to it     # {{{4
 
 fun_mkcd(){
     mkdir -p "$1"
     cd "$1"
 }
 
-# mkcd - create dir and changedir to it#}}}
-# mkcp - create dir and insert copied files#{{{
+# mkcp - create dir and insert copied files # {{{4
 
 fun_mkcp(){
     # start with creating new directory
@@ -850,12 +795,10 @@ fun_mkcp(){
     cp -rv "${@:1:$(($#-1))}" "${!#}"
 }
 
-# mkcp - create dir and insert copied files#}}}
 
-# fun: mkdir#}}}
-# fun: fuzzy finder for shell#{{{
+# fun: fuzzy finder for shell               # {{{3
 
-# fzf - examples#{{{
+# fzf - examples                            # {{{4
 
 # https://github.com/junegunn/fzf#useful-examples
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
@@ -886,8 +829,7 @@ fun_fkill() {
   ps -ef | sed 1d | fzf -m | awk '{print $2}' | xargs kill -${1:-9}
 }
 
-# fzf - examples#}}}
-# fzf - tmux#{{{
+# fzf - tmux                                # {{{4
 # https://github.com/junegunn/fzf#using-fzf-with-tmux-splits
 
 # This is a helper function that splits the current pane to start the given
@@ -916,17 +858,14 @@ fzf_tmux_dir() {
 # Bind CTRL-X-CTRL-D to fzf_tmux_dir
 bind '"\C-x\C-d": "$(fzf_tmux_dir)\e\C-e"'
 
-# fzf - tmux#}}}
 
-# fun: fuzzy finder for shell#}}}
-# fun: ifconfig - print ip address#{{{
+# fun: ifconfig - print ip address          # {{{3
 
 fun_ips() {
 sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac | grep -i adr
 }
 
-# fun: ifconfig - print ip address#}}}
-# fun: ls - sort content by size#{{{
+# fun: ls - sort content by size            # {{{3
 
 fun_dus () {
     du --max-depth=0 -k * | sort -n | awk '{
@@ -941,8 +880,7 @@ fun_dsp() {
     dpkg-query --show --showformat='${Package;-50}\t${Installed-Size}\n' | sort -k 2 -n | grep -v deinstall | awk '{printf "%.3f MB \t %s\n", $2/(1024), $1}' | tail -n 300
 }
 
-# fun: ls - sort content by size#}}}
-# fun: pss ssh#{{{
+# fun: pss ssh                              # {{{3
 
 # fun: kk <nr. of line to kill from prev. command>
 #kk() {
@@ -961,26 +899,22 @@ fun_pss() {
     fi
 }
 
-# fun: pss ssh#}}}
-# fun: ls - show absolute path to file#{{{
+# fun: ls - show absolute path to file      # {{{3
 
 # fun: http://stackoverflow.com/a/14984302
 fun_absolute_path() { echo "$PWD/$1"; }  # alt: readlink -f
 
-# fun: ls - show absolute path to file#}}}
-# fun: curl - expand shortened urls#{{{
+# fun: curl - expand shortened urls         # {{{3
 
 # fun: http://www.commandlinefu.com/commands/view/9515/expand-shortened-urls
 fun_expandurl() { curl -sIL $1 | grep ^Location; }
 
-# fun: curl - expand shortened urls#}}}
-# fun: yt-dl - youtube-videos as ascii video#{{{
+# fun: yt-dl - youtube-videos as ascii video# {{{3
 
 # fun: http://annasagrera.com/on-ascii-youtube-and-letting-go/?lang=en
 fun_youtbmp() { youtube-dl $1 -o - | mplayer -vo aa -monitorpixelaspect 0.5 -; }
 
-# fun: yt-dl - youtube-videos as ascii video#}}}
-# fun: cd - show last edited files#{{{
+# fun: cd - show last edited files          # {{{3
 
 # fun: http://www.reddit.com/r/linux/comments/1zsn7r/a_bash_alias_i_cannot_function_without/cfwldex
 fun_cd() {
@@ -1012,8 +946,7 @@ fun_cd() {
     fi
 }
 
-# fun: cd - show last edited files#}}}
-# fun: latex#{{{
+# fun: latex                                # {{{3
 
 fun_latex_sweave() {
     # http://stackoverflow.com/a/4922768/3569509
@@ -1059,42 +992,35 @@ fun_loop_pdflatex() {
 
 }
 
-# fun: latex#}}}
-# fun: open thesaurus#{{{
+# fun: open thesaurus                       # {{{3
 
 fun_open_thesaurus() {
     egrep -i "$@" --color -h $HOME/.dictionaries/openthesaurus.txt | more
 }
 
-# fun: open thesaurus#}}}
-# fun: chmod + remove#{{{
+# fun: chmod + remove                       # {{{3
 
 fun_chmod_remove() {
     chmod 777 -R "$*" && rm -rv "$*"
 }
 
-# fun: chmod + remove#}}}
-# fun: calc - easy calculating in bash#{{{
+# fun: calc - easy calculating in bash      # {{{3
 
 # fun: http://unix.stackexchange.com/a/30486
 fun_calc () {
     bc -l <<< "$@"
 }
 
-# fun: calc - easy calculating in bash#}}}
-# fun: set wallpaper#{{{
+# fun: set wallpaper                        # {{{3
 
 fun_set_wallp() {
 gsettings set org.gnome.desktop.background picture-uri "file:///`pwd`/$1"
 }
 
-# fun: set wallpaper#}}}
-# fun: gnome settings#{{{
+# fun: gnome settings                       # {{{3
 
 fun_gnome() {
     gsettings set org.gnome.shell enabled-extensions "['auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'gnome-shell-imgur@ttll.de', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'notesearch@rrochet.fr', 'SkypeNotification@chrisss404.gmail.com', 'system-monitor@paradoxxx.zero.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'weather-extension@xeked.com', 'windowoverlay-icons@sustmidown.centrum.cz', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']"
 }
 
-# fun: other#}}}
 
-# fun: functions#}}}

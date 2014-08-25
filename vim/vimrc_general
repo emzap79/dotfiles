@@ -96,32 +96,32 @@ exec "set lcs=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 
 " editor                                                      " {{{2
 
-set ek                           " esckeys: no delay for ESC, but cannot use ESC as beginning of key sequence
+set ek                          " esckeys: no delay for ESC, but cannot use ESC as beginning of key sequence
 set t_Co=257
-set enc=utf-8                    " encoding: 8-bit (latin1, iso-8859), 2-bit or unicode (utf-8)
-set nf=octal,hex                 " nrformats: defines characters to increase by CTRL+A.
-                               " options: octal,hex,alpha
-set cf                           " confirm: get a dialog when :q, :w, or :wq fails
-set lz                           " lazyredraw: screen will only redraw once the macro has completed (speed up macros)
-set nopaste                      " paste: this is needed for use of abbreviations to be off
-set cb-=unnamed,unnamedplus      " clipboard: yank and copy to clipboard, X clipboard by default
-set tf                           " ttyfast: smoother changes
-set tsl=0                        " ttyscroll: turn off scrolling, didn't work well with PuTTY
-set ml                           " modeline: last lines in document sets vim mode
-set mls=3                        " modelines: number lines checked for modelines
-set nosol                        " startofline: jump to first character when paging
-set ofu=syntaxcomplete#Complete  " omnifunc: completion http://vim.wikia.com/wiki/Omni_completion
-set swb+=useopen,usetab          " switchbuf: This option controls the behavior when switching between buffers.
-                               " options are - useopen, usetab, split, newtab
-set noaw                         " autowrite: auto saves changes when quitting and swiching buffer
-set noar                         " autoread: Set to auto read when a file is changed from the outside
-set sm                           " showmatch: Show matching braces, somewhat annoying...
-set ul=1000                      " undolevels: number of undos
-set hi=2000                      " history: remember last 2000 typed commands
-set hid  " hidden: It hides buffers instead of closing them. Also, undo buffers and marks are
-         " preserved while the buffer is open.
-set nobk                         " backup: backup~ files.
-set bkc=auto                     " When writing a file and a backup is made, this option tells how it's done.
+set enc=utf-8                   " encoding: 8-bit (latin1, iso-8859), 2-bit or unicode (utf-8)
+set nf=octal,hex                " nrformats: defines characters to increase by CTRL+A.
+                                " options: octal,hex,alpha
+set cf                          " confirm: get a dialog when :q, :w, or :wq fails
+set lz                          " lazyredraw: screen will only redraw once the macro has completed (speed up macros)
+set nopaste                     " paste: this is needed for use of abbreviations to be off
+set cb-=unnamed,unnamedplus     " clipboard: yank and copy to clipboard, X clipboard by default
+set tf                          " ttyfast: smoother changes
+set tsl=0                       " ttyscroll: turn off scrolling, didn't work well with PuTTY
+set ml                          " modeline: last lines in document sets vim mode
+set mls=3                       " modelines: number lines checked for modelines
+set nosol                       " startofline: jump to first character when paging
+set ofu=syntaxcomplete#Complete " omnifunc: completion http://vim.wikia.com/wiki/Omni_completion
+set swb+=useopen,usetab         " switchbuf: This option controls the behavior when switching between buffers.
+                                " options are - useopen, usetab, split, newtab
+set noaw                        " autowrite: auto saves changes when quitting and swiching buffer
+set noar                        " autoread: Set to auto read when a file is changed from the outside
+set sm                          " showmatch: Show matching braces, somewhat annoying...
+set ul=1000                     " undolevels: number of undos
+set hid                         " hidden: It hides buffers instead of
+                                " closing them. Also, undo buffers and marks are
+                                " preserved while the buffer is open.
+set nobk                        " backup: backup~ files.
+set bkc=auto                    " When writing a file and a backup is made, this option tells how it's done.
 
 " search                                                      " {{{2
 
@@ -579,6 +579,9 @@ endif
 set stl+=%2*%=%((%{&ff}\|%{(strlen(&fenc)?&enc:&fenc)}%k\|%Y)%)
 set stl+=%2*\ %(%l,%v\|%02p%%\ %)                                 " current positon in file
 
+
+" history                                                       {{{2
+set hi=1000                     " history: remember last n typed commands
 
 " Functions & Autocommands                                    " {{{1
 
