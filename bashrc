@@ -1,7 +1,7 @@
 # vim:fdm=marker
-# export # #{{{
+# export # #{{{1
 
-# env#{{{
+# env#{{{2
 
 # to have a universal /bin folder in ~
 export PATH=~/bin:$PATH
@@ -12,8 +12,7 @@ export VISUAL='vim'
 export PYTHONPATH="/home/${USER}/lib/python"
 export LS3=''
 
-# env#}}}
-# paths#{{{
+# paths#{{{2
 
 export SEM="Sommer2014"
 export UNI="/home/zapata/Unimaterialien"
@@ -24,8 +23,7 @@ export VOL="/media/zapata/Volume"
 export USB="/media/zapata/ES02224159"
 export QRC="$LIX/QRCs"
 
-# paths#}}}
-# shopt #{{{
+# shopt #{{{2
 
 # shopt                   # lists all entries
 # shopt -s <list-entry>   # activates shopentry
@@ -59,8 +57,7 @@ shopt -s sourcepath
 shopt -s checkwinsize
 shopt -u nullglob
 
-# shopt #}}}
-# less#{{{
+# less#{{{2
 
 # ignorecase in search, status, no bell
 # -I ignorecase
@@ -94,8 +91,7 @@ export LESS_TERMCAP_ue=$'\E[0m'                       # end underline
 # Cyan        0;36     Light Cyan    1;36
 # Light Gray  0;37     White         1;37
 
-#}}}
-# start tmux#{{{
+# start tmux#{{{2
 
 
 # This snippet checks if tmux is installed before trying to launch it. It also
@@ -113,12 +109,10 @@ if which tmux 2>&1 >/dev/null; then
     done
 fi
 
-# start tmux#}}}
 
-# export # #}}}
-# history#{{{
+# history#{{{1
 
-# histcontrol#{{{
+# histcontrol#{{{2
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -139,7 +133,6 @@ cmus:\
 fg:\
 lst:\
 ls:\
-mutt:\
 muttb:\
 muttt:\
 vima:\
@@ -149,8 +142,7 @@ v:\
 vv"
 
 
-# histcontrol#}}}
-# hist-settings#{{{
+# hist-settings#{{{2
 
 # disable the appearence of the simbol ^C after pressing CTRL-C
 set echo-control-characters off
@@ -158,10 +150,8 @@ set echo-control-characters off
 # only necessary to press TAB once
 set show-all-if-ambiguous on
 
-# hist-settings#}}}
 
-# history#}}}
-# source#{{{
+# source#{{{2
 
 # eval $(ssh-agent|\grep -v echo)
 # ssh-add > /dev/null
@@ -173,8 +163,7 @@ source "/home/${USER}/.bash/aliases"      # ~/.bash/aliases
 # source git-prompt shell script
 source "/home/${USER}/.bash/git-sh-prompt"
 
-# source#}}}
-# prompt (PS1)#{{{
+# prompt (PS1)#{{{2
 
 # PS1 - The value of this parameter is expanded (see PROMPTING below) and used
 #       as the primary prompt string. The default value is \s-\v\$ .
@@ -251,8 +240,7 @@ export GIT_PS1_SHOWTRACKEDFILES=true      # will show a % if there are tracked f
 export GIT_PS1_SHOWUPSTREAM=auto          # will show a = if you are at the same commit, < if you are behind, >
                                           # if you are ahead and <> if you have diverged from the upstream branch.
 
-# prompt (PS1)#}}}
-# tmux#{{{
+# tmux#{{{2
 # http://stackoverflow.com/a/14396443/3569509
 
 case ${TERM} in
@@ -277,8 +265,7 @@ case ${TERM} in
         ;;
 esac
 
-# tmux#}}}
-# bash completion#{{{
+# bash completion#{{{2
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -291,16 +278,14 @@ if ! shopt -oq posix; then
     fi
 fi
 
-#}}}
-# grep#{{{
+# grep#{{{2
 
 # Exclude grepping through .svn folders.
 # http://stefaanlippens.net/how_to_be_a_better_grepper
 GREP_OPTIONS="--exclude-dir=\.svn"
 export GREP_OPTIONS
 
-#}}}
-# other settings#{{{
+# other settings#{{{2
 
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -316,10 +301,9 @@ xhost +local:zapata > /dev/null
 # [[ $DISPLAY ]] && xhost +localhost:$LOGNAME
 # [[ $DISPLAY ]] && xhost +local:$LOGNAME > /dev/null
 
-# other settings#}}}
-# colorscheme and paths#{{{
+# colorscheme and paths#{{{1
 
-# color --auto # {{{
+# color --auto # {{{2
 
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -331,15 +315,13 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# }}}
-# syntax-highlighting in less#{{{
+# syntax-highlighting in less#{{{2
 
 # http://blog.tersmitten.nl/how-to-enable-syntax-highlighting-in-less.html
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 
-# syntax-highlighting in less#}}}
-# colored prompt#{{{
+# colored prompt#{{{2
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
@@ -358,9 +340,7 @@ fi
 
 unset color_prompt force_color_prompt
 
-# colored prompt#}}}
 
-# colorscheme and paths#}}}
 
 # Lines added by the Vim-R-plugin command :RpluginConfig (2014-Jul-16 09:46):
 # Change the TERM environment variable (to get 256 colors) and make Vim

@@ -1,8 +1,3 @@
-http://127.0.0.1:31960/library/utils/html/write.table.html
-http://127.0.0.1:21070/library/base/html/subset.html
-http://127.0.0.1:15743/library/base/html/subset.html
-http://127.0.0.1:15743/doc/html/Search?pattern=dat
-http://127.0.0.1:17392/library/base/html/Random.html
 http://127.0.0.1:28390/library/utils/html/read.table.html
 http://127.0.0.1:27413/library/utils/html/read.table.html
 http://127.0.0.1:17278/library/utils/html/read.table.html
@@ -98,3 +93,8 @@ http://127.0.0.1:30479/library/stargazer/html/stargazer.html
 http://127.0.0.1:30479/library/stargazer/help/list%20of%20summary%20statistic%20codes
 http://127.0.0.1:31973/library/psych/html/describe.html
 http://127.0.0.1:30213/library/base/html/paste.html
+http://127.0.0.1:11712/library/graphics/html/hist.html
+http://127.0.0.1:22142/library/MASS/html/truehist.html
+http://127.0.0.1:22142/library/graphics/html/plot.html
+http://127.0.0.1:22142/library/graphics/html/hist.html
+http://127.0.0.1:22142/library/stats/html/ecdf.html

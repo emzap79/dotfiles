@@ -221,7 +221,7 @@ cmap <C-l> <Esc><C-l>
 " cmap <C-t> <Esc><C-t>
 
 """ Deactivate FF genuine keybinds
-inoremap <C-a> <Insert><C-a><Insert>
+" inoremap <C-a> <Insert><C-a><Insert>
 noremap <C-S-T> <Nop>
 noremap <C-t> <Nop>
 noremap <C-w> <Nop>
