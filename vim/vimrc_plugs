@@ -34,7 +34,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-obsession'
 Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround.git'
+Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tracyone/Align.git'
 Bundle 'vim-scripts/ExtractLinks'
@@ -228,7 +228,7 @@ sunmap e
 " VIS                                                  {{{2
 " " apply commmand only to Visual Block ":'<,'>B <command>"
 
-" vim-commentor                                        {{{2
+" Vim-Commentor                                        {{{2
 " define new line for comments
 autocmd FileType apache set commentstring=#\ %s
 
@@ -256,7 +256,6 @@ let g:targets_quotes = '"d '' ``t'
 " letter alias. To set 'c' as an alias for comma, allowing such commands as
 " 'dic' to be equivalent to 'di,', you could define:
 let g:targets_separators = ',c . ; : + - ~ _ * / \ | -h'
-"
 
 " VIM-Surround                                         {{{2
 

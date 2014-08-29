@@ -294,6 +294,7 @@ noremap gV `[v`]
 nnoremap <silent> <leader>erc :sp ~/.vimrc<cr>
 nnoremap <silent> <leader>es :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>ee :sp ~/.vim/vimrc_general<cr>
+nnoremap <silent> <leader>ev :sp ~/.vim/vimrc_vimgolf<cr>
 nnoremap <silent> <leader>ef :sp ~/.vim/vimrc_foldexpr<cr>
 nnoremap <silent> <leader>ec :sp ~/.vim/vimrc_colors<cr>
 nnoremap <silent> <leader>eb :sp ~/.vim/vimrc_mappings<cr>
@@ -1107,7 +1108,6 @@ function! s:GrepOperator(type)
 endfunction
 
 " Oper: Open URL                                                             " {{{2
-
 function! s:UrlOperator(type)
     let saved_unnamed_register = @@
     if a:type ==# 'v'

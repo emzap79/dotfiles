@@ -1,9 +1,3 @@
-http://127.0.0.1:28390/library/utils/html/read.table.html
-http://127.0.0.1:27413/library/utils/html/read.table.html
-http://127.0.0.1:17278/library/utils/html/read.table.html
-http://127.0.0.1:28324/library/base/html/merge.html
-http://127.0.0.1:14134/library/utils/html/read.table.html
-http://127.0.0.1:14134/library/base/html/tempfile.html
 http://127.0.0.1:14134/library/base/html/writeLines.html
 http://127.0.0.1:20227/library/base/html/system.html
 http://127.0.0.1:20227/library/base/html/paste.html
@@ -98,3 +92,9 @@ http://127.0.0.1:22142/library/MASS/html/truehist.html
 http://127.0.0.1:22142/library/graphics/html/plot.html
 http://127.0.0.1:22142/library/graphics/html/hist.html
 http://127.0.0.1:22142/library/stats/html/ecdf.html
+http://127.0.0.1:10369/library/graphics/html/plot.html
+http://127.0.0.1:17151/library/stats/html/ftable.html
+http://127.0.0.1:23113/library/utils/html/read.table.html
+http://127.0.0.1:23113/library/utils/help/Encoding
+http://127.0.0.1:23113/library/base/html/with.html
+http://127.0.0.1:23113/library/base/html/numeric.html

@@ -4,6 +4,21 @@ global !p
 import os
 from vimsnippets import complete
 
+ENCOD_TYPES = [
+'utf-8',
+'bytes',
+'latin1',
+'unknown']
+
+BOOLEAN_TYPES = [
+'TRUE',
+'FALSE']
+
+FILE_TYPES = [
+'csv',
+'xls',
+'table']
+
 FIELD_TYPES = [
 'character',
 'data.frame',
@@ -13,6 +28,7 @@ FIELD_TYPES = [
 'logical',
 'matrix',
 'numeric',
+'table',
 'vector']
 endglobal
 snippet as "Apply type on variable" w
@@ -20,12 +36,6 @@ as.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
 snippet is "Test type on variable" w
 is.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
-endsnippet
-snippet "-(\S+)?" "create generic command" ir
-`!p snip.rv = match.group(1) if match.group(1) is not None else "c"`(${1:${VISUAL}})
-endsnippet
-snippet "--(\S+)?" "surround by parenthesis" ir
-(${1:`!p snip.rv = match.group(1) if match.group(1) is not None else "c"`})
 endsnippet
 snippet "(\s|^)lib( (\S+))?" "Import a library" wr
 library("${1:`!p snip.rv = match.group(3) if match.group(2) is not None else ""`}")$0
@@ -44,6 +54,37 @@ endsnippet
 snippet str "Internal structure of an object" w
 str(${1:${VISUAL}})
 endsnippet
+snippet "(\S+)\(" "Close Brace" ri
+`!p snip.rv = match.group(1) if match.group(1) is not None else ""`(${1:${VISUAL}})
+endsnippet
+snippet read "Read from file" b
+read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}",
+		header=${3:TRUE or FALSE}, skip=${4:number of lines to skip before reading data},
+		sep='${5:field seperator}', dec='${6:decimal seperator}',
+		encoding='${7:utf-8|latin1|bytes|unknown}',
+		stringsAsFactors=${8:TRUE or FALSE}, fill=${9:TRUE or FALSE},
+		blank.lines.skip=${10:TRUE or FALSE},
+		${11:na.strings=c(${12:NA,"NA"," NA ","#N/A N/A"})})
+endsnippet
+snippet header "Include Packages" b
+# vim:fdm=marker:isk-=(,.,_
+
+#######################################################################
+#                         Configuration                               #
+#######################################################################
+library("MASS")
+library("chron")
+library("pastecs")
+library("lubridate")
+library("psych")    # describe()
+library("ggplot2")
+library("stargazer")
+library("rgl")
+library("plot3D")
+
+# set workingdir
+setwd$1
+endsnippet
 
 snippet req "Require a file"
 require(${0:package})
@@ -58,12 +99,12 @@ if (${1}) {
 endsnippet
 snippet eif "Else-If statement"
 else if (${1}) {
-	${0}
+	${0:${VISUAL}}
 }
 
 snippet el "Else statement"
 else {
-	${0}
+	${0:${VISUAL}}
 }
 endsnippet
 snippet ife "if .. else"
@@ -89,7 +130,7 @@ ${1:name} <- function (${2}) {
 }
 endsnippet
 snippet ret "Return call"
-return(${0})
+return(${0:${VISUAL}})
 endsnippet
 snippet df "Data frame"
 ${1:name}[${2:rows}, ${0:cols}]

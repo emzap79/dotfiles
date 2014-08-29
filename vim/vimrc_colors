@@ -1,5 +1,5 @@
 " vim:ft=vim fdm=marker
-" Colorscheme        " {{{2
+" Colorscheme        " {{{1
 
 let g:solarized_termcolors=256
 

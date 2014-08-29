@@ -1,9 +1,12 @@
 " vim:fdm=marker
-" Mappings for Vim-R
+" File: r.vim
+" Author: Jonas Petong
+" Description: Mappings for the R-VIM plugin
+" Last Modified: August 27, 2014
 
-" Config"{{{
+" Config                                     {{{1
 
-" R.rc"{{{
+" r.rc                                     " {{{2
 
 " iskeyword: Keywords for recognizing beginning/end of word eg. in movements like w,e...
 set isk-=.
@@ -12,8 +15,7 @@ set isk+=48-57
 set isk+=_
 set isk+=192-255"
 
-" R.rc"}}}
-" GVIM - disable menue items"{{{
+" gvim - disable menue items               " {{{2
 
 " Nicht genutzte Schaltflächen
 " aunmenu ToolBar.-sep1-
@@ -44,12 +46,10 @@ set isk+=192-255"
 
 " Menuepunkte ausblenden
 
-" GVIM - disable menue items"}}}
 
-" Config"}}}
-" Mappings"{{{
+" Mappings                                   {{{1
 
-" some previous notes"{{{
+" some previous notes                      " {{{2
 
 " NOTE: Only *(ivn)map* will work!
 " Start R from inside vim by hitting: <,rf>
@@ -58,8 +58,7 @@ set isk+=192-255"
 " RED, both "echo" and "down", eg. RDSendLine: send line under cursor and
 " jump to next line of code!
 
-" some previous notes"}}}
-" Start & Close R"{{{
+" start & close r                          " {{{2
 
 " Menu entry
 " Start/Close
@@ -75,8 +74,7 @@ nmap <localleader>qq <Plug>RClose
 imap <localleader>qq <esc><Plug>RClose
 vmap <localleader>qq <Plug>RClose
 
-" start & close R"}}}
-" Send Code to Console"{{{
+" send code to console                     " {{{2
 
 " Send Part of current line
 nmap <localleader>j <Plug>RNLeftPart
@@ -110,8 +108,7 @@ vmap <esc>b <Plug>RDSendMBlock
 nmap <localleader>b <Plug>RSendMBlock
 vmap <localleader>b <Plug>RSendMBlock
 
-" send code to console"}}}
-" Editing Commands"{{{
+" editing commands                         " {{{2
 
 " Command
 " . List space
@@ -158,49 +155,7 @@ vmap <silent><localleader>g <Plug>RSPlot
 nmap <silent><localleader>d <Plug>RSetwd
 vmap <silent><localleader>d <Plug>RSetwd
 
-" Editing Commands"}}}
-" Custom mappings & functions "{{{
-
-" assign argument under cursor in next line
-nmap <silent><localleader>- :normal! o0<CR>0v$
-vmap <silent><localleader>- :<C-u>exec "s/$/\r" . GetVisualSelection()<cr>0v$
-
-" define commands & actions
-
-"" SendCmdToR
-""" search help
-map <silent> <localleader>ss :call g:SendCmdToR("search()")<CR>
-map <silent> <localleader>ls :call g:SendCmdToR("ls()")<CR>
-map <silent> <localleader>di :call g:SendCmdToR("dir()")<CR>
-map <silent> <localleader>ma :call g:SendCmdToR("methods(as)")<CR>
-map <silent> <localleader>mi :call g:SendCmdToR("methods(is)")<CR>
-map <silent> <localleader>rm :call g:SendCmdToR("rm(list=ls())")<CR>
-map <silent> <localleader>rr :call 'g:SendCmdToR("' . shellescape(expand("<cword>")) . '")'<CR>
-
-"" RAction
-
-""" help on object
-map <silent> <localleader>sh :call RAction("help.search")<CR>
-
-""" range/min/max
-map <silent> <LocalLeader>mn :call RAction("min")<CR>
-map <silent> <LocalLeader>mx :call RAction("max")<CR>
-map <silent> <LocalLeader>rg :call RAction("range")<CR>
-"
-"" data characteristical information
-map <silent> <LocalLeader>hd :call RAction("head")<CR>
-map <silent> <LocalLeader>tl :call RAction("tail")<CR>
-map <silent> <localleader>at :call RAction("attributes")<CR>
-map <silent> <localleader>lt :call RAction("length")<CR>
-map <silent> <localleader>lv :call RAction("levels")<CR>
-map <silent> <localleader>st :call RAction("str")<CR>
-map <silent> <localleader>nm :call RAction("names")<CR>
-
-" assine value to variable ('<-')
-nmap <esc>- hEa<Space><-<Space>
-
-" Custom mappings & functions "}}}
-" GVIM - Mappings"{{{
+" gvim - mappings                          " {{{2
 
 nmap <M-1> 1gt
 imap <M-1> <esc>1gt
@@ -222,9 +177,45 @@ nmap <M-5> 5gt
 imap <M-5> <esc>5gt
 vmap <M-5> 5gt
 
-" GVIM-Mappings"}}}
+" Custom Functions                           {{{1
 
-" Mappings"}}}
+" RAction                                    {{{2
+" help on object                             {{{3
+map <silent> <localleader>sh :call RAction("help.search")<CR>
+
+" range/min/max                              {{{3
+map <silent> <LocalLeader>mn :call RAction("min")<CR>
+map <silent> <LocalLeader>mx :call RAction("max")<CR>
+map <silent> <LocalLeader>rg :call RAction("range")<CR>
+
+" data information                           {{{3
+map <silent> <LocalLeader>hd :call RAction("head")<CR>
+map <silent> <LocalLeader>tl :call RAction("tail")<CR>
+map <silent> <localleader>at :call RAction("attributes")<CR>
+map <silent> <localleader>lt :call RAction("length")<CR>
+map <silent> <localleader>lv :call RAction("levels")<CR>
+map <silent> <localleader>st :call RAction("str")<CR>
+map <silent> <localleader>nm :call RAction("names")<CR>
+
+" assine value to variable ('<-')            {{{3
+nmap <esc>- hEa<Space><-<Space>
+
+" SendCmdToR                                 {{{2
+map <silent> <localleader>ss :call g:SendCmdToR("search()")<CR>
+map <silent> <localleader>ls :call g:SendCmdToR("ls()")<CR>
+map <silent> <localleader>di :call g:SendCmdToR("dir()")<CR>
+map <silent> <localleader>ma :call g:SendCmdToR("methods(as)")<CR>
+map <silent> <localleader>mi :call g:SendCmdToR("methods(is)")<CR>
+map <silent> <localleader>rm :call g:SendCmdToR("rm(list=ls())")<CR>
+map <silent> <localleader>rr :call 'g:SendCmdToR("' . shellescape(expand("<cword>")) . '")'<CR>
+
+" Assign Argument Under Cursor In Next Line  {{{2
+nmap <silent><localleader>- :normal! o0<CR>0v$
+vmap <silent><localleader>- :<C-u>exec "s/$/\r" . GetVisualSelection()<cr>0v$
+
+" define commands & actions
+
+" Operatorfunction                           {{{1
 
 nnoremap <silent>gr :set operatorfunc=<SID>ROperator<cr>g@
 vnoremap <silent>gr :<c-u>call <SID>ROperator(visualmode())<cr>
@@ -238,9 +229,12 @@ function! s:ROperator(type)
     else
         return
     endif
+    " silent execute "<Plug>RDSendSelection"
     " silent execute "!firefox " . shellescape(@@)
-    " silent execute <Plug>RDSendSelection
-    exe "normal! <esc>p"
+    " silent execute "RDSendSelection" . shellescape(@@)
+    " :normal! ,l
+    " silent execute (RDSendSelection)
+    " exe "normal! <esc>p"
     let @@ = saved_unnamed_register
 endfunction
 

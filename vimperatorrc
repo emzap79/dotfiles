@@ -252,6 +252,7 @@ set! mousewheel.withnokey.sysnumlines=false
 silent qmark b http://www.bloomberg.com/quote/TSLA:US
 silent qmark c https://bay01.calendar.live.com/calendar/calendar.aspx
 silent qmark C http://www.google.com/calendar/render?hl=de
+silent qmark d https://banking.ing-diba.de/webkunden/goLogin.do
 silent qmark e https://www.evernote.com/Home.action
 silent qmark f http://facebook.com
 silent qmark F http://favstar.fm/me
@@ -276,7 +277,7 @@ silent qmark W https://wave.google.com/wave/
 silent qmark v http://www.vimgolf.com/
 silent qmark y http://search.yahoo.com/
 silent qmark z http://10.10.10.1/dynLoggedOut.html
-
+silent qmark Z http://www.amazon.de
 
 " BMarks                                             {{{1
 javascript <<EOM
