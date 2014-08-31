@@ -276,8 +276,9 @@ silent qmark w http://www.wolframalpha.com/
 silent qmark W https://wave.google.com/wave/
 silent qmark v http://www.vimgolf.com/
 silent qmark y http://search.yahoo.com/
-silent qmark z http://10.10.10.1/dynLoggedOut.html
-silent qmark Z http://www.amazon.de
+silent qmark z http://www.amazon.de/Prime-Instant-Video/b/ref=nav_gno_yam_piv?ie=UTF8&node=3279204031
+silent qmark Z http://10.10.10.1/dynLoggedOut.html
+
 
 " BMarks                                             {{{1
 javascript <<EOM

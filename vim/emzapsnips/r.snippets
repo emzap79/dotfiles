@@ -27,6 +27,7 @@ FIELD_TYPES = [
 'list',
 'logical',
 'matrix',
+'na',
 'numeric',
 'table',
 'vector']
@@ -84,6 +85,9 @@ library("plot3D")
 
 # set workingdir
 setwd$1
+endsnippet
+snippet grep "grepsearch for string" b
+grep("${1:stringofinterest}",${2:dataframeofinterest},ignore.case=${3:TRUE},value=${4:TRUE})
 endsnippet
 
 snippet req "Require a file"

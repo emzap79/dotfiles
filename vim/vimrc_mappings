@@ -654,7 +654,7 @@ nnoremap <leader>fs <esc>:! firefox
             \ <cr><cr>
 
 "search wikipedia from within vim
-" func: execute online searches (eg. wikipedia)                              " {{{2
+" func: execute online searches (eg. wikipedia)                              " {{{3
 
 "" found on http://alexanderle.com/blog/2012/my-vimrc.html
 " key mapping for tex-stackexchange search
@@ -715,7 +715,7 @@ vnoremap <leader>dt :<c-u>!othes <c-r>=GetVisualSelection()<cr>
 "mapping to automatically add an abbreviation
 nnoremap <leader>ab <sid>:call AddAbbr()<cr>
 vnoremap <leader>ab <sid>:call AddAbbr()<cr>
-"" func: abbreviations                                                      " {{{2
+"" func: abbreviations                                                       " {{{2
 
 "" an abbreviation is a short form of long text e.g. mfg mit freundlichen grüßen
 "" its found in ~/.vim/ftplugin/tex.vim (at the eof)
@@ -775,39 +775,8 @@ nnoremap <silent>gzz :normal gz$<cr>
 
 " Edit Words & Lines                                                         " {{{1
 
-" flip text horizontally                                                     " {{{2
-
-nnoremap <leader>fh :Mirror<CR>
-command! -bar -range Mirror <line1>,<line2>call setline('.', join(reverse(split(getline('.'), '\zs')), ''))
-
-" uppercase beginning of word/line                                           " {{{2
-
-" first character of word capitalised
-nnoremap <silent><s-u> :normal! mzlbgUl`z<cr>:nohl<cr>
-nnoremap <silent><leader>u :normal! mzlbgUl`z<cr>:nohl<cr>
-
-" first character of line capitalised
-nnoremap <silent><leader>u^ :normal! mz^gUl`z<cr>:nohl<cr>
-
-" first character of every words in line capitalised
-nnoremap <silent><leader>uu mz :s/\<\w\+/\u\0/g<cr>:nohl<cr>`z
-
-" change word under curser                                                     {{{2
-
-" replace words by hitting '.'
-nnoremap <leader>x *``cgn
-nnoremap <leader>X #``cgN
-
-" replace word under cursor in paragraph/buffer
-nnoremap <leader>r :%s/\<<C-r>=expand('<cWORD>')<CR>\>/
-nnoremap <leader>R :'{,'}s/\<<C-r>=expand('<cWORD>')<CR>\>/
-
-" replace word under cursor in visual selection
-xnoremap <leader>r :<C-u>%s/<C-r>=GetVisualSelection()<CR>/
-xnoremap <leader>R :<C-u>'{,'}s/<C-r>=GetVisualSelection()<CR>/
-
-
-" copy current file name (relative/absolute) to system clipboard             " {{{2
+" copy text to register                                                        {{{2
+" copy current file name (relative/absolute) to system clipboard             " {{{3
 " https://github.com/panozzaj/conf/blob/master/common/etc/.vimrc#L176
 
 if has("mac") || has("gui_macvim") || has("gui_mac")
@@ -823,7 +792,7 @@ if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
   nnoremap <leader>exh :let @+=expand("%:p:h")<CR> " directory name (/something/src)
 endif
 
-" copy matches to register                                                   " {{{2
+" copy matches to register                                                   " {{{3
 
 " http://vim.wikia.com/wiki/Copy_search_matches
 function! CopyMatches(reg)
@@ -833,6 +802,49 @@ function! CopyMatches(reg)
   execute 'let @'.reg.' = join(hits, "\n") . "\n"'
 endfunction
 command! -register CopyMatches call CopyMatches(<q-reg>)
+
+" text replacement                                                             {{{2
+" replace spaces through semicolon                                           " {{{3
+
+" mnemonic: [s]pace to [s]emicolon
+nmap <leader>ss :exe "s/\[^,\]\\zs\\s/\\; /g \| nohls"<cr>
+
+" replace - with #                                                             {{{3
+nnoremap <silent><leader>b# :s/-/#/g3<CR>
+vnoremap <silent><leader>b# <ESC>:s/-/#/g3<CR>
+inoremap <silent><localleader>b# <ESC>:s/-/#/g3<CR>
+
+" change word under curser                                                     {{{3
+
+" replace words by hitting '.'
+nnoremap <leader>x *``cgn
+nnoremap <leader>X #``cgN
+
+" replace word under cursor in paragraph/buffer
+nnoremap <leader>r :%s/\<<C-r>=expand('<cWORD>')<CR>\>/
+nnoremap <leader>R :'{,'}s/\<<C-r>=expand('<cWORD>')<CR>\>/
+
+" replace word under cursor in visual selection
+xnoremap <leader>r :<C-u>%s/<C-r>=GetVisualSelection()<CR>/
+xnoremap <leader>R :<C-u>'{,'}s/<C-r>=GetVisualSelection()<CR>/
+
+" upper- / lowercase, flip                                                     {{{2
+" flip text horizontally                                                     " {{{3
+
+nnoremap <leader>fh :Mirror<CR>
+command! -bar -range Mirror <line1>,<line2>call setline('.', join(reverse(split(getline('.'), '\zs')), ''))
+
+" uppercase beginning of word/line                                           " {{{3
+
+" first character of word capitalised
+nnoremap <silent><s-u> :normal! mzlbgUl`z<cr>:nohl<cr>
+nnoremap <silent><leader>u :normal! mzlbgUl`z<cr>:nohl<cr>
+
+" first character of line capitalised
+nnoremap <silent><leader>u^ :normal! mz^gUl`z<cr>:nohl<cr>
+
+" first character of every words in line capitalised
+nnoremap <silent><leader>uu mz :s/\<\w\+/\u\0/g<cr>:nohl<cr>`z
 
 " Miscellaneous                                                              " {{{1
 
@@ -849,11 +861,6 @@ vnoremap <silent><space>dv :B s/\s\s\+/ /g<cr>:nohl<cr>
 nnoremap <silent><space>d0 :'{,'}s/^\s\+//g<CR>:nohl<CR>``
 nnoremap <silent><space>d$ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>``
 nnoremap <silent><space>da :%s/\s\s\+/ /g<CR>:nohl<CR>``
-
-" replace spaces through semicolon                                           " {{{2
-
-" mnemonic: [s]pace to [s]emicolon
-nmap <leader>ss :exe "s/\[^,\]\\zs\\s/\\; /g \| nohls"<cr>
 
 " create tabular from selected text                                          " {{{2
 

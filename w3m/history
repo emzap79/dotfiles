@@ -1,10 +1,3 @@
-http://127.0.0.1:14134/library/base/html/writeLines.html
-http://127.0.0.1:20227/library/base/html/system.html
-http://127.0.0.1:20227/library/base/html/paste.html
-http://127.0.0.1:28621/library/utils/help/showMethods
-http://127.0.0.1:28621/doc/html/Search?pattern=methods.as
-http://127.0.0.1:28621/doc/html/Search?pattern=methods
-http://127.0.0.1:28621/library/utils/html/methods.html
 http://127.0.0.1:10912/library/base/html/subset.html
 http://127.0.0.1:15933/library/base/html/subset.html
 http://127.0.0.1:11673/library/base/html/subset.html
@@ -98,3 +91,10 @@ http://127.0.0.1:23113/library/utils/html/read.table.html
 http://127.0.0.1:23113/library/utils/help/Encoding
 http://127.0.0.1:23113/library/base/html/with.html
 http://127.0.0.1:23113/library/base/html/numeric.html
+http://127.0.0.1:11257/library/base/html/cbind.html
+http://127.0.0.1:11257/library/base/html/duplicated.html
+http://127.0.0.1:11257/library/base/html/t.html
+http://127.0.0.1:11257/library/utils/html/write.table.html
+http://127.0.0.1:12070/library/base/html/merge.html
+http://127.0.0.1:12070/library/base/html/sort.html
+http://127.0.0.1:12070/library/base/html/unique.html
