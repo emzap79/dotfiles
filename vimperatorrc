@@ -4,7 +4,7 @@
 " File: .vimperatorrc
 " Author: Jonas Petong
 " Description: Config File for Vimperator
-" Last Modified: August 21, 2014
+" Last Modified: September 01, 2014
 
 " firefox-29.0 + vimperator-3.7
 " https://github.com/mashiro/dot-files/tree/master/.vimperator
@@ -15,13 +15,11 @@
 "cmapc
 "imapc
 
-" Options                                            {{{1
-
 " List of directories searched for runtime files: colors/ macros/ plugin/
 set runtimepath=~/.vimperator
+let mapleader = ","
 
-""" Display
-"""" show only the tab bar
+" Display                                            {{{1
 " set hintchars=HJKLASDFGYUIOPQWERTNMZXCVB
 set "editor=mintty -e vim"
 set complete=slfhS
@@ -47,63 +45,162 @@ set urlseparator=;
 set verbose=1
 set visualbell
 
-""""""""""""""""""""""
-"""" Keybindings """""
-""""""""""""""""""""""
-let mapleader = ","
+" QMarks                                             {{{1
+silent qmark b http://www.bloomberg.com/quote/TSLA:US
+silent qmark B http://www.bloomberg.com/quote/TSLA:US
+silent qmark c https://bay01.calendar.live.com/calendar/calendar.aspx
+silent qmark C http://www.google.com/calendar/render?hl=de
+silent qmark d https://banking.ing-diba.de/webkunden/goLogin.do
+silent qmark D http://detexify.kirelabs.org/classify.html
+silent qmark e https://www.evernote.com/Home.action
+silent qmark f http://facebook.com
+silent qmark F http://favstar.fm/me
+silent qmark g https://github.com/emzap79
+silent qmark G http://gist.github.com/
+silent qmark h http://www.hotmail.com/
+silent qmark H http://translate.google.de/translate_t?hl=de&sl=en&tl=de#
+silent qmark i http://www.instapaper.com/u
+silent qmark j http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
+silent qmark k http://www.kicker.de/news/fussball/fussballstartseite.html
+silent qmark l http://reader.livedoor.com/reader/
+silent qmark m https://mail.google.com/mail/
+silent qmark r http://www.reddit.com
+silent qmark M http://mixi.jp/home.pl
+silent qmark s https://soundcloud.com/stream
+silent qmark S http://overthewire.org/wargames/bandit/bandit0.html
+silent qmark t http://twitter.com/home/
+silent qmark T http://www.tumblr.com/dashboard/
+silent qmark u http://speedtest-1.unitymedia.de/
+silent qmark o http://www1.onleihe.de/duisburg
+silent qmark p http://www.pixiv.net/mypage.php
+silent qmark w http://www.wolframalpha.com/
+silent qmark W https://wave.google.com/wave/
+silent qmark v http://www.vimgolf.com/
+silent qmark y http://search.yahoo.com/
+silent qmark z http://www.amazon.de/Prime-Instant-Video/b/ref=nav_gno_yam_piv?ie=UTF8&node=3279204031
+silent qmark Z http://10.10.10.1/dynLoggedOut.html
 
-""" Tabs
-"""" Groups
+
+" BMarks                                             {{{1
+javascript <<EOM
+function bmark(title, url, keyword) {
+	if (!bookmarks.isBookmarked(url)) {
+		bookmarks.add(false, title, url, keyword, ['keyword'], false);
+	}
+}
+bmark('Ctan'              ,  'http://www.ctan.org/search'                                       ,      'ct');
+bmark('Dict'              ,  'http://www.dict.cc/?s=%s'                                         ,      'dict');
+bmark('Github'            ,  'https://github.com/search?q=%s'                                   ,      'gh');
+bmark('Google US Search'  ,  'http://www.google.com/search?q=%s'                                ,      'g');
+bmark('Bing US Search'    ,  'http://www.bing.com/search?q=%s'                                  ,      'b');
+bmark('Bing US Search'    ,  'https://www.facebook.com/search/results/?=&q=%s'                  ,      'f');
+bmark('Rseek'             ,  'http://www.rseek.org/?q=%s'                                       ,      'r');
+bmark('Stackoverflow R'   ,  'http://stackoverflow.com/search?q=[r] %s'                         ,      'sor');
+bmark('Stackoverflow R'   ,  'http://stackoverflow.com/search?q=[bash] %s'                      ,      'sob');
+bmark('Stackoverflow'     ,  'http://stackoverflow.com/search?q=%s'                             ,      'so');
+bmark('Soundcloud'        ,  'https://soundcloud.com/search?q=%s'                               ,      'sc');
+bmark('Superuser'         ,  'http://superuser.com/search?q=%s'                                 ,      'su');
+bmark('Tex.stackexchange' ,  'http://tex.stackexchange.com/search?q=%s'                         ,      'tex');
+bmark('Twitter Search'    ,  'http://search.twitter.com/search?q=%s'                            ,      'ts');
+bmark('Twitter'           ,  'http://twitter.com/%s'                                            ,      'tw');
+bmark('Vim.wikia'         ,  'http://vim.wikia.com/wiki/Special:Search?search=%s'               ,      'vw');
+bmark('Yahoo! Search'     ,  'http://search.yahoo.com/search;_ylt=?p=%s'                        ,      'y');
+bmark('Youtube'           ,  'http://www.youtube.com/results?search_query=%s'                   ,      'yt');
+bmark('wikibooks DE'      ,  'http://de.wikibooks.org/w/api.php?action=opensearch&amp;format=xml&amp;search=%s&amp;namespace=0'   ,      'wb');
+bmark('wikipedia DE'      ,  'http://de.wikipedia.org/w/index.php?title=Spezial:Suche&profile=default&search=%s&fulltext=Search'   ,      'w');
+bmark('wikipedia EN'      ,  'http://en.wikipedia.org/w/index.php?title=Special:Search&profile=default&search=%s&fulltext=Search'  ,      'we');
+EOM
+
+" Keybindings                                        {{{1
+" Tabs                                               {{{2
+" groups                                             {{{3
 inoremap <leader>tg <Esc>:tabgroups<Space>
 cnoremap <leader>tg :tabgroups<Space>
 noremap <leader>tg :tabgroups<Space>
-"""" Pull
-inoremap <leader>tp <Esc>:tabgroups pull<Space>
-cnoremap <leader>tp :tabgroups pull<Space>
-noremap <leader>tp :tabgroups pull<Space>
-"""" Push
-inoremap <leader>tpp <Esc>:tabgroups push<Space>
-cnoremap <leader>tpp :tabgroups push<Space>
-noremap <leader>tpp :tabgroups push<Space>
-"""" Add
-inoremap <leader>ta <Esc>:tabgroups add<Space>
-cnoremap <leader>ta :tabgroups add<Space>
-noremap <leader>ta :tabgroups add<Space>
-"""" Switch
-inoremap <leader>ts <Esc>:tabgroups switch<Space>
-cnoremap <leader>ts :tabgroups switch<Space>
-noremap <leader>ts :tabgroups switch<Space>
-"""" List
-inoremap <leader>tl <Esc>:tabgroups list<cr>
+
+" pull                                               {{{3
+inoremap <leader>tp <esc>:tabgroups pull<space>
+cnoremap <leader>tp :tabgroups pull<space>
+noremap <leader>tp :tabgroups pull<space>
+
+" push                                               {{{3
+inoremap <leader>tpp <esc>:tabgroups push<space>
+cnoremap <leader>tpp :tabgroups push<space>
+noremap <leader>tpp :tabgroups push<space>
+
+" add                                                {{{3
+inoremap <leader>ta <esc>:tabgroups add<space>
+cnoremap <leader>ta :tabgroups add<space>
+noremap <leader>ta :tabgroups add<space>
+
+" switch                                             {{{3
+inoremap <leader>ts <esc>:tabgroups switch<space>
+cnoremap <leader>ts :tabgroups switch<space>
+noremap <leader>ts :tabgroups switch<space>
+
+" list                                               {{{3
+inoremap <leader>tl <esc>:tabgroups list<cr>
 cnoremap <leader>tl :tabgroups list<cr>
 noremap <leader>tl :tabgroups list<cr>
-"""" Remove
-inoremap <leader>tr <Esc>:tabgroups remove<cr>
+
+" remove                                             {{{3
+inoremap <leader>tr <esc>:tabgroups remove<cr>
 cnoremap <leader>tr :tabgroups remove<cr>
 noremap <leader>tr :tabgroups remove<cr>
 
-"""" Tabonly
-inoremap <leader>to <Esc>:tabonly<cr><cr>
+" tabonly                                            {{{3
+inoremap <leader>to <esc>:tabonly<cr><cr>
 cnoremap <leader>to :tabonly<cr><cr>
 noremap <leader>to :tabonly<cr><cr>
 
-"""" AppTab
-inoremap <leader>at <Esc>:set invapptab<cr>
+" apptab                                             {{{3
+inoremap <leader>at <esc>:set invapptab<cr>
 cnoremap <leader>at :set invapptab<cr>
 noremap <leader>at :set invapptab<cr>
 
-" escape
+" tabmove                                            {{{3
+nnoremap l <c-n>
+nnoremap h <c-p>
+nnoremap <silent> <c-l> :tabmove! +1<cr>
+nnoremap <silent> <c-h> :tabmove! -1<cr>
+
+" next, previous, close, open in bg                  {{{3
+map J :tabnext<cr>
+map K :tabprevious<cr>
+map <A-d> :tabclose<Space>-select=lastactive<cr>
+map <A-f> ;b
+
+" Commands                                           {{{2
+
+" encoding                                           {{{3
+noremap <silent> eu :set encoding=UTF-8<CR>
+noremap <silent> es :set encoding=Shift_JIS<CR>
+noremap <silent> ee :set encoding=EUC-JP<CR>
+noremap <silent> ei :set encoding=ISO-2022-JP<CR>
+
+" downloads                                          {{{3
+noremap <C-j> :downloads<CR>
+inoremap <C-j> <Esc>:downloads<CR>
+cnoremap <C-j> :downloads<CR>
+
+" other                                              {{{3
+noremap <silent> <C-r> :restart<CR>
+noremap <silent> <leader>h :hopen<Space>
+noremap <silent> <leader>H :htabopen<Space>
+noremap <silent> <leader>s :source ~/.vimperatorrc<CR>:echo<Space>"source completed."<CR>
+noremap <silent> <leader>a :autopagerize<CR>
+noremap U :undo<Space>
+
+" Basic Bindings                                     {{{2
+" escape and depth                                   {{{3
 nnoremap <C-@> <Esc>
 vnoremap <C-@> <Esc>
 cnoremap <C-@> <Esc>
 inoremap <C-@> <Esc>
-
-" depth
 nnoremap <BS> gu
 nnoremap <C-BS> gU
 
-" scroll
-" Vimium key binding for Vimperator
+" vimium key bindings                                {{{3
 " https://github.com/kunal-/.vimperatorrc/blob/master/.vimperatorrc
 nnoremap j 3j
 nnoremap k 3k
@@ -113,15 +210,10 @@ nnoremap <A-j> 3j
 nnoremap <A-k> 3k
 nnoremap <A-h> 3h
 nnoremap <A-l> 3l
-nnoremap f F
-nnoremap F f
+nnoremap f f
+nnoremap F F
 
-" tab
-nnoremap l <C-n>
-nnoremap h <C-p>
-nnoremap <silent> <C-l> :tabmove! +1<CR>
-nnoremap <silent> <C-h> :tabmove! -1<CR>
-
+" movements                                          {{{3
 nnoremap y Y
 nnoremap Y y
 nnoremap zi zI
@@ -135,18 +227,7 @@ nnoremap zR zr
 nnoremap zz zZ
 nnoremap zZ zz
 
-noremap <silent> <C-r> :restart<CR>
-noremap <silent> <leader>h :hopen<Space>
-noremap <silent> <leader>H :htabopen<Space>
-noremap <silent> <leader>s :source ~/.vimperatorrc<CR>:echo<Space>"source completed."<CR>
-noremap <silent> <leader>a :autopagerize<CR>
-noremap U :undo<Space>
-
-noremap <silent> eu :set encoding=UTF-8<CR>
-noremap <silent> es :set encoding=Shift_JIS<CR>
-noremap <silent> ee :set encoding=EUC-JP<CR>
-noremap <silent> ei :set encoding=ISO-2022-JP<CR>
-
+" command + insert mode                              {{{3
 cnoremap <C-j> <Nop>
 cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
@@ -156,17 +237,20 @@ inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
+inoremap <C-t> <Esc><C-t>
+inoremap <C-w> <Esc><C-w>
+cnoremap <C-k> <Esc><C-k>
+cnoremap <C-l> <Esc><C-l>
+" cnoremap <C-t> <Esc><C-t>
 
-"""""""""""""""""""""""
-"" Toggle Operations ""
-"""""""""""""""""""""""
-" show navigation bar
+" Toggle Operations                                  {{{2
+" show navigation bar                                {{{3
 command! -description="Toggles the navigation bar" nb set gui=invnavigation
 nnoremap <leader>n :nb<CR>
 vnoremap <leader>n <ESC>:nb<CR>
 inoremap <localleader>n <ESC>nb<CR>
 
-" javascript to hide statusbar
+" javascript to hide statusbar                       {{{3
 " http://superuser.com/questions/704015/hide-status-line-bottom-bar-in-vimperator
 noremap <silent> <F8> :js toggle_bottombar()<CR>
 noremap : :js toggle_bottombar('on')<CR>:
@@ -199,28 +283,9 @@ function toggle_bottombar(p) {
 toggle_bottombar();
 EOF
 
+" Miscellaneous                                      {{{2
 
-
-"""" open in background, tabclose, tabmove
-map <A-f> ;b
-map <A-d> :tabclose<Space>-select=lastactive<cr>
-map J :tabnext<cr>
-map K :tabprevious<cr>
-
-""" Downloads
-noremap <C-j> :downloads<CR>
-inoremap <C-j> <Esc>:downloads<CR>
-cnoremap <C-j> :downloads<CR>
-
-""" Insert Mode
-imap <C-t> <Esc><C-t>
-imap <C-w> <Esc><C-w>
-""" Command Mode
-cmap <C-k> <Esc><C-k>
-cmap <C-l> <Esc><C-l>
-" cmap <C-t> <Esc><C-t>
-
-""" Deactivate FF genuine keybinds
+" Deactivate FF genuine keybinds                     {{{3
 " inoremap <C-a> <Insert><C-a><Insert>
 noremap <C-S-T> <Nop>
 noremap <C-t> <Nop>
@@ -232,7 +297,7 @@ noremap <F5> <Nop>
 noremap <C-o> <Nop>
 noremap <C-i> <Nop>
 
-" about:config
+" About:Config                                       {{{3
 set! general.autoScroll=false
 set! ui.key.generalAccessKey=0
 set! browser.tabs.closeButtons=2
@@ -242,78 +307,29 @@ set! browser.urlbar.filter.javascript=false
 set! browser.urlbar.maxRichResults=20
 set! browser.sessionstore.max_tabs_undo=20
 set! browser.sessionstore.max_concurrent_tabs=0
-set! browser.startup.homepage=https://github.com/
+set! browser.startup.homepage=https://reddit.com/
 set! dom.popup_maximum=200
 set! mousewheel.withnokey.numlines=6
 set! mousewheel.withnokey.sysnumlines=false
 
+" Define Commands                                    {{{1
 
-" QMarks                                             {{{1
-silent qmark b http://www.bloomberg.com/quote/TSLA:US
-silent qmark c https://bay01.calendar.live.com/calendar/calendar.aspx
-silent qmark C http://www.google.com/calendar/render?hl=de
-silent qmark d https://banking.ing-diba.de/webkunden/goLogin.do
-silent qmark e https://www.evernote.com/Home.action
-silent qmark f http://facebook.com
-silent qmark F http://favstar.fm/me
-silent qmark g https://github.com/emzap79
-silent qmark G http://gist.github.com/
-silent qmark h http://www.hotmail.com/
-silent qmark H http://translate.google.de/translate_t?hl=de&sl=en&tl=de#
-silent qmark i http://www.instapaper.com/u
-silent qmark j http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
-silent qmark k http://www.kicker.de/news/fussball/bundesliga/startseite.html
-silent qmark l http://reader.livedoor.com/reader/
-silent qmark m https://mail.google.com/mail/
-silent qmark r http://www.reddit.com
-silent qmark M http://mixi.jp/home.pl
-silent qmark s https://soundcloud.com/stream
-silent qmark t http://twitter.com/home/
-silent qmark T http://www.tumblr.com/dashboard/
-silent qmark u http://speedtest-1.unitymedia.de/
-silent qmark p http://www.pixiv.net/mypage.php
-silent qmark w http://www.wolframalpha.com/
-silent qmark W https://wave.google.com/wave/
-silent qmark v http://www.vimgolf.com/
-silent qmark y http://search.yahoo.com/
-silent qmark z http://www.amazon.de/Prime-Instant-Video/b/ref=nav_gno_yam_piv?ie=UTF8&node=3279204031
-silent qmark Z http://10.10.10.1/dynLoggedOut.html
-
-
-" BMarks                                             {{{1
-javascript <<EOM
-function bmark(title, url, keyword) {
-	if (!bookmarks.isBookmarked(url)) {
-		bookmarks.add(false, title, url, keyword, ['keyword'], false);
-	}
-}
-bmark('Google US Search'  , 'http://www.google.com/search?q=%s'        , 'g');
-bmark('Yahoo! Search'     , 'http://search.yahoo.com/search;_ylt=?p=%s', 'y');
-bmark('Twitter'           , 'http://twitter.com/%s'                    , 'tw');
-bmark('Twitter Search'    , 'http://search.twitter.com/search?q=%s'    , 'ts');
-bmark('ふぁぼったー'      , 'http://favotter.net/user.php?user=%s'     , 'fav');
-bmark('Ustream'           , 'http://www.ustream.tv/channel/%s'         , 'ust');
-bmark('はてなダイアリー'  , 'http://d.hatena.ne.jp/%s'                 , 'hd');
-bmark('はてなブックマーク', 'http://b.hatena.ne.jp/%s'                 , 'hb');
-bmark('ニコニコ動画'      , 'http://www.nicovideo.jp/watch/%s'         , 'nico');
-EOM
-
-
-" Commands                                           {{{1
+" misc                                               {{{2
 command! -nargs=* feedkeys js events.feedkeys("<args>")
 command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
 command! -nargs=0 copybufferurl js util.copyToClipboard(buffer.URL)
 
-" tabs
+" tabs                                               {{{2
 command! -complete=history -nargs=+ -description="Open history in the current tab" hopen open <args>
 command! -complete=history -nargs=+ -description="Open history in a new tab" htabopen tabopen <args>
 
-" bookmarklet
+" bookmarklet                                        {{{2
 command! -nargs=0 -description="Subscribe with Fastladder" subscribewithfastladder open javascript:location.href='http://fastladder.com/subscribe/'+location.href
 command! -nargs=0 -description="このページをアンテナに追加" addhatenaantena open javascript:location.href='http://a.hatena.ne.jp/append?'+location.href;
 command! -nargs=0 -description="ブックマークする" addhatenabookmark open javascript:(function(){var%20d=(new%20Date);var%20s=document.createElement('script');s.charset='UTF-8';s.src='http://b.hatena.ne.jp/js/Hatena/Bookmark/let.js?'+d.getFullYear()+d.getMonth()+d.getDate();(document.getElementsByTagName('head')[0]||document.body).appendChild(s);})();
 command! -nargs=0 -description="外部プレイヤー用URL取得" ustreamliveurl open javascript:(function(){alert('http://www.ustream.tv/flash/live/'+flashvars.cid)})();
 
+" translate, calculate                               {{{2
 "source! "C:\\Users\\Griffinhart\\_vimperatorrc.local"
 command! -nargs=+ -description="Query Wolfram Alpha" calculate tabopen http://www.wolframalpha.com/input/?i=<args>
 command! -nargs=+ -description="Translates the given argument from German to English" translate tabopen http://translate.google.com/#de|en|<args>
@@ -631,23 +647,6 @@ liberator.globalVariables.hBookmark_search_max_limit = 100;
 EOF
 
 
-" ユーザースタイルシートを読み込む   {{{2
-javascript <<EOM
-(function(){
-	let filter = new RegExp('^.*\.css$');
-	let dir = io.File('~/.vimperator/styles')
-	if (dir.exists() && dir.isDirectory() && dir.isReadable()) {
-		let files = dir.readDirectory(true);
-		files.forEach(function (file) {
-			if (filter.test(file.path)) {
-				io.source(file.path, false);
-			}
-		});
-	}
-})();
-EOM
-
-
 " Toggle Autopagerize                                {{{2
 javascript <<EOM
 	let (evaluateXPath = util.evaluateXPath || buffer.evaluateXPath) {
@@ -665,31 +664,11 @@ javascript <<EOM
 	}
 EOM
 
-
-
-
-" Styles                                             {{{1
-style -name liberator-bottombar-fix chrome://* <<EOM
-  liberator-statusline,
-  liberator-customize-toolbar {
-    -moz-appearance: none !important;
-    border: none !important;
-  }
-  liberator-bottombar toolbarbutton,
-  liberator-bottombar toolbaritem,
-  liberator-bottombar statusbar {
-    -moz-appearance: none !important;
-    margin: 0.05em 0.2em !important;
-  }
-EOM
-
-
 " AutoCmds                                           {{{1
-" Minibuffer オブジェクト取れなくなってしまったのでとりあえず無効に
+" minibuffer                                         {{{2
 "lazy minibuffer LDRize::disable-smooth-scroll
 
-
-" copy/paste
+" copy/paste                                         {{{2
 "javascript <<EOM
 "execute_silent = function(str, modifiers) {
 "    liberator.execute(str, modifiers, true);
@@ -727,11 +706,42 @@ EOM
 "EOM
 
 
-" End                                                {{{1
+" Colors & Styles                                    {{{1
 
-"""""""""""""""""""""""
-"""" Colorsscheme """""
-"""""""""""""""""""""""
+" Styles                                             {{{2
+
+" liberator                                          {{{3
+style -name liberator-bottombar-fix chrome://* <<EOM
+  liberator-statusline,
+  liberator-customize-toolbar {
+    -moz-appearance: none !important;
+    border: none !important;
+  }
+  liberator-bottombar toolbarbutton,
+  liberator-bottombar toolbaritem,
+  liberator-bottombar statusbar {
+    -moz-appearance: none !important;
+    margin: 0.05em 0.2em !important;
+  }
+EOM
+
+" ユーザースタイルシートを読み込む                   {{{3
+javascript <<EOM
+(function(){
+	let filter = new RegExp('^.*\.css$');
+	let dir = io.File('~/.vimperator/styles')
+	if (dir.exists() && dir.isDirectory() && dir.isReadable()) {
+		let files = dir.readDirectory(true);
+		files.forEach(function (file) {
+			if (filter.test(file.path)) {
+				io.source(file.path, false);
+			}
+		});
+	}
+})();
+EOM
+
+" Colorsscheme                                       {{{2
 " https://github.com/Griffinhart/vimperatorrc/blob/master/_vimperatorrc
 colorscheme indigo
 highlight Bell display: none; 

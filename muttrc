@@ -1,7 +1,7 @@
 # vim:fdm=marker
-# Mails verfassen# {{{
+# Mails verfassen                                     {{{1
 
-# Formatoptions# {{{
+# Formatoptions                                       {{{2
 
 set include="yes"                           # Bei Reply wird Original-Message eingefuegt
 #set askcc                                  # include asking for a cc: line set
@@ -15,8 +15,7 @@ set forward_format="Fwd: %s"
 set indent_str='> '              # eingerückter Text beginnt mit "> "
 set tilde                        # fügt Tilde in letzte Zeile in VIM
 
-# }}}
-# Header einstellen# {{{
+# Header einstellen                                   {{{2
 
 unmy_hdr *
 set header_cache="~/.mutt.headercache"          # Headercache festlegen für schnellen Download.
@@ -29,8 +28,7 @@ my_hdr Reply-To: jonas.petong@web.de
 my_hdr Fcc: ~/mails/Outbox/sent-`date +%Y`
 hdr_order From: To: cc subject date X-Spam-Score:   # Reihenfolge der Header in der Anzeige
 
-# }}}
-# Editor, der zum Verfassen der Mails benutzt wird.# {{{
+# Editor, der zum Verfassen der Mails benutzt wird.   {{{2
 
 set editor="vim \
 -c 'set wrap' \
@@ -43,14 +41,12 @@ set editor="vim \
 -c '+/^$' \
 -c 'startinsert' \
 
-# }}}
 
-# Mails verfassen# }}}
-# Mails empfangen# {{{
+# Mails empfangen                                     {{{1
 
-# Pager Einstellungen# {{{
+# Pager Einstellungen                                 {{{2
 
-# # Most common pager keys# {{{
+# # Most common pager keys                            {{{3
 
 #┌────────┬──────────────────────────────────────────────────────────────────┐
 #│  Key   │                           Description                            │
@@ -91,17 +87,15 @@ set editor="vim \
 #terminal supports them. If not, you can use the bold and underline color
 #objects to specify a color or mono attribute for them.
 
-# }}}
-# # Configurations# {{{
+# # Configurations                                    {{{3
 
-# set pager="less -aCMsei"                       # config for setting less as pager (not necessary)
-set prompt_after=no                             # returning to index with no prompting
-set pager_context=5                             # number of lines that overlap on paging
-set pager_index_lines=5                         # number of lines to see from the index
-set pager_stop=yes                              # jump/dont jump to next message at EOF
+set pager="less -aCMsei"  # config for setting less as pager (not necessary)
+set prompt_after=no       # returning to index with no prompting
+set pager_context=5       # number of lines that overlap on paging
+set pager_index_lines=5   # number of lines to see from the index
+set pager_stop=yes        # jump/dont jump to next message at EOF
 
-# }}}# }}}
-# Sorting Mails# {{{
+# Sorting Mails                                       {{{3
 
 set sort=score                              # score, date, threads, reverse-date, alpha etc.
 set sort_browser=alpha                      # showing mbox list default to newest first
@@ -112,8 +106,7 @@ folder-hook ~/mails/SPAM set sort=reverse-date
 folder-hook ~/mails/Outbox set sort=reverse-date
 #folder-hook SPAM push 'D.\n'               # löscht automatisch kompletten spamordner
 
-# }}}
-# Ignore/Unignore# {{{
+# Ignore/Unignore                                     {{{3
 
 ignore *                                        # alles ausblenden, einzeln freigeben
 unignore From:                                  # Absender
@@ -128,14 +121,12 @@ ignore Originator X-Loop X-Mailing-List X-Listprocessor X-Face
 ignore X-Received X-Mailer X-Envelope-To X-Sender X-Attribution
 ignore Path Lines NNTP-Posting-Host X-Newsreader X-Submitted-Via
 
-# }}}
-# HTML-Messages# {{{
+# HTML-Messages                                       {{{3
 
 set implicit_autoview
 auto_view text/html application/x-pgp-message   # needs ~/.mailcap and install elinks!
 
-# }}}
-# Attachments# {{{
+# Attachments                                         {{{3
 
 #Table 5.1. Supported MIME types
 
@@ -178,12 +169,10 @@ attachments -I message/external-body
 
 # Custom
 
-# # }}}
 
-# Mails empfangen# }}}
-# Allgemeine Einstellungen# {{{
+# Allgemeine Einstellungen                            {{{2
 
-# Sources festlegen# {{{
+# Sources festlegen                                   {{{3
 
 #source '~/bin/hooks.sh|'
 source ~/.mutt/colschEmzap                  # Defining Mutts Colors
@@ -194,8 +183,7 @@ source ~/.mutt/muttScoring.priv             # Scorings
 #source ~/.mutt/muttIgnores                 # Headers to Ignore
 #source ~/.mutt/muttUnignore                # Headers to show
 
-# # Sources festlegen# }}}
-# Accounts & Folders # {{{
+# Accounts & Folders                                  {{{3
 
 set folder="/home/zapata/mails"
 set sleep_time = 0  # fast folder switch
@@ -207,8 +195,7 @@ mailboxes /home/zapata/mails/Inbox/received-`date +%Y`
 mailboxes /home/zapata/mails/Inbox
 mailboxes /home/zapata/mails/SPAM
 
-# # Accounts & Folders # }}}
-# Emails versenden, empfangen & drucken# {{{
+# Emails versenden, empfangen & drucken               {{{3
 
 #set signature="~/.mutt/signPrivat"             # Signatur
 set delete=yes                              # Löschen ohne Nachfrage
@@ -221,8 +208,7 @@ toggle quit="yes"                           # quitting? yes or no
 set mime_forward=yes                        # the message you are forwarding will be attached as a separate message
 set mime_forward_rest=ask-no                # forwarding attachments
 
-# Emails versenden, empfangen & drucken# }}}
-# Adressbuch# {{{
+# Adressbuch                                          {{{3
 
 set alias_file=~/.mutt/muttAlias.priv           # Datei, in der die Kontakte gespeichert werden
 set reverse_alias                           # Bewirkt, dass in der
@@ -230,20 +216,17 @@ set reverse_alias                           # Bewirkt, dass in der
                                     #Absender-Adresse angezeigt wird, wenn er in
                                     #der Alias-Datei steht
 
-# Adressbuch# }}}
 
-# Allgemeine Einstellungen# }}}
-# Print & Format Options ## {{{
+# Print & Format Options                              {{{2
 
-# Printing# {{{
+# Printing                                            {{{3
 
 #set print_command="muttprint -s -2 %s"      # Muttprint um Mails zweiseitig (ohne Signatur "-s") zu drucken
 set print_command="$HOME/bin/muttPrint"     # Emails als PDF drucken und öffnen
 set print="yes"                             # Keine Rückfrage beim Drucken
 set print_split                             # Jede Mail einzeln drucken
 
-# Printing# }}}
-# Colors# {{{
+# Colors                                              {{{3
 
 color status blue black     # status bar
 
@@ -254,8 +237,7 @@ color body        brightblue     default "(((https?|ftp|gopher|telnet)://|(mailt
 # http://phdru.name/Software/dotfiles/muttrc.html
 color body        brightmagenta  default " [;:]-*[dp(){}<>|\\/]| [(){}<>|\\/]-*[;:]" # :-)
 
-# Colors# }}}
-# Format# {{{
+# Format                                              {{{3
 
 set status_on_top                           # Status-Zeile oben
 set index_format="%-4C %Z %D %?H?*** SPAM *** &             ?\ %?X?[%-2X]&%-4c? %-22F (%5l) %s"
@@ -269,8 +251,7 @@ set status_format="%v: %f (%s) [%M/%m] [N=%n,*=%t,new=%b]"
 # Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l?
 # %l?]---(%s/%S)-%>-(%P)---"
 
-# format# }}}
-# Anzeigen und Sonstige Einstellungen# {{{
+# Anzeigen und Sonstige Einstellungen                 {{{3
 
 push <show-version>                         # Versionsnummer beim Starten
 set abort_unmodified="no"
@@ -299,8 +280,7 @@ set ssl_starttls=yes                        # activate TLS if available on the s
 #set net_inc=5                              # Display download progress every 5K
 #set imap_keepalive = 300                   # Keep IMAP connection alive by polling intermittently (time in seconds).
 
-# Anzeigen und Sonstige Einstellungen# }}}
-# Darstellung von Mails# {{{
+# Darstellung von Mails                               {{{3
 
 # set display_filter="tr '\\221\\222\\223\\224\\226' '\\047\\047\\042\\042\\055'" # Umlaute werden umgewandelt
 
@@ -319,6 +299,4 @@ charset-hook '^iso-8859-8-i$' iso-8859-8
 charset-hook '^gb2312$' gb18030
 unset allow_8bit                                                                  # u.U. verbesserte Darstellung von Umlauten
 
-# Darstellung von Mails# }}}
 
-# Print & Format Options ## }}}

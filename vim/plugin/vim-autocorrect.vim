@@ -3,19 +3,24 @@ fun! TexAbbreviations()
     iab (...) (\ldots)
     iab s. S.~<C-R>
 endfun
+" Call Function Texabbrevs
+au! filetype tex call TexAbbreviations()
+
 fun! MailAbbreviations()
     iab addr Beckhausstr. 11, c/o Stefan Ickler, 44892 Bochum<C-R>
     iab vg Viele Grüße,
-                \<CR><C-R>
+                \<CR>Jonas <C-R>
     iab lg Liebe Grüße,
-                \<CR><C-R>
+                \<CR>Jonas <C-R>
     iab bg Beste Grüße,
-                \<CR><C-R>
+                \<CR>Jonas <C-R>
     iab mfg Mit freundlichen Grüßen,
-                \<CR><C-R>
+                \<CR>Jonas <C-R>
     iab fg Freundliche Grüßen,
-                \<CR><C-R>
+                \<CR>Jonas <C-R>
 endf
+au! filetype eml call MailAbbreviations()
+
 fun! BasicAbbreviations()
 
     " german spelling

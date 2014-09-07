@@ -1,14 +1,14 @@
 # vim:fdm=marker:textwidth=0
-### Filter {{{
+### Filter {{{1
 
 # "query:Jobsinecuador: tags =~ \"jobs\" and title =~ \"ecuador\""       "00. Filter"
 "query:Podcasts: tags =~ \"999. Podcasts\""                            "00. Filter"
 "query:Reddit: tags =~ \"999. Reddit\" and tags =~ \"inbox\""          "00. Filter"
 "query:Ebooks: tags =~ \"999. angebote\" and (title =~ \" ebook\" and title !~ \"ebookers\")"     "00. Filter"
 "query:StackExch: tags =~ \"999. StackExch\" and (tag =~ \"questions\")"     "00. Filter"
+"query:Tesla: tags =~ \"999.\" and (title =~ \"tesla\")"     "00. Filter"
 
-# }}} Filter #
-### url-list# {{{
+### url-list# {{{1
 
 "query:Uni Due: tags =~ \"999. Uni Due\" and tags =~ \"Uni Due\""                                                                        "01. Uni Due :: Uni Due"
 "query:Mavs: tags =~ \"999. Sport\" and (title =~ \"Mavs\" or title =~ \"Mavericks\" or title =~ \"Nowitzki\")"                          "03.1 Sport :: Basketball"
@@ -39,10 +39,9 @@
 # "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Sonstige\""                                                                   "09. Angebote :: Sonstige"
 # "query:Angebote: tags =~ \"999. Angebote\" and tags =~ \"Ruhrgebiet\""                                                                 "09. Angebote :: Ruhrgebiet"
 
-### url-list# }}}
 
 # "999. Single Tags"
-### Reddit #{{{
+### Reddit #{{{1
 
 http://www.reddit.com/r/all/hot/.rss                  "999. Reddit - All"
 http://www.reddit.com/message/inbox/.rss              "999. Reddit - Messages"
@@ -56,8 +55,7 @@ http://www.reddit.com/r/vimgolf/.rss                  "999. Reddit - Vimgolf"
 # http://www.reddit.com/r/linux4noobs/.rss            "999. Reddit - Linux"
 # http://www.reddit.com/r/LinuxActionShow/.rss reddit "999. Reddit - Linux"
 
-#}}}
-# ### StackExch ## {{{
+# ### StackExch ## {{{1
 #
 # http://stackoverflow.com/feeds/tag?tagnames=bash&sort=newest "999. StackExch :: Bash"
 # http://stackoverflow.com/feeds/tag?tagnames=vim&sort=newest "999. StackExch :: VIM"
@@ -67,52 +65,44 @@ http://www.reddit.com/r/vimgolf/.rss                  "999. Reddit - Vimgolf"
 # http://superuser.com/feeds/tag/vim "999. StackExch :: VIM"
 # http://stackoverflow.com/feeds/question/24448683  "999. StackExch :: Questions"
 #
-# ### StackExch ## }}}
-### Podcasts #{{{
+### Podcasts #{{{1
 
 http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml "999. Podcasts - TTT"
 http://vimcasts.org/feeds/ogg.rss "999. Podcasts - VIMCasts.org"
 
-#}}}
-### Stellenmarkt#{{{
+### Stellenmarkt#{{{1
 
 http://recruiting.giz.de/www/jobabo_rss.php?jobabo_code=d53359c41025a4d7f77fc8b13237c356&cu=gtz_www "999. Jobs"
 
-#}}}
-### News#{{{
+### News#{{{1
 
-#### Bochum#{{{
+#### Bochum#{{{1
 
 http://www.derwesten.de/staedte/bochum/rss                                   "999. News - Bochum"
 http://www.bochum.de/RSSNews.xml                                             "999. News - Bochum"
 
-####}}}
-#### LatinAmerica#{{{
+#### LatinAmerica#{{{1
 
 http://feeds.bbci.co.uk/news/world/latin_america/rss.xml                     "999. News - LatinAmerica"
 
-####}}}
-#### Ecuador#{{{
+#### Ecuador#{{{1
 
 http://www.eluniverso.com/rss/ecuador.xml                                    "999. Ecuador - Noticias"
 http://karo-in-der-weiten-welt.jimdo.com/rss/blog                            "999. Ecuador - Karos Blog"
 
-####}}}
-#### Finance#{{{
+#### Finance#{{{1
 
 http://wsj.com/xml/rss/3_7481.xml                                            "999. News - Finance"
 http://www.faz.net/aktuell/wirtschaft/?rssview=1                             "999. News - Finance"
 http://www.tradac.de/wordpress/?feed=rss2                                    "999. News - Finance"
 http://www.handelsblatt.com/contentexport/feed/finanzen/                     "999. News - Finance"
 
-####}}}
-#### Technics#{{{
+#### Technics#{{{1
 
 http://rss.golem.de/rss.php?feed=RSS1.0                                      "999. News - Technik"
 http://www.heise.de/newsticker/heise-atom.xml                                "999. News - Technik"
 
-####}}}
-#### Politics + Headlines#{{{
+#### Politics + Headlines#{{{1
 
 http://www.n-tv.de/23.rss                                                    "999. News - Nachrichten"
 http://feeds.feedburner.com/Netzfeuilleton                                   "999. News - Nachrichten"
@@ -123,10 +113,8 @@ http://www.spiegel.de/politik/ausland/index.rss                              "99
 http://news.de.msn.com/rss_newshome.aspx                                     "999. News - Nachrichten"
 http://netzpolitik.org/feed/                                                 "999. News - Nachrichten"
 
-####}}}
 
-#}}}
-### Uni Due#{{{
+### Uni Due#{{{1
 
 http://duepublico.uni-duisburg-essen.de/servlets/DerivateServlet/Derivate-33698/index.msa?XSL.Style=rss   "999. Uni Due"
 http://www.lef.wiwi.uni-due.de/rss/                                                                       "999. Uni Due"
@@ -142,8 +130,7 @@ http://www.marketing.wiwi.uni-due.de/rss/                                       
 http://www.wiwi.uni-due.de/rss/                                                                           "999. Uni Due"
 # http://twitter.com/statuses/user_timeline/83144492.rss                                                    "999. Uni Due"
 
-#}}}
-### Linux# {{{
+### Linux# {{{1
 
 http://alblue.bandlem.com/atom.xml                                "999. Unix - Git"
 http://neovim.org/news.xml                                        "999. Unix - Vim"
@@ -221,8 +208,7 @@ http://www.fedora-blog.de/feed/                                   "999. Unix - F
 # http://doctormo.org/feed/                                       "999. Unix - Linux"
 # http://feeds.feedburner.com/Noobslab                            "999. Unix - Ubuntu"
 
-### Linux# }}}
-### Sport## {{{
+### Sport## {{{1
 
 http://fivefilters.org/content-only/makefulltextfeed.php?url=http://www.spox.com/pub/rss/us-sport-nba.xml&key=&max=4&links=preserve&submit=Create+Feed "999. Sport - Basketball"
 http://rss.kicker.de/team/vflbochum                                     "999. Sport - Fussball"
@@ -244,13 +230,11 @@ http://www.kickz.com/five/?feed=rss2                                    "999. Sp
 http://www.dallasbasketball.com/rss/MainRss.xml                         "999. Sport - Basketball"
 http://www.nba.com/mavericks/rss.xml                                    "999. Sport - Basketball"
 
-### Sport## }}}
-### Other# {{{
+### Other# {{{1
 
 http://feeds.gawker.com/lifehacker/full                            "999. Other - Lifehacker"
 
-# }}}
-### Angebote#{{{
+### Angebote#{{{1
 
 http://ws.audioscrobbler.com/2.0/user/S_Bolivar/podcast.rss                           "999. Angebote - Sonstige"
 http://feeds2.feedburner.com/mydealz                                                  "999. Angebote - Sonstige"
@@ -276,5 +260,3 @@ http://api.groupon.de/feed/api/v1/deals/oftheday/DE/bochum                      
 # http://www.amazon.de/gp/rss/movers-and-shakers/ce-de/ref=zg_bsms_ce-de_rsslink        "999. Angebote - Technik"
 # http://www.amazon.de/gp/rss/movers-and-shakers/apparel/ref=zg_bsms_apparel_rsslink    "999. Angebote - Kleidung"
 # http://news.billiger.de/feed                                                          "999. Angebote - Sonstige"
-
-#

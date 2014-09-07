@@ -618,19 +618,11 @@ aug END
 " BufWinEnter                                                 " {{{2
 
 aug BWE
-au!
-" restores the cursor position and its au so that it gets triggered
-au BufWinEnter * call ResCur()
-" show all marks for [count] movements when entering buffer
-au BufWinEnter * :15ShowMarksOnce
-aug END
-
-" Filetype                                                    " {{{2
-
-aug Filet
     au!
-    " automatically remove trailing whitespaces
-    au filetype tex,rnoweb,noweb,vim,r :%s/\s\+$//e
+    " restores the cursor position and its au so that it gets triggered
+    au BufWinEnter * call ResCur()
+    " show all marks for [count] movements when entering buffer
+    au BufWinEnter * :15ShowMarksOnce
 aug END
 
 " Filetypedetect                                              " {{{2
@@ -639,3 +631,9 @@ aug END
 augroup filetypedetect
 au! BufRead,BufNewFile *.textmpl   setf textmpl
 augroup END
+" Filetype                                                    " {{{2
+
+aug Filetype
+    " automatically remove trailing whitespaces
+    au! filetype tex,rnoweb,noweb,vim,r :%s/\s\+$//e
+aug END

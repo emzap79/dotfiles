@@ -5,6 +5,13 @@
 " Description: Please feel free to fork my vimrc!!!
 " Last Modified: Januar 04, 2014
 
+" Neovim for Python
+if has('neovim')
+    " let s:python_host_init = 'python -c "import neovim; neovim.start_host()"'
+    let s:python_host_init = 'python2 -c "import neovim; neovim.start_host()"'
+    let &initpython = s:python_host_init
+endif
+
 " set env VIMRC="/home/zapata/.vim"
 
 " This source imports all of my general settings. Indent, hilight, etc.
@@ -19,9 +26,9 @@ source $HOME/.vim/vimrc_mappings
 source $HOME/.vim/vimrc_mutt
 
 " This source sets R configs
-source $HOME/.vim/after/ftplugin/r.vim
+source $HOME/.vim/ftplugin/r.vim
 " This source sets LaTeX configs
-" source ftplugin/tex.vim
+source $HOME/.vim/ftplugin/tex.vim
 
 "------------------
 " Xterm-Style-Keys

@@ -130,9 +130,4 @@ endfunction
 inoremap <expr><buffer> <CR> CR()
 
 " insert \item"}}}
-" texabbrevs"{{{
-
-call TeXAbbreviations()
-
-" texabbrevs"}}}
 " Functions"}}}

@@ -41,11 +41,11 @@ Bundle 'vim-scripts/ExtractLinks'
 Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'vim-scripts/LanguageTool'
 Bundle 'wellle/targets.vim'
+Bundle 'tommcdo/vim-exchange'
 
 " No more used repos
 " Bundle 'mattn/flappyvird-vim'
 " Bundle 'terryma/vim-expand-region'
-" Bundle 'tommcdo/vim-exchange'
 " Bundle 'tomtom/tcomment_vim'
 " Bundle 'vim-scripts/tComment'
 " Bundle 'CheckAttach.vim'
@@ -517,9 +517,9 @@ let g:languagetool_jar = '$HOME/.dictionaries/LanguageTool-2.5-SNAPSHOT/language
 " vim-autocorrect                                      {{{2
 
 " au! filetype tex call AutoCorrect()
-au!  BufEnter  call                    BasicAbbreviations()
-au!  filetype  noweb,rnoweb,tex  call  TexAbbreviations()
-au!  filetype  mail,eml          call  MailAbbreviations()
+" au!  BufEnter  call BasicAbbreviations()
+" au!  filetype  noweb,rnoweb,tex  call  TexAbbreviations()
+" au!  filetype  mail,eml          call  MailAbbreviations()
 
 " vim-origami                                          {{{2
 

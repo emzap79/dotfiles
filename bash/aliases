@@ -41,6 +41,9 @@ alias vla='ls $LS1 $LS2 $LS3 -A  | grep ".*" | less -R'      # also lists hidden
 alias vl='ls $LS1 $LS2 $LS3 -Al | grep ".*" | less -R'      # list of files
 alias vll='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R'      # like before, but lists hidden files, too
 
+# chmod                                                                          {{{2
+
+alias chm="chmod 755"
 # du                                                                           # {{{2
 
 # show size of current folder/subfolder/dotfiles
@@ -141,6 +144,7 @@ alias hsg="history|grep -i"
 alias convbib="sed -i 's/^ *owner=.*/   owner={Jonas Petong},/g;s/{{/{/g;s/}}/}/g'"
 alias convuml="sed -i 's/Ã¶/ö/g;s/Ã¼/ü/g;s/ÃŸ/ß/g;s/Ã¤/ä/g;s/Ã„/Ä/g;s/Ãœ/Ü/g;s/Ã–/Ö/g;s/Ã©/Ë/g'"
 alias convdir="sed -i 's/\([\&\)\(]\)/\\\1/g;s/\(.*\)\/.*/ \1/'"
+alias sed="perl -pe"    # http://stackoverflow.com/a/1103177
 
 # grep                                                                         # {{{2
 
@@ -253,8 +257,8 @@ command_not_found_handle() {
 }
 
 # source bashrc                                                                  {{{2
-alias soa="source $HOME/.bash/aliases"
-alias sob="source $HOME/.bashrc"
+alias sba="source $HOME/.bash/aliases"
+alias sbrc="source $HOME/.bashrc"
 
 # programs                                                                     # {{{1
 
@@ -265,7 +269,9 @@ alias xv='xclip -selection o'
 alias pwdc="pwd | xclip; source ~/.bashrc"
 alias pwdp=`xclip -o`     # Error: target STRING not available
 
-# vim                                                                          # {{{2
+# vim/neovim                                                                          # {{{2
+
+nvim='nvim -u ~/.vimrc'
 
 # vimgolf
 # http://stackoverflow.com/a/8931728/3569509
@@ -353,7 +359,6 @@ alias bc="bc -l"
 alias bt='ls "$VOL/$mus"; du -h -d0 "$VOL/$mus"; beet ls; head -n 2 ~/.logfiles/beets.list'
 alias btls='ls "$VOL/$(ls -tcr $VOL | grep MSK | tail -n 1)"'
 alias btmv='beet mv -d "$VOL/$(ls $VOL/ | grep MSK | sort | tail -n 1)"; yes y | beet rm; killall beet; killall beet'
-alias btst='while true; do cronBeet; done'
 
 # vlc                                                                          # {{{2
 
@@ -383,7 +388,6 @@ alias mstream=fun_mplayer_stop_stream
 # the random list, then pass those to mpg123 or mpv. # http://stackoverflow.com/a/1047790
 alias randomplay="find -regextype egrep -iregex '^.*(mp3|flac)' | sort --random-sort| head -n 100|xargs -d '\n' mpv"
 alias randomplaytrack="find -regextype egrep -iregex '^.*(mp3|flac)' | sort --random-sort | xargs  mpv"
-
 
 
 # fzf - fuzzyfinder                                                            # {{{2
@@ -523,6 +527,7 @@ alias urlshrt="/bin/bash $HOME/bin/urlShortener.sh"
 alias inst="sudo apt-get install -y"
 alias agi='sudo apt-get install -y'
 alias acs='apt-cache search'
+alias agu='sudo apt-get update'
 alias apt-get='sudo apt-get'
 alias yum='sudo yum'
 alias upgr="/bin/bash ~/bin/upgrSoftw.sh && /usr/bin/python ~/bin/upgrPipPackages.py"

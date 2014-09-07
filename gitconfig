@@ -39,7 +39,7 @@
 	lll	= log --graph --abbrev=7 --decorate=short --pretty=medium --stat	# show log with added/droped files
 
 #  check current state locally
-	st	= status -u normal --short
+	st	= status -u								# show tracked and untracked as well
 	stn	= status -u no								# don't show untracked stuff
 	snn	= status -u no --short							# don't show untracked stuff, no additional information
 
@@ -54,11 +54,12 @@
 #	=================================
 
 # show everything related to a SHA1
-	sw	= show 				# check current local changes you have made
+	sw	= show 				# see the differences introduced by a commit
 #	=	# git show [reference]:[filename]
 #	=	# # [reference] can be a branch, tag, HEAD or commit ID 
 #	=	# # [filename] is the filename including path
 
+# see http://stackoverflow.com/a/8547159/3569509
 	d	= diff HEAD			# (...<filename>) diff staged + unstaged against HEAD
 	ds	= diff --staged			# diff staged against HEAD
 	dss	= diff --staged --name-only	# show staged files (name-only)
@@ -77,7 +78,9 @@
 	ha	= !git help -a|less
 	hi	= help -i			# ... yet to find out how to use the 'info' program
 	al	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g'|less -R"
-	grc	= config --get-regexp		# search for custom regexpression
+	rc	= config --get-regexp		# search for custom regexpression
+	rcl	= config --list			# query settings of the local repository
+	rcg	= config --list --global	# query global settings
 
 #	=================================
 #	=	clean & remove		=
@@ -177,7 +180,10 @@
 	b	= branch			# (...<branch name>), without argument show existing ones
 	bl	= branch -av			# show branches + SHA1 tags
 	bd	= branch --delete		# ...<branch name>, remove a branch
-	bs	= git ls-remote 		# <origin> lists branches and tags in the remote repository called origin
+	bs	= ls-remote			# <origin> lists branches and tags in the remote repository called origin
+	br	= branch -r			# show --'remote tracking branches'
+	brd	= branch -d -r			# origin/<branch>, delete remote tracking branch
+	brs	= remote show origin		# show all remote and tracking branches for origin
 
 ##  checkout branches
 	co	= checkout			# ...<branch name> checkout branch

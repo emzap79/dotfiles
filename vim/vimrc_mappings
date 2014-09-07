@@ -299,8 +299,8 @@ nnoremap <silent> <leader>ef :sp ~/.vim/vimrc_foldexpr<cr>
 nnoremap <silent> <leader>ec :sp ~/.vim/vimrc_colors<cr>
 nnoremap <silent> <leader>eb :sp ~/.vim/vimrc_mappings<cr>
 nnoremap <silent> <leader>em :sp ~/.vim/vimrc_mutt<cr>
-nnoremap <silent> <leader>er :sp ~/.vim/after/ftplugin/r.vim<cr>
-nnoremap <silent> <leader>et :sp ~/.vim/after/ftplugin/tex.vim<cr>
+nnoremap <silent> <leader>er :sp ~/.vim/ftplugin/r.vim<cr>
+nnoremap <silent> <leader>et :sp ~/.vim/ftplugin/tex.vim<cr>
 nnoremap <silent> <leader>ea :sp ~/.vim/plugin/vim-autocorrect.vim<cr>
 nnoremap <silent> <leader>ep :sp ~/.vim/vimrc_plugs<cr>
 
