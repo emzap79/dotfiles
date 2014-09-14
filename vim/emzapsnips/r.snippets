@@ -35,15 +35,19 @@ endglobal
 snippet as "Apply type on variable" w
 as.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
+
 snippet is "Test type on variable" w
 is.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
+
 snippet "(\s|^)lib( (\S+))?" "Import a library" wr
 library("${1:`!p snip.rv = match.group(3) if match.group(2) is not None else ""`}")$0
 endsnippet
+
 snippet knitr "Install and update package from repo" b
 install.packages(c("digest", "evaluate", "formatR", "highlight", "knitr", "parser", "plyr", "Rcpp", "stringr"), repos = c('http://rforge.net', 'http://cran.rstudio.org'), type = 'source')
 endsnippet
+
 snippet inst "Install and update package from repo" b
 ${4:# update.packages(ask = FALSE, repos = 'http://rforge.net',
 'http://cran.rstudio.org', 'http://cran.r-project.org')
@@ -52,12 +56,15 @@ repos = c('http://rforge.net', 'http://cran.rstudio.org', 'http://cran.r-project
 type = 'source')
 library("$1")
 endsnippet
+
 snippet str "Internal structure of an object" w
 str(${1:${VISUAL}})
 endsnippet
+
 snippet "(\S+)\(" "Close Brace" ri
 `!p snip.rv = match.group(1) if match.group(1) is not None else ""`(${1:${VISUAL}})
 endsnippet
+
 snippet read "Read from file" b
 read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}",
 		header=${3:TRUE or FALSE}, skip=${4:number of lines to skip before reading data},
@@ -67,6 +74,7 @@ read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}",
 		blank.lines.skip=${10:TRUE or FALSE},
 		${11:na.strings=c(${12:NA,"NA"," NA ","#N/A N/A"})})
 endsnippet
+
 snippet header "Include Packages" b
 # vim:fdm=marker:isk-=(,.,_
 
@@ -84,8 +92,9 @@ library("rgl")
 library("plot3D")
 
 # set workingdir
-setwd$1
+swd$1
 endsnippet
+
 snippet grep "grepsearch for string" b
 grep("${1:stringofinterest}",${2:dataframeofinterest},ignore.case=${3:TRUE},value=${4:TRUE})
 endsnippet
@@ -93,24 +102,29 @@ endsnippet
 snippet req "Require a file"
 require(${0:package})
 endsnippet
+
 snippet source "Source a file"
 source('${0:file}')
 endsnippet
+
 snippet if "If statement"
 if (${1}) {
 	${0:${VISUAL}}
 }
 endsnippet
+
 snippet eif "Else-If statement"
 else if (${1}) {
 	${0:${VISUAL}}
 }
 endsnippet
+
 snippet el "Else statement"
 else {
 	${0:${VISUAL}}
 }
 endsnippet
+
 snippet ife "if .. else"
 if (${1}) {
 	${2}
@@ -118,78 +132,105 @@ if (${1}) {
 	${3}
 }
 endsnippet
+
 snippet whl "while loop"
 while(${1}) {
 	${2}
 }
 endsnippet
+
 snippet for "for loop"
 for (${1:item} in ${2:list}) {
 	${3:${VISUAL}}
 }
 endsnippet
+
 snippet fun "Function definition"
 ${1:name} <- function (${2}) {
 	${0:${VISUAL}}
 }
 endsnippet
+
+snippet swd "Set workingdir" b
+setwd("${1:`!p snip.rv = os.getcwd()`}")
+endsnippet
+
 snippet ret "Return call"
 return(${0:${VISUAL}})
 endsnippet
+
 snippet df "Data frame"
 ${1:name}[${2:rows}, ${0:cols}]
 endsnippet
+
 snippet li "list function"
 list(${0:items})
 endsnippet
+
 snippet mat "matrix function"
 matrix(${1:data}, nrow = ${2:rows}, ncol = ${0:cols})
 endsnippet
+
 snippet apply "apply function"
 apply(${1:array}, ${2:margin}, ${0:function})
 endsnippet
+
 snippet lapply "lapply function"
 lapply(${1:list}, ${0:function})
 endsnippet
+
 snippet sapply "sapply function"
 sapply(${1:list}, ${0:function})
 endsnippet
+
 snippet vapply "vapply function"
 vapply(${1:list}, ${2:function}, ${0:type})
 endsnippet
+
 snippet mapply "mapply function"
 mapply(${1:function}, ${0:...})
 endsnippet
+
 snippet tapply "tapply function"
 tapply(${1:vector}, ${2:index}, ${0:function})
 endsnippet
+
 snippet rapply "rapply function"
 rapply(${1:list}, ${0:function})
 endsnippet
+
 snippet pl "Plot function"
 plot(${1:x}, ${0:y})
 endsnippet
+
 snippet ggp "ggplot2 plot"
 ggplot(${1:data}, aes(${0:aesthetics}))
 endsnippet
+
 snippet fis "Fisher test"
 fisher.test(${1:x}, ${0:y})
 endsnippet
+
 snippet chi "Chi Squared test"
 chisq.test(${1:x}, ${0:y})
 endsnippet
+
 snippet tt "t-test"
 t.test(${1:x}, ${0:y})
 endsnippet
+
 snippet wil "Wilcox test"
 wilcox.test(${1:x}, ${0:y})
 endsnippet
+
 snippet cor "Correlation test"
 cor.test(${1:x}, ${0:y})
 endsnippet
+
 snippet fte "FTE test"
 var.test(${1:x}, ${0:y})
 endsnippet
+
 snippet kvt "KV test"
 kv.test(${1:x}, ${0:y})
 endsnippet
@@ -201,105 +242,139 @@ endsnippet
 snippet ifel "ifelse"
 ifelse (${1:cond}, ${2:yes}, ${3:no})
 endsnippet
+
 snippet dim "Show objects dimension" w
 dim(${1:${VISUAL}})
 endsnippet
+
 snippet nms "Show objects names" w
 names(${1:${VISUAL}})
 endsnippet
+
 snippet c "Concatenate" w
 c(${1:${VISUAL}})
 endsnippet
+
 snippet m "Mean" w
 mean(${1:${VISUAL}})
 endsnippet
+
 snippet ls "list" w
 list(${1:${VISUAL}})
 endsnippet
+
 snippet rge "range" w
 range(${1:${VISUAL}})
 endsnippet
+
 snippet mx "max" w
 max(${1:${VISUAL}})
 endsnippet
+
 snippet mn "min" w
 min(${1:${VISUAL}})
 endsnippet
+
 snippet gt "get" w
 get(${1:${VISUAL}})
 endsnippet
+
 snippet hd "head" w
 head(${1:${VISUAL}})
 endsnippet
+
 snippet tl "tail" w
 tail(${1:${VISUAL}})
 endsnippet
+
 snippet lt "length" w
 length(${1:${VISUAL}})
 endsnippet
+
 snippet rb "rbind" w
 rbind(${1:${VISUAL}})
 endsnippet
+
 snippet cb "cbind" w
 cbind(${1:${VISUAL}})
 endsnippet
+
 snippet na.omit "na.omit" w
 na.omit(${1:${VISUAL}})
 endsnippet
+
 snippet unl "unlist" w
 unlist(${1:${VISUAL}})
 endsnippet
+
 snippet sq "seq" w
 seq(${1:${VISUAL}})
 endsnippet
+
 snippet pt "paste" w
 paste(${1:${VISUAL}})
 endsnippet
+
 snippet pt0 "paste" w
 paste0(${1:${VISUAL}})
 endsnippet
+
 snippet pr "print" w
 print(${1:${VISUAL}})
 endsnippet
+
 snippet ass "assign" w
 assign(${1:${VISUAL}})
 endsnippet
+
 snippet rp "rep" w
 rep(${1:${VISUAL}})
 endsnippet
+
 snippet gwd "getwd" w
 getwd(${1:${VISUAL}})
 endsnippet
+
 snippet ex "exists" w
 exists(${1:${VISUAL}})
 endsnippet
+
 snippet wh "which" w
 which(${1:${VISUAL}})
 endsnippet
+
 snippet st "subset" w
 subset(${1:${VISUAL}})
 endsnippet
+
 snippet lv "levels" w
 levels(${1:${VISUAL}})
 endsnippet
+
 snippet mc "match" w
 match(${1:${VISUAL}})
 endsnippet
+
 snippet rd "round" w
 round(${1:${VISUAL}})
 endsnippet
+
 snippet cln "colnames" w
 colnames(${1:${VISUAL}})
 endsnippet
+
 snippet rwn "rownames" w
 rownames(${1:${VISUAL}})
 endsnippet
+
 snippet atr "attributes" w
 attributes(${1:${VISUAL}})
 endsnippet
+
 snippet rtn "return" w
 return(${1:${VISUAL}})
 endsnippet
+
 snippet smr "summary" w
 summary(${1:${VISUAL}})
 endsnippet

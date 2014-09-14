@@ -8,6 +8,16 @@ extends texmath, textmpl
 global !p
 from vimsnippets import complete
 
+NAME_FIELD_TYPES = [
+'Jonas Petong',
+'Ximena Petong']
+
+MAIL_FIELD_TYPES = [
+'\n',
+'beckhausstr. 11\nco / stefan ickler\n44892 bochum\n+49 17653347208\n',
+'dellplatz 7\npostfach 304\n47051 duisburg\n+49 17653347208\n',
+'es02224159\nvolkswirtschaft\nuni duisburg-essen\n+49 176 53347208\n']
+
 BOX_FIELD_TYPES = [
 'framebox',
 'makebox',
@@ -134,6 +144,12 @@ snippet "acro(\w+)?" "Define acronym" rb
 \acro{${1}}[${2:${1/(\w+)/(?1:\U$1\E)/g}}]{${3}}${4:
 \acroplural{$1}[$2$5]{$3$6}}
 endsnippet
+snippet addr "Absenderadresse"
+$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
+endsnippet
+snippet "cite?" "Insert Citation" !br
+---
+jonas petong
 snippet "(\s|^)ac( (\S+))?" "Set acronym" r
  \ac{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
 endsnippet
@@ -274,9 +290,9 @@ snippet '' "Double Quotation Marks" i
 \frqq ${1:${VISUAL}}\flqq{}
 endsnippet
 snippet from "Absender" w
-${1/((?i)j)\S*$|((?i)x)\S*$|((?i)a)\S*/(?1:\U$1\Eonas)(?2:\U$2\Eimena)(?3:\U$3\Elicia)/} Petong\newline%${1: [J]onas | [X]imena | [A]licia }%
-Lohbergstraße 6\newline
-44789 Bochum
+$1`!p snip.rv = complete(t[1], NAME_FIELD_TYPES)`\newline
+Am Dellplatz 7\newline
+47051 Duisburg
 endsnippet
 snippet em "comm: emphasize text"
 \emph{$1${VISUAL}}

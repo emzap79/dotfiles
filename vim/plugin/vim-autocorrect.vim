@@ -19,7 +19,7 @@ fun! MailAbbreviations()
     iab fg Freundliche Grüßen,
                 \<CR>Jonas <C-R>
 endf
-au! filetype eml call MailAbbreviations()
+call MailAbbreviations()
 
 fun! BasicAbbreviations()
 

@@ -14,8 +14,8 @@ hi mailQuoted1     ctermfg=Darkyellow
 hi mailQuoted2     ctermfg=Green
 
 "Activate MuttAliasComplete Plugin
-"autocmd FileType mail set omnifunc=muttaliasescomplete#Complete 
+"autocmd FileType mail set omnifunc=muttaliasescomplete#Complete
 "source ~/.vim/bundle/muttaliasescomplete.vim/plugin/muttaliasescomplete.vim
 
-
-"au BufRead /tmp/mutt* source /path/to/email.vim 
+"au BufRead /tmp/mutt* source /path/to/email.vim
+au! BufRead /tmp/mutt* call MailAbbreviations()

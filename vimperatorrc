@@ -90,6 +90,7 @@ function bmark(title, url, keyword) {
 }
 bmark('Ctan'              ,  'http://www.ctan.org/search'                                       ,      'ct');
 bmark('Dict'              ,  'http://www.dict.cc/?s=%s'                                         ,      'dict');
+bmark('IMDB Search'       ,  'http://www.imdb.com/find?q=%s&s=all'                              ,      'imdb');
 bmark('Github'            ,  'https://github.com/search?q=%s'                                   ,      'gh');
 bmark('Google US Search'  ,  'http://www.google.com/search?q=%s'                                ,      'g');
 bmark('Bing US Search'    ,  'http://www.bing.com/search?q=%s'                                  ,      'b');

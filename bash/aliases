@@ -258,7 +258,7 @@ command_not_found_handle() {
 
 # source bashrc                                                                  {{{2
 alias sba="source $HOME/.bash/aliases"
-alias sbrc="source $HOME/.bashrc"
+alias sbr="source $HOME/.bashrc"
 
 # programs                                                                     # {{{1
 
@@ -380,7 +380,7 @@ alias yt="mpsyt"
 
 # mplayer                                                                      # {{{2
 
-alias mpvh="mpv --list-options|less"
+alias mpvh="mpv --list-options"
 alias selfie="mplayer -vo png -frames 1 tv:// -tv width=1280:height=720" # Take a single 1280x720 picture of your TV input, which is often your webcam
 alias mstream=fun_mplayer_stop_stream
 
@@ -398,28 +398,7 @@ alias fh=fun_fh
 alias fkill=fun_fkill
 
 
-# miscellanious                                                                # {{{1
-
-# dictionaries                                                                 # {{{2
-
-# https://github.com/soimort/google-translate-cli
-alias trs="trs {=de}"   # google translator
-alias ot=fun_open_thesaurus
-
-# alert                                                                        # {{{2
-
-# Add an "alert" alias for long running commands.
-# http://askubuntu.com/questions/339499/bash-taking-a-lot-of-time-to-load
-# Use like so: sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal ||\
-    echo error)" "$(history|tail -n1|sed -e \
-    '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# birthday                                                                     # {{{2
-
-alias bday="cat $HOME/.birthdays | grep -i"
-
-# short commands                                                               # {{{2
+# short commands                                                               # {{{1
 
 # some of it taken from https://github.com/sjas/.dotfiles
 
@@ -427,6 +406,7 @@ alias t='tail -n200'
 alias h='head -n20'
 alias d='dirs -v'
 alias live="watch -n10 --no-title \"w3m http://www.livescore.com/ |awk '/live [0-9H]+[^ ]/,/red cards/'\""  # liveticker for worldcup
+alias pk="pkill"
 alias pd="pushd ."
 alias pp="popd"
 alias makecoffee='printf "\xE2\x98\x95\n"'
@@ -450,6 +430,27 @@ alias unlckkeyr="sudo /usr/bin/gnome-keyring-daemon --start --components=gpg,pkc
 alias html2pdf="for i in *.html; do wkhtmltopdf $i $(basename $i .html).pdf; done"
 alias img2pdf=fun_conv_img_to_pdf
 alias architecture="echo $(lsb_release -sri | tr '\n' ' ') && echo $(gnome-shell --version) && uname -srm"
+
+# miscellanious                                                                # {{{1
+
+# dictionaries                                                                 # {{{2
+
+# https://github.com/soimort/google-translate-cli
+alias trs="trs {=de}"   # google translator
+alias ot=fun_open_thesaurus
+
+# alert                                                                        # {{{2
+
+# Add an "alert" alias for long running commands.
+# http://askubuntu.com/questions/339499/bash-taking-a-lot-of-time-to-load
+# Use like so: sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal ||\
+    echo error)" "$(history|tail -n1|sed -e \
+    '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# birthday                                                                     # {{{2
+
+alias bday="cat $HOME/.birthdays | grep -i"
 
 # sudo commands                                                                # {{{2
 

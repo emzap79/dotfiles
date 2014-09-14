@@ -17,7 +17,6 @@ def complete(t, opts):
     return "(" + '|'.join(opts) + ')'
 endglobal
 
-
 #.###########
 #.#.Templates
 #.###########
@@ -84,7 +83,7 @@ headings=small
 \usepackage{courier}                                      %% standard cmtt font has no bold typeface
                                                           %% However, bold is nice for keywords
 
-\title{${3:title}}
+\title{${4:title}}
 \author{Jonas Petong}
 \date{\today}
 \begin{document}
@@ -644,13 +643,13 @@ pdftex,
 %% ****************
 %% document %{{{
 %% commands for \maketitle
-\title{${3}}
-\subtitle{${4}}
-\author{${5:Jonas Petong}}
+\title{${5}}
+\subtitle{${6}}
+\author{${7:Jonas Petong}}
 \date{\today}
 
 %% Press <Tab> to begin Document
-${1/(scrartcl)$|(newlfm)/(?1:begin document)(?2:letter newlfm)/g}$0
+${3/(scrartcl)$|(newlfm)/(?1:begin document)(?2:letter newlfm)/g}$0
 
 % \maketitle
 % \pagebreak

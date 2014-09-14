@@ -1,10 +1,3 @@
-http://127.0.0.1:24526/library/graphics/help/plot.default
-http://127.0.0.1:24526/library/graphics/help/graphical%20parameter
-http://127.0.0.1:14204/library/base/html/strptime.html
-http://127.0.0.1:14204/library/graphics/html/par.html
-http://127.0.0.1:14204/library/graphics/html/plot.html
-http://127.0.0.1:14204/library/graphics/help/title
-http://127.0.0.1:14204/library/base/html/weekday.POSIXt.html
 http://127.0.0.1:14204/library/base/help/DateTimeClasses
 http://127.0.0.1:14204/library/graphics/html/title.html
 http://127.0.0.1:28531/library/graphics/html/abline.html
@@ -98,3 +91,10 @@ http://127.0.0.1:21291/library/base/html/col.html
 http://127.0.0.1:21291/library/base/html/colnames.html
 http://127.0.0.1:22798/library/utils/html/write.table.html
 http://127.0.0.1:22899/library/utils/html/read.table.html
+http://127.0.0.1:25720/library/base/html/strsplit.html
+http://127.0.0.1:12406/library/base/html/subset.html
+http://127.0.0.1:12406/library/base/html/grep.html
+http://127.0.0.1:27633/library/base/html/diff.html
+http://127.0.0.1:27633/library/base/html/pmatch.html
+http://127.0.0.1:27633/library/base/html/grep.html
+http://127.0.0.1:27633/library/utils/html/read.table.html
