@@ -98,7 +98,7 @@ snippet versand "Versandzettel erstellen" b
 \columnseprule0.5pt
 
 ${1:\newcommand{\fromaddress}{%
-from${2}% press <tab>
+from$2% press <tab>
 }}
 
 % \begin{center}
@@ -117,9 +117,9 @@ from${2}% press <tab>
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hspace{3cm}
 \parbox{25cm}{%
-{\scshape\Huge Empfänger}\newline\newline
+{\scshape\Huge ${3:Empfänger}}\newline\newline
 {\large
-${3:Adresse des Empfängers}}}
+${4:Adresse des Empfängers}}}
 
 % change in preamble
 % 22pt, landscape		% fontsize:		22pt

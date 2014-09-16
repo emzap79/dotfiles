@@ -189,6 +189,7 @@ map <silent> <LocalLeader>mx :call RAction("max")<CR>
 map <silent> <LocalLeader>rg :call RAction("range")<CR>
 
 " data information                           {{{3
+map <silent> <localleader>pr :call RAction("print")<CR>
 map <silent> <LocalLeader>hd :call RAction("head")<CR>
 map <silent> <LocalLeader>tl :call RAction("tail")<CR>
 map <silent> <localleader>at :call RAction("attributes")<CR>

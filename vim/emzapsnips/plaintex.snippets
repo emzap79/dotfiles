@@ -8,9 +8,10 @@ extends texmath, textmpl
 global !p
 from vimsnippets import complete
 
-NAME_FIELD_TYPES = [
-'Jonas Petong',
-'Ximena Petong']
+FROM_FIELD_TYPES = [
+'\n',
+'Jonas Petong\\newline\nAm Dellplatz 7\\newline\nPostfach 304\\newline\n47051 Duisburg\n',
+'Ximena Petong\\newline\nAm Dellplatz 7\\newline\nPostfach 304\\newline\n47051 Duisburg\n']
 
 MAIL_FIELD_TYPES = [
 '\n',
@@ -290,9 +291,7 @@ snippet '' "Double Quotation Marks" i
 \frqq ${1:${VISUAL}}\flqq{}
 endsnippet
 snippet from "Absender" w
-$1`!p snip.rv = complete(t[1], NAME_FIELD_TYPES)`\newline
-Am Dellplatz 7\newline
-47051 Duisburg
+$1`!p snip.rv = complete(t[1], FROM_FIELD_TYPES)`
 endsnippet
 snippet em "comm: emphasize text"
 \emph{$1${VISUAL}}

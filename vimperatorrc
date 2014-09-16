@@ -90,11 +90,12 @@ function bmark(title, url, keyword) {
 }
 bmark('Ctan'              ,  'http://www.ctan.org/search'                                       ,      'ct');
 bmark('Dict'              ,  'http://www.dict.cc/?s=%s'                                         ,      'dict');
+bmark('Ebay'              ,  'http://www.ebay.de/sch/i.html?_from=R40&_trksid=p2050601.m570.l1313.TR0.TRC0.H0.X2010&_nkw=2010&_sacat=0'                                         ,      'dict');
 bmark('IMDB Search'       ,  'http://www.imdb.com/find?q=%s&s=all'                              ,      'imdb');
 bmark('Github'            ,  'https://github.com/search?q=%s'                                   ,      'gh');
-bmark('Google US Search'  ,  'http://www.google.com/search?q=%s'                                ,      'g');
+bmark('Google US Search'  ,  'http://www.google.com/search?q=%s'                                ,      'gg');
 bmark('Bing US Search'    ,  'http://www.bing.com/search?q=%s'                                  ,      'b');
-bmark('Bing US Search'    ,  'https://www.facebook.com/search/results/?=&q=%s'                  ,      'f');
+bmark('Facebook'          ,  'https://www.facebook.com/search/results/?=&q=%s'                  ,      'f');
 bmark('Rseek'             ,  'http://www.rseek.org/?q=%s'                                       ,      'r');
 bmark('Stackoverflow R'   ,  'http://stackoverflow.com/search?q=[r] %s'                         ,      'sor');
 bmark('Stackoverflow R'   ,  'http://stackoverflow.com/search?q=[bash] %s'                      ,      'sob');
