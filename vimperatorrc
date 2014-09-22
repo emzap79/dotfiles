@@ -94,7 +94,9 @@ bmark('Ebay'              ,  'http://www.ebay.de/sch/i.html?_from=R40&_trksid=p2
 bmark('IMDB Search'       ,  'http://www.imdb.com/find?q=%s&s=all'                              ,      'imdb');
 bmark('Github'            ,  'https://github.com/search?q=%s'                                   ,      'gh');
 bmark('Google US Search'  ,  'http://www.google.com/search?q=%s'                                ,      'gg');
+bmark('DuckDuckGo'        ,  'https://duckduckgo.com/?q=%s'                                     ,      'dd');
 bmark('Bing US Search'    ,  'http://www.bing.com/search?q=%s'                                  ,      'b');
+bmark('Ubuntuusers Wiki'  ,  'http://ubuntuusers.de/search/?query=%s&area=wiki'                 ,      'uu');
 bmark('Facebook'          ,  'https://www.facebook.com/search/results/?=&q=%s'                  ,      'f');
 bmark('Rseek'             ,  'http://www.rseek.org/?q=%s'                                       ,      'r');
 bmark('Stackoverflow R'   ,  'http://stackoverflow.com/search?q=[r] %s'                         ,      'sor');
@@ -344,7 +346,7 @@ let g:auto_append_anchor = "true"
 lazy js liberator.globalVariables.autoDetectLink.force = true
 
 " browser_object.js                                  {{{2
-let g:browser_object_prefix = ',' 
+let g:browser_object_prefix = ';'
 
 " copy.js                                            {{{2
 noremap <leader>c :copy 
@@ -436,7 +438,6 @@ EOM
 let g:ex_ime_mode = "inactive"
 let g:textarea_ime_mode = "inactive"
 
-
 " ldrize_cooperation.js                              {{{2
 noremap <leader>, :toggleldrc<CR>
 let g:ldrc_enable = "true"
@@ -444,7 +445,6 @@ let g:ldrc_captureMappings = "['j','k','p','o']"
 let g:ldrc_intelligence_bind = "true"
 let g:ldrc_hints = "true"
 let g:ldrc_skip = "0.1"
-
 
 " localkeymode.js                                    {{{2
 let g:localkeymode_enable = "true"
@@ -470,7 +470,6 @@ EOM
 " maine_coon.js                                      {{{2
 let g:maine_coon_style = "height: 1em; margin: 0; padding: 3px; border: none; text-align: left; color: #7090d0; font: 11px/1 sans-serif; background: #0c0c0c;"
 
-
 " multi_requester.js                                 {{{2
 noremap <leader>me :mr<Space>alc<Space>
 noremap <leader>mt :mr<Space>twitter-search-pcod-no-jp<Space>
@@ -478,10 +477,8 @@ noremap <leader>mT :mr<Space>twitter-search-pcod-no-jp<Space>mashiroli<CR>
 noremap <leader>mf :mr<Space>favotter-new<Space>
 noremap <leader>mF :mr<Space>favotter-new<Space>mashiroli<CR>
 
-
 " no_reading.js                                      {{{2
 let g:no_reading_do_echo = 1
-
 
 " refcontrol.js                                      {{{2
 let g:refcontrol_enabled = "true"
@@ -511,7 +508,6 @@ let g:epub_reader_map_prevchapter= '<<';
 " let g:epub_reader_map_bookmark= '<<';
 " let g:epub_reader_map_library= '<<';
 " let g:epub_reader_map_jump= '<<';
-
 
 " uaSwitchLite.js                                    {{{2
 
