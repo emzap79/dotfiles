@@ -47,10 +47,10 @@ autocmd  ColorScheme  *  highlight  SpellBad                   ctermfg=7     cte
 autocmd  ColorScheme  *  highlight  Search                     ctermfg=none  ctermbg=255  cterm=none
 autocmd  ColorScheme  *  highlight  IncSearch                  ctermfg=none  ctermbg=192  cterm=none
 autocmd  ColorScheme  *  highlight  LanguageToolGrammarError   ctermfg=none  ctermbg=53   cterm=none
-autocmd  ColorScheme  *  highlight  LanguageToolCmd            ctermfg=none  ctermbg=53   cterm=none
-autocmd  ColorScheme  *  highlight  LanguageToolLabel          ctermfg=none  ctermbg=53   cterm=none
-autocmd  ColorScheme  *  highlight  LanguageToolErrorCount     ctermfg=none  ctermbg=53   cterm=none
-autocmd  ColorScheme  *  highlight  LanguageToolSpellingError  ctermfg=none  ctermbg=55   cterm=none
+autocmd  ColorScheme  *  highlight  LanguageToolCmd            ctermfg=none  ctermbg=54   cterm=none
+autocmd  ColorScheme  *  highlight  LanguageToolLabel          ctermfg=none  ctermbg=55   cterm=none
+autocmd  ColorScheme  *  highlight  LanguageToolErrorCount     ctermfg=none  ctermbg=56   cterm=none
+autocmd  ColorScheme  *  highlight  LanguageToolSpellingError  ctermfg=none  ctermbg=57   cterm=none
 
 " Menu               " {{{2
 

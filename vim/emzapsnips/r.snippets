@@ -52,9 +52,19 @@ snippet inst "Install and update package from repo" b
 ${4:# update.packages(ask = FALSE, repos = 'http://rforge.net',
 'http://cran.rstudio.org', 'http://cran.r-project.org')
 }install.packages('${1:package name}',
-repos = c('http://rforge.net', 'http://cran.rstudio.org', 'http://cran.r-project.org'${2:, '$3'}),
+repos = c('http://rforge.net', 'http://R-Forge.R-project.org', 'http://cran.rstudio.org', 'http://cran.r-project.org'${2:, '$3'}),
 type = 'source')
 library("$1")
+endsnippet
+
+snippet upgr "Upgrade R" b
+## make sure you have Rtools installed first! if not, then run:
+# install.packages('installr')
+# install_Rtools()
+
+# To install the latest installr version from GitHub use:
+if (!require('devtools')) install.packages('devtools'); library('devtools')
+devtools::install_github('talgalili/installr')
 endsnippet
 
 snippet str "Internal structure of an object" w

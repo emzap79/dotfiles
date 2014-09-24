@@ -46,13 +46,15 @@ set verbose=1
 set visualbell
 
 " QMarks                                             {{{1
+silent qmark a http://www.ardmediathek.de/tv
 silent qmark b http://www.bloomberg.com/quote/TSLA:US
 silent qmark B http://www.bloomberg.com/quote/TSLA:US
 silent qmark c https://bay01.calendar.live.com/calendar/calendar.aspx
 silent qmark C http://www.google.com/calendar/render?hl=de
 silent qmark d https://banking.ing-diba.de/webkunden/goLogin.do
 silent qmark D http://detexify.kirelabs.org/classify.html
-silent qmark e https://www.evernote.com/Home.action
+silent qmark e http://ebay.de
+silent qmark E http://kleinanzeigen.ebay.de
 silent qmark f http://facebook.com
 silent qmark F http://favstar.fm/me
 silent qmark g https://github.com/emzap79
@@ -76,10 +78,9 @@ silent qmark p http://www.pixiv.net/mypage.php
 silent qmark w http://www.wolframalpha.com/
 silent qmark W https://wave.google.com/wave/
 silent qmark v http://www.vimgolf.com/
-silent qmark y http://search.yahoo.com/
-silent qmark z http://www.amazon.de/Prime-Instant-Video/b/ref=nav_gno_yam_piv?ie=UTF8&node=3279204031
-silent qmark Z http://10.10.10.1/dynLoggedOut.html
-
+silent qmark y http://www.finanzen.net/chart-analyse/ta-chart.asp?pkNr=58046
+silent qmark z http://10.10.10.1/dynLoggedOut.html
+silent qmark Z http://www.amazon.de/Prime-Instant-Video/b/ref=nav_gno_yam_piv?ie=UTF8&node=3279204031
 
 " BMarks                                             {{{1
 javascript <<EOM
@@ -88,31 +89,36 @@ function bmark(title, url, keyword) {
 		bookmarks.add(false, title, url, keyword, ['keyword'], false);
 	}
 }
-bmark('Ctan'              ,  'http://www.ctan.org/search'                                       ,      'ct');
-bmark('Dict'              ,  'http://www.dict.cc/?s=%s'                                         ,      'dict');
-bmark('Ebay'              ,  'http://www.ebay.de/sch/i.html?_from=R40&_trksid=p2050601.m570.l1313.TR0.TRC0.H0.X2010&_nkw=2010&_sacat=0'                                         ,      'dict');
-bmark('IMDB Search'       ,  'http://www.imdb.com/find?q=%s&s=all'                              ,      'imdb');
-bmark('Github'            ,  'https://github.com/search?q=%s'                                   ,      'gh');
-bmark('Google US Search'  ,  'http://www.google.com/search?q=%s'                                ,      'gg');
-bmark('DuckDuckGo'        ,  'https://duckduckgo.com/?q=%s'                                     ,      'dd');
-bmark('Bing US Search'    ,  'http://www.bing.com/search?q=%s'                                  ,      'b');
-bmark('Ubuntuusers Wiki'  ,  'http://ubuntuusers.de/search/?query=%s&area=wiki'                 ,      'uu');
-bmark('Facebook'          ,  'https://www.facebook.com/search/results/?=&q=%s'                  ,      'f');
-bmark('Rseek'             ,  'http://www.rseek.org/?q=%s'                                       ,      'r');
-bmark('Stackoverflow R'   ,  'http://stackoverflow.com/search?q=[r] %s'                         ,      'sor');
-bmark('Stackoverflow R'   ,  'http://stackoverflow.com/search?q=[bash] %s'                      ,      'sob');
-bmark('Stackoverflow'     ,  'http://stackoverflow.com/search?q=%s'                             ,      'so');
-bmark('Soundcloud'        ,  'https://soundcloud.com/search?q=%s'                               ,      'sc');
-bmark('Superuser'         ,  'http://superuser.com/search?q=%s'                                 ,      'su');
-bmark('Tex.stackexchange' ,  'http://tex.stackexchange.com/search?q=%s'                         ,      'tex');
-bmark('Twitter Search'    ,  'http://search.twitter.com/search?q=%s'                            ,      'ts');
-bmark('Twitter'           ,  'http://twitter.com/%s'                                            ,      'tw');
-bmark('Vim.wikia'         ,  'http://vim.wikia.com/wiki/Special:Search?search=%s'               ,      'vw');
-bmark('Yahoo! Search'     ,  'http://search.yahoo.com/search;_ylt=?p=%s'                        ,      'y');
-bmark('Youtube'           ,  'http://www.youtube.com/results?search_query=%s'                   ,      'yt');
-bmark('wikibooks DE'      ,  'http://de.wikibooks.org/w/api.php?action=opensearch&amp;format=xml&amp;search=%s&amp;namespace=0'   ,      'wb');
-bmark('wikipedia DE'      ,  'http://de.wikipedia.org/w/index.php?title=Spezial:Suche&profile=default&search=%s&fulltext=Search'   ,      'w');
-bmark('wikipedia EN'      ,  'http://en.wikipedia.org/w/index.php?title=Special:Search&profile=default&search=%s&fulltext=Search'  ,      'we');
+bmark('Ctan'                   , 'http://www.ctan.org/search'                                                                                    , 'ct');
+bmark('Chefkoch'               , 'http://www.chefkoch.de/rs/s0/%s/Rezepte.html'                                                                  , 'ck');
+bmark('Dict'                   , 'http://www.dict.cc/?s=%s'                                                                                      , 'dict');
+bmark('Ebay.de'                , 'http://www.ebay.de/sch/%s'                                                                                     , 'e');
+bmark('Ebay-Kleinanzeigen.de'  , 'http://kleinanzeigen.ebay.de/anzeigen/s-47051/%s/k0l2151'                                                      , 'ek');
+bmark('IMDB Search'            , 'http://www.imdb.com/find?q=%s&s=all'                                                                           , 'imdb');
+bmark('Github'                 , 'https://github.com/search?q=%s'                                                                                , 'gh');
+bmark('Google US Search'       , 'http://www.google.com/search?q=%s'                                                                             , 'gg');
+bmark('Google Scholar'         , 'http://scholar.google.de/scholar?q=%s'                                                                         , 'gs');
+bmark('DuckDuckGo'             , 'https://duckduckgo.com/?q=%s'                                                                                  , 'dd');
+bmark('Bing US Search'         , 'http://www.bing.com/search?q=%s'                                                                               , 'b');
+bmark('Ubuntuusers Wiki'       , 'http://ubuntuusers.de/search/?query=%s&area=wiki'                                                              , 'uu');
+bmark('Facebook'               , 'https://www.facebook.com/search/results/?=&q=%s'                                                               , 'f');
+bmark('Primo UB'               , 'https://katalog.ub.uni-duisburg-essen.de/primo_library/libweb/action/search.do?&ct=search&fn=search&dscnt=%s'  , 'pr');
+bmark('Rseek'                  , 'http://www.rseek.org/?q=%s'                                                                                    , 'r');
+bmark('Stackoverflow R'        , 'http://stackoverflow.com/search?q=[r] %s'                                                                      , 'sor');
+bmark('Stackoverflow R'        , 'http://stackoverflow.com/search?q=[bash] %s'                                                                   , 'sob');
+bmark('Stackoverflow'          , 'http://stackoverflow.com/search?q=%s'                                                                          , 'so');
+bmark('Soundcloud'             , 'https://soundcloud.com/search?q=%s'                                                                            , 'sc');
+bmark('Superuser'              , 'http://superuser.com/search?q=%s'                                                                              , 'su');
+bmark('Tex.stackexchange'      , 'http://tex.stackexchange.com/search?q=%s'                                                                      , 'tex');
+bmark('Twitter Search'         , 'http://search.twitter.com/search?q=%s'                                                                         , 'ts');
+bmark('Twitter'                , 'http://twitter.com/%s'                                                                                         , 'tw');
+bmark('Vim.wikia'              , 'http://vim.wikia.com/wiki/Special:Search?search=%s'                                                            , 'vw');
+bmark('Yahoo! Search'          , 'http://search.yahoo.com/search;_ylt=?p=%s'                                                                     , 'y');
+bmark('Yahoo! Finance'         , 'http://finance.yahoo.com/q?s=%s'                                                                               , 'yf');
+bmark('Youtube'                , 'http://www.youtube.com/results?search_query=%s'                                                                , 'yt');
+bmark('wikibooks DE'           , 'http://de.wikibooks.org/w/api.php?action=opensearch&amp;format=xml&amp;search=%s&amp;namespace=0'              , 'wb');
+bmark('wikipedia DE'           , 'http://de.wikipedia.org/w/index.php?title=Spezial:Suche&profile=default&search=%s&fulltext=Search'             , 'w');
+bmark('wikipedia EN'           , 'http://en.wikipedia.org/w/index.php?title=Special:Search&profile=default&search=%s&fulltext=Search'            , 'we');
 EOM
 
 " Keybindings                                        {{{1
@@ -366,7 +372,6 @@ liberator.globalVariables.copy_templates = [
 ];
 EOM
 
-
 " direct_bookmark.js                                 {{{2
 let g:direct_sbm_use_services_by_tag = "p"
 let g:direct_sbm_use_services_by_post = "p"
@@ -375,7 +380,6 @@ nnoremap <leader>bA :sbm<CR>
 nnoremap <leader>be :bentry<CR>
 nnoremap <leader>bt :btags<CR>
 nnoremap <leader>bi :bicon<CR>
-
 
 " feedSomeKeys_3.js                                  {{{2
 " LDR / fastladder
@@ -386,7 +390,6 @@ lazyfmapsldr p,pj
 lazyfmapsldr i,tj
 lazyfmapsldr /,f
 lazyfmapsldr G,g
-
 
 " Google Reader
 command! -nargs=+ lazyfmapgooglereader  lazy fmap  -urls='http://www\.google\.co\.jp/reader/view' <args>
@@ -404,25 +407,21 @@ lazyfmapsgooglereader -events=vkeypress <C-1>,1 <C-2>,2
 lazyfmapgooglereader -events=vkeyup <C-t> T
 map -urls='http://www\.google\.co\.jp/reader/view' i <C-t>j
 
-
 " Gmail
 command! -nargs=+ lazyfmapsgmail lazy fmaps -urls='https?://mail\.google\.com' <args>
 lazyfmapsgmail gi gs gt gd ga gc *a *n *r *u *s *t u k j o p n c / q ? x s e m ! # r a N ] [ z . I U S E GL
 lazyfmapsgmail E,Ie
 "lazyfmapsgmail [,] ],[ 
 
-
 " Tumblr
 command! -nargs=+ lazyfmapstumblr lazy fmaps -urls='http://\w+\.tumblr\.com' <args>
 lazyfmapstumblr j k
 lazyfmapstumblr i,tj
 
-
 " Pixiv
 command! -nargs=+ lazyfmapspixiv lazy fmaps -urls='http://www\.pixiv\.net' <args>
 lazyfmapspixiv j k p o
 lazyfmapspixiv i,tj
-
 
 " hint-tombloo-mod.js                                {{{2
 javascript <<EOM
@@ -433,10 +432,12 @@ liberator.globalVariables.hint_tombloo_specified_list = [
 ];
 EOM
 
-
 " ime_controller.js                                  {{{2
 let g:ex_ime_mode = "inactive"
 let g:textarea_ime_mode = "inactive"
+
+" instapaper.js                                      {{{2
+noremap <leader>rl :readlater<CR>
 
 " ldrize_cooperation.js                              {{{2
 noremap <leader>, :toggleldrc<CR>
@@ -466,7 +467,6 @@ liberator.globalVariables.localKeyMappings = [
 ];
 EOM
 
-
 " maine_coon.js                                      {{{2
 let g:maine_coon_style = "height: 1em; margin: 0; padding: 3px; border: none; text-align: left; color: #7090d0; font: 11px/1 sans-serif; background: #0c0c0c;"
 
@@ -493,7 +493,6 @@ liberator.globalVariables.refcontrol = {
 	'drawr.net'         : '@FORGE',
 };
 EOM
-
 
 " sbmcommentsviewer.js                               {{{2
 let g:def_sbm_format = "timestamp,id,tags,comment"
@@ -644,7 +643,6 @@ liberator.globalVariables.hBookmark_search_max_limit = 100;
 */
 EOF
 
-
 " Toggle Autopagerize                                {{{2
 javascript <<EOM
 	let (evaluateXPath = util.evaluateXPath || buffer.evaluateXPath) {
@@ -703,7 +701,6 @@ EOM
 "}
 "EOM
 
-
 " Colors & Styles                                    {{{1
 
 " Styles                                             {{{2
@@ -723,7 +720,7 @@ style -name liberator-bottombar-fix chrome://* <<EOM
   }
 EOM
 
-" ユーザースタイルシートを読み込む                   {{{3
+" ユーザースタイルシートを読み込む   {{{3
 javascript <<EOM
 (function(){
 	let filter = new RegExp('^.*\.css$');

@@ -169,7 +169,7 @@ set fml=2         " foldminlines: minimum number of screen lines for a fold to
 " foldtext: a string option that specifies an expression. This
 " expression is evaluated to obtain the text displayed for a closed fold.
 set fdt=MyFoldText()
-" func_myfoldtext                                             " {{{2
+" func: myfoldtext                                             " {{{3
 
 fun! MyFoldText()
 let line = getline(v:foldstart)
@@ -206,9 +206,9 @@ set to tm=3000 ttm=100      " timeout, timeoutlen, ttimeoutlen: time out on
 
 set bs=indent,eol,start " backspace: Allow backspacing over everything in insert mode
 set sr                  " shiftround: use multiple of shiftwidth when indenting with '<' and '>'
-set nosi                " smartindent: turn on smart indenting. Availabile
-                        " options: smart-/auto-/cindent
-set noci                " copyindent: copy the previous indentation on autoindenting
+set nosi                " smartindent: turn on smart indenting.
+set ai                  " autoindent: automatically indent new line
+set ci                  " copyindent: copy the previous indentation on autoindenting
 
 " tabstops                                                    " {{{2
 
@@ -231,7 +231,7 @@ set ts=4                " tabstop: number of spaces a tab counts for
 
 set sbr=""                                     " showbreak: note trailing space at end of next line
 set lbr                                        " linebreak: wrap at word
-set ww=b,s,h,l,<,>,[,]                         " whichwrap: allow specified keys that move the cursor left/right.
+set ww=b,s,h,l,<,>,[,]                         " whichwrap: allow specified keys that move the cursor left/right
 
 " error messages                                              " {{{2
 
@@ -280,29 +280,31 @@ set cpo+=aABceFsmq
 " How to set formatoptions depending on filetype is described here:
 " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion#Overriding_format_options_set_by_filetype_plugin
 
-"       +-- auto-wrap text using textwidth
+"       +-- Trailing white space indicates a paragraph continues in the next
+"       >   line. A line that ends in a non-white character ends a paragraph.
+"       |+--- Automatic formatting of paragraphs. Every time text is inserted
+"       |>    or deleted the paragraph will be reformatted. When the 'c'
+"       |>    flag is present thisonly happens for recognized comments.
+"       ||
+set fo-=wa
+set fo+=tocqrnl
+"       |||||||
+"       ||||||+-- Long lines are not broken in insert mode.
+"       |||||+-- When formatting text, recognize numbered lists. This actually
+"       |||||>   uses the 'formatlistpat' option, thus any kind of list can be used
+"       ||||+-- Automatically insert the current comment leader after hitting <Enter> in Insert mode.
+"       |||+-- Allow formatting of comments with "gq".
+"       ||+-- Auto-wrap comments using textwidth, inserting the current comment leader automatically.
 "       |+-- Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
-"       ||+-- Trailing white space indicates a paragraph continues in the next
-"       ||>   line. A line that ends in a non-white character ends a paragraph.
-"       |||+--- Automatic formatting of paragraphs. Every time text is inserted
-"       |||>    or deleted the paragraph will be reformatted. When the 'c'
-"       |||>    flag is present thisonly happens for recognized comments.
-"       ||||
-set fo-=towa
-set fo+=cqrnl
-"       |||||
-"       ||||+-- Long lines are not broken in insert mode.
-"       |||+-- When formatting text, recognize numbered lists. This actually
-"       |||>   uses the 'formatlistpat' option, thus any kind of list can be used
-"       ||+-- Automatically insert the current comment leader after hitting <Enter> in Insert mode.
-"       |+-- Allow formatting of comments with "gq".
-"       +-- Auto-wrap comments using textwidth, inserting the current comment leader automatically.
+"       +-- auto-wrap text using textwidth
 
 " formatlistpat                                               " {{{2
-" A pattern that is used to recognize a list header. This is used for
-" the "n" flag in 'formatoptions'.
 
-set flp="^\s*\d\+[\]:.)}\t ]\s*"        " default: ^\s*\d\+[\]:.)}\t ]\s*
+" A pattern that is used to recognize a list header. This is used for the "n"
+" flag in 'formatoptions'. The default is: ^\s*\d\+[\]:.)}\t ]\s*
+" http://stackoverflow.com/a/22703433/3569509
+
+let &flp='^\s*\(\d\+[\]:.)}\t ]\|[*-]\s\)\s*'
 
 " shortmessage                                                " {{{2
 
@@ -387,16 +389,20 @@ set vi+=n~/.viminfo " n... : where to save the viminfo files
 
 " comments                                                    " {{{2
 
-" comments: a comma separated list of strings that can start a comment line.
+" comments: list of strings that can start a comment line.
+set com+=://
+set com+=:%
+set com+=:XCOMM
+" blank (space after string)
+set com+=b:-
+" nested (nesting with mixed parts is allowed)
+set com+=n:>
+set com+=n:*
+set com+=n:#
+" start, middle, end of three-piece comment
 set com+=s2:/*
 set com+=mb:*
 set com+=ex:*/
-set com+=://
-set com+=b:#
-set com+=:%
-set com+=:XCOMM
-set com+=n:>
-set com+=b:-
 
 " set com+=:%
 " set com+=:\\begin{

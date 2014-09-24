@@ -99,7 +99,7 @@ Bundle 'jalvesaq/VimCom'
 " let vimrplugin_source = "$HOME/R,/usr/lib/R/site-library/,/usr/lib/R/library/"
 let vimrplugin_r_args = "--no-save --quiet"  " arguments at R startup
 let vimrplugin_vimcom_wait = 1000            " Time in ms to wait for vimcom.plus loading
-let vimrplugin_vsplit = 0                    " Make Tmux split the window vertically
+let vimrplugin_vsplit = 1                    " Make Tmux split the window vertically
 let vimrplugin_rconsole_width = 80           " The number of columns of R Console (Tmux split)
 let vimrplugin_allnames = 1                  " Show names which begin with a dot
 let vimrplugin_maxdeparse = 300

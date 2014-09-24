@@ -66,6 +66,7 @@ alias ......='cd ../../../../..'
 # dotfiles
 alias cddp="cd $HOME/.devilspie"
 alias cdvim="cd $HOME/.vim"
+alias cdvip="cd $HOME/.vimperator"
 alias cdnb="cd $HOME/.newsbeuter"
 alias cdpg="cd $HOME/.podget"
 alias cdmutt="cd $HOME/.mutt"
@@ -86,6 +87,7 @@ alias cdklr="cd $UNI/$SEM/KLR"
 
 # permanent folders
 alias cdatt="cd $HOME/tmp/attachments"
+alias cdflor="cd $HOME/tmp/baarbeit/florina"
 alias cdbst="cd $HOME/texmf/bibtex/bst/emzap"
 alias cddl="cd $HOME/Downloads"
 alias cddf="cd $HOME/dotfiles"
@@ -108,6 +110,7 @@ alias cddok="cd $DOK"
 alias cdlatex="cd $DOK/LaTeX"
 alias cdlinux="cd $DOK/Linux"
 alias cdpers="cd $DOK/PersDok"
+alias cdfin="cd $DOK/Finance"
 alias cdpeug="cd $DOK/Gebrauchtwagen"
 alias cdqrc="cd $DOK/Linux/QRCs"
 alias cdrechn="cd $DOK/Rechnungen"
@@ -257,8 +260,8 @@ command_not_found_handle() {
 }
 
 # source bashrc                                                                  {{{2
-alias sba="source $HOME/.bash/aliases"
-alias sbr="source $HOME/.bashrc"
+alias sra="source $HOME/.bash/aliases"
+alias srb="source $HOME/.bashrc"
 
 # programs                                                                     # {{{1
 
@@ -269,7 +272,7 @@ alias xv='xclip -selection o'
 alias pwdc="pwd | xclip; source ~/.bashrc"
 alias pwdp=`xclip -o`     # Error: target STRING not available
 
-# vim/neovim                                                                          # {{{2
+# vim/neovim                                                                   # {{{2
 
 nvim='nvim -u ~/.vimrc'
 
@@ -349,8 +352,8 @@ alias mw=fun_loop_pdflatex
 # mutt, newsbeuter                                                             # {{{2
 
 alias muttt='pkill fetchmail; fetchmail -v --ssl; mutt'
-alias mb="/bin/bash $HOME/bin/muttb"
-alias nb="pkill newsbeuter; newsbeuter"
+alias mb=fun_muttbeuter
+alias nb='pkill newsbeuter; newsbeuter'
 # alias mutt='/usr/bin/mutt -y'
 
 # beet                                                                         # {{{2
@@ -778,6 +781,18 @@ fun_pdf_image_extract(){
 
 
 # other                                                                        # {{{2
+
+# fun: muttbeuter                                                                {{{3
+fun_muttbeuter(){
+    pkill fetchmail
+    if [[ -n $(ps -aef | grep -v grep | grep newsbeuter) ]]; then
+        pkill newsbeuter
+    fi
+    newsbeuter
+    podbeuter
+    fetchmail -v --ssl >> /dev/null 2>&1
+    mutt
+}
 
 # fun: locate                                                                  # {{{3
 

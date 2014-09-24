@@ -5,13 +5,13 @@
 " File: vimrc_mappings
 " Author: Jonas Petong
 " Description: vim mapping configuration
-" Last Modified: August 20, 2014
+" Last Modified: September 19, 2014
 
-" Basic Mappings                                                             " {{{1
+" Basic Mappings                                                               {{{1
 
-" config                                                                     " {{{2
+" config                                                                       {{{2
 
-" mapping examples                                                           " {{{2
+" mapping examples                                                             {{{2
 
 " map (all modes)
 " vnoremap (visual mode)
@@ -31,7 +31,7 @@
 " a workaround for the <Alt> vs. <ESC> issue:
 " http://stackoverflow.com/a/10216459
 
-" set leader-keys                                                            " {{{2
+" set leader-keys                                                              {{{2
 
 " change the mapleader from \ to,
 
@@ -41,10 +41,9 @@ let maplocalleader=","
 " let r-plugin-localleader="\<space>"
 " xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
+" f-keys                                                                       {{{2
 
-" f-keys                                                                     " {{{2
-
-" <f1>  " show current directory                                             " {{{2
+" <f1>  " show current directory                                               {{{2
 
 " change local buffer to current dir
 nnoremap <f1> :cd %:p:h<cr>:echo expand('%:p')<cr>
@@ -61,7 +60,7 @@ nnoremap <s-f1> :echo expand('%:p')<cr>
 inoremap <s-f1> <esc>:echo expand('%:p')<cr>
 vnoremap <s-f1> <esc>:echo expand('%:p')<cr>
 
-" <f2>  " save file                                                          " {{{2
+" <f2>  " save file                                                            {{{2
 
 "save file and source vimrc
 if has("gui_running")
@@ -76,7 +75,7 @@ endif
 nnoremap <s-c-f2> :mks!<cr>:wqall!<cr>
 inoremap <s-c-f2> <esc>:mks!<cr>:wqall!<cr>
 
-" <f3>  " bufferlist                                                         " {{{2
+" <f3>  " bufferlist                                                           {{{2
 
 " " select buffer
 "call fuzzyfinder
@@ -87,7 +86,7 @@ inoremap <f3> <esc>:FufBuffer<cr>
 nnoremap <s-f3> :buffer<cr>
 inoremap <s-f3> <esc>:buffer<cr>
 
-" <f4>  " open file                                                          " {{{2
+" <f4>  " open file                                                            {{{2
 
 "call fuzzyfinder for files in current buffer
 nnoremap <f4> :FufFileWithCurrentBufferDir<cr>
@@ -101,24 +100,24 @@ inoremap <s-f4> <esc>:FufFileWithFullCwd<cr>
 nnoremap <c-f4> :FufFile<cr>
 inoremap <c-f4> <esc>:FufFile<cr>
 
-" <f5>  " open mru file                                                      " {{{2
+" <f5>  " open mru file                                                        {{{2
 
 "call fuzzyfinder for mru-files
 nnoremap <f5> :FufMruFile<cr>
 inoremap <f5> <esc>:FufMruFile<cr>
 
-" <f6>  " *** no functions yet***                                            " {{{2
-" <f7>  " language tool                                                      " {{{2
+" <f6>  " *** no functions yet***                                              {{{2
+" <f7>  " language tool                                                        {{{2
 
 "enable languagetool
 "for use with latex: http://tex.stackexchange.com/questions/6333/grammar-checking-tool-for-use-with-latex/6552#6552
 nnoremap  <f7>  :'{,'}LanguageToolCheck<cr>:vertical  lopen  80<CR>
-vnoremap  <f7>  :'<,'>LanguageToolCheck<cr>:vertical  lopen  80<CR>
+vnoremap  <f7>  :LanguageToolCheck<cr>:vertical  lopen  80<CR>
 
-" <f8>  " spellcheck                                                         " {{{2
+" <f8>  " spellcheck                                                           {{{2
 
 " switch spellcheck languages
-" func: toggle languages                                                     " {{{3
+" func: toggle languages                                                       {{{3
 " http://vim.wikia.com/wiki/toggle_spellcheck_with_function_keys
 
 let b:mylang=0
@@ -150,10 +149,10 @@ nnoremap <s-m-f8> :call AutoCorrect()<CR>
 vnoremap <s-m-f8> <ESC>:call AutoCorrect()<CR>
 inoremap <s-m-f8> <ESC>:call AutoCorrect()<CR>
 
-" <f9>  " toggle linewrapping, -numbers and foldcolumn etc.                  " {{{2
+" <f9>  " toggle linewrapping, -numbers and foldcolumn etc.                    {{{2
 
 " toggling textwidth
-" func: toggle through textwidth                                             " {{{3
+" func: toggle through textwidth                                               {{{3
 
 let b:mytextwidth=0
 let g:mytextwidthlist=["0","72","80","115"]
@@ -213,13 +212,13 @@ inoremap <c-f9> <ESC>:call ToggleFoldColumn()<cr>
 nnoremap <s-c-f9> :call TogglePaste()<cr>
 inoremap <s-c-f9> <c-o>:call TogglePaste()<cr>
 
-" <f10>  " enable plugins                                                    " {{{2
+" <f10>  " enable plugins                                                      {{{2
 
 " toggle YouCompleteMe
 nnoremap <f10> :call ToggleYCM()<CR>
 inoremap <f10> <ESC>:call ToggleYCM()<CR>
 
-" "Enable Neocomplete <Plugin>                                               " {{{3
+" "Enable Neocomplete <Plugin>                                                 {{{3
 
 " nnoremap <S-f10> :NeoCompleteToggle<cr>
 " vnoremap <S-f10> <esc>:NeoCompleteToggle<cr>
@@ -241,16 +240,15 @@ inoremap <f10> <ESC>:call ToggleYCM()<CR>
 
 " <f11> " *** no functions yet***                                              {{{2
 
+" basic key remaps                                                             {{{2
 
-" basic key remaps                                                           " {{{2
-
-" save file in normal-mode                                                   " {{{2
+" save file in normal-mode                                                     {{{2
 
 " save file by hitting <space>
 nnoremap <space><space> :wall!<CR>
 vnoremap <space><space> <ESC>:wall!<CR>
 
-" paste to clipboard                                                         " {{{2
+" paste to clipboard                                                           {{{2
 
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 vnoremap <Leader>y "+y
@@ -258,9 +256,9 @@ vnoremap <Leader>d "+d
 nnoremap <Leader>P "+P
 vnoremap <Leader>P "+P
 
-" visual mode mappings                                                       " {{{2
+" visual mode mappings                                                         {{{2
 
-" change visual mappings                                                     " {{{2
+" change visual mappings                                                       {{{2
 
 nnoremap v <C-V>
 nnoremap <S-V> v
@@ -270,25 +268,24 @@ vnoremap v <C-V>
 vnoremap <S-V> v
 vnoremap <C-V> <S-V>
 
-" visually select rows from exe                                              " {{{2
+" visually select rows from exe                                                {{{2
 
 " http://unix.stackexchange.com/a/58748
 command! -range Vis call setpos('.', [0,<line1>,0,0]) |
                     \ exe "normal V" |
                     \ call setpos('.', [0,<line2>,0,0])
 
-" yank/delete from cursor to eol with Y                                      " {{{2
+" yank/delete from cursor to eol with Y                                        {{{2
 
 " yank from the cursor to the end of the line, to be consistent with c and d.
 nnoremap Y y$
 nnoremap D d$
 
-" quickly select text you just pasted:                                       " {{{2
+" quickly select text you just pasted:                                         {{{2
 
 noremap gV `[v`]
 
-
-" open & edit vimrc-files                                                    " {{{2
+" open & edit vimrc-files                                                      {{{2
 
 " edit config file in horizontal split mode
 nnoremap <silent> <leader>erc :sp ~/.vimrc<cr>
@@ -304,32 +301,31 @@ nnoremap <silent> <leader>et :sp ~/.vim/ftplugin/tex.vim<cr>
 nnoremap <silent> <leader>ea :sp ~/.vim/plugin/vim-autocorrect.vim<cr>
 nnoremap <silent> <leader>ep :sp ~/.vim/vimrc_plugs<cr>
 
+" Plugin-Maps                                                                  {{{1
 
-" Plugin-Maps                                                                " {{{1
-
-" better-/hudigraphs <plugin>                                                " {{{2
+" better-/hudigraphs <plugin>                                                  {{{2
 
 inoremap <expr> <K> BDG_GetDigraph()
 " inoremap <expr> <K> HUDG_GetDigraph()
 
-" vmath <plugin>                                                             " {{{2
+" vmath <plugin>                                                               {{{2
 
 " press ++ to get mathematical data of visual block
 vnoremap <expr> ++ VMATH_YankAndAnalyse()
 nnoremap ++ vip++
 
-" region expanding <plugin>                                                  " {{{2
+" region expanding <plugin>                                                    {{{2
 
 " https://github.com/terryma/vim-expand-region
 vnoremap v <Plug>(expand_region_expand)
 vnoremap <C-v> <Plug>(expand_region_shrink)
 
-" listtrans <plugin>                                                         " {{{2
+" listtrans <plugin>                                                           {{{2
 
 nnoremap <leader>lt  :call ListTrans_toggle_format()<CR>
 vnoremap <leader>lt :call ListTrans_toggle_format('visual')<CR>
 
-" calculator <plugin>                                                        " {{{2
+" calculator <plugin>                                                          {{{2
 
 " http://vim.wikia.com/wiki/scientific_calculator
 " :command! -nargs=- calc :py print <args>
@@ -338,7 +334,7 @@ vnoremap <leader>lt :call ListTrans_toggle_format('visual')<CR>
 nnoremap <leader>clc :calc<cr>
 nnoremap <leader>slc :scalcvsplit<cr>
 
-" alignment <plugin>                                                         " {{{2
+" alignment <plugin>                                                           {{{2
 
 " Align
 nnoremap <leader>aa :%Align!<space>p
@@ -357,12 +353,12 @@ vnoremap <leader>ag <esc>:AlignCtrl g<space>
 nnoremap <leader>av :AlignCtrl v<space>
 vnoremap <leader>av <esc>:AlignCtrl v<space>
 
-" frisk <plugin>                                                             " {{{2
+" frisk <plugin>                                                               {{{2
 
 nnoremap <leader>fr :frisk<space>-
 vnoremap <leader>fr :frisk<space>=GetVisualSelection()<cr>
 
-" visual-block movement <plugin>                                             " {{{2
+" visual-block movement <plugin>                                               {{{2
 
 vnoremap  <expr>  <LEFT>   DVB_Drag('left')
 vnoremap  <expr>  <RIGHT>  DVB_Drag('right')
@@ -370,7 +366,7 @@ vnoremap  <expr>  <DOWN>   DVB_Drag('down')
 vnoremap  <expr>  <UP>     DVB_Drag('up')
 vnoremap  <expr>  D        DVB_Duplicate()
 
-" fugitive <plugin>                                                          " {{{2
+" fugitive <plugin>                                                            {{{2
 
 " fugitive git bindings
 " map fugitive commands to <leader>g
@@ -396,7 +392,7 @@ nnoremap <space>gpl :Dispatch! git pull<CR>
 autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<cr>
 autocmd BufRead fugitive\:* xnoremap <buffer> do :diffget<cr>
 
-" tmux-navigator <plugin>                                                    " {{{2
+" tmux-navigator <plugin>                                                      {{{2
 
 " " https://github.com/christoomey/vim-tmux-navigator#vim-1
 " " must disable c-[ljkh] mappings first
@@ -406,13 +402,13 @@ autocmd BufRead fugitive\:* xnoremap <buffer> do :diffget<cr>
 " nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 " nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
-" obsession <plugin>                                                         " {{{2
+" obsession <plugin>                                                           {{{2
 
 nnoremap <silent><leader>ob :Obsession <CR>
 vnoremap <silent><leader>ob :Obsession <ESC><CR>
 inoremap <silent><localleader>ob :Obsession <ESC><CR>
 
-" showmarks <plugin>                                                         " {{{2
+" showmarks <plugin>                                                           {{{2
 
 " show marks
 nnoremap <silent><leader>ms :DoShowMarks<CR>
@@ -451,13 +447,13 @@ inoremap <silent><localleader>md <ESC>:exe 'delm! \|
    " \ %foldo! \|
    " \ endif"<cr>
 
-" tCommenter <plugin>                                                        " {{{2
+" tCommenter <plugin>                                                          {{{2
 
 nmap cy :normal yygcc<cr>
 nmap cp :normal yygccp<cr>
 nmap yp :normal yyp<cr>
 
-" Vundle <plugin>                                                            " {{{2
+" Vundle <plugin>                                                              {{{2
 
 "call bundlelist
 nnoremap <leader>bl :BundleList<cr>
@@ -475,13 +471,13 @@ inoremap <leader>bi <esc> :BundleInstall<cr>
 nnoremap <leader>bu :BundleInstall!<cr>
 inoremap <leader>bu <esc>:BundleInstall!<cr>
 
-" Folds & Marks                                                              " {{{1
+" Folds & Marks                                                                {{{1
 
-" jump back to marked position                                               " {{{2
+" jump back to marked position                                                 {{{2
 
 nnoremap \ `m :ShowMarksOnce<cr>:foldo<cr>
 
-" fold commands                                                              " {{{2
+" fold commands                                                                {{{2
 
 " activating 'visual-folding' by pressing <enter>
 " http://vim.wikia.com/wiki/Folding
@@ -494,24 +490,22 @@ nnoremap <silent><leader>fl :normal yyma<cr>
 nnoremap <silent><leader>fk :normal pzf'a<cr>
 vnoremap <silent><leader>fk :normal pzf'a<cr>
 
+" Buffers & Tabs                                                               {{{1
 
-" Buffers & Tabs                                                             " {{{1
+" tab movements                                                                {{{2
 
-" tab movements                                                              " {{{2
-
-" change to next tab                                                         " {{{2
+" change to next tab                                                           {{{3
 
 if has("gui_running")
     nnoremap <s-space> :tabn<cr>
     nnoremap <c-@> <s-space>
 endif
 
+" window-movements                                                             {{{2
 
-" window-movements                                                           " {{{2
+" swap position of two open buffer-windows                                     {{{3
 
-" swap position of two open buffer-windows                                   " {{{2
-
-" " func: window swap                                                        " {{{2
+" " func: window swap                                                          {{{4
 
 " http://stackoverflow.com/a/4903681
 " move to the window to mark for the swap via ctrl-w movement
@@ -539,7 +533,7 @@ endfun
 nnoremap <silent> <leader>mw :call MarkWindowSwap()<cr>
 nnoremap <silent> <leader>pw :call DoWindowSwap()<cr>
 
-" switching buffers                                                          " {{{2
+" switching buffers                                                            {{{2
 
 " changes to previous buffer
 nnoremap <esc>ß :b #<cr>
@@ -550,22 +544,21 @@ nnoremap <c-j> <c-w><down>
 nnoremap <c-h> <c-w><left>
 nnoremap <c-l> <c-w><right>
 
-" switch to alternate file                                                   " {{{2
+" switch to alternate file                                                     {{{2
 
 nnoremap <c-tab> :bnext<cr>
 nnoremap <c-s-tab> :bprevious<cr>
 
-
-" reload session.vim                                                         " {{{2
+" reload session.vim                                                           {{{2
 
 nnoremap <leader>ss :lcd %:p:h<CR>:so Session.vim<CR>
 vnoremap <leader>ss <ESC>:lcd %:p:h<CR>:so Session.vim<CR>
 
-" open/edit/close buffers                                                    " {{{2
+" open/edit/close buffers                                                      {{{2
 
-" close non-open buffers                                                     " {{{2
+" close non-open buffers                                                       {{{2
 
-" func: Wipeout"                                                             " {{{2
+" func: Wipeout                                                              " {{{2
 
 " http://stackoverflow.com/a/1536094
 function! Wipeout()
@@ -605,7 +598,7 @@ endfunction
 nnoremap <leader>wo :call Wipeout()<CR>
 vnoremap <leader>wo <ESC>:call Wipeout()<CR>
 
-" open new buffer"                                                           " {{{2
+" open new buffer                                                            " {{{2
 
 nnoremap <leader>e :lcd %:p:h<cr>:e<space>
 nnoremap <leader>vf :ldc %:p:h<cr>:vertical find<space>
@@ -613,91 +606,52 @@ nnoremap <leader>ht :helptags ~/.vim/doc<cr>
 nnoremap <leader>v :lcd %:p:h<cr>:vertical<space>
 nnoremap <leader>vb :lcd %:p:h<cr>:vertical sb<space>
 
-
-" open nonexisting file under cursor                                         " {{{2
+" open nonexisting file under cursor                                           {{{2
 
 " http://stackoverflow.com/a/6159415
 nnoremap gF :lcd %:p:h<cr>:e! ./<cfile><cr>
 
-
-" buffer to 2/3 width                                                        " {{{2
+" buffer to 2/3 width                                                          {{{2
 
 nnoremap <silent> <Leader>+ :exe "vert resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "vert resize " . (winwidth(0) * 2/3)<CR>
 
+" Searches & Replacement                                                       {{{1
 
-" String-Searches & Spell-Checking                                           " {{{1
-
-" online searches                                                            " {{{2
+" search for pattern                                                           {{{2
+" online searches                                                              {{{3
 
 " "search wikipedia from within vim
 " nnoremap <leader>fw :exe "!firefox 'http://de.wikipedia.org/w/index.php?search='<c-r>=" . "call Wikipedia()<cr>"<cr><cr>
 
-"search wikipedia from within vim
+"search wikipedia from within vim                                              {{{4
 nnoremap <leader>fw <esc>:! firefox
             \ 'http://de.wikipedia.org/w/index.php?search=<c-r>=Wikipedia()<cr>'
             \ <cr><cr>
 
-"search google from within vim
+"search google from within vim                                                 {{{4
 nnoremap <leader>fg <esc>:! firefox
             \ 'http://google.de/search?q=<c-r>=Google()<cr>'
             \ <cr><cr>
 
-"search tex-stackexchange from within vim
+"search tex-stackexchange from within vim                                      {{{4
 nnoremap <leader>ft <esc>:! firefox
             \ 'http://tex.stackexchange.com/search?q=<c-r>=Tex()<cr>'
             \ <cr><cr>
 
-"search stackoverflow from within vim
+"search stackoverflow from within vim                                          {{{4
 nnoremap <leader>fs <esc>:! firefox
             \ 'http://stackoverflow.com/search?q=<c-r>=StackOverflow()<cr>'
             \ <cr><cr>
 
-"search wikipedia from within vim
-" func: execute online searches (eg. wikipedia)                              " {{{3
+" offline searches                                                             {{{3
 
-"" found on http://alexanderle.com/blog/2012/my-vimrc.html
-" key mapping for tex-stackexchange search
-fun! Tex()
-    call inputsave()
-    let searchterm = input('stackexchange: ')
-    call inputrestore()
-    return searchterm
-endfun
-
-" key mapping for google search
-fun! Google()
-    call inputsave()
-    let searchterm = input('google: ')
-    call inputrestore()
-    return searchterm
-endfun
-
-" key mapping for wikipedia search
-fun! Wikipedia()
-    call inputsave()
-    let searchterm = input('wikipedia: ')
-    call inputrestore()
-    return searchterm
-endfun
-
-" key mapping for stackoverflow search
-fun! StackOverflow()
-    call inputsave()
-    let searchterm = input('stackoverflow: ')
-    call inputrestore()
-    return searchterm
-endfun
-
-
-" offline searches                                                           " {{{2
-
-"appending to the previous search pattern the current word under the cursor  " {{{3
+"appending to the previous search pattern the current word under the cursor    {{{4
 
 "http://stackoverflow.com/a/9261779
 nnoremap <leader>as :let @/.='\\|\<'.expand("<cword>").'\>'<cr>
 
-"search for a word in ding/dict/thes"                                        " {{{3
+"search for a word in ding/dict/thes                                         " {{{4
 
 " ding
 nnoremap <leader>dg :exe "!ding " . shellescape(expand("<cword>"))<cr><cr>
@@ -709,13 +663,112 @@ vnoremap <leader>di :<c-u>!dict <c-r>=GetVisualSelection()<cr>
 nnoremap <leader>dt :exe "!othes " . shellescape(expand("<cword>"))<cr>
 vnoremap <leader>dt :<c-u>!othes <c-r>=GetVisualSelection()<cr>
 
+" text replacement                                                             {{{2
 
-" Add Abbreviations                                                          " {{{1
+" replace - with #                                                             {{{3
+nnoremap <silent><leader>b# :s/-/#/g3<CR>
+vnoremap <silent><leader>b# <ESC>:s/-/#/g3<CR>
+inoremap <silent><localleader>b# <ESC>:s/-/#/g3<CR>
+
+" replace spaces through semicolon                                             {{{3
+
+" mnemonic: [s]pace to [s]emicolon
+nmap <leader>ss :exe "s/\[^,\]\\zs\\s/\\; /g \| nohls"<cr>
+
+" change word under curser                                                     {{{3
+
+" replace words by hitting '.'
+nnoremap <leader>x *``cgn
+nnoremap <leader>X #``cgN
+
+" replace word under cursor in paragraph/buffer
+nnoremap <leader>r :%s/\<<C-r>=expand('<cWORD>')<CR>\>/
+nnoremap <leader>R :'{,'}s/\<<C-r>=expand('<cWORD>')<CR>\>/
+
+" replace word under cursor in visual selection
+xnoremap <leader>r :<C-u>%s/<C-r>=GetVisualSelection()<CR>/
+xnoremap <leader>R :<C-u>'{,'}s/<C-r>=GetVisualSelection()<CR>/
+
+" trim consecutive empty rows to single blank line                             {{{3
+" http://stackoverflow.com/a/726158/3569509
+nnoremap <leader>bb :g/^\_$\n\_^$/d<CR>
+vnoremap <leader>bb <ESC>:g/^\_$\n\_^$/d<CR>
+inoremap <localleader>bb <ESC>:g/^\_$\n\_^$/d<CR>
+
+" http://vim.wikia.com/wiki/Best_Vim_Tips
+" or: v/./.,/./-1join : compress empty lines
+" or: %s/^\(.*\)\n\(\1\n\)*/\1\r/
+
+" remove (trailing) spaces                                                     {{{3
+
+" remove duplicate lines
+" http://vim.wikia.com/wiki/Power_of_g
+nnoremap <silent><leader>dd :exe '%g/^\(.*\)\(\r\?\n\1\)\+$/d \| %!uniq'<cr>``
+
+" remove trailing whitespaces
+" http://vim.wikia.com/wiki/Remove_unwanted_spaces
+nnoremap <silent><space>dp :'{,'}s/\s\s\+/ /g<CR>:nohl<CR>``
+vnoremap <silent><space>dv :B s/\s\s\+/ /g<cr>:nohl<cr>
+nnoremap <silent><space>d0 :'{,'}s/^\s\+//g<CR>:nohl<CR>``
+nnoremap <silent><space>d$ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>``
+nnoremap <silent><space>da :%s/\s\s\+/ /g<CR>:nohl<CR>``
+
+" Edit Words & Lines                                                           {{{1
+
+" copy text to register                                                        {{{2
+" copy current file name (relative/absolute) to system clipboard               {{{3
+" https://github.com/panozzaj/conf/blob/master/common/etc/.vimrc#L176
+
+if has("mac") || has("gui_macvim") || has("gui_mac")
+  nnoremap <leader>exp :let @*=expand("%")<CR>     " relative path  (src/foo.txt)
+  nnoremap <leader>exP :let @*=expand("%:p")<CR>   " absolute path  (/something/src/foo.txt)
+  nnoremap <leader>exf :let @*=expand("%:t")<CR>   " filename       (foo.txt)
+  nnoremap <leader>exh :let @*=expand("%:p:h")<CR> " directory name (/something/src)
+endif
+if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
+  nnoremap <leader>exp :let @+=expand("%")<CR>     " relative path  (src/foo.txt)
+  nnoremap <leader>exP :let @+=expand("%:p")<CR>   " absolute path  (/something/src/foo.txt)
+  nnoremap <leader>exf :let @+=expand("%:t")<CR>   " filename       (foo.txt)
+  nnoremap <leader>exh :let @+=expand("%:p:h")<CR> " directory name (/something/src)
+endif
+
+" copy matches to register                                                     {{{3
+
+" http://vim.wikia.com/wiki/Copy_search_matches
+function! CopyMatches(reg)
+  let hits = []
+  %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/ge
+  let reg = empty(a:reg) ? '+' : a:reg
+  execute 'let @'.reg.' = join(hits, "\n") . "\n"'
+endfunction
+command! -register CopyMatches call CopyMatches(<q-reg>)
+
+" upper- / lowercase, flip                                                     {{{2
+" uppercase beginning of word/line                                             {{{3
+
+" first character of word capitalised
+nnoremap <silent><s-u> :normal! mzlbgUl`z<cr>:nohl<cr>
+nnoremap <silent><leader>u :normal! mzlbgUl`z<cr>:nohl<cr>
+
+" first character of line capitalised
+nnoremap <silent><leader>u^ :normal! mz^gUl`z<cr>:nohl<cr>
+
+" first character of every words in line capitalised
+nnoremap <silent><leader>uu mz :s/\<\w\+/\u\0/g<cr>:nohl<cr>`z
+
+" flip text horizontally                                                       {{{3
+
+nnoremap <leader>fh :Mirror<CR>
+command! -bar -range Mirror <line1>,<line2>call setline('.', join(reverse(split(getline('.'), '\zs')), ''))
+
+" Miscellaneous                                                                {{{1
+
+" add abbreviations                                                            {{{2
 
 "mapping to automatically add an abbreviation
 nnoremap <leader>ab <sid>:call AddAbbr()<cr>
 vnoremap <leader>ab <sid>:call AddAbbr()<cr>
-"" func: abbreviations                                                       " {{{2
+"" func: abbreviations                                                         {{{3
 
 "" an abbreviation is a short form of long text e.g. mfg mit freundlichen grüßen
 "" its found in ~/.vim/ftplugin/tex.vim (at the eof)
@@ -736,8 +789,7 @@ fun! SaveAbbr(val, abbr)
     redir end
 endfun
 
-
-" make # and * work in visual mode                                           " {{{2
+" make # and * work in visual mode                                             {{{2
 
 "  In visual mode when you press * or # to search for the current selection
 vnoremap <silent> * :call VisualSearch('f')<CR>
@@ -762,128 +814,39 @@ function! VisualSearch(direction) range
     let @" = l:saved_reg
 endfunction
 
-" operator: grep for word in dir                                             " {{{2
+" grep for word in dir                                                         {{{2
 
 nnoremap <silent>gr :set operatorfunc=<SID>GrepOperator<cr>g@
 vnoremap <silent>gr :<c-u>call <SID>GrepOperator(visualmode())<cr>
 
-" operator: open url in external browser                                     " {{{2
+" open url in external browser                                                 {{{2
 
 nnoremap <silent>gz :set operatorfunc=<SID>UrlOperator<cr>g@
 vnoremap <silent>gz :<c-u>call <SID>UrlOperator(visualmode())<cr>
 nnoremap <silent>gzz :normal gz$<cr>
 
-" Edit Words & Lines                                                         " {{{1
-
-" copy text to register                                                        {{{2
-" copy current file name (relative/absolute) to system clipboard             " {{{3
-" https://github.com/panozzaj/conf/blob/master/common/etc/.vimrc#L176
-
-if has("mac") || has("gui_macvim") || has("gui_mac")
-  nnoremap <leader>exp :let @*=expand("%")<CR>     " relative path  (src/foo.txt)
-  nnoremap <leader>exP :let @*=expand("%:p")<CR>   " absolute path  (/something/src/foo.txt)
-  nnoremap <leader>exf :let @*=expand("%:t")<CR>   " filename       (foo.txt)
-  nnoremap <leader>exh :let @*=expand("%:p:h")<CR> " directory name (/something/src)
-endif
-if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
-  nnoremap <leader>exp :let @+=expand("%")<CR>     " relative path  (src/foo.txt)
-  nnoremap <leader>exP :let @+=expand("%:p")<CR>   " absolute path  (/something/src/foo.txt)
-  nnoremap <leader>exf :let @+=expand("%:t")<CR>   " filename       (foo.txt)
-  nnoremap <leader>exh :let @+=expand("%:p:h")<CR> " directory name (/something/src)
-endif
-
-" copy matches to register                                                   " {{{3
-
-" http://vim.wikia.com/wiki/Copy_search_matches
-function! CopyMatches(reg)
-  let hits = []
-  %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/ge
-  let reg = empty(a:reg) ? '+' : a:reg
-  execute 'let @'.reg.' = join(hits, "\n") . "\n"'
-endfunction
-command! -register CopyMatches call CopyMatches(<q-reg>)
-
-" text replacement                                                             {{{2
-" replace spaces through semicolon                                           " {{{3
-
-" mnemonic: [s]pace to [s]emicolon
-nmap <leader>ss :exe "s/\[^,\]\\zs\\s/\\; /g \| nohls"<cr>
-
-" replace - with #                                                             {{{3
-nnoremap <silent><leader>b# :s/-/#/g3<CR>
-vnoremap <silent><leader>b# <ESC>:s/-/#/g3<CR>
-inoremap <silent><localleader>b# <ESC>:s/-/#/g3<CR>
-
-" change word under curser                                                     {{{3
-
-" replace words by hitting '.'
-nnoremap <leader>x *``cgn
-nnoremap <leader>X #``cgN
-
-" replace word under cursor in paragraph/buffer
-nnoremap <leader>r :%s/\<<C-r>=expand('<cWORD>')<CR>\>/
-nnoremap <leader>R :'{,'}s/\<<C-r>=expand('<cWORD>')<CR>\>/
-
-" replace word under cursor in visual selection
-xnoremap <leader>r :<C-u>%s/<C-r>=GetVisualSelection()<CR>/
-xnoremap <leader>R :<C-u>'{,'}s/<C-r>=GetVisualSelection()<CR>/
-
-" upper- / lowercase, flip                                                     {{{2
-" flip text horizontally                                                     " {{{3
-
-nnoremap <leader>fh :Mirror<CR>
-command! -bar -range Mirror <line1>,<line2>call setline('.', join(reverse(split(getline('.'), '\zs')), ''))
-
-" uppercase beginning of word/line                                           " {{{3
-
-" first character of word capitalised
-nnoremap <silent><s-u> :normal! mzlbgUl`z<cr>:nohl<cr>
-nnoremap <silent><leader>u :normal! mzlbgUl`z<cr>:nohl<cr>
-
-" first character of line capitalised
-nnoremap <silent><leader>u^ :normal! mz^gUl`z<cr>:nohl<cr>
-
-" first character of every words in line capitalised
-nnoremap <silent><leader>uu mz :s/\<\w\+/\u\0/g<cr>:nohl<cr>`z
-
-" Miscellaneous                                                              " {{{1
-
-" remove (trailing) spaces                                                   " {{{2
-
-" remove duplicate lines
-" http://vim.wikia.com/wiki/Power_of_g
-nnoremap <silent><leader>dd :exe '%g/^\(.*\)\(\r\?\n\1\)\+$/d \| %!uniq'<cr>``
-
-" remove trailing whitespaces
-" http://vim.wikia.com/wiki/Remove_unwanted_spaces
-nnoremap <silent><space>dp :'{,'}s/\s\s\+/ /g<CR>:nohl<CR>``
-vnoremap <silent><space>dv :B s/\s\s\+/ /g<cr>:nohl<cr>
-nnoremap <silent><space>d0 :'{,'}s/^\s\+//g<CR>:nohl<CR>``
-nnoremap <silent><space>d$ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>``
-nnoremap <silent><space>da :%s/\s\s\+/ /g<CR>:nohl<CR>``
-
-" create tabular from selected text                                          " {{{2
+" create tabular from selected text                                            {{{2
 
 nnoremap <silent><leader>col :exe "'{,'}!column -t"<cr>
 
-" count character under cursor in line                                       " {{{2
+" count character under cursor in line                                         {{{2
 
 nnoremap <leader>char xP:s/<c-r>-/&/gn<CR><esc>
 
-" paste yanked input at end of line                                          " {{{2
+" paste yanked input at end of line                                            {{{2
 
 nnoremap <s-c-p> :call CurPos("save")<cr>$p :call CurPos("restore")<cr>
 
-" moving to middle of line (instead of 'screen')                             " {{{2
+" moving to middle of line (instead of 'screen')                               {{{2
 
 " see: http://superuser.com/a/216423
 nnoremap gm :call cursor(0, virtcol('$')/2)<cr>
 
-" deactivate highlighting of search results                                  " {{{2
+" deactivate highlighting of search results                                    {{{2
 
 nnoremap <silent> <esc> :nohl<cr>
 
-" Compile and show documents                                                 " {{{2
+" compile and show documents                                                   {{{2
 
 " compile and start latex viewer
 command!  LatexCompilePDF execute "silent !latexmk\ -pdf\ % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
@@ -913,42 +876,41 @@ command! -nargs=* RunSilent
 nnoremap <Leader>cp :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
 nnoremap <Leader>pp :RunSilent xdg-open /tmp/vim-pandoc-out.pdf<CR>
 
-
-" when you forgot to sudo before editing a file that requires root privileges" {{{2
+" when you forgot to sudo before editing a file that requires root privileges  {{{2
 
 "(typically /etc/hosts). this lets you use w!! to do that after you opened the
 "file already
 cmap w!! w !sudo tee % >/dev/null
 
-" align inside paragraph                                                     " {{{2
+" align inside paragraph                                                       {{{2
 
 nnoremap <leader>gq gqip``
 vnoremap <leader>gq <ESC>gqip``
 inoremap <localleader>gq <ESC>gqip``
 
-" execute cmd within visual                                                  " {{{2
+" execute cmd within visual                                                    {{{2
 
 nnoremap <leader>v :'<,'>
 vnoremap <leader>v <ESC>:'<,'>
 inoremap <localleader>v <ESC>:'<,'>
 
-" execute cmd within sentencse                                               " {{{2
+" execute cmd within sentencse                                                 {{{2
 
 nnoremap <leader>s :'(,')
 vnoremap <leader>s <ESC>:'(,')
 inoremap <localleader>s <ESC>:'(,')
 
-" execute cmd within paragraph                                               " {{{2
+" execute cmd within paragraph                                                 {{{2
 
 nnoremap <leader>p :'{,'}
 vnoremap <leader>p <ESC>:'{,'}
 inoremap <localleader>p <ESC>:'{,'}
 
-" execute cmd within marks 'a and 's                                         " {{{2
+" execute cmd within marks 'a and 's                                           {{{2
 
 nnoremap <leader>mm :'a,'s
 
-" omnicompletion with ctrl+space                                             " {{{2
+" omnicompletion with ctrl+space                                               {{{2
 
 " Use Ctrl+Space to do omnicompletion:
 if has("gui_running")
@@ -957,11 +919,9 @@ else
     inoremap <Nul> <C-x><C-o>
 endif
 
+" Functions & Operator                                                         {{{1
 
-
-" Functions & Operator                                                       " {{{1
-
-" Func: YouCompleteMe <Plugin>                                               " {{{2
+" Func: YouCompleteMe <Plugin>                                                 {{{2
 
 fun! ToggleYCM()
     if g:ycm_auto_trigger == 1
@@ -973,7 +933,7 @@ fun! ToggleYCM()
     endif
 endfun
 
-" Func: Foldexpressions                                                      " {{{2
+" Func: Foldexpressions                                                        {{{2
 
 " fold braces
 " http://vim.wikia.com/wiki/Folding_functions_with_the_prototype_included
@@ -990,7 +950,7 @@ function! FoldBrace()
   return -1
 endfunction
 
-" Func: Save and Restore Cursorposition                                      " {{{2
+" Func: Save and Restore Cursorposition                                        {{{2
 
 " http://vim.wikia.com/wiki/Maintain_cursor_and_screen_position
 
@@ -1032,8 +992,7 @@ function! CurPos(action)
   return ""
 endfunction
 
-
-" Func: Get Visual Selection                                                 " {{{2
+" Func: Get Visual Selection                                                   {{{2
 
 function! GetVisualSelection()
     let old_reg = @v
@@ -1043,7 +1002,7 @@ function! GetVisualSelection()
     return substitute(escape(raw_search, '\/.*$^~[]'), "\n", '\\n', "g")
 endfunction
 
-" Func: Save Folds                                                           " {{{2
+" Func: Save Folds                                                             {{{2
 " https://github.com/tpope/vim-fugitive/issues/194
 
 function! SaveFolds()
@@ -1056,7 +1015,7 @@ function! SaveFolds()
 endfunction
 au BufReadPost * call SaveFolds()
 
-" Func: Clear all registers                                                  " {{{2
+" Func: Clear all registers                                                    {{{2
 
 " http://kba49.wordpress.com/2013/03/21/clear-all-registers-and-macros-in-vim/
 function! ClearRegisters()
@@ -1070,7 +1029,7 @@ endfunction
 
 command! ClearRegisters call ClearRegisters()
 
-" Func: Enhanced Increase Number                                             " {{{2
+" Func: Enhanced Increase Number                                               {{{2
 
 " http://vim.wikia.com/wiki/Increasing_or_decreasing_numbers?action=edit&section=3
 function! AddSubtract(char, back)
@@ -1084,7 +1043,7 @@ nnoremap <silent> <leader><c-a> :<c-u>call AddSubtract("\<c-a>", 'b')<cr>
 nnoremap <silent>         <c-x> :<c-u>call AddSubtract("\<c-x>", '')<cr>
 nnoremap <silent> <leader><c-x> :<c-u>call AddSubtract("\<c-x>", 'b')<cr>
 
-" Func: Restore Key Position                                                 " {{{2
+" Func: Restore Key Position                                                   {{{2
 
 function! ResCur()
   if line("'\"") <= line("$")
@@ -1093,7 +1052,42 @@ function! ResCur()
   endif
 endfunction
 
-" Oper: Grep                                                                 " {{{2
+" Func: Execute Online Searches (Eg. Wikipedia)                                {{{2
+
+"" found on http://alexanderle.com/blog/2012/my-vimrc.html
+" key mapping for tex-stackexchange search
+fun! Tex()
+    call inputsave()
+    let searchterm = input('stackexchange: ')
+    call inputrestore()
+    return searchterm
+endfun
+
+" key mapping for google search
+fun! Google()
+    call inputsave()
+    let searchterm = input('google: ')
+    call inputrestore()
+    return searchterm
+endfun
+
+" key mapping for wikipedia search
+fun! Wikipedia()
+    call inputsave()
+    let searchterm = input('wikipedia: ')
+    call inputrestore()
+    return searchterm
+endfun
+
+" key mapping for stackoverflow search
+fun! StackOverflow()
+    call inputsave()
+    let searchterm = input('stackoverflow: ')
+    call inputrestore()
+    return searchterm
+endfun
+
+" Oper: Grep                                                                   {{{2
 
 " Operator to 'grep' word(s) in current directory
 " http://learnvimscriptthehardway.stevelosh.com/chapters/34.html
@@ -1114,7 +1108,7 @@ function! s:GrepOperator(type)
     let @@ = saved_unnamed_register
 endfunction
 
-" Oper: Open URL                                                             " {{{2
+" Oper: Open URL                                                               {{{2
 function! s:UrlOperator(type)
     let saved_unnamed_register = @@
     if a:type ==# 'v'
@@ -1127,7 +1121,5 @@ function! s:UrlOperator(type)
     silent execute "!firefox " . shellescape(@@)
     let @@ = saved_unnamed_register
 endfunction
-
-
 
 " s/^.\{-}\ze,\s\d\d\d\d\.\s/\\author{&},\r/g | s/,\s\(\d\{4\}\)\./\\year{\1\r/g | s/^\s\(.\{-}\)\s\(\d*\),/\\title{\1},\\journal{},\r\\number{\2},\r/g | s/^s\(\d.*\)\.$/\\pages{\1}/g s\r},
