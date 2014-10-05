@@ -93,7 +93,7 @@ set pager="less -aCMsei"  # config for setting less as pager (not necessary)
 set prompt_after=no       # returning to index with no prompting
 set pager_context=5       # number of lines that overlap on paging
 set pager_index_lines=5   # number of lines to see from the index
-set pager_stop=yes        # jump/dont jump to next message at EOF
+set pager_stop=yes        # jump to next message at EOF
 
 # Sorting Mails                                       {{{3
 

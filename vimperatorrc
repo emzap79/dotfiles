@@ -56,7 +56,7 @@ silent qmark D http://detexify.kirelabs.org/classify.html
 silent qmark e http://ebay.de
 silent qmark E http://kleinanzeigen.ebay.de
 silent qmark f http://facebook.com
-silent qmark F http://favstar.fm/me
+silent qmark F http://finanzen.net
 silent qmark g https://github.com/emzap79
 silent qmark G http://gist.github.com/
 silent qmark h http://opus.bsz-bw.de/hdms/dokserver.php?la=de
@@ -64,9 +64,11 @@ silent qmark H http://www.hotmail.com/
 silent qmark i http://www.instapaper.com/u
 silent qmark j http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
 silent qmark k http://www.kicker.de/news/fussball/fussballstartseite.html
-silent qmark l http://reader.livedoor.com/reader/
+silent qmark l https://lsf.uni-due.de/lsf
 silent qmark m https://mail.google.com/mail/
-silent qmark r http://www.reddit.com
+silent qmark n http://www.netflix.com
+silent qmark r http://www.refworks.com
+silent qmark R http://www.reddit.com
 silent qmark M http://mixi.jp/home.pl
 silent qmark s https://soundcloud.com/stream
 silent qmark S http://overthewire.org/wargames/bandit/bandit0.html
@@ -89,6 +91,7 @@ function bmark(title, url, keyword) {
 		bookmarks.add(false, title, url, keyword, ['keyword'], false);
 	}
 }
+bmark('Bing US Search'         , 'http://www.bing.com/search?q=%s'                                                                               , 'b');
 bmark('Ctan'                   , 'http://www.ctan.org/search'                                                                                    , 'ct');
 bmark('Chefkoch'               , 'http://www.chefkoch.de/rs/s0/%s/Rezepte.html'                                                                  , 'ck');
 bmark('Dict'                   , 'http://www.dict.cc/?s=%s'                                                                                      , 'dict');
@@ -99,7 +102,7 @@ bmark('Github'                 , 'https://github.com/search?q=%s'               
 bmark('Google US Search'       , 'http://www.google.com/search?q=%s'                                                                             , 'gg');
 bmark('Google Scholar'         , 'http://scholar.google.de/scholar?q=%s'                                                                         , 'gs');
 bmark('DuckDuckGo'             , 'https://duckduckgo.com/?q=%s'                                                                                  , 'dd');
-bmark('Bing US Search'         , 'http://www.bing.com/search?q=%s'                                                                               , 'b');
+bmark('LibreOffice Search'     , 'https://help.libreoffice.org/index.php?search=%s&title=Special%3ASearch&go=Go'                                , 'lo');
 bmark('Ubuntuusers Wiki'       , 'http://ubuntuusers.de/search/?query=%s&area=wiki'                                                              , 'uu');
 bmark('Facebook'               , 'https://www.facebook.com/search/results/?=&q=%s'                                                               , 'f');
 bmark('Primo UB'               , 'https://katalog.ub.uni-duisburg-essen.de/primo_library/libweb/action/search.do?&ct=search&fn=search&dscnt=%s'  , 'pr');
@@ -116,7 +119,7 @@ bmark('Vim.wikia'              , 'http://vim.wikia.com/wiki/Special:Search?searc
 bmark('Yahoo! Search'          , 'http://search.yahoo.com/search;_ylt=?p=%s'                                                                     , 'y');
 bmark('Yahoo! Finance'         , 'http://finance.yahoo.com/q?s=%s'                                                                               , 'yf');
 bmark('Youtube'                , 'http://www.youtube.com/results?search_query=%s'                                                                , 'yt');
-bmark('wikibooks DE'           , 'http://de.wikibooks.org/w/api.php?action=opensearch&amp;format=xml&amp;search=%s&amp;namespace=0'              , 'wb');
+bmark('wikibooks DE'           , 'http://de.wikibooks.org/w/index.php?search=%s&title=Spezial:Suche&go=Seite'                                    , 'wb');
 bmark('wikipedia DE'           , 'http://de.wikipedia.org/w/index.php?title=Spezial:Suche&profile=default&search=%s&fulltext=Search'             , 'w');
 bmark('wikipedia EN'           , 'http://en.wikipedia.org/w/index.php?title=Special:Search&profile=default&search=%s&fulltext=Search'            , 'we');
 EOM

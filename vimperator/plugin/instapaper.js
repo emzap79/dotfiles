@@ -1,5 +1,4 @@
 " http://www.mozdev.org/pipermail/vimperator/2009-August/004654.html
-
 (function() {
     commands.addUserCommand(['readlater', 'rl'],
         'Send current page to Instapaper',

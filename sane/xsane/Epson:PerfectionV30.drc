@@ -807,13 +807,13 @@
 "scan-area"
 "Maximum"
 "tl-x"
-16660
+0
 "tl-y"
-16660
+0
 "br-x"
 13762560
 "br-y"
-19459328
+19462882
 "quick-format"
 "Maximum"
 "xsane-main-window-x-position"
@@ -823,7 +823,7 @@
 "xsane-main-window-width"
 321
 "xsane-main-window-height"
-475
+553
 "xsane-project-window-x-position"
 403
 "xsane-project-window-y-position"

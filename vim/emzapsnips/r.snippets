@@ -19,6 +19,13 @@ FILE_TYPES = [
 'xls',
 'table']
 
+CHART_TYPES = [
+'bar',
+'candle',
+'line',
+'match',
+'re']
+
 FIELD_TYPES = [
 'character',
 'data.frame',
@@ -31,7 +38,9 @@ FIELD_TYPES = [
 'numeric',
 'table',
 'vector']
+
 endglobal
+
 snippet as "Apply type on variable" w
 as.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
@@ -55,6 +64,11 @@ ${4:# update.packages(ask = FALSE, repos = 'http://rforge.net',
 repos = c('http://rforge.net', 'http://R-Forge.R-project.org', 'http://cran.rstudio.org', 'http://cran.r-project.org'${2:, '$3'}),
 type = 'source')
 library("$1")
+endsnippet
+
+snippet gith "Install from Github" b
+require(devtools)
+install_github('$1'${2:, '$3'})
 endsnippet
 
 snippet upgr "Upgrade R" b
@@ -100,6 +114,18 @@ library("ggplot2")
 library("stargazer")
 library("rgl")
 library("plot3D")
+
+# Financial Tools
+library(latticeExtra)
+library(reshape2)
+suppressPackageStartupMessages(
+  library(googleVis)
+)
+library(quantmod)
+library(PerformanceAnalytics)
+library(xtsExtra)
+library(devtools)
+library(TTR)
 
 # set workingdir
 swd$1
@@ -391,4 +417,11 @@ endsnippet
 
 snippet mc "mc" w
 mc(${1:${VISUAL}})
+endsnippet
+
+#############
+#  Finance  #
+#############
+snippet chrt "Add Chart Function" w
+$1`!p snip.rv = complete(t[1], CHART_TYPES)`${2}${VISUAL}Chart("${2:Ticker}",multi.col=TRUE,theme="white")
 endsnippet

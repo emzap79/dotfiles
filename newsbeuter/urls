@@ -75,12 +75,12 @@ http://vimcasts.org/feeds/ogg.rss "999. Podcasts - VIMCasts.org"
 
 http://recruiting.giz.de/www/jobabo_rss.php?jobabo_code=d53359c41025a4d7f77fc8b13237c356&cu=gtz_www "999. Jobs"
 
+# Parties             {{{2
+
+http://www.coolibri.de/redaktion/tags/Party/rss.html                      "999. Kultur - Duisburg"
+http://www.coolibri.de/redaktion/tags/Duisburg/rss.html                   "999. Kultur - Duisburg"
+
 # News                {{{2
-# Bochum              {{{3
-
-http://www.derwesten.de/staedte/bochum/rss                                   "999. News - Bochum"
-http://www.bochum.de/RSSNews.xml                                             "999. News - Bochum"
-
 # LatinAmerica        {{{3
 
 http://feeds.bbci.co.uk/news/world/latin_america/rss.xml                     "999. News - LatinAmerica"
@@ -92,6 +92,7 @@ http://karo-in-der-weiten-welt.jimdo.com/rss/blog                            "99
 
 # Finance             {{{3
 
+# News
 http://www.finanzen.net/rss/news                                          "998. News - Finance"
 http://www.finanzen.net/rss/analysen                                      "998. News - Finance"
 http://wsj.com/xml/rss/3_7481.xml                                         "998. News - Finance"
@@ -100,6 +101,8 @@ http://www.faz.net/aktuell/wirtschaft/?rssview=1                          "998. 
 http://www.tradac.de/wordpress/?feed=rss2                                 "998. News - Finance"
 http://www.handelsblatt.com/contentexport/feed/finanzen/                  "998. News - Finance"
 http://www.finanznachrichten.de/rss-tesla-motors-inc-aktien-us88160r1014  "998. News - Finance"
+# Trading
+http://systematicinvestor.wordpress.com/feed/                             "999. News - Trading"
 
 # Technics            {{{3
 
@@ -144,13 +147,18 @@ http://www.wiwi.uni-due.de/rss/                                                 
 
 # Linux               {{{2
 
+# Git                 {{{3
 http://alblue.bandlem.com/atom.xml                                "999. Unix - Git"
+# R                   {{{3
 http://feeds.feedburner.com/RBloggers                             "999. Unix - R"
+# Vim                 {{{3
 http://neovim.org/news.xml                                        "999. Unix - Vim"
 http://feeds.feedburner.com/usevim                                "999. Unix - Vim"
 http://feeds.vimgolf.com/latest-challenges?format=xml             "999. Unix - Vim"
 http://udioica.blogspot.com/feeds/posts/default?alt=rss           "999. Unix - Vim"
+# Python              {{{3
 http://www.themagpi.com/feed/                                     "999. Unix - Rasppi"
+# Linux               {{{3
 http://www.iwillfolo.com/feed/                                    "999. Unix - Linux"
 http://texblog.net/feed/                                          "999. Unix - Linux"
 http://texblog.wordpress.com/feed/                                "999. Unix - Linux"

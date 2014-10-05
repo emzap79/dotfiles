@@ -14,7 +14,7 @@ export LS3=''
 
 # paths#{{{2
 
-export SEM="Sommer2014"
+export SEM="Winter1415"
 export UNI="/home/zapata/Unimaterialien"
 export DOK="/home/zapata/Dokumente"
 export LIX="$DOK/Linux"

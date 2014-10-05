@@ -160,6 +160,7 @@ alias grepc=fun_grepc
 # locate
 alias lc="locate -i"
 alias ud="sudo updatedb"
+alias updatedb="sudo updatedb"
 alias lcd=fun_locate_dir
 alias lcf=fun_locate_dat
 
@@ -316,6 +317,7 @@ alias ltmk="latexmk -pvc"
 alias ltpdfl="pdflatex"
 alias ltcl="rm -f *.aux *.toc *.bbl *.idx *.ilg *.ind *.log *.toc *.blg *.out *.glg *.glo *.gls *.ist *.maf *.mtc *.gz *.backup *.lot *.lof *.fls"
 alias ltsw=fun_latex_sweave
+alias ltrd=fun_latex_rd
 
 # latex symbols
 if [[ -e /home/${USER}/Dokumente ]]; then
@@ -481,6 +483,11 @@ alias wallpaper=fun_set_wallp
 alias gnomeapps=fun_gnome
 
 # system & internet                                                            # {{{1
+
+# hibernate/suspend
+# http://askubuntu.com/questions/1792/how-can-i-suspend-hibernate-from-command-line
+alias susp='sudo bash -c "sleep 1h; pm-suspend"'
+
 
 # journal                                                                      # {{{2
 
@@ -1003,6 +1010,11 @@ fun_cd() {
 fun_latex_sweave() {
     # http://stackoverflow.com/a/4922768/3569509
     R CMD Sweave "${1%%.*}.rnw" && R CMD pdflatex "${1%%.*}.tex" && R CMD bibtex "${1%%.*}.aux" && evince "$1".pdf &
+}
+
+fun_latex_sweave() {
+    # http://stackoverflow.com/a/3780455/3569509
+    R CMD Rd2pdf --title=${1} -o /tmp/foo.pdf *.Rd
 }
 
 fun_loop_pdflatex() {

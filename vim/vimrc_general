@@ -240,16 +240,16 @@ set vb t_vb=                                   " visualbell: no beep or flash is
 
 " dictionary & thesaurus                                      " {{{2
 
-set dict+=~/.aspell.de.pws
-set dict+=$HOME/.vim/spell                  " dict: set dirs of dictionaries
+set dict+=$HOME/.aspell.de.pws
+set dict+=$HOME/.vim/spell                 " dict: set dirs of dictionaries
 set tsr+=$HOME/.vim/thesaurus/thes_de.txt
-set tsr-=$HOME/.vim/thesaurus/thes_eng.txt  " thesaurus: using thesaurus by CTR+X CTRL+T in insert mode.
-set cpt+=k                              " complete: enable dictionary completion
-setl kp=trs\ {en=@en+de}                " keywordprg: trigger googletranslate for word under cursor with 'K'
+set tsr-=$HOME/.vim/thesaurus/thes_eng.txt " thesaurus: using thesaurus by CTR+X CTRL+T in insert mode.
+set cpt+=k                                 " complete: enable dictionary completion
+setl kp=trs\ {en=@en+de}                   " keywordprg: trigger googletranslate for word under cursor with 'K'
 setl kp=trs\ {es=@es+de}
-set nolisp                              " lisp: When <Enter> is typed in insert mode set the indent for the next line to Lisp standards
-set nospell                             " spell: set spell spelllang=de,...
-set nodg                                " digraph: with the digraph option set you can enter 'a <BS> >' to retreive â
+set nolisp                                 " lisp: When <Enter> is typed in insert mode set the indent for the next line to Lisp standards
+set nospell                                " spell: set spell spelllang=de,...
+set nodg                                   " digraph: with the digraph option set you can enter 'a <BS> >' to retreive â
 
 
 " Advanced Settings                                           " {{{1
@@ -302,8 +302,9 @@ set fo+=tocqrnl
 
 " A pattern that is used to recognize a list header. This is used for the "n"
 " flag in 'formatoptions'. The default is: ^\s*\d\+[\]:.)}\t ]\s*
-" http://stackoverflow.com/a/22703433/3569509
 
+" recognizes numbered lists
+" http://stackoverflow.com/a/22703433/3569509
 let &flp='^\s*\(\d\+[\]:.)}\t ]\|[*-]\s\)\s*'
 
 " shortmessage                                                " {{{2

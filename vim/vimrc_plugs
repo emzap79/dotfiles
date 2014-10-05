@@ -115,6 +115,8 @@ let vimrplugin_maxdeparse = 300
 let vimrplugin_rcomment_string = "# "
 let r_indent_comment_column = 20
 let r_syntax_folding = 1                     " Allow for syntax-folding
+let vimrplugin_indent_commented = 1              " Autoindent commented lines
+let r_indent_ess_comments = 0                    " 0:add single '#', 1:add double '#'
 
 " Command line output                                  {{{3
 
@@ -228,9 +230,10 @@ sunmap e
 " VIS                                                  {{{2
 " " apply commmand only to Visual Block ":'<,'>B <command>"
 
-" Vim-Commentor                                        {{{2
+" Vim-Commentary
 " define new line for comments
-autocmd FileType apache set commentstring=#\ %s
+autocmd! FileType apache set commentstring=#\ %s
+autocmd! FileType R,r set commentstring=#\ %s
 
 " ShowMarks                                            {{{2
 let g:showmarks_marks = "abcdefghijklmnopqrstuvwxyz"
