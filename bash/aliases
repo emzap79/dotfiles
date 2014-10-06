@@ -33,7 +33,7 @@ alias lsg="ls|sort|grep -i"
 alias lp=fun_absolute_path             # show fullpathname to file
 
 # only directories
-alias lsd='ls $LS1 $LS2 $LS3 -d -- */ | sed -e "s/\/$//g"'
+alias lsd='ls $LS1 $LS2 $LS3 -d -- */ | sed "s/\/$//g"'
 
 # for very long listings use less
 alias vls='ls $LS1 $LS2 $LS3 -B  | grep ".*" | less -R'

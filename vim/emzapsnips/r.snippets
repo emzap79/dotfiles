@@ -57,7 +57,11 @@ snippet knitr "Install and update package from repo" b
 install.packages(c("digest", "evaluate", "formatR", "highlight", "knitr", "parser", "plyr", "Rcpp", "stringr"), repos = c('http://rforge.net', 'http://cran.rstudio.org'), type = 'source')
 endsnippet
 
-snippet inst "Install and update package from repo" b
+snippet inst "Install package from repo" b
+install.packages('${1:package name}')
+endsnippet
+
+snippet instt "Install and update package from repo" b
 ${4:# update.packages(ask = FALSE, repos = 'http://rforge.net',
 'http://cran.rstudio.org', 'http://cran.r-project.org')
 }install.packages('${1:package name}',
@@ -113,6 +117,9 @@ library("psych")    # describe()
 library("ggplot2")
 library("stargazer")
 library("rgl")
+library("igraph")
+library("Rook")
+library("Rfacebook")
 library("plot3D")
 
 # Financial Tools

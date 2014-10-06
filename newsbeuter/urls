@@ -149,8 +149,11 @@ http://www.wiwi.uni-due.de/rss/                                                 
 
 # Git                 {{{3
 http://alblue.bandlem.com/atom.xml                                "999. Unix - Git"
+
 # R                   {{{3
 http://feeds.feedburner.com/RBloggers                             "999. Unix - R"
+http://thinktostart.com/feed/                                     "999. Unix - R"
+
 # Vim                 {{{3
 http://neovim.org/news.xml                                        "999. Unix - Vim"
 http://feeds.feedburner.com/usevim                                "999. Unix - Vim"

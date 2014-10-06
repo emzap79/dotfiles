@@ -2,9 +2,24 @@ fun! TexAbbreviations()
     iab ... \ldots
     iab (...) (\ldots)
     iab s. S.~<C-R>
+
+    """ abbreviations
+    iab va v.~a.
+    iab uu u.~U.
+    iab dh d.~h.
+    iab Dh D.~h.
+    iab eg e.~g.
+    iab Eg E.~g.
+    iab oä o.~ä.
+    iab Oä O.~ä.
+    iab zb z.~B.
+    iab Zb Z.~B.
+    iab ua u.~a.
+    iab Ua U.~a.
+
 endfun
 " Call Function Texabbrevs
-au! filetype tex call TexAbbreviations()
+au! filetype tex,latex call TexAbbreviations()
 
 fun! MailAbbreviations()
     iab addr Beckhausstr. 11, c/o Stefan Ickler, 44892 Bochum<C-R>
@@ -29,19 +44,6 @@ fun! BasicAbbreviations()
     iab Abwärtsbeweung Abwärtsbewegung
 
     """ abbreviations
-    iab va v.~a.
-    iab uu u.~U.
-    iab dh d.~h.
-    iab Dh D.~h.
-    iab eg e.~g.
-    iab Eg E.~g.
-    iab oä o.~ä.
-    iab Oä O.~ä.
-    iab zb z.~B.
-    iab Zb Z.~B.
-    iab ua u.~a.
-    iab Ua U.~a.
-
     iab bzw bzw.
     iab eigtl eigtl.
     iab bspw bspw.
