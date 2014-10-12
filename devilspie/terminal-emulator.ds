@@ -1,0 +1,10 @@
+(if
+	(and
+		(is (window_class) 'X-terminal-emulator')
+	)
+	(begin
+		(println "--[ Terminal ]--")
+		(geometry "700x800+0+27")
+        (pin)
+	)
+)

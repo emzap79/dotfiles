@@ -2,9 +2,9 @@
 # Documentation: http://www.newsbeuter.org/doc/newsbeuter.html
 # available operations: http://newsbeuter.org/doc/newsbeuter.html#_first_steps
 
-# # bindings & macros# {{{
+# bindings & macros {{{1
 
-# # # key-bindings# {{{
+# key-bindings {{{2
 
 unbind-key ^B
 bind-key ^B pageup
@@ -23,44 +23,42 @@ unbind-key l
 bind-key l open-search
 bind-key L toggle-show-read-feeds
 
-# }}}
-# # # macro# {{{
+# macro {{{2
 
 macro p toggle-article-read "unread"
 macro E set browser "echo %u >> ~/.newsbeuter/queue" ; open ; set browser "elinks %u"
 
-# }}}# }}}
-# # feedlist-format# {{{
+# feedlist-format {{{1
 
 datetime-format              "%a, %d.%m %I:%M%P" # eigenes Format festlegen (man strftime)
 
 articlelist-format           "%4i %f %D   %?T?|%-17T|  ?%t"
-# # # # # # # # # # # # # # # # # # # # # # # # # # Available Identifiers for articlelist-format
-# # # # # # # # # # # # # # # # # # # # # # # # # # Identifier        Meaning
-# # # # # # # # # # # # # # # # # # # # # # # # # # a                 Article author
-# # # # # # # # # # # # # # # # # # # # # # # # # # D                 Publication date
-# # # # # # # # # # # # # # # # # # # # # # # # # # f                 Article flags
-# # # # # # # # # # # # # # # # # # # # # # # # # # i                 Article index
-# # # # # # # # # # # # # # # # # # # # # # # # # # t                 Article title
-# # # # # # # # # # # # # # # # # # # # # # # # # # T                 If the article list displays articles from different feeds,
-# # # # # # # # # # # # # # # # # # # # # # # # # #                   then this identifier contains the title of the feed to which the article
-# # # # # # # # # # # # # # # # # # # # # # # # # #                   belongs.
-# # # # # # # # # # # # # # # # # # # # # # # # # # L                 Article length
+# Available Identifiers for articlelist-format
+# Identifier        Meaning
+# a                 Article author
+# D                 Publication date
+# f                 Article flags
+# i                 Article index
+# t                 Article title
+# T                 If the article list displays articles from different feeds,
+#                   then this identifier contains the title of the feed to which the article
+#                   belongs.
+# L                 Article length
 
 feedlist-format              "%T %n %u %7u - %t"  # Anzeige der Liste verändern
-# # # # # # # # # # # # # # # # # # # # # # # # # # Available Identifiers for feedlist-format
-# # # # # # # # # # # # # # # # # # # # # # # # # # Identifier        Meaning
-# # # # # # # # # # # # # # # # # # # # # # # # # # d                 Feed description
-# # # # # # # # # # # # # # # # # # # # # # # # # # i                 Feed index
-# # # # # # # # # # # # # # # # # # # # # # # # # # l                 Feed link
-# # # # # # # # # # # # # # # # # # # # # # # # # # L                 Feed RSS URL
-# # # # # # # # # # # # # # # # # # # # # # # # # # n                 "unread" flag field
-# # # # # # # # # # # # # # # # # # # # # # # # # # S                 download status
-# # # # # # # # # # # # # # # # # # # # # # # # # # t                 Feed title
-# # # # # # # # # # # # # # # # # # # # # # # # # # T                 First tag of a feed in the URLs file
-# # # # # # # # # # # # # # # # # # # # # # # # # # u                 "unread/total" field
-# # # # # # # # # # # # # # # # # # # # # # # # # # U                 "unread" field
-# # # # # # # # # # # # # # # # # # # # # # # # # # c                 "total" field
+# Available Identifiers for feedlist-format
+# Identifier        Meaning
+# d                 Feed description
+# i                 Feed index
+# l                 Feed link
+# L                 Feed RSS URL
+# n                 "unread" flag field
+# S                 download status
+# t                 Feed title
+# T                 First tag of a feed in the URLs file
+# u                 "unread/total" field
+# U                 "unread" field
+# c                 "total" field
 
 feedlist-title-format        "%N %V - Your feeds (%u unread, %t total)%?T? - tag ‘%T’&?"
 articlelist-title-format     "%N %V - Articles in feed %T (%u unread, %t total) - %U"
@@ -73,10 +71,9 @@ itemview-title-format        "%N %V - Article %T (%u unread, %t total)"
 urlview-title-format         "%N %V - URLs"
 dialogs-title-format         "%N %V - Dialogs"
 
-# }}}
-# # colors & highlighting# {{{
+# colors & highlighting {{{1
 
-# # # colors# {{{
+# colors {{{2
 
 # ## https://github.com/carno/dotfiles/blob/master/.newsbeuter/colors
 # ## include ~/.newsbeuter/colors
@@ -104,20 +101,17 @@ color article    color244 color234
 # color info white default
 # color article white default
 
-# }}}
-# # # highlighting # {{{
+# highlighting  {{{2
 
 search-highlight-colors                     black yellow bold
 highlight all "00\.\ Filter.*"              color251 color234
 highlight all "^0[^0].*"                    color245 color234
 highlight all "99[0-9].*"                   color239 color234
 
-# # # highlighting # }}}
 
-# # colors & highlighting# }}}
-# # podcasts & downloads# {{{
+# podcasts & downloads {{{1
 
-# # Available Operations in Podbeuter
+# Available Operations in Podbeuter
 # Operation                 Default key     Description
 # quit                      q               Quit the program.
 # pb-download               d               Download the currently selected URL.
@@ -138,10 +132,7 @@ download-path ~/Podcasts/Videos/%n
 max-downloads 5
 player "mplayer %u"
 
-# }}}
-# # other settings# {{{
-
-# # # general settings# {{{
+# general settings {{{1
 
 mark-as-read-on-hover	yes
 article-sort-order      date-asc                       # currently available: date, title, flags, author, link, guid
@@ -162,15 +153,13 @@ text-width 72  # description: If set to a number greater than 0, then
                # all HTML will be rendered to this maximum line length. If set to 0, the terminal
                # width will be used.
 
-# }}}
-# # # url-sources# {{{
+# url-sources {{{1
 
 urls-source "local"
 # urls-source "googlereader"
 # googlereader-login "emzap79@googlemail.com"
 
-# }}}
-# # # reload & refresh # {{{
+# reload & refresh  {{{1
 
 auto-reload               yes
 refresh-on-startup        yes
@@ -179,8 +168,7 @@ reload-threads            2
 reload-time               60
 suppress-first-reload     yes
 
-# }}}
-# # # browser settings# {{{
+# browser settings {{{1
 
 html-renderer "w3m -dump -T text/html"
 # browser "chromium-browser %u"
@@ -189,12 +177,9 @@ html-renderer "w3m -dump -T text/html"
 browser "firefox --new-tab %u 2> /dev/null &"
 # browser "chromium-browser --remote 'openURL(%u,new-tab,no-startup-window)'"
 
-# }}}
-# # # notifications# {{{
+# notifications {{{1
 
 notify-format	"RSS: "%d new articles (%n unread articles, %f unread feeds)"
 notify-program	"notify-send --hint=int:transient:1" # Notification-Programm festlegen
 notify-xterm	yes
 notify-beep		yes
-
-# }}}# }}}

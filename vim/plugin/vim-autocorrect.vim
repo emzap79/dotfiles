@@ -23,6 +23,9 @@ au! filetype tex,latex call TexAbbreviations()
 
 fun! MailAbbreviations()
     iab addr Beckhausstr. 11, c/o Stefan Ickler, 44892 Bochum<C-R>
+    iab sgdh Sehr geehrte Damen und Herren<C-R>,
+    iab sgh Sehr geehrter Herr<C-R>,
+    iab sgf Sehr geehrte Frau<C-R>,
     iab vg Viele Grüße,
                 \<CR>Jonas <C-R>
     iab lg Liebe Grüße,

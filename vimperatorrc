@@ -65,8 +65,10 @@ silent qmark i http://www.instapaper.com/u
 silent qmark j http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
 silent qmark k http://www.kicker.de/news/fussball/fussballstartseite.html
 silent qmark l https://lsf.uni-due.de/lsf
-silent qmark m https://mail.google.com/mail/
+silent qmark m https://de.finance.yahoo.com/gainers?e=gdaxi
+silent qmark M http://www.finanzen.net/index/DAX/Topflop
 silent qmark n http://www.netflix.com
+silent qmark p https://www.planspiel-boerse.de/ssk-duesseldorf/0/index.htm
 silent qmark r http://www.refworks.com
 silent qmark R http://www.reddit.com
 silent qmark M http://mixi.jp/home.pl
@@ -76,11 +78,10 @@ silent qmark t http://twitter.com/home/
 silent qmark T http://www.tumblr.com/dashboard/
 silent qmark u http://speedtest-1.unitymedia.de/
 silent qmark o http://www1.onleihe.de/duisburg
-silent qmark p http://www.pixiv.net/mypage.php
 silent qmark w http://www.wolframalpha.com/
 silent qmark W https://wave.google.com/wave/
 silent qmark v http://www.vimgolf.com/
-silent qmark y http://www.finanzen.net/chart-analyse/ta-chart.asp?pkNr=58046
+silent qmark Y http://www.finanzen.net/chart-analyse/ta-chart.asp?pkNr=58046
 silent qmark z http://10.10.10.1/dynLoggedOut.html
 silent qmark Z http://www.amazon.de/Prime-Instant-Video/b/ref=nav_gno_yam_piv?ie=UTF8&node=3279204031
 

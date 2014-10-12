@@ -103,7 +103,7 @@ read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}",
 		${11:na.strings=c(${12:NA,"NA"," NA ","#N/A N/A"})})
 endsnippet
 
-snippet header "Include Packages" b
+snippet rheader "Include Packages" b
 # vim:fdm=marker:isk-=(,.,_
 
 #######################################################################
@@ -133,13 +133,14 @@ library(PerformanceAnalytics)
 library(xtsExtra)
 library(devtools)
 library(TTR)
+library(FinancialInstrument)
 
 # set workingdir
 swd$1
 endsnippet
 
 snippet grep "grepsearch for string" b
-grep("${1:stringofinterest}",${2:dataframeofinterest},ignore.case=${3:TRUE},value=${4:TRUE})
+grep("${1:pattern}", ${2:matrix}, ignore.case=${3:TRUE}, value=${4:TRUE}, fixed=${5:TRUE})
 endsnippet
 
 snippet req "Require a file"
@@ -194,6 +195,10 @@ ${1:name} <- function (${2}) {
 }
 endsnippet
 
+snippet sum "Sum" b
+sum(${1:${VISUAL}})
+endsnippet
+
 snippet swd "Set workingdir" b
 setwd("${1:`!p snip.rv = os.getcwd()`}")
 endsnippet
@@ -203,7 +208,7 @@ return(${0:${VISUAL}})
 endsnippet
 
 snippet df "Data frame"
-${1:name}[${2:rows}, ${0:cols}]
+data.frame(${1:${VISUAL:col1}}, ${2:col2})
 endsnippet
 
 snippet li "list function"
