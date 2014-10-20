@@ -12,7 +12,13 @@
 # Aktien
 "query:Aktien - Tesla: tags =~ \"998.\" and (title =~ \"tesla\" or title =~ \"tsla\")"                                "00. Filter"
 "query:Aktien - Alibaba: tags =~ \"998.\" and title =~ \"alibaba\""                                "00. Filter"
-"query:Aktien - SPK-Planspiel: tags =~ \"998.\" and (title =~ \"Procter\" or title =~ \"Volkswagen\" or title =~ \"Infineon\")"                                "00. Filter"
+
+"query:Aktien - SPK-Planspiel: tags =~ \"998.\" and (
+title =~ \"Procter\" or
+title =~ \"Volkswagen\" or 
+title =~ \"Salzgitter\" or 
+title =~ \"Adidas\" or
+title =~ \"Infineon\")"                                "00. Filter"
 
 # Url-List            {{{1
 
@@ -81,20 +87,6 @@ http://feeds.bbci.co.uk/news/world/latin_america/rss.xml                     "99
 http://www.eluniverso.com/rss/ecuador.xml                                    "999. Ecuador - Noticias"
 http://karo-in-der-weiten-welt.jimdo.com/rss/blog                            "999. Ecuador - Karos Blog"
 
-# Finance             {{{3
-
-# News
-http://www.finanzen.net/rss/news                                          "998. News - Finance"
-http://www.finanzen.net/rss/analysen                                      "998. News - Finance"
-http://wsj.com/xml/rss/3_7481.xml                                         "998. News - Finance"
-http://www.wallstreet-online.de/rss/nachrichten-alle.xml                  "998. News - Finance"
-http://www.faz.net/aktuell/wirtschaft/?rssview=1                          "998. News - Finance"
-http://www.tradac.de/wordpress/?feed=rss2                                 "998. News - Finance"
-http://www.handelsblatt.com/contentexport/feed/finanzen/                  "998. News - Finance"
-http://www.finanznachrichten.de/rss-tesla-motors-inc-aktien-us88160r1014  "998. News - Finance"
-# Trading
-http://systematicinvestor.wordpress.com/feed/                             "999. News - Trading"
-
 # Technics            {{{3
 
 http://rss.golem.de/rss.php?feed=RSS1.0                                      "998. News - Technik"
@@ -119,6 +111,27 @@ http://bauarbeiten.bahn.de/RSS/nrw/RE_2                                         
 http://bauarbeiten.bahn.de/RSS/nrw/RE_6                                                 "999. News - Fahrplan"
 http://bauarbeiten.bahn.de/RSS/nrw/RE_11                                                "999. News - Fahrplan"
 http://bauarbeiten.bahn.de/RSS/nrw/S_1                                                  "999. News - Fahrplan"
+
+# Finance             {{{2
+
+# News
+http://www.finanzen.net/rss/news                                         "998. News - Finance"
+http://www.finanzen.net/rss/analysen                                     "998. News - Finance"
+http://wsj.com/xml/rss/3_7481.xml                                        "998. News - Finance"
+http://www.wallstreet-online.de/rss/nachrichten-alle.xml                 "998. News - Finance"
+http://www.faz.net/aktuell/wirtschaft/?rssview=1                         "998. News - Finance"
+http://www.tradac.de/wordpress/?feed=rss2                                "998. News - Finance"
+http://www.handelsblatt.com/contentexport/feed/finanzen/                 "998. News - Finance"
+
+# Trading
+http://systematicinvestor.wordpress.com/feed/                            "999. News - Trading"
+http://tradingwithlinux.blogspot.com/feeds/posts/default                 "999. News - Trading"
+http://www.finanznachrichten.de/rss-tesla-motors-inc-aktien-us88160r1014 "999. News - Finance"
+http://www.finanznachrichten.de/rss-aktien-analysen                      "999. News - Finance"
+http://www.finanznachrichten.de/rss-marktberichte                        "999. News - Finance"
+http://www.finanznachrichten.de/rss-chartanalysen-top                    "999. News - Finance"
+http://www.finanznachrichten.de/rss-nachrichten-meistgelesen             "999. News - Finance"
+http://www.finanznachrichten.de/rss-nachrichten-devisen                  "999. News - Finance"
 
 # Uni Due             {{{2
 

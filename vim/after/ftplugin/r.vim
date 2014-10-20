@@ -190,6 +190,7 @@ map <silent> <LocalLeader>rg :call RAction("range")<CR>
 " data information                                     {{{3
 map <silent> <localleader>pr :call RAction("print")<CR>
 map <silent> <LocalLeader>hd :call RAction("head")<CR>
+map <silent> <LocalLeader>id :call RAction("index")<CR>
 map <silent> <LocalLeader>tl :call RAction("tail")<CR>
 map <silent> <localleader>at :call RAction("attributes")<CR>
 map <silent> <localleader>dm :call RAction("dim")<CR>

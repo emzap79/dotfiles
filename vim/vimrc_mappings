@@ -338,8 +338,10 @@ nnoremap <leader>slc :scalcvsplit<cr>
 
 " Align
 nnoremap <leader>aa :%Align!<space>p
-nnoremap <leader>al :'a,'sAlign!<space>p
-vnoremap <leader>al :'<,'>Align!<space>p
+nnoremap <leader>al :%Align!<space>p
+vnoremap <leader>al :%Align!<space>p
+nnoremap <leader>am :'a,'sAlign!<space>p
+vnoremap <leader>am :'<,'>Align!<space>p
 nnoremap <leader>ap :'{,'}Align!<space>p
 vnoremap <leader>ap <esc>:'{,'}Align!<space>p
 

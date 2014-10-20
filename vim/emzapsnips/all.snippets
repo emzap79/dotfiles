@@ -107,8 +107,9 @@ endsnippet
 snippet header
 " File: ${1:`!v expand('%:t')`}
 " Author: ${2:`!v g:snips_author`}
-" Description: ${3}
-${4:" Last Modified: `!v strftime("%B %d, %Y")`}
+" ${3:URL: ${4${VISUAL}}}
+" Description: ${5}
+${6:" Last Modified: `!v strftime("%B %d, %Y")`}
 
 $0
 endsnippet

@@ -1,3 +1,4 @@
+# vim: ft=snippets
 priority +1
 
 global !p
@@ -91,6 +92,13 @@ endsnippet
 
 snippet "(\S+)\(" "Close Brace" ri
 `!p snip.rv = match.group(1) if match.group(1) is not None else ""`(${1:${VISUAL}})
+endsnippet
+
+snippet write "Write into file" b
+write.$1`!p snip.rv = complete(t[1], FILE_TYPES)`(${2:${VISUAL}},file="${3:filename}.csv",
+		append=${5:F}, sep='${8:;}', dec='${9:.}',
+		col.names=${10:T}, row.names=${11:T}${12:,
+		fileEncoding='utf-8', eol="\n", na="NA"})
 endsnippet
 
 snippet read "Read from file" b
@@ -197,6 +205,10 @@ endsnippet
 
 snippet sum "Sum" b
 sum(${1:${VISUAL}})
+endsnippet
+
+snippet pth "Print current path" i
+${1:`!p snip.rv = os.getcwd()`}
 endsnippet
 
 snippet swd "Set workingdir" b
@@ -329,6 +341,10 @@ endsnippet
 
 snippet hd "head" w
 head(${1:${VISUAL}})
+endsnippet
+
+snippet idx "index" w
+index(${1:${VISUAL}})
 endsnippet
 
 snippet tl "tail" w
