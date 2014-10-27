@@ -1,13 +1,3 @@
-http://127.0.0.1:17185/library/quantmod/help/getSymbols
-http://127.0.0.1:17185/library/quantmod/help/getMetals
-http://127.0.0.1:17185/library/quantmod/html/00Index.html
-http://127.0.0.1:17185/library/quantmod/html/chartSeries.html
-http://127.0.0.1:10689/library/quantmod/html/TA.html
-http://127.0.0.1:12452/library/base/html/typeof.html
-http://127.0.0.1:11602/library/quantmod/html/chartSeries.html
-http://127.0.0.1:11602/library/quantmod/help/addTA
-http://127.0.0.1:11602/library/stats/html/lag.html
-http://127.0.0.1:13484/library/stats/html/lag.html
 http://127.0.0.1:13484/library/quantmod/html/chartSeries.html
 http://127.0.0.1:13484/library/quantmod/help/addTA
 http://127.0.0.1:13484/library/quantmod/html/TA.html
@@ -98,3 +88,13 @@ http://127.0.0.1:16434/library/rpnf/html/GDAXI.html
 http://127.0.0.1:16434/library/quantmod/html/OHLC.Transformations.html
 http://127.0.0.1:16434/library/xts/html/xts.html
 http://127.0.0.1:10190/library/quantmod/html/chartSeries.html
+http://127.0.0.1:14393/library/base/html/as.data.frame.html
+http://127.0.0.1:14393/library/xts/html/as.xts.html
+http://127.0.0.1:29794/library/quantmod/html/chartSeries.html
+http://127.0.0.1:29794/library/quantmod/help/getSymbols
+http://127.0.0.1:29794/library/quantmod/html/addSMI.html
+http://127.0.0.1:29794/library/quantmod/html/00Index.html
+http://127.0.0.1:30005/library/base/html/matrix.html
+http://127.0.0.1:14039/library/quantmod/html/chartTheme.html
+http://127.0.0.1:14039/library/quantmod/html/chartSeries.html
+http://127.0.0.1:27242/library/PerformanceAnalytics/html/findDrawdowns.html

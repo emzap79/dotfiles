@@ -12,13 +12,7 @@
 # Aktien
 "query:Aktien - Tesla: tags =~ \"998.\" and (title =~ \"tesla\" or title =~ \"tsla\")"                                "00. Filter"
 "query:Aktien - Alibaba: tags =~ \"998.\" and title =~ \"alibaba\""                                "00. Filter"
-
-"query:Aktien - SPK-Planspiel: tags =~ \"998.\" and (
-title =~ \"Procter\" or
-title =~ \"Volkswagen\" or 
-title =~ \"Salzgitter\" or 
-title =~ \"Adidas\" or
-title =~ \"Infineon\")"                                "00. Filter"
+"query:Aktien - SPK-Planspiel: tags =~ \"998.\" and ( title =~ \"Procter\" or title =~ \"Volkswagen\" or title =~ \"Salzgitter\" or title =~ \"Adidas\" or title =~ \"Infineon\")"                                "00. Filter"
 
 # Url-List            {{{1
 
@@ -36,11 +30,14 @@ title =~ \"Infineon\")"                                "00. Filter"
 # news                {{{2
 "query:News: tags =~ \"999. News\" and tags =~ \"nachrichten\""                                                                          "04.1 News :: Politik"
 "query:News: tags =~ \"999. Ecuador\" and tags =~ \"ecuador\" and link !~ \"deporte\""                                                   "04.2 News :: Ecuador"
+"query:News: tags =~ \"998. News\" and tags =~ \"finance\""                                                                              "04.3 News :: Stocks"
 
 # programming         {{{2
 "query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"Bash\""                                                                       "05.2 StackExch :: Bash"
 "query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"VIM\""                                                                        "05.1 StackExch :: VIM"
 "query:StackExch: tags =~ \"999. StackExch\" and (tags =~ \"SED\" or tags =~ \"R\")"                                                     "05.2 StackExch :: SED"
+
+# angebote         {{{2
 "query:Angebote: tags =~ \"998. Angebote\" and tags =~ \"Technik\""                                                                      "09. Angebote :: Technik"
 
 # "999. Single Tags"
@@ -123,15 +120,17 @@ http://www.faz.net/aktuell/wirtschaft/?rssview=1                         "998. N
 http://www.tradac.de/wordpress/?feed=rss2                                "998. News - Finance"
 http://www.handelsblatt.com/contentexport/feed/finanzen/                 "998. News - Finance"
 
-# Trading
-http://systematicinvestor.wordpress.com/feed/                            "999. News - Trading"
-http://tradingwithlinux.blogspot.com/feeds/posts/default                 "999. News - Trading"
 http://www.finanznachrichten.de/rss-tesla-motors-inc-aktien-us88160r1014 "999. News - Finance"
 http://www.finanznachrichten.de/rss-aktien-analysen                      "999. News - Finance"
 http://www.finanznachrichten.de/rss-marktberichte                        "999. News - Finance"
 http://www.finanznachrichten.de/rss-chartanalysen-top                    "999. News - Finance"
 http://www.finanznachrichten.de/rss-nachrichten-meistgelesen             "999. News - Finance"
 http://www.finanznachrichten.de/rss-nachrichten-devisen                  "999. News - Finance"
+
+
+# Trading
+http://systematicinvestor.wordpress.com/feed/                            "999. News - Trading"
+http://tradingwithlinux.blogspot.com/feeds/posts/default                 "999. News - Trading"
 
 # Uni Due             {{{2
 

@@ -1,0 +1,35 @@
+# ##########################################################
+# # Absender einstellen
+# ##########################################################
+set from="noah.stylez@gmx.de"
+set hostname="gmx.de"
+set folder="imap://noah.stylez@mail.gmx.net"           #Mailbox, die aufgerufen wird
+set postponed="=Entwurf"                            #Verzeichnis, in dem die Entwürfe abgelegt werden. Das = ist eine Abkürzung für den Inhalt von folder
+set record="~/mails/Outbox/sent-`date +%Y`"           #Verzeichnis für die versendeten Mails
+set spoolfile="imap://noah.stylez@mail.gmx.net/INBOX"  #Verzeichnis, das zu Beginn aufgerufen werden soll
+unset signature
+#unmy_hdr *
+#my_hdr Fcc:"~/mails/Outbox/sent-`date +%Y`"
+
+# Ablage der SSL-Zertifikate in Datei
+set certificate_file="~/.mutt/muttCertif.priv"
+set imap_force_ssl="yes"
+
+# ##########################################################
+# # Mailbox specific Macros
+# ##########################################################
+#macro index \- \
+         #<show-version> \
+        #"Mutt-Version anzeigen"
+
+macro index \- \
+        <sync-mailbox><delete-pattern>"~d >4w"<enter>$ \
+        "Delete Messages older than 4 Weeks"
+
+############################################################
+# Empfangsbestätigung anfordern
+############################################################
+# Erster Eintrag ist vorgeschlagen in RFC3798. Die anderen sind für verschiedene Mail-Client
+#my_hdr Disposition-Notification-To: noah.stylez@gmx.de
+#my_hdr X-Confirm-Reading-To: noah.stylez@gmx.de
+#my_hdr Return-Receipt-To: noah.stylez@gmx.de

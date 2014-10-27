@@ -32,11 +32,11 @@
 #  dig in history what went wrong
 	ref	= reflog			# show changes of the HEAD pointer (including all indices)
 	sl	= shortlog -nse			# summarizes git log output, each commit grouped by author and title
-	l	= log --graph --abbrev=7 --decorate=short --oneline --all
 	lp	= log -p --graph --decorate=short --pretty=medium --stat		# ...shows diffs for entire history
 	lpf	= log -p --follow							# ...id + <filename>, show renamings of file as well
+	l	= log --graph --abbrev=7 --decorate=short --pretty=medium --stat	# show log with added/droped files
 	ll	= log --graph --abbrev=7 --decorate=short --pretty=medium
-	lll	= log --graph --abbrev=7 --decorate=short --pretty=medium --stat	# show log with added/droped files
+	lll	= log --graph --abbrev=7 --decorate=short --oneline --all
 
 #  check current state locally
 	st	= status -u								# show tracked and untracked as well
@@ -110,9 +110,13 @@
 #	=	revert & reset		=
 #	=================================
 	rv	= revert			# <HEAD> undo all commited stages to the point of <HEAD>
-	rs	= reset --			# ...<filename> take a single added file off the index again
+	rs	= reset 			# ... -- <filename> take a single added file off the index again, eg. grs HEAD^ -- <file.txt>
 	rsh	= reset --hard			# <HEAD> undos all changes in working copy, cannot be reverted
 	rss	= reset --soft			# <HEAD> moves HEAD pointer only to <HEAD>
+	cou	= checkout --			# ...<filename> undo unstaged changes in working tree
+		# http://stackoverflow.com/a/15404733/3569509
+#	=	# git checkout -- <path> doesn't do a hard reset: it replaces the working tree contents with the staged contents.
+#	=	# git checkout HEAD -- <path> does a hard reset for a path, replacing both the index and the working tree with the version from the HEAD commit.
 
 #	=================================
 #	=	name stuff properly	=
@@ -169,7 +173,7 @@
 #	=	stashes & branches	=
 #	=================================
 
-#  stashes
+#  = stashes
 	sh	= stash				# tempsave stuff without branching or committing
 	shl	= stash list			# see the list of available stashes
 	shp	= stash pop			# re-apply the stashed changes and delete the stash from the list of stashes
@@ -188,7 +192,6 @@
 ##  checkout branches
 	co	= checkout			# ...<branch name> checkout branch
 	cob	= checkout -b			# ...<branch name> create + checkout branch
-	cou	= checkout --			# ...<filename> undo unstaged changes in working tree
 
 ##  show branches
 	sb	= show-branch --color=always -a --more=10		# all full

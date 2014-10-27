@@ -65,13 +65,12 @@ silent qmark i http://www.instapaper.com/u
 silent qmark j http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
 silent qmark k http://www.kicker.de/news/fussball/fussballstartseite.html
 silent qmark l https://lsf.uni-due.de/lsf
-silent qmark m https://de.finance.yahoo.com/gainers?e=gdaxi
-silent qmark M http://www.finanzen.net/index/DAX/Topflop
+silent qmark m http://moodle.uni-due.de
+silent qmark M http://moodle2.uni-due.de
 silent qmark n http://www.netflix.com
 silent qmark p https://www.planspiel-boerse.de/ssk-duesseldorf/0/index.htm
 silent qmark r http://www.refworks.com
 silent qmark R http://www.reddit.com
-silent qmark M http://mixi.jp/home.pl
 silent qmark s https://soundcloud.com/stream
 silent qmark S http://overthewire.org/wargames/bandit/bandit0.html
 silent qmark t http://twitter.com/home/
@@ -128,48 +127,30 @@ EOM
 " Keybindings                                        {{{1
 " Tabs                                               {{{2
 " groups                                             {{{3
-inoremap <leader>tg <Esc>:tabgroups<Space>
-cnoremap <leader>tg :tabgroups<Space>
 noremap <leader>tg :tabgroups<Space>
 
 " pull                                               {{{3
-inoremap <leader>tp <esc>:tabgroups pull<space>
-cnoremap <leader>tp :tabgroups pull<space>
 noremap <leader>tp :tabgroups pull<space>
 
 " push                                               {{{3
-inoremap <leader>tpp <esc>:tabgroups push<space>
-cnoremap <leader>tpp :tabgroups push<space>
 noremap <leader>tpp :tabgroups push<space>
 
 " add                                                {{{3
-inoremap <leader>ta <esc>:tabgroups add<space>
-cnoremap <leader>ta :tabgroups add<space>
 noremap <leader>ta :tabgroups add<space>
 
 " switch                                             {{{3
-inoremap <leader>ts <esc>:tabgroups switch<space>
-cnoremap <leader>ts :tabgroups switch<space>
 noremap <leader>ts :tabgroups switch<space>
 
 " list                                               {{{3
-inoremap <leader>tl <esc>:tabgroups list<cr>
-cnoremap <leader>tl :tabgroups list<cr>
 noremap <leader>tl :tabgroups list<cr>
 
 " remove                                             {{{3
-inoremap <leader>tr <esc>:tabgroups remove<cr>
-cnoremap <leader>tr :tabgroups remove<cr>
 noremap <leader>tr :tabgroups remove<cr>
 
 " tabonly                                            {{{3
-inoremap <leader>to <esc>:tabonly<cr><cr>
-cnoremap <leader>to :tabonly<cr><cr>
 noremap <leader>to :tabonly<cr><cr>
 
 " apptab                                             {{{3
-inoremap <leader>at <esc>:set invapptab<cr>
-cnoremap <leader>at :set invapptab<cr>
 noremap <leader>at :set invapptab<cr>
 
 " tabmove                                            {{{3
@@ -262,7 +243,6 @@ cnoremap <C-l> <Esc><C-l>
 command! -description="Toggles the navigation bar" nb set gui=invnavigation
 nnoremap <leader>n :nb<CR>
 vnoremap <leader>n <ESC>:nb<CR>
-inoremap <localleader>n <ESC>nb<CR>
 
 " javascript to hide statusbar                       {{{3
 " http://superuser.com/questions/704015/hide-status-line-bottom-bar-in-vimperator
