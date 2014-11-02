@@ -676,6 +676,8 @@ inoremap <silent><localleader>b# <ESC>:s/-/#/g3<CR>
 
 " mnemonic: [s]pace to [s]emicolon
 nmap <leader>ss :exe "s/\[^,\]\\zs\\s/\\; /g \| nohls"<cr>
+nmap <leader>sS :exe "%s/\\s*\;\\s*/\\;/g \| nohls"<cr>
+
 
 " change word under curser                                                     {{{3
 

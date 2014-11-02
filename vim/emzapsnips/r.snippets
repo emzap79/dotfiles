@@ -101,7 +101,7 @@ write.$1`!p snip.rv = complete(t[1], FILE_TYPES)`(${2:${VISUAL}},file="${3:filen
 		fileEncoding='utf-8', eol="\n", na="NA"})
 endsnippet
 
-snippet read "Read from file" b
+snippet read "Read from file"
 read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}",
 		header=${3:TRUE or FALSE}, skip=${4:number of lines to skip before reading data},
 		sep='${5:field seperator}', dec='${6:decimal seperator}',
@@ -109,42 +109,6 @@ read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}",
 		stringsAsFactors=${8:TRUE or FALSE}, fill=${9:TRUE or FALSE},
 		blank.lines.skip=${10:TRUE or FALSE},
 		${11:na.strings=c(${12:NA,"NA"," NA ","#N/A N/A"})})
-endsnippet
-
-snippet rheader "Include Packages" b
-# vim:fdm=marker:isk-=(,.,_
-
-#######################################################################
-#                         Configuration                               #
-#######################################################################
-library("MASS")
-library("chron")
-library("pastecs")
-library("lubridate")
-library("psych")    # describe()
-library("ggplot2")
-library("stargazer")
-library("rgl")
-library("igraph")
-library("Rook")
-library("Rfacebook")
-library("plot3D")
-
-# Financial Tools
-library(latticeExtra)
-library(reshape2)
-suppressPackageStartupMessages(
-  library(googleVis)
-)
-library(quantmod)
-library(PerformanceAnalytics)
-library(xtsExtra)
-library(devtools)
-library(TTR)
-library(FinancialInstrument)
-
-# set workingdir
-swd$1
 endsnippet
 
 snippet grep "grepsearch for string" b
@@ -209,6 +173,10 @@ endsnippet
 
 snippet pth "Print current path" i
 ${1:`!p snip.rv = os.getcwd()`}
+endsnippet
+
+snippet src "Source file" b
+source("${1:`!p snip.rv = os.getcwd()`}")
 endsnippet
 
 snippet swd "Set workingdir" b

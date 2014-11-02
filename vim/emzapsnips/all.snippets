@@ -109,11 +109,13 @@ snippet #vim "Vim Options" b
 endsnippet
 
 snippet header
-" File: ${1:`!v expand('%:t')`}
-" Author: ${2:`!v g:snips_author`}
-" ${3:URL: ${4${VISUAL}}}
-" Description: ${5}
-${6:" Last Modified: `!v strftime("%B %d, %Y")`}
+" vim: ${1:fdm=marker}
+"
+" File: ${2:`!v expand('%:t')`}
+" Author: ${3:`!v g:snips_author`}
+" ${4:URL: ${5:${VISUAL}}}
+" Description: ${6}
+${7:" Last Modified: `!v strftime("%B %d, %Y")`}
 
 $0
 endsnippet

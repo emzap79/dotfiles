@@ -4,6 +4,8 @@
 # following aliases, do: unbind -a < expr >
 
 # export aliases="~/.bash/aliases"
+# "~/.bashrc"
+
 export chall=reformat_surnames
 
 # basic aliases                                                                # {{{1
@@ -134,6 +136,7 @@ alias mkdir='mkdir -p'
 alias mkmailb='mkdir -p $HOME/tmp/mails/{cur,new,tmp}'
 alias mkcd=fun_mkcd     # mkdir -p $1 && cd $1
 alias mkcp=fun_mkcp
+alias mkmv=fun_mkmv
 alias mkdt=fun_mkdt
 
 # history                                                                      # {{{2
@@ -860,6 +863,17 @@ fun_mkcp(){
     # now copy all arguments but pathname (last arg) to new created dir
     # http://stackoverflow.com/questions/1215538/bash-extract-parameters-before-last-parameter-in#comment8487178_1215592
     cp -rv "${@:1:$(($#-1))}" "${!#}"
+}
+
+
+# mkmv - create dir and insert copied files                                    # {{{4
+
+fun_mkmv(){
+    # start with creating new directory
+    mkdir -p "${!#}"
+    # now copy all arguments but pathname (last arg) to new created dir
+    # http://stackoverflow.com/questions/1215538/bash-extract-parameters-before-last-parameter-in#comment8487178_1215592
+    mv -v "${@:1:$(($#-1))}" "${!#}"
 }
 
 

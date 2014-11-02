@@ -15,8 +15,8 @@
 "cmapc
 "imapc
 
-" List of directories searched for runtime files: colors/ macros/ plugin/
-set runtimepath=~/.vimperator
+" runtimepath: list of directories searched for runtime files: colors/ macros/ plugin/
+set rtp="/home/zapata/.vimperator"
 let mapleader = ","
 
 " Display                                            {{{1
@@ -41,7 +41,8 @@ set smartcase
 set tabnumbers
 set titlestring="Mozilla Firefox"
 set toolbars=noaddons,nobookmarks,nomenu,nonavigation,tabs
-set urlseparator=;
+set loadplugins
+set urlseparator=";;"
 set verbose=1
 set visualbell
 
@@ -120,6 +121,7 @@ bmark('Yahoo! Search'          , 'http://search.yahoo.com/search;_ylt=?p=%s'    
 bmark('Yahoo! Finance'         , 'http://finance.yahoo.com/q?s=%s'                                                                               , 'yf');
 bmark('Youtube'                , 'http://www.youtube.com/results?search_query=%s'                                                                , 'yt');
 bmark('wikibooks DE'           , 'http://de.wikibooks.org/w/index.php?search=%s&title=Spezial:Suche&go=Seite'                                    , 'wb');
+bmark('wikibooks EN'           , 'http://en.wikibooks.org/w/index.php?search=%s&title=Special:Search&go=Go'                                    , 'wbe');
 bmark('wikipedia DE'           , 'http://de.wikipedia.org/w/index.php?title=Spezial:Suche&profile=default&search=%s&fulltext=Search'             , 'w');
 bmark('wikipedia EN'           , 'http://en.wikipedia.org/w/index.php?title=Special:Search&profile=default&search=%s&fulltext=Search'            , 'we');
 EOM
