@@ -305,7 +305,7 @@ set fo+=tocqrnl
 
 " recognizes numbered lists
 " http://stackoverflow.com/a/22703433/3569509
-let &flp='^\s*\(\d\{1,2\}[\]:.)}\t ]\|[*-]\s\)\s*'
+let flp='^\s*\(\d\{1,2\}[\]:.)}\t ]\|[*-]\s\)\s*'
 
 " shortmessage                                                " {{{2
 
@@ -632,15 +632,9 @@ aug BWE
     au BufWinEnter * :15ShowMarksOnce
 aug END
 
-" Filetypedetect                                              " {{{2
-" http://www.r-bloggers.com/sweave-syntax-highlighting-in-vim/
-
-augroup filetypedetect
-au! BufRead,BufNewFile *.textmpl   setf textmpl
-augroup END
 " Filetype                                                    " {{{2
 
 aug Filetype
     " automatically remove trailing whitespaces
-    au! filetype tex,rnoweb,noweb,vim,r :%s/\s\+$//e
+    au! filetype tex,rnoweb,noweb,vim,r,markdown :%s/\s\+$//e
 aug END

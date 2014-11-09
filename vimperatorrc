@@ -63,7 +63,8 @@ silent qmark G http://gist.github.com/
 silent qmark h http://opus.bsz-bw.de/hdms/dokserver.php?la=de
 silent qmark H http://www.hotmail.com/
 silent qmark i http://www.instapaper.com/u
-silent qmark j http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
+silent qmark J http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
+silent qmark j https://www.mylittlejob.de
 silent qmark k http://www.kicker.de/news/fussball/fussballstartseite.html
 silent qmark l https://lsf.uni-due.de/lsf
 silent qmark m http://moodle.uni-due.de
@@ -124,6 +125,9 @@ bmark('wikibooks DE'           , 'http://de.wikibooks.org/w/index.php?search=%s&
 bmark('wikibooks EN'           , 'http://en.wikibooks.org/w/index.php?search=%s&title=Special:Search&go=Go'                                    , 'wbe');
 bmark('wikipedia DE'           , 'http://de.wikipedia.org/w/index.php?title=Spezial:Suche&profile=default&search=%s&fulltext=Search'             , 'w');
 bmark('wikipedia EN'           , 'http://en.wikipedia.org/w/index.php?title=Special:Search&profile=default&search=%s&fulltext=Search'            , 'we');
+bmark('Zalando.de'           , 'http://www.zalando.de/katalog/?q=%s'            , 'zl');
+bmark('Otto.de'           , 'https://www.otto.de/suche/hut/'            , 'otto');
+bmark('Lascana'           , 'http://www.lascana.de/string-panty-slip/panty/?searchparam=%s'            , 'las');
 EOM
 
 " Keybindings                                        {{{1

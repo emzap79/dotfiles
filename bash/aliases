@@ -79,13 +79,15 @@ alias cdgc="cd $HOME/.gitclones"
 alias cdsr="cd $HOME/.mozilla/firefox/cxt887c7.default/searchplugins"   # Mozilla Searchplugins
 
 # folders related to uni
+alias cduni="cd $UNI"
+alias cdsem="cd $UNI/$SEM"
 alias cdba="cd $UNI/$SEM/BAArbeit/main"
 alias cdbar="cd $UNI/$SEM/BAArbeit/main/sections/rcode"
 alias cdr="cd $UNI/$SEM/R"
-alias cdsem="cd $UNI/$SEM"
-alias cdws="cd $UNI/$SEM/WStat"
+alias cdim="cd $UNI/$SEM/IM"
+alias cduc1="cd $UNI/$SEM/UC1"
+alias cduc6="cd $UNI/$SEM/UC6"
 alias cdblb="cd $UNI/$SEM/Bloomberg"
-alias cdklr="cd $UNI/$SEM/KLR"
 
 # permanent folders
 alias cdatt="cd $HOME/tmp/attachments"
@@ -99,7 +101,6 @@ alias cdmnt="cd $HOME/mnt"
 alias cdpics="cd $HOME/Bilder"
 alias cdpodc="cd $HOME/Podcasts"
 alias cdtmp="cd $HOME/tmp"
-alias cduni="cd $UNI"
 alias cdxime="cd $HOME/Xime"
 alias cdb="cd $HOME/bin"
 
@@ -311,7 +312,11 @@ alias vi="vim -c 'startinsert'"
 alias vu="vim -u NONE"
 alias vs="vim -S Session.vim"
 alias vv="echo "" > /tmp/foo.bar; vim -c startinsert /tmp/foo.bar"
+
+# clean working files
 alias vcl=fun_clean
+alias cln=fun_clean
+alias swpign=fun_swap
 
 # latex                                                                        # {{{2
 
@@ -532,7 +537,6 @@ alias gc=fun_gitcommit
 alias gca=fun_gitcommitall
 alias gstats="fun_gitstats | less"
 alias ignore=fun_ignore
-alias swapignore=fun_swap
 alias gcommit=fun_gitcommit
 alias gcommitall=fun_gitcommitall
 alias gfastpush=fun_gitfastpush
@@ -710,6 +714,7 @@ fun_clean() {
     find . -name "*.sw*" | xargs -n1 -i rm -v {}
     find . -name "*~" | xargs -n1 -i rm -v {}
 }
+
 fun_swap() {
     find . -name "#*#"
     find . -name "*.sw*"

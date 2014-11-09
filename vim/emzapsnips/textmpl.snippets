@@ -133,28 +133,28 @@ snippet applicate "Application" b
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% Name & Geschlecht der Ansprechperson
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\myfirstname}{${1:Vorname des/r Ansprechpartners/in}}
-\newcommand{\myname}{${2:Nachname des/r Ansprechpartners/in}}
-\newcommand{\myref}{${3:Referenznummer der Bewerbung}}
+\newcommand{\firstname}{${1:Vorname des/r Ansprechpartners/in}}
+\newcommand{\name}{${2:Nachname des/r Ansprechpartners/in}}
+\newcommand{\refnr}{${3:Referenznummer der Bewerbung}}
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% Anschrift des Unternehmens
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\myaddr}{${4:Straße Nr.}}
-\newcommand{\mypostcode}{${5:PLZ}}
-\newcommand{\mycity}{${6:Stadt}}
-\newcommand{\mycompany}{${7:Institution oder Unternehmen}}
-\newcommand{\mycompanyshort}{${8:Akronym des Unternehmens}}
-\newcommand{\mylegalform}{${9:Rechtsform des Unternehmens (GmbH, AG etc.)}}
+\newcommand{\addr}{${4:Straße Nr.}}
+\newcommand{\postcode}{${5:PLZ}}
+\newcommand{\city}{${6:Stadt}}
+\newcommand{\company}{${7:Institution oder Unternehmen}}
+\newcommand{\companyshort}{${8:Akronym des Unternehmens}}
+\newcommand{\legalform}{${9:Rechtsform des Unternehmens (GmbH, AG etc.)}}
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% Daten für das Anschreiben
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\yoursemester}{${10:Aktuelles Hochschulsemester}}
-\newcommand{\yourposition}{${11:Bewerbung auf die Stelle als Ausgeschriebene Position}}
-\newcommand{\yoursector}{${12:Unternehmensbereich für Tätigkeit}}
-\newcommand{\yourprojects}{${13:Zur Mitarbeit ausgeschriebene Projekte}}
-\newcommand{\yourattent}{${14:Aufmerksam geworden durch ...}}
+\newcommand{\mysemester}{${10:Aktuelles Hochschulsemester}}
+\newcommand{\myjob}{${11:Praktikant/Werkstudent \ldots}}
+\newcommand{\myposition}{${12:Bewerbung auf die Stelle als Ausgeschriebene Position}}
+\newcommand{\mysector}{${13:Unternehmensbereich für Tätigkeit}}
+\newcommand{\myattent}{${14:Aufmerksam geworden durch ...}}
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% Geschlecht der Ansprechpersonn
@@ -771,9 +771,10 @@ snippet "letter newlfm" "Letter Newlfm" b
 %.%%%%%%%%%%%%
 \newcommand{\myfirstname}{Jonas}
 \newcommand{\mylastname}{Petong}
-\newcommand{\mystreet}{Lohbergstr. 6}
-\newcommand{\mypostcode}{44789}
-\newcommand{\mycity}{Bochum}
+\newcommand{\mystreet}{Dellplatz 7}
+\newcommand{\myroomnr}{306}
+\newcommand{\mypostcode}{47051}
+\newcommand{\mycity}{Duisburg}
 \newcommand{\myphone}{0176 53347208}
 \newcommand{\mymail}{jonas.petong@web.de}
 
@@ -782,9 +783,6 @@ snippet "letter newlfm" "Letter Newlfm" b
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Template found on:
 % http://texblog.org/2013/11/11/latexs-alternative-letter-class-newlfm/
-
-\begin{document}
-\begin{newlfm}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% Name & Geschlecht der Ansprechpersonn
@@ -837,7 +835,7 @@ snippet "letter newlfm" "Letter Newlfm" b
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \namefrom{\myfirstname\ \mylastname}
 \addrfrom{
-\mystreet\\%
+\mystreet\\\\%
 \mypostcode\ \mycity%
 }
 
@@ -845,8 +843,8 @@ snippet "letter newlfm" "Letter Newlfm" b
 % %% Addressat
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addrto{%
-\tofirstname\ \tolastname\\%
-\toaddr\\%
+\tofirstname\ \tolastname\\\\%
+\toaddr\\\\%
 \tocity%
 }
 
@@ -861,6 +859,9 @@ snippet "letter newlfm" "Letter Newlfm" b
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% Anrede
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{newlfm}
+
 \ifnum\yoursex=0
 \greetto{Sehr geehrter Herr \tolastname,}       %% Sehr geehrter Herr/ geehrte Frau
 \else

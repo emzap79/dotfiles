@@ -46,9 +46,14 @@ let maplocalleader=","
 " <f1>  " show current directory                                               {{{2
 
 " change local buffer to current dir
-nnoremap <f1> :cd %:p:h<cr>:echo expand('%:p')<cr>
-inoremap <f1> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
-vnoremap <f1> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
+" nnoremap <f1> :echom "s: cd to path \| c: cd to localpath \| a: show full path"<cr>
+" inoremap <f1><esc>:echom "s: cd to path \| c: cd to localpath \| a: show full path"<cr>
+" vnoremap <f1><esc>:echom "s: cd to path \| c: cd to localpath \| a: show full path"<cr>
+
+" change local buffer to current dir
+nnoremap <F1> :cd %:p:h<cr>:echo expand('%:p')<cr>
+inoremap <F1> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
+vnoremap <F1> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
 
 " change to current dir
 nnoremap <C-F1> :lcd %:p:h<cr>:echo expand('%:p')<cr>
@@ -56,13 +61,18 @@ inoremap <C-F1> <esc>:lcd %:p:h<cr>:echo expand('%:p')<cr>
 vnoremap <C-F1> <esc>:lcd %:p:h<cr>:echo expand('%:p')<cr>
 
 " show full path
-nnoremap <s-f1> :echo expand('%:p')<cr>
-inoremap <s-f1> <esc>:echo expand('%:p')<cr>
-vnoremap <s-f1> <esc>:echo expand('%:p')<cr>
+nnoremap <s-a-f1> :echo expand('%:p')<cr>
+inoremap <s-a-f1> <esc>:echo expand('%:p')<cr>
+vnoremap <s-a-f1> <esc>:echo expand('%:p')<cr>
 
 " <f2>  " save file                                                            {{{2
 
-"save file and source vimrc
+" echo options
+nnoremap <A-f2> :echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
+inoremap <a-f2><esc>:echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
+vnoremap <a-f2><esc>:echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
+
+" save file and source vimrc
 if has("gui_running")
     nnoremap <silent><f2> :exe "w \| so $MYGVIMRC \| %foldo!"<cr>
     inoremap <silent><f2> <esc>:exe "w \| so $MYGVIMRC \| %foldo!"<cr>
@@ -72,10 +82,15 @@ else
 endif
 
 "save & exit
-nnoremap <s-c-f2> :mks!<cr>:wqall!<cr>
-inoremap <s-c-f2> <esc>:mks!<cr>:wqall!<cr>
+nnoremap <c-f2> :mks!<cr>:wqall!<cr>
+inoremap <c-f2> <esc>:mks!<cr>:wqall!<cr>
 
 " <f3>  " bufferlist                                                           {{{2
+
+" echo options
+nnoremap <f3> :echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
+inoremap <f3><esc>:echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
+vnoremap <f3><esc>:echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
 
 " " select buffer
 "call fuzzyfinder
@@ -106,7 +121,22 @@ inoremap <c-f4> <esc>:FufFile<cr>
 nnoremap <f5> :FufMruFile<cr>
 inoremap <f5> <esc>:FufMruFile<cr>
 
-" <f6>  " *** no functions yet***                                              {{{2
+" <f6>  " syntax                                                               {{{2
+" func: ToggleSyntax                                                           {{{3
+
+fun! ToggleSyntax()
+    if exists("g:syntax_on")
+        syntax off
+    else
+        syntax enable
+    endif
+    if exists("g:syntax_on") | echo "syntax enabled" | else | echo "syntax disabled" | endif
+endfun
+
+" switch on syntax highlight
+nnoremap <f6> :call ToggleSyntax()<cr>
+inoremap <f6> <c-o>:call ToggleSyntax()<cr>
+
 " <f7>  " language tool                                                        {{{2
 
 "enable languagetool
@@ -151,7 +181,6 @@ inoremap <s-m-f8> <ESC>:call AutoCorrect()<CR>
 
 " <f9>  " toggle linewrapping, -numbers and foldcolumn etc.                    {{{2
 
-" toggling textwidth
 " func: toggle through textwidth                                               {{{3
 
 let b:mytextwidth=0
@@ -194,7 +223,7 @@ nnoremap <s-f9> :call ToggleWrap()<cr>
 nnoremap <s-f9> <esc>:call ToggleWrap()<cr>
 
 " toggle foldcolumn on left
-"" func: toggle foldcolumn                                                     {{{3
+" func: ToggleFoldColumn
 
 fun! ToggleFoldColumn()
     if &foldcolumn
@@ -207,10 +236,6 @@ endfun
 nnoremap <c-f9> :call ToggleFoldColumn()<cr>
 vnoremap <c-f9> <ESC>:call ToggleFoldColumn()<cr>
 inoremap <c-f9> <ESC>:call ToggleFoldColumn()<cr>
-
-" call matchadd('ColorColumn', '\%81v', 100)
-nnoremap <s-c-f9> :call TogglePaste()<cr>
-inoremap <s-c-f9> <c-o>:call TogglePaste()<cr>
 
 " <f10>  " enable plugins                                                      {{{2
 
@@ -239,6 +264,7 @@ inoremap <f10> <ESC>:call ToggleYCM()<CR>
 """""""""""""""""""""""""""""""""""""""""""
 
 " <f11> " *** no functions yet***                                              {{{2
+" <f12> " *** no functions yet***                                              {{{2
 
 " basic key remaps                                                             {{{2
 
@@ -717,7 +743,22 @@ nnoremap <silent><space>d0 :'{,'}s/^\s\+//g<CR>:nohl<CR>``
 nnoremap <silent><space>d$ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>``
 nnoremap <silent><space>da :%s/\s\s\+/ /g<CR>:nohl<CR>``
 
+" merge two blocks                                                             {{{3
+" http://stackoverflow.com/a/10760494
+" nnoremap <silent><leader>mg :'a,'sdel | let l=split(@", '\n') | 'd,'fs/$/\=remove(l,0)/<CR>
+" vnoremap <silent><leader>mg <ESC>:'a,'sdel | let l=split(@", '\n') | 'd,'fs/$/\=remove(l,0)/<CR>
+" inoremap <silent><localleader>mg <ESC>:'a,'sdel | let l=split(@", '\n') | 'd,'fs/$/\=remove(l,0)/<CR>
+
 " Edit Words & Lines                                                           {{{1
+
+" counting characters                                                          {{{2
+
+" count characters in line                                                     {{{3
+nnoremap <leader>cc xP:s/<c-r>-/&/gn<CR>
+
+"count words in latex (selection)                                              {{{3
+nnoremap <leader>cw :w !detex \| wc -w<cr>
+vnoremap <leader>cw :w !detex \| wc -w<cr>
 
 " copy text to register                                                        {{{2
 " copy current file name (relative/absolute) to system clipboard               {{{3
@@ -832,10 +873,6 @@ nnoremap <silent>gzz :normal gz$<cr>
 " create tabular from selected text                                            {{{2
 
 nnoremap <silent><leader>col :exe "'{,'}!column -t"<cr>
-
-" count character under cursor in line                                         {{{2
-
-nnoremap <leader>char xP:s/<c-r>-/&/gn<CR><esc>
 
 " paste yanked input at end of line                                            {{{2
 
