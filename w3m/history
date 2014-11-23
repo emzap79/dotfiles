@@ -1,6 +1,3 @@
-http://127.0.0.1:11607/library/quantmod/html/chartSeries.html
-http://127.0.0.1:11607/library/quantmod/html/addWPR.html
-http://127.0.0.1:11607/library/quantmod/help/addTA
 http://127.0.0.1:11607/library/quantmod/html/00Index.html
 http://127.0.0.1:11607/library/TTR/html/MovingAverages.html
 http://127.0.0.1:11607/library/quantmod/html/newTA.html
@@ -98,3 +95,6 @@ http://127.0.0.1:12147/library/base/html/grep.html
 http://127.0.0.1:22777/library/quantmod/html/chartSeries.html
 http://127.0.0.1:10992/library/TFX/html/TFX.html
 http://127.0.0.1:7965/
+http://127.0.0.1:31127/library/base/html/cbind.html
+http://127.0.0.1:31127/library/stats/html/ave.html
+http://127.0.0.1:31127/library/base/html/transform.html

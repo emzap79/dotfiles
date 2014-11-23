@@ -43,7 +43,7 @@ let maplocalleader=","
 
 " f-keys                                                                       {{{2
 
-" <f1>  " show current directory                                               {{{2
+" <f1>  " show current directory                                               {{{3
 
 " change local buffer to current dir
 " nnoremap <f1> :echom "s: cd to path \| c: cd to localpath \| a: show full path"<cr>
@@ -65,7 +65,7 @@ nnoremap <s-a-f1> :echo expand('%:p')<cr>
 inoremap <s-a-f1> <esc>:echo expand('%:p')<cr>
 vnoremap <s-a-f1> <esc>:echo expand('%:p')<cr>
 
-" <f2>  " save file                                                            {{{2
+" <f2>  " save file                                                            {{{3
 
 " echo options
 nnoremap <A-f2> :echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
@@ -85,7 +85,7 @@ endif
 nnoremap <c-f2> :mks!<cr>:wqall!<cr>
 inoremap <c-f2> <esc>:mks!<cr>:wqall!<cr>
 
-" <f3>  " bufferlist                                                           {{{2
+" <f3>  " bufferlist                                                           {{{3
 
 " echo options
 nnoremap <f3> :echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
@@ -101,7 +101,7 @@ inoremap <f3> <esc>:FufBuffer<cr>
 nnoremap <s-f3> :buffer<cr>
 inoremap <s-f3> <esc>:buffer<cr>
 
-" <f4>  " open file                                                            {{{2
+" <f4>  " open file                                                            {{{3
 
 "call fuzzyfinder for files in current buffer
 nnoremap <f4> :FufFileWithCurrentBufferDir<cr>
@@ -115,14 +115,14 @@ inoremap <s-f4> <esc>:FufFileWithFullCwd<cr>
 nnoremap <c-f4> :FufFile<cr>
 inoremap <c-f4> <esc>:FufFile<cr>
 
-" <f5>  " open mru file                                                        {{{2
+" <f5>  " open mru file                                                        {{{3
 
 "call fuzzyfinder for mru-files
 nnoremap <f5> :FufMruFile<cr>
 inoremap <f5> <esc>:FufMruFile<cr>
 
-" <f6>  " syntax                                                               {{{2
-" func: ToggleSyntax                                                           {{{3
+" <f6>  " syntax                                                               {{{3
+" func: ToggleSyntax                                                           {{{4
 
 fun! ToggleSyntax()
     if exists("g:syntax_on")
@@ -137,17 +137,17 @@ endfun
 nnoremap <f6> :call ToggleSyntax()<cr>
 inoremap <f6> <c-o>:call ToggleSyntax()<cr>
 
-" <f7>  " language tool                                                        {{{2
+" <f7>  " language tool                                                        {{{3
 
 "enable languagetool
 "for use with latex: http://tex.stackexchange.com/questions/6333/grammar-checking-tool-for-use-with-latex/6552#6552
 nnoremap  <f7>  :'{,'}LanguageToolCheck<cr>:vertical  lopen  80<CR>
 vnoremap  <f7>  :LanguageToolCheck<cr>:vertical  lopen  80<CR>
 
-" <f8>  " spellcheck                                                           {{{2
+" <f8>  " spellcheck                                                           {{{3
 
 " switch spellcheck languages
-" func: toggle languages                                                       {{{3
+" func: toggle languages                                                       {{{4
 " http://vim.wikia.com/wiki/toggle_spellcheck_with_function_keys
 
 let b:mylang=0
@@ -179,9 +179,9 @@ nnoremap <s-m-f8> :call AutoCorrect()<CR>
 vnoremap <s-m-f8> <ESC>:call AutoCorrect()<CR>
 inoremap <s-m-f8> <ESC>:call AutoCorrect()<CR>
 
-" <f9>  " toggle linewrapping, -numbers and foldcolumn etc.                    {{{2
+" <f9>  " toggle linewrapping, -numbers and foldcolumn etc.                    {{{3
 
-" func: toggle through textwidth                                               {{{3
+" func: toggle through textwidth                                               {{{4
 
 let b:mytextwidth=0
 let g:mytextwidthlist=["0","72","80","115"]
@@ -205,7 +205,7 @@ vnoremap <f9> <ESC>:call ToggleTextwidth()<CR>
 inoremap <f9> <ESC>:call ToggleTextwidth()<CR>
 
 "toggle linewrapping
-" func: ToggleWrap                                                             {{{3
+" func: ToggleWrap                                                             {{{4
 
 fun! ToggleWrap()
     if &fo =~ "t"
@@ -237,13 +237,13 @@ nnoremap <c-f9> :call ToggleFoldColumn()<cr>
 vnoremap <c-f9> <ESC>:call ToggleFoldColumn()<cr>
 inoremap <c-f9> <ESC>:call ToggleFoldColumn()<cr>
 
-" <f10>  " enable plugins                                                      {{{2
+" <f10>  " enable plugins                                                      {{{3
 
 " toggle YouCompleteMe
 nnoremap <f10> :call ToggleYCM()<CR>
 inoremap <f10> <ESC>:call ToggleYCM()<CR>
 
-" "Enable Neocomplete <Plugin>                                                 {{{3
+" "Enable Neocomplete <Plugin>                                                 {{{4
 
 " nnoremap <S-f10> :NeoCompleteToggle<cr>
 " vnoremap <S-f10> <esc>:NeoCompleteToggle<cr>
@@ -263,8 +263,9 @@ inoremap <f10> <ESC>:call ToggleYCM()<CR>
 " inoremap <s-f10> <esc>:fufmrucmd<cr>
 """""""""""""""""""""""""""""""""""""""""""
 
-" <f11> " *** no functions yet***                                              {{{2
-" <f12> " *** no functions yet***                                              {{{2
+" <f11> " *** no functions yet***                                              {{{3
+" <f12> " *** no functions yet***                                              {{{3
+
 
 " basic key remaps                                                             {{{2
 
@@ -688,8 +689,8 @@ vnoremap <leader>dg :<c-u>!ding <c-r>=GetVisualSelection()<cr><cr>
 nnoremap <leader>di :exe "!dict " . shellescape(expand("<cword>"))<cr>
 vnoremap <leader>di :<c-u>!dict <c-r>=GetVisualSelection()<cr>
 " open thesaurus
-nnoremap <leader>dt :exe "!othes " . shellescape(expand("<cword>"))<cr>
-vnoremap <leader>dt :<c-u>!othes <c-r>=GetVisualSelection()<cr>
+nnoremap <leader>dt :exe "r!othes " . shellescape(expand("<cword>"))<cr>
+vnoremap <leader>dt :<c-u>r!othes <c-r>=GetVisualSelection()<cr>
 
 " text replacement                                                             {{{2
 
