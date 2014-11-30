@@ -90,6 +90,15 @@ snippet str "Internal structure of an object" w
 str(${1:${VISUAL}})
 endsnippet
 
+snippet sink "Write output from console to file" b
+sink(file="${1:filename}",${2:
+		type = c(${3:"output", "message"}),}
+		split=${4:F},
+		append=${5:F})
+$0
+sink()
+endsnippet
+
 snippet "(\S+)\(" "Close Brace" ri
 `!p snip.rv = match.group(1) if match.group(1) is not None else ""`(${1:${VISUAL}})
 endsnippet

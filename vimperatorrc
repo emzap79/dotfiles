@@ -107,6 +107,8 @@ bmark('Google US Search'       ,'http://www.google.com/search?q=%s'             
 bmark('IMDB Search'            ,'http://www.imdb.com/find?q=%s&s=all'                                                                           ,'imdb');
 bmark('Lascana'                ,'http://www.lascana.de/string-panty-slip/panty/?searchparam=%s'                                                 ,'las');
 bmark('LibreOffice Search'     ,'https://help.libreoffice.org/index.php?search=%s&title=Special%3ASearch&go=Go'                                 ,'lo');
+bmark('Linguee'     ,'http://www.linguee.de/deutsch-englisch/search?source=auto&query=%s'                                 ,'lin');
+bmark('Lustwiese'     ,'http://www.lustwiese.com/index.php?ActionCall=WebActionArticleSearch&Params[SearchParam]=%s'                                 ,'lw');
 bmark('Otto.de'                ,'https://www.otto.de/suche/%s/'                                                                                 ,'otto');
 bmark('Primo UB'               ,'https://katalog.ub.uni-duisburg-essen.de/primo_library/libweb/action/search.do?&ct=search&fn=search&dscnt=%s'  ,'pr');
 bmark('Rseek'                  ,'http://www.rseek.org/?q=%s'                                                                                    ,'r');

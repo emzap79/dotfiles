@@ -110,6 +110,7 @@ alias cdarb="cd $DOK/Arbeitsordner"
 alias cdbank="cd $DOK/Banking"
 alias cdbew="cd $DOK/Bewerbungen"
 alias cddok="cd $DOK"
+alias cdkolp="cd $DOK/Duisburg/Kolping"
 alias cdr="cd $DOK/R"
 alias cdlatex="cd $DOK/LaTeX"
 alias cdlinux="cd $DOK/Linux"
@@ -962,7 +963,7 @@ sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac | grep -i adr
 # fun: ls - sort content by size                                               # {{{3
 
 fun_dus () {
-    du --max-depth=0 -k * | sort -n | awk '{
+    du --max-depth=0 -k * | sort -rn | awk '{
     if($1>=1024*1024) {size=$1/1024/1024; unit="G"}
     else if($1>=1024) {size=$1/1024; unit="M"}
     else {size=$1; unit="K"}; if(size<10) format="%.1f%s";
