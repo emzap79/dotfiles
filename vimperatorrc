@@ -46,7 +46,7 @@ set visualbell
 " QMarks                                             {{{1
 silent qmark a http://www.ardmediathek.de/tv
 silent qmark b https://html5reader.buch.de/library/index.html#library
-silent qmark B http://www.bloomberg.com/quote/TSLA:US
+silent qmark B http://scores.espn.go.com/nba/scoreboard
 silent qmark c https://bay01.calendar.live.com/calendar/calendar.aspx
 silent qmark C http://www.google.com/calendar/render?hl=de
 silent qmark d https://banking.ing-diba.de/webkunden/goLogin.do
@@ -80,6 +80,7 @@ silent qmark O https://www.dropbox.com/home
 silent qmark w http://www.wolframalpha.com/
 silent qmark W https://wave.google.com/wave/
 silent qmark v http://www.vimgolf.com/
+silent qmark V https://vpn.wiwinf.uni-due.de
 silent qmark x http://www.xing.com/
 silent qmark Y http://www.finanzen.net/chart-analyse/ta-chart.asp?pkNr=58046
 silent qmark z http://10.10.10.1

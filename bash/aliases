@@ -456,6 +456,11 @@ alias architecture="echo $(lsb_release -sri | tr '\n' ' ') && echo $(gnome-shell
 # miscellanious                                                                # {{{1
 
 # dictionaries                                                                 # {{{2
+# http://www.w3schools.com/tags/ref_language_codes.asp
+# tr    # turkish
+# en    # english
+# de    # german
+# es    # spanish
 
 # https://github.com/soimort/google-translate-cli
 alias trs="trs {=de}"   # google translator
@@ -527,6 +532,7 @@ alias sshkey="ssh-keygen -t rsa -C" # "your_email@example.com"
 alias gst="g st"    # originally mapped to GNU Smalltalk
 alias gcl="g cl"
 alias gaa="g aa"
+alias gig=fun_gitignore
 # alias grema="g rema"
 
 
@@ -761,6 +767,10 @@ fun_vim_passw() {
     vim -u $FILEDIR/_vimrc $FILEDIR/_config.pw
 }
 
+# create gitignore                                                               {{{3
+fun_gitignore() {
+curl -L -s https://www.gitignore.io/api/$@ ;
+}
 # extract & convert                                                            # {{{2
 
 # fun: conv images to pdf                                                      # {{{3

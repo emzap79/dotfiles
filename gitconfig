@@ -34,7 +34,7 @@
 	sl	= shortlog -nse			# summarizes git log output, each commit grouped by author and title
 	lp	= log -p --graph --decorate=short --pretty=medium --stat		# ...shows diffs for entire history
 	lpf	= log -p --follow							# ...id + <filename>, show renamings of file as well
-	l	= log --graph --abbrev=7 --decorate=short --pretty=medium --stat	# show log with added/droped files
+	l	= log --graph --abbrev=7 --decorate=short --abbrev-commit --pretty=medium --stat	# show log with added/droped files
 	ll	= log --graph --abbrev=7 --decorate=short --pretty=medium
 	lll	= log --graph --abbrev=7 --decorate=short --oneline --all
 
@@ -60,7 +60,7 @@
 #	=	# # [filename] is the filename including path
 
 # see http://stackoverflow.com/a/8547159/3569509
-	d	= diff HEAD			# (...<filename>) diff staged + unstaged against HEAD
+	d	= diff 				# (...<filename>) diff staged + unstaged against <HEAD>
 	ds	= diff --staged			# diff staged against HEAD
 	dss	= diff --staged --name-only	# show staged files (name-only)
 	dt	= difftool			# check current changes residing in origin/master (= main repository)

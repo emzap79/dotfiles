@@ -199,6 +199,7 @@ map <silent> <localleader>lt :call RAction("length")<CR>
 map <silent> <localleader>lv :call RAction("levels")<CR>
 map <silent> <localleader>nm :call RAction("names")<CR>
 map <silent> <localleader>st :call RAction("str")<CR>
+map <silent> <LocalLeader>rm :call RAction("rm")<CR>
 
 " assine value to variable ('<-')                      {{{3
 nmap <esc>- hEa<Space><-<Space>
@@ -209,7 +210,7 @@ map <silent> <localleader>ls :call g:SendCmdToR("ls()")<CR>
 map <silent> <localleader>di :call g:SendCmdToR("dir()")<CR>
 map <silent> <localleader>ma :call g:SendCmdToR("methods(as)")<CR>
 map <silent> <localleader>mi :call g:SendCmdToR("methods(is)")<CR>
-map <silent> <localleader>rm :call g:SendCmdToR("rm(list=ls())")<CR>
+map <silent> <localleader>rml :call g:SendCmdToR("rm(list=ls())")<CR>
 map <silent> <localleader>rr :call 'g:SendCmdToR("' . shellescape(expand("<cword>")) . '")'<CR>
 
 " Assign Argument Under Cursor In Next Line            {{{2

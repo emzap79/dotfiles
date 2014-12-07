@@ -1,7 +1,3 @@
-http://127.0.0.1:31863/library/quantmod/html/chartSeries.html
-http://127.0.0.1:31863/library/quantmod/help/addTA
-http://127.0.0.1:31863/library/quantmod/help/TA
-http://127.0.0.1:31863/library/ggplot2/html/aes_position.html
 http://127.0.0.1:31863/library/utils/html/data.html
 http://127.0.0.1:31863/library/base/html/cbind.html
 http://127.0.0.1:31863/library/base/help/data.frame
@@ -98,3 +94,7 @@ http://127.0.0.1:24741/library/base/html/colSums.html
 http://127.0.0.1:24741/library/base/html/sum.html
 http://127.0.0.1:24741/library/base/html/sort.html
 http://127.0.0.1:24741/library/base/html/matrix.html
+http://127.0.0.1:13137/library/utils/html/read.table.html
+http://127.0.0.1:13137/library/base/html/cbind.html
+http://127.0.0.1:13137/library/base/html/colnames.html
+http://127.0.0.1:13137/library/grDevices/html/pdf.html

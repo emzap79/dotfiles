@@ -691,6 +691,8 @@ vnoremap <leader>di :<c-u>!dict <c-r>=GetVisualSelection()<cr>
 " open thesaurus
 nnoremap <leader>dt :exe "r!othes " . shellescape(expand("<cword>"))<cr>
 vnoremap <leader>dt :<c-u>r!othes <c-r>=GetVisualSelection()<cr>
+" google translate
+" trs\ {en=@en+de}
 
 " text replacement                                                             {{{2
 
