@@ -100,11 +100,11 @@ snippet mod
 " Last Modified: `!v strftime("%B %d, %Y")`
 endsnippet
 
-snippet dts "Receive current date" b
+snippet dts "Receive current date" i
 `!v strftime("%Y-%m-%d %H:%M")`
 endsnippet
 
-snippet date "Receive current date" b
+snippet date "Receive current date" i
 `!v strftime("%Y-%m-%d %H:%M")`
 endsnippet
 
@@ -116,8 +116,8 @@ snippet header
 " vim: ${1:fdm=marker}
 "
 " File: ${2:`!v expand('%:t')`}
-" Author: ${3:`!v g:snips_author`}
-" ${4:URL: ${5:${VISUAL}}}
+" Author: ${3:`!v g:snips_author`}${4:
+" URL: ${5:${VISUAL}}}
 " Description: ${6}
 ${7:" Last Modified: `!v strftime("%B %d, %Y")`}
 

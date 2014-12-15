@@ -112,12 +112,12 @@ endsnippet
 
 snippet read "Read from file"
 read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}",
-		header=${3:TRUE or FALSE}, skip=${4:number of lines to skip before reading data},
+		header=${3:TRUE or FALSE},
+		skip=${4:number of lines to skip before reading data},
 		sep='${5:field seperator}', dec='${6:decimal seperator}',
 		encoding='${7:utf-8|latin1|bytes|unknown}',
-		stringsAsFactors=${8:TRUE or FALSE}, fill=${9:TRUE or FALSE},
-		blank.lines.skip=${10:TRUE or FALSE},
-		${11:na.strings=c(${12:NA,"NA",NaN,"NaN"," NA ","#N/A N/A"})})
+		blank.lines.skip=TRUE, fill=TRUE, stringsAsFactors=FALSE,
+		${8:na.strings=c(NA,"NA",NaN,"NaN"," NA ","#N/A N/A")})
 endsnippet
 
 snippet grep "grepsearch for string" b

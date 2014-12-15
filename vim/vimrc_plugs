@@ -42,6 +42,8 @@ Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'vim-scripts/LanguageTool'
 Bundle 'wellle/targets.vim'
 Bundle 'tommcdo/vim-exchange'
+Bundle 'haya14busa/vim-asterisk'
+
 
 " No more used repos
 " Bundle 'mattn/flappyvird-vim'
