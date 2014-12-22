@@ -196,6 +196,8 @@ map <silent> <localleader>at :call RAction("attributes")<CR>
 map <silent> <localleader>dm :call RAction("dim")<CR>
 map <silent> <localleader>dn :call RAction("dimnames")<CR>
 map <silent> <localleader>lt :call RAction("length")<CR>
+map <silent> <localleader>nc :call RAction("ncol")<CR>
+map <silent> <localleader>nr :call RAction("nrow")<CR>
 map <silent> <localleader>lv :call RAction("levels")<CR>
 map <silent> <localleader>nm :call RAction("names")<CR>
 map <silent> <localleader>st :call RAction("str")<CR>
@@ -205,7 +207,7 @@ map <silent> <LocalLeader>rm :call RAction("rm")<CR>
 nmap <esc>- hEa<Space><-<Space>
 
 " SendCmdToR                                           {{{2
-map <silent> <localleader>ss :call g:SendCmdToR("search()")<CR>
+map <silent> <localleader>sr :call g:SendCmdToR("search()")<CR>
 map <silent> <localleader>ls :call g:SendCmdToR("ls()")<CR>
 map <silent> <localleader>di :call g:SendCmdToR("dir()")<CR>
 map <silent> <localleader>ma :call g:SendCmdToR("methods(as)")<CR>

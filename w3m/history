@@ -1,6 +1,3 @@
-http://127.0.0.1:31863/library/utils/html/data.html
-http://127.0.0.1:31863/library/base/html/cbind.html
-http://127.0.0.1:31863/library/base/help/data.frame
 http://127.0.0.1:31863/library/quantmod/html/newTA.html
 http://127.0.0.1:31863/library/stats/html/lag.html
 http://127.0.0.1:31863/library/base/html/function.html
@@ -98,3 +95,6 @@ http://127.0.0.1:13137/library/utils/html/read.table.html
 http://127.0.0.1:13137/library/base/html/cbind.html
 http://127.0.0.1:13137/library/base/html/colnames.html
 http://127.0.0.1:13137/library/grDevices/html/pdf.html
+http://127.0.0.1:11081/library/base/html/numeric.html
+http://127.0.0.1:11081/library/base/html/length.html
+http://127.0.0.1:11081/library/base/html/dim.html

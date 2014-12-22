@@ -26,13 +26,15 @@
 "query:News: tags =~ \"999. News\" and tags =~ \"nachrichten\""                         "04.1 News :: Politik"
 "query:News: tags =~ \"999. Ecuador\" and tags =~ \"ecuador\" and link !~ \"deporte\""  "04.2 News :: Ecuador"
 "query:News: tags =~ \"999. News\" and tags =~ \"internet\""                            "04.3 News :: Internet"
-# finance             {{{2
-"query:News: tags =~ \"998. News\" and tags =~ \"finance\""                             "04.3 News :: Stocks"
+"query:News: tags =~ \"998. News\" and tags =~ \"finance\""                             "04.4 News :: Stocks"
+
+# style               {{{2
+"query:News: tags =~ \"999. Style\" and tags =~ \"drawing\""                         "05.1 Style :: Drawing"
 
 # programming         {{{2
-"query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"Bash\""                    "05.2 StackExch :: Bash"
-"query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"VIM\""                     "05.1 StackExch :: VIM"
-"query:StackExch: tags =~ \"999. StackExch\" and (tags =~ \"SED\" or tags =~ \"R\")"  "05.2 StackExch :: SED"
+"query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"Bash\""                    "06.2 StackExch :: Bash"
+"query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"VIM\""                     "06.1 StackExch :: VIM"
+"query:StackExch: tags =~ \"999. StackExch\" and (tags =~ \"SED\" or tags =~ \"R\")"  "06.2 StackExch :: SED"
 # angebote            {{{2
 "query:Angebote: tags =~ \"998. Angebote\" and tags =~ \"Technik\""     "09. Angebote :: Technik"
 # "999. Single Tags"
@@ -226,6 +228,10 @@ http://www.dallasbasketball.com/rss/MainRss.xml                         "999. Sp
 http://www.nba.com/mavericks/rss.xml                                    "999. Sport - Basketball"
 # Other               {{{2
 http://feeds.gawker.com/lifehacker/full                            "999. Other - Lifehacker"
+
+# Style               {{{2
+http://feeds.feedburner.com/likesketch?format=xml                  "999. Style - Drawing"
+http://feeds.feedburner.com/artlessononline?format=xml                  "999. Style - Drawing"
 
 # Angebote            {{{2
 # 999

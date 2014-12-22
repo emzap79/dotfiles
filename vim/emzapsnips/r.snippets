@@ -121,7 +121,7 @@ read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}",
 endsnippet
 
 snippet grep "grepsearch for string" b
-grep("${1:pattern}", ${2:matrix}, ignore.case=${3:TRUE}, value=${4:TRUE}, fixed=${5:TRUE})
+grep(${1:"${2:pattern}"}, ${3:matrix}, ignore.case=${4:TRUE}, value=${5:TRUE}, fixed=${6:FALSE})
 endsnippet
 
 snippet req "Require a file"
@@ -422,6 +422,16 @@ endsnippet
 
 snippet mc "mc" w
 mc(${1:${VISUAL}})
+endsnippet
+
+snippet strip "convert german numbers to floats" b
+# http://stackoverflow.com/a/13344095
+strip <- function(x){
+	z <- gsub("[^0-9,.-]", "", x)
+		z <- gsub("\\.", "", z)
+		gsub(",", ".", z)
+}
+$1 <- strip(${1:dataset})
 endsnippet
 
 #############

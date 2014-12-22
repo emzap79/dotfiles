@@ -50,7 +50,7 @@ silent qmark B http://scores.espn.go.com/nba/scoreboard
 silent qmark c https://bay01.calendar.live.com/calendar/calendar.aspx
 silent qmark C http://www.google.com/calendar/render?hl=de
 silent qmark d https://banking.ing-diba.de/webkunden/goLogin.do
-silent qmark D http://detexify.kirelabs.org/classify.html
+silent qmark D https://www.dropbox.com/home
 silent qmark e http://ebay.de
 silent qmark E http://kleinanzeigen.ebay.de
 silent qmark f http://facebook.com
@@ -64,6 +64,7 @@ silent qmark J http://schoolofcode.me/course/computer-science-for-everyone-with-
 silent qmark j https://www.mylittlejob.de
 silent qmark k http://www.kicker.de/news/fussball/fussballstartseite.html
 silent qmark l https://lsf.uni-due.de/lsf
+silent qmark L http://detexify.kirelabs.org/classify.html
 silent qmark m http://moodle.uni-due.de
 silent qmark M http://moodle2.uni-due.de
 silent qmark n http://www.netflix.com
@@ -76,7 +77,7 @@ silent qmark t http://twitter.com/home/
 silent qmark T http://www.tumblr.com/dashboard/
 silent qmark u http://speedtest-1.unitymedia.de/
 silent qmark o http://www1.onleihe.de/duisburg
-silent qmark O https://www.dropbox.com/home
+silent qmark O https://onedrive.live.com/
 silent qmark w http://www.wolframalpha.com/
 silent qmark W https://wave.google.com/wave/
 silent qmark v http://www.vimgolf.com/
@@ -96,6 +97,7 @@ function bmark(title, url, keyword) {
 bmark('Bing US Search'         ,'http://www.bing.com/search?q=%s'                                                                               ,'b');
 bmark('Chefkoch'               ,'http://www.chefkoch.de/rs/s0/%s/Rezepte.html'                                                                  ,'ck');
 bmark('Ctan'                   ,'http://www.ctan.org/search'                                                                                    ,'ct');
+bmark('Cran'                   ,'http://crantastic.org/search?q=%s'                                                                             ,'cr');
 bmark('Dict'                   ,'http://www.dict.cc/?s=%s'                                                                                      ,'dict');
 bmark('Urban Dictionary'       ,'http://de.urbandictionary.com/define.php?term=%s'                                                              ,'durb');
 bmark('DuckDuckGo'             ,'https://duckduckgo.com/?q=%s'                                                                                  ,'dd');
