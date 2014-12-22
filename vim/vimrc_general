@@ -169,7 +169,7 @@ set fml=2         " foldminlines: minimum number of screen lines for a fold to
 " foldtext: a string option that specifies an expression. This
 " expression is evaluated to obtain the text displayed for a closed fold.
 set fdt=MyFoldText()
-" func: myfoldtext                                             " {{{3
+" func: myfoldtext                                            " {{{3
 
 fun! MyFoldText()
 let line = getline(v:foldstart)
@@ -382,9 +382,9 @@ set wig+=.svn
 " viminfo                                                     " {{{2
 
 " Tell vim to remember certain things when we exit
-set vi='10          " marks will be remembered for up to 10 previously edited files
-set vi+=\"500       " will save up to 500 lines for each register
-set vi+=:20         " up to 20 lines of command-line history will be remembered
+set vi='10          " marks will be remembered for up to 'n' previously edited files
+set vi+=\"500       " will save up to 'n' lines for each register
+set vi+=:1000       " up to 'n' of command-line history will be remembered
 set vi+=%           " saves and restores the buffer list
 set vi+=n~/.viminfo " n... : where to save the viminfo files
 
@@ -425,8 +425,10 @@ set com+=ex:*/
 " set com+=:\\item
 " set com+=:#
 
-set cms+=#\ %s           " commentstring: The "%s" in the value is replaced with the comment text.
-set cms+=%\ %s
+" commentstring: The "%s" in the value is replaced with the comment text
+" (default: "/*%s*/")
+" set cms="/*%s*/"
+" set cms+=#\ %s
 
 " iskeyword/-fname/-print                                     " {{{2
 

@@ -7,6 +7,16 @@
 " Description: vim mapping configuration
 " Last Modified: September 19, 2014
 
+" Conflicting Mappings                                                         {{{1
+" Https://Www.Reddit.Com/R/Vim/Comments/2o53tb/Issues_with_key_mappings_and_various_plugins/Cmjsiwj
+"
+" In Some Cases, Som Keymappings Will Conflict With Some Plugins So That
+" They'Re Not Executable At All. In Such Occasions It'S Regardable To Look Out
+" For The Conflicting Mapping By Executing:
+"
+" :Verb Map <Mapping>, Where " <Mapping> Has To Get Replaced By The Regarding
+" Keymap, Eg. Gf
+
 " Basic Mappings                                                               {{{1
 
 " config                                                                       {{{2

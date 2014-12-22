@@ -1,6 +1,6 @@
 " count spaces as seen at :h map-operator
-nmap <silent> gc :set opfunc=CountSpaces<CR>g@
-vmap <silent> gc :<C-U>call CountSpaces(visualmode(), 1)<CR>
+nmap <silent> gcs :set opfunc=CountSpaces<CR>g@
+vmap <silent> gcs :<C-U>call CountSpaces(visualmode(), 1)<CR>
 
 function! CountSpaces(type, ...)
     let sel_save = &selection
