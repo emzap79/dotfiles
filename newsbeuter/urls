@@ -29,7 +29,7 @@
 "query:News: tags =~ \"998. News\" and tags =~ \"finance\""                             "04.4 News :: Stocks"
 
 # style               {{{2
-"query:News: tags =~ \"999. Style\" and tags =~ \"drawing\""                         "05.1 Style :: Drawing"
+"query:Style: tags =~ \"999. Style\" and tags =~ \"drawing\""                         "05.1 Style :: Drawing"
 
 # programming         {{{2
 "query:StackExch: tags =~ \"999. StackExch\" and tags =~ \"Bash\""                    "06.2 StackExch :: Bash"

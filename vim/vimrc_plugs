@@ -30,6 +30,7 @@ Bundle 'panozzaj/vim-autocorrect'
 Bundle 'scrooloose/syntastic'
 Bundle 'tommcdo/vim-exchange'
 Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-dispatch.git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
@@ -240,6 +241,7 @@ sunmap e
 autocmd! FileType latex,tex let b:commentary_format="% %s"
 autocmd! FileType bash,sh let b:commentary_format="# %s"
 autocmd! FileType R,r let b:commentary_format="# %s"
+autocmd! FileType crontab let b:commentary_format="# %s"
 
 " ShowMarks                                            {{{2
 let g:showmarks_marks = "abcdefghijklmnopqrstuvwxyz"

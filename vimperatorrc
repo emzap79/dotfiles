@@ -116,8 +116,9 @@ bmark('Otto.de'                ,'https://www.otto.de/suche/%s/'                 
 bmark('Primo UB'               ,'https://katalog.ub.uni-duisburg-essen.de/primo_library/libweb/action/search.do?&ct=search&fn=search&dscnt=%s'  ,'pr');
 bmark('Rseek'                  ,'http://www.rseek.org/?q=%s'                                                                                    ,'r');
 bmark('Soundcloud'             ,'https://soundcloud.com/search?q=%s'                                                                            ,'sc');
-bmark('Stackoverflow R'        ,'http://stackoverflow.com/search?q=[bash] %s'                                                                   ,'sob');
+bmark('Stackoverflow Bash'        ,'http://stackoverflow.com/search?q=[bash] %s'                                                                   ,'sob');
 bmark('Stackoverflow R'        ,'http://stackoverflow.com/search?q=[r] %s'                                                                      ,'sor');
+bmark('Stackoverflow Vim'        ,'http://stackoverflow.com/search?q=[vim] %s'                                                                      ,'sov');
 bmark('Stackoverflow'          ,'http://stackoverflow.com/search?q=%s'                                                                          ,'so');
 bmark('Stylight.de'            ,'http://www.stylight.de/Mode/?searchstring=%s'                                                                  ,'st');
 bmark('Superuser'              ,'http://superuser.com/search?q=%s'                                                                              ,'su');

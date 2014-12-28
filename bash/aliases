@@ -392,7 +392,7 @@ alias yt-mps="mpsyt"
 alias yt-vlc-ascii="vlc -V aa "
 alias yt-vlc-novideo="cvlc -V novideo "
 alias yt-mplayer=fun_youtbmp
-alias yt="mpsyt"
+alias yt="mpsyt /"
 
 # mplayer                                                                      # {{{2
 

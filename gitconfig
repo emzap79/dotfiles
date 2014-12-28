@@ -27,6 +27,15 @@
 [alias]
 
 #	=================================
+#	=	 getting started	=
+#	=================================
+#  create github repo, eg. <dotfiles>. Then follow subsecutive steps
+#	=	step 1	= git init .
+#	=	step 2	= git add -A . && git commit -m "first commit"
+#	=	step 3	= git remote add origin https://github.com/emzap79/<repository>.git
+#	=	step 4	= git push -f --set-upstream origin master
+#
+#	=================================
 #	=	 show history		=
 #	=================================
 #  dig in history what went wrong
@@ -35,7 +44,7 @@
 	lp	= log -p --graph --decorate=short --pretty=medium --stat		# ...shows diffs for entire history
 	lpf	= log -p --follow							# ...id + <filename>, show renamings of file as well
 	l	= log --graph --abbrev=7 --decorate=short --abbrev-commit --pretty=medium --stat	# show log with added/droped files
-	ll	= log --graph --abbrev=7 --decorate=short --pretty=medium
+	ll	= log --graph --abbrev=7 --decorate=short --abbrev-commit --pretty=medium
 	lll	= log --graph --abbrev=7 --decorate=short --oneline --all
 
 #  check current state locally
@@ -87,7 +96,7 @@
 #	=================================
 	cf	= clean -f			# clean working dir
 	cfd	= clean -fdx			# id., <-d> flag to delete new directories, <-x> hidden files
-	rm	= rm -rf			# ...<filename> unversion and delete
+	rmf	= rm -rf			# ...<filename> unversion and delete
 	rms	= rm -r --cached		# ...<filename> unversion, but leave in working copy
 	rmc	= rm -r --cached .metadata	# remove and apply .gitignore (grmc && grms <filename>)
 
@@ -104,6 +113,7 @@
 	cm	= commit -am			# ...commit modified and deleted files only + message
 	ca	= "!git add -A . && git commit -m" # ...commit modified, deleted and new files
 	cam	= commit --amend -c HEAD	# update last commit
+	camf	= commit --amend -C HEAD	# update last commit, and use same commit message
 	fcam	= commit --amend -C HEAD	# update last commit, and use same commit message
 
 #	=================================
