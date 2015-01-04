@@ -6,7 +6,7 @@
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
-" Bundles                                              {{{1
+" Bundles                                                 {{{1
 
 " active bundles
 
@@ -83,9 +83,9 @@ Bundle 'wellle/targets.vim'
 " "No more used repos
 
 
-" Script-Language                                      {{{1
+" Script-Language                                         {{{1
 
-" Latex Box Plugin                                     {{{2
+" Latex Box Plugin                                        {{{2
 
 autocmd FileType tex so ~/.vim/bundle/LaTeX-Box/ftplugin/tex_LatexBox.vim
 
@@ -94,11 +94,11 @@ autocmd FileType tex so ~/.vim/bundle/LaTeX-Box/ftplugin/tex_LatexBox.vim
 " let g:LatexBox_latexmk_options = "-pvc -pdfps"
 " let g:LatexBox_output_type="pdf"
 
-" Vim-R-Plugin: needs to have VimCom installed!        {{{2
+" Vim-R-Plugin: needs to have VimCom installed!           {{{2
 
 Bundle 'jalvesaq/VimCom'
 
-" At startup                                           {{{3
+" At startup                                              {{{3
 
 " let vimrplugin_source = "$HOME/R,/usr/lib/R/site-library/,/usr/lib/R/library/"
 let vimrplugin_r_args = "--no-save --quiet"  " arguments at R startup
@@ -114,7 +114,7 @@ let vimrplugin_maxdeparse = 300
        let vimrplugin_openpdf = 1
    endif
 
-" Comments + Folding                                   {{{3
+" Comments + Folding                                      {{{3
 
 let vimrplugin_rcomment_string = "# "
 let r_indent_comment_column = 20
@@ -122,7 +122,7 @@ let r_syntax_folding = 1                                    " Allow for syntax-f
 let vimrplugin_indent_commented = 1                         " Autoindent commented lines
 let r_indent_ess_comments = 0                               " 0:add single '#', 1:add double '#'
 
-" Command line output                                  {{{3
+" Command line output                                     {{{3
 
 let vimrplugin_map_r = 1           " map the letter 'r' to send lines to R when
                                    " there are visually selected lines
@@ -130,14 +130,14 @@ let vimrplugin_term = "xterm"      " Define which terminal emulator to start
 let vimrplugin_routmorecolors = 1  " R commands in the R output are highlighted
 let vimrplugin_rconsole_width = 50 " The number of columns of R Console (Tmux split)
 
-" Inside Insertmode                                    {{{3
+" Inside Insertmode                                       {{{3
 
 " set <M-->=^[-
 let vimrplugin_assign = 1                    " Enable mapping for 'assign'
 let vimrplugin_assign_map = "_"              " Map (' <- ') to custom key in insert mode
 let g:vimrplugin_insert_mode_cmds = 1        " 0 to make commands work in insert mode
 
-" Object Browser                                       {{{3
+" Object Browser                                          {{{3
 
 let vimrplugin_vimpager = "no"                 " If set vim, enable html support in .Rconfig (see documentation)
 let vimrplugin_help_w = 30
@@ -147,15 +147,15 @@ let vimrplugin_objbr_place = "console,left"    " Valid values for the Object Bro
 let vimrplugin_openpdf = 1
 let vimrplugin_openhtml = 1
 
-" Sweave & KnitR                                       {{{3
+" Sweave & KnitR                                          {{{3
 
 " In Rnoweb files, a '<' is replaced with '<<>>=\n@'. Set to 0 to disable this feature.
 let vimrplugin_rnowebchunk = 1
 
 
-" Markdown                                             {{{3
+" Markdown                                                {{{3
 
-" Vim-Markdown                                         {{{3
+" Vim-Markdown                                            {{{3
 
 " Bundle 'plasticboy/vim-markdown'
 
@@ -176,7 +176,7 @@ let g:vim_markdown_no_default_key_mappings=0
 " ]c: go to Current header. <Plug>(Markdown_MoveToCurHeader)
 " ]u: go to parent header (Up). <Plug>(Markdown_MoveToParentHeader)
 
-" Vim-Markdown-Folding                                 {{{2
+" Vim-Markdown-Folding                                    {{{2
 
 " If set to 0, the fold text will not be overriden:>
 let g:markdown_fold_override_foldtext = 0
@@ -184,13 +184,13 @@ let g:markdown_fold_override_foldtext = 0
 " Available options are stacked/nested
 let g:markdown_fold_style = 'nested'
 
-" Vim-Instant-Markdown                                 {{{2
+" Vim-Instant-Markdown                                    {{{2
 
 " let g:instant_markdown_slow = 1
 " let g:instant_markdown_autostart = 0
 
 
-" TeX-Folding                                          {{{2
+" TeX-Folding                                             {{{2
 
 " Use these options to customize tex-fold:
 
@@ -208,9 +208,9 @@ let g:tex_fold_env_char = 'E'
 let g:tex_fold_allow_marker = 1
 
 
-" On Text Operators                                    {{{1
+" On Text Operators                                       {{{1
 
-" CamelCase Motions                                    {{{2
+" CamelCase Motions                                       {{{2
 
 " Example: Replace the default 'w', 'b' and 'e' mappings instead of defining
 " additional mappings ',w', ',b' and ',e':
@@ -230,10 +230,10 @@ sunmap e
 " omap <silent> ie <Plug>CamelCaseMotion_ie
 " xmap <silent> ie <Plug>CamelCaseMotion_ie
 
-" Align                                                {{{2
+" Align                                                   {{{2
 " let alignctrl= Align#AlignCtrl()
 
-" VIS                                                  {{{2
+" VIS                                                     {{{2
 " " apply commmand only to Visual Block ":'<,'>B <command>"
 
 " Vim-Commentary
@@ -243,10 +243,10 @@ autocmd! FileType bash,sh let b:commentary_format="# %s"
 autocmd! FileType R,r let b:commentary_format="# %s"
 autocmd! FileType crontab let b:commentary_format="# %s"
 
-" ShowMarks                                            {{{2
+" ShowMarks                                               {{{2
 let g:showmarks_marks = "abcdefghijklmnopqrstuvwxyz"
 
-" Targets                                              {{{2
+" Targets                                                 {{{2
 
 " Defines the space separated list of pair objects you wish to use, along with
 " optional one letter aliases for them.
@@ -267,22 +267,7 @@ let g:targets_quotes = '"d '' ``t'
 " 'dic' to be equivalent to 'di,', you could define:
 let g:targets_separators = ',c . ; : + - ~ _ * / \ | -h'
 
-" VIM-Surround                                         {{{2
-
-" When this replacement is used,  the user is prompted with an "environment: "
-" prompt for input.  This input is inserted between each set of \1's.
-" Additional inputs up to \7 can be used.
-
-" Furthermore, one can specify a regular expression substitution to apply.
-" let g:surround_108 = "\\begin{\1environment: \1}\r\\end{\1\r}.*\r\1}"
-
-" mnemonical keybind is: <surround-strokes>le (eg. "you surround latex environment")
-let g:surround_{char2nr("e")} = "\\begin{\1environment: \1}\r\\end{\1\r}.*\r\1}"
-let g:surround_{char2nr("e")} = "\\begin{\1environment: \1}\r\\end{\1\r}.*\r\1}"
-autocmd FileType php let b:surround_45 = "<?php \r ?>"
-
-
-" UltiSnips                                            {{{2
+" UltiSnips                                               {{{2
 
 " UltiSnips#ExpandSnippet
 let g:snips_author = "Jonas Petong"
@@ -329,7 +314,7 @@ let g:Imap_DeleteEmptyPlaceHolders = 1
 " without deleting the current placeholder.
 let g:Imap_StickyPlaceHolders = 1
 
-" Fuzzyfinder Bindings                                 {{{2
+" Fuzzyfinder Bindings                                    {{{2
 
 let g:fuf_modesDisable = ['mrucmd']
 let g:fuf_mrufile_maxItem = 50
@@ -337,9 +322,9 @@ let g:fuf_mrucmd_maxItem = 50
 let g:fuf_keyOpen = '<Space>'		" default: <CR>
 let g:fuf_keyOpenSplit = '<C-j>'
 let g:fuf_keyOpenVsplit = '<C-k>'
-let MRU_File="/home/zapata/.vim/vimplug_mru_files"
+let MRU_File="~/.vim/vimplug_mru_files"
 
-" Syntastic                                            {{{2
+" Syntastic                                               {{{2
 
 " Default: 0
 " If enabled, syntastic will do syntax checks when buffers are first loaded as
@@ -470,9 +455,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " initially opened.  When set to "passive" syntastic only checks when the user
 " calls |:SyntasticCheck|.
 
-" YouCompleteMe                                        {{{2
+" YouCompleteMe                                           {{{2
 
-" settings                                             {{{3
+" settings                                                {{{3
 
 " Support for TeX
 Bundle 'bjoernd/vim-ycm-tex'
@@ -488,7 +473,7 @@ let g:ycm_semantic_triggers = {
 \  'tex'  : ['\ref{','\cite{'],
 \ }
 
-" To work with ultisnips                               {{{3
+" To work with ultisnips                                  {{{3
 
 " " https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-15451411
 " " UltiSnips completion function that tries to expand a snippet. If there's
@@ -517,21 +502,44 @@ let g:ycm_semantic_triggers = {
 
 
 " Language & Spellchecking"
-" Language-Tool                                        {{{2
+" Language-Tool                                           {{{2
 
 " let g:languagetool_win_width = 18
 " let g:languagetool_lang = de-DE           " language expected automatically, if unset
 let g:languagetool_win_height = -1          " enable/disable languagetool-scratch buffer, if negative value: 14pt
 let g:languagetool_jar = '$HOME/.dictionaries/LanguageTool-2.5-SNAPSHOT/languagetool-commandline.jar'
 
-" vim-autocorrect                                      {{{2
+" vim-abolish                                             {{{2
+" define autocorrection directory                         {{{3
+let g:abolish_save_file="~/.vim/after/plugin/abolish.vim"
+
+" Auto-"correction", british-english -> american english  {{{3
+" http://vimcasts.org/episodes/enhanced-abbreviations-with-abolish/
+Bundle "nelstrom/vim-americanize"
+
+" vim-surround                                            {{{2
+
+" When this replacement is used,  the user is prompted with an "environment: "
+" prompt for input.  This input is inserted between each set of \1's.
+" Additional inputs up to \7 can be used.
+
+" Furthermore, one can specify a regular expression substitution to apply.
+" let g:surround_108 = "\\begin{\1environment: \1}\r\\end{\1\r}.*\r\1}"
+
+" mnemonical keybind is: <surround-strokes>le (eg. "you surround latex environment")
+let g:surround_{char2nr("e")} = "\\begin{\1environment: \1}\r\\end{\1\r}.*\r\1}"
+let g:surround_{char2nr("e")} = "\\begin{\1environment: \1}\r\\end{\1\r}.*\r\1}"
+autocmd FileType php let b:surround_45 = "<?php \r ?>"
+
+
+" vim-autocorrect                                         {{{2
 
 " au! filetype tex call AutoCorrect()
 " au!  BufEnter  call BasicAbbreviations()
 " au!  filetype  noweb,rnoweb,tex  call  TexAbbreviations()
 " au!  filetype  mail,eml          call  MailAbbreviations()
 
-" vim-origami                                          {{{2
+" vim-origami                                             {{{2
 
 " 'g:OrigamiMap'
 "   Type: Dictionary, Default:
@@ -550,11 +558,11 @@ let g:languagetool_jar = '$HOME/.dictionaries/LanguageTool-2.5-SNAPSHOT/language
   " These same characters will be used to invoke the shortcuts.
 
 
-" Other Extensions                                     {{{1
+" Other Extensions                                        {{{1
 
-" Github                                               {{{2
+" Github                                                  {{{2
 
-" vim-fugitive                                         {{{3
+" vim-fugitive                                            {{{3
 
 " watch: http://vimcasts.org/episodes/fugitive-vim-working-with-the-git-index/
 " TIP: pressing '~' on a :Gblame hash to go re-blame
@@ -568,11 +576,11 @@ autocmd BufReadPre,BufRead fugitive://* set wmh=20
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
-" Frisk - Search Engine                                {{{2
+" Frisk - Search Engine                                   {{{2
 
 call frisk#DefaultEngine('google')
 
-" " Default Engines                                    {{{3
+" " Default Engines                                       {{{3
 
  " "bingImages"
  " "bing"
@@ -585,9 +593,9 @@ call frisk#DefaultEngine('google')
  " "wikipedia"
 
 
-" " Custom Search Operators                            {{{3
+" " Custom Search Operators                               {{{3
 
-" "" General Search - a                                {{{4
+" "" General Search - a                                   {{{4
 
 call frisk#AddEngine('wikipediaEn', 'http://en.wikipedia.org/w/api.php?action=opensearch&search=')
 call frisk#AddEngine('wikipediaEs', 'http://es.wikipedia.org/w/index.php?title=Especial:Buscar&search=')
@@ -603,7 +611,7 @@ call frisk#AddEngine('reddit', 'http://de.reddit.com/search?q=')
 call frisk#AddEngine('duckduckgo', 'https://duckduckgo.com/ac/?q=')
 
 
-" "" Online-Shops - s                                  {{{4
+" "" Online-Shops - s                                     {{{4
 
 call frisk#AddEngine('ebayKleinanz', 'http://kleinanzeigen.ebay.de/anzeigen/s-suchanfrage.html?keywords=')
 call frisk#AddEngine('amazon', 'http://www.amazon.com/exec/obidos/external-search/?field-keywords=')
@@ -611,7 +619,7 @@ call frisk#AddEngine('ebay', 'http://shop.ebay.de/?_nkw=')
 call frisk#AddEngine('ikea', 'http://www.ikea.com/de/de/search/?query=')
 
 
-" "" Dictionaries - d                                  {{{4
+" "" Dictionaries - d                                     {{{4
 
 call frisk#AddEngine('dict', 'http://dees.dict.cc/?s=')
 call frisk#AddEngine('leo', 'http://dict.leo.org/?lp=ende&from=fx3&search=')
@@ -620,7 +628,7 @@ call frisk#AddEngine('openthesaurus', 'http://www.openthesaurus.de/synonyme?q=')
 call frisk#AddEngine('dict', 'http://dees.dict.cc/?s=')
 
 
-" "" Linux/LaTeX/Coding - f                            {{{4
+" "" Linux/LaTeX/Coding - f                               {{{4
 
 call frisk#AddEngine('mutt', 'http://dev.mutt.org/trac/search?q=')
 call frisk#AddEngine('ctan', 'http://www.ctan.org/pkg/')
@@ -640,19 +648,19 @@ call frisk#AddEngine('mutt', 'http://dev.mutt.org/trac/search?q=')
 call frisk#AddEngine('ctan', 'http://www.ctan.org/pkg/')
 
 
-" "" Auskunft - g                                      {{{4
+" "" Auskunft - g                                         {{{4
 
 call frisk#AddEngine('dasoertliche', 'http://services.dasoertliche.de/addons/search/?q=')
 call frisk#AddEngine('dbahn', 'http://reiseauskunft.bahn.de/bin/query.exe/dn?revia=yes&existOptimizePrice=1&country=DEU&dbkanal_007=L01_S01_D001_KIN0001_qf-bahn_LZ003&start=1&S=')
 call frisk#AddEngine('gelbeseiten', 'http://www.gelbeseiten.de/yp/search.yp?subject=')
 
 
-" "" Uni Due - h                                       {{{4
+" "" Uni Due - h                                          {{{4
 
 call frisk#AddEngine('googleScholar', 'http://scholar.google.de/scholar?hl=de&q=')
 
 
-" "" Sport/Entertainment - j                           {{{4
+" "" Sport/Entertainment - j                              {{{4
 
 call frisk#AddEngine('kicker', 'http://www.kicker.de/home/suchergebnisse.html?suchbegriff=')
 call frisk#AddEngine('lastfm', 'http://www.last.fm/search?q=')
@@ -667,7 +675,7 @@ call frisk#AddEngine('youtube', 'http://www.youtube.com/results?search_query=')
 
 
 
-" VimCalc                                              {{{2
+" VimCalc                                                 {{{2
 
 let g:VCalc_WindowPosition = 'top'
 let g:VCalc_Max_History = 100
@@ -675,16 +683,16 @@ let g:VCalc_InsertOnEnter = 1
 let g:VCalc_CWInsert = 0
 let g:VCalc_Win_Size = 10
 
-" Tmux-Extensions                                      {{{2
+" Tmux-Extensions                                         {{{2
 
-" Vim-Tmux-Navigator                                   {{{3
+" Vim-Tmux-Navigator                                      {{{3
 
 let g:tmux_navigator_no_mappings = 1
 
 
-" Mutt                                                 {{{2
+" Mutt                                                    {{{2
 
-" Extract Links                                        {{{3
+" Extract Links                                           {{{3
 
 " Plugin requires additional:
 Bundle 'vim-scripts/ingo-library'
@@ -703,9 +711,9 @@ let g:ExtractLinks_ReplacementInline = '[\#]'
 let g:ExtractLinks_ReplacementExtraction = '[\#] &\n'
 
 
-" Deleted Plugins                                      {{{1
+" Deleted Plugins                                         {{{1
 
-"" Neocomplete                                         {{{2
+"" Neocomplete                                            {{{2
 
 ""Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 
@@ -742,9 +750,9 @@ let g:ExtractLinks_ReplacementExtraction = '[\#] &\n'
 "inoremap <expr><C-g>     neocomplete#undo_completion()
 "inoremap <expr><C-l>     neocomplete#complete_common_string()
 
-"" Recommended key-mappings.                           {{{3
+"" Recommended key-mappings.                              {{{3
 
-"" <CR>: close popup and save indent.                  {{{3
+"" <CR>: close popup and save indent.                     {{{3
 
 "inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 "function! s:my_cr_function()
@@ -754,7 +762,7 @@ let g:ExtractLinks_ReplacementExtraction = '[\#] &\n'
 "endfunction
 
 
-"" <TAB> or <SPACE> completion                         {{{3
+"" <TAB> or <SPACE> completion                            {{{3
 
 "" <TAB>: completion.
 "inoremap <expr><C-TAB>  pumvisible() ? "\<C-n>" : "\<C-TAB>"
@@ -769,7 +777,7 @@ let g:ExtractLinks_ReplacementExtraction = '[\#] &\n'
 "inoremap <expr><S-Space>  pumvisible() ? neocomplete#close_popup() : "\<S-Space>"
 
 
-"" <C-h>, <BS>: close popup and delete backword char.  {{{3
+"" <C-h>, <BS>: close popup and delete backword char.     {{{3
 
 "inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 "inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
@@ -777,7 +785,7 @@ let g:ExtractLinks_ReplacementExtraction = '[\#] &\n'
 "inoremap <expr><C-e>  neocomplete#cancel_popup()
 
 
-"" AutoComplPop like behavior.                         {{{3
+"" AutoComplPop like behavior.                            {{{3
 
 "let g:neocomplete#enable_auto_select = 1
 

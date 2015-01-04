@@ -362,6 +362,14 @@ vnoremap <C-v> <Plug>(expand_region_shrink)
 nnoremap <leader>lt  :call ListTrans_toggle_format()<CR>
 vnoremap <leader>lt :call ListTrans_toggle_format('visual')<CR>
 
+" vim-abolish <plugin>                                                           {{{2
+
+nnoremap <leader>ab :Abolish!<space>
+vnoremap <leader>ab <ESC>:Abolish!<space>
+
+nnoremap <silent><leader>am :Americanize<CR>
+vnoremap <silent><leader>am <ESC>:Americanize<CR>
+
 " calculator <plugin>                                                          {{{2
 
 " http://vim.wikia.com/wiki/scientific_calculator
@@ -374,11 +382,10 @@ nnoremap <leader>slc :scalcvsplit<cr>
 " alignment <plugin>                                                           {{{2
 
 " Align
-nnoremap <leader>aa :%Align!<space>p
 nnoremap <leader>al :%Align!<space>p
 vnoremap <leader>al :%Align!<space>p
-nnoremap <leader>am :'a,'sAlign!<space>p
-vnoremap <leader>am :'<,'>Align!<space>p
+nnoremap <leader>ar :'a,'sAlign!<space>p
+vnoremap <leader>ar :'<,'>Align!<space>p
 nnoremap <leader>ap :'{,'}Align!<space>p
 vnoremap <leader>ap <esc>:'{,'}Align!<space>p
 
@@ -486,12 +493,6 @@ inoremap <silent><localleader>md <ESC>:exe 'delm! \|
 " \ %foldo! \|
 " \ endif"<cr>
 
-" tCommenter <plugin>                                                          {{{2
-
-nmap cy :normal yygcc<cr>
-nmap cp :normal yygccp<cr>
-nmap yp :normal yyp<cr>
-
 " Vundle <plugin>                                                              {{{2
 
 "call bundlelist
@@ -509,6 +510,12 @@ inoremap <leader>bi <esc> :BundleInstall<cr>
 "call bundleinstall!
 nnoremap <leader>bu :BundleInstall!<cr>
 inoremap <leader>bu <esc>:BundleInstall!<cr>
+
+" " tCommenter <plugin>                                                          {{{2
+
+" nmap cy :normal yygcc<cr>
+" nmap cp :normal yygccp<cr>
+" nmap yp :normal yyp<cr>
 
 " Folds & Marks                                                                {{{1
 
@@ -824,8 +831,8 @@ command! -bar -range Mirror <line1>,<line2>call setline('.', join(reverse(split(
 " add abbreviations                                                            {{{2
 
 "mapping to automatically add an abbreviation
-nnoremap <leader>ab <sid>:call AddAbbr()<cr>
-vnoremap <leader>ab <sid>:call AddAbbr()<cr>
+nnoremap <leader>ad <sid>:call AddAbbr()<cr>
+vnoremap <leader>ad <sid>:call AddAbbr()<cr>
 "" func: abbreviations                                                         {{{3
 
 "" an abbreviation is a short form of long text e.g. mfg mit freundlichen grüßen

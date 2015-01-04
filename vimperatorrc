@@ -113,6 +113,7 @@ bmark('LibreOffice Search'     ,'https://help.libreoffice.org/index.php?search=%
 bmark('Linguee'     ,'http://www.linguee.de/deutsch-englisch/search?source=auto&query=%s'                                 ,'lin');
 bmark('Lustwiese'     ,'http://www.lustwiese.com/index.php?ActionCall=WebActionArticleSearch&Params[SearchParam]=%s'                                 ,'lw');
 bmark('Otto.de'                ,'https://www.otto.de/suche/%s/'                                                                                 ,'otto');
+bmark('Openstreetmap'                ,'http://www.openstreetmap.org/search?query=%s'                                                            ,'osm');
 bmark('Primo UB'               ,'https://katalog.ub.uni-duisburg-essen.de/primo_library/libweb/action/search.do?&ct=search&fn=search&dscnt=%s'  ,'pr');
 bmark('Rseek'                  ,'http://www.rseek.org/?q=%s'                                                                                    ,'r');
 bmark('Soundcloud'             ,'https://soundcloud.com/search?q=%s'                                                                            ,'sc');

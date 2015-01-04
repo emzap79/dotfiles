@@ -150,8 +150,8 @@ set dip=filler,context:6
 " folding                                                     " {{{2
 
 " fold settings
-set fen           " fen: enable folding
-set fdm           " foldmethod: chose default foldmethod
+set fen           " foldenable: enable folding
+set fdm=marker    " foldmethod: manual, indent, marker, syntax, expr
 set fdl=1         " foldlevel: Folds with a higher level will be closed.
                   " Setting this option to zero will close all folds. Higher numbers will
                   " close fewer folds.
@@ -213,7 +213,7 @@ set ci                  " copyindent: copy the previous indentation on autoinden
 
 " tabstops                                                    " {{{2
 
-" set et                  " expandtab: tabs are converted to spaces
+set et                  " expandtab: tabs are converted to spaces
 set sta                 " smarttab: smart tab handling for indenting
 set sw=4                " shiftwidth: number of spaces to use for autoindenting
 set sts=4               " softtabstop: make the four spaces feel like a tab
