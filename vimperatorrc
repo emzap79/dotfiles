@@ -94,6 +94,7 @@ function bmark(title, url, keyword) {
 		bookmarks.add(false, title, url, keyword, ['keyword'], false);
 	}
 }
+bmark('Amazon'         ,'http://www.amazon.de/field-keywords=%s'                                                                               ,'z');
 bmark('Bing US Search'         ,'http://www.bing.com/search?q=%s'                                                                               ,'b');
 bmark('Chefkoch'               ,'http://www.chefkoch.de/rs/s0/%s/Rezepte.html'                                                                  ,'ck');
 bmark('Ctan'                   ,'http://www.ctan.org/search'                                                                                    ,'ct');
@@ -315,7 +316,7 @@ set! browser.urlbar.filter.javascript=false
 set! browser.urlbar.maxRichResults=20
 set! browser.sessionstore.max_tabs_undo=20
 set! browser.sessionstore.max_concurrent_tabs=0
-set! browser.startup.homepage=https://reddit.com/
+set! browser.startup.homepage=https://www.reddit.com/rising/
 set! dom.popup_maximum=200
 set! mousewheel.withnokey.numlines=6
 set! mousewheel.withnokey.sysnumlines=false

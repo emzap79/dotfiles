@@ -761,10 +761,16 @@ fun_vim_find() {
 fun_vim_passw() {
     if grep -qs 'ES02224159' /proc/mounts; then
         FILEDIR=$USB/Vim
+        echo ""
+        echo "Zugriff auf Cruzer"
+        read ""
     else
         FILEDIR=$HOME/tmp
+        echo ""
+        echo "Zugriff auf Festplatte"
+        read ""
     fi
-    vim -u $FILEDIR/_vimrc $FILEDIR/_config.pw
+    /usr/bin/vim --noplugin -u $FILEDIR/_vimrc $FILEDIR/_config.pw
 }
 
 # create gitignore                                                               {{{3

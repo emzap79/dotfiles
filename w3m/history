@@ -1,5 +1,3 @@
-http://127.0.0.1:31863/library/quantmod/html/newTA.html
-http://127.0.0.1:31863/library/stats/html/lag.html
 http://127.0.0.1:31863/library/base/html/function.html
 http://127.0.0.1:24230/library/quantmod/html/TA.html
 http://127.0.0.1:24230/library/quantmod/help/TA
@@ -98,3 +96,5 @@ http://127.0.0.1:13137/library/grDevices/html/pdf.html
 http://127.0.0.1:11081/library/base/html/numeric.html
 http://127.0.0.1:11081/library/base/html/length.html
 http://127.0.0.1:11081/library/base/html/dim.html
+http://127.0.0.1:24697/library/plyr/html/arrange.html
+http://127.0.0.1:18633/library/base/html/order.html

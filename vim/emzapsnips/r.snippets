@@ -28,9 +28,10 @@ CHART_TYPES = [
 're']
 
 FIELD_TYPES = [
+'Date',
+'POSIXct',
 'character',
 'data.frame',
-'Date',
 'integer',
 'list',
 'logical',
@@ -38,7 +39,8 @@ FIELD_TYPES = [
 'na',
 'numeric',
 'table',
-'vector']
+'vector'
+]
 
 endglobal
 
@@ -432,6 +434,34 @@ strip <- function(x){
 		gsub(",", ".", z)
 }
 $1 <- strip(${1:dataset})
+endsnippet
+
+###########################
+#  quick snippet helpers  #
+###########################
+
+snippet order "Sort rows in a df" b
+${1:df} <- $1[order($1[,${2}],decreasing=${3:TRUE}),]; $1
+endsnippet
+
+snippet keep "keep columns in df" b
+keeps <- c(${1:cols to keep})
+${2:df} <- subset($2, select = keeps); $2
+endsnippet
+
+snippet drop "drop columns from df" b
+drops <- c(${1:define which cols to drop})
+${2:df} <- subset($2, select = -drops); $2
+endsnippet
+
+snippet dropnames "drop columns in df selected by colnames" b
+drops <- c(${1:define which cols to drop})
+${2:df}[,!(${3:col}names($2) %in% drops)]
+endsnippet
+
+snippet uniq "drop duplicate lines from df" b
+$1 <- sort[,$1]
+${1:df}[!duplicated($1[,1:${2:length($1)}]),]
 endsnippet
 
 #############
