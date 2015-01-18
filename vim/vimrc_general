@@ -210,6 +210,8 @@ set sr                  " shiftround: use multiple of shiftwidth when indenting 
 set nosi                " smartindent: turn on smart indenting.
 set ai                  " autoindent: automatically indent new line
 set ci                  " copyindent: copy the previous indentation on autoindenting
+set lisp                " lisp: When <Enter> is typed in insert mode set the indent for the next line to Lisp standards
+set lw=""               " lispwords: Comma separated list of words that influence the Lisp indenting.
 
 " tabstops                                                    " {{{2
 
@@ -248,7 +250,6 @@ set tsr-=$HOME/.vim/thesaurus/thes_eng.txt " thesaurus: using thesaurus by CTR+X
 set cpt+=k                                 " complete: enable dictionary completion
 setl kp=trs\ {en=@en+de}                   " keywordprg: trigger googletranslate for word under cursor with 'K'
 setl kp=trs\ {es=@es+de}
-set nolisp                                 " lisp: When <Enter> is typed in insert mode set the indent for the next line to Lisp standards
 set nospell                                " spell: set spell spelllang=de,...
 set nodg                                   " digraph: with the digraph option set you can enter 'a <BS> >' to retreive â
 
@@ -406,6 +407,7 @@ set com+=s2:/*
 set com+=mb:*
 set com+=ex:*/
 
+" LaTeX
 " set com+=:%
 " set com+=:\\begin{
 " set com+=:\\end{

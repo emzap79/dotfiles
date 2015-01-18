@@ -165,6 +165,7 @@ alias grepc=fun_grepc
 # find & locate                                                                # {{{2
 
 # locate
+alias locate="locate -i"
 alias lc="locate -i"
 alias ud="sudo updatedb"
 alias updatedb="sudo updatedb"
@@ -396,7 +397,7 @@ alias yt="mpsyt /"
 
 # mplayer                                                                      # {{{2
 
-alias mpvh="mpv --list-options"
+alias mpvh="mpv --list-options|less"
 alias selfie="mplayer -vo png -frames 1 tv:// -tv width=1280:height=720" # Take a single 1280x720 picture of your TV input, which is often your webcam
 alias mstream=fun_mplayer_stop_stream
 
@@ -569,6 +570,8 @@ alias upgr="/bin/bash ~/bin/upgrSoftw.sh && /usr/bin/python ~/bin/upgrPipPackage
 
 alias vpnc="sudo vpnc /etc/vpnc/default.conf"
 alias vpnd="sudo vpnc-disconnect"
+alias vpnc-connect="sudo vpnc-connect"
+alias vpnc-disconnect="sudo vpnc-disconnect"
 
 # wlan & ip-adresse                                                            # {{{2
 
@@ -761,15 +764,13 @@ fun_vim_find() {
 fun_vim_passw() {
     if grep -qs 'ES02224159' /proc/mounts; then
         FILEDIR=$USB/Vim
-        echo ""
-        echo "Zugriff auf Cruzer"
-        read ""
+        device="Cruzer"
     else
         FILEDIR=$HOME/tmp
-        echo ""
-        echo "Zugriff auf Festplatte"
-        read ""
+        device="Festplatte"
     fi
+        echo ""
+        read -p "Zugriff auf $device [Enter]"
     /usr/bin/vim --noplugin -u $FILEDIR/_vimrc $FILEDIR/_config.pw
 }
 

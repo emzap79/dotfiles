@@ -200,70 +200,54 @@ $8
 % EOF
 endsnippet
 snippet "preamble" "Preamble for TeX-Docs" br
-%% ****************
-%% Preamble
-%% ****************
-%% preamble %{{{
+%% preamble                                                                                                                                     {{{1
 
-%% %%%%%%%%%%%%%%%%
-%% % Documentclass
-%% %%%%%%%%%%%%%%%%
-%% documentclass %{{{
-%%
+%% documentclass                                                                                                                                {{{2
 \documentclass[
-    ${1:12pt},                                       %%  fontsize
-    ${2:portrait},                                   %%  paper-format: portrait & landscape
-    a4paper,                                    %%  paper-size
-    oneside,                                    %%  onesided layout for print; alternatively: twoside
-    openany,                                    %%  openany: chapters start at the next empty page;
-                                                %%  openright: chapters start at the next empty RIGHT page
-    onecolumn,                                  %%  argument 'twocolumn' divides pages
-    flushbottom,                                %%  flushbottom: makes all text pages the same height;
-                                                %%  raggedbottom: height varies from page to page
-    draft,                                      %%  prints out included pdfs and pictures in draft-mode
-    titlepage,                                  %%  content defined in \maketitle
-    footsepline,                                %%  footline seperated by rule
-    headsepline,                                %%  ... same with headline!
-    %% fleqn,                                   %%  equations are left-justified instead of being centered
-    %% leqno,                                   %%  equation numbers are on the left side
+${1:12pt},                                       %%  fontsize
+${2:portrait},                                   %%  paper-format: portrait & landscape
+a4paper,                                    %%  paper-size
+oneside,                                    %%  onesided layout for print; alternatively: twoside
+openany,                                    %%  openany: chapters start at the next empty page;
+%%  openright: chapters start at the next empty RIGHT page
+onecolumn,                                  %%  argument 'twocolumn' divides pages
+flushbottom,                                %%  flushbottom: makes all text pages the same height;
+%%  raggedbottom: height varies from page to page
+draft,                                      %%  prints out included pdfs and pictures in draft-mode
+titlepage,                                  %%  content defined in \maketitle
+footsepline,                                %%  footline seperated by rule
+headsepline,                                %%  ... same with headline!
+%% fleqn,                                   %%  equations are left-justified instead of being centered
+%% leqno,                                   %%  equation numbers are on the left side
 %% ${3/(scrartcl)$|(newlfm)/
 %% (?1:%-- scrartcl\: settings
-    bibliography=totoc,
-    cleardoublepage=plain,                      %%  like cleardoublepage, if a blank page is inserted it uses the style plain
-    footinclude=false,                          %%  true\: add space between the bottom and the footnotes
-    footsepline=false,                          %%  true\: horizontal line above the pagenumber
-    headinclude=false,                          %%  true\: add space between the top and the header
-    headings=normal,                            %%  fontsize for headings\: small, normal, big
-    headsepline=true,                           %%  true\: horizontal line below the header
-    listof=totoc,
-    pagesize=pdftex,                            %%  paperhight is set via \pdfpagewidth and \pdfpageheight
-    parskip=off,                                %%  paragraph formatting. default\: off
-    toc=index,                                  %%  put stuff to toc
-    twocolumn=false,                            %%  true\: split page in two columns)
-    %% (?2:%-- newlfm\: settings
-    sigleft,stdletter,orderfromtodate,
-                                                %%  sigleft\: signature to the left
-                                                %%  letter styles\: stdletter, stdletternofrom, busletter, busletternofrom
-                                                %%  orderfromtodate\: and date reordered to appear after the to-address)
+bibliography=totoc,
+cleardoublepage=plain,                      %%  like cleardoublepage, if a blank page is inserted it uses the style plain
+footinclude=false,                          %%  true\: add space between the bottom and the footnotes
+footsepline=false,                          %%  true\: horizontal line above the pagenumber
+headinclude=false,                          %%  true\: add space between the top and the header
+headings=normal,                            %%  fontsize for headings\: small, normal, big
+headsepline=true,                           %%  true\: horizontal line below the header
+listof=totoc,
+pagesize=pdftex,                            %%  paperhight is set via \pdfpagewidth and \pdfpageheight
+parskip=off,                                %%  paragraph formatting. default\: off
+toc=index,                                  %%  put stuff to toc
+twocolumn=false,                            %%  true\: split page in two columns)
+%% (?2:%-- newlfm\: settings
+sigleft,stdletter,orderfromtodate,
+%%  sigleft\: signature to the left
+%%  letter styles\: stdletter, stdletternofrom, busletter, busletternofrom
+%%  orderfromtodate\: and date reordered to appear after the to-address)
 /g}]{${3:scrartcl|newlfm}}
 %% scrartcl|newlfm %%
-%% documentclass %}}}
 
-%% %%%%%%%%%%%%%%%%
-%% % Packages
-%% %%%%%%%%%%%%%%%%
-%% packages %{{{
-%% %%%%%%%%%%%%%%%%
-%% %% Basic Packages %%{{{
-%% %%%%%%%%%%%%%%%%
+%% packages                                                                                                                                     {{{2
+%% Basic Packages                                                                                                                               {{{3
 \usepackage[ngerman]{babel}                     %%  Neue Rechtschreibung
 \usepackage[utf8]{inputenc}                     %%  UTF-8
 \usepackage[T1]{fontenc}                        %%  Zur Darstellung von Umlauten
-%%}}}
 
-%% %%%%%%%%%%%%%%%%
-%% %% Extended Packages %%{{{
-%% %%%%%%%%%%%%%%%%
+%% Extended Packages                                                                                                                            {{{3
 \usepackage{fixltx2e}                           %%  use superscript in text-mode: \textsubscript
 \usepackage[percent]{overpic}                   %%  overlaying pic above another
 \usepackage[printonlyused]{acronym}             %%  http://www.ctan.org/pkg/acronym
@@ -271,7 +255,7 @@ snippet "preamble" "Preamble for TeX-Docs" br
 \usepackage{charter}                            %%  use the charter font for the document text
 \usepackage{color}                              %%  coloring eg. \textcolor{red}{... text}
 \usepackage[shortlabels]{enumitem}              %%  if you want to customize list (don't use with enumerate-package at
-                                                %%  same time!) see: http://tug.org/pipermail/texhax/2010-August/015420.html
+%%  same time!) see: http://tug.org/pipermail/texhax/2010-August/015420.html
 \usepackage{paralist}                           %%  use 'compactitem' or 'compactenum' for a compact list variation
 \usepackage[gen]{eurosym}                       %%  http://en.wikibooks.org/wiki/LaTeX/Special_Characters#Euro_.E2.82.AC_currency_symbol
 \usepackage{pdfpages}                           %%  inserting pdffiles
@@ -285,26 +269,21 @@ snippet "preamble" "Preamble for TeX-Docs" br
 \usepackage{marginnote}                         %%  \marginnote{typeset text here...}[Fcm]
 %%                                              %%  F is the downwards vertical offset from
 %%                                              %%  the first line the margin note was written
-%%}}}
 
-%% %%%%%%%%%%%%%%%%
-%% %% Tabular, Tables and theirlike %%{{{
-%% %%%%%%%%%%%%%%%%
+%% Tabular, Tables and theirlike                                                                                                                {{{2
 \usepackage{tabu}                               %%  tabu-package
 \usepackage{rotating}                           %%  rotating tabulars
 \usepackage{longtable}                          %%  for long tables
 \usepackage{booktabs}                           %%  allows using \toprule, \bottomrule in tabular
-%%}}}
-%% %%%%%%%%%%%%%%%%
-%% %%.PDF-Page Options %%{{{
-%% %%.see: http://tex.stackexchange.com/a/42345
-%.%%%%%%%%%%%%%%%%%%
+
+%% PDF-Page Options                                                                                                                             {{{2
+%% see: http://tex.stackexchange.com/a/42345
 \usepackage[%
-      linktoc=all,
-      hidelinks,%                                  %%  remove red borders around hyperlinks
-      bookmarks,%                                  %%  make bookmarks
-      pdfpagelabels,%                              %%  set PDF page labels
-      pdfmenubar%
+linktoc=all,
+hidelinks,%                                  %%  remove red borders around hyperlinks
+bookmarks,%                                  %%  make bookmarks
+pdfpagelabels,%                              %%  set PDF page labels
+pdfmenubar%
 ]{hyperref}%                                    %%  http://mirrors.ctan.org/macros/latex/contrib/hyperref/doc/options.pdf
 \hypersetup{
 allcolors=blue
@@ -326,11 +305,9 @@ pdftex,
 }
 \usepackage{hypcap}                             %%  links should always anchor at the image not the caption.
 
-%%}}}
+%% Packages                                                                                                                                     {{{2
 
-%% %%%%%%%%%%%%%%%%
-%% %% Math-Packages %%{{{
-%% %%%%%%%%%%%%%%%%
+%% Math-Packages                                                                                                                                {{{3
 \usepackage{latexsym}
 \usepackage{amsfonts}
 \usepackage{epsfig}
@@ -340,31 +317,25 @@ pdftex,
 \usepackage{array}                  %% texdoc array
 \usepackage{bbm}
 \usepackage{mathtools}              %% for 'case'-environmen. see: thttp://ctan.org/pkg/mathtools
-%%}}}
 
-%% %%%%%%%%%%%%%%%%
-%% %% Bibliography & Makeidx Packages %%{{{
-%% %%%%%%%%%%%%%%%%
+%% Bibliography & Makeidx Packages                                                                                                              {{{3
 %\usepackage[%                      %%  an extension to allow author-year citation
 %numbers,%                          %%  along with numerical citations
 %sort&compress
 %]{natbib}
-                                    %%  numerical citations. For more
-                                    %%  informations, texdoc Natbib
-                                    %%  options: numbers,super,sort&compress
-                                    %%  other packages: harvard, chicago etc.
+%%  numerical citations. For more
+%%  informations, texdoc Natbib
+%%  options: numbers,super,sort&compress
+%%  other packages: harvard, chicago etc.
 % \usepackage{scrindex}             %%  Allows Index for KOMA-Scripts (not always necessary)
-                                    %%  is used. Collides with multind-package!!
+%%  is used. Collides with multind-package!!
 \usepackage{glossaries}             %%  Making a nice glossary. Options: nonumberlist, toc
 % \usepackage{makeidx}              %%  Single index (\makeindex); change makefile, if this
 % \usepackage{multind}              %%  Make multiple indexes with multind; makefile
-                                    %%  sort both indexes eg. \makeindex{A}, \makeindex{B}
+%%  sort both indexes eg. \makeindex{A}, \makeindex{B}
 % \makeindex                        %%  Uncomment when desired!
-%%}}}
 
-%% %%%%%%%%%%%%%%%%
-%% %% Subfloats & Captions %%{{{
-%% %%%%%%%%%%%%%%%%
+%% Subfloats & Captions                                                                                                                         {{{3
 %% Sidecaptions [optional]
 \usepackage[outercaption]{sidecap}
 %% outercaption (default): Caption appears left on left pages and right on right pages.
@@ -375,44 +346,35 @@ pdftex,
 \renewcommand{\sidecaptionsep}{0.02\linewidth}
 
 \usepackage[%
-       capbesideposition={top,outside},
-       facing=yes,capbesidesep=quad,
+capbesideposition={top,outside},
+facing=yes,capbesidesep=quad,
 ]{floatrow}
 
 % caption
 \usepackage[width=0.8\linewidth,
-            textfont={small},
-            labelfont={small, bf},
-            format=plain,
-            justification=justified,
-            singlelinecheck=false,
-            aboveskip=4pt,
-            parskip=0pt]
-            {caption}
+textfont={small},
+labelfont={small, bf},
+format=plain,
+justification=justified,
+singlelinecheck=false,
+aboveskip=4pt,
+parskip=0pt]
+{caption}
 \usepackage[margin=1.5em, textfont={footnotesize}]{subfig}
-
 
 %% Adjusting Caption- & Subfloatwidth
 %% http://tex.stackexchange.com/questions/51672/change-caption-width-together-with-subfloat
 \usepackage{subfig}                %% necessary when using \subfloat[descr]{\includeg...}
 \captionsetup[figure]{width=1.0\textwidth}  %% adjust captionwidth
 \captionsetup[subfigure]{margin=1pt}        %% set margin btw 2 subfloats (default: 0pt)
-%%}}}
 
-%% %%%%%%%%%%%%%%%%
-%% %% Placeholder for Pictures %{{{
-%% %%%%%%%%%%%%%%%%
+%% Placeholder for Pictures                                                                                                                     {{{3
 %% To make pictures appear in document, you will have to
 %% outcomment the second line: http://tex.stackexchange.com/a/9752
 \usepackage{graphicx}                                   %%  to include graphics
 \setkeys{Gin}{draft}                                    %%  you can define 'draft' in documentclass as well!
-%%}}}
-% packages %}}}
 
-%% %%%%%%%%%%%%%%%%
-%% % Pagestyle
-%% %%%%%%%%%%%%%%%%
-%% pagestyle %{{{
+%% pagestyle                                                                                                                                    {{{2
 %%
 %%   plain:                                      %%  The page number is in the foot and the head is empty. It is the default
 %%                                               %%  page style for the 'article' and 'report' document.
@@ -425,10 +387,8 @@ pdftex,
 %%                                               %%  described below.
 \pagestyle{${4:plain}}
 
-%% %%%%%%%%%%%%%%%%
-%%.%% Page.Geometry %%{{{
-%% %%%%%%%%%%%%%%%%
-%% \usepackage[%{{{
+%% Page.Geometry                                                                                                                                {{{3
+%% \usepackage[ {{{
 %       includeheadfoot,%                            %%  includehead and includefoot include the head and foot respectively into total body.
 %       inner=Acm,%                                  %%  margin on left side
 %       top=Bcm,%                                    %%  margin on top
@@ -436,19 +396,14 @@ pdftex,
 %       marginparsep=Dcm,%                           %%  space between text and \marginnote
 %       marginparwidth=Ecm,%                         %%  width of marginnote
 %       bottom=Hcm,%                                 %%  margin on bottom of page
-%% ]{geometry}%}}}                               %%  see: http://en.wikibooks.org/wiki/LaTeX/Footnotes_and_Margin_Notes#Margin_Notes
+%% ]{geometry}                               %%  see: http://en.wikibooks.org/wiki/LaTeX/Footnotes_and_Margin_Notes#Margin_Notes
 %% landscape: \usepackage[includeheadfoot, inner=2cm, top=2cm, outer=15cm, marginparsep=0.5cm, marginparwidth=7cm, bottom=2cm]{geometry}
-%%}}}
 
-%% %%%%%%%%%%%%%%%%
-%%.%%.KOMA-Specific %%{{{
-%% %%%%%%%%%%%%%%%%
-%%
-%% %%%%%%%%%%%%%%%%
-%%.%%% Page.Geometry.with.\typearea.(KOMA-Script)
-%% %%%%%%%%%%%%%%%%
+%% KOMA-Specific                                                                                                                                {{{3
+
+%% Page.Geometry.with.\typearea.(KOMA-Script)
 %% http://texwelt.de/wissen/fragen/978/wie-erstelle-ich-ein-dokument-im-querformat/980%
-%% \typearea %{{{
+%% \typearea  {{{
 %% \pdfpagewidth=\paperwidth
 %% \pdfpageheight=\paperheight
 %%
@@ -464,9 +419,7 @@ pdftex,
 %% eingestellt werden. Die Seitenränder werden dann passend dazu berechnet und
 %% angeglichen.
 %%
-%% %%%%%%%%%%%%%%%%
-%%.%%% Footline.&.Header
-%% %%%%%%%%%%%%%%%%
+%% Footline.&.Header
 %%.automark
 %%.\usepackage[automark]{scrpage2}                %%  Should be set AFTER setting page geometry
 %%                                              %%  options: automark, headsepline, plainheadsepline, nouppercase
@@ -479,51 +432,32 @@ pdftex,
 %%
 %%  [Seite 214ff.]
 %%  http://texdoc.net/texmf-dist/doc/latex/koma-script/scrguide.pdf
-%% %%}}}
-%% koma specific %}}}
-%% pagestyle %}}}
 
-%% %%%%%%%%%%%%%%%%
-%% % Other Stuff
-%% %%%%%%%%%%%%%%%%
-%% % other stuff %{{{
-%% %%%%%%%%%%%%%%%%
-%% %% Silbentrennung und Rechtschreibung %%{{{
-%% %%%%%%%%%%%%%%%%
+%% % other stuff                                                                                                                                {{{2
+%% %% Silbentrennung und Rechtschreibung                                                                                                        {{{3
+
 \tolerance=600                                         %% Toleranzwert für die Silbentrennung
-                                                       %% und den Abstand zw. Wörtern
+%% und den Abstand zw. Wörtern
 \hyphenation{ }                                        %% Ausnahmen für die automatische
-                                                       %% Silbentrennung (jeweils durch
-                                                       %% Leerzeichen getrennt eintragen)
-%%}}}
+%% Silbentrennung (jeweils durch
+%% Leerzeichen getrennt eintragen)
 
-%% %%%%%%%%%%%%%%%%
-%% %% Headings %%{{{
-%% %%%%%%%%%%%%%%%%
+%% Headings                                                                                                                                     {{{3
 %\automark[section]{section}                           %% current section names at headline of every page
 %\lehead{\author}                                      %% overwriting even pages with the author's name
-%%}}}
 
-%% %%%%%%%%%%%%%%%%
-%% %% Indendation %%{{{
-%% %%%%%%%%%%%%%%%%
+%% Indendation                                                                                                                                  {{{3
 %\setlength\parindent{0pt}                             %% globally suppress indentation
 %\usepackage{parskip}                                  %% package turns off the indentation and adds a
 %\setlength{\parskip}{6pt}
 %\setcounter{secnumdepth}{0}                           %% unnumbers all headings (\parts, \subsections etc.), even when supposed to be numbered
-                                                       %% little bit of (stretchable) space in between paragraphs
-%%}}}
+%% little bit of (stretchable) space in between paragraphs
 
-%% %%%%%%%%%%%%%%%%
-%% %% Switch Pagenumbering on/off %%{{{
-%% %%%%%%%%%%%%%%%%
+%% Switch Pagenumbering on/off                                                                                                                  {{{3
 \pagenumbering{arabic}                                 %% set 'gobble' to switch off numbering. Other
-                                                       %% options are: [Aa]lph, [Rr]oman, arabic
-%}}}
+%% options are: [Aa]lph, [Rr]oman, arabic
 
-%% %%%%%%%%%%%%%%%%
-%% %% Tables & Item Lists %%{{{
-%% %%%%%%%%%%%%%%%%
+%% Tables & Item Lists                                                                                                                          {{{3
 %% Change Space btw rows/columns
 %% see: http://en.wikibooks.org/wiki/LaTeX/Tables
 \renewcommand{\arraystretch}{1.0}                      %% change space btw rows (default: 1.0)
@@ -532,11 +466,8 @@ pdftex,
 %% Change Itemlabel
 %% http://tex.stackexchange.com/a/62497
 %% \def\labelitemi{--}                                  %% change label for whateveryoulike
-%% %}}}
 
-%% %%%%%%%%%%%%%%%%
-%% %% Fonts %%{{{
-%% %%%%%%%%%%%%%%%%
+%% Fonts                                                                                                                                        {{{3
 %% %% Mit PDF-LaTeX
 %% %% see: http://stackoverflow.com/a/877670
 %% \renewcommand{\familydefault}{\sfdefault} %% This changes the default font family to sans-serif.
@@ -551,33 +482,20 @@ pdftex,
 %% \setmainfont{URW Palladio L}
 %% \setmainfont{Linux Libertine O}
 %% \setmainfont{Gentium Book Basic}
-%%}}}
-% other stuff %}}}
 
-%% %%%%%%%%%%%%%%%%
-%% % Commands
-%% %%%%%%%%%%%%%%%%
-%% commands %{{{
-%% %%%%%%%%%%%%%%%%
-%% %% Comments, indentation & marginnotes %%{{{
-%% %%%%%%%%%%%%%%%%
+%% commands                                                                                                                                     {{{2
+%% Comments, indentation & marginnotes                                                                                                          {{{3
 \newcommand{\comment}[1]{\textcolor{red}{#1}}
 \renewcommand{\comment}[1]{}                           %% Comments: If both commands are used, the existing comments will be deleted
 \newcommand{\note}[1]{\marginnote{\itshape #1}}        %% add a \marginnote 'italic style'
 \newcommand{\ind}{\hspace{0.2in}}
 \newcommand{\ftext}[1]{\text{\ind\footnotesize #1}}
-%%}}}
 
-%% %%%%%%%%%%%%%%%%
-%% %% Commands for Citation %%{{{
-%% %%%%%%%%%%%%%%%%
+%% Commands for Citation                                                                                                                        {{{3
 %\AtBeginDocument{\renewcommand{\harvardand}{\&}}      %% replaces and for & in harvard citation styles
 %\AtBeginDocument{\renewcommand{\and}{\&}}             %% replaces and for & in harvard citation styles
-%%}}}
 
-%% %%%%%%%%%%%%%%%%
-%% %% Mathcommands %{{{
-%% %%%%%%%%%%%%%%%%
+%% Mathcommands                                                                                                                                 {{{3
 \newcommand{\sF}{\mathcal{F}}
 \newcommand{\sH}{\mathcal{H}}
 \newcommand{\sB}{\mathcal{B}}
@@ -605,11 +523,8 @@ pdftex,
 \newcommand{\indicator}{\mathbf{1}}
 \newcommand{\wh}[1]{\widehat{#1}}
 %% \newcommand{\cn}[1]{\citeasnoun{#1}}
-%%}}}
 
-%% %%%%%%%%%%%%%%%%
-%% %% Citations %%{{{
-%% %%%%%%%%%%%%%%%%
+%% Citations                                                                                                                                    {{{2
 %% Requires \usepackage{xifthen} - Whatever-you-want-command:
 %% \newcommand{\cmdAlias}[2]{\defcitealias{#1}{#2}\kern-0.8ex\citetalias{#1}} %\kern-0.8ex removes a space
 %%
@@ -622,30 +537,19 @@ pdftex,
 \newcommand{\cmdCiteYear}[2][]{\citeyear{#2}\ifthenelse{\isempty{#1}}{}{; #1}}
 \newcommand{\cmdCiteTxt}[2][]{\citeauthor{#2} (\citeyear{#2}\ifthenelse{\isempty{#1}}{}{; #1})}
 
-%%}}}
+%% define directories                                                                                                                           {{{2
 
-% commands %}}}
+% \newcommand* \rootDir {/home/zapata/Unimaterialien/Sommer2014/BAArbeit/vorlage/}
+% \newcommand* \srcDir {\rootDir sections/}
+% \newcommand* \bibDir {\srcDir bib/}
+% \newcommand* \figDir {\srcDir fig/}
+% \newcommand* \contDir {\srcDir cont/}
 
-%% define directories%{{{
-
-\newcommand* \rootDir {/home/zapata/Unimaterialien/Sommer2014/BAArbeit/vorlage/}
-\newcommand* \srcDir {\rootDir sections/}
-\newcommand* \bibDir {\srcDir bib/}
-\newcommand* \figDir {\srcDir fig/}
-\newcommand* \contDir {\srcDir cont/}
-
-%% define directories%}}}
-
-% preamble %}}}
-
-%% ****************
-%% Document
-%% ****************
-%% document %{{{
+%% document                                                                                                                                     {{{1
 %% commands for \maketitle
-\title{${5}}
-\subtitle{${6}}
-\author{${7:Jonas Petong}}
+\title{${5}}${6:
+\subtitle{${7}}}
+\author{${8:Jonas Petong}}
 \date{\today}
 
 %% Press <Tab> to begin Document
@@ -657,14 +561,10 @@ ${3/(scrartcl)$|(newlfm)/(?1:begin document)(?2:letter newlfm)/g}$0
 % \pagebreak
 % \printindex
 
-% document %}}}
 endsnippet
 snippet "preamble short" "Short Preamble" b
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Documentclass %{{{
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Documentclass %{{{
-%
+% Preamble %{{{1
+% Documentclass %{{{2
 \documentclass[
     12pt,                           %% fontsize
     a4paper,                        %% paper-size
@@ -678,11 +578,8 @@ snippet "preamble short" "Short Preamble" b
     %fleqn,                         %% equations are left-justified instead of being centered
     %leqno,                         %% equation numbers are on the left side
 ]{${1:scrartcl}}
-% Documentclass %}}}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Pagestyle %{{{
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pagestyle %{{{2
 \pagestyle{${2:plain}}
 
 %   plain:          The page number is in the foot and the head is empty. It is the default
@@ -694,18 +591,13 @@ snippet "preamble short" "Short Preamble" b
 %   myheadings:     Similar to the 'headings' page style, except you specify the "other
 %                   information" that goes in the head, using the \markboth and \markright commands
 %                   described below.
-% Pagestyle %}}}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Common-Packages %{{{
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Common-Packages %{{{2
 \usepackage[ngerman]{babel}            %% Neue Rechtschreibung
 \usepackage[utf8]{inputenc}            %% UTF-8
 \usepackage[T1]{fontenc}               %% Zur Darstellung von Umlauten
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Gray Highlighting equations
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Gray Highlighting equations %{{{3
 % http://tex.stackexchange.com/a/77763
 \usepackage{mdframed}
 \usepackage{xcolor}
@@ -716,9 +608,7 @@ snippet "preamble short" "Short Preamble" b
     skipabove=\baselineskip
 ]{equation}
 
-%%%%%%%%%%%
-%%% Math-Packages
-%%%%%%%%%%%
+% Math-Packages %{{{3
 %\usepackage{a4,latexsym,amsfonts}
 %\usepackage{epsfig}
 %\usepackage{amsmath}
@@ -733,18 +623,14 @@ endsnippet
 
 #.##.graphics
 snippet graphix
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Insert Graphics etc: http://tex.stackexchange.com/a/95280
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Insert Graphics etc: http://tex.stackexchange.com/a/95280
 \usepackage{pdfpages} %inserting pdffiles
 \usepackage[percent]{overpic}   %overlaying pic above another
 %
 \includepdf[pages=-,noautoscale]{./input.pdf}
 \includegraphics[height=0.5,width=0.5\textwidth]{./input.png}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Signature over PDF: http://tex.stackexchange.com/a/73978
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Signature over PDF: http://tex.stackexchange.com/a/73978
 %\begin{figure}
 %\centering
   %\begin{overpic}[scale=0.75]{./input-A.png}
@@ -754,9 +640,7 @@ snippet graphix
 %\caption{Using Overpic}
 %\end{figure}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Signature over PDF
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Signature over PDF
 %\includepdf[pages=-,pagecommand={\begin{tikzpicture}[remember picture, overlay]
     %\node at (10, -24) {\includegraphics[scale=0.3]{./input-A.png}};
     %\end{tikzpicture}}]{./input-B.pdf}
@@ -766,9 +650,15 @@ snippet letter "Letter" b
 letter $1`!p snip.rv=complete(t[1], ['newlfm'])`
 endsnippet
 snippet "letter newlfm" "Letter Newlfm" b
-%.%%%%%%%%%%%%
-%.%%.Briefkopf
-%.%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Letter_Newlfm	{{{1
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template found on:
+% http://texblog.org/2013/11/11/latexs-alternative-letter-class-newlfm/
+
+% Briefkopf	{{{2
+
+% Absender	{{{3
 \newcommand{\myfirstname}{Jonas}
 \newcommand{\mylastname}{Petong}
 \newcommand{\mystreet}{Dellplatz 7}
@@ -778,35 +668,27 @@ snippet "letter newlfm" "Letter Newlfm" b
 \newcommand{\myphone}{0176 53347208}
 \newcommand{\mymail}{jonas.petong@web.de}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Letter_Newlfm
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Template found on:
-% http://texblog.org/2013/11/11/latexs-alternative-letter-class-newlfm/
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Name & Geschlecht der Ansprechpersonn
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Name & Geschlecht der Ansprechpersonn	{{{3
 \newcommand{\tofirstname}{${1:Vorname der AP}}
 \newcommand{\tolastname}{${2:Nachname}}
 \newcommand{\toaddr}{${3:Straße Nr}}
 \newcommand{\tocity}{${4:PLZ & Stadt}}
 \newcount\yoursex
 \yoursex=${5:wähle 0 für männlich, 1 für weiblich}
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Spaces
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newlfmP{Headlinewd=0pt}       %% No Headerline
-%\newlfmP{Footlinewd=0pt}       %% No Footline
-\newlfmP{headermarginskip=15pt}
-\newlfmP{sigsize=25pt}
-\newlfmP{sigskipbefore=50pt}
-\newlfmP{dateskipbefore=50pt}
-\newlfmP{dateskipafter=25pt}
+
+% Spaces	{{{3
+% \newlfmP{Headlinewd=0pt}       %% No Headerline
+% \newlfmP{Footlinewd=0pt}       %% No Footline
+% \newlfmP{headermarginskip=15pt}
+% \newlfmP{sigsize=25pt}
+% \newlfmP{sigskipbefore=50pt}
+% \newlfmP{dateskipbefore=50pt}
+% \newlfmP{dateskipafter=25pt}
+
+% Signature	{{{3
 \newlfmP{addrfromphone}
 \newlfmP{addrfromemail}
-\PhrPhone{Phone}
+\PhrPhone{Tel}
 \PhrEmail{Email}
 
 \widowpenalty=1000
@@ -815,33 +697,28 @@ snippet "letter newlfm" "Letter Newlfm" b
 \phonefrom{\myphone}
 \emailfrom{\mymail}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Text as Header
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% found on http://tex.stackexchange.com/a/134846
-%
-\newsavebox{\Luiuc}\sbox{\Luiuc}
-{\parbox[b]{\linewidth}{\vspace{0.5in}
-\begin{center}
-{\scshape \large{
-    ~~~~\myfirstname\ \mylastname~~~$\circ$~~~\mystreet~~~$\circ$~~~\mypostcode\ \mycity
-}}
-\end{center}}}
-\makeletterhead{Uiuc}{\Lheader{\usebox{\Luiuc}}}
-\lthUiuc %% Print the company/institution logo
+% Header	{{{2
+% Text as Header	{{{3
+% found on http://tex.stackexchange.com/a/134846
+% \newsavebox{\Luiuc}\sbox{\Luiuc}
+% {\parbox[b]{\linewidth}{\vspace{0.5in}
+% \begin{center}
+% {\scshape \large{
+%     ~~~~\myfirstname\ \mylastname~~~$\circ$~~~\mystreet~~~$\circ$~~~\mypostcode\ \mycity
+% }}
+% \end{center}}}
+% \makeletterhead{Uiuc}{\Lheader{\usebox{\Luiuc}}}
+% \lthUiuc %% Print the company/institution logo
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Absender
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Absender	{{{3
 \namefrom{\myfirstname\ \mylastname}
 \addrfrom{
 \mystreet\\\\%
+Zimmer \myroomrn\\\\%
 \mypostcode\ \mycity%
 }
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Addressat
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Addressat	{{{3
 \addrto{%
 \tofirstname\ \tolastname\\\\%
 \toaddr\\\\%
@@ -850,15 +727,12 @@ snippet "letter newlfm" "Letter Newlfm" b
 
 \dateset{\today}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Betreff
-% %% How to make this work: http://tex.stackexchange.com/a/12130
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Letter Body	{{{2
+% Betreff	{{{3
+% How to make this work: http://tex.stackexchange.com/a/12130
 \regarding{\textbf{${6:Betreff}}}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Anrede
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Content	{{{3
 \begin{document}
 \begin{newlfm}
 
@@ -872,7 +746,6 @@ snippet "letter newlfm" "Letter Newlfm" b
 ${0}
 \end{newlfm}
 \end{document}
-
 
 endsnippet
 # vim:ft=snippets:

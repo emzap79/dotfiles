@@ -60,6 +60,7 @@ silent qmark G http://gist.github.com/
 silent qmark h http://opus.bsz-bw.de/hdms/dokserver.php?la=de
 silent qmark H http://www.hotmail.com/
 silent qmark i http://www.instapaper.com/u
+silent qmark I http://imgur.com/
 silent qmark J http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
 silent qmark j https://www.mylittlejob.de
 silent qmark k http://www.kicker.de/news/fussball/fussballstartseite.html
@@ -115,7 +116,9 @@ bmark('Linguee'     ,'http://www.linguee.de/deutsch-englisch/search?source=auto&
 bmark('Lustwiese'     ,'http://www.lustwiese.com/index.php?ActionCall=WebActionArticleSearch&Params[SearchParam]=%s'                                 ,'lw');
 bmark('Otto.de'                ,'https://www.otto.de/suche/%s/'                                                                                 ,'otto');
 bmark('Openstreetmap'                ,'http://www.openstreetmap.org/search?query=%s'                                                            ,'osm');
-bmark('Primo UB'               ,'https://katalog.ub.uni-duisburg-essen.de/primo_library/libweb/action/search.do?&ct=search&fn=search&dscnt=%s'  ,'pr');
+bmark('Das Örtliche'                ,'http://www3.dasoertliche.de/Controller?kw=bick'                                                            ,'ö');
+bmark('Primo UB'               ,'http://primo.ub.uni-due.de/primo_library/libweb/action/search.do?dscnt=0&scp.scps=scope:(UDEALEPH),scope:(UDESEMAPP),scope:(UDEUBO),scope:(UDEDUEPUBLICO),primo_central_multiple_fe&frbg=&tab=default_tab&dstmp=1421247269953&srt=rank&ct=search&mode=Basic&dum=true&indx=1&tb=t&vl(freeText0)=%s&fn=search&vid=UDE
+'  ,'pr');
 bmark('Rseek'                  ,'http://www.rseek.org/?q=%s'                                                                                    ,'r');
 bmark('Soundcloud'             ,'https://soundcloud.com/search?q=%s'                                                                            ,'sc');
 bmark('Stackoverflow Bash'        ,'http://stackoverflow.com/search?q=[bash] %s'                                                                   ,'sob');
