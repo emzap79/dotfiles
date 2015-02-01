@@ -104,7 +104,7 @@ set nf=octal,hex                " nrformats: defines characters to increase by C
 set cf                          " confirm: get a dialog when :q, :w, or :wq fails
 set lz                          " lazyredraw: screen will only redraw once the macro has completed (speed up macros)
 set nopaste                     " paste: this is needed for use of abbreviations to be off
-set cb-=unnamed,unnamedplus     " clipboard: yank and copy to clipboard, X clipboard by default
+set cb=unnamed,unnamedplus     " clipboard: yank and copy to clipboard, X clipboard by default
 set tf                          " ttyfast: smoother changes
 set tsl=0                       " ttyscroll: turn off scrolling, didn't work well with PuTTY
 set ml                          " modeline: last lines in document sets vim mode

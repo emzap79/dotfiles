@@ -79,7 +79,7 @@ silent qmark T http://www.tumblr.com/dashboard/
 silent qmark u http://speedtest-1.unitymedia.de/
 silent qmark o http://www1.onleihe.de/duisburg
 silent qmark O https://onedrive.live.com/
-silent qmark w http://www.wolframalpha.com/
+silent qmark w https://www.wunderlist.com/webapp#/lists/starred
 silent qmark W https://wave.google.com/wave/
 silent qmark v http://www.vimgolf.com/
 silent qmark V https://vpn.wiwinf.uni-due.de

@@ -464,7 +464,7 @@ alias architecture="echo $(lsb_release -sri | tr '\n' ' ') && echo $(gnome-shell
 # es    # spanish
 
 # https://github.com/soimort/google-translate-cli
-alias trs="trs {=de}"   # google translator
+alias trs=fun_translate   # google translator
 alias ot=fun_open_thesaurus
 
 # alert                                                                        # {{{2
@@ -999,16 +999,22 @@ fun_pss() {
 # fun: ls - sort content by size                                               # {{{3
 
 fun_dus () {
-    du --max-depth=0 -k * | sort -rn | awk '{
-    if($1>=1024*1024) {size=$1/1024/1024; unit="G"}
-    else if($1>=1024) {size=$1/1024; unit="M"}
-    else {size=$1; unit="K"}; if(size<10) format="%.1f%s";
-    else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }'
-    }
+du --max-depth=0 -k * 
+sort -rn 
+awk '{
+if($1>=1024*1024) {size=$1/1024/1024; unit="G"}
+else if($1>=1024) {size=$1/1024; unit="M"}
+else {size=$1; unit="K"}; if(size<10) format="%.1f%s";
+else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }'
+}
 
 fun_dsp() {
     # Diskspace der 50 größten Programme
-    dpkg-query --show --showformat='${Package;-50}\t${Installed-Size}\n' | sort -k 2 -n | grep -v deinstall | awk '{printf "%.3f MB \t %s\n", $2/(1024), $1}' | tail -n 300
+    dpkg-query --show --showformat='${Package;-50}\t${Installed-Size}\n' 
+    sort -k 2 -n 
+    grep -v deinstall 
+    awk '{printf "%.3f MB \t %s\n", $2/(1024), $1}' 
+    tail -n 300
 }
 
 # fun: ls - show absolute path to file                                         # {{{3
@@ -1106,6 +1112,17 @@ fun_loop_pdflatex() {
 #         fi
 # 
 #     done
+
+}
+
+# fun: translate
+
+# http://stackoverflow.com/a/1853984/1483760
+fun_translate() {
+    # translate "{=$1}" "${2:9}"
+    # translate "{${1}}" ${$2-}
+    # translate "{=${1}}" "${@:${#@}}"
+    translate "{=${1}}" "$*"
 
 }
 
