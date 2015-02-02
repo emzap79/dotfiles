@@ -1117,13 +1117,8 @@ fun_loop_pdflatex() {
 
 # fun: translate
 
-# http://stackoverflow.com/a/1853984/1483760
 fun_translate() {
-    # translate "{=$1}" "${2:9}"
-    # translate "{${1}}" ${$2-}
-    # translate "{=${1}}" "${@:${#@}}"
-    translate "{=${1}}" "$*"
-
+    translate "{=${1}}" "${*:2}"
 }
 
 # fun: open thesaurus                                                          # {{{3
