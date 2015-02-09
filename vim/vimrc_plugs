@@ -12,6 +12,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'L9'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Bundle 'yakiang/excel.vim'
 Bundle 'SirVer/ultisnips.git'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'arecarn/frisk.git'
@@ -127,7 +128,7 @@ let r_indent_ess_comments = 0                               " 0:add single '#', 
 let vimrplugin_map_r = 1           " map the letter 'r' to send lines to R when
                                    " there are visually selected lines
 let vimrplugin_term = "xterm"      " Define which terminal emulator to start
-let vimrplugin_routmorecolors = 1  " R commands in the R output are highlighted
+let vimrplugin_rout_morecolors = 1  " R commands in the R output are highlighted
 let vimrplugin_rconsole_width = 50 " The number of columns of R Console (Tmux split)
 
 " Inside Insertmode                                       {{{3
@@ -556,6 +557,11 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
   " To disable a map entirely, specify it as an empty string.
   " If a key is not specified, the default value will be picked up.
   " These same characters will be used to invoke the shortcuts.
+
+
+" excel.vim                                             {{{2
+
+let g:zipPlugin_ext = '*.zip,*.jar,*.xpi,*.ja,*.war,*.ear,*.celzip,*.oxt,*.kmz,*.wsz,*.xap,*.docx,*.docm,*.dotx,*.dotm,*.potx,*.potm,*.ppsx,*.ppsm,*.pptx,*.pptm,*.ppam,*.sldx,*.thmx,*.crtx,*.vdw,*.glox,*.gcsx,*.gqsx'
 
 
 " Other Extensions                                        {{{1

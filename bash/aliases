@@ -110,7 +110,7 @@ alias cdarb="cd $DOK/Arbeitsordner"
 alias cdbank="cd $DOK/Banking"
 alias cdbew="cd $DOK/Bewerbungen"
 alias cddok="cd $DOK"
-alias cdkolp="cd $DOK/Duisburg/Kolping"
+alias cdkolp="cd $DOK/Kolping"
 alias cdr="cd $DOK/R"
 alias cdlatex="cd $DOK/LaTeX"
 alias cdlinux="cd $DOK/Linux"
@@ -174,8 +174,8 @@ alias lcf=fun_locate_dat
 
 # find
 alias ff=fun_ff
-alias fff='find -type f -iname'
-alias ffd='find -type d -iname'
+alias fff='find -type f'
+alias ffd='find -type d'
 alias ffg='find -type f -regextype egrep -iregex'
 alias ffi="find -type f -exec file {} \; | grep -o -P '^.+: \w+ image'"     # find all images
 
@@ -464,7 +464,8 @@ alias architecture="echo $(lsb_release -sri | tr '\n' ' ') && echo $(gnome-shell
 # es    # spanish
 
 # https://github.com/soimort/google-translate-cli
-alias trs=fun_translate   # google translator
+# alias trs=fun_translate   # google translator
+alias trs="trans -b"   # google translator
 alias ot=fun_open_thesaurus
 
 # alert                                                                        # {{{2
@@ -564,6 +565,7 @@ alias acs='apt-cache search'
 alias agu='sudo apt-get update'
 alias apt-get='sudo apt-get'
 alias yum='sudo yum'
+alias pip='sudo pip'
 alias upgr="/bin/bash ~/bin/upgrSoftw.sh && /usr/bin/python ~/bin/upgrPipPackages.py"
 
 # vpnc                                                                         # {{{2

@@ -199,7 +199,9 @@ map <silent> <localleader>lt :call RAction("length")<CR>
 map <silent> <localleader>nc :call RAction("ncol")<CR>
 map <silent> <localleader>nr :call RAction("nrow")<CR>
 map <silent> <localleader>lv :call RAction("levels")<CR>
-map <silent> <localleader>nm :call RAction("names")<CR>
+map <silent> <localleader>nn :call RAction("names")<CR>
+map <silent> <localleader>nc :call RAction("colnames")<CR>
+map <silent> <localleader>nr :call RAction("rownames")<CR>
 map <silent> <localleader>st :call RAction("str")<CR>
 map <silent> <LocalLeader>rm :call RAction("rm")<CR>
 

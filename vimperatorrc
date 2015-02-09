@@ -196,6 +196,11 @@ noremap <C-j> :downloads<CR>
 inoremap <C-j> <Esc>:downloads<CR>
 cnoremap <C-j> :downloads<CR>
 
+" history                                          {{{3
+noremap <C-h> :history!<CR>
+inoremap <C-h> <Esc>:history!<CR>
+cnoremap <C-h> :history!<CR>
+
 " other                                              {{{3
 noremap <silent> <C-r> :restart<CR>
 noremap <silent> <leader>h :hopen<Space>

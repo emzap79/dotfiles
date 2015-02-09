@@ -19,10 +19,10 @@
 " Convert from dos/unix to dos
 " http://vim.wikia.com/wiki/File_format
 " To convert the current file from any mixture of CRLF/LF-only line endings, so all lines end with CRLF only:
-"
-" :update " Save any changes.
-" :e ++ff=dos " Edit file again, using dos file format ('fileformats' is ignored).[A 1]
-" :w " Write buffer using dos (CRLF) line endings.
+
+" :update      " Save any changes.
+" :e ++ff=dos  " Edit file again, using dos file format ('fileformats' is ignored).[A 1]
+" :w           " Write buffer using dos (CRLF) line endings.
 
 " set shell                                                   " {{{2
 

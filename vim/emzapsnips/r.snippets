@@ -105,11 +105,27 @@ snippet "(\S+)\(" "Close Brace" ri
 `!p snip.rv = match.group(1) if match.group(1) is not None else ""`(${1:${VISUAL}})
 endsnippet
 
+snippet qwrite "quick write into file" b
+write.$1`!p snip.rv = complete(t[1], FILE_TYPES)`(${2:${VISUAL}},file="${3:filename}.csv",
+		append=FALSE, sep=',', dec='.',
+		col.names=TRUE, row.names=TRUE,
+		fileEncoding='utf-8', eol="\n", na="NA"})
+endsnippet
+
 snippet write "Write into file" b
 write.$1`!p snip.rv = complete(t[1], FILE_TYPES)`(${2:${VISUAL}},file="${3:filename}.csv",
 		append=${5:F}, sep='${8:;}', dec='${9:.}',
 		col.names=${10:T}, row.names=${11:T}${12:,
 		fileEncoding='utf-8', eol="\n", na="NA"})
+endsnippet
+
+snippet qread "Quick read from file"
+read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}",
+		header=TRUE, skip=0,
+		sep='${3:field seperator}', dec='${4:decimal seperator}',
+		encoding='unknown',
+		blank.lines.skip=TRUE, fill=TRUE, stringsAsFactors=FALSE,
+		na.strings=c(NA,"NA",NaN,"NaN"," NA ","#N/A N/A"))
 endsnippet
 
 snippet read "Read from file"
@@ -440,8 +456,8 @@ endsnippet
 #  quick snippet helpers  #
 ###########################
 
-snippet order "Sort rows in a df" b
-${1:df} <- $1[order($1[,${2}],decreasing=${3:TRUE}),]; $1
+snippet "(order)|(sort)" "Sort rows in a df" br
+$1 <- ${1:df}[order($1[${2},${3}],decreasing=${4:TRUE}),]
 endsnippet
 
 snippet keep "keep columns in df" b
