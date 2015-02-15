@@ -98,7 +98,7 @@ alias cddf="cd $HOME/dotfiles"
 alias cdebay="cd $HOME/tmp/ebay"
 alias cdmails="cd $HOME/mails/Inbox"
 alias cdmnt="cd $HOME/mnt"
-alias cdpics="cd $HOME/Bilder"
+alias cdbild="cd $HOME/Bilder"
 alias cdpodc="cd $HOME/Podcasts"
 alias cdtmp="cd $HOME/tmp"
 alias cdxime="cd $HOME/Xime"
@@ -135,7 +135,7 @@ alias cdwdp="cd /media/zapata/WDP"
 # mkdir                                                                        # {{{2
 
 alias mkdir='mkdir -p'
-alias mkmailb='mkdir -p $HOME/tmp/mails/{cur,new,tmp}'
+alias mkmailb='mkdir ./{cur,new,tmp}'
 alias mkcd=fun_mkcd     # mkdir -p $1 && cd $1
 alias mkcp=fun_mkcp
 alias mkmv=fun_mkmv

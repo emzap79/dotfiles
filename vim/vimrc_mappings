@@ -52,7 +52,6 @@ let maplocalleader=","
 " xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 " f-keys                                                                       {{{2
-
 " <f1>  " show current directory                                               {{{3
 
 " change local buffer to current dir
@@ -339,7 +338,6 @@ nnoremap <silent> <leader>ea :sp ~/.vim/plugin/vim-autocorrect.vim<cr>
 nnoremap <silent> <leader>ep :sp ~/.vim/vimrc_plugs<cr>
 
 " Plugin-Maps                                                                  {{{1
-
 " better-/hudigraphs <plugin>                                                  {{{2
 
 inoremap <expr> <K> BDG_GetDigraph()
@@ -493,7 +491,7 @@ inoremap <silent><localleader>md <ESC>:exe 'delm! \|
 " \ %foldo! \|
 " \ endif"<cr>
 
-" Vundle <plugin>                                                              {{{2
+" vundle <plugin>                                                              {{{2
 
 "call bundlelist
 nnoremap <leader>bl :BundleList<cr>
