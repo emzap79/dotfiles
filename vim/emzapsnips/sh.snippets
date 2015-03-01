@@ -1,0 +1,37 @@
+# /home/zapata/.vim/bundle/vim-snippets/snippets/sh.snippets
+priority -40
+snippet case
+	case ${1:word} in
+		${2:pattern})
+			${0:${VISUAL}}
+			;;
+	esac
+endsnippet
+snippet rd "read prompt from cl" b
+read -p "${1:question} " answer
+endsnippet
+snippet yesno "case condition depending on answer" b
+    case "$${1:answer}" in
+        Yes|yes|Y|y)
+            ${2:echo "${3:question}"}
+            ;;
+        No|no|N|n|"")
+            ${4:echo "${5:question}"}
+			;;
+	esac
+endsnippet
+
+snippet "xyz" "Import a library" wr
+${1:zyx} ${1/(\"\")/(?1:foo:bar)\E/ga} $0
+endsnippet
+
+snippet if
+	if [[ ${1:condition} ]]; then
+		${0:${VISUAL}}
+	fi
+endsnippet
+
+snippet elif
+	elif [[ ${1:condition} ]]; then
+		${0:${VISUAL}}
+endsnippet

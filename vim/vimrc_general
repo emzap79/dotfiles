@@ -96,6 +96,7 @@ exec "set lcs=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 
 " editor                                                      " {{{2
 
+set bs=indent,eol,start         " backspace: Allow backspacing over everything in insert mode
 set ek                          " esckeys: no delay for ESC, but cannot use ESC as beginning of key sequence
 set t_Co=257
 set enc=utf-8                   " encoding: 8-bit (latin1, iso-8859), 2-bit or unicode (utf-8)
@@ -203,16 +204,6 @@ set to tm=3000 ttm=100      " timeout, timeoutlen, ttimeoutlen: time out on
                             " mapping after three seconds, time out on key
                             " codes after a tenth of a second.
 
-" indentation                                                 " {{{2
-
-set bs=indent,eol,start " backspace: Allow backspacing over everything in insert mode
-set sr                  " shiftround: use multiple of shiftwidth when indenting with '<' and '>'
-set nosi                " smartindent: turn on smart indenting.
-set ai                  " autoindent: automatically indent new line
-set ci                  " copyindent: copy the previous indentation on autoindenting
-set lisp                " lisp: When <Enter> is typed in insert mode set the indent for the next line to Lisp standards
-set lw=""               " lispwords: Comma separated list of words that influence the Lisp indenting.
-
 " tabstops                                                    " {{{2
 
 set et                  " expandtab: tabs are converted to spaces
@@ -220,6 +211,7 @@ set sta                 " smarttab: smart tab handling for indenting
 set sw=4                " shiftwidth: number of spaces to use for autoindenting
 set sts=4               " softtabstop: make the four spaces feel like a tab
 set ts=4                " tabstop: number of spaces a tab counts for
+set sr                  " shiftround: use multiple of shiftwidth when indenting with '<' and '>'
 
 " If you prefer to work with tab characters then it is a good idea to ensure
 " that tabstop == softtabstop. This makes it less likely that you’ll end up
@@ -229,6 +221,33 @@ set ts=4                " tabstop: number of spaces a tab counts for
 " softtabstop == shiftwidth. This way, you can expect the same number of
 " spaces to be inserted whether you press the tab key in insert mode, or use
 " the indentation commands in normal/visual modes.
+
+" indentation                                                 " {{{2
+
+" lisp indenting                                                {{{3
+
+set nolisp                " lisp: When <Enter> is typed in insert mode set the
+                        " indent for the next line to Lisp standards (attention: if automatic
+                        " indendation does not work, please disable this option!!)
+set lw=""               " lispwords: Comma separated list of words that influence the Lisp indenting.
+
+" smartindent                                                  {{{3
+
+set nosi                " smartindent: turn on smart indenting.
+set ai                  " autoindent: automatically indent new line
+set ci                  " copyindent: copy the previous indentation on autoindenting
+
+" indentkeys                                                    {{{3
+
+" indentkeys: a list of keys that, when typed in insert mode, cause reindenting of
+" the current line. only happens if 'indentexpr' isn't empty.
+setlocal indk+=}
+setlocal indk+=\\item
+setlocal indk+=\\bibitem
+setlocal indk+=\\else
+setlocal indk+=\\fi
+setlocal indk+=\\or
+setlocal indk+=\\]
 
 " linewrapping                                                " {{{2
 
@@ -507,18 +526,6 @@ set bsk+=*tst*
 set bsk+=*~
 set bsk+=*bak
 
-" indentkeys                                                  " {{{2
-
-" indentkeys: a list of keys that, when typed in insert mode, cause reindenting of
-" the current line. only happens if 'indentexpr' isn't empty.
-setlocal indk+=}
-setlocal indk+=\\item
-setlocal indk+=\\bibitem
-setlocal indk+=\\else
-setlocal indk+=\\fi
-setlocal indk+=\\or
-setlocal indk+=\\]
-
 " suffixes                                                    " {{{2
 
 set su=.bak
@@ -641,5 +648,5 @@ aug END
 
 aug Filetype
     " automatically remove trailing whitespaces
-    au! filetype tex,rnoweb,noweb,vim,r,markdown :%s/\s\+$//e
+    au! filetype tex,rnoweb,noweb,vim,sh,bash,r,markdown :%s/\s\+$//e
 aug END

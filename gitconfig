@@ -98,7 +98,7 @@
 	cfd	= clean -fdx			# id., <-d> flag to delete new directories, <-x> hidden files
 	rmf	= rm -rf			# ...<filename> unversion and delete
 	rms	= rm -r --cached		# ...<filename> unversion, but leave in working copy
-	rmc	= rm -r --cached .metadata	# remove and apply .gitignore (grmc && grms <filename>)
+	rmc	= rm -r --cached .		# remove and apply .gitignore (grmc && gca "remove ignored files")
 
 #	=================================
 #	=	commit to project	=

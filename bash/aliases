@@ -397,8 +397,9 @@ alias yt="mpsyt /"
 
 # mplayer                                                                      # {{{2
 
+alias mrecord='mplayer -dumpstream -dumpfile /tmp/stream.asf' # prepend 'timeout 300 mplayer ...' for 5 minute long streaming
 alias mpvh="mpv --list-options|less"
-alias selfie="mplayer -vo png -frames 1 tv:// -tv width=1280:height=720" # Take a single 1280x720 picture of your TV input, which is often your webcam
+alias mselfie="mplayer -vo png -frames 1 tv:// -tv width=1280:height=720" # Take a single 1280x720 picture of your TV input, which is often your webcam
 alias mstream=fun_mplayer_stop_stream
 
 # This command will semi-randomly permute your list of MP3s, then pick the first 100 of
@@ -467,6 +468,7 @@ alias architecture="echo $(lsb_release -sri | tr '\n' ' ') && echo $(gnome-shell
 # alias trs=fun_translate   # google translator
 alias trs="trans -b"   # google translator
 alias ot=fun_open_thesaurus
+alias lang="less /home/zapata/.dictionaries/language_iso.txt"
 
 # alert                                                                        # {{{2
 
@@ -534,6 +536,8 @@ alias sshkey="ssh-keygen -t rsa -C" # "your_email@example.com"
 alias gst="g st"    # originally mapped to GNU Smalltalk
 alias gcl="g cl"
 alias gaa="g aa"
+
+alias grmign="grmc && gca 'remove stashed, ignored files'"  # http://manofhustle.com/2014/05/11/remove-files-from-git-addingupdating-gitignore/
 alias gig=fun_gitignore
 # alias grema="g rema"
 
@@ -1001,8 +1005,8 @@ fun_pss() {
 # fun: ls - sort content by size                                               # {{{3
 
 fun_dus () {
-du --max-depth=0 -k * 
-sort -rn 
+du --max-depth=0 -k *
+sort -rn
 awk '{
 if($1>=1024*1024) {size=$1/1024/1024; unit="G"}
 else if($1>=1024) {size=$1/1024; unit="M"}
@@ -1012,10 +1016,10 @@ else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }
 
 fun_dsp() {
     # Diskspace der 50 größten Programme
-    dpkg-query --show --showformat='${Package;-50}\t${Installed-Size}\n' 
-    sort -k 2 -n 
-    grep -v deinstall 
-    awk '{printf "%.3f MB \t %s\n", $2/(1024), $1}' 
+    dpkg-query --show --showformat='${Package;-50}\t${Installed-Size}\n'
+    sort -k 2 -n
+    grep -v deinstall
+    awk '{printf "%.3f MB \t %s\n", $2/(1024), $1}'
     tail -n 300
 }
 
@@ -1087,7 +1091,7 @@ fun_loop_pdflatex() {
     do
         # http://linux.about.com/od/Bash_Scripting_Solutions/a/How-To-Write-Bash-For-Loops.htm
         while [[ $time -gt 0 ]]
-        do 
+        do
             echo $time
             (( time-- ))
             sleep 1
@@ -1112,7 +1116,7 @@ fun_loop_pdflatex() {
 #             # notify-send "Backup später durchführen!"
 #             # exit 1
 #         fi
-# 
+#
 #     done
 
 }
