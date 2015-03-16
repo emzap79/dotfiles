@@ -6,7 +6,7 @@
 "query:Reddit: tags =~ \"999. Reddit\" and tags =~ \"inbox\""                                                    "00. Filter"
 # Angebote            {{{2
 "query:Ebooks: tags =~ \"998. angebote\" and (title =~ \" ebook\" and title !~ \"ebookers\")"                    "00. Filter"
-"query:Wäscheständer: tags =~ \"angebote\" and (title =~ \"wäscheständer\")"                                     "00. Filter"
+"query:Wacom: tags =~ \"998. angebote\" and (title =~ \" wacom\")"                    "00. Filter"
 # Linux               {{{2
 "query:StackExch: tags =~ \"999. StackExch\" and (tag =~ \"questions\")"                                         "00. Filter"
 # Aktien
@@ -234,14 +234,11 @@ http://www.nba.com/mavericks/rss.xml                                    "999. Sp
 http://feeds.gawker.com/lifehacker/full                            "999. Other - Lifehacker"
 
 # Style               {{{2
-http://feeds.feedburner.com/likesketch?format=xml                  "999. Style - Drawing"
-http://feeds.feedburner.com/artlessononline?format=xml                  "999. Style - Drawing"
+http://feeds.feedburner.com/likesketch?format=xml                  "998. Style - Drawing"
+http://feeds.feedburner.com/artlessononline?format=xml                  "998. Style - Drawing"
 
 # Angebote            {{{2
-# 999                 {{{3
 http://www.discounto.de/Discounter/get.rss20                                          "998. Angebote - Sonstige"
-
-# 998                 {{{3
 http://ws.audioscrobbler.com/2.0/user/S_Bolivar/podcast.rss                           "998. Angebote - Sonstige"
 http://feeds2.feedburner.com/mydealz                                                  "998. Angebote - Sonstige"
 http://feeds.feedburner.com/schnaeppchenfuchs                                         "998. Angebote - Sonstige"

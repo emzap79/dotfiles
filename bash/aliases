@@ -51,9 +51,9 @@ alias chm="chmod 755"
 # show size of current folder/subfolder/dotfiles
 alias du='du -h'
 alias duf=fun_dus
-# alias dufs="du --max-depth=1 -k | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
-# alias dufss="du -hsx * | sort -rh | head -10"  # http://www.commandlinefu.com/commands/view/13328/provide-the-ten-largest-subfolders-in-the-current-folder
-# alias dufsss="du -ks .?* | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
+alias dufs="du --max-depth=1 -k | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
+alias dufss="du -hsx * | sort -rh | head -10"  # http://www.commandlinefu.com/commands/view/13328/provide-the-ten-largest-subfolders-in-the-current-folder
+alias dufsss="du -ks .?* | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
 
 # cd                                                                           # {{{2
 
@@ -74,6 +74,7 @@ alias cdpg="cd $HOME/.podget"
 alias cdmutt="cd $HOME/.mutt"
 alias cdmus="cd $HOME/Musik"
 alias cdcm="cd $HOME/.cmus"
+alias cdkrita="cd $HOME/.kde/share/kde4/apps/krita"
 alias cdlog="cd $HOME/.logfiles"
 alias cdgc="cd $HOME/.gitclones"
 alias cdsr="cd $HOME/.mozilla/firefox/cxt887c7.default/searchplugins"   # Mozilla Searchplugins
@@ -776,7 +777,7 @@ fun_vim_passw() {
         device="Festplatte"
     fi
         echo ""
-        read -p "Zugriff auf $device [Enter]"
+        read -p "Zugriff auf $device [Enter] "
     /usr/bin/vim --noplugin -u $FILEDIR/_vimrc $FILEDIR/_config.pw
 }
 

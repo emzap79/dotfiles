@@ -5,23 +5,10 @@
 " File: vimrc_mappings
 " Author: Jonas Petong
 " Description: vim mapping configuration
-" Last Modified: September 19, 2014
+" Last Modified: März 12, 2015
 
-" Conflicting Mappings                                                         {{{1
-" Https://Www.Reddit.Com/R/Vim/Comments/2o53tb/Issues_with_key_mappings_and_various_plugins/Cmjsiwj
-"
-" In Some Cases, Som Keymappings Will Conflict With Some Plugins So That
-" They'Re Not Executable At All. In Such Occasions It'S Regardable To Look Out
-" For The Conflicting Mapping By Executing:
-"
-" :Verb Map <Mapping>, Where " <Mapping> Has To Get Replaced By The Regarding
-" Keymap, Eg. Gf
-
-" Basic Mappings                                                               {{{1
-
-" config                                                                       {{{2
-
-" mapping examples                                                             {{{2
+" Font Matter                                                                  {{{1
+" Mapping Examples                                                             {{{2
 
 " map (all modes)
 " vnoremap (visual mode)
@@ -41,6 +28,18 @@
 " a workaround for the <Alt> vs. <ESC> issue:
 " http://stackoverflow.com/a/10216459
 
+" Conflicting Mappings                                                         {{{2
+" Https://Www.Reddit.Com/R/Vim/Comments/2o53tb/Issues_with_key_mappings_and_various_plugins/Cmjsiwj
+"
+" In Some Cases, Som Keymappings Will Conflict With Some Plugins So That
+" They'Re Not Executable At All. In Such Occasions It'S Regardable To Look Out
+" For The Conflicting Mapping By Executing:
+"
+" :Verb Map <Mapping>, Where " <Mapping> Has To Get Replaced By The Regarding
+" Keymap, Eg. Gf
+
+" Basic Mappings                                                               {{{1
+" config                                                                       {{{2
 " set leader-keys                                                              {{{2
 
 " change the mapleader from \ to,
@@ -52,42 +51,22 @@ let maplocalleader=","
 " xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 " f-keys                                                                       {{{2
-" <f1>  " show current directory                                               {{{3
+" <f1>  " show f-key mappings                                                  {{{3
 
-" change local buffer to current dir
-" nnoremap <f1> :echom "s: cd to path \| c: cd to localpath \| a: show full path"<cr>
-" inoremap <f1><esc>:echom "s: cd to path \| c: cd to localpath \| a: show full path"<cr>
-" vnoremap <f1><esc>:echom "s: cd to path \| c: cd to localpath \| a: show full path"<cr>
+" show f-key mappings
+nnoremap <f1> :echom "f2: save and source file \| f3: bufferlist \| f4: open file \| f5: open mru file \| f6: cd to curr \| f7: language tool \| f8: spell-check \| f9: textwidth \| f10: enable YCM"<cr>
+inoremap <f1><esc> :echom "f2: save and source file \| f3: bufferlist \| f4: open file \| f5: open mru file \| f6: cd to curr \| f7: language tool \| f8: spell-check \| f9: textwidth \| f10: enable YCM"<cr>
+vnoremap <f1><esc> :echom "f2: save and source file \| f3: bufferlist \| f4: open file \| f5: open mru file \| f6: cd to curr \| f7: language tool \| f8: spell-check \| f9: textwidth \| f10: enable YCM"<cr>
 
-" change local buffer to current dir
-nnoremap <F1> :cd %:p:h<cr>:echo expand('%:p')<cr>
-inoremap <F1> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
-vnoremap <F1> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
-
-" change to current dir
-nnoremap <C-F1> :lcd %:p:h<cr>:echo expand('%:p')<cr>
-inoremap <C-F1> <esc>:lcd %:p:h<cr>:echo expand('%:p')<cr>
-vnoremap <C-F1> <esc>:lcd %:p:h<cr>:echo expand('%:p')<cr>
-
-" show full path
-nnoremap <s-a-f1> :echo expand('%:p')<cr>
-inoremap <s-a-f1> <esc>:echo expand('%:p')<cr>
-vnoremap <s-a-f1> <esc>:echo expand('%:p')<cr>
-
-" <f2>  " save file                                                            {{{3
-
-" echo options
-nnoremap <A-f2> :echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
-inoremap <a-f2><esc>:echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
-vnoremap <a-f2><esc>:echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
+" <f2>  " save and source file                                                 {{{3
 
 " save file and source vimrc
 if has("gui_running")
-nnoremap <silent><f2> :exe "w \| so $MYGVIMRC \| %foldo!"<cr>
-inoremap <silent><f2> <esc>:exe "w \| so $MYGVIMRC \| %foldo!"<cr>
+    nnoremap <silent><f2> :exe "w \| so $MYGVIMRC \| %foldo!"<cr>
+    inoremap <silent><f2> <esc>:exe "w \| so $MYGVIMRC \| %foldo!"<cr>
 else
-nnoremap <silent><f2> :exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
-inoremap <silent><f2> <esc>:exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
+    nnoremap <silent><f2> :exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
+    inoremap <silent><f2> <esc>:exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
 endif
 
 "save & exit
@@ -96,12 +75,6 @@ inoremap <c-f2> <esc>:mks!<cr>:wqall!<cr>
 
 " <f3>  " bufferlist                                                           {{{3
 
-" echo options
-nnoremap <f3> :echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
-inoremap <f3><esc>:echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
-vnoremap <f3><esc>:echom "s: save file and source vimrc \| c: make session and source vimrc"<cr>
-
-" " select buffer
 "call fuzzyfinder
 nnoremap <f3> :FufBuffer<cr>
 inoremap <f3> <esc>:FufBuffer<cr>
@@ -130,7 +103,13 @@ inoremap <c-f4> <esc>:FufFile<cr>
 nnoremap <f5> :FufMruFile<cr>
 inoremap <f5> <esc>:FufMruFile<cr>
 
-" <f6>  " syntax                                                               {{{3
+" <f6>  " change to current dir                                                {{{3
+
+" change to current dir
+nnoremap <F6> :cd %:p:h<cr>:echo expand('%:p')<cr>
+inoremap <F6> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
+vnoremap <F6> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
+
 " func: ToggleSyntax                                                           {{{4
 
 fun! ToggleSyntax()
@@ -154,24 +133,23 @@ nnoremap  <f7>  :'{,'}LanguageToolCheck<cr>:vertical  lopen  80<CR>
 vnoremap  <f7>  :LanguageToolCheck<cr>:vertical  lopen  80<CR>
 
 " <f8>  " spellcheck                                                           {{{3
-
-" switch spellcheck languages
 " func: toggle languages                                                       {{{4
 " http://vim.wikia.com/wiki/toggle_spellcheck_with_function_keys
 
 let b:mylang=0
 let g:mylanglist=["nospell","de_de","en_us","es","de_de,en_us"]
 fun! ToggleSpell()
-let b:mylang=b:mylang+1
-if b:mylang>=len(g:mylanglist) | let b:mylang=0 | endif
-if b:mylang==0
-setlocal nospell
-else
-execute "setlocal spell spelllang=".get(g:mylanglist, b:mylang)
-endif
-echo "spell checking language:" g:mylanglist[b:mylang]
+    let b:mylang=b:mylang+1
+    if b:mylang>=len(g:mylanglist) | let b:mylang=0 | endif
+    if b:mylang==0
+        setlocal nospell
+    else
+        execute "setlocal spell spelllang=".get(g:mylanglist, b:mylang)
+    endif
+    echo "spell checking language:" g:mylanglist[b:mylang]
 endfun
 
+" switch spellcheck languages
 nnoremap <f8> :call ToggleSpell()<cr>
 inoremap <f8> <c-o>:call ToggleSpell()<cr>
 
@@ -188,25 +166,24 @@ nnoremap <s-m-f8> :call AutoCorrect()<CR>
 vnoremap <s-m-f8> <ESC>:call AutoCorrect()<CR>
 inoremap <s-m-f8> <ESC>:call AutoCorrect()<CR>
 
-" <f9>  " toggle linewrapping, -numbers and foldcolumn etc.                    {{{3
-
-" func: toggle through textwidth                                               {{{4
+" <f9>  " toggling options                                                     {{{3
+" func: toggle textwidth                                                       {{{4
 
 let b:mytextwidth=0
 let g:mytextwidthlist=["0","72","80","115"]
 fun! ToggleTextwidth()
-call clearmatches()
-let b:mytextwidth=b:mytextwidth+1
-if b:mytextwidth>=len(g:mytextwidthlist) | let b:mytextwidth=0 | endif
-if b:mytextwidth==0
-setlocal textwidth=0
-else
-execute "setlocal textwidth=".get(g:mytextwidthlist, b:mytextwidth)
-execute "call matchadd('ColorColumn', '\\%" . &textwidth . "v', 100)"
-endif
-if &fo =~ "t" | echo "wrap" | else | echo "nowrap" | endif
-echo "current textwidth:" g:mytextwidthlist[b:mytextwidth]
-redraw
+    call clearmatches()
+    let b:mytextwidth=b:mytextwidth+1
+    if b:mytextwidth>=len(g:mytextwidthlist) | let b:mytextwidth=0 | endif
+    if b:mytextwidth==0
+        setlocal textwidth=0
+    else
+        execute "setlocal textwidth=".get(g:mytextwidthlist, b:mytextwidth)
+        execute "call matchadd('ColorColumn', '\\%" . &textwidth . "v', 100)"
+    endif
+    if &fo =~ "t" | echo "wrap" | else | echo "nowrap" | endif
+    echo "current textwidth:" g:mytextwidthlist[b:mytextwidth]
+    redraw
 endfun
 
 nnoremap <f9> :call ToggleTextwidth()<CR>
@@ -214,18 +191,18 @@ vnoremap <f9> <ESC>:call ToggleTextwidth()<CR>
 inoremap <f9> <ESC>:call ToggleTextwidth()<CR>
 
 "toggle linewrapping
-" func: ToggleWrap                                                             {{{4
+" func: toggle wrap                                                             {{{4
 
 fun! ToggleWrap()
-if &fo =~ "t"
-set fo-=t
-call clearmatches()
-else
-set fo+=t
-endif
-if &fo =~ "t" | echo "wrap" | else | echo "nowrap" | endif
-echo "current textwidth:" &g:textwidth
-redraw
+    if &fo =~ "t"
+        set fo-=t
+        call clearmatches()
+    else
+        set fo+=t
+    endif
+    if &fo =~ "t" | echo "wrap" | else | echo "nowrap" | endif
+    echo "current textwidth:" &g:textwidth
+    redraw
 endfun
 
 nnoremap <s-f9> :call ToggleWrap()<cr>
@@ -235,49 +212,31 @@ nnoremap <s-f9> <esc>:call ToggleWrap()<cr>
 " func: ToggleFoldColumn
 
 fun! ToggleFoldColumn()
-if &foldcolumn
-setlocal foldcolumn=0
-else
-setlocal foldcolumn=4
-endif
+    if &foldcolumn
+        setlocal foldcolumn=0
+    else
+        setlocal foldcolumn=4
+    endif
 endfun
 
 nnoremap <c-f9> :call ToggleFoldColumn()<cr>
 vnoremap <c-f9> <ESC>:call ToggleFoldColumn()<cr>
 inoremap <c-f9> <ESC>:call ToggleFoldColumn()<cr>
 
-" <f10>  " enable plugins                                                      {{{3
+" <f10>  " enable YouCompleteMe                                                      {{{3
 
 " toggle YouCompleteMe
 nnoremap <f10> :call ToggleYCM()<CR>
 inoremap <f10> <ESC>:call ToggleYCM()<CR>
 
-" "Enable Neocomplete <Plugin>                                                 {{{4
-
-" nnoremap <S-f10> :NeoCompleteToggle<cr>
-" vnoremap <S-f10> <esc>:NeoCompleteToggle<cr>
-
-"nnoremap <f10> :NeoCompleteEnable<CR>
-"inoremap <f10> <ESC>:NeoCompleteEnable<CR>
-"vnoremap <f10> <ESC>:NeoCompleteEnable<CR>
-
-" note: disabled due to performance issues!
-"""""""""""""""""""""""""""""""""""""""""""
-" "call fuzzyfinder for mru-files
-" nnoremap <f10> :fufmrufile<cr>
-" inoremap <f10> <esc>:fufmrufile<cr>
-
-" " call most recent used commands
-" nnoremap <s-f10> :fufmrucmd<cr>
-" inoremap <s-f10> <esc>:fufmrucmd<cr>
-"""""""""""""""""""""""""""""""""""""""""""
-
-" <f11> " *** no functions yet***                                              {{{3
+" <f11> " *** no functions yet ***                                             {{{3
+" *** no functions yet ***
+" *** no functions yet ***
 " <f12> " *** no functions yet***                                              {{{3
-
+" *** no functions yet ***
+" *** no functions yet ***
 
 " basic key remaps                                                             {{{2
-
 " save file in normal-mode                                                     {{{2
 
 " save file by hitting <space>
@@ -293,7 +252,6 @@ nnoremap <Leader>P "+P
 vnoremap <Leader>P "+P
 
 " visual mode mappings                                                         {{{2
-
 " change visual mappings                                                       {{{2
 
 nnoremap v <C-V>
@@ -308,8 +266,8 @@ vnoremap <C-V> <S-V>
 
 " http://unix.stackexchange.com/a/58748
 command! -range Vis call setpos('.', [0,<line1>,0,0]) |
-\ exe "normal V" |
-\ call setpos('.', [0,<line2>,0,0])
+            \ exe "normal V" |
+            \ call setpos('.', [0,<line2>,0,0])
 
 " yank/delete from cursor to eol with Y                                        {{{2
 
@@ -360,7 +318,7 @@ vnoremap <C-v> <Plug>(expand_region_shrink)
 nnoremap <leader>lt  :call ListTrans_toggle_format()<CR>
 vnoremap <leader>lt :call ListTrans_toggle_format('visual')<CR>
 
-" vim-abolish <plugin>                                                           {{{2
+" vim-abolish <plugin>                                                         {{{2
 
 nnoremap <leader>ab :Abolish!<space>
 vnoremap <leader>ab <ESC>:Abolish!<space>
@@ -466,14 +424,14 @@ inoremap <silent><localleader>mn <ESC>:NoShowMarks<CR>
 
 " delete marks
 nnoremap <silent><leader>md :exe 'delm! \|
-\ delm A-Z0-9 \|
-\ echom "all marks removed!"'<CR>
+            \ delm A-Z0-9 \|
+            \ echom "all marks removed!"'<CR>
 vnoremap <silent><leader>md <ESC>:exe 'delm! \|
-\ delm A-Z0-9 \|
-\ echom "all marks removed!"'<CR>
+            \ delm A-Z0-9 \|
+            \ echom "all marks removed!"'<CR>
 inoremap <silent><localleader>md <ESC>:exe 'delm! \|
-\ delm A-Z0-9 \|
-\ echom "all marks removed!"'<CR>
+            \ delm A-Z0-9 \|
+            \ echom "all marks removed!"'<CR>
 
 " :[count]ShowMarksOnce
 " Display marks for [count] Cursorhold
@@ -509,7 +467,7 @@ inoremap <leader>bi <esc> :BundleInstall<cr>
 nnoremap <leader>bu :BundleInstall!<cr>
 inoremap <leader>bu <esc>:BundleInstall!<cr>
 
-" " tCommenter <plugin>                                                          {{{2
+" " tCommenter <plugin>                                                        {{{2
 
 " nmap cy :normal yygcc<cr>
 " nmap cp :normal yygccp<cr>
@@ -541,8 +499,8 @@ vnoremap <silent><leader>fk :normal pzf'a<cr>
 " change to next tab                                                           {{{3
 
 if has("gui_running")
-nnoremap <s-space> :tabn<cr>
-nnoremap <c-@> <s-space>
+    nnoremap <s-space> :tabn<cr>
+    nnoremap <c-@> <s-space>
 endif
 
 " window-movements                                                             {{{2
@@ -556,22 +514,22 @@ endif
 " type,mw move to the window you want to swap type,pw
 " voila! swapped buffers without screwing up your window layout!
 fun! MarkWindowSwap()
-let g:markedwinnum = winnr()
+    let g:markedwinnum = winnr()
 endfun
 
 fun! DoWindowSwap()
-mark destination
-let curnum = winnr()
-let curbuf = bufnr( "%" )
-exe g:markedwinnum. "wincmd w"
-" switch to source and shuffle dest->source
-let markedbuf = bufnr( "%" )
-" hide and open so that we aren't prompted and keep history
-exe 'hide buf' curbuf
-" switch to dest and shuffle source->dest
-exe curnum. "wincmd w"
-" hide and open so that we aren't prompted and keep history
-exe 'hide buf' markedbuf
+    mark destination
+    let curnum = winnr()
+    let curbuf = bufnr( "%" )
+    exe g:markedwinnum. "wincmd w"
+    " switch to source and shuffle dest->source
+    let markedbuf = bufnr( "%" )
+    " hide and open so that we aren't prompted and keep history
+    exe 'hide buf' curbuf
+    " switch to dest and shuffle source->dest
+    exe curnum. "wincmd w"
+    " hide and open so that we aren't prompted and keep history
+    exe 'hide buf' markedbuf
 endfun
 
 nnoremap <silent> <leader>mw :call MarkWindowSwap()<cr>
@@ -606,36 +564,36 @@ vnoremap <leader>ss <ESC>:lcd %:p:h<CR>:so Session.vim<CR>
 
 " http://stackoverflow.com/a/1536094
 function! Wipeout()
-" list of *all* buffer numbers
-let l:buffers = range(1, bufnr('$'))
+    " list of *all* buffer numbers
+    let l:buffers = range(1, bufnr('$'))
 
-" what tab page are we in?
-let l:currentTab = tabpagenr()
-try
-" go through all tab pages
-let l:tab = 0
-while l:tab < tabpagenr('$')
-let l:tab += 1
+    " what tab page are we in?
+    let l:currentTab = tabpagenr()
+    try
+        " go through all tab pages
+        let l:tab = 0
+        while l:tab < tabpagenr('$')
+            let l:tab += 1
 
-" go through all windows
-let l:win = 0
-while l:win < winnr('$')
-let l:win += 1
-" whatever buffer is in this window in this tab, remove it from
-" l:buffers list
-let l:thisbuf = winbufnr(l:win)
-call remove(l:buffers, index(l:buffers, l:thisbuf))
-endwhile
-endwhile
+            " go through all windows
+            let l:win = 0
+            while l:win < winnr('$')
+                let l:win += 1
+                " whatever buffer is in this window in this tab, remove it from
+                " l:buffers list
+                let l:thisbuf = winbufnr(l:win)
+                call remove(l:buffers, index(l:buffers, l:thisbuf))
+            endwhile
+        endwhile
 
-" if there are any buffers left, delete them
-if len(l:buffers)
-execute 'bwipeout' join(l:buffers)
-endif
-finally
-" go back to our original tab page
-execute 'tabnext' l:currentTab
-endtry
+        " if there are any buffers left, delete them
+        if len(l:buffers)
+            execute 'bwipeout' join(l:buffers)
+        endif
+    finally
+        " go back to our original tab page
+        execute 'tabnext' l:currentTab
+    endtry
 
 endfunction
 
@@ -670,23 +628,23 @@ nnoremap <silent> <Leader>- :exe "vert resize " . (winwidth(0) * 2/3)<CR>
 
 "search wikipedia from within vim                                              {{{4
 nnoremap <leader>fw <esc>:! firefox
-\ 'http://de.wikipedia.org/w/index.php?search=<c-r>=Wikipedia()<cr>'
-\ <cr><cr>
+            \ 'http://de.wikipedia.org/w/index.php?search=<c-r>=Wikipedia()<cr>'
+            \ <cr><cr>
 
 "search google from within vim                                                 {{{4
 nnoremap <leader>fg <esc>:! firefox
-\ 'http://google.de/search?q=<c-r>=Google()<cr>'
-\ <cr><cr>
+            \ 'http://google.de/search?q=<c-r>=Google()<cr>'
+            \ <cr><cr>
 
 "search tex-stackexchange from within vim                                      {{{4
 nnoremap <leader>ft <esc>:! firefox
-\ 'http://tex.stackexchange.com/search?q=<c-r>=Tex()<cr>'
-\ <cr><cr>
+            \ 'http://tex.stackexchange.com/search?q=<c-r>=Tex()<cr>'
+            \ <cr><cr>
 
 "search stackoverflow from within vim                                          {{{4
 nnoremap <leader>fs <esc>:! firefox
-\ 'http://stackoverflow.com/search?q=<c-r>=StackOverflow()<cr>'
-\ <cr><cr>
+            \ 'http://stackoverflow.com/search?q=<c-r>=StackOverflow()<cr>'
+            \ <cr><cr>
 
 " offline searches                                                             {{{3
 
@@ -783,26 +741,26 @@ vnoremap <leader>cw :w !detex \| wc -w<cr>
 " https://github.com/panozzaj/conf/blob/master/common/etc/.vimrc#L176
 
 if has("mac") || has("gui_macvim") || has("gui_mac")
-nnoremap <leader>exp :let @*=expand("%")<CR>     " relative path  (src/foo.txt)
-nnoremap <leader>exP :let @*=expand("%:p")<CR>   " absolute path  (/something/src/foo.txt)
-nnoremap <leader>exf :let @*=expand("%:t")<CR>   " filename       (foo.txt)
-nnoremap <leader>exh :let @*=expand("%:p:h")<CR> " directory name (/something/src)
+    nnoremap <leader>exp :let @*=expand("%")<CR>     " relative path  (src/foo.txt)
+    nnoremap <leader>exP :let @*=expand("%:p")<CR>   " absolute path  (/something/src/foo.txt)
+    nnoremap <leader>exf :let @*=expand("%:t")<CR>   " filename       (foo.txt)
+    nnoremap <leader>exh :let @*=expand("%:p:h")<CR> " directory name (/something/src)
 endif
 if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
-nnoremap <leader>exp :let @+=expand("%")<CR>     " relative path  (src/foo.txt)
-nnoremap <leader>exP :let @+=expand("%:p")<CR>   " absolute path  (/something/src/foo.txt)
-nnoremap <leader>exf :let @+=expand("%:t")<CR>   " filename       (foo.txt)
-nnoremap <leader>exh :let @+=expand("%:p:h")<CR> " directory name (/something/src)
+    nnoremap <leader>exp :let @+=expand("%")<CR>     " relative path  (src/foo.txt)
+    nnoremap <leader>exP :let @+=expand("%:p")<CR>   " absolute path  (/something/src/foo.txt)
+    nnoremap <leader>exf :let @+=expand("%:t")<CR>   " filename       (foo.txt)
+    nnoremap <leader>exh :let @+=expand("%:p:h")<CR> " directory name (/something/src)
 endif
 
 " copy matches to register                                                     {{{3
 
 " http://vim.wikia.com/wiki/Copy_search_matches
 function! CopyMatches(reg)
-let hits = []
-%s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/ge
-let reg = empty(a:reg) ? '+' : a:reg
-execute 'let @'.reg.' = join(hits, "\n") . "\n"'
+    let hits = []
+    %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/ge
+    let reg = empty(a:reg) ? '+' : a:reg
+    execute 'let @'.reg.' = join(hits, "\n") . "\n"'
 endfunction
 command! -register CopyMatches call CopyMatches(<q-reg>)
 
@@ -838,18 +796,18 @@ vnoremap <leader>ad <sid>:call AddAbbr()<cr>
 
 "abbreviation
 fun! AddAbbr()
-normal! byw
-let stringchar = lh#visual#selection()
-let val = input("enter the abbreviation you wish to use for '". stringchar. "' :")
-exec "ia" stringchar val
-silent call SaveAbbr(stringchar, val)
+    normal! byw
+    let stringchar = lh#visual#selection()
+    let val = input("enter the abbreviation you wish to use for '". stringchar. "' :")
+    exec "ia" stringchar val
+    silent call SaveAbbr(stringchar, val)
 endfun
 
 fun! SaveAbbr(val, abbr)
-redir >>~/.vim/ftplugin/tex.vim
-redir >>~/.vim/ftplugin/noweb.vim
-echo "iab" a:abbr a:val
-redir end
+    redir >>~/.vim/ftplugin/tex.vim
+    redir >>~/.vim/ftplugin/noweb.vim
+    echo "iab" a:abbr a:val
+    redir end
 endfun
 
 " make # and * work in visual mode                                             {{{2
@@ -859,22 +817,22 @@ vnoremap <silent> * :call VisualSearch('f')<CR>
 vnoremap <silent> # :call VisualSearch('b')<CR>
 " From an idea by Michael Naumann
 function! VisualSearch(direction) range
-let l:saved_reg = @"
-execute "normal! vgvy"
+    let l:saved_reg = @"
+    execute "normal! vgvy"
 
-let l:pattern = escape(@", '\\/.*$^~[]')
-let l:pattern = substitute(l:pattern, "\n$", "", "")
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
 
-if a:direction == 'f'
-execute "normal ?" . l:pattern . "^M"
-elseif a:direction == 'gv'
-call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-elseif a:direction == 'b'
-execute "normal /" . l:pattern . "^M"
-endif
+    if a:direction == 'f'
+        execute "normal ?" . l:pattern . "^M"
+    elseif a:direction == 'gv'
+        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
+    elseif a:direction == 'b'
+        execute "normal /" . l:pattern . "^M"
+    endif
 
-let @/ = l:pattern
-let @" = l:saved_reg
+    let @/ = l:pattern
+    let @" = l:saved_reg
 endfunction
 
 " grep for word in dir                                                         {{{2
@@ -930,8 +888,8 @@ vnoremap <leader>cx <ESC>:XeLatexCompilePDF<CR>
 " http://stackoverflow.com/a/20799071
 " pandoc , markdown
 command! -nargs=* RunSilent
-\ | execute ':silent !'.'<args>'
-\ | execute ':redraw!'
+            \ | execute ':silent !'.'<args>'
+            \ | execute ':redraw!'
 nnoremap <Leader>cp :RunSilent pandoc -o /tmp/vim-pandoc-out.pdf %<CR>
 nnoremap <Leader>pp :RunSilent xdg-open /tmp/vim-pandoc-out.pdf<CR>
 
@@ -973,9 +931,9 @@ nnoremap <leader>m :'a,'s
 
 " Use Ctrl+Space to do omnicompletion:
 if has("gui_running")
-inoremap <C-Space> <C-x><C-o>
+    inoremap <C-Space> <C-x><C-o>
 else
-inoremap <Nul> <C-x><C-o>
+    inoremap <Nul> <C-x><C-o>
 endif
 
 " Functions & Operator                                                         {{{1
@@ -983,13 +941,13 @@ endif
 " Func: YouCompleteMe <Plugin>                                                 {{{2
 
 fun! ToggleYCM()
-if g:ycm_auto_trigger == 1
-let g:ycm_auto_trigger = 0
-echo "Plugin YCM disabled"
-else
-let g:ycm_auto_trigger = 1
-echo "Plugin YCM enabled"
-endif
+    if g:ycm_auto_trigger == 1
+        let g:ycm_auto_trigger = 0
+        echo "Plugin YCM disabled"
+    else
+        let g:ycm_auto_trigger = 1
+        echo "Plugin YCM enabled"
+    endif
 endfun
 
 " Func: Foldexpressions                                                        {{{2
@@ -997,16 +955,16 @@ endfun
 " fold braces
 " http://vim.wikia.com/wiki/Folding_functions_with_the_prototype_included
 function! FoldBrace()
-if getline(v:lnum+1)[0] == '{'
-return 1
-endif
-if getline(v:lnum) =~ '{'
-return 1
-endif
-if getline(v:lnum)[0] =~ '}'
-return '<1'
-endif
-return -1
+    if getline(v:lnum+1)[0] == '{'
+        return 1
+    endif
+    if getline(v:lnum) =~ '{'
+        return 1
+    endif
+    if getline(v:lnum)[0] =~ '}'
+        return '<1'
+    endif
+    return -1
 endfunction
 
 " Func: Save and Restore Cursorposition                                        {{{2
@@ -1014,63 +972,63 @@ endfunction
 " http://vim.wikia.com/wiki/Maintain_cursor_and_screen_position
 
 function! CurPos(action)
-if a:action == "save"
-let b:saveve = &virtualedit
-let b:savesiso = &sidescrolloff
-set virtualedit=all
-set sidescrolloff=0
-let b:curline = line(".")
-let b:curvcol = virtcol(".")
-let b:curwcol = wincol()
-normal! g0
-let b:algvcol = virtcol(".")
-normal! M
-let b:midline = line(".")
-execute "normal! ".b:curline."G".b:curvcol."|"
-let &virtualedit = b:saveve
-let &sidescrolloff = b:savesiso
-elseif a:action == "restore"
-let b:saveve = &virtualedit
-let b:savesiso = &sidescrolloff
-set virtualedit=all
-set sidescrolloff=0
-execute "normal! ".b:midline."Gzz".b:curline."G0"
-let nw = wincol() - 1
-if b:curvcol != b:curwcol - nw
-execute "normal! ".b:algvcol."|zs"
-let s = wincol() - nw - 1
-if s != 0
-execute "normal! ".s."zl"
-endif
-endif
-execute "normal! ".b:curvcol."|"
-let &virtualedit = b:saveve
-let &sidescrolloff = b:savesiso
-unlet b:saveve b:savesiso b:curline b:curvcol b:curwcol b:algvcol b:midline
-endif
-return ""
+    if a:action == "save"
+        let b:saveve = &virtualedit
+        let b:savesiso = &sidescrolloff
+        set virtualedit=all
+        set sidescrolloff=0
+        let b:curline = line(".")
+        let b:curvcol = virtcol(".")
+        let b:curwcol = wincol()
+        normal! g0
+        let b:algvcol = virtcol(".")
+        normal! M
+        let b:midline = line(".")
+        execute "normal! ".b:curline."G".b:curvcol."|"
+        let &virtualedit = b:saveve
+        let &sidescrolloff = b:savesiso
+    elseif a:action == "restore"
+        let b:saveve = &virtualedit
+        let b:savesiso = &sidescrolloff
+        set virtualedit=all
+        set sidescrolloff=0
+        execute "normal! ".b:midline."Gzz".b:curline."G0"
+        let nw = wincol() - 1
+        if b:curvcol != b:curwcol - nw
+            execute "normal! ".b:algvcol."|zs"
+            let s = wincol() - nw - 1
+            if s != 0
+                execute "normal! ".s."zl"
+            endif
+        endif
+        execute "normal! ".b:curvcol."|"
+        let &virtualedit = b:saveve
+        let &sidescrolloff = b:savesiso
+        unlet b:saveve b:savesiso b:curline b:curvcol b:curwcol b:algvcol b:midline
+    endif
+    return ""
 endfunction
 
 " Func: Get Visual Selection                                                   {{{2
 
 function! GetVisualSelection()
-let old_reg = @v
-normal! gv"vy
-let raw_search = @v
-let @v = old_reg
-return substitute(escape(raw_search, '\/.*$^~[]'), "\n", '\\n', "g")
+    let old_reg = @v
+    normal! gv"vy
+    let raw_search = @v
+    let @v = old_reg
+    return substitute(escape(raw_search, '\/.*$^~[]'), "\n", '\\n', "g")
 endfunction
 
 " Func: Save Folds                                                             {{{2
 " https://github.com/tpope/vim-fugitive/issues/194
 
 function! SaveFolds()
-let match = matchstr(bufname('%'), '^\(\(fugitive.*\)\@!.\)*$')
-if !empty(match)
-au! BufWinLeave silent mkview!
-au! BufWinEnter silent loadview
-silent loadview
-endif
+    let match = matchstr(bufname('%'), '^\(\(fugitive.*\)\@!.\)*$')
+    if !empty(match)
+        au! BufWinLeave silent mkview!
+        au! BufWinEnter silent loadview
+        silent loadview
+    endif
 endfunction
 au BufReadPost * call SaveFolds()
 
@@ -1078,12 +1036,12 @@ au BufReadPost * call SaveFolds()
 
 " http://kba49.wordpress.com/2013/03/21/clear-all-registers-and-macros-in-vim/
 function! ClearRegisters()
-let regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
-let i=0
-while (i<strlen(regs))
-exec 'let @'.regs[i].'=""'
-let i=i+1
-endwhile
+    let regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
+    let i=0
+    while (i<strlen(regs))
+        exec 'let @'.regs[i].'=""'
+        let i=i+1
+    endwhile
 endfunction
 
 command! ClearRegisters call ClearRegisters()
@@ -1092,10 +1050,10 @@ command! ClearRegisters call ClearRegisters()
 
 " http://vim.wikia.com/wiki/Increasing_or_decreasing_numbers?action=edit&section=3
 function! AddSubtract(char, back)
-let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
-call search(pattern, 'cw' . a:back)
-execute 'normal! ' . v:count1 . a:char
-silent! call repeat#set(":\<c-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<cr>")
+    let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
+    call search(pattern, 'cw' . a:back)
+    execute 'normal! ' . v:count1 . a:char
+    silent! call repeat#set(":\<c-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<cr>")
 endfunction
 nnoremap <silent>         <c-a> :<c-u>call AddSubtract("\<c-a>", '')<cr>
 nnoremap <silent> <leader><c-a> :<c-u>call AddSubtract("\<c-a>", 'b')<cr>
@@ -1105,10 +1063,10 @@ nnoremap <silent> <leader><c-x> :<c-u>call AddSubtract("\<c-x>", 'b')<cr>
 " Func: Restore Key Position                                                   {{{2
 
 function! ResCur()
-if line("'\"") <= line("$")
-normal! g`"
-return 1
-endif
+    if line("'\"") <= line("$")
+        normal! g`"
+        return 1
+    endif
 endfunction
 
 " Func: Execute Online Searches (Eg. Wikipedia)                                {{{2
@@ -1116,34 +1074,34 @@ endfunction
 "" found on http://alexanderle.com/blog/2012/my-vimrc.html
 " key mapping for tex-stackexchange search
 fun! Tex()
-call inputsave()
-let searchterm = input('stackexchange: ')
-call inputrestore()
-return searchterm
+    call inputsave()
+    let searchterm = input('stackexchange: ')
+    call inputrestore()
+    return searchterm
 endfun
 
 " key mapping for google search
 fun! Google()
-call inputsave()
-let searchterm = input('google: ')
-call inputrestore()
-return searchterm
+    call inputsave()
+    let searchterm = input('google: ')
+    call inputrestore()
+    return searchterm
 endfun
 
 " key mapping for wikipedia search
 fun! Wikipedia()
-call inputsave()
-let searchterm = input('wikipedia: ')
-call inputrestore()
-return searchterm
+    call inputsave()
+    let searchterm = input('wikipedia: ')
+    call inputrestore()
+    return searchterm
 endfun
 
 " key mapping for stackoverflow search
 fun! StackOverflow()
-call inputsave()
-let searchterm = input('stackoverflow: ')
-call inputrestore()
-return searchterm
+    call inputsave()
+    let searchterm = input('stackoverflow: ')
+    call inputrestore()
+    return searchterm
 endfun
 
 " Oper: Grep                                                                   {{{2
@@ -1151,34 +1109,34 @@ endfun
 " Operator to 'grep' word(s) in current directory
 " http://learnvimscriptthehardway.stevelosh.com/chapters/34.html
 function! s:GrepOperator(type)
-let saved_unnamed_register = @@
+    let saved_unnamed_register = @@
 
-if a:type ==# 'v'
-normal! `<v`>y
-elseif a:type ==# 'char'
-normal! `[v`]y
-else
-return
-endif
+    if a:type ==# 'v'
+        normal! `<v`>y
+    elseif a:type ==# 'char'
+        normal! `[v`]y
+    else
+        return
+    endif
 
-silent execute "grep! -R " . shellescape(@@) . " ."
-copen
+    silent execute "grep! -R " . shellescape(@@) . " ."
+    copen
 
-let @@ = saved_unnamed_register
+    let @@ = saved_unnamed_register
 endfunction
 
 " Oper: Open URL                                                               {{{2
 function! s:UrlOperator(type)
-let saved_unnamed_register = @@
-if a:type ==# 'v'
-normal! `<v`>y
-elseif a:type ==# 'char'
-normal! `[v`]y
-else
-return
-endif
-silent execute "!firefox " . shellescape(@@)
-let @@ = saved_unnamed_register
+    let saved_unnamed_register = @@
+    if a:type ==# 'v'
+        normal! `<v`>y
+    elseif a:type ==# 'char'
+        normal! `[v`]y
+    else
+        return
+    endif
+    silent execute "!firefox " . shellescape(@@)
+    let @@ = saved_unnamed_register
 endfunction
 
 " s/^.\{-}\ze,\s\d\d\d\d\.\s/\\author{&},\r/g | s/,\s\(\d\{4\}\)\./\\year{\1\r/g | s/^\s\(.\{-}\)\s\(\d*\),/\\title{\1},\\journal{},\r\\number{\2},\r/g | s/^s\(\d.*\)\.$/\\pages{\1}/g s\r},

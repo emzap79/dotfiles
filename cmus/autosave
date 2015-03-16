@@ -1,4 +1,4 @@
-set aaa_mode=all
+set aaa_mode=artist
 set altformat_current= %F 
 set altformat_playlist= %f%= %g %d 
 set altformat_title=%f
@@ -65,7 +65,7 @@ set passwd=
 set pl_sort=
 set play_library=false
 set play_sorted=false
-set repeat=false
+set repeat=true
 set repeat_current=false
 set replaygain=track
 set replaygain_limit=true

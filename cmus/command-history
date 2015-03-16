@@ -1,4 +1,7 @@
+q
 clear 
+quit 
+exit
 add ~/tmp/music/
 lqueue *
 lqueue all

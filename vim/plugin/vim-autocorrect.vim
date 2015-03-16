@@ -6,6 +6,8 @@ fun! TexAbbreviations()
     """ abbreviations
     iab va v.~a.
     iab uu u.~U.
+    iab zb z.~b.
+    iab Zb Z.~b.
     iab dh d.~h.
     iab Dh D.~h.
     iab eg e.~g.
@@ -22,7 +24,8 @@ endfun
 au! filetype tex,latex call TexAbbreviations()
 
 fun! MailAbbreviations()
-    iab addr Beckhausstr. 11, c/o Stefan Ickler, 44892 Bochum<C-R>
+    " iab addr Beckhausstr. 11, c/o Stefan Ickler, 44892 Bochum<C-R>
+    iab addr Dellplatz 7, c/o Zimmer 316, 47051 Duisburg<C-R>
     iab sgdh Sehr geehrte Damen und Herren<C-R>,
     iab sgh Sehr geehrter Herr<C-R>,
     iab sgf Sehr geehrte Frau<C-R>,
@@ -32,10 +35,10 @@ fun! MailAbbreviations()
                 \<CR>Jonas <C-R>
     iab bg Beste Grüße,
                 \<CR>Jonas <C-R>
-    iab mfg Mit freundlichen Grüßen,
-                \<CR>Jonas <C-R>
-    iab fg Freundliche Grüßen,
-                \<CR>Jonas <C-R>
+    iab mfg Mit freundlichen Grüßen
+                \<CR><CR>Jonas Petong<CR><CR><C-R>
+    iab fg freundliche Grüße
+                \<CR><CR>Jonas Petong<CR><CR><C-R>
 endf
 call MailAbbreviations()
 
