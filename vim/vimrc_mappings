@@ -105,25 +105,25 @@ inoremap <f5> <esc>:FufMruFile<cr>
 
 " <f6>  " change to current dir                                                {{{3
 
-" change to current dir
+" change to current dir                                                        {{{4
 nnoremap <F6> :cd %:p:h<cr>:echo expand('%:p')<cr>
 inoremap <F6> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
 vnoremap <F6> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
 
-" func: ToggleSyntax                                                           {{{4
+"" func: ToggleSyntax                                                           {{{4
 
-fun! ToggleSyntax()
-    if exists("g:syntax_on")
-        syntax off
-    else
-        syntax enable
-    endif
-    if exists("g:syntax_on") | echo "syntax enabled" | else | echo "syntax disabled" | endif
-endfun
+" fun! ToggleSyntax()
+"     if exists("g:syntax_on")
+"         syntax off
+"     else
+"         syntax enable
+"     endif
+"     if exists("g:syntax_on") | echo "syntax enabled" | else | echo "syntax disabled" | endif
+" endfun
 
-" switch on syntax highlight
-nnoremap <f6> :call ToggleSyntax()<cr>
-inoremap <f6> <c-o>:call ToggleSyntax()<cr>
+" " switch on syntax highlight
+" nnoremap <f6> :call ToggleSyntax()<cr>
+" inoremap <f6> <c-o>:call ToggleSyntax()<cr>
 
 " <f7>  " language tool                                                        {{{3
 
@@ -191,7 +191,7 @@ vnoremap <f9> <ESC>:call ToggleTextwidth()<CR>
 inoremap <f9> <ESC>:call ToggleTextwidth()<CR>
 
 "toggle linewrapping
-" func: toggle wrap                                                             {{{4
+" func: toggle wrap                                                            {{{4
 
 fun! ToggleWrap()
     if &fo =~ "t"
@@ -223,7 +223,7 @@ nnoremap <c-f9> :call ToggleFoldColumn()<cr>
 vnoremap <c-f9> <ESC>:call ToggleFoldColumn()<cr>
 inoremap <c-f9> <ESC>:call ToggleFoldColumn()<cr>
 
-" <f10>  " enable YouCompleteMe                                                      {{{3
+" <f10>  " enable YouCompleteMe                                                {{{3
 
 " toggle YouCompleteMe
 nnoremap <f10> :call ToggleYCM()<CR>

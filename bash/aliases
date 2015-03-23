@@ -46,6 +46,13 @@ alias vll='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R'      # like before, but 
 # chmod                                                                          {{{2
 
 alias chm="chmod 755"
+
+# bropages                                                                       {{{2
+
+# automatically thanks the first 5 brohelps in a
+# bropage after exiting bro in a bash shell
+alias broty="for i in {1..5}; do bro thanks $i; done"
+
 # du                                                                           # {{{2
 
 # show size of current folder/subfolder/dotfiles
@@ -189,6 +196,7 @@ alias dupetrack2="find . -type f -regextype sed -iregex '^.*\.[[:digit:]]\.\(mp3
 alias chmrm=fun_chmod_remove
 
 # sudos
+alias blkid="sudo blkid"
 alias vimgolf="sudo vimgolf"
 alias clamsc="sudo /usr/bin/clamscan --scan-swf=no -r / > /tmp/clamav.log 2>&1" # http://bit.ly/1zrZw4s
 alias clamscan="sudo /usr/bin/clamscan --scan-swf=no -ri"   # <directory> to scan specific path

@@ -84,6 +84,7 @@ silent qmark W https://wave.google.com/wave/
 silent qmark v http://www.vimgolf.com/
 silent qmark V https://vpn.wiwinf.uni-due.de
 silent qmark x http://www.xing.com/
+silent qmark y http://www.youtube.com
 silent qmark Y http://www.finanzen.net/chart-analyse/ta-chart.asp?pkNr=58046
 silent qmark z http://10.10.10.1
 silent qmark Z http://www.amazon.de/Prime-Instant-Video/b/ref=nav_gno_yam_piv?ie=UTF8&node=3279204031
@@ -130,7 +131,7 @@ bmark('Superuser'              ,'http://superuser.com/search?q=%s'              
 bmark('Tex.stackexchange'      ,'http://tex.stackexchange.com/search?q=%s'                                                                      ,'tex');
 bmark('Twitter Search'         ,'http://search.twitter.com/search?q=%s'                                                                         ,'ts');
 bmark('Twitter'                ,'http://twitter.com/%s'                                                                                         ,'tw');
-bmark('Ubuntuusers Wiki'       ,'http://ubuntuusers.de/search/?query=%s&area=wiki'                                                              ,'uu');
+bmark('Ubuntuusers Wiki'       ,'http://ubuntuusers.de/%s'                                                              ,'uu');
 bmark('Vim.wikia'              ,'http://vim.wikia.com/wiki/Special:Search?search=%s'                                                            ,'vw');
 bmark('Yahoo! Finance'         ,'http://finance.yahoo.com/q?s=%s'                                                                               ,'yf');
 bmark('Yahoo! Search'          ,'http://search.yahoo.com/search;_ylt=?p=%s'                                                                     ,'y');
