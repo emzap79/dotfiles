@@ -35,7 +35,7 @@
 " They'Re Not Executable At All. In Such Occasions It'S Regardable To Look Out
 " For The Conflicting Mapping By Executing:
 "
-" :Verb Map <Mapping>, Where " <Mapping> Has To Get Replaced By The Regarding
+" :Verb Map <Mapping>, Where <Mapping> Has To Get Replaced By The Regarding
 " Keymap, Eg. Gf
 
 " Basic Mappings                                                               {{{1
@@ -110,7 +110,7 @@ nnoremap <F6> :cd %:p:h<cr>:echo expand('%:p')<cr>
 inoremap <F6> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
 vnoremap <F6> <esc>:cd %:p:h<cr>:echo expand('%:p')<cr>
 
-"" func: ToggleSyntax                                                           {{{4
+"" func: ToggleSyntax                                                          {{{4
 
 " fun! ToggleSyntax()
 "     if exists("g:syntax_on")
@@ -246,10 +246,10 @@ vnoremap <space><space> <ESC>:wall!<CR>
 " paste to clipboard                                                           {{{2
 
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
-vnoremap <Leader>y "+y
-vnoremap <Leader>d "+d
-nnoremap <Leader>P "+P
-vnoremap <Leader>P "+P
+vnoremap <leader>y "+y
+vnoremap <leader>d "+d
+nnoremap <leader>P "+P
+vnoremap <leader>P "+P
 
 " visual mode mappings                                                         {{{2
 " change visual mappings                                                       {{{2
@@ -783,6 +783,18 @@ nnoremap <leader>fh :Mirror<CR>
 command! -bar -range Mirror <line1>,<line2>call setline('.', join(reverse(split(getline('.'), '\zs')), ''))
 
 " Miscellaneous                                                                {{{1
+" convert file to dos format                                                   {{{2
+nnoremap <leader>dos :call Unix2Dos()<cr>
+" "" Func: unix2dos
+function! Unix2Dos()
+    if &ff != "unix"
+        exe "update \| e ++ff=unix"
+        " silently remove dos linebreaks
+        silent! exe "%s///g"
+    else
+        exe "update \| e ++ff=dos"
+    endif
+endfunction
 
 " add abbreviations                                                            {{{2
 

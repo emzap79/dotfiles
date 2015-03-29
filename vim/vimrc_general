@@ -8,7 +8,6 @@
 " Last Modified: August 20, 2014
 
 " Font Matters                                                " {{{1
-
 " description                                                 " {{{2
 
 " vim <-- starts Vim normally, reading ~/.vimrc
@@ -38,9 +37,7 @@ syntax enable      " switch on syntax highlight
 filetype plugin on " This makes vim invoke Latex-Suite when you open a tex file
 filetype indent on " This enables automatic indentation as you type
 
-
 " General Config                                              " {{{1
-
 " display                                                     " {{{2
 
 set cuc        " cursorcolumn: highlight current column
@@ -233,7 +230,7 @@ set lw=""               " lispwords: Comma separated list of words that influenc
 
 " smartindent                                                  {{{3
 
-set nosi                " smartindent: turn on smart indenting.
+set nosi                  " smartindent: turn on smart indenting.
 set ai                  " autoindent: automatically indent new line
 set ci                  " copyindent: copy the previous indentation on autoindenting
 
@@ -274,7 +271,6 @@ set nodg                                   " digraph: with the digraph option se
 
 
 " Advanced Settings                                           " {{{1
-
 " cpoptions                                                   " {{{2
 
 set nocp " compatible: makes VIMs behaviour similar to vi
@@ -321,12 +317,16 @@ set fo+=tocqrnl
 
 " formatlistpat                                               " {{{2
 
-" A pattern that is used to recognize a list header. This is used for the "n"
-" flag in 'formatoptions'. The default is: ^\s*\d\+[\]:.)}\t ]\s*
+" A pattern that is used to recognize a list header. This is used for
+" the "n" flag in 'formatoptions'. The default is:
+" "^\s*\d\+[\]:.)}\t ]\s*"
 
 " recognizes numbered lists
 " http://stackoverflow.com/a/22703433/3569509
-let flp='^\s*\(\d\{1,2\}[\]:.)}\t ]\|[-*%]\s\)\s*'
+" set flp="^\s*\(\d\{1,2\}[\]:.)}\t ]\|[-*%]\s\)\s*"
+
+" http://www.methods.co.nz/asciidoc/chunked/ch36.html
+set flp=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
 
 " shortmessage                                                " {{{2
 
@@ -603,7 +603,6 @@ set stl+=%2*\ %(%l,%v\|%02p%%\ %)                                 " current posi
 set hi=1000                     " history: remember last n typed commands
 
 " Functions & Autocommands                                    " {{{1
-
 " autogroups                                                  " {{{2
 
 " To enter autocommands for a specific group, use this method:

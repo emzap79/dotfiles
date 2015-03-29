@@ -24,7 +24,7 @@ endif
 let $1 = 1${3}
 endsnippet
 snippet func "Vim Function" b
-" "" Func: ${1} "{{{
+" "" Func: ${1}
 function! $1()
     if &${2}
         ${3}
@@ -32,7 +32,6 @@ function! $1()
         ${4}
     endif
 endfunction
-" ""}}}
 endsnippet
 snippet f
 fun ${1:function_name}(${2})

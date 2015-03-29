@@ -107,6 +107,7 @@ alias cdebay="cd $HOME/tmp/ebay"
 alias cdmails="cd $HOME/mails/Inbox"
 alias cdmnt="cd $HOME/mnt"
 alias cdbild="cd $HOME/Bilder"
+alias cdvid="cd $HOME/Videos"
 alias cdpodc="cd $HOME/Podcasts"
 alias cdtmp="cd $HOME/tmp"
 alias cdxime="cd $HOME/Xime"
@@ -386,6 +387,10 @@ alias bt='ls "$VOL/$mus"; du -h -d0 "$VOL/$mus"; beet ls; head -n 2 ~/.logfiles/
 alias btls='ls "$VOL/$(ls -tcr $VOL | grep MSK | tail -n 1)"'
 alias btmv='beet mv -d "$VOL/$(ls $VOL/ | grep MSK | sort | tail -n 1)"; yes y | beet rm; killall beet; killall beet'
 
+# redshift                                                                       {{{2
+
+alias redsh="redshift -l 51.4:7.2 -t 6000:4500 %u"
+
 # vlc                                                                          # {{{2
 
 # http://linuxundich.de/ubuntu/den-live-stream-der-ard-unter-linux-mit-vlc-oder-mplayer-ansehen/
@@ -450,8 +455,6 @@ alias info='info --vi-keys'
 alias pwgen='pwgen -cn 12'
 alias top='top -n2'
 alias echon="echo -n"
-alias chkwlan="nm-tool | grep Strength | egrep -v '(WEP|WPA)' | sed 's/^ *//g' \
-    | sort -t ',' -k 5'"     # check available wlan-ports
 alias pss=fun_pss
 alias calc=fun_calc
 alias extr=fun_extract
@@ -529,8 +532,7 @@ alias susp='sudo bash -c "sleep 1h; pm-suspend"'
 alias jrn="less /var/log/syslog"
 alias shwlg="find /var/log -iregex '.*[^\.][^0-9]+$' -not -iregex '.*gz$' 2> /dev/null | xargs tail -n0 -f | ccze -A"  # http://bit.ly/1oK5eNz
 
-# wlan etc                                                                     # {{{1
-
+# internet related                                                               {{{1
 # ssh                                                                          # {{{2
 
 alias uoek="rsync --progress -auve ssh --iconv=UTF-8,ISO8859-1 --exclude '^.' --exclude '*~' --delete $UNI/$SEM/CompOek/ sdjopeto@student.uni-due.de:public_html/CompOek"
@@ -588,7 +590,7 @@ alias vpnd="sudo vpnc-disconnect"
 alias vpnc-connect="sudo vpnc-connect"
 alias vpnc-disconnect="sudo vpnc-disconnect"
 
-# wlan & ip-adresse                                                            # {{{2
+# ip- & mac adresse                                                            # {{{2
 
 alias ips=fun_ips           # IP-Adresse and more
 alias mac="netstat -ei"     # Mit dem Befehl "netstat -ei" erhält man die
@@ -597,7 +599,14 @@ alias mac="netstat -ei"     # Mit dem Befehl "netstat -ei" erhält man die
                             # "eth0" (Hardware-Adresse = MAC Adresse)
 
 
+# wlan, ethernet etc                                                             {{{2
+# check available wlan-ports
+alias chkwlan="nm-tool | grep Strength | egrep -v '(WEP|WPA)' | sed 's/^ *//g' \
+    | sort -t ',' -k 5'"
 
+# check if ethernet wire is plugged in
+# http://stackoverflow.com/a/808599/1483760
+alias chketh0='grep "" /sys/class/net/eth0/* | grep carrier'
 # tmux                                                                         # {{{2
 
 # Change the TERM environment variable (to get 256 colors) and make Vim
