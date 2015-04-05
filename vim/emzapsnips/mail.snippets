@@ -37,9 +37,6 @@ snippet addr "Vollständige Adresse" w
 Dellplatz 7 (Zimmer 306)
 47051 Duisburg
 endsnippet
-snippet link "Link zu Ebay Kleinanzeigen" !w
-http://kleinanzeigen.ebay.de/anzeigen/s-bestandsliste.html?userId=3413793
-endsnippet
 
 # # Anrede
 snippet sgf "Sehr geehrte Frau" !b
@@ -57,6 +54,15 @@ endsnippet
 snippet mfg "Mit freundlichen Grüßen" w
 
 Mit freundlichen Grüßen
+---
+jonas petong
+
+$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
+endsnippet
+snippet fg "Freundliche Grüße" w
+
+Freundliche Grüße
+
 ---
 jonas petong
 
@@ -105,56 +111,6 @@ Wenn du den Raum nutzen möchtest, frage bitte eine dem Lehrstuhl "Energy
 Bei weiteren Fragen kannst du dich gerne jederzeit an mich wenden.
 endsnippet
 
-snippet fg "Freundliche Grüße" w
-
-Freundliche Grüße
-
----
-jonas petong
-
-$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
-endsnippet
-
-snippet lg "Liebe Grüße" w
-
-Liebe Grüße
-
----
-jonas petong
-
-$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
-endsnippet
-
-snippet bg "Beste Grüße" w
-
-Beste Grüße
-
----
-jonas petong
-
-$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
-endsnippet
-
-snippet bg "Beste Grüße" w
-
-Beste Grüße
-
----
-jonas petong
-
-$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
-endsnippet
-
-snippet vg "Viele Grüße" w
-
-Viele Grüße
-
----
-jonas petong
-
-$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
-endsnippet
-
 snippet ch "cheers" w
 
 cheers
@@ -168,16 +124,6 @@ endsnippet
 snippet kr "Kind Regards" w
 
 Kind Regards
-
----
-jonas petong
-
-$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
-endsnippet
-
-snippet mfg "Mit freundlichen Grüßen" w
-
-Mit freundlichen Grüßen
 
 ---
 jonas petong

@@ -29,12 +29,13 @@ fun! MailAbbreviations()
     iab sgdh Sehr geehrte Damen und Herren<C-R>,
     iab sgh Sehr geehrter Herr<C-R>,
     iab sgf Sehr geehrte Frau<C-R>,
-    iab vg Viele Grüße,
-                \<CR>Jonas <C-R>
-    iab lg Liebe Grüße,
-                \<CR>Jonas <C-R>
-    iab bg Beste Grüße,
-                \<CR>Jonas <C-R>
+    iab gr Gruß Jonas <C-R>
+    iab vg Viele Grüße
+                \<CR><CR>Jonas <C-R>
+    iab lg Liebe Grüße
+                \<CR><CR>Jonas <C-R>
+    iab bg Beste Grüße
+                \<CR><CR>Jonas <C-R>
     iab mfg Mit freundlichen Grüßen
                 \<CR><CR>Jonas Petong<CR><CR><C-R>
     iab fg freundliche Grüße

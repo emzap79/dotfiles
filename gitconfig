@@ -35,6 +35,9 @@
 #	=	step 3	= git remote add origin https://github.com/emzap79/<repository>.git
 #	=	step 4	= git push -f --set-upstream origin master
 #
+#  create gitignore
+#	=	step 5	= git ignore <filetype> >> .gitignore
+
 #	=================================
 #	=	 show history		=
 #	=================================
@@ -53,8 +56,7 @@
 	snn	= status -u no --short							# don't show untracked stuff, no additional information
 
 # currently versioned files at HEAD
-	lt	= ls-tree -r --name-only						# ... revision
-	ltt	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4|less		# show object size of blob entries
+	lt	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4|less		# show object size of blob entries
 	ltd	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4|less		# id, folders only
 	lts	= !git ls-files --abbrev=4 --stage|less					# show levels of staged files only
 
@@ -216,6 +218,9 @@
 	rbs	= rebase --skip
 	rba	= rebase --abort
 	rbe	= rebase --edit-todo
+
+#  gitignore
+	ignore	= !gig
 
 # ===============
 # AUTOCLRF HOWTO:

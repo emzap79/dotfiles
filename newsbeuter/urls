@@ -1,83 +1,94 @@
 # vim:fdm=marker:textwidth=0
-# Filter
-# entertainment
+# Filter                       {{{1
+# entertainment                {{{2
 "query:Podcasts: tags =~ \"998. Podcasts\""                                                                      "00. Filter"
-# angebote
+
+# angebote                     {{{2
 "query:Ebooks: tags =~ \"998. Angebote\" and (title =~ \" ebook\" and title !~ \"ebookers\")"                    "00. Filter"
 "query:Mobilfunk: tags =~ \"998. Angebote\" and ((title =~ \"mobilfunk\" or title =~ \"handy\") and title =~ \"vertrag\")"                    "00. Filter"
-"query:Notebook: tags =~ \"998. Angebote\" and (title =~ \"notebook \" or title =~ \"laptop \")"                    "00. Filter"
-# linux
+"query:Notebook: tags =~ \"998. Angebote\" and (title =~ \"notebook \" or title =~ \"netbook \")"                    "00. Filter"
+# linux                        {{{2
 "query:StackExch: tags =~ \"998. StackExch\" and (tag =~ \"questions\")"                                         "00. Filter"
-# aktien
+
+# aktien                       {{{2
 "query:Aktien - Tesla: tags =~ \"998.\" and (title =~ \"tesla\" or title =~ \"tsla\")"                                "00. Filter"
 
-# Url-List
-# uni due
+# Url-List                     {{{1
+# uni due                      {{{2
 "query:Uni Due: tags =~ \"998.\" and tags =~ \"Uni Due\""  "01. Uni Due :: Uni Due"
 
-# sport
+# sport                        {{{2
 "query:Mavs: tags =~ \"998. Sport\" and (title =~ \"Mavs\" or title =~ \"Mavericks\" or title =~ \"Nowitzki\")"  "02.1 Sport :: Basketball"
 "query:Sport: tags =~ \"998. Sport\" and tags =~ \"Fussball\" and link =~\"spielbericht\""                       "02.2 Sport :: Fussball"
-# linux
+# linux                        {{{2
 "query:Unix: tags =~ \"998.\ Unix\" and tags =~ \"linux\""  "03. Unix :: Linux"
 "query:Unix: tags =~ \"998.\ Unix\" and tags =~ \"vim\""    "03.1 Unix :: VIM"
-# # news
+# # news                       {{{2
 # "query:News: tags =~ \"998. News\" and tags =~ \"nachrichten\""                         "04.1 News :: Politik"
 # "query:News: tags =~ \"998. Ecuador\" and tags =~ \"ecuador\" and link !~ \"deporte\""  "04.2 News :: Ecuador"
 # "query:News: tags =~ \"998. News\" and tags =~ \"internet\""                            "04.3 News :: Internet"
 # "query:News: tags =~ \"998. News\" and tags =~ \"finance\""                             "04.4 News :: Stocks"
 
-# style
+# style                        {{{2
 "query:Style: tags =~ \"998. Style\" and tags =~ \"drawing\""                           "05.1 Style :: Drawing"
 
-# # programming
+# # programming                {{{2
 # "query:StackExch: tags =~ \"998. StackExch\" and tags =~ \"Bash\""                      "06.2 StackExch :: Bash"
 # "query:StackExch: tags =~ \"998. StackExch\" and tags =~ \"VIM\""                       "06.1 StackExch :: VIM"
 # "query:StackExch: tags =~ \"998. StackExch\" and (tags =~ \"SED\" or tags =~ \"R\")"    "06.2 StackExch :: SED"
 
-# angebote
+# angebote                     {{{2
 "query:Angebote: tags =~ \"998. Angebote\" and tags =~ \"Technik\""                     "09.1 Angebote :: Technik"
 "query:Angebote: tags =~ \"998. Angebote\" and tags =~ \"Groupon\""                     "09.2 Angebote :: Groupon"
 "query:Angebote: tags =~ \"998. Angebote\" and tags =~ \"Mobilfunk\""                     "09.3 Angebote :: Mobilfunk"
 "query:Angebote: tags =~ \"998. Angebote\" and tags =~ \"Sonstige\""                     "09.4 Angebote :: Sonstige"
 
-# RSS-Feed-Links
-# Reddit
+# RSS-Feed-Links               {{{1
+# Reddit                       {{{2
 http://www.reddit.com/r/all/hot/.rss                  "998. Reddit - All"
 http://www.reddit.com/message/inbox/.rss              "998. Reddit - Messages"
 http://www.reddit.com/r/vimgolf/.rss                  "998. Reddit - Vimgolf"
-# StackExch
-#
-# http://stackoverflow.com/feeds/tag?tagnames=bash&sort=newest "998. StackExch :: Bash"
-# http://stackoverflow.com/feeds/tag?tagnames=vim&sort=newest "998. StackExch :: VIM"
-# http://superuser.com/feeds/tag/bash "998. StackExch :: Bash"
-# http://superuser.com/feeds/tag/sed "998. StackExch :: SED"
-# http://superuser.com/feeds/tag/r "998. StackExch :: R"
-# http://superuser.com/feeds/tag/vim "998. StackExch :: VIM"
-# http://stackoverflow.com/feeds/question/24448683  "998. StackExch :: Questions"
-#
-# Podcasts
+# Podcasts                     {{{2
 http://vimcasts.org/feeds/ogg.rss "998. Podcasts - VIMCasts.org"
 http://www.zdf.de/ZDFmediathek/podcast/2012868 "998. Podcasts - NEO Magazin"
 http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml "998. Podcasts - TTT"
-# Stellenmarkt
+# Stellenmarkt                 {{{2
 http://recruiting.giz.de/www/jobabo_rss.php?jobabo_code=d53359c41025a4d7f77fc8b13237c356&cu=gtz_www "998. Jobs"
 
-# Parties
+# Parties                      {{{2
 http://www.coolibri.de/redaktion/tags/Party/rss.html                      "998. Kultur - Duisburg"
 http://www.coolibri.de/redaktion/tags/Duisburg/rss.html                   "998. Kultur - Duisburg"
-# News
-# LatinAmerica
+# News                         {{{2
+# LatinAmerica                 {{{3
 http://feeds.bbci.co.uk/news/world/latin_america/rss.xml                     "998. News - LatinAmerica"
-# Ecuador
+# Sport                        {{{3
+http://fivefilters.org/content-only/makefulltextfeed.php?url=http://www.spox.com/pub/rss/us-sport-nba.xml&key=&max=4&links=preserve&submit=Create+Feed "998. Sport - Basketball"
+http://rss.kicker.de/team/vflbochum                                     "998. Sport - Fussball"
+http://rss.kicker.de/news/clnews                                        "998. Sport - Fussball"
+http://rss.kicker.de/news/bundesliga                                    "998. Sport - Fussball"
+http://rss.kicker.de/news/wm                                            "998. Sport - Fussball"
+http://www.sport1.de/de_1/fussball/fussball_championsleague/rss.xml     "998. Sport - Fussball"
+http://fussballblog.espace.ch/atom/                                     "998. Sport - Fussball"
+http://www.spiegel.de/thema/basketball_em_2011/index.rss                "998. Sport - Basketball"
+http://www.spiegel.de/thema/national_basketball_association/index.rss   "998. Sport - Basketball"
+http://www.sport1.de/de_1/basketball/rss.xml                            "998. Sport - Basketball"
+http://www.spox.com/pub/rss/basketball.xml                              "998. Sport - Basketball"
+http://www.nba.com/powerrankings/rss.xml                                "998. Sport - Basketball"
+http://mavsblog.dallasnews.com/atom.xml                                 "998. Sport - Basketball"
+http://blogmaverick.com/feed/                                           "998. Sport - Basketball"
+http://www.nba.com/dunkofthenight/rss.xml                               "998. Sport - Basketball"
+http://sports.yahoo.com/nba/rss.xml                                     "998. Sport - Basketball"
+http://www.kickz.com/five/?feed=rss2                                    "998. Sport - Basketball"
+http://www.dallasbasketball.com/rss/MainRss.xml                         "998. Sport - Basketball"
+http://www.nba.com/mavericks/rss.xml                                    "998. Sport - Basketball"
+
+# Ecuador                      {{{3
 http://www.eluniverso.com/rss/ecuador.xml                                    "998. Ecuador - Noticias"
 http://karo-in-der-weiten-welt.jimdo.com/rss/blog                            "998. Ecuador - Karos Blog"
-# Technics
+# Technics                     {{{3
 http://rss.golem.de/rss.php?feed=RSS1.0                                      "998. News - Technik"
 http://www.heise.de/newsticker/heise-atom.xml                                "998. News - Technik"
-# Spiegel Headlines
-http://www.spiegel.de/schlagzeilen/tops/index.rss                            "998. News - Nachrichten"
-# Politics
+# Politics                     {{{3
 http://www.taz.de/rss.xml                                                    "998. News - Politik"
 http://www.n-tv.de/23.rss                                                    "998. News - Politik"
 http://feeds.feedburner.com/Netzfeuilleton                                   "998. News - Politik"
@@ -85,15 +96,18 @@ http://www.spiegelfechter.com/wordpress/feed/                                "99
 http://www.spiegel.de/politik/ausland/index.rss                              "998. News - Politik"
 http://news.de.msn.com/rss_newshome.aspx                                     "998. News - Politik"
 http://netzpolitik.org/feed/                                                 "998. News - Politik"
-# Deutsche Bahn
+http://www.spiegel.de/schlagzeilen/tops/index.rss                            "998. News - Nachrichten"
+
+# Deutsche Bahn                {{{3
 http://bauarbeiten.bahn.de/RSS/nrw/RE_2                                                 "998. News - Fahrplan"
 http://bauarbeiten.bahn.de/RSS/nrw/RE_6                                                 "998. News - Fahrplan"
 http://bauarbeiten.bahn.de/RSS/nrw/RE_11                                                "998. News - Fahrplan"
 http://bauarbeiten.bahn.de/RSS/nrw/S_1                                                  "998. News - Fahrplan"
-# Internet
+# Internet                     {{{2
 http://feeds.feedburner.com/kernelmag?format=xml                                                 "998. News - Internet"
-# Finance
-# News
+
+# Finance                      {{{2
+# Allgemein                    {{{3
 http://www.finanzen.net/rss/news                                         "998. News - Finance"
 http://www.finanzen.net/rss/analysen                                     "998. News - Finance"
 http://wsj.com/xml/rss/3_7481.xml                                        "998. News - Finance"
@@ -107,10 +121,10 @@ http://www.finanznachrichten.de/rss-marktberichte                        "998. N
 http://www.finanznachrichten.de/rss-chartanalysen-top                    "998. News - Finance"
 http://www.finanznachrichten.de/rss-nachrichten-meistgelesen             "998. News - Finance"
 http://www.finanznachrichten.de/rss-nachrichten-devisen                  "998. News - Finance"
-# Trading
+# Trading                      {{{3
 http://systematicinvestor.wordpress.com/feed/                            "998. News - Trading"
 http://tradingwithlinux.blogspot.com/feeds/posts/default                 "998. News - Trading"
-# Uni Due
+# Uni Due                      {{{2
 http://duepublico.uni-duisburg-essen.de/servlets/DerivateServlet/Derivate-33698/index.msa?XSL.Style=rss   "998. Uni Due"
 http://www.lef.wiwi.uni-due.de/rss/                                                                       "998. Uni Due"
 http://www.fiba.wiwi.uni-due.de/rss/                                                                      "998. Uni Due"
@@ -124,20 +138,30 @@ http://forum.ubuntuusers.de/feeds/topic/farbe-der-dropdown-menues/title/20/     
 http://www.marketing.wiwi.uni-due.de/rss/                                                                 "998. Uni Due"
 http://www.wiwi.uni-due.de/rss/                                                                           "998. Uni Due"
 # http://twitter.com/statuses/user_timeline/83144492.rss                                                    "998. Uni Due"
-# Linux
-# Git
+# Linux                        {{{2
+# StackExch                    {{{3
+#
+# http://stackoverflow.com/feeds/tag?tagnames=bash&sort=newest "998. StackExch :: Bash"
+# http://stackoverflow.com/feeds/tag?tagnames=vim&sort=newest "998. StackExch :: VIM"
+# http://superuser.com/feeds/tag/bash "998. StackExch :: Bash"
+# http://superuser.com/feeds/tag/sed "998. StackExch :: SED"
+# http://superuser.com/feeds/tag/r "998. StackExch :: R"
+# http://superuser.com/feeds/tag/vim "998. StackExch :: VIM"
+# http://stackoverflow.com/feeds/question/24448683  "998. StackExch :: Questions"
+#
+# Git                          {{{3
 http://alblue.bandlem.com/atom.xml                                "998. Unix - Git"
-# R
+# R                            {{{3
 http://feeds.feedburner.com/RBloggers                             "998. Unix - R"
 http://thinktostart.com/feed/                                     "998. Unix - R"
-# Vim
+# Vim                          {{{3
 http://neovim.org/news.xml                                        "998. Unix - Vim"
 http://feeds.feedburner.com/usevim                                "998. Unix - Vim"
 http://feeds.vimgolf.com/latest-challenges?format=xml             "998. Unix - Vim"
 http://udioica.blogspot.com/feeds/posts/default?alt=rss           "998. Unix - Vim"
-# Python
+# Python                       {{{3
 http://www.themagpi.com/feed/                                     "998. Unix - Rasppi"
-# Linux
+# Gnome & Ubuntu               {{{3
 http://www.iwillfolo.com/feed/                                    "998. Unix - Linux"
 http://texblog.net/feed/                                          "998. Unix - Linux"
 http://texblog.wordpress.com/feed/                                "998. Unix - Linux"
@@ -207,37 +231,14 @@ http://fedorausers.de/?q=aggregator/rss/5                         "998. Unix - F
 http://www.fedora-blog.de/feed/                                   "998. Unix - Fedora"
 # http://doctormo.org/feed/                                       "998. Unix - Linux"
 # http://feeds.feedburner.com/Noobslab                            "998. Unix - Ubuntu"
-# Sport
-# 999
-http://fivefilters.org/content-only/makefulltextfeed.php?url=http://www.spox.com/pub/rss/us-sport-nba.xml&key=&max=4&links=preserve&submit=Create+Feed "998. Sport - Basketball"
-http://rss.kicker.de/team/vflbochum                                     "998. Sport - Fussball"
-http://rss.kicker.de/news/clnews                                        "998. Sport - Fussball"
-http://rss.kicker.de/news/bundesliga                                    "998. Sport - Fussball"
-http://rss.kicker.de/news/wm                                            "998. Sport - Fussball"
-http://www.sport1.de/de_1/fussball/fussball_championsleague/rss.xml     "998. Sport - Fussball"
-http://fussballblog.espace.ch/atom/                                     "998. Sport - Fussball"
-# 998
-http://www.spiegel.de/thema/basketball_em_2011/index.rss                "998. Sport - Basketball"
-http://www.spiegel.de/thema/national_basketball_association/index.rss   "998. Sport - Basketball"
-http://www.sport1.de/de_1/basketball/rss.xml                            "998. Sport - Basketball"
-http://www.spox.com/pub/rss/basketball.xml                              "998. Sport - Basketball"
-http://www.nba.com/powerrankings/rss.xml                                "998. Sport - Basketball"
-http://mavsblog.dallasnews.com/atom.xml                                 "998. Sport - Basketball"
-http://blogmaverick.com/feed/                                           "998. Sport - Basketball"
-http://www.nba.com/dunkofthenight/rss.xml                               "998. Sport - Basketball"
-http://sports.yahoo.com/nba/rss.xml                                     "998. Sport - Basketball"
-http://www.kickz.com/five/?feed=rss2                                    "998. Sport - Basketball"
-http://www.dallasbasketball.com/rss/MainRss.xml                         "998. Sport - Basketball"
-http://www.nba.com/mavericks/rss.xml                                    "998. Sport - Basketball"
-# Other
+# Other                        {{{2
 http://feeds.gawker.com/lifehacker/full                            "998. Other - Lifehacker"
 
-# Style
+# Style                        {{{2
 http://feeds.feedburner.com/likesketch?format=xml                  "998. Style - Drawing"
 http://feeds.feedburner.com/artlessononline?format=xml                  "998. Style - Drawing"
 
-# Angebote
-
+# Angebote                     {{{2
 http://api.groupon.de/feed/api/v1/deals/oftheday/DE/duisburg                          "998. Angebote - Groupon"
 http://api.groupon.de/feed/api/v1/deals/oftheday/DE/essen                             "998. Angebote - Groupon"
 http://feeds.feedburner.com/myDealZ?format=xml                                        "998. Angebote - Sonstige"
