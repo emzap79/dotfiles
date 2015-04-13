@@ -1,4 +1,4 @@
-set aaa_mode=artist
+set aaa_mode=all
 set altformat_current= %F 
 set altformat_playlist= %f%= %g %d 
 set altformat_title=%f
@@ -106,7 +106,7 @@ bind common 7 view settings
 bind common = vol +10%
 bind common A push factivate 
 bind common C toggle continue
-bind common D win-remove
+bind common D shell /home/zapata/bin/cmusDelTrck
 bind common E win-add-Q
 bind common F push filter 
 bind common G win-bottom
@@ -138,6 +138,7 @@ bind common _ vol -1% +0
 bind common a win-add-l
 bind common b player-next
 bind common c player-pause
+bind common d win-remove
 bind common delete shell /home/zapata/bin/cmusDelTrck
 bind common down win-down
 bind common e win-add-q

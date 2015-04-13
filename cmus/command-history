@@ -1,6 +1,29 @@
-q
-clear 
 quit 
+exi
+clear 
+add -q cdda://
+add -q /dev/cdrom
+e cdda://
+add cdda://
+add /media/zapata/
+filter !~a"*Prodigy*"
+filter !~a"Prodigy"
+filter !~a"Prodigy"!
+factivate ~a"Prodigy"
+factivate !~a"prodigy"
+filter ~a!=prodigy
+unbind common ^D
+unbind ^D
+unbind -f common ^D 
+bind -f common D shell /home/zapata/bin/cmusDelTrck
+bind -f common ^D shell ""
+bind -f common ^D shell /home/zapata/bin/cmusDelTrck
+bind -f common D /home/zapata
+bind -f common d win-remove
+bind -f common delete shell /home/zapata/bin/cmusDelTrck
+add /home/zapata/Musik/
+add /media/zapata/Musik
+q
 exit
 add ~/tmp/music/
 lqueue *
@@ -270,7 +293,6 @@ live-filter hein
 live-filter blümchen
 live-filter talking
 filter gen_soul_northern|gen_electr_dance|gen_reg_dancehall
-add /media/zapata/
 filter gen_soul_northern|gen_electr_dance
 filter gen_reg_dancehall|gen_reg_soca
 factivate gen_reg_dancehall

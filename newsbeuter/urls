@@ -151,6 +151,7 @@ http://www.wiwi.uni-due.de/rss/                                                 
 #
 # Git                          {{{3
 http://alblue.bandlem.com/atom.xml                                "998. Unix - Git"
+
 # R                            {{{3
 http://feeds.feedburner.com/RBloggers                             "998. Unix - R"
 http://thinktostart.com/feed/                                     "998. Unix - R"
@@ -161,8 +162,10 @@ http://feeds.vimgolf.com/latest-challenges?format=xml             "998. Unix - V
 http://udioica.blogspot.com/feeds/posts/default?alt=rss           "998. Unix - Vim"
 # Python                       {{{3
 http://www.themagpi.com/feed/                                     "998. Unix - Rasppi"
+
 # Gnome & Ubuntu               {{{3
 http://www.iwillfolo.com/feed/                                    "998. Unix - Linux"
+http://feeds.arstechnica.com/arstechnica/open-source?format=xml   "998. Unix - Linux"
 http://texblog.net/feed/                                          "998. Unix - Linux"
 http://texblog.wordpress.com/feed/                                "998. Unix - Linux"
 http://blog.superuser.com/feed/                                   "998. Unix - Linux"
