@@ -1,6 +1,3 @@
-http://127.0.0.1:24230/library/quantmod/html/zoomChart.html
-http://127.0.0.1:24230/library/quantmod/html/addBBands.html
-http://127.0.0.1:24230/library/quantmod/html/00Index.html
 http://127.0.0.1:19900/library/base/html/as.data.frame.html
 http://127.0.0.1:31245/library/quantmod/html/TA.html
 http://127.0.0.1:31245/library/quantmod/html/00Index.html
@@ -98,3 +95,6 @@ http://127.0.0.1:19242/library/base/html/sprintf.html
 http://127.0.0.1:24797/library/base/html/colSums.html
 http://127.0.0.1:11249/library/base/html/colSums.html
 http://127.0.0.1:30322/library/graphics/html/legend.html
+http://127.0.0.1:11420/library/base/html/as.POSIXlt.html
+http://127.0.0.1:11420/library/base/help/strptime
+http://127.0.0.1:11420/library/base/html/strptime.html

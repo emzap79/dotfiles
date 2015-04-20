@@ -65,9 +65,9 @@ silent qmark J http://schoolofcode.me/course/computer-science-for-everyone-with-
 silent qmark j https://www.mylittlejob.de
 silent qmark k http://www.kicker.de/news/fussball/fussballstartseite.html
 silent qmark l https://lsf.uni-due.de/lsf
-silent qmark L http://detexify.kirelabs.org/classify.html
-silent qmark m http://moodle.uni-due.de
-silent qmark M http://moodle2.uni-due.de
+silent qmark L https://www.linkedin.com
+silent qmark m http://moodle2.uni-due.de
+silent qmark M http://moodle.uni-due.de
 silent qmark n http://www.netflix.com
 silent qmark p https://www.planspiel-boerse.de/ssk-duesseldorf/0/index.htm
 silent qmark r http://www.refworks.com
@@ -75,7 +75,7 @@ silent qmark R http://www.reddit.com
 silent qmark s https://soundcloud.com/stream
 silent qmark S http://spiegel.de
 silent qmark t http://twitter.com/home/
-silent qmark T http://www.tumblr.com/dashboard/
+silent qmark t http://detexify.kirelabs.org/classify.html
 silent qmark u http://speedtest-1.unitymedia.de/
 silent qmark o http://www1.onleihe.de/duisburg
 silent qmark O https://onedrive.live.com/

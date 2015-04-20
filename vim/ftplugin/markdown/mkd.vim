@@ -6,7 +6,7 @@
 """"""""""""""""""""""""
 
 setlocal foldmethod=expr
-setlocal foldexpr=GetPotionFold(v:lnum)
+setlocal foldexpr=GetMarkdownFold(v:lnum)
 
 function! IndentLevel(lnum)
     return indent(a:lnum) / &shiftwidth
@@ -27,7 +27,7 @@ function! NextNonBlankLine(lnum)
     return -2
 endfunction
 
-function! GetPotionFold(lnum)
+function! GetMarkdownFold(lnum)
     if getline(a:lnum) =~? '\v^\s*$'
         return '-1'
     endif
@@ -60,7 +60,7 @@ endfunction
 "  code  "
 """"""""""
 
-" here's the original potion code snippet:
+" here's the original Markdown code snippet:
 
 " factorial = (n):
 "     total = 1

@@ -14,7 +14,7 @@ export LS3=''
 
 # paths#{{{2
 
-export SEM="Winter1415"
+export SEM="Sommer2015"
 export UNI="/home/zapata/Unimaterialien"
 export DOK="/home/zapata/Dokumente"
 export LIX="$DOK/Linux"
@@ -257,7 +257,7 @@ case ${TERM} in
         TMUX_PANE_TITLE=$(ps -o comm $$ | tail -1)
 
         # Reset title to the default before displaying the command prompt
-        PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'update_title'   
+        PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'update_title'
 
         # Update title before executing a command: set it to the command
         trap 'update_title "$BASH_COMMAND"' DEBUG

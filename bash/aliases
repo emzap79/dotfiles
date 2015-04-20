@@ -1186,7 +1186,7 @@ fun_exerc () {
     echo "start exercise in 10 sec"
     sleep 5
     i=1
-    while [ $i -lt 5 ] # less or equal 12
+    while [ $i -lt 5 ]
     do sleep 1
         play /usr/share/sounds/gnome/default/alerts/drip.ogg gain -n 5  # play file with +5dB
         i=$((i+1))
@@ -1194,10 +1194,11 @@ fun_exerc () {
     play /usr/share/sounds/gnome/default/alerts/bark.ogg repeat 1 gain -n 5  # play file with +5dB
 
     i=1
-    while [ $i -le 12 ] # less or equal 12
+    while [ $i -lt 12 ] # less than 12
     do sleep 40
-        play /usr/share/sounds/gnome/default/alerts/drip.ogg repeat 1 -n 5
-        i=$((i+1))
+        play /usr/share/sounds/gnome/default/alerts/drip.ogg repeat 1 gain -n 5
+        echo $i
+        i=$(( i ++ ))
     done
     play /usr/share/sounds/gnome/default/alerts/bark.ogg repeat 2 gain -n 5  # play file with +5dB
     sleep 1

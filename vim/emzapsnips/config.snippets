@@ -1,3 +1,12 @@
 snippet score "mutt scoring" b
 score ~$1'$2'  =$4				#$3
 endsnippet
+snippet sscore "mutt scoring rules" b
+score "(\
+		~$1'$2'${3:|\
+		~$4'$5'}\
+       )\
+       ${8:!}(\
+		~$6'$7'\
+       )" =$9 # White-/Blacklist
+endsnippet

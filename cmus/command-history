@@ -1,6 +1,11 @@
+q
+clear 
+filter !~g"*electr*"
+live-filter 
+filter !~g"electr"
+factivate !~g'electr'
 quit 
 exi
-clear 
 add -q cdda://
 add -q /dev/cdrom
 e cdda://
@@ -23,7 +28,6 @@ bind -f common d win-remove
 bind -f common delete shell /home/zapata/bin/cmusDelTrck
 add /home/zapata/Musik/
 add /media/zapata/Musik
-q
 exit
 add ~/tmp/music/
 lqueue *
@@ -42,7 +46,6 @@ cl
 add ~/tmp/house.pl
 Q
 shell 
-live-filter 
 live-filter looking for free
 live-filter freedom
 add /media/zapata/Musica/
