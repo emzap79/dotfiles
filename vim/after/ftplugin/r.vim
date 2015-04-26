@@ -47,7 +47,7 @@ set isk+=192-255"
 
 
 " Mappings                                   {{{1
-" some previous notes                        {{{2
+" Some Previous Notes                        {{{2
 
 " NOTE: Only *(ivn)map* will work!
 " Start R from inside vim by hitting: <,rf>
@@ -56,13 +56,12 @@ set isk+=192-255"
 " RED, both "echo" and "down", eg. RDSendLine: send line under cursor and
 " jump to next line of code!
 
-" start & close r                            {{{2
-
-" Menu entry
 " Start/Close
 " Start R (default)
 " Start R --vanilla
 " Start R (custom)
+
+" Start & Close R                            {{{2
 nmap <localleader>R <Plug>RStart
 imap <localleader>R <esc><Plug>RStart
 vmap <localleader>R <Plug>RStart
@@ -72,32 +71,32 @@ nmap <localleader>qq <Plug>RClose
 imap <localleader>qq <esc><Plug>RClose
 vmap <localleader>qq <Plug>RClose
 
-" send code to console                       {{{2
-
-" Send Part of current line
+" Send Code To Console                       {{{2
+" Send Part of current line                  {{{3
 nmap <localleader>j <Plug>RNLeftPart
 nmap <localleader>jj <Plug>RILeftPart
 nmap <localleader>k <Plug>RNRightPart
 
-" Send CodeChunk
+" Send CodeChunk                             {{{3
 nmap <localleader>c <Plug>REDSendChunk
+nmap <localleader>ch <Plug>RSendChunkFH
 
-" Send Line
+" Send Line                                  {{{3
 nmap <localleader>L <Plug>RSendLine
 vmap <localleader>L <Plug>RDSendSelection``
 
-" Send Line And Jump To Next Code
+" Send Line And Jump To Next Code            {{{3
 nmap <esc>l <Plug>RDSendLine
 vmap <esc>l <Plug>RDSendSelection
 
-" Send File
+" Send File                                  {{{3
 nmap <localleader>f <Plug>RSendFile
 
-" Send Paragraph
+" Send Paragraph                             {{{3
 nmap <esc>p <Plug>RDSendParagraph
 vmap <esc>p <Plug>RDSendSelection
 
-" Send Marked Blocks ('marks')
+" Send Marked Blocks ('marks')               {{{3
 " If the cursor is below the last mark, the plugin will send from the
 " mark to the end of the file. The mark above the cursor is included and
 " the mark below is excluded from the block to be sent to R.
@@ -106,29 +105,6 @@ vmap <esc>b <Plug>RDSendMBlock
 nmap <localleader>b <Plug>RSendMBlock
 vmap <localleader>b <Plug>RSendMBlock
 
-
-" Comments                                   {{{2
-nmap <silent><localleader>cc <plug>RSimpleComment<CR>
-nmap <silent><localleader>cu <plug>RSimpleUnComment<CR>
-nmap <silent><localleader>ct <plug>RToggleComment<CR>
-nmap <silent><localleader>cr <plug>RRightComment<CR>
-
-" List space, Clear console, Clear all       {{{2
-nmap <silent><localleader>ls <Plug>RListSpace
-vmap <silent><localleader>ls <Plug>RListSpace
-nmap <silent><localleader>cc <Plug>RClearConsole
-vmap <silent><localleader>cc <Plug>RClearConsole
-nmap <silent><localleader>ca <Plug>RClearAll
-vmap <silent><localleader>ca <Plug>RClearAll
-
-" Print, Names, Structure (cur)              {{{2
-nmap <silent><localleader>op <Plug>RObjectPr
-vmap <silent><localleader>op <Plug>RObjectPr
-nmap <silent><localleader>on <Plug>RObjectNames
-vmap <silent><localleader>on <Plug>RObjectNames
-nmap <silent><localleader>ot <Plug>RObjectStr
-vmap <silent><localleader>ot <Plug>RObjectStr
-
 " Arguments, Example, Help (cur)             {{{2
 nmap <silent><localleader>a <Plug>RShowArgs
 vmap <silent><localleader>a <Plug>RShowArgs
@@ -136,7 +112,6 @@ nmap <silent><localleader>e <Plug>RShowEx
 vmap <silent><localleader>e <Plug>RShowEx
 nmap <silent><localleader>h <Plug>RHelp
 vmap <silent><localleader>h <Plug>RHelp
-
 map <silent> <localleader>sh :call RAction("help.search")<CR>
 
 " Summary, Plot, Plot and summary (cur)      {{{2
@@ -147,11 +122,15 @@ vmap <silent><localleader>p <Plug>RPlot
 nmap <silent><localleader>g <Plug>RSPlot
 vmap <silent><localleader>g <Plug>RSPlot
 
+" Comments                                   {{{2
+nmap <localleader>cr <Plug>RRightComment
+vmap <localleader>cr <Plug>RRightComment
+
 " Set working directory (cur file path)      {{{2
 nmap <silent><localleader>d <Plug>RSetwd
 vmap <silent><localleader>d <Plug>RSetwd
 
-" Range/Min/Max                              {{{2
+" Range/Min/Max (cur)                        {{{2
 map <silent> <LocalLeader>mi :call RAction("min")<CR>
 map <silent> <LocalLeader>mx :call RAction("max")<CR>
 map <silent> <LocalLeader>rg :call RAction("range")<CR>
@@ -160,30 +139,40 @@ map <silent> <LocalLeader>me :call RAction("median")<CR>
 map <silent> <LocalLeader>sd :call RAction("sd")<CR>
 map <silent> <LocalLeader>su :call RAction("summary")<CR>
 
-" Data Information                           {{{2
-map <silent> <localleader>pr :call RAction("print")<CR>
+" Data Information (cur)                     {{{2
 map <silent> <LocalLeader>hd :call RAction("head")<CR>
 map <silent> <LocalLeader>id :call RAction("index")<CR>
 map <silent> <LocalLeader>tl :call RAction("tail")<CR>
 map <silent> <localleader>at :call RAction("attributes")<CR>
+map <silent> <localleader>lt :call RAction("length")<CR>
 map <silent> <localleader>dm :call RAction("dim")<CR>
 map <silent> <localleader>dn :call RAction("dimnames")<CR>
-map <silent> <localleader>lt :call RAction("length")<CR>
 map <silent> <localleader>nc :call RAction("ncol")<CR>
 map <silent> <localleader>nr :call RAction("nrow")<CR>
 map <silent> <localleader>lv :call RAction("levels")<CR>
-map <silent> <localleader>nn :call RAction("names")<CR>
-map <silent> <localleader>nc :call RAction("colnames")<CR>
-map <silent> <localleader>nr :call RAction("rownames")<CR>
-map <silent> <localleader>st :call RAction("str")<CR>
+
+" Object Print, Names, Structure (cur)       {{{2
+map <silent> <localleader>on :call RAction("names")<CR>
+map <silent> <localleader>op :call RAction("print")<CR>
+map <silent> <localleader>ot :call RAction("str")<CR>
+map <silent> <localleader>cn :call RAction("colnames")<CR>
+map <silent> <localleader>rn :call RAction("rownames")<CR>
+
+" List Space (cur)                           {{{2
+map <silent> <LocalLeader>ls <Plug>RListSpace
 map <silent> <LocalLeader>rm :call RAction("rm")<CR>
+
+" SendCmdToR                                 {{{2
+map <silent> <localleader>sr :call g:SendCmdToR("search()")<CR>
+map <silent> <localleader>di :call g:SendCmdToR("dir()")<CR>
+map <silent> <localleader>as :call g:SendCmdToR("methods(as)")<CR>
+map <silent> <localleader>is :call g:SendCmdToR("methods(is)")<CR>
+map <silent> <localleader>rml :call g:SendCmdToR("rm(list=ls())")<CR>
 
 " Assine Value To Variable ('<-')            {{{2
 nmap <esc>- hEa<Space><-<Space>
 
-
 " Gvim - Mappings                            {{{2
-
 nmap <M-1> 1gt
 imap <M-1> <esc>1gt
 vmap <M-1> 1gt
@@ -204,22 +193,19 @@ nmap <M-5> 5gt
 imap <M-5> <esc>5gt
 vmap <M-5> 5gt
 
-" Custom Functions                           {{{1
-" SendCmdToR                                 {{{2
-map <silent> <localleader>sr :call g:SendCmdToR("search()")<CR>
-map <silent> <localleader>ls :call g:SendCmdToR("ls()")<CR>
-map <silent> <localleader>di :call g:SendCmdToR("dir()")<CR>
-map <silent> <localleader>rml :call g:SendCmdToR("rm(list=ls())")<CR>
-map <silent> <localleader>as :call g:SendCmdToR("methods(as)")<CR>
-map <silent> <localleader>is :call g:SendCmdToR("methods(is)")<CR>
-map <silent> <localleader>rr :call 'g:SendCmdToR("' . shellescape(expand("<cword>")) . '")'<CR>
+"""""""""""""""""""
+"  not ready yet  "
+"""""""""""""""""""
+map <silent> <localleader>rr :call 'g:SendCmdToR("write.table(' . shellescape(expand("<cword>")) . ')"'<CR>
+"""""""""""""""""""
+"  not ready yet  "
+"""""""""""""""""""
 
 " Assign Argument Under Cursor In Next Line  {{{2
 nmap <silent><localleader>- :normal! o0<CR>0v$
 vmap <silent><localleader>- :<C-u>exec "s/$/\r" . GetVisualSelection()<cr>0v$
 
 " Operatorfunction                           {{{1
-
 nnoremap <silent>gr :set operatorfunc=<SID>ROperator<cr>g@
 vnoremap <silent>gr :<c-u>call <SID>ROperator(visualmode())<cr>
 
@@ -232,11 +218,8 @@ function! s:ROperator(type)
     else
         return
     endif
-    " silent execute "<Plug>RDSendSelection"
-    " silent execute "!firefox " . shellescape(@@)
-    " silent execute "RDSendSelection" . shellescape(@@)
-    " :normal! ,l
-    " silent execute (RDSendSelection)
-    " exe "normal! <esc>p"
+    echom "it works"
+    " http://stackoverflow.com/a/18547013
+    silent execute "normal \<Plug>RDSendSelection``"
     let @@ = saved_unnamed_register
 endfunction

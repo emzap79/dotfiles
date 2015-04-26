@@ -374,6 +374,7 @@ vnoremap  <expr>  D        DVB_Duplicate()
 " map fugitive commands to <leader>g
 " http://www.reddit.com/r/vim/comments/21f4gm/best_workflow_when_using_fugitive/cgciltz
 nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gA :Git add -A %:p:h<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gc :Gcommit -v -q<CR>
 nnoremap <space>gt :Gcommit -v -q %:p<CR>
@@ -848,7 +849,6 @@ function! VisualSearch(direction) range
 endfunction
 
 " grep for word in dir                                                         {{{2
-
 nnoremap <silent>gr :set operatorfunc=<SID>GrepOperator<cr>g@
 vnoremap <silent>gr :<c-u>call <SID>GrepOperator(visualmode())<cr>
 

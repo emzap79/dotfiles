@@ -109,13 +109,12 @@
 	aa	= add -A .
 	ai	= add -i			# add modified contents interactively to the index
 						# unchoose
-	c	= commit -a			# ...commit.
+	c	= commit -m			# ...commit + message
 	cx	= commit -m fixup!		# ...commit changes and discard message later
 	cs	= commit -m squash!		# ...commit changes and change message later (rebase -i)
 	cm	= commit -am			# ...commit modified and deleted files only + message
 	ca	= "!git add -A . && git commit -m" # ...commit modified, deleted and new files
 	cam	= commit --amend -c HEAD	# update last commit
-	camf	= commit --amend -C HEAD	# update last commit, and use same commit message
 	fcam	= commit --amend -C HEAD	# update last commit, and use same commit message
 
 #	=================================

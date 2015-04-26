@@ -34,6 +34,10 @@ alias lst='ls $LS1 $LS2 $LS3 -lrtcA'   # show last edited files in folder
 alias lsg="ls|sort|grep -i"
 alias lp=fun_absolute_path             # show fullpathname to file
 
+# list filename of recently added files
+# how to escape single quotes: http://stackoverflow.com/a/1250279/1483760
+alias lstt=fun_ffs
+
 # only directories
 alias lsd='ls $LS1 $LS2 $LS3 -d -- */ | sed "s/\/$//g"'
 
@@ -42,10 +46,6 @@ alias vls='ls $LS1 $LS2 $LS3 -B  | grep ".*" | less -R'
 alias vla='ls $LS1 $LS2 $LS3 -A  | grep ".*" | less -R'      # also lists hidden files
 alias vl='ls $LS1 $LS2 $LS3 -Al | grep ".*" | less -R'      # list of files
 alias vll='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R'      # like before, but lists hidden files, too
-
-# list filename of recently added files
-# how to escape single quotes: http://stackoverflow.com/a/1250279/1483760
-alias lstt='ls -ltrcA | awk "{print substr($0,51)}"'
 
 # chmod                                                                          {{{2
 
@@ -193,6 +193,7 @@ alias lcf=fun_locate_dat
 alias ff=fun_ff
 alias fff='find -type f'
 alias ffd='find -type d'
+alias ffs=fun_ffs
 alias ffg='find -type f -regextype egrep -iregex'
 alias ffi="find -type f -exec file {} \; | grep -o -P '^.+: \w+ image'"     # find all images
 
@@ -538,7 +539,6 @@ alias gnomeapps=fun_gnome
 # http://askubuntu.com/questions/1792/how-can-i-suspend-hibernate-from-command-line
 alias susp='sudo bash -c "sleep 1h; pm-suspend"'
 
-
 # journal                                                                        {{{2
 
 alias jrn="less /var/log/syslog"
@@ -610,6 +610,7 @@ alias ovpn='sudo openvpn --config login.conf'
 # ip- & mac adresse                                                              {{{2
 
 alias ips=fun_ips           # IP-Adresse and more
+alias dnsfree=fun_time_DNS  # Funktion um den schnellsten freien DNS Server zu finden
 alias mac="netstat -ei"     # Mit dem Befehl "netstat -ei" erhält man die
                             # Übersicht über die Netzwerkkarten. Im Normalfall
                             # hat die primäre Netzwerkkarte die Bezeichnung
@@ -894,6 +895,12 @@ fun_ff() {
     find . -iname "*$**"
 }
 
+fun_ffs() {
+    find -type f -printf "%T+\t%p\n" |\
+        sort -k1 -n |\
+        awk '{print $2}'   # tail -nX | xargs -n1 -i cp -v "{}" /to/path
+}
+
 # fun: grep                                                                      {{{3
 
 # grep - grep to vim                                                             {{{4
@@ -1016,6 +1023,13 @@ bind '"\C-x\C-d": "$(fzf_tmux_dir)\e\C-e"'
 
 fun_ips() {
 sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac | grep -i adr
+}
+
+fun_time_DNS() {
+    # http://www.commandlinefu.com/commands/view/14188/a-function-to-find-the-fastest-free-dns-server
+    parallel -j0 --tag dig @{} "$*" ::: 208.67.222.222 208.67.220.220 \
+    198.153.192.1 198.153.194.1 156.154.70.1 156.154.71.1 8.8.8.8 8.8.4.4 |
+    grep Query | sort -nk5; 
 }
 
 # fun: pss ssh                                                                   {{{3
@@ -1197,8 +1211,8 @@ fun_exerc () {
     while [ $i -lt 12 ] # less than 12
     do sleep 40
         play /usr/share/sounds/gnome/default/alerts/drip.ogg repeat 1 gain -n 5
-        echo $i
-        i=$(( i ++ ))
+        echo "Schritte $i"
+        i=$(( i + 1 ))
     done
     play /usr/share/sounds/gnome/default/alerts/bark.ogg repeat 2 gain -n 5  # play file with +5dB
     sleep 1

@@ -297,11 +297,11 @@ set cpo+=aABceFsmq
 " How to set formatoptions depending on filetype is described here:
 " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion#Overriding_format_options_set_by_filetype_plugin
 
-"       +-- Trailing white space indicates a paragraph continues in the next
-"       >   line. A line that ends in a non-white character ends a paragraph.
-"       |+--- Automatic formatting of paragraphs. Every time text is inserted
+"       >   Trailing white space indicates a paragraph continues in the next
+"       +-- line. A line that ends in a non-white character ends a paragraph.
+"       |>    Automatic formatting of paragraphs. Every time text is inserted
 "       |>    or deleted the paragraph will be reformatted. When the 'c'
-"       |>    flag is present thisonly happens for recognized comments.
+"       |+--- flag is present this only happens for recognized comments.
 "       ||
 set fo-=wa
 set fo+=tocqrnl
