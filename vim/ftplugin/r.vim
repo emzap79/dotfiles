@@ -105,6 +105,10 @@ vmap <esc>b <Plug>RDSendMBlock
 nmap <localleader>b <Plug>RSendMBlock
 vmap <localleader>b <Plug>RSendMBlock
 
+" Comments                                   {{{2
+nmap <localleader>cr <Plug>RRightComment
+vmap <localleader>cr <Plug>RRightComment
+
 " Arguments, Example, Help (cur)             {{{2
 nmap <silent><localleader>a <Plug>RShowArgs
 vmap <silent><localleader>a <Plug>RShowArgs
@@ -121,10 +125,6 @@ nmap <silent><localleader>p <Plug>RPlot
 vmap <silent><localleader>p <Plug>RPlot
 nmap <silent><localleader>g <Plug>RSPlot
 vmap <silent><localleader>g <Plug>RSPlot
-
-" Comments                                   {{{2
-nmap <localleader>cr <Plug>RRightComment
-vmap <localleader>cr <Plug>RRightComment
 
 " Set working directory (cur file path)      {{{2
 nmap <silent><localleader>d <Plug>RSetwd
@@ -162,7 +162,7 @@ map <silent> <localleader>rn :call RAction("rownames")<CR>
 map <silent> <LocalLeader>ls <Plug>RListSpace
 map <silent> <LocalLeader>rm :call RAction("rm")<CR>
 
-" SendCmdToR                                 {{{2
+" SendCmdToR                                 {{{1
 map <silent> <localleader>sr :call g:SendCmdToR("search()")<CR>
 map <silent> <localleader>di :call g:SendCmdToR("dir()")<CR>
 map <silent> <localleader>as :call g:SendCmdToR("methods(as)")<CR>

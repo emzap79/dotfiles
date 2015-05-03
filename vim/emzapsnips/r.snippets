@@ -47,11 +47,12 @@ endglobal
 snippet "^\?\?" "Show Mitschrift" wr
 /home/zapata/Dokumente/R/mitschrift.r
 endsnippet
-
+snippet aspos "Apply POSIXct on variable" w
+as.POSIXct(strptime(${1:${VISUAL}}, format='${2:%Y-%m-%d}'))
+endsnippet
 snippet as "Apply type on variable" w
 as.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
-
 snippet is "Test type on variable" w
 is.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet

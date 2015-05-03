@@ -100,6 +100,10 @@ snippet mod
 " Last Modified: `!v strftime("%B %d, %Y")`
 endsnippet
 
+snippet icsdts "Adds ics timestamp to file" b
+DTSTAMP:`!v strftime("%Y%m%dT%H%M%SZ")`
+endsnippet
+
 snippet dts "Receive current date" i
 `!v strftime("%Y-%m-%d %H:%M")`
 endsnippet

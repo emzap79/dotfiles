@@ -365,6 +365,7 @@ alias pdfgs="pdfgrayscale"
 alias pdfresize="/bin/bash $HOME/bin/pdfResize.sh"
 alias pdfsplit="/bin/bash $HOME/bin/pdfPagesToParts.sh"
 alias pdfimg=fun_pdf_image_extract
+alias pdf="xdg-open"    # open default pdf-reader
 
 # latex                                                                          {{{2
 
@@ -609,13 +610,20 @@ alias ovpn='sudo openvpn --config login.conf'
 
 # ip- & mac adresse                                                              {{{2
 
-alias ips=fun_ips           # IP-Adresse and more
+alias ips=fun_show_ip       # IP-Adresse and more
+
+##########################
+#  under construction!!  #
+##########################
+alias ipsum=fun_summary_ip  # summarize a list of IP addresses, verifying IP address and giving counts for each IP found
+##########################
+##########################
+
 alias dnsfree=fun_time_DNS  # Funktion um den schnellsten freien DNS Server zu finden
 alias mac="netstat -ei"     # Mit dem Befehl "netstat -ei" erhält man die
                             # Übersicht über die Netzwerkkarten. Im Normalfall
                             # hat die primäre Netzwerkkarte die Bezeichnung
                             # "eth0" (Hardware-Adresse = MAC Adresse)
-
 
 # wlan, ethernet etc                                                             {{{2
 # check available wlan-ports
@@ -1021,15 +1029,27 @@ bind '"\C-x\C-d": "$(fzf_tmux_dir)\e\C-e"'
 
 # fun: ifconfig - print ip address                                               {{{3
 
-fun_ips() {
+fun_show_ip() {
 sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac | grep -i adr
+}
+
+fun_summary_ip() {
+    # http://www.commandlinefu.com/commands/view/14203/summarize-a-list-of-ip-addresses-verifying-ip-address-and-giving-counts-for-each-ip-found
+    < $1 awk '{print $1}' | while  read ip ; do verifyIP ${ip} && echo ${ip}; done \
+        | awk '{ip_array[$1]++} END { for (ip in ip_array) printf("%5d\t%s\n", ip_array[ip], ip)}' \
+        | sort -rn;
+}
+
+fun_verify_ip() {
+    # http://www.commandlinefu.com/commands/view/14201/function-to-verify-an-ip-address-can-be-used-at-the-shell-prompt-or-in-a-shell-script
+    local o='(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])'; [[ $1 =~ ^$o\.$o\.$o\.$o$ ]];
 }
 
 fun_time_DNS() {
     # http://www.commandlinefu.com/commands/view/14188/a-function-to-find-the-fastest-free-dns-server
     parallel -j0 --tag dig @{} "$*" ::: 208.67.222.222 208.67.220.220 \
     198.153.192.1 198.153.194.1 156.154.70.1 156.154.71.1 8.8.8.8 8.8.4.4 |
-    grep Query | sort -nk5; 
+    grep Query | sort -nk5;
 }
 
 # fun: pss ssh                                                                   {{{3
