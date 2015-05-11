@@ -187,7 +187,7 @@ superconsistent :: superkonsistent
 tail :: Rand---wörtlich Schwanz (eines Schweins o.ä.!), aber das lassen wir lieber…
 tests of serial correlation :: Autokorrelationstest
 time series :: Zeitreihe
-trajectory :: Trajektorie, "Zeitschiene"
+trajectory :: Trajektorie, "Zeitschiene", Realisierung
 transpose :: Transponierte
 t-ratio :: t-Wert
 treasury bill :: Schatzwechsel

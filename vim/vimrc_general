@@ -427,25 +427,25 @@ set com+=mb:*
 set com+=ex:*/
 
 " LaTeX
-" set com+=:%
-" set com+=:\\begin{
-" set com+=:\\end{
-" set com+=:\\title{
-" set com+=:\\author{
-" set com+=:\\subtitle{
-" set com+=:\\part{
-" set com+=:\\chapter{
-" set com+=:\\section{
-" set com+=:\\subsection{
-" set com+=:\\subsubsection{
-" set com+=:\\paragraph
-" set com+=:\\subparagraph{
-" set com+=:\\usepackage{
-" set com+=:\\documenclass{
-" set com+=:\\usepackage[
-" set com+=:\\item[
-" set com+=:\\item
-" set com+=:#
+set com+=:%
+set com+=:\\begin{
+set com+=:\\end{
+set com+=:\\title{
+set com+=:\\author{
+set com+=:\\subtitle{
+set com+=:\\part{
+set com+=:\\chapter{
+set com+=:\\section{
+set com+=:\\subsection{
+set com+=:\\subsubsection{
+set com+=:\\paragraph
+set com+=:\\subparagraph{
+set com+=:\\usepackage{
+set com+=:\\documenclass{
+set com+=:\\usepackage[
+set com+=:\\item[
+set com+=:\\item
+set com+=:#
 
 " commentstring: The "%s" in the value is replaced with the comment text
 " (default: "/*%s*/")

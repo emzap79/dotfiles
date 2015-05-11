@@ -191,8 +191,8 @@ alias lcf=fun_locate_dat
 
 # find
 alias ff=fun_ff
-alias fff='find -type f'
-alias ffd='find -type d'
+alias fff='find . -depth 0 -type f'
+alias ffd='find . -depth 0 -type d'
 alias ffs=fun_ffs
 alias ffg='find -type f -regextype egrep -iregex'
 alias ffi="find -type f -exec file {} \; | grep -o -P '^.+: \w+ image'"     # find all images
@@ -366,6 +366,7 @@ alias pdfresize="/bin/bash $HOME/bin/pdfResize.sh"
 alias pdfsplit="/bin/bash $HOME/bin/pdfPagesToParts.sh"
 alias pdfimg=fun_pdf_image_extract
 alias pdf="xdg-open"    # open default pdf-reader
+alias pdfuni='cat pdfs.txt | while read i; do evince $i; done &'
 
 # latex                                                                          {{{2
 
