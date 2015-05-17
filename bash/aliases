@@ -551,7 +551,7 @@ alias shwlg="find /var/log -iregex '.*[^\.][^0-9]+$' -not -iregex '.*gz$' 2> /de
 
 alias uoek="rsync --progress -auve ssh --iconv=UTF-8,ISO8859-1 --exclude '^.' --exclude '*~' --delete $UNI/$SEM/CompOek/ sdjopeto@student.uni-due.de:public_html/CompOek"
 alias usync="/bin/bash $HOME/bin/cronSyncSsh"
-alias cruzer='usync cruzer'
+alias cruzer="$HOME/bin/cronSyncSsh cruzer"
 alias backup="/bin/bash $HOME/bin/cronBackup start"
 alias sshkey="ssh-keygen -t rsa -C" # "your_email@example.com"
 

@@ -4,12 +4,12 @@
 "query:Podcasts: tags =~ \"998. Podcasts\""                                                                      "00. Filter"
 
 # angebote         {{{2
+"query:Aktionen: tags =~ \"998. Angebote\" and (title =~ \"supersale\" or title =~ \"hamma heute\")"                    "00. Filter"
 "query:Ebooks: tags =~ \"998. Angebote\" and (title =~ \" ebook\" and title !~ \"ebookers\")"                    "00. Filter"
 "query:Mobilfunk: tags =~ \"998. Angebote\" and ((title =~ \"mobilfunk\" or title =~ \"handy\") and title =~ \"vertrag\")"                    "00. Filter"
 "query:Notebook: tags =~ \"998. Angebote\" and (title =~ \"notebook \" or title =~ \"netbook \")"                    "00. Filter"
 "query:Freizeitpark: tags =~ \"998. Angebote\" and (title =~ \"europapark \" or title =~ \"phantasialand \")"                    "00. Filter"
 "query:Fahrten: tags =~ \"998. Angebote\" and (title =~ \"berlin\" or title =~ \"hamburg\")"                    "00. Filter"
-"query:Aktionen: tags =~ \"998. Angebote\" and (title =~ \"supersale\")"                    "00. Filter"
 # linux            {{{2
 "query:StackExch: tags =~ \"998. StackExch\" and (tag =~ \"questions\")"                                         "00. Filter"
 
@@ -165,7 +165,6 @@ http://blog.superuser.com/feed/                                   "998. Unix - L
 http://elementaryluna.blogspot.com/feeds/posts/default            "998. Unix - Ubuntu"
 http://fedorausers.de/?q=aggregator/rss/5                         "998. Unix - Fedora"
 http://feeds.arstechnica.com/arstechnica/open-source?format=xml   "998. Unix - Linux"
-http://feeds.arstechnica.com/arstechnica/open-source?format=xml   "998. Unix - Ubuntu"
 http://feeds.feedburner.com/GimpologyLatest                       "998. Unix - Ubuntu"
 http://feeds.feedburner.com/Gimptutorials                         "998. Unix - Ubuntu"
 http://feeds.feedburner.com/UbuntuGeek?format=xml                 "998. Unix - Ubuntu"
