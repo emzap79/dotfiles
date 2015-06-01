@@ -1,4 +1,5 @@
 q
+ex
 clear 
 filter !~g"*electr*"
 live-filter 

@@ -219,47 +219,30 @@ ${3:${VISUAL}}
 % chapter % $2 (end) %}}}
 endsnippet
 snippet sec "Section" b
-\section{${1:section name}}
-${2:\label{sec:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}
-${4:\input{../cont/$3.tex}}
+\\${1:sub}section{${2:section name}}
+${3:\label{sec:${4:${2/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}
+${5:\input{${6:sections}/$4.tex}}
 
-${5:${VISUAL}}
+${0:${VISUAL}}${7:
 
-% section % $3 (end)
+% section % $4 (end)}
 endsnippet
-snippet ssec "Subsection" b
-\subsection{${1:subsection name}}
-${2:\label{sec:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}
-${4:\input{../cont/$3.tex}}
 
-${5:${VISUAL}}
-
-% subsect %% $3 (end)
-endsnippet
-snippet sssec "Subsubsection" b
-\subsubsection{${1:subsection name}}
-${2:\label{sec:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}
-${4:\input{../cont/$3.tex}}
-
-${5:${VISUAL}}
-
-% subsubsect %%% $2 (end)
-endsnippet
 snippet par "Paragraph" b
 \paragraph{${1:paragraph name}}
 \label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 
-${3:${VISUAL}}
+${3:${VISUAL}
 
-% paragraph $2 (end)
+% paragraph $2 (end)}
 endsnippet
 snippet spar "Subparagraph" b
 \subparagraph{${1:subparagraph name}}
 \label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 
-${0}
+${0:
 
-% subparagraph $2 (end)
+% subparagraph $2 (end)}
 endsnippet
 # .##.notes,.comments
 snippet note "Insert (Margin)Note" i

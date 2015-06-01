@@ -1218,8 +1218,8 @@ fun_calc () {
 
 # fun: exerc - play a sound every 40 sec for 12 times
 fun_exerc () {
-    echo "start exercise in 10 sec"
-    sleep 5
+    echo "start exercise in 50 sec"
+    sleep 45
     i=1
     while [ $i -lt 5 ]
     do sleep 1
