@@ -1,6 +1,5 @@
 # vim:fdm=marker
 # Mails verfassen                                     {{{1
-
 # Formatoptions                                       {{{2
 
 set include="yes"        # Bei Reply wird Original-Message eingefuegt
@@ -28,16 +27,14 @@ hdr_order From: To: cc subject date X-Spam-Score:      # Reihenfolge der Header 
 
 # Editor, der zum Verfassen der Mails benutzt wird.   {{{2
 
-set editor="vim \
+set editor="vim -c 'syntax on' \
+                -c '+/^$' \
+                -c 'startinsert' \
                 -c 'set wrap' \
                 -c 'set spell spelllang=de,en' \
                 -c 'set t_Co=8' \
                 -c 'set tw=72' \
-                -c 'set number' \
-                -c 'colorscheme default' \
-                -c 'syntax on' \
-                -c '+/^$' \
-                -c 'startinsert'"
+                -c 'set number'"
 
 # Mails empfangen                                     {{{1
 

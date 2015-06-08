@@ -63,8 +63,8 @@ alias broty="for i in {1..5}; do bro thanks $i; done"
 alias du='du -h'
 alias dus="du -hsx * | sort -rh"  # http://www.commandlinefu.com/commands/view/13328/provide-the-ten-largest-subfolders-in-the-current-folder
 alias duf=fun_dus
-alias dufs="du --max-depth=1 -k | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
-alias dufss="du -hsx * | sort -rh | head -10"  # http://www.commandlinefu.com/commands/view/13328/provide-the-ten-largest-subfolders-in-the-current-folder
+alias dufs="du -hsx * | sort -rh | head -10"  # http://www.commandlinefu.com/commands/view/13328/provide-the-ten-largest-subfolders-in-the-current-folder
+alias dufss="du --max-depth=1 -k | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
 alias dufsss="du -ks .?* | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
 
 # cd                                                                             {{{2
@@ -554,6 +554,7 @@ alias usync="/bin/bash $HOME/bin/cronSyncSsh"
 alias cruzer="$HOME/bin/cronSyncSsh cruzer"
 alias backup="/bin/bash $HOME/bin/cronBackup start"
 alias sshkey="ssh-keygen -t rsa -C" # "your_email@example.com"
+alias scpuni="scp -r sdjopeto@student.uni-due.de:public_html"   # http://wiki.ubuntuusers.de/SSH#scp 
 
 # git                                                                            {{{2
 
