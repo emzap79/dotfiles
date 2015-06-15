@@ -1,6 +1,6 @@
+clear 
 q
 ex
-clear 
 filter !~g"*electr*"
 live-filter 
 filter !~g"electr"

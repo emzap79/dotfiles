@@ -254,6 +254,9 @@ command_not_found_handle() {
         xls2*) ssconvert -S "$2" "${2%%.*}"."${1#xls2}"
             return 0
             ;;
+        xml2*) ssconvert -S "$2" "${2%%.*}"."${1#xml2}"
+            return 0
+            ;;
         pd2*) pandoc "$2" -o "${2%%.*}"."${1#pd2}"
             return 0
             ;;
@@ -554,7 +557,7 @@ alias usync="/bin/bash $HOME/bin/cronSyncSsh"
 alias cruzer="$HOME/bin/cronSyncSsh cruzer"
 alias backup="/bin/bash $HOME/bin/cronBackup start"
 alias sshkey="ssh-keygen -t rsa -C" # "your_email@example.com"
-alias scpuni="scp -r sdjopeto@student.uni-due.de:public_html"   # http://wiki.ubuntuusers.de/SSH#scp 
+alias scpuni="scp -r sdjopeto@student.uni-due.de:public_html"   # http://wiki.ubuntuusers.de/SSH#scp
 
 # git                                                                            {{{2
 

@@ -73,7 +73,7 @@ silent qmark p https://www.planspiel-boerse.de/ssk-duesseldorf/0/index.htm
 silent qmark r https://www.reddit.com/rising/
 silent qmark R http://www.refworks.com
 silent qmark s https://soundcloud.com/stream
-silent qmark S http://spiegel.de
+silent qmark S https://www.strava.com/dashboard
 silent qmark t http://twitter.com/home/
 silent qmark t http://detexify.kirelabs.org/classify.html
 silent qmark u http://speedtest-1.unitymedia.de/
