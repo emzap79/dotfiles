@@ -6,10 +6,10 @@
 # angebote         {{{2
 "query:Aktionen: tags =~ \"998. Angebote\" and (title =~ \"supersale\" or title =~ \"ebay WoW\" or title =~ \"hamma heute\")"                    "00. Filter"
 "query:Ebooks: tags =~ \"998. Angebote\" and (title =~ \" ebook\" and title !~ \"ebookers\")"                    "00. Filter"
-"query:Mobilfunk: tags =~ \"998. Angebote\" and ((title =~ \"mobilfunk\" or title =~ \"handy\") and title =~ \"vertrag\")"                    "00. Filter"
-"query:Notebook: tags =~ \"998. Angebote\" and (title =~ \"notebook \" or title =~ \"netbook \")"                    "00. Filter"
-"query:Freizeitpark: tags =~ \"998. Angebote\" and (title =~ \"europapark \" or title =~ \"phantasialand \")"                    "00. Filter"
+# "query:Notebook: tags =~ \"998. Angebote\" and (title =~ \"notebook \" or title =~ \"netbook \")"                    "00. Filter"
+"query:Freizeitpark: tags =~ \"998. Angebote\" and (title =~ \"freizeitpark\" or title =~ \"europapark\" or title =~ \"phantasialand\")"                    "00. Filter"
 "query:Fahrten: tags =~ \"998. Angebote\" and (title =~ \"berlin\" or title =~ \"city.trip\" or title =~ \"hamburg\")"                    "00. Filter"
+"query:Soundanlaga: tags =~ \"998. Angebote\" and (title =~ \"radio\" or title =~ \"soundystem\" or title =~ \"subwoofer\")"                    "00. Filter"
 # linux            {{{2
 "query:StackExch: tags =~ \"998. StackExch\" and (tag =~ \"questions\")"                                         "00. Filter"
 
@@ -121,7 +121,7 @@ http://www.finanznachrichten.de/rss-nachrichten-devisen                  "998. N
 http://systematicinvestor.wordpress.com/feed/                            "998. News - Trading"
 http://tradingwithlinux.blogspot.com/feeds/posts/default                 "998. News - Trading"
 
-# Lehrstuhl          {{{2
+# Lehrstuhl        {{{2
 # http://www.lef.wiwi.uni-due.de/rss/                                                                       "998. Lehrstuhl"
 # http://www.fiba.wiwi.uni-due.de/rss/                                                                      "998. Lehrstuhl"
 # http://www.makro.wiwi.uni-due.de/rss/                                                                     "998. Lehrstuhl"

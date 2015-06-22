@@ -108,11 +108,11 @@ unignore Subject:                               # Betreff
 unignore To:                                    # Empfaenger
 unignore CC:                                    # andere Empfaenger
 unignore Date:                                  # Datum
-unignore X-Spam-Score:                          # Spam-Wert
+unignore Message-ID:                            # Message ID
 
 ignore Resent- Precedence In-Reply-To Return-Receipt-To Mailer X400
 ignore Originator X-Loop X-Mailing-List X-Listprocessor X-Face
-ignore X-Received X-Mailer X-Envelope-To X-Sender X-Attribution
+ignore X-Spam-Level X-Received X-Mailer X-Envelope-To X-Sender X-Attribution
 ignore Path Lines NNTP-Posting-Host X-Newsreader X-Submitted-Via
 
 # HTML-Messages                                       {{{3

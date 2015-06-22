@@ -1151,4 +1151,6 @@ function! s:UrlOperator(type)
     let @@ = saved_unnamed_register
 endfunction
 
+nnoremap gZ :exe "!firefox " . shellescape(expand("<cword>"))<cr><cr>
+
 " s/^.\{-}\ze,\s\d\d\d\d\.\s/\\author{&},\r/g | s/,\s\(\d\{4\}\)\./\\year{\1\r/g | s/^\s\(.\{-}\)\s\(\d*\),/\\title{\1},\\journal{},\r\\number{\2},\r/g | s/^s\(\d.*\)\.$/\\pages{\1}/g s\r},

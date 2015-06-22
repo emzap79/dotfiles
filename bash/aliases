@@ -331,11 +331,11 @@ alias tvim="tvim"
 # open vim sessions
 alias v=fun_vim  # 'vv tex' will open /etc/foo.tex in vim
 alias vf=fun_vim_find   # 'vf tex' will open every tex-file in subdirectory as buffer
-alias vm="vim /tmp/foo.md"
 alias vi="vim -c 'startinsert'"
 alias vu="vim -u NONE"
 alias vs="vim -S Session.vim"
 alias vv="echo "" > /tmp/foo.bar; vim -c startinsert /tmp/foo.bar"
+alias vmd="vim /tmp/foo.md"
 
 # clean working files
 alias vcl=fun_clean

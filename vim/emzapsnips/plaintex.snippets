@@ -288,7 +288,7 @@ endsnippet
 snippet cmd "Set cmd in qrcs" b
 \\cmd$1`!p snip.rv = complete(t[1], CMD_FIELD_TYPES)`{$2}	{$3}
 endsnippet
-snippet "cmd(S|L)" "Set short/long cmd in qrcs" br
+snippet "cmd(S|M|L)" "Set short, middle, long cmd in qrcs" br
 \\cmd`!p snip.rv = match.group(1) if match.group(1) is not None else ""`{$1}	{$2}
 endsnippet
 snippet "(\s)?cit(\S+)?" "Insert Citation" ir

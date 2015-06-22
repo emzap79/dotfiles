@@ -47,8 +47,8 @@ set visualbell
 silent qmark a http://www.ardmediathek.de/tv
 silent qmark b http://scores.espn.go.com/nba/scoreboard
 silent qmark B https://html5reader.buch.de/library/library.html#!/library
-silent qmark c https://bay01.calendar.live.com/calendar/calendar.aspx
-silent qmark C http://www.google.com/calendar/render?hl=de
+silent qmark c http://www.google.com/calendar/render?hl=de
+silent qmark C https://bay01.calendar.live.com/calendar/calendar.aspx
 silent qmark d https://banking.ing-diba.de/webkunden/goLogin.do
 silent qmark D https://www.dropbox.com/home
 silent qmark e http://ebay.de

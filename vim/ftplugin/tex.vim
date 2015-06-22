@@ -13,7 +13,7 @@ endif
 
 let b:did_ftplugin = 1
 
-" Globals"{{{
+" Globals      " {{{1
 
 if !exists('g:tex_fold_sec_char')
     let g:tex_fold_sec_char = '➜'
@@ -31,8 +31,7 @@ if !exists('g:tex_fold_allow_marker')
     let g:tex_fold_allow_marker = 1
 endif
 
-" Globals"}}}
-" Fold options"{{{
+" Fold options " {{{1
 
 setlocal foldmethod=expr
 setlocal foldexpr=TeXFold(v:lnum)
@@ -41,10 +40,9 @@ if g:tex_fold_override_foldtext
     setlocal foldtext=TeXFoldText()
 endif
 
-" Fold options"}}}
-" Functions"{{{
+" Functions    " {{{1
 
-" " texfold"{{{
+" " texfold    " {{{
 "
 " function! TeXFold(lnum)
 "     let line = getline(a:lnum)
@@ -103,7 +101,7 @@ endif
 " "}}}
 "
 " " TeXFold"}}}
-" undo filetype"{{{
+" undo filetype" {{{2
 
 if exists('b:undo_ftplugin')
   let b:undo_ftplugin .= "|setl foldexpr< foldmethod< foldtext<"
@@ -111,8 +109,7 @@ else
   let b:undo_ftplugin = "setl foldexpr< foldmethod< foldtext<"
 endif
 
-" Undo Filetype"}}}
-" insert \item"{{{
+" insert \item " {{{2
 
 " " http://stackoverflow.com/a/2551652
 function! CR()
@@ -130,4 +127,4 @@ endfunction
 inoremap <expr><buffer> <CR> CR()
 
 " insert \item"}}}
-" Functions"}}}
+
