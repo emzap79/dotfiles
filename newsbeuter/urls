@@ -8,7 +8,7 @@
 "query:Ebooks: tags =~ \"998. Angebote\" and (title =~ \" ebook\" and title !~ \"ebookers\")"                    "00. Filter"
 # "query:Notebook: tags =~ \"998. Angebote\" and (title =~ \"notebook \" or title =~ \"netbook \")"                    "00. Filter"
 "query:Freizeitpark: tags =~ \"998. Angebote\" and (title =~ \"freizeitpark\" or title =~ \"europapark\" or title =~ \"phantasialand\")"                    "00. Filter"
-"query:Fahrten: tags =~ \"998. Angebote\" and (title =~ \"berlin\" or title =~ \"city.trip\" or title =~ \"hamburg\")"                    "00. Filter"
+"query:Fahrten: tags =~ \"998. Angebote\" and (title =~ \"berlin\" or title =~ \"br\.ssel\")"                    "00. Filter"
 "query:Soundanlaga: tags =~ \"998. Angebote\" and (title =~ \"radio\" or title =~ \"soundystem\" or title =~ \"subwoofer\")"                    "00. Filter"
 # linux            {{{2
 "query:StackExch: tags =~ \"998. StackExch\" and (tag =~ \"questions\")"                                         "00. Filter"
