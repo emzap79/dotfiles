@@ -16,7 +16,7 @@ the more interesting directories are:
   commands (see description!).
 
 The actual filenames don't include the leading dot. This is for visibility and
-it's slightly more convenient managing the files with git that way. 
+it's slightly more convenient managing the files with git that way.
 
 ## More Sophisticated Github Aliases
 
@@ -81,16 +81,12 @@ In case you find any issues I'd be happy you get in contact:
 < emzap79 [at] gmail [dot] com >
 
 # License Agreement
-        DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-                Version 2, December 2004
+Collection of my Linux Dotfiles
 
-Copyright 2014 Jonas Petong
+Copyright 2015 Jonas Petong
 
-Everyone is permitted to copy and distribute verbatim or modified
-copies of this license document, and changing it is allowed as long
-as the name is changed.
+Licensed under the "THE BEER-WARE LICENSE" (Revision 42):
+Jonas Petong wrote this file. As long as you retain this notice you
+can do whatever you want with this stuff. If we meet some day, and you think
+this stuff is worth it, you can buy me a beer or coffee in return
 
-        DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
-
- 0. You just DO WHAT THE FUCK YOU WANT TO.
