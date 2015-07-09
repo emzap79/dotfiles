@@ -72,7 +72,6 @@ urlview-title-format         "%N %V - URLs"
 dialogs-title-format         "%N %V - Dialogs"
 
 # colors & highlighting {{{1
-
 # colors {{{2
 
 # ## https://github.com/carno/dotfiles/blob/master/.newsbeuter/colors
@@ -102,11 +101,10 @@ color article    color244 color234
 # color article white default
 
 # highlighting  {{{2
-
-search-highlight-colors                     black yellow bold
-highlight all "00\.\ Filter.*"              color251 color234
-highlight all "^0[^0].*"                    color245 color234
-highlight all "99[0-9].*"                   color239 color234
+search-highlight-colors          black yellow bold
+highlight all "00\.\ Filter.*"     color251  color234
+highlight all "^0[1-9]\.*"         color245  color234
+highlight all "[0-9][0-9][0-9].*"  color239  color234
 
 # podcasts & downloads {{{1
 

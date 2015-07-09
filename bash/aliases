@@ -597,6 +597,8 @@ alias agi='sudo apt-get install -y'
 alias acs='apt-cache search'
 alias agu='sudo apt-get update'
 alias apt-get='sudo apt-get'
+alias pip='sudo pip'
+alias pip3='sudo pip3'
 alias yum='sudo yum'
 alias pip='sudo pip'
 alias upgr="/bin/bash ~/bin/upgrSoftw.sh && /usr/bin/python ~/bin/upgrPipPackages.py"
@@ -884,9 +886,11 @@ fun_muttbeuter(){
     if [[ -n $(ps -aef | grep -v grep | grep newsbeuter) ]]; then
         pkill newsbeuter
     fi
-    fetchmail -v --ssl >> /dev/null 2>&1
-    newsbeuter
+    /usr/bin/fetchmail -v --ssl >> /dev/null 2>&1
+    /usr/bin/newsbeuter -x reload >> /dev/null 2>&1
+
     mutt
+    newsbeuter
     podbeuter
 }
 
