@@ -11,8 +11,8 @@
 "query:Ebooks: tags =~ \"900. Angebote\" and (title =~ \" ebook\" and title !~ \"ebookers\")"                    "00. Filter"
 # "query:Notebook: tags =~ \"900. Angebote\" and (title =~ \"notebook \" or title =~ \"netbook \")"                    "00. Filter"
 "query:Freizeitpark: tags =~ \"900. Angebote\" and (title =~ \"freizeitpark\" or title =~ \"europapark\" or title =~ \"phantasialand\")"                    "00. Filter"
-"query:Fahrten: tags =~ \"900. Angebote - Reisen\" and (title =~ \"gültig\")"                    "00. Filter"
-"query:Soundanlaga: tags =~ \"900. Angebote\" and (title =~ \"radio\" or title =~ \"soundystem\" or title =~ \"subwoofer\")"                    "00. Filter"
+"query:Fahrten: tags =~ \"900. Angebote\" and (title =~ \"gültig\")"                    "00. Filter"
+"query:Garmin: tags =~ \"900. Angebote\" and title =~ \"garmin\""                    "00. Filter"
 # podcasts                   {{{2
 "query:Podcasts: tags =~ \"998. Podcasts\""                                                                      "00. Filter"
 

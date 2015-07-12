@@ -103,8 +103,8 @@ color article    color244 color234
 # highlighting  {{{2
 search-highlight-colors          black yellow bold
 highlight all "00\.\ Filter.*"     color251  color234
-highlight all "^0[1-9]\.*"         color245  color234
-highlight all "[0-9][0-9][0-9].*"  color239  color234
+highlight all "^0[1-9]\.[1-9].*"         color245  color234
+highlight all "^[0-9][0-9][0-9]\.\ .*"  color239  color234
 
 # podcasts & downloads {{{1
 

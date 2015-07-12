@@ -448,7 +448,6 @@ alias fd=fun_fd
 alias fh=fun_fh
 alias fkill=fun_fkill
 
-
 # short commands                                                                 {{{1
 
 # some of it taken from https://github.com/sjas/.dotfiles
@@ -569,7 +568,6 @@ alias gaa="g aa"
 alias grmign="grmc && gca 'remove stashed, ignored files'"  # http://manofhustle.com/2014/05/11/remove-files-from-git-addingupdating-gitignore/
 alias gig=fun_gitignore
 # alias grema="g rema"
-
 
 # function commands
 alias gdf="$HOME/bin/cronGithub backup"
@@ -799,7 +797,6 @@ fun_ignore() {
     git commit -am "gitignore ignores vim and tmux tempfiles"
 }
 
-
 # vimfunctions                                                                   {{{3
 
 fun_vim() {
@@ -877,7 +874,6 @@ fun_pdf_image_extract(){
 
 }
 
-
 # other                                                                          {{{2
 
 # fun: muttbeuter                                                                {{{3
@@ -886,12 +882,13 @@ fun_muttbeuter(){
     if [[ -n $(ps -aef | grep -v grep | grep newsbeuter) ]]; then
         pkill newsbeuter
     fi
-    /usr/bin/fetchmail -v --ssl >> /dev/null 2>&1
-    /usr/bin/newsbeuter -x reload >> /dev/null 2>&1
+    # /usr/bin/fetchmail -v --ssl >> /dev/null 2>&1
+    # /usr/bin/newsbeuter -x reload >> /dev/null 2>&1
 
-    mutt
-    newsbeuter
-    podbeuter
+    /usr/bin/newsbeuter -r
+    /usr/bin/mutt
+    /usr/bin/podbeuter
+/
 }
 
 # fun: locate                                                                    {{{3
@@ -933,7 +930,6 @@ fun_grepc() {
 grep -rail "${@:1:$(($#-1))}" "${!#}"
 }
 
-
 # fun: mkdir                                                                     {{{3
 
 # mkcd - create dir and changedir to it                                          {{{4
@@ -953,7 +949,6 @@ fun_mkcp(){
     cp -rv "${@:1:$(($#-1))}" "${!#}"
 }
 
-
 # mkmv - create dir and insert copied files                                      {{{4
 
 fun_mkmv(){
@@ -964,14 +959,12 @@ fun_mkmv(){
     mv -v "${@:1:$(($#-1))}" "${!#}"
 }
 
-
 # mkdt - create dir with current date                                            {{{4
 
 fun_mkdt(){
     # start with creating new directory
     mkdir `date +%Y%m%d`
 }
-
 
 # fun: fuzzy finder for shell                                                    {{{3
 
@@ -1034,7 +1027,6 @@ fzf_tmux_dir() {
 
 # Bind CTRL-X-CTRL-D to fzf_tmux_dir
 bind '"\C-x\C-d": "$(fzf_tmux_dir)\e\C-e"'
-
 
 # fun: ifconfig - print ip address                                               {{{3
 
@@ -1260,7 +1252,5 @@ fun_gnome() {
     gsettings set org.gnome.shell enabled-extensions "['auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'gnome-shell-imgur@ttll.de', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'notesearch@rrochet.fr', 'SkypeNotification@chrisss404.gmail.com', 'system-monitor@paradoxxx.zero.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'weather-extension@xeked.com', 'windowoverlay-icons@sustmidown.centrum.cz', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']"
 }
 
-
 ### Other Commands
 # watch -n 5 <command>  # exec command periodically every 5 seconds
-
