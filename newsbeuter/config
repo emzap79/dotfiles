@@ -106,6 +106,9 @@ highlight all "00\.\ Filter.*"     color251  color234
 highlight all "^0[1-9]\.[1-9].*"         color245  color234
 highlight all "^[0-9][0-9][0-9]\.\ .*"  color239  color234
 
+# highlight all "^[0-9][0-9][0-9]\.\ .*"  color251  color234
+# highlight all "^[0-9][0-9][0-9]\.\ .*"  color251  color234
+
 # podcasts & downloads {{{1
 
 # Available Operations in Podbeuter

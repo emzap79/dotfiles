@@ -218,7 +218,6 @@ function! s:ROperator(type)
     else
         return
     endif
-    echom "it works"
     " http://stackoverflow.com/a/18547013
     silent execute "normal \<Plug>RDSendSelection``"
     let @@ = saved_unnamed_register

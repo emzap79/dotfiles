@@ -60,12 +60,11 @@ alias broty="for i in {1..5}; do bro thanks $i; done"
 # du                                                                             {{{2
 
 # show size of current folder/subfolder/dotfiles
+# http://unix.stackexchange.com/a/53738
 alias du='du -h'
-alias dus="du -hsx * | sort -rh"  # http://www.commandlinefu.com/commands/view/13328/provide-the-ten-largest-subfolders-in-the-current-folder
+alias du_file='find . -type f  | xargs du -h | sort -n'
+alias du_dir='du --si -d1 | sort -h'
 alias duf=fun_dus
-alias dufs="du -hsx * | sort -rh | head -10"  # http://www.commandlinefu.com/commands/view/13328/provide-the-ten-largest-subfolders-in-the-current-folder
-alias dufss="du --max-depth=1 -k | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
-alias dufsss="du -ks .?* | sort -nr | cut -f2 | xargs -d '\n' du -sh 2>/dev/null"
 
 # cd                                                                             {{{2
 
@@ -837,7 +836,7 @@ curl -L -s https://www.gitignore.io/api/$@ ;
 # fun: conv images to pdf                                                        {{{3
 
 fun_conv_img_to_pdf() {
-sam2p -e -pdf:2 "${1%%.*}"."${1##*.}" "${1%%.*}".pdf
+    sam2p -e -pdf:2 "${1%%.*}"."${1##*.}" "${1%%.*}".pdf
 }
 
 # fun: enroll packed files                                                       {{{3
@@ -874,6 +873,14 @@ fun_pdf_image_extract(){
 
 }
 
+# fun: create gif from video                                                     {{{3
+
+fun_gif_video(){
+    # http://www.ubuntubuzz.com/2015/07/create-gif-from-video-with-ffmpeg-on-linux.html
+    ffmpeg -i video_file_name.mp4  -r 5 '/tmp/frames/frame-%03d.jpeg'
+    convert frames/frame*.jpeg output.gif
+}
+
 # other                                                                          {{{2
 
 # fun: muttbeuter                                                                {{{3
@@ -888,7 +895,6 @@ fun_muttbeuter(){
     /usr/bin/newsbeuter -r
     /usr/bin/mutt
     /usr/bin/podbeuter
-/
 }
 
 # fun: locate                                                                    {{{3
@@ -1218,8 +1224,8 @@ fun_calc () {
 
 # fun: exerc - play a sound every 40 sec for 12 times
 fun_exerc () {
-    echo "start exercise in 50 sec"
-    sleep 45
+    echo "start exercise in 60 sec"
+    sleep 55
     i=1
     while [ $i -lt 5 ]
     do sleep 1

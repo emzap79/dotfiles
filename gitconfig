@@ -38,6 +38,19 @@
 #  create gitignore
 #	=	step 5	= git ignore <filetype> >> .gitignore
 
+# 'git h' for help, 'git la' to list aliases
+# http://stackoverflow.com/a/11613251
+#	=================================
+#	=	   show help		=
+#	=================================
+	h	= !git help|more		# (...<git command>)
+	ha	= !git help -a|less
+	hi	= help -i			# ... yet to find out how to use the 'info' program
+	al	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g'|less -R"
+	rc	= config --get-regexp		# search for custom regexpression
+	rcl	= config --list			# query settings of the local repository
+	rcg	= config --list --global	# query global settings
+
 #	=================================
 #	=	 show history		=
 #	=================================
@@ -79,19 +92,6 @@
 	dh	= diff ..origin/master		# all changes, including non-commited ones
 	dhc	= diff HEAD..origin/master	# against head, includes just local commits
 	dhp	= diff HEAD...origin/master	# pure against head, excludes all local changes and commmits
-
-# 'git h' for help, 'git la' to list aliases
-# http://stackoverflow.com/a/11613251
-#	=================================
-#	=	   show help		=
-#	=================================
-	h	= !git help|more		# (...<git command>)
-	ha	= !git help -a|less
-	hi	= help -i			# ... yet to find out how to use the 'info' program
-	al	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g'|less -R"
-	rc	= config --get-regexp		# search for custom regexpression
-	rcl	= config --list			# query settings of the local repository
-	rcg	= config --list --global	# query global settings
 
 #	=================================
 #	=	clean & remove		=
