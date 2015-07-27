@@ -422,6 +422,7 @@ alias yt-vlc-ascii="vlc -V aa "
 alias yt-vlc-novideo="cvlc -V novideo "
 alias yt-mplayer=fun_youtbmp
 alias yt="mpsyt /"
+alias pyt=fun_yt_view
 
 # mplayer                                                                        {{{2
 
@@ -1114,6 +1115,13 @@ fun_expandurl() { curl -sIL $1 | grep ^Location; }
 # fun: http://annasagrera.com/on-ascii-youtube-and-letting-go/?lang=en
 fun_youtbmp() { youtube-dl $1 -o - | mplayer -vo aa -monitorpixelaspect 0.5 -; }
 
+# fun: yt-view - view youtubube videos in command line
+fun_yt_view()
+{ id=$(curl -s 'https://www.youtube.com/results?search_query='$(echo "$1"|tr '
+    ' +)|grep -o '"[[:alnum:]]\{11\}"'|sed -n 3p|cut -b 2-12); youtube-dl -q
+    'https://www.youtube.com/watch?v='"$id" -o -|mplayer -vo null /dev/fd/3
+    3<&0 </dev/tty; }
+
 # fun: cd - show last edited files                                               {{{3
 
 # fun: http://www.reddit.com/r/linux/comments/1zsn7r/a_bash_alias_i_cannot_function_without/cfwldex
@@ -1225,6 +1233,7 @@ fun_calc () {
 # fun: exerc - play a sound every 40 sec for 12 times
 fun_exerc () {
     echo "start exercise in 60 sec"
+    play /usr/share/sounds/gnome/default/alerts/bark.ogg repeat 0 gain -n 5  # play file with +5dB
     sleep 55
     i=1
     while [ $i -lt 5 ]
