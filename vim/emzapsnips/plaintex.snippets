@@ -7,6 +7,9 @@ extends texmath, textmpl
 
 global !p
 from vimsnippets import complete
+TABLE_COL_FIELD_TYPES = [
+'row',
+'col']
 
 FROM_FIELD_TYPES = [
 '\n',
@@ -169,6 +172,9 @@ snippet "(\s|^)acp( (\S+))?" "Set plural acronym" r
  \acp{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
 endsnippet
 # .##.tabulars,.arrays,.boxes
+snippet multi "Multirow/-column" i
+\multi$1`!p snip.rv = complete(t[1], TABLE_COL_FIELD_TYPES)`{${2:nr of $1}}{${3:l|r|c|*}}{${0:${VISUAL}}}
+endsnippet
 snippet strut "invisible rule with specific height" w
 \rule[${1}]{0ex}{0ex}
 endsnippet
@@ -177,8 +183,8 @@ snippet "(tab)|(arr)" "tabular and arrays" r
 $0${2/((?<=.)c|l|r)|./(?1: & )/g}
 \end{$1${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
 endsnippet
-snippet mbox "Boxes" b
-\\$1`!p snip.rv = complete(t[1], BOX_FIELD_TYPES)`${2:[${3:width}]}${4:[${5:pos}]}{$0}
+snippet box "Boxes" i
+\\$1`!p snip.rv = complete(t[1], BOX_FIELD_TYPES)`${2:[${3:width}]}${4:[${5:pos}]}{${0:${VISUAL}}}
 endsnippet
 snippet enum "env: enumerate" b
 \begin{enumerate}
@@ -297,6 +303,15 @@ snippet emerg "emergencystretch" i
 endsnippet
 snippet ni "noindent" b
 \noindent $0
+endsnippet
+snippet path "Define Paths for Document" b
+% Define Directories
+\newcommand* \dir${1:Uni} {${2:/home/zapata/Unimaterialien/Grundlagen/}}
+\newcommand* \dir${3:Files}  {${4:oeko}}
+\newcommand* ${5:\mydir \dirUni\dirFiles}
+endsnippet
+snippet inp "Create inputcommand" b
+\input{${1:${VISUAL}}}
 endsnippet
 
 

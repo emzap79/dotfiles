@@ -620,41 +620,35 @@ nnoremap <silent> <Leader>+ :exe "vert resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "vert resize " . (winwidth(0) * 2/3)<CR>
 
 " Searches & Replacement                                                       {{{1
-
-" search for pattern                                                           {{{2
-" online searches                                                              {{{3
-
-" "search wikipedia from within vim
-" nnoremap <leader>fw :exe "!firefox 'http://de.wikipedia.org/w/index.php?search='<c-r>=" . "call Wikipedia()<cr>"<cr><cr>
-
-"search wikipedia from within vim                                              {{{4
+" online searches                                                           {{{2
+"search wikipedia from within vim                                              {{{3
 nnoremap <leader>fw <esc>:! firefox
             \ 'http://de.wikipedia.org/w/index.php?search=<c-r>=Wikipedia()<cr>'
             \ <cr><cr>
 
-"search google from within vim                                                 {{{4
+"search google from within vim                                                 {{{3
 nnoremap <leader>fg <esc>:! firefox
             \ 'http://google.de/search?q=<c-r>=Google()<cr>'
             \ <cr><cr>
 
-"search tex-stackexchange from within vim                                      {{{4
+"search tex-stackexchange from within vim                                      {{{3
 nnoremap <leader>ft <esc>:! firefox
             \ 'http://tex.stackexchange.com/search?q=<c-r>=Tex()<cr>'
             \ <cr><cr>
 
-"search stackoverflow from within vim                                          {{{4
+"search stackoverflow from within vim                                          {{{3
 nnoremap <leader>fs <esc>:! firefox
             \ 'http://stackoverflow.com/search?q=<c-r>=StackOverflow()<cr>'
             \ <cr><cr>
 
-" offline searches                                                             {{{3
+" offline searches                                                             {{{2
 
-"appending to the previous search pattern the current word under the cursor    {{{4
+"appending to the previous search pattern the current word under the cursor    {{{3
 
 "http://stackoverflow.com/a/9261779
 nnoremap <leader>as :let @/.='\\|\<'.expand("<cword>").'\>'<cr>
 
-"search for a word in ding/dict/thes                                         " {{{4
+"search for a word in ding/dict/thes                                         " {{{3
 
 " ding
 nnoremap <leader>dg :exe "!ding " . shellescape(expand("<cword>"))<cr><cr>
@@ -669,6 +663,12 @@ vnoremap <leader>dt :<c-u>r!othes <c-r>=GetVisualSelection()<cr>
 " trs\ {en=@en+de}
 
 " text replacement                                                             {{{2
+" shortkey for text replacement                                                {{{3
+" http://vimregex.com/#address
+noremap ;; :%s:::g<Left><Left><Left>
+noremap ;' :%s:::cg<Left><Left><Left><Left>
+noremap ,; :s:::g<Left><Left><Left>
+noremap ,' :s:::cg<Left><Left><Left><Left>
 
 " replace - with #                                                             {{{3
 nnoremap <silent><leader>b# :s/-/#/g3<CR>
@@ -676,14 +676,12 @@ vnoremap <silent><leader>b# <ESC>:s/-/#/g3<CR>
 inoremap <silent><localleader>b# <ESC>:s/-/#/g3<CR>
 
 " replace spaces through semicolon                                             {{{3
-
 " mnemonic: [s]pace to [s]emicolon
 nmap <leader>ss :exe "s/\[^,\]\\zs\\s/\\; /g \| nohls"<cr>
 nmap <leader>sS :exe "%s/\\s*\;\\s*/\\;/g \| nohls"<cr>
 
 
 " change word under curser                                                     {{{3
-
 " replace words by hitting '.'
 nnoremap <leader>x *``cgn
 nnoremap <leader>X #``cgN
@@ -727,7 +725,6 @@ nnoremap <silent><space>da :%s/\s\s\+/ /g<CR>:nohl<CR>``
 " inoremap <silent><localleader>mg <ESC>:'a,'sdel | let l=split(@", '\n') | 'd,'fs/$/\=remove(l,0)/<CR>
 
 " Edit Words & Lines                                                           {{{1
-
 " counting characters                                                          {{{2
 
 " count characters in line                                                     {{{3

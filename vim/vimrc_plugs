@@ -83,9 +83,7 @@ Bundle 'wellle/targets.vim'
 
 " "No more used repos
 
-
 " Script-Language                                         {{{1
-
 " Latex Box Plugin                                        {{{2
 
 autocmd FileType tex so ~/.vim/bundle/LaTeX-Box/ftplugin/tex_LatexBox.vim
@@ -98,7 +96,6 @@ autocmd FileType tex so ~/.vim/bundle/LaTeX-Box/ftplugin/tex_LatexBox.vim
 " Vim-R-Plugin: needs to have VimCom installed!           {{{2
 
 Bundle 'jalvesaq/VimCom'
-
 " At startup                                              {{{3
 
 " let vimrplugin_source = "$HOME/R,/usr/lib/R/site-library/,/usr/lib/R/library/"
@@ -120,17 +117,17 @@ let vimrplugin_maxdeparse = 300
 
 let vimrplugin_rcomment_string = "# "
 let r_indent_comment_column = 20
-let r_syntax_folding = 1                                    " Allow for syntax-folding
-let vimrplugin_indent_commented = 1                         " Autoindent commented lines
-let r_indent_ess_comments = 0                               " 0:add single '#', 1:add double '#'
+let r_syntax_folding = 1              " Allow for syntax-folding
+let vimrplugin_indent_commented = 1   " Autoindent commented lines
+let r_indent_ess_comments = 0         " 0:add single '#', 1:add double '#'
 
 " Command line output                                     {{{3
 
-let vimrplugin_map_r = 1           " map the letter 'r' to send lines to R when
-                                   " there are visually selected lines
-let vimrplugin_term = "xterm"      " Define which terminal emulator to start
+let vimrplugin_map_r = 0            " map the letter 'r' to send lines to R when
+                                    " there are visually selected lines
+let vimrplugin_term = "xterm"       " define which terminal emulator to start
 let vimrplugin_rout_morecolors = 1  " R commands in the R output are highlighted
-let vimrplugin_rconsole_width = 50 " The number of columns of R Console (Tmux split)
+let vimrplugin_rconsole_width = 50  " The number of columns of R Console (Tmux split)
 
 " Inside Insertmode                                       {{{3
 
@@ -543,23 +540,23 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
 " au!  filetype  noweb,rnoweb,tex  call  TexAbbreviations()
 " au!  filetype  mail,eml          call  MailAbbreviations()
 
-" vim-origami                                             {{{2
+" " vim-origami                                             {{{2
 
-" 'g:OrigamiMap'
-"   Type: Dictionary, Default:
-"   To set up your own mappings copy the following dictionary and edit it
-      let g:OrigamiMap = {
-        \ 'Leader'           : "gz",
-        \ 'Align'            : "a",
-        \ 'CommentedOpen'    : "O",
-        \ 'CommentedClose'   : "C",
-        \ 'UncommentedOpen'  : "o",
-        \ 'UncommentedClose' : "c",
-        \ 'Delete'           : "d",
-        \ }
-  " To disable a map entirely, specify it as an empty string.
-  " If a key is not specified, the default value will be picked up.
-  " These same characters will be used to invoke the shortcuts.
+" " 'g:OrigamiMap'
+" "   Type: Dictionary, Default:
+" "   To set up your own mappings copy the following dictionary and edit it
+"       let g:OrigamiMap = {
+"         \ 'Leader'           : "gz",
+"         \ 'Align'            : "a",
+"         \ 'CommentedOpen'    : "O",
+"         \ 'CommentedClose'   : "C",
+"         \ 'UncommentedOpen'  : "o",
+"         \ 'UncommentedClose' : "c",
+"         \ 'Delete'           : "d",
+"         \ }
+"   " To disable a map entirely, specify it as an empty string.
+"   " If a key is not specified, the default value will be picked up.
+"   " These same characters will be used to invoke the shortcuts.
 
 
 " excel.vim                                             {{{2
@@ -585,102 +582,102 @@ autocmd BufReadPre,BufRead fugitive://* set wmh=20
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
-" Frisk - Search Engine                                   {{{2
+" " Frisk - Search Engine                                   {{{2 }}}
 
-call frisk#DefaultEngine('google')
+" " call frisk#DefaultEngine('google')
 
-" " Default Engines                                       {{{3
+" " " Default Engines                                       {{{3
 
- " "bingImages"
- " "bing"
- " "bingVideo"
- " "imdb"
- " "google"
- " "googleImages"
- " "googleTranslate"
- " "stackOverflow"
- " "wikipedia"
-
-
-" " Custom Search Operators                               {{{3
-
-" "" General Search - a                                   {{{4
-
-call frisk#AddEngine('wikipediaEn', 'http://en.wikipedia.org/w/api.php?action=opensearch&search=')
-call frisk#AddEngine('wikipediaEs', 'http://es.wikipedia.org/w/index.php?title=Especial:Buscar&search=')
-" call frisk#AddEngine('wikipediaEs', 'http://es.wikipedia.org/w/api.php?action=opensearch&search=')
-call frisk#AddEngine('yacy', 'http://search.yacy.net/yacysearch.html?query=')
-call frisk#AddEngine('dasoertliche', 'http://services.dasoertliche.de/addons/search/?q=')
-call frisk#AddEngine('dbahn', 'http://reiseauskunft.bahn.de/bin/query.exe/dn?revia=yes&existOptimizePrice=1&country=DEU&dbkanal_007=L01_S01_D001_KIN0001_qf-bahn_LZ003&start=1&S=')
-call frisk#AddEngine('duckduckgo', 'https://duckduckgo.com/ac/?q=')
-call frisk#AddEngine('investopedia', 'http://www.investopedia.com/search/default/?key=')
-call frisk#AddEngine('openstreetmap', 'http://nominatim.openstreetmap.org/search/?q=')
-call frisk#AddEngine('wikibooks', 'http://de.wikibooks.org/w/index.php?search=')
-call frisk#AddEngine('reddit', 'http://de.reddit.com/search?q=')
-call frisk#AddEngine('duckduckgo', 'https://duckduckgo.com/ac/?q=')
+"  " "bingImages"
+"  " "bing"
+"  " "bingVideo"
+"  " "imdb"
+"  " "google"
+"  " "googleImages"
+"  " "googleTranslate"
+"  " "stackOverflow"
+"  " "wikipedia"
 
 
-" "" Online-Shops - s                                     {{{4
+" " " Custom Search Operators                               {{{3
 
-call frisk#AddEngine('ebayKleinanz', 'http://kleinanzeigen.ebay.de/anzeigen/s-suchanfrage.html?keywords=')
-call frisk#AddEngine('amazon', 'http://www.amazon.com/exec/obidos/external-search/?field-keywords=')
-call frisk#AddEngine('ebay', 'http://shop.ebay.de/?_nkw=')
-call frisk#AddEngine('ikea', 'http://www.ikea.com/de/de/search/?query=')
+" " "" General Search - a                                   {{{4
 
-
-" "" Dictionaries - d                                     {{{4
-
-call frisk#AddEngine('dict', 'http://dees.dict.cc/?s=')
-call frisk#AddEngine('leo', 'http://dict.leo.org/?lp=ende&from=fx3&search=')
-call frisk#AddEngine('linguee', 'http://www.linguee.de/deutsch-englisch/search?source=auto&query=')
-call frisk#AddEngine('openthesaurus', 'http://www.openthesaurus.de/synonyme?q=')
-call frisk#AddEngine('dict', 'http://dees.dict.cc/?s=')
-
-
-" "" Linux/LaTeX/Coding - f                               {{{4
-
-call frisk#AddEngine('mutt', 'http://dev.mutt.org/trac/search?q=')
-call frisk#AddEngine('ctan', 'http://www.ctan.org/pkg/')
-call frisk#AddEngine('github', 'https://github.com/search?q=')
-call frisk#AddEngine('launchpad', 'https://launchpad.net/+search?field.text=')
-call frisk#AddEngine('musicbrainz', 'http://musicbrainz.org/search?query=')
-call frisk#AddEngine('mutt', 'http://www.mail-archive.com/search?l=mutt-users%40mutt.org&q=')
-call frisk#AddEngine('stackexchange', 'http://unix.stackexchange.com/search?q=')
-call frisk#AddEngine('stackoverflow', 'http://stackoverflow.com/search?q=')
-call frisk#AddEngine('stackoverflowExcel', 'http://stackoverflow.com/search?q=[excel-vba]')
-call frisk#AddEngine('superuser', 'http://superuser.com/search?q=')
-call frisk#AddEngine('texexchange', 'http://tex.stackexchange.com/search?q=')
-call frisk#AddEngine('ubuntuusers', 'http://ubuntuusers.de/search/?query=')
-call frisk#AddEngine('vimscripts', 'http://www.vim.org/scripts/script_search_results.php?keywords=')
-call frisk#AddEngine('vimwiki', 'http://vim.wikia.com/wiki/index.php?search=')
-call frisk#AddEngine('mutt', 'http://dev.mutt.org/trac/search?q=')
-call frisk#AddEngine('ctan', 'http://www.ctan.org/pkg/')
+" call frisk#AddEngine('wikipediaEn', 'http://en.wikipedia.org/w/api.php?action=opensearch&search=')
+" call frisk#AddEngine('wikipediaEs', 'http://es.wikipedia.org/w/index.php?title=Especial:Buscar&search=')
+" " call frisk#AddEngine('wikipediaEs', 'http://es.wikipedia.org/w/api.php?action=opensearch&search=')
+" call frisk#AddEngine('yacy', 'http://search.yacy.net/yacysearch.html?query=')
+" call frisk#AddEngine('dasoertliche', 'http://services.dasoertliche.de/addons/search/?q=')
+" call frisk#AddEngine('dbahn', 'http://reiseauskunft.bahn.de/bin/query.exe/dn?revia=yes&existOptimizePrice=1&country=DEU&dbkanal_007=L01_S01_D001_KIN0001_qf-bahn_LZ003&start=1&S=')
+" call frisk#AddEngine('duckduckgo', 'https://duckduckgo.com/ac/?q=')
+" call frisk#AddEngine('investopedia', 'http://www.investopedia.com/search/default/?key=')
+" call frisk#AddEngine('openstreetmap', 'http://nominatim.openstreetmap.org/search/?q=')
+" call frisk#AddEngine('wikibooks', 'http://de.wikibooks.org/w/index.php?search=')
+" call frisk#AddEngine('reddit', 'http://de.reddit.com/search?q=')
+" call frisk#AddEngine('duckduckgo', 'https://duckduckgo.com/ac/?q=')
 
 
-" "" Auskunft - g                                         {{{4
+" " "" Online-Shops - s                                     {{{4
 
-call frisk#AddEngine('dasoertliche', 'http://services.dasoertliche.de/addons/search/?q=')
-call frisk#AddEngine('dbahn', 'http://reiseauskunft.bahn.de/bin/query.exe/dn?revia=yes&existOptimizePrice=1&country=DEU&dbkanal_007=L01_S01_D001_KIN0001_qf-bahn_LZ003&start=1&S=')
-call frisk#AddEngine('gelbeseiten', 'http://www.gelbeseiten.de/yp/search.yp?subject=')
-
-
-" "" Uni Due - h                                          {{{4
-
-call frisk#AddEngine('googleScholar', 'http://scholar.google.de/scholar?hl=de&q=')
+" call frisk#AddEngine('ebayKleinanz', 'http://kleinanzeigen.ebay.de/anzeigen/s-suchanfrage.html?keywords=')
+" call frisk#AddEngine('amazon', 'http://www.amazon.com/exec/obidos/external-search/?field-keywords=')
+" call frisk#AddEngine('ebay', 'http://shop.ebay.de/?_nkw=')
+" call frisk#AddEngine('ikea', 'http://www.ikea.com/de/de/search/?query=')
 
 
-" "" Sport/Entertainment - j                              {{{4
+" " "" Dictionaries - d                                     {{{4
 
-call frisk#AddEngine('kicker', 'http://www.kicker.de/home/suchergebnisse.html?suchbegriff=')
-call frisk#AddEngine('lastfm', 'http://www.last.fm/search?q=')
-call frisk#AddEngine('metacafe', 'http://www.metacafe.com/results/')
-call frisk#AddEngine('podcasts', 'http://www.allpodcasts.com/Results.aspx?cx=partner-pub-0273520528742867%3A9dltns-5q5f&cof=FORID%3A9&ie=ISO-8859-1&q=')
-call frisk#AddEngine('podomatic', 'http://www.podomatic.com/search?query=')
-call frisk#AddEngine('reddit', 'http://www.reddit.com/search?q=')
-call frisk#AddEngine('soundcloud', 'https://soundcloud.com/search?q=')
-call frisk#AddEngine('twitter', 'http://twitter.com/search?q=')
-call frisk#AddEngine('vimeo', 'http://vimeo.com/search?q=')
-call frisk#AddEngine('youtube', 'http://www.youtube.com/results?search_query=')
+" call frisk#AddEngine('dict', 'http://dees.dict.cc/?s=')
+" call frisk#AddEngine('leo', 'http://dict.leo.org/?lp=ende&from=fx3&search=')
+" call frisk#AddEngine('linguee', 'http://www.linguee.de/deutsch-englisch/search?source=auto&query=')
+" call frisk#AddEngine('openthesaurus', 'http://www.openthesaurus.de/synonyme?q=')
+" call frisk#AddEngine('dict', 'http://dees.dict.cc/?s=')
+
+
+" " "" Linux/LaTeX/Coding - f                               {{{4
+
+" call frisk#AddEngine('mutt', 'http://dev.mutt.org/trac/search?q=')
+" call frisk#AddEngine('ctan', 'http://www.ctan.org/pkg/')
+" call frisk#AddEngine('github', 'https://github.com/search?q=')
+" call frisk#AddEngine('launchpad', 'https://launchpad.net/+search?field.text=')
+" call frisk#AddEngine('musicbrainz', 'http://musicbrainz.org/search?query=')
+" call frisk#AddEngine('mutt', 'http://www.mail-archive.com/search?l=mutt-users%40mutt.org&q=')
+" call frisk#AddEngine('stackexchange', 'http://unix.stackexchange.com/search?q=')
+" call frisk#AddEngine('stackoverflow', 'http://stackoverflow.com/search?q=')
+" call frisk#AddEngine('stackoverflowExcel', 'http://stackoverflow.com/search?q=[excel-vba]')
+" call frisk#AddEngine('superuser', 'http://superuser.com/search?q=')
+" call frisk#AddEngine('texexchange', 'http://tex.stackexchange.com/search?q=')
+" call frisk#AddEngine('ubuntuusers', 'http://ubuntuusers.de/search/?query=')
+" call frisk#AddEngine('vimscripts', 'http://www.vim.org/scripts/script_search_results.php?keywords=')
+" call frisk#AddEngine('vimwiki', 'http://vim.wikia.com/wiki/index.php?search=')
+" call frisk#AddEngine('mutt', 'http://dev.mutt.org/trac/search?q=')
+" call frisk#AddEngine('ctan', 'http://www.ctan.org/pkg/')
+
+
+" " "" Auskunft - g                                         {{{4
+
+" call frisk#AddEngine('dasoertliche', 'http://services.dasoertliche.de/addons/search/?q=')
+" call frisk#AddEngine('dbahn', 'http://reiseauskunft.bahn.de/bin/query.exe/dn?revia=yes&existOptimizePrice=1&country=DEU&dbkanal_007=L01_S01_D001_KIN0001_qf-bahn_LZ003&start=1&S=')
+" call frisk#AddEngine('gelbeseiten', 'http://www.gelbeseiten.de/yp/search.yp?subject=')
+
+
+" " "" Uni Due - h                                          {{{4
+
+" call frisk#AddEngine('googleScholar', 'http://scholar.google.de/scholar?hl=de&q=')
+
+
+" " "" Sport/Entertainment - j                              {{{4
+
+" call frisk#AddEngine('kicker', 'http://www.kicker.de/home/suchergebnisse.html?suchbegriff=')
+" call frisk#AddEngine('lastfm', 'http://www.last.fm/search?q=')
+" call frisk#AddEngine('metacafe', 'http://www.metacafe.com/results/')
+" call frisk#AddEngine('podcasts', 'http://www.allpodcasts.com/Results.aspx?cx=partner-pub-0273520528742867%3A9dltns-5q5f&cof=FORID%3A9&ie=ISO-8859-1&q=')
+" call frisk#AddEngine('podomatic', 'http://www.podomatic.com/search?query=')
+" call frisk#AddEngine('reddit', 'http://www.reddit.com/search?q=')
+" call frisk#AddEngine('soundcloud', 'https://soundcloud.com/search?q=')
+" call frisk#AddEngine('twitter', 'http://twitter.com/search?q=')
+" call frisk#AddEngine('vimeo', 'http://vimeo.com/search?q=')
+" call frisk#AddEngine('youtube', 'http://www.youtube.com/results?search_query=')
 
 
 
@@ -720,7 +717,7 @@ let g:ExtractLinks_ReplacementInline = '[\#]'
 let g:ExtractLinks_ReplacementExtraction = '[\#] &\n'
 
 
-" Deleted Plugins                                         {{{1
+" Deleted Plugins
 
 "" Neocomplete                                            {{{2
 

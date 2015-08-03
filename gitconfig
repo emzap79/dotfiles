@@ -121,7 +121,7 @@
 #	=	revert & reset		=
 #	=================================
 	rv	= revert			# <HEAD> undo all commited stages to the point of <HEAD>
-	rs	= reset 			# ... -- <filename> take a single added file off the index again, eg. grs HEAD^ -- <file.txt>
+	rs	= reset 			# take a single added file off the index again, eg. grs HEAD^ -- <file.txt>
 	rsh	= reset --hard			# <HEAD> undos all changes in working copy, cannot be reverted
 	rss	= reset --soft			# <HEAD> moves HEAD pointer only to <HEAD>
 	cou	= checkout --			# ...<filename> undo unstaged changes in working tree

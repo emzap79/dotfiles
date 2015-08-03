@@ -45,7 +45,6 @@ set isk+=192-255"
 
 " Menuepunkte ausblenden
 
-
 " Mappings                                   {{{1
 " Some Previous Notes                        {{{2
 
@@ -93,8 +92,8 @@ vmap <esc>l <Plug>RDSendSelection
 nmap <localleader>f <Plug>RSendFile
 
 " Send Paragraph                             {{{3
-nmap <esc>p <Plug>RDSendParagraph
-vmap <esc>p <Plug>RDSendSelection
+nmap <localleader>pp <Plug>RDSendParagraph
+vmap <localleader>pp <Plug>RDSendSelection
 
 " Send Marked Blocks ('marks')               {{{3
 " If the cursor is below the last mark, the plugin will send from the

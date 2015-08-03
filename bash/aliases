@@ -2,14 +2,13 @@
 
 # in case you need to unbind one of the
 # following aliases, do: unbind -a < expr >
-
-# export aliases="~/.bash/aliases"
-# "~/.bashrc"
+#
+# man test                          # manpage with test-operators
+# export aliases="~/.bash/aliases"  # paste into ~/.bashrc
 
 export chall=reformat_surnames
 
 # basic aliases                                                                  {{{1
-
 # ls                                                                             {{{2
 
 # on linux:
@@ -36,7 +35,7 @@ alias lp=fun_absolute_path             # show fullpathname to file
 
 # list filename of recently added files
 # how to escape single quotes: http://stackoverflow.com/a/1250279/1483760
-alias lstt=fun_ffs
+alias lst_today=fun_ffs
 
 # only directories
 alias lsd='ls $LS1 $LS2 $LS3 -d -- */ | sed "s/\/$//g"'
@@ -178,6 +177,13 @@ alias vgrep='fun_grepv'
 alias grep='grep --color=always -i -n'
 alias grepc=fun_grepc
 
+# Performs a case-insensitive (-i) recursive search (-r) and prints not only the
+# match, but also the filename (-H) in which the match was found and
+# corresponding line number (-n). All this is highlighted with different colours.
+#
+# http://feedproxy.google.com/~r/Command-line-fu/~3/BUhOEkv8PXU/recursive-search-with-grep
+alias grep_all='grep -nrHi'
+
 # find & locate                                                                  {{{2
 
 # locate
@@ -192,7 +198,6 @@ alias lcf=fun_locate_dat
 alias ff=fun_ff
 alias fff='find . -depth 0 -type f'
 alias ffd='find . -depth 0 -type d'
-alias ffs=fun_ffs
 alias ffg='find -type f -regextype egrep -iregex'
 alias ffi="find -type f -exec file {} \; | grep -o -P '^.+: \w+ image'"     # find all images
 
@@ -294,7 +299,6 @@ alias sra="source $HOME/.bash/aliases"
 alias srb="source $HOME/.bashrc"
 
 # programs                                                                       {{{1
-
 # xclip                                                                          {{{2
 
 alias xc='xclip -selection c'
@@ -367,7 +371,7 @@ alias pdfgs="pdfgrayscale"
 alias pdfresize="/bin/bash $HOME/bin/pdfResize.sh"
 alias pdfsplit="/bin/bash $HOME/bin/pdfPagesToParts.sh"
 alias pdfimg=fun_pdf_image_extract
-alias pdf="xdg-open"    # open default pdf-reader
+alias pdf=fun_pdf    # open default pdf-reader
 alias pdfuni='cat pdfs.txt | while read i; do evince $i; done &'
 
 # latex                                                                          {{{2
@@ -465,6 +469,7 @@ alias makecoffee='printf "\xE2\x98\x95\n"'
 alias poweroff='sudo poweroff'
 alias rmf="rm -rf"
 alias rmfa="rm -rf *"
+alias rmdupes="ls | egrep  '\([[:digit:]]\)' | xargs -i rm -v '{}'"
 alias info='info --vi-keys'
 alias pwgen='pwgen -cn 12'
 alias top='top -n2'
@@ -797,7 +802,7 @@ fun_ignore() {
     git commit -am "gitignore ignores vim and tmux tempfiles"
 }
 
-# vimfunctions                                                                   {{{3
+# vimfunctions                                                                   {{{2
 
 fun_vim() {
     if [ "$#" -eq 0 ]; then
@@ -883,7 +888,6 @@ fun_gif_video(){
 }
 
 # other                                                                          {{{2
-
 # fun: muttbeuter                                                                {{{3
 fun_muttbeuter(){
     pkill fetchmail
@@ -917,9 +921,17 @@ fun_ff() {
 }
 
 fun_ffs() {
-    find -type f -printf "%T+\t%p\n" |\
-        sort -k1 -n |\
-        awk '{print $2}'   # tail -nX | xargs -n1 -i cp -v "{}" /to/path
+
+    find -type f -exec stat --format '%Y :%y %n' "{}" \; |\
+    sort -n |\
+    cut -d: -f2- |\
+    egrep $(date '+%F') |\
+    awk '{print $4}' # xargs -n1 -i cp -v "{}" /to/path
+
+    # find -type f -printf "%T+\t%p\n" |\
+    #     sort -k1 -n |\
+    #     awk '{print $2}'   # tail -nX | xargs -n1 -i cp -v "{}" /to/path
+
 }
 
 # fun: grep                                                                      {{{3
@@ -1077,6 +1089,14 @@ fun_pss() {
     else
         return;
     fi
+}
+
+# fun: pdf - open pdf file                                                       {{{3
+fun_pdf() {
+    xdg-open ${1%%.*}.pdf
+    # if [ "$#" -ne 0 ]; then
+    # xdg-open ${1%%.*}.pdf
+    # fi
 }
 
 # fun: ls - sort content by size                                                 {{{3

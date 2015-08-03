@@ -53,6 +53,7 @@ endsnippet
 snippet as "Apply type on variable" w
 as.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
+
 snippet is "Test type on variable" w
 is.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
@@ -104,6 +105,10 @@ sink(file="${1:filename}",${2:
 		append=${5:F})
 $0
 sink()
+endsnippet
+
+snippet "(\S+)\[" "Close Bracket" ri
+`!p snip.rv = match.group(1) if match.group(1) is not None else ""`[${1:${VISUAL}}]
 endsnippet
 
 snippet "(\S+)\(" "Close Brace" ri
@@ -199,7 +204,7 @@ ${1:name} <- function (${2}) {
 }
 endsnippet
 
-snippet sum "Sum" b
+snippet sum "Sum" i
 sum(${1:${VISUAL}})
 endsnippet
 
@@ -228,71 +233,71 @@ list(${0:items})
 endsnippet
 
 snippet mat "matrix function"
-matrix(${1:data}, nrow = ${2:rows}, ncol = ${0:cols})
+matrix(${1:data}, nrow = ${2:rows}, ncol = ${3:cols})
 endsnippet
 
 snippet apply "apply function"
-apply(${1:array}, ${2:margin}, ${0:function})
+apply(${1:array}, ${2:margin}, ${3:function})
 endsnippet
 
 snippet lapply "lapply function"
-lapply(${1:list}, ${0:function})
+lapply(${1:list}, ${2:function})
 endsnippet
 
 snippet sapply "sapply function"
-sapply(${1:list}, ${0:function})
+sapply(${1:list}, ${2:function})
 endsnippet
 
 snippet vapply "vapply function"
-vapply(${1:list}, ${2:function}, ${0:type})
+vapply(${1:list}, ${2:function}, ${3:type})
 endsnippet
 
 snippet mapply "mapply function"
-mapply(${1:function}, ${0:...})
+mapply(${1:function}, ${2:...})
 endsnippet
 
 snippet tapply "tapply function"
-tapply(${1:vector}, ${2:index}, ${0:function})
+tapply(${1:vector}, ${2:index}, ${3:function})
 endsnippet
 
 snippet rapply "rapply function"
-rapply(${1:list}, ${0:function})
+rapply(${1:list}, ${2:function})
 endsnippet
 
 snippet pl "Plot function"
-plot(${1:x}, ${2:y}, type="${3:b}", main = "${4:Plots Title}", "${5:xlab}", "${0:ylab}")
+plot(${1:x}, ${2:y}, type="${3:b}", main = "${4:Plots Title}", "${5:xlab}", "${6:ylab}")
 endsnippet
 
 snippet ggp "ggplot2 plot"
-ggplot(${1:data}, aes(${0:aesthetics}))
+ggplot(${1:data}, aes(${2:aesthetics}))
 endsnippet
 
 snippet fis "Fisher test"
-fisher.test(${1:x}, ${0:y})
+fisher.test(${1:x}, ${2:y})
 endsnippet
 
 snippet chi "Chi Squared test"
-chisq.test(${1:x}, ${0:y})
+chisq.test(${1:x}, ${2:y})
 endsnippet
 
 snippet tt "t-test"
-t.test(${1:x}, ${0:y})
+t.test(${1:x}, ${2:y})
 endsnippet
 
 snippet wil "Wilcox test"
-wilcox.test(${1:x}, ${0:y})
+wilcox.test(${1:x}, ${2:y})
 endsnippet
 
 snippet cor "Correlation test"
-cor.test(${1:x}, ${0:y})
+cor.test(${1:x}, ${2:y})
 endsnippet
 
 snippet fte "FTE test"
-var.test(${1:x}, ${0:y})
+var.test(${1:x}, ${2:y})
 endsnippet
 
 snippet kvt "KV test"
-kv.test(${1:x}, ${0:y})
+kv.test(${1:x}, ${2:y})
 endsnippet
 
 snippet xts "package: xts" w
@@ -317,6 +322,14 @@ endsnippet
 
 snippet m "Mean" w
 mean(${1:${VISUAL}})
+endsnippet
+
+snippet ch "N over n" w
+choose(${1:N},${2:n})
+endsnippet
+
+snippet v "Var" w
+var(${1:${VISUAL}})
 endsnippet
 
 snippet ls "list" w

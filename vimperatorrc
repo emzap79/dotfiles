@@ -60,7 +60,7 @@ silent qmark G https://drive.google.com/drive/u/0/my-drive
 silent qmark h http://opus.bsz-bw.de/hdms/dokserver.php?la=de
 silent qmark H http://www.hotmail.com/
 silent qmark i http://www.instapaper.com/u
-silent qmark I http://imgur.com/
+silent qmark I https://instagram.com/
 silent qmark J http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
 silent qmark j https://www.mylittlejob.de
 silent qmark k http://www.kicker.de/news/fussball/fussballstartseite.html
@@ -70,6 +70,7 @@ silent qmark m http://moodle2.uni-due.de
 silent qmark M http://moodle.uni-due.de
 silent qmark n http://www.netflix.com
 silent qmark p https://www.planspiel-boerse.de/ssk-duesseldorf/0/index.htm
+silent qmark P https://photos.google.com/
 silent qmark r https://www.reddit.com/rising/
 silent qmark R http://www.refworks.com
 silent qmark s https://soundcloud.com/stream
@@ -80,6 +81,7 @@ silent qmark u http://speedtest-1.unitymedia.de/
 silent qmark o http://www1.onleihe.de/duisburg
 silent qmark O https://onedrive.live.com/
 silent qmark q https://213.61.154.226/owa
+silent qmark Q https://www.quora.com/
 silent qmark w https://www.wunderlist.com/webapp#/lists/starred
 silent qmark W https://web.whatsapp.com/
 silent qmark v http://www.vimgolf.com/

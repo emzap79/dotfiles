@@ -1,6 +1,3 @@
-http://127.0.0.1:22470/library/base/html/sort.html
-http://127.0.0.1:31617/library/quantmod/html/getSymbols.html
-http://127.0.0.1:29210/library/ggplot2/html/scale_continuous.html
 http://127.0.0.1:29210/library/ggplot2/html/theme.html
 http://127.0.0.1:20624/library/quantmod/html/newTA.html
 http://127.0.0.1:14626/library/ggplot2/html/scale_continuous.html
@@ -98,3 +95,6 @@ http://127.0.0.1:12886/library/stats/html/time.html
 http://127.0.0.1:12886/library/base/html/factor.html
 http://127.0.0.1:12886/library/stats/html/lm.html
 http://127.0.0.1:12886/library/base/html/gl.html
+http://127.0.0.1:19292/library/utils/html/combn.html
+http://127.0.0.1:19292/library/base/html/match.html
+http://127.0.0.1:19292/library/stats/html/quantile.html

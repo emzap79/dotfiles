@@ -58,3 +58,8 @@ endsnippet
 snippet "(\^_)|(_\^)" "sub-/supscript" ir
 _{$1}^{$2}
 endsnippet
+snippet mat "smart matrix environment" i
+\begin{${1:p/b/v/V/B/small}matrix}
+	${{${2:${VISUAL}}}}
+\end{$1matrix}
+endsnippet
