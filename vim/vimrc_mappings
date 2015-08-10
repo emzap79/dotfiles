@@ -665,9 +665,8 @@ vnoremap <leader>dt :<c-u>r!othes <c-r>=GetVisualSelection()<cr>
 " text replacement                                                             {{{2
 " shortkey for text replacement                                                {{{3
 " http://vimregex.com/#address
-noremap ;; :%s:::g<Left><Left><Left>
-noremap ;' :%s:::cg<Left><Left><Left><Left>
-noremap ,; :s:::g<Left><Left><Left>
+noremap ,; :%s:::g<Left><Left><Left>
+noremap ,, :s:::g<Left><Left><Left>
 noremap ,' :s:::cg<Left><Left><Left><Left>
 
 " replace - with #                                                             {{{3

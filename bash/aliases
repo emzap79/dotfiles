@@ -300,11 +300,10 @@ alias srb="source $HOME/.bashrc"
 
 # programs                                                                       {{{1
 # xclip                                                                          {{{2
-
-alias xc='xclip -selection c'
-alias xv='xclip -selection o'
-alias pwdc="pwd | xclip; source ~/.bashrc"
-alias pwdp=`xclip -o`     # Error: target STRING not available
+alias xc="xclip -sel c"     # copy to clipboard
+alias xv="xclip -sel o"     # paste from clipboard
+alias pwc="pwd | xclip -i"
+alias pwp=fun_pwd_change
 
 # vim/neovim                                                                     {{{2
 
@@ -1172,6 +1171,11 @@ fun_cd() {
             ls -ltrcA
         fi
     fi
+}
+
+# fun: change to dir from clipboard     {{{3
+fun_pwd_change(){
+    cd $(xclip -o)
 }
 
 # fun: latex                                                                     {{{3

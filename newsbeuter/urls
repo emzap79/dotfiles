@@ -47,7 +47,7 @@ http://bauarbeiten.bahn.de/RSS/nrw/S_1                                          
 "query:Kurden: tags =~ \"Politik\" and (title =~ \"kurden\" or title =~ \"PKK\" or title =~ \"kurdis*\")" "00.0 Filter"
 
 # 01: urls                    {{{2
-http://www.taz.de/rss.xml                                                                                 "110. Politik - Ausland"
+# http://www.taz.de/rss.xml                                                                                 "110. Politik - Ausland"
 http://feeds.feedburner.com/Netzfeuilleton                                                                "110. Politik - Ausland"
 http://www.spiegel.de/politik/ausland/index.rss                                                           "110. Politik - Ausland"
 # http://www.spiegel.de/politik/europa/index.rss                                                          "110. Politik - Ausland"
@@ -253,12 +253,12 @@ http://feeds.feedburner.com/artlessononline?format=xml                  "180. St
 "query:Angebote: tags =~ \"Angebote\" and tags =~ \"Reisen\""                     "09.5 Angebote :: Reisen"
 
 # 09: filter                  {{{2
+# "query:Notebook: tags =~ \"190\" and (title =~ \"notebook \" or title =~ \"netbook \")"                    "00.0 Filter"
 "query:Aktionen: tags =~ \"190\" and (title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion\!\" )"  "00.0 Filter :: Aktionen"
 "query:Ebooks: tags =~ \"190\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))"                    "00.0 Filter :: Notebook"
-# "query:Notebook: tags =~ \"190\" and (title =~ \"notebook \" or title =~ \"netbook \")"                    "00.0 Filter"
 "query:Garmin: tags =~ \"190\" and title =~ \"garmin\""                    "00.0 Filter"
 "query:Radio: tags =~ \"190\" and (title =~ \"radio\" or title =~ \"lautsprecher\" or title =~ \"speaker\")"  "00.0 Filter"
-"query:Flatrate: tags =~ \"190\" and (title =~ \"flatrate\" or title =~ \"internet\")"                    "00.0 Filter"
+"query:Flatrate: tags =~ \"190\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"internet\")"                    "00.0 Filter :: Flatrate"
 "query:Fahrten: tags =~ \"190\" and (title =~ \"brüssel\" or title =~ \"paris\")"                    "00.0 Filter"
 
 # 09: urls                    {{{2

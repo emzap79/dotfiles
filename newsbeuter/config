@@ -3,25 +3,86 @@
 # available operations: http://newsbeuter.org/doc/newsbeuter.html#_first_steps
 
 # bindings & macros {{{1
-
 # key-bindings {{{2
 
-unbind-key ^B
-bind-key ^B pageup
-unbind-key ^F
-bind-key ^F pagedown
-unbind-key g
-# bind-key g pageup
-bind-key o sort
-unbind-key G
-bind-key O rev-sort
-bind-key k up
-bind-key j down
-bind-key ^u show-urls
-bind-key \ open-in-browser
-unbind-key l
-bind-key l open-search
-bind-key L toggle-show-read-feeds
+bind-key "ENTER" open                       # Open the currently selected feed or article.
+bind-key "q" quit                           # Quit the program or return to the
+                                            # previous dialog (depending on the context).
+bind-key "r" reload                         # Reload the currently selected feed
+bind-key "R" reload-all                     # Reload all feeds.
+bind-key "A" mark-feed-read                 # Mark all articles in the currently
+                                            # selected feed read.
+bind-key "C" mark-all-feeds-read            # Mark articles in all feeds read.
+bind-key "s" save                           # Save the currently selected articl
+                                            # e to a file.
+bind-key "n" next-unread                    # Jump to the next unread article.
+bind-key "p" prev-unread                    # Jump to the previous unread article.
+bind-key "J" next                           # Jump to next article.
+bind-key "K" prev                           # Jump to previous article.
+bind-key "^K" random-unread                 # Jump to a random unread article.
+bind-key "o" open-in-browser                # Opens the URL associated with the
+                                            # current article.
+bind-key "o" sort
+unbind-key "O"
+bind-key "O" open-in-browser-and-mark-read  # Opens the URL associated with the
+                                            # current article and marks the article as read.
+bind-key "?" help                           # Runs the help screen.
+bind-key "^U" toggle-source-view            # Toggles between the HTML view and
+                                            # the source view in the article view
+bind-key "N" toggle-article-read            # Toggle the read flag for the currently selected article.
+bind-key "l" toggle-show-read-feeds         # Toggle whether read feeds should be shown in the feed list.
+bind-key "u" show-urls                      # Show all URLs in the article in a
+                                            # list (similar to urlview).
+bind-key "^T" clear-tag                     # Clear current tag.
+bind-key "t" set-tag                        # Select tag.
+bind-key "/" open-search                    # Opens the search dialog. When a
+                                            # search is done in the article list, then the search operation only
+                                            # applies to the articles of the current feed, otherwise to all
+                                            # articles.
+bind-key "#" goto-url                       # Open the URL dialog and then opens specified URL.
+bind-key "e" enqueue                        # Add the podcast download URL of the current article (if any is found)
+                                            # to the podcast download queue (see the respective section in the
+                                            # documentation for more information on podcast support).
+bind-key "E" edit-urls                      # Edit the list of subscribed URLs. newsbeuter will start the editor
+                                            # configured through the $VISUAL environment variable (if unset,
+                                            # $EDITOR is used; fallback
+bind-key "^R" reload-urls                   # Reload the URLs configuration file
+bind-key "^L" redraw                        # Redraw the screen.
+bind-key "<colon>" cmdline                  # Open the command line.
+bind-key "F" set-filter                     # Set a filter.
+bind-key "f" select-filter                  # Select a predefined filter.
+unbind-key "^F" # bind-key "^F" clear-filter # Clear currently set filter.
+bind-key "^F" pagedown
+unbind-key "^B" # bind-key "^B" bookmark     # Bookmark currently selected article or URL.
+bind-key "^B" pageup
+bind-key "^E" edit-flags                    # Edit the flags of the currently selected article.
+bind-key "^N" next-unread-feed              # Go to the next feed with unread ar ticles. This only works from the
+                                            # article list.
+bind-key "^P" prev-unread-feed              # Go to the previous feed with unread articles. This only works from
+                                            # the article list.
+bind-key "j" next-feed                      # Go to the next feed. This only works from the article list.
+bind-key "k" prev-feed                      # Go to the previous feed. This only works from the article list.
+bind-key "D" delete-article                 # Delete the currently selected article.
+bind-key "$" purge-deleted                  # Purge all article that are marked as deleted from the article list.
+bind-key "v" view-dialogs                   # View list of open dialogs.
+bind-key "^X" close-dialog                  # Close currently selected dialog.
+bind-key "^V" next-dialog                   # Go to next dialog.
+bind-key "^G" prev-dialog                   # Go to previous dialog.
+bind-key "|" pipe-to                        # Pipe article to command.
+unbind-key "g" # bind-key "g" sort           # Sort feeds/articles by interactively choosing the sort method.
+bind-key "g" pageup
+bind-key "G" revsort                        # Sort feeds/articles by interactively choosing the sort method (reversed).
+bind-key "UP" up                            # Goes up one item in the list.
+bind-key "DOWN" down                        # Goes down one item in the list.
+bind-key "PPAGE" pageup                     # Goes up one page in the list.
+bind-key "NPAGE" pagedown                   # Goes down one page in the list.
+
+bind-key "1" rev-sort
+bind-key "k" up
+bind-key "j" down
+bind-key "^u" show-urls
+bind-key '\' open-in-browser
+bind-key "L" toggle-show-read-feeds
 
 # macro {{{2
 
@@ -179,7 +240,15 @@ browser "firefox --new-tab %u 2> /dev/null &"
 
 # notifications {{{1
 
-notify-format	"RSS: "%d new articles (%n unread articles, %f unread feeds)"
+notify-format	"RSS: %n new articles (%n unread articles, %f unread feeds)"
 notify-program	"notify-send --hint=int:transient:1" # Notification-Programm festlegen
 notify-xterm	yes
 notify-beep		yes
+
+# scripts {{{1
+# exec:~/bin/snowscripts/rss-tag-filter
+
+# killfile {{{1
+ignore-article "*" "title =~ \"Sponsor\""
+ignore-article "*" "title =~ \"Advertisement\""
+ignore-mode "display"

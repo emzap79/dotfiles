@@ -546,7 +546,7 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
 " "   Type: Dictionary, Default:
 " "   To set up your own mappings copy the following dictionary and edit it
 "       let g:OrigamiMap = {
-"         \ 'Leader'           : "gz",
+"         \ 'Leader'           : "z",
 "         \ 'Align'            : "a",
 "         \ 'CommentedOpen'    : "O",
 "         \ 'CommentedClose'   : "C",
