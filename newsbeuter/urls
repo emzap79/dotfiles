@@ -9,8 +9,8 @@
 
 # 00. Alerts                  {{{1
 # 00: queries                 {{{2
-"query:Alerts: tags =~ \"Alerts\" and tags =~ \"lehrstuhl\""  "00.1 Alerts :: Lehrstuhlseiten"
-"query:Alerts: tags =~ \"Alerts\" and tags =~ \"breaking\""  "00.2 Alerts :: Breaking News"
+"query:Alerts: tags =~ \"Alerts\" and tags =~ \"lehrstuhl\""  "0.01 Alerts :: Lehrstuhlseiten"
+"query:Alerts: tags =~ \"Alerts\" and tags =~ \"breaking\""  "0.02 Alerts :: Breaking News"
 
 # 00: urls                    {{{2
 # Unilehrstühle              {{{3
@@ -42,9 +42,10 @@ http://bauarbeiten.bahn.de/RSS/nrw/S_1                                          
 
 "query:News: (tags =~ \"Wirtschaft\" or tags =~ \"Politik\") and tags =~ \"deutschland\""    "01.1 News :: Inland"
 "query:News: (tags =~ \"Wirtschaft\" or tags =~ \"Politik\") and tags =~ \"ausland\""        "01.2 News :: Ausland"
+# "query:News: (tags =~ \"Wirtschaft\" or tags =~ \"Politik\") and tags =~ \"usa\""        "01.3 News :: US"
 
 # 01: filter                  {{{2
-"query:Kurden: tags =~ \"Politik\" and (title =~ \"kurden\" or title =~ \"PKK\" or title =~ \"kurdis*\")" "00.0 Filter"
+"query:Kurden: tags =~ \"Politik\" and (title =~ \"kurden\" or title =~ \"PKK\" or title =~ \"kurdis*\")" "0.00 Filter :: Kurden"
 
 # 01: urls                    {{{2
 # http://www.taz.de/rss.xml                                                                                 "110. Politik - Ausland"
@@ -58,91 +59,50 @@ http://netzpolitik.org/feed/                                                    
 http://www.faz.net/aktuell/wirtschaft/?rssview=1                                                          "110. Wirtschaft - Deutschland"
 http://www.spiegel.de/wirtschaft/soziales/index.rss                                                       "110. Wirtschaft - Deutschland"
 http://www.spiegel.de/wirtschaft/unternehmen/index.rss                                                    "110. Wirtschaft - Deutschland"
+http://rss.cnn.com/rss/edition_us.rss                                                                        "110. Politik - USA"
 
 # 02. Finance & Trading       {{{1
 # 02: queries                 {{{2
-"query:News: tags =~ \"News\" and tags =~ \"trading\""                                                     "02.1 News :: Trading"
-"query:News: tags =~ \"News\" and tags =~ \"finance\""                                                     "02.2 News :: Stocks"
+"query:News: tags =~ \"finance\" and tags =~ \"trading\""  "02.1 Finance :: Trading"
+"query:News: tags =~ \"finance\" and title =~ \"siemens\"" "02.2 Finance :: Stocks"
 
-# 02: filter                  {{{2
-"query:StackExch: tags =~ \"StackExch\" and (tag =~ \"questions\")"                                        "00.0 Filter"
+# 02: filter                 {{{2
+# "query:Siemens: tags =~ \"finance\" and title =~ \"Siemens\""                  "0.00 Filter :: Siemens"
 
 # 02: urls                    {{{2
 # Finanznachrichten           {{{3
-http://www.businessweek.com/rss/bwdaily.rss                                                                "120. News - Finance"
-http://www.businessweek.com/topStories/rss/topStories.rss                                                  "120. News - Finance"
-http://www.finanzen.net/rss/news                                                                           "120. News - Finance"
-http://www.finanzen.net/rss/analysen                                                                       "120. News - Finance"
-http://wsj.com/xml/rss/3_7481.xml                                                                          "120. News - Finance"
-http://www.wallstreet-online.de/rss/nachrichten-alle.xml                                                   "120. News - Finance"
-http://www.tradac.de/wordpress/?feed=rss2                                                                  "120. News - Finance"
-http://www.handelsblatt.com/contentexport/feed/finanzen/                                                   "120. News - Finance"
-http://www.finanznachrichten.de/rss-aktien-analysen                                                        "120. News - Finance"
-http://www.finanznachrichten.de/rss-marktberichte                                                          "120. News - Finance"
-http://www.finanznachrichten.de/rss-chartanalysen-top                                                      "120. News - Finance"
-http://www.finanznachrichten.de/rss-nachrichten-meistgelesen                                               "120. News - Finance"
-http://www.finanznachrichten.de/rss-nachrichten-devisen                                                    "120. News - Finance"
+http://www.businessweek.com/rss/bwdaily.rss                                                                "120. Finance - News"
+http://www.businessweek.com/topStories/rss/topStories.rss                                                  "120. Finance - News"
+http://www.finanzen.net/rss/news                                                                           "120. Finance - News"
+http://www.finanzen.net/rss/analysen                                                                       "120. Finance - News"
+http://wsj.com/xml/rss/3_7481.xml                                                                          "120. Finance - News"
+http://www.wallstreet-online.de/rss/nachrichten-alle.xml                                                   "120. Finance - News"
+http://www.tradac.de/wordpress/?feed=rss2                                                                  "120. Finance - News"
+http://www.handelsblatt.com/contentexport/feed/finanzen/                                                   "120. Finance - News"
+http://www.finanznachrichten.de/rss-aktien-analysen                                                        "120. Finance - News"
+http://www.finanznachrichten.de/rss-marktberichte                                                          "120. Finance - News"
+http://www.finanznachrichten.de/rss-chartanalysen-top                                                      "120. Finance - News"
+http://www.finanznachrichten.de/rss-nachrichten-meistgelesen                                               "120. Finance - News"
+http://www.finanznachrichten.de/rss-nachrichten-devisen                                                    "120. Finance - News"
 # Trading                     {{{3
-http://brattlestreetcapital.blogspot.com/feeds/posts/default                                               "120. News - Trading"
-http://ptotrading.blogspot.com/feeds/posts/default                                                         "120. News - Trading"
-http://systematicinvestor.wordpress.com/feed/                                                              "120. News - Trading"
-http://tradetheticker.blogspot.com/feeds/posts/default                                                     "120. News - Trading"
-http://tradingwithlinux.blogspot.com/feeds/posts/default                                                   "120. News - Trading"
-http://www.riskreversal.com/feed/                                                                          "120. News - Trading"
+http://brattlestreetcapital.blogspot.com/feeds/posts/default                                               "120. Finance - Trading"
+http://ptotrading.blogspot.com/feeds/posts/default                                                         "120. Finance - Trading"
+http://systematicinvestor.wordpress.com/feed/                                                              "120. Finance - Trading"
+http://tradetheticker.blogspot.com/feeds/posts/default                                                     "120. Finance - Trading"
+http://tradingwithlinux.blogspot.com/feeds/posts/default                                                   "120. Finance - Trading"
+http://www.riskreversal.com/feed/                                                                          "120. Finance - Trading"
 
-# 03. Sports                  {{{1
+# 03. Technik & Open Source   {{{1
 # 03: queries                 {{{2
-"query:Mavs: tags =~ \"Sport\" and (title =~ \"Mavs\" or title =~ \"Mavericks\" or title =~ \"Nowitzki\")" "03.1 Sport :: Basketball"
-"query:Sport: tags =~ \"Sport\" and tags =~ \"Fussball\""                                                  "03.2 Sport :: Fussball"
-
-# 03: filter                  {{{2
-"query:Spielbericht: tags =~ \"Fussball\" and link =~\"spielbericht\""                       "00.0 Filter :: Spielbericht"
+"query:Unix: tags =~ \"Unix\" and tags =~ \"linux\""                                               "03.1 Unix :: Linux"
+"query:Unix: tags =~ \"Unix\" and (tags =~ \"ubuntu\" or tags =~ \"gnome\")"                       "03.2 Unix :: Ubuntu"
+"query:Unix: tags =~ \"Unix\" and tags =~ \"vim\""                                                 "03.3 Unix :: VIM"
+"query:Technics: tags =~ \"Technics\" and tags =~ \"Allgemein\""                                   "03.4 Technics :: Allgemein"
+"query:StackExch: tags =~ \"StackExch\" and tags =~ \"VIM\""                                       "03.5 StackExch :: VIM"
+"query:StackExch: tags =~ \"StackExch\" and tags =~ \"Bash\""                                      "03.6 StackExch :: Bash"
+"query:StackExch: tags =~ \"StackExch\" and (tags =~ \"SED\" or tags =~ \"R\")"                    "03.7 StackExch :: SED"
 
 # 03: urls                    {{{2
-# http://rss.kicker.de/team/vflbochum                                 "130. Sport - Fussball"
-http://rss.kicker.de/team/msvduisburg                                 "130. Sport - Fussball"
-http://rss.kicker.de/news/clnews                                      "130. Sport - Fussball"
-# http://rss.kicker.de/news/bundesliga                                  "130. Sport - Fussball"
-http://rss.kicker.de/news/wm                                          "130. Sport - Fussball"
-http://www.sport1.de/de_1/fussball/fussball_championsleague/rss.xml   "130. Sport - Fussball"
-http://fussballblog.espace.ch/atom/                                   "130. Sport - Fussball"
-http://www.spox.com/pub/rss/us-sport-nba.xml                          "130. Sport - Basketball"
-http://www.spiegel.de/thema/basketball_em_2011/index.rss              "130. Sport - Basketball"
-http://www.spiegel.de/thema/national_basketball_association/index.rss "130. Sport - Basketball"
-http://www.sport1.de/de_1/basketball/rss.xml                          "130. Sport - Basketball"
-http://www.spox.com/pub/rss/basketball.xml                            "130. Sport - Basketball"
-http://www.nba.com/powerrankings/rss.xml                              "130. Sport - Basketball"
-http://mavsblog.dallasnews.com/atom.xml                               "130. Sport - Basketball"
-http://blogmaverick.com/feed/                                         "130. Sport - Basketball"
-http://www.nba.com/dunkofthenight/rss.xml                             "130. Sport - Basketball"
-http://sports.yahoo.com/nba/rss.xml                                   "130. Sport - Basketball"
-http://www.kickz.com/five/?feed=rss2                                  "130. Sport - Basketball"
-http://www.dallasbasketball.com/rss/MainRss.xml                       "130. Sport - Basketball"
-http://www.nba.com/mavericks/rss.xml                                  "130. Sport - Basketball"
-
-# 04. Kultur                  {{{1
-# 04: queries                 {{{2
-"query:Kultur: tags =~ \"Kultur\" and tags =~ \"Deutschland\""                                     "04.1 Kultur :: Allgemein"
-"query:Kultur: tags =~ \"Kultur\" and (tags =~ \"Duisburg\" or tags =~ \"Ruhrpott\")"              "04.2 Kultur :: Ruhrpott"
-"query:Kultur: tags =~ \"Kultur\" and tags =~ \"Blogs\""                                           "04.3 Kultur :: Blogs"
-
-# 04: urls                    {{{2
-http://newsfeed.zeit.de/kultur/index    "140. Kultur - Deutschland"
-http://newsfeed.zeit.de/zeit-magazin/index  "140. Kultur - Magazin"
-http://www.coolibri.de/redaktion/tags/Party/rss.html                      "140. Kultur - Duisburg"
-http://www.coolibri.de/redaktion/tags/Duisburg/rss.html                   "140. Kultur - Duisburg"
-
-# 05. Technik & Open Source   {{{1
-# 05: queries                 {{{2
-"query:Unix: tags =~ \"Unix\" and tags =~ \"linux\""                                               "05.1 Unix :: Linux"
-"query:Unix: tags =~ \"Unix\" and (tags =~ \"ubuntu\" or tags =~ \"gnome\")"                       "05.2 Unix :: Ubuntu"
-"query:Unix: tags =~ \"Unix\" and tags =~ \"vim\""                                                 "05.3 Unix :: VIM"
-"query:Technics: tags =~ \"Technics\" and tags =~ \"Allgemein\""                                   "05.4 Technics :: Allgemein"
-"query:StackExch: tags =~ \"StackExch\" and tags =~ \"VIM\""                                       "05.5 StackExch :: VIM"
-"query:StackExch: tags =~ \"StackExch\" and tags =~ \"Bash\""                                      "05.6 StackExch :: Bash"
-"query:StackExch: tags =~ \"StackExch\" and (tags =~ \"SED\" or tags =~ \"R\")"                    "05.7 StackExch :: SED"
-
-# 05: urls                    {{{2
 http://rss.golem.de/rss.php?feed=RSS1.0                         "150. Technics - Allgemein"
 http://www.heise.de/newsticker/heise-atom.xml                   "150. Technics - Allgemein"
 # http://doctormo.org/feed/                                     "150. Unix - Linux"
@@ -215,6 +175,7 @@ http://www.webupd8.org/feeds/posts/default                      "150. Unix - Ubu
 http://neovim.org/news.xml                                        "150. Unix - Vim"
 http://feeds.feedburner.com/usevim                                "150. Unix - Vim"
 http://feeds.vimgolf.com/latest-challenges?format=xml             "150. Unix - Vim"
+http://www.reddit.com/r/vimgolf/.rss                      "150. Unix - Vim"
 http://udioica.blogspot.com/feeds/posts/default?alt=rss           "150. Unix - Vim"
 # http://stackoverflow.com/feeds/tag?tagnames=vim&sort=newest "150. StackExch :: VIM"
 # http://superuser.com/feeds/tag/vim "150. StackExch :: VIM"
@@ -228,22 +189,66 @@ http://thinktostart.com/feed/                                     "150. Unix - R
 http://www.themagpi.com/feed/                                     "150. Unix - Rasppi"
 # http://stackoverflow.com/feeds/question/24448683  "150. StackExch :: Questions"
 
-# 08. Party & Style           {{{1
+# 04. Sports                  {{{1
+# 04: queries                 {{{2
+"query:Mavs: tags =~ \"Sport\" and (title =~ \"Mavs\" or title =~ \"Mavericks\" or title =~ \"Nowitzki\")" "04.1 Sport :: Basketball"
+"query:Sport: tags =~ \"Sport\" and tags =~ \"Fussball\""                                                  "04.2 Sport :: Fussball"
+
+# 04: filter                  {{{2
+"query:Spielbericht: tags =~ \"Fussball\" and link =~\"spielbericht\""                       "0.00 Filter :: Spielbericht"
+
+# 04: urls                    {{{2
+# http://rss.kicker.de/team/vflbochum                                 "130. Sport - Fussball"
+http://rss.kicker.de/team/msvduisburg                                 "130. Sport - Fussball"
+http://rss.kicker.de/news/clnews                                      "130. Sport - Fussball"
+# http://rss.kicker.de/news/bundesliga                                  "130. Sport - Fussball"
+http://rss.kicker.de/news/wm                                          "130. Sport - Fussball"
+http://www.sport1.de/de_1/fussball/fussball_championsleague/rss.xml   "130. Sport - Fussball"
+http://fussballblog.espace.ch/atom/                                   "130. Sport - Fussball"
+http://www.spox.com/pub/rss/us-sport-nba.xml                          "130. Sport - Basketball"
+http://www.spiegel.de/thema/basketball_em_2011/index.rss              "130. Sport - Basketball"
+http://www.spiegel.de/thema/national_basketball_association/index.rss "130. Sport - Basketball"
+http://www.sport1.de/de_1/basketball/rss.xml                          "130. Sport - Basketball"
+http://www.spox.com/pub/rss/basketball.xml                            "130. Sport - Basketball"
+http://www.nba.com/powerrankings/rss.xml                              "130. Sport - Basketball"
+http://mavsblog.dallasnews.com/atom.xml                               "130. Sport - Basketball"
+http://blogmaverick.com/feed/                                         "130. Sport - Basketball"
+http://www.nba.com/dunkofthenight/rss.xml                             "130. Sport - Basketball"
+http://sports.yahoo.com/nba/rss.xml                                   "130. Sport - Basketball"
+http://www.kickz.com/five/?feed=rss2                                  "130. Sport - Basketball"
+http://www.dallasbasketball.com/rss/MainRss.xml                       "130. Sport - Basketball"
+http://www.nba.com/mavericks/rss.xml                                  "130. Sport - Basketball"
+
+# 05. Kultur                  {{{1
+# 05: queries                 {{{2
+"query:Kultur: tags =~ \"Kultur\" and tags =~ \"Deutschland\""                        "05.1 Kultur :: Allgemein"
+"query:Kultur: tags =~ \"Kultur\" and (tags =~ \"Duisburg\" or tags =~ \"Ruhrpott\")" "05.2 Kultur :: Ruhrpott"
+"query:Kultur: tags =~ \"Kultur\"and tags =~ \"Entert\""                              "05.3 Kultur :: Entertainment"
+"query:Kultur: tags =~ \"Kultur\" and tags =~ \"Blogs\""                              "05.4 Kultur :: Blogs"
+
+# 05: urls                    {{{2
+http://newsfeed.zeit.de/kultur/index    "140. Kultur - Deutschland"
+http://newsfeed.zeit.de/zeit-magazin/index  "140. Kultur - Magazin"
+http://www.coolibri.de/redaktion/tags/Party/rss.html                      "140. Kultur - Duisburg"
+http://www.coolibri.de/redaktion/tags/Duisburg/rss.html                   "140. Kultur - Duisburg"
+http://rss.cnn.com/rss/edition_entertainment.rss          "180. Entertainment - All"
+
+
+# 08. Party, Style & Entertainment           {{{1
 # 08: queries                 {{{2
-"query:Style: tags =~ \"Style\" and tags =~ \"drawing\""                           "07.1 Style :: Drawing"
+"query:Style: tags =~ \"style\" and tags =~ \"drawing\""  "07.1 Style :: Drawing"
+
+# 08: filter                 {{{2
+"query:Style: (title =~ \"donald trump\" or title =~ \" trump \")"                  "0.00 Filter :: Gossip"
 
 # 08: urls                    {{{2
-# Reddit                      {{{3
-http://www.reddit.com/r/all/hot/.rss                  "180. Reddit - All"
-http://www.reddit.com/message/inbox/.rss              "180. Reddit - Messages"
-http://www.reddit.com/r/vimgolf/.rss                  "180. Reddit - Vimgolf"
-
 # Lifehacker                  {{{3
-http://feeds.gawker.com/lifehacker/full                            "180. Other - Lifehacker"
+http://feeds.gawker.com/lifehacker/full                   "180. Other - Lifehacker"
 
 # Drawing                     {{{3
-http://feeds.feedburner.com/likesketch?format=xml                  "180. Style - Drawing"
-http://feeds.feedburner.com/artlessononline?format=xml                  "180. Style - Drawing"
+http://feeds.feedburner.com/likesketch?format=xml         "180. Style - Drawing"
+http://feeds.feedburner.com/artlessononline?format=xml    "180. Style - Drawing"
+
 # 09. Angebote & Gutscheine   {{{1
 # 09: queries                 {{{2
 "query:Angebote: tags =~ \"Angebote\" and tags =~ \"Technik\""                     "09.1 Angebote :: Technik"
@@ -253,13 +258,14 @@ http://feeds.feedburner.com/artlessononline?format=xml                  "180. St
 "query:Angebote: tags =~ \"Angebote\" and tags =~ \"Reisen\""                     "09.5 Angebote :: Reisen"
 
 # 09: filter                  {{{2
-# "query:Notebook: tags =~ \"190\" and (title =~ \"notebook \" or title =~ \"netbook \")"                    "00.0 Filter"
-"query:Aktionen: tags =~ \"190\" and (title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion\!\" )"  "00.0 Filter :: Aktionen"
-"query:Ebooks: tags =~ \"190\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))"                    "00.0 Filter :: Notebook"
-"query:Garmin: tags =~ \"190\" and title =~ \"garmin\""                    "00.0 Filter"
-"query:Radio: tags =~ \"190\" and (title =~ \"radio\" or title =~ \"lautsprecher\" or title =~ \"speaker\")"  "00.0 Filter"
-"query:Flatrate: tags =~ \"190\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"internet\")"                    "00.0 Filter :: Flatrate"
-"query:Fahrten: tags =~ \"190\" and (title =~ \"brüssel\" or title =~ \"paris\")"                    "00.0 Filter"
+# "query:Notebook: tags =~ \"190\" and (title =~ \"notebook \" or title =~ \"netbook \")"                    "0.00 Filter"
+"query:Aktionen: tags =~ \"190\" and (title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion\!\" )"  "0.00 Filter :: Aktionen"
+"query:Ebooks: tags =~ \"190\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))"                    "0.00 Filter :: Notebook"
+"query:Garmin: tags =~ \"190\" and title =~ \"garmin\""                    "0.00 Filter :: Garmin"
+"query:Radio: tags =~ \"190\" and (title =~ \"radio\" or title =~ \"lautsprecher\" or title =~ \"speaker\")"  "0.00 Filter :: Speaker"
+"query:Flatrate: tags =~ \"190\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"internet\")"                    "0.00 Filter :: Flatrate"
+"query:Handy-Flatrate: tags =~ \"190\" and (title =~ \"allnet\" or title =~ \"flatrate\" or title =~ \"internet\")"                    "0.00 Filter :: Handy-Flatrate"
+"query:Fahrten: tags =~ \"190\" and (title =~ \"brüssel\" or title =~ \"paris\")"                    "0.00 Filter :: Stadtreisen"
 
 # 09: urls                    {{{2
 http://feeds.ibood.com/ibood/de_de                                                      "190. Angebote - Technik"
@@ -289,9 +295,10 @@ http://www.discounto.de/Discounter/get.rss20                                    
 
 # 10. Podcasts                {{{1
 # 10: queries                 {{{2
-"query:Podcasts: tags =~ \"Podcasts\""                                                                      "00. Filter"
+"query:Podcasts: tags =~ \"Podcasts\" and tags =~ \"Kultur\""     "10.1 Podcasts :: Kultur"
+"query:Podcasts: tags =~ \"Podcasts\" and tags =~ \"Programming\"" "10.2 Podcasts :: Programming"
 
 # 10: urls                    {{{2
-http://www.zdf.de/ZDFmediathek/podcast/2012868 "200. Podcasts - NEO Magazin"
-http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml "200. Podcasts - TTT"
-http://vimcasts.org/feeds/ogg.rss "200. Podcasts - VIMCasts.org"
+http://www.zdf.de/ZDFmediathek/podcast/2012868 "200. Podcasts - Kultur"
+http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml "200. Podcasts - Kultur"
+http://vimcasts.org/feeds/ogg.rss "200. Podcasts - Programming"

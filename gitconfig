@@ -60,8 +60,8 @@
 	lp	= log -p --graph --decorate=short --pretty=medium --stat		# ...shows diffs for entire history
 	lpf	= log -p --follow							# ...id + <filename>, show renamings of file as well
 	l	= log --graph --abbrev=7 --decorate=short --abbrev-commit --pretty=medium --stat	# show log with added/droped files
-	ll	= log --graph --abbrev=7 --decorate=short --abbrev-commit --pretty=medium
-	lll	= log --graph --abbrev=7 --decorate=short --oneline --all
+	ll	= log --graph --abbrev=7 --decorate=short --oneline --all
+	li	= log -i --grep			# search git logs, case-insensitive
 
 #  check current state locally
 	st	= status -u								# show tracked and untracked as well

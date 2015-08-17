@@ -80,9 +80,9 @@ nmap <localleader>k <Plug>RNRightPart
 nmap <localleader>c <Plug>REDSendChunk
 nmap <localleader>ch <Plug>RSendChunkFH
 
-" " Send Line                                  {{{3
-" nmap <localleader>L <Plug>RSendLine
-" vmap <localleader>L <Plug>RDSendSelection``
+" Send Line                                  {{{3
+nmap <localleader>L <Plug>RSendLine
+vmap <localleader>L <Plug>RDSendSelection``
 
 " Send Line And Jump To Next Code            {{{3
 nmap <esc>l <Plug>RDSendLine

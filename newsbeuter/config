@@ -81,7 +81,8 @@ bind-key "1" rev-sort
 bind-key "k" up
 bind-key "j" down
 bind-key "^u" show-urls
-bind-key '\' open-in-browser
+unbind-key \
+bind-key \ open-in-browser
 bind-key "L" toggle-show-read-feeds
 
 # macro {{{2
@@ -163,8 +164,8 @@ color article    color244 color234
 
 # highlighting  {{{2
 search-highlight-colors          black yellow bold
-highlight all "00\.\ Filter.*"     color251  color234
-highlight all "^0[1-9]\.[1-9].*"         color245  color234
+highlight all "^0\.[0-9][0-9].*"     color150  color234
+highlight all "^[0-9][0-9]\.[0-9].*"         color245  color234
 highlight all "^[0-9][0-9][0-9]\.\ .*"  color239  color234
 
 # highlight all "^[0-9][0-9][0-9]\.\ .*"  color251  color234
@@ -249,6 +250,4 @@ notify-beep		yes
 # exec:~/bin/snowscripts/rss-tag-filter
 
 # killfile {{{1
-ignore-article "*" "title =~ \"Sponsor\""
-ignore-article "*" "title =~ \"Advertisement\""
-ignore-mode "display"
+include ~/.newsbeuter/killfile

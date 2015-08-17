@@ -32,6 +32,7 @@ FIELD_TYPES = [
 'POSIXct',
 'character',
 'data.frame',
+'element',
 'integer',
 'list',
 'logical',
@@ -199,7 +200,7 @@ for (${1:item} in ${2:list}) {
 endsnippet
 
 snippet fun "Function definition"
-${1:name} <- function (${2}) {
+${1:${2:name} <- }function(${3}) {
 	${0:${VISUAL}}
 }
 endsnippet
@@ -314,6 +315,10 @@ endsnippet
 
 snippet nms "Show objects names" w
 names(${1:${VISUAL}})
+endsnippet
+
+snippet t "Matrix transpose" w
+t(${1:${VISUAL}})
 endsnippet
 
 snippet c "Concatenate" w

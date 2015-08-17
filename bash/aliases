@@ -8,6 +8,8 @@
 
 export chall=reformat_surnames
 
+# cat 2015-07-20_QCTH_euroland.csv.0 | grep -A 999 'Attribution' | cut -d '"' -f2 | perl -pe '3,$p'
+
 # basic aliases                                                                  {{{1
 # ls                                                                             {{{2
 
@@ -31,6 +33,7 @@ alias l='ls $LS1 $LS2 $LS3 -lA'        # listing view of all files
 alias ll='ls $LS1 $LS2 $LS3 -lB'       # like before, but w/o hidden files
 alias lst='ls $LS1 $LS2 $LS3 -lrtcA'   # show last edited files in folder
 alias lsg="ls|sort|grep -i"
+alias lsl='ls -l'
 alias lp=fun_absolute_path             # show fullpathname to file
 
 # list filename of recently added files
@@ -169,7 +172,7 @@ alias hsg="history|grep -i"
 alias convbib="sed -i 's/^ *owner=.*/   owner={Jonas Petong},/g;s/{{/{/g;s/}}/}/g'"
 alias convuml="sed -i 's/Ã¶/ö/g;s/Ã¼/ü/g;s/ÃŸ/ß/g;s/Ã¤/ä/g;s/Ã„/Ä/g;s/Ãœ/Ü/g;s/Ã–/Ö/g;s/Ã©/Ë/g'"
 alias convdir="sed -i 's/\([\&\)\(]\)/\\\1/g;s/\(.*\)\/.*/ \1/'"
-alias sed="perl -pe"    # http://stackoverflow.com/a/1103177
+alias sedp="perl -pe"    # http://stackoverflow.com/a/1103177
 
 # grep                                                                           {{{2
 
@@ -248,7 +251,8 @@ complete -F _alias -o nospace alias
 # http://superuser.com/a/756845/322005
 command_not_found_handle() {
     case $1 in
-        rip2*) mkdir -p "$2"
+        rip2*)
+            mkdir -p "$2"
             pacpl --rip all --to "${1#rip2}" --outdir="$2"
             return 0
             ;;
