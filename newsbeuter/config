@@ -16,7 +16,7 @@ bind-key "C" mark-all-feeds-read            # Mark articles in all feeds read.
 bind-key "s" save                           # Save the currently selected articl
                                             # e to a file.
 bind-key "n" next-unread                    # Jump to the next unread article.
-bind-key "p" prev-unread                    # Jump to the previous unread article.
+# bind-key "p" prev-unread                    # Jump to the previous unread article.
 bind-key "J" next                           # Jump to next article.
 bind-key "K" prev                           # Jump to previous article.
 bind-key "^K" random-unread                 # Jump to a random unread article.
@@ -62,7 +62,7 @@ bind-key "^P" prev-unread-feed              # Go to the previous feed with unrea
                                             # the article list.
 bind-key "j" next-feed                      # Go to the next feed. This only works from the article list.
 bind-key "k" prev-feed                      # Go to the previous feed. This only works from the article list.
-bind-key "D" delete-article                 # Delete the currently selected article.
+# bind-key "D" delete-article                 # Delete the currently selected article.
 bind-key "$" purge-deleted                  # Purge all article that are marked as deleted from the article list.
 bind-key "v" view-dialogs                   # View list of open dialogs.
 bind-key "^X" close-dialog                  # Close currently selected dialog.
@@ -163,15 +163,12 @@ color article    color244 color234
 # color article white default
 
 # highlighting  {{{2
-search-highlight-colors                     black yellow bold
-highlight all "^0\.[0-9][0-9]\ .*"            color150    color234
-highlight all "^09\.[0-9]\ .*"          color170    color234
-highlight all "^10\.[0-9]\ .*"          color110    color234
-highlight all "^[0-9]{4,4}\.\ .*"      color300    color234
-# highlight all "^[0-9][0-9]\.[0-9].*"         color245  color234
-
-# highlight all "^[0-9][0-9][0-9]\.\ .*"  color251  color234
-# highlight all "^[0-9][0-9][0-9]\.\ .*"  color251  color234
+search-highlight-colors                black yellow bold
+highlight all "^0\.00\ .*"             green               color234
+highlight all "^0\.[0-9][0-9]\ .*"     white               color234
+highlight all "^09\.[0-9]\ .*"         green               color234
+highlight all "^[0-9]{3,3}\.[0-9].*"   magenta             color234
+highlight all "^[0-9]{4,4}\.\ .*"      color300            color234
 
 # podcasts & downloads {{{1
 
@@ -252,4 +249,5 @@ notify-beep		yes
 # exec:~/bin/snowscripts/rss-tag-filter
 
 # killfile {{{1
-include ~/.newsbeuter/killfile
+# include ~/.newsbeuter/killfile
+ignore-article "*" "title =~ \"Fedora\""

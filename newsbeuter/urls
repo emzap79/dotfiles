@@ -7,6 +7,10 @@
 # Decrease Number from Pattern by 1
 # s/0\zs\d\ze\(\.\|\:\)/\=(submatch(0)-1)
 
+# exec:~/.newsbeuter/killfile
+# exec:~/.newsbeuter/extensions/twitterlinks
+# "exec:~/.newsbeuter/extensions/scienceblogsde"
+
 # 00. Alerts                  {{{1
 # 00: queries                 {{{2
 "query:Alerts: tags =~ \"Alerts\" and tags =~ \"lehrstuhl\""  "0.01 Alerts :: Lehrstuhlseiten"
@@ -36,72 +40,87 @@ http://bauarbeiten.bahn.de/RSS/nrw/S_1                                          
 
 # 01. Wirtschaft & Politik    {{{1
 # 01: queries                 {{{2
-"query:News: tags =~ \"101[01]\" and tags =~ \"deutschland\""    "01.1 News :: Inland"
-"query:News: tags =~ \"101[01]\" and tags =~ \"ausland\""        "01.2 News :: Ausland"
-"query:News: tags =~ \"technics\" and tags =~ \"allgemein\""                                   "01.3 News :: Technik"
-# "query:News: tags =~ \"101[01]\" and tags =~ \"usa\""        "01.3 News :: US"
+"query:News: tags =~ \"101[03]\""   "01.1 Politik :: Inland"
+"query:News: tags =~ \"101[12]\""   "01.2 Politik :: Ausland"
+"query:News: tags =~ \"1015\""      "01.3 Wirtschaft :: Inland"
+"query:News: tags =~ \"101[6-9]\""  "01.3 Wirtschaft :: Ausland"
 
 # 01: filter                  {{{2
 "query:Kurden: tags =~ \"1010\" and (title =~ \"kurden\" or title =~ \"PKK\" or title =~ \"kurdis*\")" "0.00 Filter :: Kurden"
 
 # 01: urls                    {{{2
-# Politik
-
-# http://www.taz.de/rss.xml                          "1010. Ausland"
-http://feeds.feedburner.com/Netzfeuilleton           "1010. Ausland"
-http://www.spiegel.de/politik/ausland/index.rss      "1010. Ausland"
-# http://www.spiegel.de/politik/europa/index.rss     "1010. Ausland"
+# Politik                     {{{3
+# Deutschland
 http://newsfeed.zeit.de/politik/index                "1010. Deutschland"
 http://www.spiegel.de/politik/deutschland/index.rss  "1010. Deutschland"
-http://www.spiegelfechter.com/wordpress/feed/        "1010. Deutschland"
-http://netzpolitik.org/feed/                         "1010. Deutschland"
-http://rss.cnn.com/rss/edition_us.rss                "1010. USA"
 
-# Wirtschaft
-http://www.faz.net/aktuell/wirtschaft/?rssview=1        "1011. Deutschland"
-http://www.spiegel.de/wirtschaft/soziales/index.rss     "1011. Deutschland"
-http://www.spiegel.de/wirtschaft/unternehmen/index.rss  "1011. Deutschland"
+# Ausland
+http://www.spiegel.de/politik/ausland/index.rss      "1011. Ausland"
 
-# 02. Finance & Trading       {{{1
-# 02: queries                 {{{2
-"query:News: tags =~ \"trading\""  "02.1 Finance :: Trading"
-"query:News: tags =~ \"finance\"" "02.2 Finance :: Stocks"
+# USA
+http://rss.cnn.com/rss/edition_us.rss                "1012. USA"
 
-# 02: filter                  {{{2
-# "query:Siemens: tags =~ \"finance\" and title =~ \"Siemens\""                  "0.00 Filter :: Siemens"
+# Blogs
+http://feeds.feedburner.com/Netzfeuilleton           "1013. Netzfeuilleton"
+http://www.spiegelfechter.com/wordpress/feed/        "1013. Spiegelfechter"
+http://netzpolitik.org/feed/                         "1013. Netzpolitik.org"
 
-# 02: urls                    {{{2
-# Finanznachrichten
-http://www.businessweek.com/rss/bwdaily.rss                                                                "1020. Finance"
-http://www.businessweek.com/topStories/rss/topStories.rss                                                  "1020. Finance"
-http://www.finanzen.net/rss/news                                                                           "1020. Finance"
-http://www.finanzen.net/rss/analysen                                                                       "1020. Finance"
-http://wsj.com/xml/rss/3_7481.xml                                                                          "1020. Finance"
-http://www.wallstreet-online.de/rss/nachrichten-alle.xml                                                   "1020. Finance"
-http://www.tradac.de/wordpress/?feed=rss2                                                                  "1020. Finance"
-http://www.handelsblatt.com/contentexport/feed/finanzen/                                                   "1020. Finance"
-http://www.finanznachrichten.de/rss-aktien-analysen                                                        "1020. Finance"
-http://www.finanznachrichten.de/rss-marktberichte                                                          "1020. Finance"
-http://www.finanznachrichten.de/rss-chartanalysen-top                                                      "1020. Finance"
-http://www.finanznachrichten.de/rss-nachrichten-meistgelesen                                               "1020. Finance"
-http://www.finanznachrichten.de/rss-nachrichten-devisen                                                    "1020. Finance"
+# Wirtschaft                  {{{3
+# Deutschland
+http://www.faz.net/aktuell/wirtschaft/?rssview=1        "1015. Deutschland"
+http://www.spiegel.de/wirtschaft/soziales/index.rss     "1015. Deutschland"
+http://www.spiegel.de/wirtschaft/unternehmen/index.rss  "1015. Deutschland"
 
-# Trading
-http://brattlestreetcapital.blogspot.com/feeds/posts/default                                               "1021. Trading"
-http://ptotrading.blogspot.com/feeds/posts/default                                                         "1021. Trading"
-http://systematicinvestor.wordpress.com/feed/                                                              "1021. Trading"
-http://tradetheticker.blogspot.com/feeds/posts/default                                                     "1021. Trading"
-http://tradingwithlinux.blogspot.com/feeds/posts/default                                                   "1021. Trading"
-http://www.riskreversal.com/feed/                                                                          "1021. Trading"
+# Europa
+http://www.cnbc.com/id/19794221/device/rss/rss.html     "1016. Europa"
+
+# US
+http://www.cnbc.com/id/15837362/device/rss/rss.html     "1017. USA"
+
+# Asien
+http://www.cnbc.com/id/19832390/device/rss/rss.html     "1018. Asien"
+
+# # 02. Finance & Trading       {{{1
+# # 02: queries                 {{{2
+# "query:News: tags =~ \"trading\""  "02.1 Finance :: Trading"
+# "query:News: tags =~ \"finance\"" "02.2 Finance :: Stocks"
+
+# # 02: filter                  {{{2
+# # "query:Siemens: tags =~ \"finance\" and title =~ \"Siemens\""                  "0.00 Filter :: Siemens"
+
+# # 02: urls                    {{{2
+# # Finanznachrichten
+# http://www.businessweek.com/rss/bwdaily.rss                                                                "1020. Finance"
+# http://www.businessweek.com/topStories/rss/topStories.rss                                                  "1020. Finance"
+# http://www.finanzen.net/rss/news                                                                           "1020. Finance"
+# http://www.finanzen.net/rss/analysen                                                                       "1020. Finance"
+# http://wsj.com/xml/rss/3_7481.xml                                                                          "1020. Finance"
+# http://www.wallstreet-online.de/rss/nachrichten-alle.xml                                                   "1020. Finance"
+# http://www.tradac.de/wordpress/?feed=rss2                                                                  "1020. Finance"
+# http://www.handelsblatt.com/contentexport/feed/finanzen/                                                   "1020. Finance"
+# http://www.finanznachrichten.de/rss-aktien-analysen                                                        "1020. Finance"
+# http://www.finanznachrichten.de/rss-marktberichte                                                          "1020. Finance"
+# http://www.finanznachrichten.de/rss-chartanalysen-top                                                      "1020. Finance"
+# http://www.finanznachrichten.de/rss-nachrichten-meistgelesen                                               "1020. Finance"
+# http://www.finanznachrichten.de/rss-nachrichten-devisen                                                    "1020. Finance"
+
+# # Trading
+# http://brattlestreetcapital.blogspot.com/feeds/posts/default                                               "1021. Trading"
+# http://ptotrading.blogspot.com/feeds/posts/default                                                         "1021. Trading"
+# http://systematicinvestor.wordpress.com/feed/                                                              "1021. Trading"
+# http://tradetheticker.blogspot.com/feeds/posts/default                                                     "1021. Trading"
+# http://tradingwithlinux.blogspot.com/feeds/posts/default                                                   "1021. Trading"
+# http://www.riskreversal.com/feed/                                                                          "1021. Trading"
 
 # 03. Technik & Open Source   {{{1
 # 03: queries                 {{{2
-"query:IT: tags =~ \"103[0-9]\" and tags =~ \"linux\""                                               "03.1 Unix :: Linux"
-"query:IT: tags =~ \"103[0-9]\" and (tags =~ \"fedora\" or tags =~ \"ubuntu\" or tags =~ \"gnome\")" "03.2 Unix :: Ubuntu"
-"query:IT: tags =~ \"103[0-9]\" and tags =~ \"vim\""                                                 "03.3 Unix :: VIM"
-"query:IT: tags =~ \"103[0-9]\" and tags =~ \"VIM\""                                            "03.4 StackExch :: VIM"
-"query:IT: tags =~ \"103[0-9]\" and tags =~ \"Bash\""                                           "03.5 StackExch :: Bash"
-"query:IT: tags =~ \"103[0-9]\" and (tags =~ \"SED\" or tags =~ \"R\")"                         "03.6 StackExch :: SED"
+"query:IT: tags =~ \"technics\" and tags =~ \"allgemein\""                                            "03.1 News :: Technik"
+"query:IT: tags =~ \"103[0-9]\" and tags =~ \"linux\""                                                "03.2 Unix :: Linux"
+"query:IT: tags =~ \"103[0-9]\" and (tags =~ \"fedora\" or tags =~ \"ubuntu\" or tags =~ \"gnome\")"  "03.3 Unix :: Ubuntu"
+"query:IT: tags =~ \"103[0-9]\" and tags =~ \"vim\""                                                  "03.4 Unix :: VIM"
+"query:IT: tags =~ \"103[0-9]\" and tags =~ \"VIM\""                                                  "03.5 StackExch :: VIM"
+"query:IT: tags =~ \"103[0-9]\" and tags =~ \"Bash\""                                                 "03.6 StackExch :: Bash"
+"query:IT: tags =~ \"103[0-9]\" and (tags =~ \"SED\" or tags =~ \"R\")"                               "03.7 StackExch :: SED"
 
 # 03: urls                    {{{2
 
@@ -192,34 +211,50 @@ http://www.reddit.com/r/vimgolf/.rss                            "1037. Vim"
 
 # 04. Sports                  {{{1
 # 04: queries                 {{{2
-"query:Mavs: tags =~ \"Basketball\" and (title =~ \"Mavs\" or title =~ \"Mavericks\" or title =~ \"Nowitzki\")" "04.1 Sport :: Basketball"
-"query:Sport: tags =~ \"Fussball\""                                                  "04.2 Sport :: Fussball"
+"query:Walter-Tigers: tags =~ \"1040\" and (title =~ \" Walter\" or title =~ \"Tigers\")"                   "04.1 Basketball :: Tigers"
+"query:Mavs: tags =~ \"1045\" or (tags =~ \"104[34]\" and (title =~ \"Mav.* \" or title =~ \"Nowitzki\"))"  "04.2 Basketball :: Mavs"
+"query:Sport: tags =~ \"104[67]\" and (title =~ \"BVB\" or title =~ \"MSV\")"                               "04.3 Fussball :: Vereine"
+"query:Sport: tags =~ \"1048\""                                                                             "04.4 Fussball :: Champions League"
 
 # 04: filter                  {{{2
-"query:Spielbericht: tags =~ \"fussball\" and link =~\"spielbericht\""                       "0.00 Filter :: Spielbericht"
+"query:Spielbericht: tags =~ \"fussball\" and link =~\"spielbericht\""  "0.00 Filter :: Spielbericht"
+"query:Basketball: tags =~ \"1044\""                                    "0.00 Filter :: Basketball"
 
 # 04: urls                    {{{2
 
-http://blogmaverick.com/feed/                                         "1040. Basketball"
-http://mavsblog.dallasnews.com/atom.xml                               "1040. Basketball"
+# Deutscher Basketball
 http://sports.yahoo.com/nba/rss.xml                                   "1040. Basketball"
-http://www.dallasbasketball.com/rss/MainRss.xml                       "1040. Basketball"
 http://www.kickz.com/five/?feed=rss2                                  "1040. Basketball"
-http://www.nba.com/dunkofthenight/rss.xml                             "1040. Basketball"
-http://www.nba.com/mavericks/rss.xml                                  "1040. Basketball"
-http://www.nba.com/powerrankings/rss.xml                              "1040. Basketball"
-http://www.spiegel.de/thema/basketball_em_2011/index.rss              "1040. Basketball"
-http://www.spiegel.de/thema/national_basketball_association/index.rss "1040. Basketball"
 http://www.sport1.de/de_1/basketball/rss.xml                          "1040. Basketball"
 http://www.spox.com/pub/rss/basketball.xml                            "1040. Basketball"
-http://www.spox.com/pub/rss/us-sport-nba.xml                          "1040. Basketball"
-http://fussballblog.espace.ch/atom/                                   "1041. Fussball"
-http://rss.kicker.de/news/bundesliga                                  "1041. Fussball"
-http://rss.kicker.de/news/clnews                                      "1041. Fussball"
-http://rss.kicker.de/news/wm                                          "1041. Fussball"
-http://rss.kicker.de/team/msvduisburg                                 "1041. Fussball"
-http://www.sport1.de/de_1/fussball/fussball_championsleague/rss.xml   "1041. Fussball"
-http://www.transfermarkt.de/rss/news                                  "1041. Fussball"
+
+# EM & WM
+http://www.spiegel.de/thema/basketball_em_2011/index.rss              "1042. Basketball"
+
+# NBA
+http://www.spiegel.de/thema/national_basketball_association/index.rss "1043. Basketball"
+http://www.spox.com/pub/rss/us-sport-nba.xml                          "1043. Basketball"
+http://www.nba.com/dunkofthenight/rss.xml                             "1044. DunkOfTheNight"
+http://www.nba.com/powerrankings/rss.xml                              "1044. Powerranking"
+
+# Mavs
+http://blogmaverick.com/feed/                                         "1045. Mavs"
+http://mavsblog.dallasnews.com/atom.xml                               "1045. Mavs"
+http://www.dallasbasketball.com/rss/MainRss.xml                       "1045. Mavs"
+http://www.nba.com/mavericks/rss.xml                                  "1045. Mavs"
+
+# Fussball
+http://fussballblog.espace.ch/atom/                                   "1046. Fussball"
+http://rss.kicker.de/news/bundesliga                                  "1046. Bundesliga"
+http://rss.kicker.de/news/wm                                          "1046. WM"
+http://rss.kicker.de/team/msvduisburg                                 "1046. MSV"
+
+# Tranfermarkt
+http://www.transfermarkt.de/rss/news                                  "1047. Transfermarkt"
+
+# Champions League
+http://www.sport1.de/de_1/fussball/fussball_championsleague/rss.xml   "1048. Champions League"
+http://rss.kicker.de/news/clnews                                      "1048. Champions League"
 
 # 05. Kultur & Parties                  {{{1
 # 05: queries                 {{{2

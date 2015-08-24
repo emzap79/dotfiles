@@ -1,6 +1,6 @@
 # vim:fdm=marker:textwidth=0
 
-# ignore-article "*" "title =~ \"Sponsor\""
-# ignore-article "*" "title =~ \"Advertisement\""
-# ignore-article "*"
+ignore-article "*" "title =~ \"Sponsor\""
+ignore-article "*" "title =~ \"Advertisement\""
+ignore-article "*" "title =~ \"Fedora\""
 ignore-mode "display"

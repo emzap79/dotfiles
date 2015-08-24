@@ -1,0 +1,2 @@
+#!/bin/bash
+sed 's/mt:asset-id/asset-id/g' 
