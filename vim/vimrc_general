@@ -1,4 +1,4 @@
-" vim:ft=vim fdm=marker
+" vim:ft=vim fdm=marker tw=72
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIMRC GENERAL "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -22,6 +22,20 @@
 " :update      " Save any changes.
 " :e ++ff=dos  " Edit file again, using dos file format ('fileformats' is ignored).[A 1]
 " :w           " Write buffer using dos (CRLF) line endings.
+
+" error messages                                              " {{{2
+" http://stackoverflow.com/a/9700719/3569509
+
+" (1) show current status of loaded option return value of specific
+" option, eg. :set expandtab?
+"
+" (2) show which files have been loaded on startup Once you've loaded
+" vim, :scriptnames will tell you exactly what Vim read.
+"
+" (3) check where a particular setting is being set For example,
+" :verbose set background tells me: background=light Last set from
+" ~/.vimrc, so I know that my setting in ~/.vimrc is being read, and
+" that none of the later files is clobbering it.
 
 " set shell                                                   " {{{2
 
@@ -151,13 +165,15 @@ set dip=filler,context:6
 set fen           " foldenable: enable folding
 set fdm=marker    " foldmethod: manual, indent, marker, syntax, expr
 set fdl=1         " foldlevel: Folds with a higher level will be closed.
-                  " Setting this option to zero will close all folds. Higher numbers will
-                  " close fewer folds.
-set fdls=0        " foldlevelstart: Sets 'foldlevel' when starting to edit another buffer in a window.
-                  " Useful to always start editing with all folds closed (value zero),
-                  " some folds closed (one) or no folds closed (99).
-set fcl=all       " foldclose: When set to " all", a fold is closed when the cursor isn't in it and
-                  " its level is higher than 'foldlevel'. Useful if you want folds to
+                  " Setting this option to zero will close all folds. Higher
+                  " numbers will close fewer folds.
+set fdls=0        " foldlevelstart: Sets 'foldlevel' when starting to edit
+                  " another buffer in a window. Useful to always start editing
+                  " with all folds closed (value zero), some folds closed
+                  " (one) or no folds closed (99).
+set fcl=all       " foldclose: When set to " all", a fold is closed when the
+                  " cursor isn't in it and its level is higher than
+                  " 'foldlevel'. Useful if you want folds to
                   " automatically close when moving out of them.
 set fdc=4         " foldcolumn: sets rows to show fold information
 set fdn=2         " foldnestmax: Sets the maximum nesting of folds for the
@@ -171,11 +187,10 @@ set fdt=MyFoldText()
 " func: myfoldtext                                            " {{{3
 
 fun! MyFoldText()
-let line = getline(v:foldstart)
-let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
-return v:folddashes . sub
+    let line = getline(v:foldstart)
+    let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
+    return v:folddashes . sub
 endfunction
-
 
 " define folds for different syntaxes
 " http://stackoverflow.com/a/4789615
@@ -228,7 +243,7 @@ set nolisp                " lisp: When <Enter> is typed in insert mode set the
                         " indendation does not work, please disable this option!!)
 set lw=""               " lispwords: Comma separated list of words that influence the Lisp indenting.
 
-" smartindent                                                  {{{3
+" smartindent                                                   {{{3
 
 set nosi                  " smartindent: turn on smart indenting.
 set ai                  " autoindent: automatically indent new line
@@ -248,9 +263,12 @@ setlocal indk+=\\]
 
 " linewrapping                                                " {{{2
 
-set sbr=""                                     " showbreak: note trailing space at end of next line
+set sbr=""                                     " showbreak: note trailing space
+                                               " at end of next line
 set lbr                                        " linebreak: wrap at word
-set ww=b,s,h,l,<,>,[,]                         " whichwrap: allow specified keys that move the cursor left/right
+set nowrap                                     " wrap: wrapping long lines
+set ww=b,s,h,l,<,>,[,]                         " whichwrap: allow specified keys
+                                               " that move the cursor left/right
 
 " error messages                                              " {{{2
 
@@ -449,8 +467,8 @@ set com+=:#
 
 " commentstring: The "%s" in the value is replaced with the comment text
 " (default: "/*%s*/")
-" set cms="/*%s*/"
-" set cms+=#\ %s
+set cms="/*%s*/"
+set cms+=#\ %s
 
 " iskeyword/-fname/-print                                     " {{{2
 
@@ -603,13 +621,12 @@ set stl+=%2*\ %(%l,%v\|%02p%%\ %)                                 " current posi
 set hi=1000                     " history: remember last n typed commands
 
 " Functions & Autocommands                                    " {{{1
-" autogroups                                                  " {{{2
 
 " To enter autocommands for a specific group, use this method:
-" 1. Select the group with ":augroup {name}".
-" 2. Delete any old autocommands with ":au!".
+" 1. Select the group with ":augroup {name}"
+" 2. Delete any old autocommands with ":au!"
 " 3. Define the autocommands.
-" 4. Go back to the default group with "augroup END".
+" 4. Go back to the default group with "augroup END"
 
 " VimEnter                                                    " {{{2
 

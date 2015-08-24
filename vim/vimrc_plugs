@@ -540,26 +540,19 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
 " au!  filetype  noweb,rnoweb,tex  call  TexAbbreviations()
 " au!  filetype  mail,eml          call  MailAbbreviations()
 
-" " vim-origami                                             {{{2
+" vim-origami                                             {{{2
 
-" " 'g:OrigamiMap'
-" "   Type: Dictionary, Default:
-" "   To set up your own mappings copy the following dictionary and edit it
-"       let g:OrigamiMap = {
-"         \ 'Leader'           : "z",
-"         \ 'Align'            : "a",
-"         \ 'CommentedOpen'    : "O",
-"         \ 'CommentedClose'   : "C",
-"         \ 'UncommentedOpen'  : "o",
-"         \ 'UncommentedClose' : "c",
-"         \ 'Delete'           : "d",
-"         \ }
-"   " To disable a map entirely, specify it as an empty string.
-"   " If a key is not specified, the default value will be picked up.
-"   " These same characters will be used to invoke the shortcuts.
+" 'g:OrigamiMap'
+"   Type: Dictionary, Default:
+"   To set up your own mappings copy the following dictionary and edit it
+      let g:OrigamiMap = {
+        \ 'Leader'           : "Z",
+        \ }
+  " To disable a map entirely, specify it as an empty string.
+  " If a key is not specified, the default value will be picked up.
+  " These same characters will be used to invoke the shortcuts.
 
-
-" excel.vim                                             {{{2
+" excel.vim                                               {{{2
 
 let g:zipPlugin_ext = '*.zip,*.jar,*.xpi,*.ja,*.war,*.ear,*.celzip,*.oxt,*.kmz,*.wsz,*.xap,*.docx,*.docm,*.dotx,*.dotm,*.potx,*.potm,*.ppsx,*.ppsm,*.pptx,*.pptm,*.ppam,*.sldx,*.thmx,*.crtx,*.vdw,*.glox,*.gcsx,*.gqsx'
 
@@ -582,11 +575,11 @@ autocmd BufReadPre,BufRead fugitive://* set wmh=20
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
-" " Frisk - Search Engine                                   {{{2 }}}
+" " Frisk - Search Engine                                 {{{2
 
 " " call frisk#DefaultEngine('google')
 
-" " " Default Engines                                       {{{3
+" " " Default Engines                                     {{{3
 
 "  " "bingImages"
 "  " "bing"
@@ -599,9 +592,9 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 "  " "wikipedia"
 
 
-" " " Custom Search Operators                               {{{3
+" " " Custom Search Operators                             {{{3
 
-" " "" General Search - a                                   {{{4
+" " "" General Search - a                                 {{{4
 
 " call frisk#AddEngine('wikipediaEn', 'http://en.wikipedia.org/w/api.php?action=opensearch&search=')
 " call frisk#AddEngine('wikipediaEs', 'http://es.wikipedia.org/w/index.php?title=Especial:Buscar&search=')
@@ -617,7 +610,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " call frisk#AddEngine('duckduckgo', 'https://duckduckgo.com/ac/?q=')
 
 
-" " "" Online-Shops - s                                     {{{4
+" " "" Online-Shops - s                                   {{{4
 
 " call frisk#AddEngine('ebayKleinanz', 'http://kleinanzeigen.ebay.de/anzeigen/s-suchanfrage.html?keywords=')
 " call frisk#AddEngine('amazon', 'http://www.amazon.com/exec/obidos/external-search/?field-keywords=')
@@ -625,7 +618,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " call frisk#AddEngine('ikea', 'http://www.ikea.com/de/de/search/?query=')
 
 
-" " "" Dictionaries - d                                     {{{4
+" " "" Dictionaries - d                                   {{{4
 
 " call frisk#AddEngine('dict', 'http://dees.dict.cc/?s=')
 " call frisk#AddEngine('leo', 'http://dict.leo.org/?lp=ende&from=fx3&search=')
@@ -634,7 +627,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " call frisk#AddEngine('dict', 'http://dees.dict.cc/?s=')
 
 
-" " "" Linux/LaTeX/Coding - f                               {{{4
+" " "" Linux/LaTeX/Coding - f                             {{{4
 
 " call frisk#AddEngine('mutt', 'http://dev.mutt.org/trac/search?q=')
 " call frisk#AddEngine('ctan', 'http://www.ctan.org/pkg/')
@@ -654,19 +647,19 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " call frisk#AddEngine('ctan', 'http://www.ctan.org/pkg/')
 
 
-" " "" Auskunft - g                                         {{{4
+" " "" Auskunft - g                                       {{{4
 
 " call frisk#AddEngine('dasoertliche', 'http://services.dasoertliche.de/addons/search/?q=')
 " call frisk#AddEngine('dbahn', 'http://reiseauskunft.bahn.de/bin/query.exe/dn?revia=yes&existOptimizePrice=1&country=DEU&dbkanal_007=L01_S01_D001_KIN0001_qf-bahn_LZ003&start=1&S=')
 " call frisk#AddEngine('gelbeseiten', 'http://www.gelbeseiten.de/yp/search.yp?subject=')
 
 
-" " "" Uni Due - h                                          {{{4
+" " "" Uni Due - h                                        {{{4
 
 " call frisk#AddEngine('googleScholar', 'http://scholar.google.de/scholar?hl=de&q=')
 
 
-" " "" Sport/Entertainment - j                              {{{4
+" " "" Sport/Entertainment - j                            {{{4
 
 " call frisk#AddEngine('kicker', 'http://www.kicker.de/home/suchergebnisse.html?suchbegriff=')
 " call frisk#AddEngine('lastfm', 'http://www.last.fm/search?q=')

@@ -383,7 +383,7 @@ nnoremap <space>ge :Gedit<CR>
 nnoremap <space>gr :Gread<CR>
 nnoremap <space>gw :Gwrite<CR><CR>
 nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <space>gp :Ggrep<Space>
+nnoremap <space>grp :Ggrep<Space>
 nnoremap <space>gm :Gmove<Space>
 nnoremap <space>gb :Git branch<Space>
 nnoremap <space>go :Git checkout<Space>
@@ -845,8 +845,9 @@ function! VisualSearch(direction) range
 endfunction
 
 " grep for word in dir                                                         {{{2
-nnoremap <silent>gr :set operatorfunc=<SID>GrepOperator<cr>g@
-vnoremap <silent>gr :<c-u>call <SID>GrepOperator(visualmode())<cr>
+" http://learnvimscriptthehardway.stevelosh.com/chapters/32.html
+nnoremap <silent>gp :set operatorfunc=<SID>GrepOperator<cr>g@
+vnoremap <silent>gp :<c-u>call <SID>GrepOperator(visualmode())<cr>
 
 " open url in external browser                                                 {{{2
 

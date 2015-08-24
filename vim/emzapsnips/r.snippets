@@ -48,9 +48,11 @@ endglobal
 snippet "^\?\?" "Show Mitschrift" wr
 /home/zapata/Dokumente/R/mitschrift.r
 endsnippet
+
 snippet aspos "Apply POSIXct on variable" w
 as.POSIXct(strptime(${1:${VISUAL}}, format='${2:%Y-%m-%d}'))
 endsnippet
+
 snippet as "Apply type on variable" w
 as.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
@@ -200,9 +202,17 @@ for (${1:item} in ${2:list}) {
 endsnippet
 
 snippet fun "Function definition"
-${1:${2:name} <- }function(${3}) {
+${1:${2:name} <- }function(${3}) ${4:{
 	${0:${VISUAL}}
-}
+}}
+endsnippet
+
+snippet rows "rowSums" i
+rowSums(${1:${VISUAL}})
+endsnippet
+
+snippet cols "colSums" i
+colSums(${1:${VISUAL}})
 endsnippet
 
 snippet sum "Sum" i
@@ -237,37 +247,37 @@ snippet mat "matrix function"
 matrix(${1:data}, nrow = ${2:rows}, ncol = ${3:cols})
 endsnippet
 
-snippet apply "apply function"
+snippet ap "apply function"
 apply(${1:array}, ${2:margin}, ${3:function})
 endsnippet
 
-snippet lapply "lapply function"
+snippet lap "lapply function"
 lapply(${1:list}, ${2:function})
 endsnippet
 
-snippet sapply "sapply function"
+snippet sap "sapply function"
 sapply(${1:list}, ${2:function})
 endsnippet
 
-snippet vapply "vapply function"
+snippet vap "vapply function"
 vapply(${1:list}, ${2:function}, ${3:type})
 endsnippet
 
-snippet mapply "mapply function"
+snippet map "mapply function"
 mapply(${1:function}, ${2:...})
 endsnippet
 
-snippet tapply "tapply function"
+snippet tap "tapply function"
 tapply(${1:vector}, ${2:index}, ${3:function})
 endsnippet
 
-snippet rapply "rapply function"
+snippet rap "rapply function"
 rapply(${1:list}, ${2:function})
 endsnippet
 
-snippet pl "Plot function"
-plot(${1:x}, ${2:y}, type="${3:b}", main = "${4:Plots Title}", "${5:xlab}", "${6:ylab}")
-endsnippet
+# snippet pl "Plot function"
+# plot(${1:x},${2:y}${3:,type="${4:b}"}${5:,main = "${6:Plots Title}"}, xlab="${7:xlab}", ylab="${8:ylab}")
+# endsnippet
 
 snippet ggp "ggplot2 plot"
 ggplot(${1:data}, aes(${2:aesthetics}))
@@ -331,6 +341,10 @@ endsnippet
 
 snippet ch "N over n" w
 choose(${1:N},${2:n})
+endsnippet
+
+snippet cmb "Show all possible combinations" w
+combn(${1:N},${2:n})
 endsnippet
 
 snippet v "Var" w
@@ -410,7 +424,11 @@ assign(${1:${VISUAL}})
 endsnippet
 
 snippet rp "rep" w
-rep(${1:${VISUAL}})
+rep(${1:NA},${2:n})
+endsnippet
+
+snippet qu "quantile" w
+quantile(${1:x},${2:0.95})
 endsnippet
 
 snippet gwd "getwd" w
@@ -449,6 +467,14 @@ snippet rwn "rownames" w
 rownames(${1:${VISUAL}})
 endsnippet
 
+snippet ncl "ncol" w
+ncol(${1:${VISUAL}})
+endsnippet
+
+snippet nrw "nrow" w
+nrow(${1:${VISUAL}})
+endsnippet
+
 snippet atr "attributes" w
 attributes(${1:${VISUAL}})
 endsnippet
@@ -463,6 +489,14 @@ endsnippet
 
 snippet mc "mc" w
 mc(${1:${VISUAL}})
+endsnippet
+
+snippet spl "sample" w
+sample(${1:N},${2:n}${3:,prob=${4:p}})
+endsnippet
+
+snippet ss "set.seed"
+set.seed(${1:123})
 endsnippet
 
 snippet strip "convert german numbers to floats" b

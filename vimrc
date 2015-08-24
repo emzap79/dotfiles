@@ -25,10 +25,10 @@ source $HOME/.vim/vimrc_mappings
 " This source sets mutt configs
 source $HOME/.vim/vimrc_mutt
 
-" This source sets R configs
-source $HOME/.vim/ftplugin/r.vim
-" This source sets LaTeX configs
-source $HOME/.vim/ftplugin/tex.vim
+" " This source sets R configs
+" source $HOME/.vim/ftplugin/r.vim
+" " This source sets LaTeX configs
+" source $HOME/.vim/ftplugin/tex.vim
 
 "------------------
 " Xterm-Style-Keys

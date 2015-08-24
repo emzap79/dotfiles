@@ -149,6 +149,7 @@ map <silent> <localleader>dn :call RAction("dimnames")<CR>
 map <silent> <localleader>nc :call RAction("ncol")<CR>
 map <silent> <localleader>nr :call RAction("nrow")<CR>
 map <silent> <localleader>lv :call RAction("levels")<CR>
+map <silent> <localleader>tr :call RAction("t")<CR>
 
 " Object Print, Names, Structure (cur)       {{{2
 map <silent> <localleader>on :call RAction("names")<CR>
