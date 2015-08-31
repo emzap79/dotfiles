@@ -11,7 +11,10 @@ snippet qtq "\quad\text{}\quad" i
 \quad\text{$1}\quad
 endsnippet
 snippet $$ "Math Surround" i
-$$${1:${VISUAL}}$$ $0
+$${1:$${2:${VISUAL}}$}$ $0
+endsnippet
+snippet [ "Math Surround" w
+\[${1:${VISUAL}}\] $0
 endsnippet
 snippet -> "sign: rightarrow" i
 \rightarrow
@@ -37,7 +40,7 @@ endsnippet
 snippet nsum "Summary from i to n" w
 \\sum_{i=1}^{n} ${1}
 endsnippet
-snippet sqrt "Root Squirt" w
+snippet sq "Root Squirt" w
 \sqrt${1:[${2:nth}]}{${2:${VISUAL}}}
 endsnippet
 snippet 1/n "One Half" i

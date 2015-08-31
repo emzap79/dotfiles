@@ -67,6 +67,7 @@ alias du='du -h'
 alias du_file='find . -type f  | xargs du -h | sort -n'
 alias du_dir='du --si -d1 | sort -h'
 alias duf=fun_dus
+alias showdiskspace=fun_dsp
 
 # cd                                                                             {{{2
 
@@ -255,6 +256,13 @@ command_not_found_handle() {
         rip2*)
             mkdir -p "$2"
             pacpl --rip all --to "${1#rip2}" --outdir="$2"
+            return 0
+            ;;
+        doc2*) # http://stackoverflow.com/a/21204653/3569509
+            libreoffice --headless --convert-to "${1#xlsx2}" "${2%%.*}"."doc"
+            return 0
+            ;;
+        docx2*) libreoffice --headless --convert-to "${1#xlsx2}" "${2%%.*}"."docx"
             return 0
             ;;
         xlsx2*) ssconvert -S "$2" "${2%%.*}"."${1#xlsx2}"

@@ -86,7 +86,7 @@ vmap <localleader>L <Plug>RDSendSelection``
 
 " Send Line And Jump To Next Code            {{{3
 nmap <esc>l <Plug>RDSendLine
-vmap <esc>l <Plug>RDSendSelection
+vmap <esc>l <Plug>RDSendSelection``
 
 " Send File                                  {{{3
 nmap <localleader>f <Plug>RSendFile
@@ -162,16 +162,6 @@ map <silent> <localleader>rn :call RAction("rownames")<CR>
 map <silent> <LocalLeader>ls <Plug>RListSpace
 map <silent> <LocalLeader>rm :call RAction("rm")<CR>
 
-" SendCmdToR                                 {{{1
-map <silent> <localleader>sr :call g:SendCmdToR("search()")<CR>
-map <silent> <localleader>di :call g:SendCmdToR("dir()")<CR>
-map <silent> <localleader>as :call g:SendCmdToR("methods(as)")<CR>
-map <silent> <localleader>is :call g:SendCmdToR("methods(is)")<CR>
-map <silent> <localleader>rml :call g:SendCmdToR("rm(list=ls())")<CR>
-
-" Assine Value To Variable ('<-')            {{{2
-nmap <esc>- hEa<Space><-<Space>
-
 " Gvim - Mappings                            {{{2
 nmap <M-1> 1gt
 imap <M-1> <esc>1gt
@@ -201,9 +191,19 @@ map <silent> <localleader>rr :call 'g:SendCmdToR("write.table(' . shellescape(ex
 "  not ready yet  "
 """""""""""""""""""
 
+" Assine Value To Variable ('<-')            {{{2
+nmap <esc>- hEa<Space><-<Space>
+
 " Assign Argument Under Cursor In Next Line  {{{2
 nmap <silent><localleader>- :normal! o0<CR>0v$
 vmap <silent><localleader>- :<C-u>exec "s/$/\r" . GetVisualSelection()<cr>0v$
+
+" SendCmdToR                                 {{{1
+map <silent> <localleader>sr :call g:SendCmdToR("search()")<CR>
+map <silent> <localleader>di :call g:SendCmdToR("dir()")<CR>
+map <silent> <localleader>as :call g:SendCmdToR("methods(as)")<CR>
+map <silent> <localleader>is :call g:SendCmdToR("methods(is)")<CR>
+map <silent> <localleader>rml :call g:SendCmdToR("rm(list=ls())")<CR>
 
 " Operatorfunction                           {{{1
 nnoremap <silent>gr :set operatorfunc=<SID>ROperator<cr>g@
@@ -218,7 +218,9 @@ function! s:ROperator(type)
     else
         return
     endif
+    echom shellescape(@@)
     " http://stackoverflow.com/a/18547013
-    silent execute "normal \<Plug>RDSendSelection``"
+    " http://learnvimscriptthehardway.stevelosh.com/chapters/30.html
+    silent execute "normal mz\<Plug>RDSendSelection`z"
     let @@ = saved_unnamed_register
 endfunction

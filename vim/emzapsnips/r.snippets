@@ -30,9 +30,11 @@ CHART_TYPES = [
 FIELD_TYPES = [
 'Date',
 'POSIXct',
+'array',
 'character',
 'data.frame',
 'element',
+'factor',
 'integer',
 'list',
 'logical',
@@ -142,13 +144,13 @@ read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}",
 endsnippet
 
 snippet read "Read from file"
-read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}",
-		header=${3:TRUE or FALSE},
-		skip=${4:number of lines to skip before reading data},
-		sep='${5:field seperator}', dec='${6:decimal seperator}',
-		encoding='${7:utf-8|latin1|bytes|unknown}',
+read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}"${3:,
+		header=${4:TRUE or FALSE},
+		skip=${5:number of lines to skip before reading data},
+		sep='${6:field seperator}', dec='${7:decimal seperator}',
+		encoding='${8:utf-8|latin1|bytes|unknown}',
 		blank.lines.skip=TRUE, fill=TRUE, stringsAsFactors=FALSE,
-		${8:na.strings=c(NA,"NA",NaN,"NaN"," NA ","#N/A N/A")})
+		${9:na.strings=c(NA,"NA",NaN,"NaN"," NA ","#N/A N/A")}})
 endsnippet
 
 snippet grep "grepsearch for string" b
@@ -196,9 +198,9 @@ while(${1}) {
 endsnippet
 
 snippet for "for loop"
-for (${1:item} in ${2:list}) {
-	${3:${VISUAL}}
-}
+for (${1:item} in ${2:list}) ${3:{
+	${4:${VISUAL}}
+}}
 endsnippet
 
 snippet fun "Function definition"
@@ -215,7 +217,7 @@ snippet cols "colSums" i
 colSums(${1:${VISUAL}})
 endsnippet
 
-snippet sum "Sum" i
+snippet s "Sum" w
 sum(${1:${VISUAL}})
 endsnippet
 
@@ -244,11 +246,15 @@ list(${0:items})
 endsnippet
 
 snippet mat "matrix function"
-matrix(${1:data}, nrow = ${2:rows}, ncol = ${3:cols})
+matrix(${1:NA}, nrow = ${2:rows}, ncol = ${3:cols})
 endsnippet
 
-snippet ap "apply function"
-apply(${1:array}, ${2:margin}, ${3:function})
+snippet tab "table function"
+table(${1:data}${2:, nrow = ${3:rows}, ncol = ${4:cols}})
+endsnippet
+
+snippet "ap([12])*" "apply function" r
+apply(${1:array}, `!p snip.rv = match.group(1) if match.group(1) is not None else "2"`, ${2:function})
 endsnippet
 
 snippet lap "lapply function"
@@ -275,9 +281,17 @@ snippet rap "rapply function"
 rapply(${1:list}, ${2:function})
 endsnippet
 
-# snippet pl "Plot function"
-# plot(${1:x},${2:y}${3:,type="${4:b}"}${5:,main = "${6:Plots Title}"}, xlab="${7:xlab}", ylab="${8:ylab}")
-# endsnippet
+snippet hi "Plot histogram"
+hist(${1:x},${2:y}${3:,main="${4:histogram title}"})
+endsnippet
+
+snippet pl "Plot function"
+plot(${1:x},${2:y}${3:,main="${4:Plots Title}"})
+endsnippet
+
+snippet go "close graphic" w
+graphics.off()
+endsnippet
 
 snippet ggp "ggplot2 plot"
 ggplot(${1:data}, aes(${2:aesthetics}))
@@ -343,7 +357,8 @@ snippet ch "N over n" w
 choose(${1:N},${2:n})
 endsnippet
 
-snippet cmb "Show all possible combinations" w
+# snippet cmb "Show all possible combinations" w
+snippet combn "Show all possible combinations" w
 combn(${1:N},${2:n})
 endsnippet
 
@@ -355,7 +370,7 @@ snippet ls "list" w
 list(${1:${VISUAL}})
 endsnippet
 
-snippet rge "range" w
+snippet rg "range" w
 range(${1:${VISUAL}})
 endsnippet
 
@@ -383,7 +398,7 @@ snippet tl "tail" w
 tail(${1:${VISUAL}})
 endsnippet
 
-snippet lt "length" w
+snippet l "length" w
 length(${1:${VISUAL}})
 endsnippet
 
@@ -403,15 +418,19 @@ snippet unl "unlist" w
 unlist(${1:${VISUAL}})
 endsnippet
 
-snippet sq "seq" w
+snippet seq "seq" w
 seq(${1:${VISUAL}})
 endsnippet
 
-snippet pt "paste" w
+snippet sq "sqrt" w
+sqrt(${1:${VISUAL}})
+endsnippet
+
+snippet p "paste" w
 paste(${1:${VISUAL}})
 endsnippet
 
-snippet pt0 "paste" w
+snippet p0 "paste0" w
 paste0(${1:${VISUAL}})
 endsnippet
 
@@ -423,12 +442,16 @@ snippet ass "assign" w
 assign(${1:${VISUAL}})
 endsnippet
 
-snippet rp "rep" w
+snippet r "rep" w
 rep(${1:NA},${2:n})
 endsnippet
 
-snippet qu "quantile" w
+snippet q "quantile" w
 quantile(${1:x},${2:0.95})
+endsnippet
+
+snippet qn "qnorm" w
+qnorm(${1:x})
 endsnippet
 
 snippet gwd "getwd" w
@@ -456,7 +479,7 @@ match(${1:${VISUAL}})
 endsnippet
 
 snippet rd "round" w
-round(${1:${VISUAL}})
+round(${1:${VISUAL}},${2:n})
 endsnippet
 
 snippet cln "colnames" w
@@ -467,11 +490,11 @@ snippet rwn "rownames" w
 rownames(${1:${VISUAL}})
 endsnippet
 
-snippet ncl "ncol" w
+snippet nc "ncol" w
 ncol(${1:${VISUAL}})
 endsnippet
 
-snippet nrw "nrow" w
+snippet nr "nrow" w
 nrow(${1:${VISUAL}})
 endsnippet
 
@@ -491,7 +514,7 @@ snippet mc "mc" w
 mc(${1:${VISUAL}})
 endsnippet
 
-snippet spl "sample" w
+snippet sa "sample" w
 sample(${1:N},${2:n}${3:,prob=${4:p}})
 endsnippet
 

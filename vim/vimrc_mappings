@@ -494,7 +494,6 @@ nnoremap <silent><leader>fk :normal pzf'a<cr>
 vnoremap <silent><leader>fk :normal pzf'a<cr>
 
 " Buffers & Tabs                                                               {{{1
-
 " tab movements                                                                {{{2
 
 " change to next tab                                                           {{{3
@@ -536,7 +535,12 @@ endfun
 nnoremap <silent> <leader>mw :call MarkWindowSwap()<cr>
 nnoremap <silent> <leader>pw :call DoWindowSwap()<cr>
 
-" switching buffers                                                            {{{2
+" splitting & switching buffers                                                {{{2
+
+" split buffer above, left
+nnoremap <c-w>S :aboveleft split<CR>
+vnoremap <c-w>S <ESC>:aboveleft split<CR>
+inoremap <c-w>S <ESC>:aboveleft split<CR>
 
 " changes to previous buffer
 nnoremap <esc>ß :b #<cr>
@@ -620,7 +624,7 @@ nnoremap <silent> <Leader>+ :exe "vert resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "vert resize " . (winwidth(0) * 2/3)<CR>
 
 " Searches & Replacement                                                       {{{1
-" online searches                                                           {{{2
+" online searches                                                              {{{2
 "search wikipedia from within vim                                              {{{3
 nnoremap <leader>fw <esc>:! firefox
             \ 'http://de.wikipedia.org/w/index.php?search=<c-r>=Wikipedia()<cr>'
@@ -642,7 +646,6 @@ nnoremap <leader>fs <esc>:! firefox
             \ <cr><cr>
 
 " offline searches                                                             {{{2
-
 "appending to the previous search pattern the current word under the cursor    {{{3
 
 "http://stackoverflow.com/a/9261779
@@ -668,6 +671,10 @@ vnoremap <leader>dt :<c-u>r!othes <c-r>=GetVisualSelection()<cr>
 noremap ,; :%s:::g<Left><Left><Left>
 noremap ,, :s:::g<Left><Left><Left>
 noremap ,' :s:::cg<Left><Left><Left><Left>
+
+nnoremap <leader>s :s/\<
+vnoremap <leader>s <ESC>:s/\<
+inoremap <localleader>s <ESC>:s/\<
 
 " replace - with #                                                             {{{3
 nnoremap <silent><leader>b# :s/-/#/g3<CR>
@@ -722,6 +729,15 @@ nnoremap <silent><space>da :%s/\s\s\+/ /g<CR>:nohl<CR>``
 " nnoremap <silent><leader>mg :'a,'sdel | let l=split(@", '\n') | 'd,'fs/$/\=remove(l,0)/<CR>
 " vnoremap <silent><leader>mg <ESC>:'a,'sdel | let l=split(@", '\n') | 'd,'fs/$/\=remove(l,0)/<CR>
 " inoremap <silent><localleader>mg <ESC>:'a,'sdel | let l=split(@", '\n') | 'd,'fs/$/\=remove(l,0)/<CR>
+
+" search for single variable                                                          {{{3
+nnoremap <leader>/ /\<\><Left><Left>
+vnoremap <leader>/ <ESC>/\<\><Left><Left>
+inoremap <localleader>/ <ESC>/\<\><Left><Left>
+
+nnoremap <leader>? ?\<\><Left><Left>
+vnoremap <leader>? <ESC>?\<\><Left><Left>
+inoremap <localleader>? <ESC>?\<\><Left><Left>
 
 " Edit Words & Lines                                                           {{{1
 " counting characters                                                          {{{2
@@ -919,12 +935,6 @@ inoremap <localleader>gq <ESC>gqip``
 nnoremap <leader>v :'<,'>
 vnoremap <leader>v <ESC>:'<,'>
 inoremap <localleader>v <ESC>:'<,'>
-
-" execute cmd within sentencse                                                 {{{2
-
-nnoremap <leader>s :'(,')
-vnoremap <leader>s <ESC>:'(,')
-inoremap <localleader>s <ESC>:'(,')
 
 " execute cmd within paragraph                                                 {{{2
 

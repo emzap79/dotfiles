@@ -7,356 +7,353 @@
 # Decrease Number from Pattern by 1
 # s/0\zs\d\ze\(\.\|\:\)/\=(submatch(0)-1)
 
-# exec:~/.newsbeuter/killfile
-# exec:~/.newsbeuter/extensions/twitterlinks
-# "exec:~/.newsbeuter/extensions/scienceblogsde"
+# 00. Alerts                              {{{1
+# filter                                  {{{2
+"query:Alerts // Lehrstuhlseiten: tags =~ \"100[0]\""   "0.11"
+"query:Alerts // Breaking News: tags =~ \"100[1]\""     "0.12"
 
-# 00. Alerts                  {{{1
-# 00: queries                 {{{2
-"query:Alerts: tags =~ \"Alerts\" and tags =~ \"lehrstuhl\""  "0.01 Alerts :: Lehrstuhlseiten"
-"query:Alerts: tags =~ \"Alerts\" and tags =~ \"breaking\""  "0.02 Alerts :: Breaking News"
+# queries                                 {{{2
+"query:Podcasts // Trading: tags =~ \"10[12][2]\""        "0.20"
+"query:Podcasts // Sportschau: tags =~ \"10[2][4]\""      "0.21"
+"query:Podcasts // Kultur: tags =~ \"10[12][5]\""         "0.22"
+"query:Podcasts // Entertainment: tags =~ \"10[12][6]\""  "0.23"
+"query:Podcasts // Programming: tags =~ \"10[12][7]\""    "0.24"
+"query:Podcasts // Drawing: tags =~ \"10[12][8]\""        "0.25"
 
-# 00: urls                    {{{2
-# Unilehrstühle
-# http://www.lef.wiwi.uni-due.de/rss/                    "1000. Alerts - Lehrstuhl"
-# http://www.fiba.wiwi.uni-due.de/rss/                   "1000. Alerts - Lehrstuhl"
-# http://www.makro.wiwi.uni-due.de/rss/                  "1000. Alerts - Lehrstuhl"
-# http://www.mikro.wiwi.uni-due.de/rss/                  "1000. Alerts - Lehrstuhl"
-# http://www.ewl.wiwi.uni-due.de/rss/                    "1000. Alerts - Lehrstuhl"
-# http://www.marketing.wiwi.uni-due.de/rss/              "1000. Alerts - Lehrstuhl"
-# http://www.wiwi.uni-due.de/rss/                        "1000. Alerts - Lehrstuhl"
-http://www.oek.wiwi.uni-due.de/rss/                      "1000. Alerts - Lehrstuhl"
-https://www.jpmakro.wiwi.uni-due.de/rss                  "1000. Alerts - Lehrstuhl"
-# http://twitter.com/statuses/user_timeline/83144492.rss "1000. Alerts - Lehrstuhl"
-http://www.spiegel.de/schlagzeilen/eilmeldungen/index.rss "1000. Alerts - Breaking"
-# # Stellenmarkt              {{{3
-# http://recruiting.giz.de/www/jobabo_rss.php?jobabo_code=d53359c41025a4d7f77fc8b13237c356&cu=gtz_www "999. Jobs"
+# urls                                    {{{2
 
-# Deutsche Bahn               {{{3
-http://bauarbeiten.bahn.de/RSS/nrw/RE_2                                                 "1000. News - Fahrplan"
-http://bauarbeiten.bahn.de/RSS/nrw/RE_6                                                 "1000. News - Fahrplan"
-http://bauarbeiten.bahn.de/RSS/nrw/RE_11                                                "1000. News - Fahrplan"
-http://bauarbeiten.bahn.de/RSS/nrw/S_1                                                  "1000. News - Fahrplan"
+# Alerts
+http://www.oek.wiwi.uni-due.de/rss/                                           "1000. Lehrstuhl"
+https://www.jpmakro.wiwi.uni-due.de/rss                                       "1000. Lehrstuhl"
+http://www.spiegel.de/schlagzeilen/eilmeldungen/index.rss                     "1001. Breaking"
 
-# 01. Wirtschaft & Politik    {{{1
-# 01: queries                 {{{2
-"query:News: tags =~ \"101[03]\""   "01.1 Politik :: Inland"
-"query:News: tags =~ \"101[12]\""   "01.2 Politik :: Ausland"
-"query:News: tags =~ \"1015\""      "01.3 Wirtschaft :: Inland"
-"query:News: tags =~ \"101[6-9]\""  "01.3 Wirtschaft :: Ausland"
+# 01: Wirtschaft & Politik
+# 02: Finance & Trading
+# 03: Technik & Open Source
+# 04: Sport
+# 05: Kultur & Veranstaltungen
+# 06: Gossip & Entertainment
+# 08: Style
+# 09: Angebote & Gutscheine
 
-# 01: filter                  {{{2
-"query:Kurden: tags =~ \"1010\" and (title =~ \"kurden\" or title =~ \"PKK\" or title =~ \"kurdis*\")" "0.00 Filter :: Kurden"
+# Podcasts
+http://www.zdf.de/ZDFmediathek/podcast/2012868                                "1015. Kultur"
+http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml  "1015. Kultur"
+http://vimcasts.org/feeds/ogg.rss                                             "1017. Programming"
 
-# 01: urls                    {{{2
-# Politik                     {{{3
-# Deutschland
-http://newsfeed.zeit.de/politik/index                "1010. Deutschland"
-http://www.spiegel.de/politik/deutschland/index.rss  "1010. Deutschland"
+# Youtube Channels
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsZncYBzgAR_-IlaVZ2r1YA  "1022. Trading"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5tUi0nhIWLJvO_oWxuzekw  "1023. AllThingsTech"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCzcXV4TxPc-HAFj97lboNPg  "1023. RasbPi"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCrTpRj0xga7egp_fHqPLHrw  "1023. Karesyk | Raspberry Pi Tutorials"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfY8sl5Q6VKndz0nLaGygPw  "1023. TheRaspberryPiGuy"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRAvo5cQWyfog8nRzlf_jWg  "1023. RaspberryPiIVBeginners"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRFsyeKu07-LnHDG44O6uCA  "1024. Sportschau.de"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCveZqqGewoyPiacooywP5Ig  "1024. Alt Shift X"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCUPCfp3EUsaEnsNvvrX8ABg  "1026. Paul Eckman Group"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRd9JHiQvqwT8O4d0QGI9jQ  "1026. Scam School"
+https://www.youtube.com/feeds/videos.xml?channel_id=UClM2LuQ1q5WEc23462tQzBg  "1028. Proko"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5dyu9y0EV0cSvGtbBtHw_w  "1028. Sycra"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCqWzusU5btLZ9mjOa6GaVxg  "1028. VitruvianStudio"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCULpiAa8nIl_e68y59VYjHQ  "1028. TheVirtualInstructor.com"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCno-YPZ8BiLrN0Wbl8qICFA  "1028. markcrilley"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCcSGuuZEWue9f28RxSXSipQ  "1028. My Drawing Tutorials"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCKgkOEqGFUOiXrx1klhlmJQ  "1028. Art of Wei"
 
-# Ausland
-http://www.spiegel.de/politik/ausland/index.rss      "1011. Ausland"
+# 01. Wirtschaft & Politik                {{{1
+# filter                                  {{{2
+"query:Politik // Kurden: tags =~ \"1010\" and (title =~ \"kurden\" or title =~ \"PKK\" or title =~ \"erdo.an. \" or title =~ \"kurdis*\")" "0.01"
 
-# USA
-http://rss.cnn.com/rss/edition_us.rss                "1012. USA"
+# queries                                 {{{2
+"query:Politik // Inland: tags =~ \"110[0-2]\"" "01.1"
+"query:Politik // Ausland: tags =~ \"110[3]\"" "01.2"
+"query:Wirtschaft // Inland: tags =~ \"110[5-9]\"" "01.3"
 
-# Blogs
-http://feeds.feedburner.com/Netzfeuilleton           "1013. Netzfeuilleton"
-http://www.spiegelfechter.com/wordpress/feed/        "1013. Spiegelfechter"
-http://netzpolitik.org/feed/                         "1013. Netzpolitik.org"
+# urls                                    {{{2
+# Politik
+http://newsfeed.zeit.de/politik/index "1100. Deutschland"
+http://www.spiegel.de/politik/deutschland/index.rss "1100. Deutschland"
+http://feeds.feedburner.com/Netzfeuilleton "1102. Netzfeuilleton"
+http://www.spiegelfechter.com/wordpress/feed/ "1102. Spiegelfechter"
+http://netzpolitik.org/feed/ "1102. Netzpolitik.org"
+http://rss.cnn.com/rss/edition_world.rss "1103. World"
+http://www.spiegel.de/politik/ausland/index.rss "1103. Ausland"
 
-# Wirtschaft                  {{{3
-# Deutschland
-http://www.faz.net/aktuell/wirtschaft/?rssview=1        "1015. Deutschland"
-http://www.spiegel.de/wirtschaft/soziales/index.rss     "1015. Deutschland"
-http://www.spiegel.de/wirtschaft/unternehmen/index.rss  "1015. Deutschland"
+# Wirtschaft
+http://www.faz.net/aktuell/wirtschaft/?rssview=1 "1105. FAZ"
+http://www.spiegel.de/wirtschaft/soziales/index.rss "1105. Spiegel.de"
+http://www.spiegel.de/wirtschaft/unternehmen/index.rss "1105. Spiegel.de"
 
-# Europa
-http://www.cnbc.com/id/19794221/device/rss/rss.html     "1016. Europa"
+# 02. Finance & Trading                   {{{1
+# filter                                  {{{2
+# queries                                 {{{2
+"query:Finance // Top Stories: tags =~ \"120[0]\""  "02.1"
+"query:Finance // Analysen: tags =~ \"120[1]\""     "02.2"
+"query:Finance // Stocks: tags =~ \"120[5]\""       "02.3"
+"query:Finance // Ticker: tags =~ \"120[2-4]\""     "02.4"
 
-# US
-http://www.cnbc.com/id/15837362/device/rss/rss.html     "1017. USA"
+# urls                                    {{{2
 
-# Asien
-http://www.cnbc.com/id/19832390/device/rss/rss.html     "1018. Asien"
+http://www.finanzen.net/rss/news                              "1200. TOP"
+http://www.businessweek.com/topStories/rss/topStories.rss     "1200. TOP"
+http://www.finanznachrichten.de/rss-nachrichten-meistgelesen  "1200. TOP"
+http://www.wallstreet-online.de/rss/nachrichten-alle.xml      "1200. TOP"
+http://www.cnbc.com/id/100003114/device/rss/rss.html          "1200. TOP"
 
-# # 02. Finance & Trading       {{{1
-# # 02: queries                 {{{2
-# "query:News: tags =~ \"trading\""  "02.1 Finance :: Trading"
-# "query:News: tags =~ \"finance\"" "02.2 Finance :: Stocks"
+http://www.finanzen.net/rss/analysen                          "1201. Analysen"
+http://www.finanznachrichten.de/rss-aktien-analysen           "1201. Analysen"
 
-# # 02: filter                  {{{2
-# # "query:Siemens: tags =~ \"finance\" and title =~ \"Siemens\""                  "0.00 Filter :: Siemens"
+# http://www.businessweek.com/rss/bwdaily.rss               "1202. Ticker"
+# http://wsj.com/xml/rss/3_7481.xml                         "1202. Ticker"
+# http://www.tradac.de/wordpress/?feed=rss2                 "1202. Ticker"
+# http://www.handelsblatt.com/contentexport/feed/finanzen/  "1202. Ticker"
+# http://www.finanznachrichten.de/rss-marktberichte         "1203. marktberichte"
+# http://www.finanznachrichten.de/rss-chartanalysen-top     "1203. chartanalysen-top"
+# http://www.finanznachrichten.de/rss-nachrichten-devisen   "1203. devisen"
+# http://www.cnbc.com/id/19794221/device/rss/rss.html       "1204. Europa"
+# http://www.cnbc.com/id/15837362/device/rss/rss.html       "1204. USA"
+# http://www.cnbc.com/id/19832390/device/rss/rss.html       "1204. Asien"
 
-# # 02: urls                    {{{2
-# # Finanznachrichten
-# http://www.businessweek.com/rss/bwdaily.rss                                                                "1020. Finance"
-# http://www.businessweek.com/topStories/rss/topStories.rss                                                  "1020. Finance"
-# http://www.finanzen.net/rss/news                                                                           "1020. Finance"
-# http://www.finanzen.net/rss/analysen                                                                       "1020. Finance"
-# http://wsj.com/xml/rss/3_7481.xml                                                                          "1020. Finance"
-# http://www.wallstreet-online.de/rss/nachrichten-alle.xml                                                   "1020. Finance"
-# http://www.tradac.de/wordpress/?feed=rss2                                                                  "1020. Finance"
-# http://www.handelsblatt.com/contentexport/feed/finanzen/                                                   "1020. Finance"
-# http://www.finanznachrichten.de/rss-aktien-analysen                                                        "1020. Finance"
-# http://www.finanznachrichten.de/rss-marktberichte                                                          "1020. Finance"
-# http://www.finanznachrichten.de/rss-chartanalysen-top                                                      "1020. Finance"
-# http://www.finanznachrichten.de/rss-nachrichten-meistgelesen                                               "1020. Finance"
-# http://www.finanznachrichten.de/rss-nachrichten-devisen                                                    "1020. Finance"
+http://brattlestreetcapital.blogspot.com/feeds/posts/default  "1205. Blogs"
+http://ptotrading.blogspot.com/feeds/posts/default            "1205. Blogs"
+http://systematicinvestor.wordpress.com/feed/                 "1205. Blogs"
+http://tradetheticker.blogspot.com/feeds/posts/default        "1205. Blogs"
+http://tradingwithlinux.blogspot.com/feeds/posts/default      "1205. Blogs"
+http://www.riskreversal.com/feed/                             "1205. Blogs"
 
-# # Trading
-# http://brattlestreetcapital.blogspot.com/feeds/posts/default                                               "1021. Trading"
-# http://ptotrading.blogspot.com/feeds/posts/default                                                         "1021. Trading"
-# http://systematicinvestor.wordpress.com/feed/                                                              "1021. Trading"
-# http://tradetheticker.blogspot.com/feeds/posts/default                                                     "1021. Trading"
-# http://tradingwithlinux.blogspot.com/feeds/posts/default                                                   "1021. Trading"
-# http://www.riskreversal.com/feed/                                                                          "1021. Trading"
+# 03. Technik & Open Source               {{{1
+# filter                                  {{{2
 
-# 03. Technik & Open Source   {{{1
-# 03: queries                 {{{2
-"query:IT: tags =~ \"technics\" and tags =~ \"allgemein\""                                            "03.1 News :: Technik"
-"query:IT: tags =~ \"103[0-9]\" and tags =~ \"linux\""                                                "03.2 Unix :: Linux"
-"query:IT: tags =~ \"103[0-9]\" and (tags =~ \"fedora\" or tags =~ \"ubuntu\" or tags =~ \"gnome\")"  "03.3 Unix :: Ubuntu"
-"query:IT: tags =~ \"103[0-9]\" and tags =~ \"vim\""                                                  "03.4 Unix :: VIM"
-"query:IT: tags =~ \"103[0-9]\" and tags =~ \"VIM\""                                                  "03.5 StackExch :: VIM"
-"query:IT: tags =~ \"103[0-9]\" and tags =~ \"Bash\""                                                 "03.6 StackExch :: Bash"
-"query:IT: tags =~ \"103[0-9]\" and (tags =~ \"SED\" or tags =~ \"R\")"                               "03.7 StackExch :: SED"
+# queries                                 {{{2
+"query:News // Technik: tags =~ \"130[0]\""        "03.1"
+"query:Unix // Linux: tags =~ \"131[0]\""          "03.2"
+"query:Unix // Ubuntu: tags =~ \"131[1-9]\""       "03.3"
+"query:FOSS // VIM: tags =~ \"132[0]\""            "03.4"
+"query:FOSS // Programming: tags =~ \"132[1-9]\""  "03.5"
+# "query:StackExch // VIM: tags =~ \"130[0-9]\" and tags =~ \"VIM\""                                                "03.6"
+# "query:StackExch // Bash: tags =~ \"130[0-9]\" and tags =~ \"Bash\""                                              "03.7"
 
-# 03: urls                    {{{2
+# urls                                    {{{2
 
-http://fedorausers.de/?q=aggregator/rss/5                       "1030. Fedora"
-http://planet.fedoraproject.org/atom.xml                        "1030. Fedora"
-http://www.fedora-blog.de/feed/                                 "1030. Fedora"
-http://alblue.bandlem.com/atom.xml                              "1031. Git"
-http://blog.superuser.com/feed/                                 "1032. Linux"
-http://doctormo.org/feed/                                       "1032. Linux"
-http://feeds2.feedburner.com/Command-line-fu                    "1032. Linux"
-http://feeds.arstechnica.com/arstechnica/open-source?format=xml "1032. Linux"
-http://feeds.launchpad.net/beat-box/announcements.atom          "1032. Linux"
-http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss  "1032. Linux"
-http://texblog.net/feed/                                        "1032. Linux"
-http://texblog.wordpress.com/feed/                              "1032. Linux"
-http://www.iwillfolo.com/feed/                                  "1032. Linux"
-http://feeds.feedburner.com/RBloggers                           "1033. R"
-http://thinktostart.com/feed/                                   "1033. R"
-http://www.themagpi.com/feed/                                   "1034. Rasppi"
-http://rss.golem.de/rss.php?feed=RSS1.0                         "1035. Technics"
-http://www.heise.de/newsticker/heise-atom.xml                   "1035. Technics"
-http://afaikblog.wordpress.com/feed/                            "1036. Ubuntu"
-http://alexkrispin.wordpress.com/feed/                          "1036. Ubuntu"
-http://askubuntu.com/feeds/question/30334                       "1036. Ubuntu"
-http://blog.chip.de/chip-linux-blog/feed/                       "1036. Ubuntu"
-http://blog.fpmurphy.com/feed                                   "1036. Ubuntu"
-http://elementaryluna.blogspot.com/feeds/posts/default          "1036. Ubuntu"
-http://feeds.feedburner.com/d0od                                "1036. Ubuntu"
-http://feeds.feedburner.com/GimpologyLatest                     "1036. Ubuntu"
-http://feeds.feedburner.com/Gimptutorials                       "1036. Ubuntu"
-http://feeds.feedburner.com/Noobslab                            "1036. Ubuntu"
-http://feeds.feedburner.com/techdrivein                         "1036. Ubuntu"
-http://feeds.feedburner.com/UbuntuGeek?format=xml               "1036. Ubuntu"
-http://feeds.feedburner.com/UbuntuTutorials                     "1036. Ubuntu"
-http://feeds.feedburner.com/unixmenhowtos?format=xml            "1036. Ubuntu"
-http://feeds.launchpad.net/~yorba/branches.atom                 "1036. Ubuntu"
-http://feeds.tuxgarage.com/TuxGarage                            "1036. Ubuntu"
-http://inkscapetutorials.wordpress.com/feed/                    "1036. Ubuntu"
-http://ldiracdelta.blogspot.com/feeds/posts/default?alt=rss     "1036. Ubuntu"
-http://linuxconfig.org/?format=feed&type=rss                    "1036. Ubuntu"
-http://linuxundich.de/de/feed/                                  "1036. Ubuntu"
-http://liorkaplan.wordpress.com/feed/                           "1036. Ubuntu"
-http://lunduke.com/?feed=rss&key=&max=4&submit=Create+Feed      "1036. Ubuntu"
-http://meetthegimp.org/feed/                                    "1036. Ubuntu"
-http://mygeekopinions.blogspot.com/feeds/posts/default          "1036. Ubuntu"
-http://mylinux.suzansworld.com/wp-atom.php                      "1036. Ubuntu"
-http://planet.banshee-project.org/atom.xml                      "1036. Ubuntu"
-http://projecthamster.wordpress.com/feed/                       "1036. Ubuntu"
-http://ramonmirandavisualart.blogspot.com/feeds/posts/default   "1036. Ubuntu"
-http://rss.golem.de/rss.php?feed=RSS1.0&ms=linux                "1036. Ubuntu"
-http://tuxhausen.wordpress.com/feed/                            "1036. Ubuntu"
-http://ubuntu4beginners.blogspot.com/feeds/posts/default        "1036. Ubuntu"
-http://ubuntuguide.net/feed                                     "1036. Ubuntu"
-http://vagubunt.wordpress.com/feed/                             "1036. Ubuntu"
-http://www.atareao.es/feed/                                     "1036. Ubuntu"
-http://www.code-naschen.de/feeds/posts/default                  "1036. Ubuntu"
-http://www.cyberciti.biz/faq/feed/?feedburner=false&k=true      "1036. Ubuntu"
-http://www.deimeke.net/dirk/blog/index.php?/feeds/index.rss2    "1036. Ubuntu"
-http://www.freiesmagazin.de/rss.xml                             "1036. Ubuntu"
-http://www.gambaru.de/blog/?feed=rss2                           "1036. Ubuntu"
-http://www.iloveubuntu.net/rss.xml                              "1036. Ubuntu"
-http://www.it-hall.com/feed/                                    "1036. Ubuntu"
-http://www.linux-community.de/Ticker/news.rdf                   "1036. Ubuntu"
-http://www.linuxjournal.com/node/feed                           "1036. Ubuntu"
-http://www.linux-magazin.de/rss/feed/news                       "1036. Ubuntu"
-http://www.linux-tips.org/rss                                   "1036. Ubuntu"
-http://www.markshuttleworth.com/feed                            "1036. Ubuntu"
-http://www.openshotvideo.com/feeds/posts/default                "1036. Ubuntu"
-http://www.pro-linux.de/backend/pro-linux.rdf                   "1036. Ubuntu"
-http://www.shredzone.de/cilla/feed/category/2/linux.xml         "1036. Ubuntu"
-http://www.techdrivein.com/feeds/posts/default                  "1036. Ubuntu"
-http://www.ubuntubuzz.com/feeds/posts/default                   "1036. Ubuntu"
-http://www.ubuntu-center.de/feed/                               "1036. Ubuntu"
-http://www.ubuntu-user.de/rss/feed/news                         "1036. Ubuntu"
-http://www.webupd8.org/feeds/posts/default                      "1036. Ubuntu"
-http://feeds.feedburner.com/usevim                              "1037. Vim"
-http://feeds.vimgolf.com/latest-challenges?format=xml           "1037. Vim"
-http://neovim.org/news.xml                                      "1037. Vim"
-http://udioica.blogspot.com/feeds/posts/default?alt=rss         "1037. Vim"
-http://www.reddit.com/r/vimgolf/.rss                            "1037. Vim"
-# http://stackoverflow.com/feeds/tag?tagnames=bash&sort=newest  "1038. StackExch :: Bash"
-# http://superuser.com/feeds/tag/bash                           "1038. StackExch :: Bash"
-# http://stackoverflow.com/feeds/question/24448683              "1038. StackExch :: Questions"
-# http://superuser.com/feeds/tag/r                              "1038. StackExch :: R"
-# http://superuser.com/feeds/tag/sed                            "1038. StackExch :: SED"
-# http://stackoverflow.com/feeds/tag?tagnames=vim&sort=newest   "1038. StackExch :: VIM"
-# http://superuser.com/feeds/tag/vim                            "1038. StackExch :: VIM"
+# Technik
+http://rss.golem.de/rss.php?feed=RSS1.0                          "1300. Technics"
+http://www.heise.de/newsticker/heise-atom.xml                    "1300. Technics"
 
-# 04. Sports                  {{{1
-# 04: queries                 {{{2
-"query:Walter-Tigers: tags =~ \"1040\" and (title =~ \" Walter\" or title =~ \"Tigers\")"                   "04.1 Basketball :: Tigers"
-"query:Mavs: tags =~ \"1045\" or (tags =~ \"104[34]\" and (title =~ \"Mav.* \" or title =~ \"Nowitzki\"))"  "04.2 Basketball :: Mavs"
-"query:Sport: tags =~ \"104[67]\" and (title =~ \"BVB\" or title =~ \"MSV\")"                               "04.3 Fussball :: Vereine"
-"query:Sport: tags =~ \"1048\""                                                                             "04.4 Fussball :: Champions League"
-
-# 04: filter                  {{{2
-"query:Spielbericht: tags =~ \"fussball\" and link =~\"spielbericht\""  "0.00 Filter :: Spielbericht"
-"query:Basketball: tags =~ \"1044\""                                    "0.00 Filter :: Basketball"
-
-# 04: urls                    {{{2
-
-# Deutscher Basketball
-http://sports.yahoo.com/nba/rss.xml                                   "1040. Basketball"
-http://www.kickz.com/five/?feed=rss2                                  "1040. Basketball"
-http://www.sport1.de/de_1/basketball/rss.xml                          "1040. Basketball"
-http://www.spox.com/pub/rss/basketball.xml                            "1040. Basketball"
-
-# EM & WM
-http://www.spiegel.de/thema/basketball_em_2011/index.rss              "1042. Basketball"
-
-# NBA
-http://www.spiegel.de/thema/national_basketball_association/index.rss "1043. Basketball"
-http://www.spox.com/pub/rss/us-sport-nba.xml                          "1043. Basketball"
-http://www.nba.com/dunkofthenight/rss.xml                             "1044. DunkOfTheNight"
-http://www.nba.com/powerrankings/rss.xml                              "1044. Powerranking"
-
-# Mavs
-http://blogmaverick.com/feed/                                         "1045. Mavs"
-http://mavsblog.dallasnews.com/atom.xml                               "1045. Mavs"
-http://www.dallasbasketball.com/rss/MainRss.xml                       "1045. Mavs"
-http://www.nba.com/mavericks/rss.xml                                  "1045. Mavs"
-
-# Fussball
-http://fussballblog.espace.ch/atom/                                   "1046. Fussball"
-http://rss.kicker.de/news/bundesliga                                  "1046. Bundesliga"
-http://rss.kicker.de/news/wm                                          "1046. WM"
-http://rss.kicker.de/team/msvduisburg                                 "1046. MSV"
-
-# Tranfermarkt
-http://www.transfermarkt.de/rss/news                                  "1047. Transfermarkt"
-
-# Champions League
-http://www.sport1.de/de_1/fussball/fussball_championsleague/rss.xml   "1048. Champions League"
-http://rss.kicker.de/news/clnews                                      "1048. Champions League"
-
-# 05. Kultur & Parties                  {{{1
-# 05: queries                 {{{2
-"query:Kultur: tags =~ \"1050\""                                                           "05.1 Kultur :: Allgemein"
-"query:Kultur: tags =~ \"105[0-2]\" and (tags =~ \"Duisburg\" or tags =~ \"Ruhrgebiet\")"  "05.2 Kultur :: Ruhrpott"
-"query:Kultur: tags =~ \"1051\""                                                           "05.3 Kultur :: Entertainment"
-"query:Parties: tags =~ \"105[0-9]\" and tags =~ \"Parties\""                              "05.4 Parties :: Allgemein"
-"query:Parties: tags =~ \"1063\" and (title =~ \"Salsa\" or tags =~ \"Salsa\")"            "05.5 Parties :: Salsa"
-
-# 08: filter                  {{{2
-"query:Gossip: (title =~ \"donald trump\" or title =~ \"\(^\| \)trump \")"                  "0.00 Filter :: Gossip"
-
-# 05: urls                    {{{2
-
-# Kultur
-http://newsfeed.zeit.de/kultur/index                    "1050. Deutschland"
-http://newsfeed.zeit.de/zeit-magazin/index              "1050. Magazin"
-http://www.coolibri.de/redaktion/tags/Kultur/rss.html   "1050. Ruhrgebiet"
-
-# Entertainment
-http://rss.cnn.com/rss/edition_entertainment.rss        "1051. World"
-
-# Ruhrgebiet
-http://www.coolibri.de/redaktion/tags/Duisburg/rss.html    "1052. Duisburg"
-http://www.coolibri.de/redaktion/tags/Bochum/rss.html      "1052. Bochum"
-http://www.coolibri.de/redaktion/tags/Essen/rss.html       "1052. Essen"
-http://www.coolibri.de/redaktion/tags/Wuppertal/rss.html   "1052. Wuppertal"
-http://www.coolibri.de/redaktion/tags/Düsseldorf/rss.html  "1052. Düsseldorf"
-
-# Parties
-http://www.coolibri.de/redaktion/tags/Party/rss.html       "1053. Parties"
-http://www.salsa-muenster.eu/blog/?feed=rss2               "1053. Salsa"
-http://www.salsa-dancers.com/salsa-dancing.xml             "1053. Salsa"
-
-# 08. Style & Entertainment   {{{1
-# 08: queries                 {{{2
-"query:Style: tags =~ \"drawing\""  "08.1 Lifestyle :: Drawing"
-"query:Style: tags =~ \"lifehack\""  "08.2 Lifestyle :: Lifehacks"
-
-# 08: urls                    {{{2
-# Lifehacker
-http://feeds.gawker.com/lifehacker/full                   "1080. Lifehacker"
-
-# Drawing
-http://feeds.feedburner.com/likesketch?format=xml         "1081. Drawing"
-http://feeds.feedburner.com/artlessononline?format=xml    "1081. Drawing"
-
-# 09. Angebote & Gutscheine   {{{1
-# 09: queries                 {{{2
-"query:Angebote: tags =~ \"109[0-9]\" and tags =~ \"Technik\""                     "09.1 Angebote :: Technik"
-"query:Angebote: tags =~ \"109[0-9]\" and tags =~ \"Groupon\""                     "09.2 Angebote :: Groupon"
-"query:Angebote: tags =~ \"109[0-9]\" and tags =~ \"Mobilfunk\""                     "09.3 Angebote :: Mobilfunk"
-"query:Angebote: tags =~ \"109[0-9]\" and tags =~ \"Sonstige\""                     "09.4 Angebote :: Sonstige"
-"query:Angebote: tags =~ \"109[0-9]\" and tags =~ \"Reisen\""                     "09.5 Angebote :: Reisen"
-
-# 09: filter                  {{{2
-# "query:Notebook: tags =~ \"109[0-9]\" and (title =~ \"notebook \" or title =~ \"netbook \")"                    "0.00 Filter"
-# "query:Handy-Flatrate: tags =~ \"109[0-9]\" and (title =~ \"allnet\" or title =~ \"flatrate\" or title =~ \"internet\")"                    "0.00 Filter :: Handy-Flatrate"
-"query:Aktionen: tags =~ \"109[0-9]\" and (title =~ \"[6-9]0\% Rabatt\" or title =~ \"preisfehler\" or title =~ \"deal. der woche\" or title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion\!\" )"  "0.00 Filter :: Aktionen"
-"query:Ebooks: tags =~ \"109[0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))"                    "0.00 Filter :: Notebook"
-"query:Garmin: tags =~ \"109[0-9]\" and title =~ \"garmin\""                    "0.00 Filter :: Garmin"
-"query:Radio: tags =~ \"109[0-9]\" and (title =~ \"radio\" or title =~ \"lautsprecher\" or title =~ \"speaker\")"  "0.00 Filter :: Speaker"
-"query:Flatrate: tags =~ \"109[0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"internet\")"                    "0.00 Filter :: Flatrate"
-"query:Fahrten: tags =~ \"109[0-9]\" and (title =~ \"brüssel\" or title =~ \"paris\")"                    "0.00 Filter :: Stadtreisen"
-
-# 09: urls                    {{{2
-
-# Angebote
-http://api.groupon.de/feed/api/v1/deals/oftheday/DE/duisburg                            "1090. Groupon"
-http://api.groupon.de/feed/api/v1/deals/oftheday/DE/essen                               "1090. Groupon"
-http://www.gutscheinpony.de/rss/neue-gutscheine.xml                                     "1090. Gutscheine"
-http://www.sparwelt.de/rss.xml                                                          "1090. Gutscheine"
-http://gutscheindeal.info/gutschein-anbieter/zalando/feed/                              "1090. Kleidung"
-http://rss.schuh-helden.de/feed.php?sizes=45,46                                         "1090. Kleidung"
-http://www.gutschein-finder.org/shops/zalando-gutschein-2/feed/                         "1090. Kleidung"
-http://www.fernbusse.de/feed/                                                           "1090. Reisen"
-http://feeds.feedburner.com/myDealZ?format=xml                                          "1090. Sonstige"
-http://feeds.feedburner.com/schnaeppchenfuchs                                           "1090. Sonstige"
-http://feeds.feedburner.com/sparbote-schnaeppchen                                       "1090. Sonstige"
-http://ws.audioscrobbler.com/2.0/user/S_Bolivar/podcast.rss                             "1090. Sonstige"
-http://www.chip.de/preisvergleich/rss.php?feed=beliebteste_produkte                     "1090. Sonstige"
-http://www.discounto.de/Discounter/get.rss20                                            "1090. Sonstige"
-# http://news.billiger.de/feed                                                          "1090. Sonstige"
-# http://www.getgoods.de/smartphones-handys-und-festnetz?sAtom=1                        "1090. Technik"
-# http://www.amazon.de/gp/rss/movers-and-shakers/ce-de/ref=zg_bsms_ce-de_rsslink        "1090. Technik"
-# http://www.getgoods.de/smartphones-handys-und-festnetz/handys-und-smartphones?sRss=1  "1090. Technik"
-http://feeds.ibood.com/ibood/de_de                                                      "1090. Technik"
-http://www.chip.de/rss/rss_mobilfunk.xml                                                "1090. Technik"
-http://www.mein-wunschpreis.com/rss.php?BrowseNode=elektronikbestpreis                  "1090. Technik"
-http://www.preisjaeger.de/technik/feed/                                                 "1090. Technik"
-http://www.preisjaeger.de/technik/tv-video/feed/                                        "1090. Technik"
-
-# 10. Podcasts                {{{1
-# 10: queries                 {{{2
-"query:Podcasts: tags =~ \"200\" and tags =~ \"Kultur\""     "100.1 Podcasts :: Kultur"
-"query:Podcasts: tags =~ \"200\" and tags =~ \"Programming\"" "100.2 Podcasts :: Programming"
-
-# 10: urls                    {{{2
-
-# Kultur
-http://www.zdf.de/ZDFmediathek/podcast/2012868                               "200. Kultur"
-http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml "200. Kultur"
+# Linux Distributions
+http://blog.superuser.com/feed/                                  "1310. Linux"
+http://doctormo.org/feed/                                        "1310. Linux"
+http://feeds2.feedburner.com/Command-line-fu                     "1310. Linux"
+http://feeds.arstechnica.com/arstechnica/open-source?format=xml  "1310. Linux"
+http://feeds.launchpad.net/beat-box/announcements.atom           "1310. Linux"
+http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss   "1310. Linux"
+http://texblog.net/feed/                                         "1310. Linux"
+http://texblog.wordpress.com/feed/                               "1310. Linux"
+http://www.iwillfolo.com/feed/                                   "1310. Linux"
+http://fedorausers.de/?q=aggregator/rss/5                        "1311. Fedora"
+http://planet.fedoraproject.org/atom.xml                         "1311. Fedora"
+http://www.fedora-blog.de/feed/                                  "1311. Fedora"
+http://afaikblog.wordpress.com/feed/                             "1312. Ubuntu"
+http://alexkrispin.wordpress.com/feed/                           "1312. Ubuntu"
+http://askubuntu.com/feeds/question/30334                        "1312. Ubuntu"
+http://blog.chip.de/chip-linux-blog/feed/                        "1312. Ubuntu"
+http://blog.fpmurphy.com/feed                                    "1312. Ubuntu"
+http://elementaryluna.blogspot.com/feeds/posts/default           "1312. Ubuntu"
+http://feeds.feedburner.com/d0od                                 "1312. Ubuntu"
+http://feeds.feedburner.com/GimpologyLatest                      "1312. Ubuntu"
+http://feeds.feedburner.com/Gimptutorials                        "1312. Ubuntu"
+http://feeds.feedburner.com/Noobslab                             "1312. Ubuntu"
+http://feeds.feedburner.com/techdrivein                          "1312. Ubuntu"
+http://feeds.feedburner.com/UbuntuGeek?format=xml                "1312. Ubuntu"
+http://feeds.feedburner.com/UbuntuTutorials                      "1312. Ubuntu"
+http://feeds.feedburner.com/unixmenhowtos?format=xml             "1312. Ubuntu"
+http://feeds.launchpad.net/~yorba/branches.atom                  "1312. Ubuntu"
+http://feeds.tuxgarage.com/TuxGarage                             "1312. Ubuntu"
+http://inkscapetutorials.wordpress.com/feed/                     "1312. Ubuntu"
+http://ldiracdelta.blogspot.com/feeds/posts/default?alt=rss      "1312. Ubuntu"
+http://linuxconfig.org/?format=feed&type=rss                     "1312. Ubuntu"
+http://linuxundich.de/de/feed/                                   "1312. Ubuntu"
+http://liorkaplan.wordpress.com/feed/                            "1312. Ubuntu"
+http://lunduke.com/?feed=rss&key=&max=4&submit=Create+Feed       "1312. Ubuntu"
+http://meetthegimp.org/feed/                                     "1312. Ubuntu"
+http://mygeekopinions.blogspot.com/feeds/posts/default           "1312. Ubuntu"
+http://mylinux.suzansworld.com/wp-atom.php                       "1312. Ubuntu"
+http://planet.banshee-project.org/atom.xml                       "1312. Ubuntu"
+http://projecthamster.wordpress.com/feed/                        "1312. Ubuntu"
+http://ramonmirandavisualart.blogspot.com/feeds/posts/default    "1312. Ubuntu"
+http://rss.golem.de/rss.php?feed=RSS1.0&ms=linux                 "1312. Ubuntu"
+http://tuxhausen.wordpress.com/feed/                             "1312. Ubuntu"
+http://ubuntu4beginners.blogspot.com/feeds/posts/default         "1312. Ubuntu"
+http://ubuntuguide.net/feed                                      "1312. Ubuntu"
+http://vagubunt.wordpress.com/feed/                              "1312. Ubuntu"
+http://www.atareao.es/feed/                                      "1312. Ubuntu"
+http://www.code-naschen.de/feeds/posts/default                   "1312. Ubuntu"
+http://www.cyberciti.biz/faq/feed/?feedburner=false&k=true       "1312. Ubuntu"
+http://www.deimeke.net/dirk/blog/index.php?/feeds/index.rss2     "1312. Ubuntu"
+http://www.freiesmagazin.de/rss.xml                              "1312. Ubuntu"
+http://www.gambaru.de/blog/?feed=rss2                            "1312. Ubuntu"
+http://www.iloveubuntu.net/rss.xml                               "1312. Ubuntu"
+http://www.it-hall.com/feed/                                     "1312. Ubuntu"
+http://www.linux-community.de/Ticker/news.rdf                    "1312. Ubuntu"
+http://www.linuxjournal.com/node/feed                            "1312. Ubuntu"
+http://www.linux-magazin.de/rss/feed/news                        "1312. Ubuntu"
+http://www.linux-tips.org/rss                                    "1312. Ubuntu"
+http://www.markshuttleworth.com/feed                             "1312. Ubuntu"
+http://www.openshotvideo.com/feeds/posts/default                 "1312. Ubuntu"
+http://www.pro-linux.de/backend/pro-linux.rdf                    "1312. Ubuntu"
+http://www.shredzone.de/cilla/feed/category/2/linux.xml          "1312. Ubuntu"
+http://www.techdrivein.com/feeds/posts/default                   "1312. Ubuntu"
+http://www.ubuntubuzz.com/feeds/posts/default                    "1312. Ubuntu"
+http://www.ubuntu-center.de/feed/                                "1312. Ubuntu"
+http://www.ubuntu-user.de/rss/feed/news                          "1312. Ubuntu"
+http://www.webupd8.org/feeds/posts/default                       "1312. Ubuntu"
 
 # Programming
-http://vimcasts.org/feeds/ogg.rss                                            "200. Programming"
+http://feeds.feedburner.com/usevim                               "1320. Vim"
+http://feeds.vimgolf.com/latest-challenges?format=xml            "1320. Vim"
+http://neovim.org/news.xml                                       "1320. Vim"
+http://udioica.blogspot.com/feeds/posts/default?alt=rss          "1320. Vim"
+http://www.reddit.com/r/vimgolf/.rss                             "1320. Vim"
+http://www.reddit.com/r/vim/.rss                                 "1320. Vim"
+http://www.reddit.com/r/neovim/.rss                              "1320. Vim"
+http://www.reddit.com/r/vimporn/.rss                             "1320. Vim"
+http://feeds.feedburner.com/RBloggers                            "1321. R"
+http://thinktostart.com/feed/                                    "1321. R"
+http://www.themagpi.com/feed/                                    "1322. Rasppi"
+http://alblue.bandlem.com/atom.xml                               "1323. Git"
+
+# 04. Sport                               {{{1
+# filter                                  {{{2
+"query:Basketball // NBA: tags =~ \"1041\"" "0.04"
+"query:Fussball // Spielbericht: tags =~ \"140[5-9]\" and link =~ \"spielbericht\"" "0.04"
+
+# queries                                 {{{2
+"query:Basketball // Tigers: tags =~ \"140[0]\" and (title =~ \" Walter\" or link =~ \" Walter\" or title =~ \"Tigers\")"    "04.1"
+"query:Basketball // Mavs: tags =~ \"140[4]\" or (tags =~ \"140[0-4]\" and (title =~ \"Mav.* \" or title =~ \"Nowitzki\"))"  "04.2"
+"query:Fussball // International: tags =~ \"140[7]\""                                                                        "04.3"
+"query:Fussball // MSV: tags =~ \"140[9]\""                                                                                  "04.4"
+
+# urls                                    {{{2
+# BBall
+http://sports.yahoo.com/nba/rss.xml "1400. Basketball"
+http://www.kickz.com/five/?feed=rss2 "1400. Basketball"
+http://www.sport1.de/de_1/basketball/rss.xml "1400. Basketball"
+http://www.spox.com/pub/rss/basketball.xml "1400. Basketball"
+http://www.nba.com/dunkofthenight/rss.xml "1401. DunkOfTheNight"
+http://www.nba.com/powerrankings/rss.xml "1401. Powerranking"
+http://www.spiegel.de/thema/basketball_em_2011/index.rss "1402. Basketball"
+http://www.spiegel.de/thema/national_basketball_association/index.rss "1403. Basketball"
+http://www.spox.com/pub/rss/us-sport-nba.xml "1403. Basketball"
+http://blogmaverick.com/feed/ "1404. Mavs"
+http://mavsblog.dallasnews.com/atom.xml "1404. Mavs"
+http://www.dallasbasketball.com/rss/MainRss.xml "1404. Mavs"
+http://www.nba.com/mavericks/rss.xml "1404. Mavs"
+
+# Fußball
+http://rss.kicker.de/news/bundesliga "1405. Bundesliga"
+http://www.11freunde.de/feed "1405. 11Freunde"
+http://rss.kicker.de/news/2bundesliga "1405. 2. Bundesliga"
+http://fussballblog.espace.ch/atom/ "1406. Fussball"
+http://rss.kicker.de/news/wm "1407. WM"
+http://www.sport1.de/de_1/fussball/fussball_championsleague/rss.xml "1407. Champions League"
+http://rss.kicker.de/news/clnews "1407. Champions League"
+http://www.transfermarkt.de/rss/news "1408. Transfermarkt"
+http://rss.kicker.de/team/msvduisburg "1409. MSV"
+
+# 05. Kultur, Veranstaltungen & Parties   {{{1
+# filter                                  {{{2
+
+# queries                                 {{{2
+"query:Kultur // Allgemein: tags =~ \"150[0]\""                                                                         "05.1"
+"query:Kultur // Duisburg: tags =~ \"150[1]\""                                                                         "05.2"
+"query:Parties // Salsa: tags =~ \"150[6]\" or (tags =~ \"150[5]\" and (title =~ \"Salsa\" or link =~ \"Salsa\"))"  "05.3"
+
+# urls                                    {{{2
+
+# Kultur
+http://newsfeed.zeit.de/kultur/index                       "1500. Deutschland"
+http://newsfeed.zeit.de/zeit-magazin/index                 "1500. Magazin"
+http://www.coolibri.de/redaktion/tags/Kultur/rss.html      "1500. Deutschland"
+http://www.coolibri.de/redaktion/tags/Duisburg/rss.html    "1501. Duisburg"
+http://www.coolibri.de/redaktion/tags/Bochum/rss.html      "1502. Bochum"
+http://www.coolibri.de/redaktion/tags/Essen/rss.html       "1502. Essen"
+http://www.coolibri.de/redaktion/tags/Wuppertal/rss.html   "1502. Wuppertal"
+http://www.coolibri.de/redaktion/tags/Düsseldorf/rss.html  "1502. Düsseldorf"
+
+# Party
+http://www.coolibri.de/redaktion/tags/Party/rss.html       "1505. Parties"
+http://www.salsa-muenster.eu/blog/?feed=rss2               "1506. Salsa"
+http://www.salsa-dancers.com/salsa-dancing.xml             "1506. Salsa"
+http://feeds.feedburner.com/salsa-forum/sXLq               "1506. Salsa"
+http://www.addicted2salsa.com/videos/feed                  "1506. Salsa"
+
+# 06. Gossip & Entertainment              {{{1
+# filter                                  {{{2
+"query:Gossip // Trump: (title =~ \"donald trump\" or title =~ \"(^| )trump \")" "0.06"
+
+# queries                                 {{{2
+"query:Entertainment // World: tags =~ \"160[0]\""  "06.1"
+"query:Entertainment // Cartoons: tags =~ \"160[1]\""  "06.2"
+"query:Gossip // VIPs: tags =~ \"161[0-9]\""             "06.3"
+
+# urls                                    {{{2
+
+# Entertainment
+http://rss.cnn.com/rss/edition_entertainment.rss  "1600. World"
+https://xkcd.com/rss.xml                          "1601. XKCD"
+http://www.billingtoons.com/feeds/posts/default                          "1601. Billingtoons"
+
+# Gossip
+http://www.tmz.com/rss.xml                        "1610. TMZ"
+
+# 08. Style                               {{{1
+# filter                                  {{{2
+# queries                                 {{{2
+"query:Lifestyle // Drawing: tags =~ \"drawing\"" "08.1"
+"query:Lifestyle // Lifehacks: tags =~ \"lifehack\"" "08.2"
+# urls                                    {{{2
+http://feeds.gawker.com/lifehacker/full "1800. Lifehacker"
+http://feeds.feedburner.com/likesketch?format=xml "1801. Drawing"
+http://feeds.feedburner.com/artlessononline?format=xml "1801. Drawing"
+
+# 09. Angebote & Gutscheine               {{{1
+# filter                                  {{{2
+
+"query:Aktionen // TOP: tags =~ \"190[0-9]\" and (title =~ \"preisfehler\" or title =~ \"deal. der woche\" or title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion!\")"  "0.09"
+"query:Aktionen // Rabatt: tags =~ \"190[0-9]\" and (title =~ \"[3-9][0-9]\+ *€ *Gutschein \" or title =~ \"[1-9][0-9]\+ *%\")"                                                                                                          "0.09"
+"query:Aktionen // Schuhe: tags =~ \"190[0-9]\" and title =~ \"Rabattstufe [6-9]\""                                                                                                                                                      "0.09"
+"query:Aktionen // Notebook: tags =~ \"190[0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))"                                                                                                       "0.09"
+"query:Aktionen // Garmin: tags =~ \"190[0-9]\" and title =~ \"garmin\""                                                                                                                                                                 "0.09"
+"query:Aktionen // Groupon: tags =~ \"190[6]\" and (title =~ \"sushi\" or title =~ \"massage\")"                                                                                                                                         "0.09"
+"query:Aktionen // Speaker: tags =~ \"190[0-9]\" and (title =~ \"subwoof\" or title =~ \"radio\" or title =~ \"lautsprecher\" or title =~ \"speaker\")"                                                                                  "0.09"
+"query:Aktionen // Rasierklingen: tags =~ \"190[0-9]\" and (title =~ \"rasierkl.*\" or title =~ \"wiĺkinson\" or title =~ \"gilette\")"                                                                                                  "0.09"
+"query:Aktionen // Flatrate: tags =~ \"190[0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")"                                                                "0.09"
+"query:Aktionen // Stadtreisen: tags =~ \"190[0-9]\" and (title =~ \"brüssel\" or title =~ \"paris\")"                                                                                                                                   "0.09"
+
+# queries                                 {{{2
+"query:Angebote // Technik: tags =~ \"190[1]\""     "09.1"
+"query:Angebote // Gutscheine: tags =~ \"190[2]\""  "09.2"
+# "query:Angebote // Kleidung: tags =~ \"190[3]\""    "09.3"
+"query:Angebote // Sonstige: tags =~ \"190[4]\""    "09.4"
+"query:Angebote // Reisen: tags =~ \"190[5]\""      "09.5"
+"query:Angebote // Groupon: tags =~ \"190[6]\""     "09.6"
+
+# urls                                    {{{2
+http://feeds.ibood.com/ibood/de_de                                      "1901. Technik"
+http://www.chip.de/rss/rss_mobilfunk.xml                                "1901. Technik"
+http://www.mein-wunschpreis.com/rss.php?BrowseNode=elektronikbestpreis  "1901. Technik"
+http://www.preisjaeger.de/technik/feed/                                 "1901. Technik"
+http://www.preisjaeger.de/technik/tv-video/feed/                        "1901. Technik"
+http://www.gutscheinpony.de/rss/neue-gutscheine.xml                     "1902. Gutscheine"
+http://gutscheindeal.info/gutschein-anbieter/zalando/feed/              "1903. Kleidung"
+http://rss.schuh-helden.de/feed.php?sizes=45,46                         "1903. Kleidung"
+http://www.gutschein-finder.org/shops/zalando-gutschein-2/feed/         "1903. Kleidung"
+http://www.sparwelt.de/rss.xml                                          "1904. Sparwelt"
+http://feeds.feedburner.com/myDealZ?format=xml                          "1904. Sonstige"
+http://feeds.feedburner.com/schnaeppchenfuchs                           "1904. Sonstige"
+http://feeds.feedburner.com/sparbote-schnaeppchen                       "1904. Sonstige"
+http://www.chip.de/preisvergleich/rss.php?feed=beliebteste_produkte     "1904. Sonstige"
+http://www.discounto.de/Discounter/get.rss20                            "1904. Sonstige"
+http://news.billiger.de/feed                                            "1904. Sonstige"
+http://www.fernbusse.de/feed/                                           "1905. Reisen"
+http://api.groupon.de/feed/api/v1/deals/oftheday/DE/duisburg            "1906. Groupon"
+http://api.groupon.de/feed/api/v1/deals/oftheday/DE/essen               "1906. Groupon"
