@@ -201,6 +201,7 @@ vmap <silent><localleader>- :<C-u>exec "s/$/\r" . GetVisualSelection()<cr>0v$
 " SendCmdToR                                 {{{1
 map <silent> <localleader>sr :call g:SendCmdToR("search()")<CR>
 map <silent> <localleader>di :call g:SendCmdToR("dir()")<CR>
+map <silent> <localleader>go :call g:SendCmdToR("graphics.off()")<CR>
 map <silent> <localleader>as :call g:SendCmdToR("methods(as)")<CR>
 map <silent> <localleader>is :call g:SendCmdToR("methods(is)")<CR>
 map <silent> <localleader>rml :call g:SendCmdToR("rm(list=ls())")<CR>

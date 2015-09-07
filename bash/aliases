@@ -407,7 +407,7 @@ alias mw=fun_loop_pdflatex
 
 alias muttt='pkill fetchmail; fetchmail -v --ssl; mutt'
 alias mb=fun_muttbeuter
-alias nb='pkill newsbeuter; newsbeuter'
+alias nb='pkill newsbeuter; newsbeuter -r'
 # alias mutt='/usr/bin/mutt -y'
 
 # beet                                                                           {{{2

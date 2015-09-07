@@ -5,6 +5,13 @@ global !p
 import os
 from vimsnippets import complete
 
+AR_METHODS = [
+'yule-walker',
+'burg',
+'ols',
+'mle',
+'yw']
+
 ENCOD_TYPES = [
 'utf-8',
 'bytes',
@@ -249,11 +256,11 @@ snippet mat "matrix function"
 matrix(${1:NA}, nrow = ${2:rows}, ncol = ${3:cols})
 endsnippet
 
-snippet tab "table function"
+snippet ta "table function"
 table(${1:data}${2:, nrow = ${3:rows}, ncol = ${4:cols}})
 endsnippet
 
-snippet "ap([12])*" "apply function" r
+snippet "^ap([12])*" "apply function" rw
 apply(${1:array}, `!p snip.rv = match.group(1) if match.group(1) is not None else "2"`, ${2:function})
 endsnippet
 
@@ -325,10 +332,6 @@ snippet kvt "KV test"
 kv.test(${1:x}, ${2:y})
 endsnippet
 
-snippet xts "package: xts" w
-xts(${1:${VISUAL}})
-endsnippet
-
 snippet ifel "ifelse"
 ifelse (${1:cond}, ${2:yes}, ${3:no})
 endsnippet
@@ -357,8 +360,7 @@ snippet ch "N over n" w
 choose(${1:N},${2:n})
 endsnippet
 
-# snippet cmb "Show all possible combinations" w
-snippet combn "Show all possible combinations" w
+snippet co "Show all possible combinations" w
 combn(${1:N},${2:n})
 endsnippet
 
@@ -462,6 +464,10 @@ snippet ex "exists" w
 exists(${1:${VISUAL}})
 endsnippet
 
+snippet fa "factor" w
+factor(${1:${VISUAL}})
+endsnippet
+
 snippet wh "which" w
 which(${1:${VISUAL}})
 endsnippet
@@ -498,15 +504,15 @@ snippet nr "nrow" w
 nrow(${1:${VISUAL}})
 endsnippet
 
-snippet atr "attributes" w
+snippet at "attributes" w
 attributes(${1:${VISUAL}})
 endsnippet
 
-snippet rtn "return" w
+snippet re "return" w
 return(${1:${VISUAL}})
 endsnippet
 
-snippet smr "summary" w
+snippet su "summary" w
 summary(${1:${VISUAL}})
 endsnippet
 
@@ -522,6 +528,10 @@ snippet ss "set.seed"
 set.seed(${1:123})
 endsnippet
 
+snippet an "Analysis of Variance Table"
+anova(${1:lm(${2:${VISUAL}})})
+endsnippet
+
 snippet strip "convert german numbers to floats" b
 # http://stackoverflow.com/a/13344095
 strip <- function(x){
@@ -530,6 +540,14 @@ strip <- function(x){
 		gsub(",", ".", z)
 }
 $1 <- strip(${1:dataset})
+endsnippet
+
+snippet so "Sort vector" w
+sort(${1:${VISUAL}})
+endsnippet
+
+snippet cu "Cut" w
+cut(${1:${VISUAL}}, ${2:breaks=${3:T}, labels = ${4:NULL}, include.lowest = ${5:FALSE}, right = ${6:TRUE}}
 endsnippet
 
 ###########################
@@ -566,3 +584,31 @@ endsnippet
 snippet chrt "Add Chart Function" w
 $1`!p snip.rv = complete(t[1], CHART_TYPES)`${2}${VISUAL}Chart("${2:Ticker}",multi.col=TRUE,theme="white")
 endsnippet
+
+#################
+#  Time Series  #
+#################
+snippet w "window" w
+window(${1:${VISUAL}}, ${2:start = c(${3:yyyy},${4:mm}), }${5:${6:end = c(${7:yyyy},${8:mm}), }${9:frequency = ${10:n}}})
+endsnippet
+
+snippet ar "AR(p)" w
+ar(${1:${VISUAL}}, order.max = ${2:p}, method = `!p snip.rv = complete(t[1], AR_METHODS)`)
+endsnippet
+
+snippet arima "ARIMA(p,d,q)" w
+arima(${1:${VISUAL}}, order = c(${2:p}, ${3:q}, ${4:p}), include.mean = ${5:FALSE})
+endsnippet
+
+snippet cy "cycle through time series" w
+cycle(${1:${VISUAL}})
+endsnippet
+
+snippet ts "time series" w
+ts(${1:${VISUAL}})
+endsnippet
+
+snippet xts "package: xts" w
+xts(${1:${VISUAL}})
+endsnippet
+

@@ -6,7 +6,7 @@
 # to have a universal /bin folder in ~
 export PATH=~/bin:$PATH
 # include directories into CDPATH
-export CDPATH=$UNI/$SEM:$CDPATH
+export CDPATH=$UNI/:$UNI/$SEM:$CDPATH
 #some helpful env vars
 export PAGER='less'
 export EDITOR='vim'

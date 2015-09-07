@@ -468,11 +468,11 @@ inoremap <leader>bi <esc> :BundleInstall<cr>
 nnoremap <leader>bu :BundleInstall!<cr>
 inoremap <leader>bu <esc>:BundleInstall!<cr>
 
-" " tCommenter <plugin>                                                        {{{2
+" " vim-comment <plugin>                                                        {{{2
 
-" nmap cy :normal yygcc<cr>
-" nmap cp :normal yygccp<cr>
-" nmap yp :normal yyp<cr>
+nnoremap <silent><leader>yp :normal yygccp<CR>
+vnoremap <silent><leader>yp <ESC>:normal yygccp<CR>
+inoremap <silent><localleader>yp <ESC>:normal yygccp<CR>
 
 " Folds & Marks                                                                {{{1
 
@@ -727,8 +727,6 @@ nnoremap <silent><space>da :%s/\s\s\+/ /g<CR>:nohl<CR>``
 " merge two blocks                                                             {{{3
 " http://stackoverflow.com/a/10760494
 " nnoremap <silent><leader>mg :'a,'sdel | let l=split(@", '\n') | 'd,'fs/$/\=remove(l,0)/<CR>
-" vnoremap <silent><leader>mg <ESC>:'a,'sdel | let l=split(@", '\n') | 'd,'fs/$/\=remove(l,0)/<CR>
-" inoremap <silent><localleader>mg <ESC>:'a,'sdel | let l=split(@", '\n') | 'd,'fs/$/\=remove(l,0)/<CR>
 
 " search for single variable                                                          {{{3
 nnoremap <leader>/ /\<\><Left><Left>

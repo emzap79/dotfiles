@@ -69,13 +69,13 @@ bind-key "^X" close-dialog                  # Close currently selected dialog.
 bind-key "^V" next-dialog                   # Go to next dialog.
 bind-key "^G" prev-dialog                   # Go to previous dialog.
 bind-key "|" pipe-to                        # Pipe article to command.
-unbind-key "g" # bind-key "g" sort           # Sort feeds/articles by interactively choosing the sort method.
-bind-key "g" pageup
+# unbind-key "g" # bind-key "g" sort           # Sort feeds/articles by interactively choosing the sort method.
+# bind-key "g" pageup
 bind-key "G" revsort                        # Sort feeds/articles by interactively choosing the sort method (reversed).
-bind-key "UP" up                            # Goes up one item in the list.
-bind-key "DOWN" down                        # Goes down one item in the list.
-bind-key "PPAGE" pageup                     # Goes up one page in the list.
-bind-key "NPAGE" pagedown                   # Goes down one page in the list.
+# bind-key "UP" up                            # Goes up one item in the list.
+# bind-key "DOWN" down                        # Goes down one item in the list.
+# bind-key "PPAGE" pageup                     # Goes up one page in the list.
+# bind-key "NPAGE" pagedown                   # Goes down one page in the list.
 
 bind-key "1" rev-sort
 bind-key "k" up
@@ -116,9 +116,10 @@ macro E set browser "echo %u >> ~/.newsbeuter/queue" ; open ; set browser "elink
 
 # feedlist-format {{{1
 
-datetime-format              "%a, %d.%m %I:%M%P" # eigenes Format festlegen (man strftime)
+datetime-format              "%a, %d.%m %I:%M%P"
+# eigenes Format festlegen (man strftime)
 
-articlelist-format           "%4i %f %D   %?T?|%-21T|  ?%t"
+articlelist-format           "%4i %f %D   | %?a?%-22T  % // %-18a%<&%-45T%? | %t"
 # Available Identifiers for articlelist-format
 # Identifier        Meaning
 # a                 Article author
@@ -187,14 +188,15 @@ color article    color244 color234
 # color article white default
 
 # highlighting  {{{2
-search-highlight-colors                black yellow bold
-highlight all "^0\.0[0-9]\ .*"         green               color234
-highlight all "^0\.1[0-9]\ .*"         blue             color234
-highlight all "^0\.2[0-9]\ .*"         magenta             color234
-highlight all "^0\.[0-9][0-9]\ .*"     white               color234
-highlight all "^09\.[0-9]\ .*"         green               color234
-highlight all "^1[0-9]\.[0-9]\ .*"     magenta             color234
-highlight all "^[0-9]{4,4}\.\ .*"      color300            color234
+
+# search-highlight-colors                black yellow bold
+highlight all "^0\\.0[0-9]\ .*"         green               color234
+highlight all "^0\\.1[0-9]\ .*"         blue             color234
+highlight all "^0\\.2[0-9]\ .*"         magenta             color234
+highlight all "^0\\.[0-9][0-9]\ .*"     white               color234
+highlight all "^09\\.[0-9]\ .*"         green               color234
+highlight all "^1[0-9]\\.[0-9]\ .*"     magenta             color234
+highlight all "^[0-9]{4,4}\ .*"      color300            color234
 
 # podcasts & downloads {{{1
 
@@ -248,8 +250,8 @@ urls-source "local"
 
 # reload & refresh  {{{1
 
-auto-reload               yes
-refresh-on-startup        yes
+auto-reload               no
+refresh-on-startup        no
 reload-only-visible-feeds yes
 reload-threads            2
 reload-time               60
