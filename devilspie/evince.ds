@@ -1,10 +1,11 @@
+/* vim: set filetype=idl */
 (if
 	(and
 		(contains (window_class) 'Evince')
 	)
 	(begin
 		(println "--[ Evince ]--")
-		/* (geometry "1900x1698+1600") */
-		(geometry "900x698+0+27")
+		/* (geometry "900x698+0+27") */
+		(geometry "1900x1698+1600")
 	)
 )

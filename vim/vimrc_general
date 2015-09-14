@@ -664,5 +664,10 @@ aug END
 
 aug Filetype
     " automatically remove trailing whitespaces
-    au! filetype tex,rnoweb,noweb,vim,sh,bash,r,markdown :%s/\s\+$//e
+    au!
+    au filetype tex,rnoweb,noweb,vim,sh,bash,r,markdown :%s/\s\+$//e
+    " start, middle, end of three-piece comment
+    au filetype DATASCRIPT :set com=s2:/*
+    " :set com+=mb:*
+    " :set com+=ex:*/
 aug END

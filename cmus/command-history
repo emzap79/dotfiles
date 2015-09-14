@@ -1,5 +1,6 @@
-clear 
 q
+Q
+clear 
 ex
 filter !~g"*electr*"
 live-filter 
@@ -45,7 +46,6 @@ save esc2014.pl
 bind -f common ^Y shell /home/zapata/bin/cmusCopyDir_Curr
 cl
 add ~/tmp/house.pl
-Q
 shell 
 live-filter looking for free
 live-filter freedom

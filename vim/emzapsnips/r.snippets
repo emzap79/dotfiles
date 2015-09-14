@@ -593,7 +593,11 @@ window(${1:${VISUAL}}, ${2:start = c(${3:yyyy},${4:mm}), }${5:${6:end = c(${7:yy
 endsnippet
 
 snippet ar "AR(p)" w
-ar(${1:${VISUAL}}, order.max = ${2:p}, method = `!p snip.rv = complete(t[1], AR_METHODS)`)
+ar(${1:${VISUAL}}, order.max = ${2:p}, method = ${3:`!p snip.rv = complete(t[1], AR_METHODS)`})
+endsnippet
+
+snippet pre "predict" w
+predict(${1:${VISUAL}}, n.ahead = ${2:n})
 endsnippet
 
 snippet arima "ARIMA(p,d,q)" w

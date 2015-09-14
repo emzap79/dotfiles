@@ -353,8 +353,9 @@ alias vv="echo "" > /tmp/foo.bar; vim -c startinsert /tmp/foo.bar"
 alias vmd="vim /tmp/foo.md"
 
 # clean working files
-alias vcl=fun_clean
-alias cln=fun_clean
+alias clean_vim=fun_clean_vim
+alias clean_tex=fun_clean_tex
+alias clean_latex=fun_clean_tex
 alias swpign=fun_swap
 
 # latex                                                                          {{{2
@@ -791,7 +792,7 @@ fun_git_set_tracking_information() {
 
 # clean tempfiles/swapfiles                                                      {{{3
 
-fun_clean() {
+fun_clean_vim() {
     find . -name "#*#" | xargs -n1 -i rm -v {}
     find . -name "*.sw*" | xargs -n1 -i rm -v {}
     find . -name "*~" | xargs -n1 -i rm -v {}
@@ -801,6 +802,45 @@ fun_swap() {
     find . -name "#*#"
     find . -name "*.sw*"
     find . -name "*~"
+}
+
+fun_clean_tex() {
+### LaTeX ###
+    find . -name "*.acn"| xargs -n1 -i rm -v {}
+    find . -name "*.acr"| xargs -n1 -i rm -v {}
+    find . -name "*.alg"| xargs -n1 -i rm -v {}
+    find . -name "*.aux"| xargs -n1 -i rm -v {}
+    find . -name "*.bbl"| xargs -n1 -i rm -v {}
+    find . -name "*.bcf"| xargs -n1 -i rm -v {}
+    find . -name "*.blg"| xargs -n1 -i rm -v {}
+    find . -name "*.dvi"| xargs -n1 -i rm -v {}
+    find . -name "*.fdb_latexmk"| xargs -n1 -i rm -v {}
+    find . -name "*.fls"| xargs -n1 -i rm -v {}
+    find . -name "*.glg"| xargs -n1 -i rm -v {}
+    find . -name "*.glo"| xargs -n1 -i rm -v {}
+    find . -name "*.gls"| xargs -n1 -i rm -v {}
+    find . -name "*.idx"| xargs -n1 -i rm -v {}
+    find . -name "*.ilg"| xargs -n1 -i rm -v {}
+    find . -name "*.ind"| xargs -n1 -i rm -v {}
+    find . -name "*.ist"| xargs -n1 -i rm -v {}
+    find . -name "*.lof"| xargs -n1 -i rm -v {}
+    find . -name "*.log"| xargs -n1 -i rm -v {}
+    find . -name "*.lot"| xargs -n1 -i rm -v {}
+    find . -name "*.maf"| xargs -n1 -i rm -v {}
+    find . -name "*.mtc"| xargs -n1 -i rm -v {}
+    find . -name "*.mtc0"| xargs -n1 -i rm -v {}
+    find . -name "*.nav"| xargs -n1 -i rm -v {}
+    find . -name "*.nlo"| xargs -n1 -i rm -v {}
+    find . -name "*.out"| xargs -n1 -i rm -v {}
+    find . -name "*.pdfsync"| xargs -n1 -i rm -v {}
+    find . -name "*.ps"| xargs -n1 -i rm -v {}
+    find . -name "*.run.xml"| xargs -n1 -i rm -v {}
+    find . -name "*.snm"| xargs -n1 -i rm -v {}
+    find . -name "*.synctex.gz"| xargs -n1 -i rm -v {}
+    find . -name "*.toc"| xargs -n1 -i rm -v {}
+    find . -name "*.vrb"| xargs -n1 -i rm -v {}
+    find . -name "*.xdy"| xargs -n1 -i rm -v {}
+    find . -name "*.tdo"| xargs -n1 -i rm -v {}
 }
 
 # add vim and tmux tempfiles                                                     {{{3

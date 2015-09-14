@@ -132,7 +132,7 @@ articlelist-format           "%4i %f %D   | %?a?%-22T  % // %-18a%<&%-45T%? | %t
 #                   which the article belongs.
 # L                 Article length
 
-feedlist-format              "%T - %t %u"  # Anzeige der Liste verändern
+feedlist-format              "%T #%i - %t %u"  # Anzeige der Liste verändern
 # Available Identifiers for feedlist-format
 # Identifier        Meaning
 # d                 Feed description
@@ -190,13 +190,24 @@ color article    color244 color234
 # highlighting  {{{2
 
 # search-highlight-colors                black yellow bold
-highlight all "^0\\.0[0-9]\ .*"         green               color234
-highlight all "^0\\.1[0-9]\ .*"         blue             color234
-highlight all "^0\\.2[0-9]\ .*"         magenta             color234
-highlight all "^0\\.[0-9][0-9]\ .*"     white               color234
-highlight all "^09\\.[0-9]\ .*"         green               color234
-highlight all "^1[0-9]\\.[0-9]\ .*"     magenta             color234
-highlight all "^[0-9]{4,4}\ .*"      color300            color234
+highlight all "^0[0-9]\\.0\ .*"          white               color234
+
+highlight all "^0\\.0[0-9]\ .*"          white               color234
+highlight all "^0\\.1[0-9]\ .*"          magenta                color234
+highlight all "^0\\.2[0-9]\ .*"          cyan             color234
+
+highlight all "^0[1]\\.[0-9]\ .*"      blue               color234
+highlight all "^0[2]\\.[0-9]\ .*"      green               color234
+highlight all "^0[3]\\.[0-9]\ .*"      blue                 color234
+highlight all "^0[4]\\.[0-9]\ .*"      green                color234
+highlight all "^0[5]\\.[0-9]\ .*"      blue                 color234
+highlight all "^0[6]\\.[0-9]\ .*"      green                color234
+highlight all "^0[7]\\.[0-9]\ .*"      blue                 color234
+highlight all "^0[8]\\.[0-9]\ .*"      green                color234
+highlight all "^0[9]\\.[0-9]\ .*"      blue               color234
+
+highlight all "^1[0-9]\\.[0-9]\ .*"      magenta             color234
+highlight all "^[0-9]{4,4}\ .*"          color300            color234
 
 # podcasts & downloads {{{1
 
