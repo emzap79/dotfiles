@@ -83,11 +83,20 @@ set editor="vim -c 'syntax on' \
 
 # # Configurations                                    {{{3
 
-set pager="less -aCMsei"  # config for setting less as pager (not necessary)
-set prompt_after=no       # returning to index with no prompting
+# set pager="less -aeisCM"  # config for setting less as pager (not necessary)
+set pager="vim -c 'syntax on' \
+                -c '+/^$' \
+                -c 'set wrap' \
+                -c 'set t_Co=8' \
+                -c 'set tw=72' \
+                -c 'set number'"
+
+set pager_format="%S [%C] %n (%l) %s" # http://pablotron.org/files/muttrc
 set pager_context=5       # number of lines that overlap on paging
 set pager_index_lines=5   # number of lines to see from the index
 set pager_stop=yes        # jump to next message at EOF
+
+set prompt_after=no       # returning to index with no prompting
 
 # Sorting Mails                                       {{{3
 
@@ -210,7 +219,6 @@ set reverse_alias                          # Bewirkt, dass in der
 
 
 # Print & Format Options                              {{{1
-
 # Printing                                            {{{2
 
 #set print_command="muttprint -s -2 %s"      # Muttprint um Mails zweiseitig (ohne Signatur "-s") zu drucken

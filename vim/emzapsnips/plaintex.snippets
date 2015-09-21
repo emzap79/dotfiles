@@ -136,6 +136,19 @@ ${2:${VISUAL:% includgraphic here!}}
 \end{SCfigure}
 endsnippet
 # .##.acronyms
+snippet addr "Absenderadresse"
+$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
+endsnippet
+snippet "cite?" "Insert Citation" !br
+---
+jonas petong
+snippet "(\s|^)ac( (\S+))?" "Set acronym" r
+ \ac{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
+endsnippet
+snippet acro "Define acronym" b
+\acro{${1:acronym}}[${2:${1/(\w+)/(?1:\U$1\E)/g}}]{${3:full name}}${4:
+\acroplural{$1}[$2$5]{$3$6}}
+endsnippet
 snippet abbr "env: abbreviations" b
 % ac{...}: Gibt bei der ersten Verwendung die Langform mit der Abkürzung in
 % Klammern aus, ab dann stets die Kurzform.
@@ -149,17 +162,7 @@ snippet abbr "env: abbreviations" b
 	acro${0}
 \end{acronym}
 endsnippet
-snippet "acro(\w+)?" "Define acronym" rb
-\acro{${1}}[${2:${1/(\w+)/(?1:\U$1\E)/g}}]{${3}}${4:
-\acroplural{$1}[$2$5]{$3$6}}
-endsnippet
-snippet addr "Absenderadresse"
-$1`!p snip.rv = complete(t[1], MAIL_FIELD_TYPES)`
-endsnippet
-snippet "cite?" "Insert Citation" !br
----
-jonas petong
-snippet "(\s|^)ac( (\S+))?" "Set acronym" r
+snippet "(\s|^)ac( (\S+))?" "Set first acronym" r
  \ac{`!p snip.rv = match.group(3) if match.group(2) is not None else ""`} $0
 endsnippet
 snippet "(\s|^)acl( (\S+))?" "Set long acronym" r
@@ -224,8 +227,8 @@ ${3:${VISUAL}}
 endsnippet
 snippet sec "Section" b
 \\${1:sub}section{${2:section name}}
-${3:\label{sec:${4:${2/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}
-${5:\input{${6:sections}/$4.tex}}
+${3:\label{sec:${4:${2/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}${5:
+\input{${6:sections}/$4.tex}}
 
 ${0:${VISUAL}}${7:
 
@@ -257,6 +260,12 @@ snippet note "Insert (Margin)Note" i
 endsnippet
 snippet stack "Stack text or formula" w
 \\stack{${1:${VISUAL}}}^{${2}}
+endsnippet
+snippet overs "Overset text or formula" w
+\\overset{${1:${VISUAL}}}{${2}}
+endsnippet
+snippet unders "underset text or formula" w
+\\underset{${2}}{${1:${VISUAL}}}
 endsnippet
 snippet overbr "Overbrace text or formula" w
 \\overbrace{${1:${VISUAL}}}^{${2}}

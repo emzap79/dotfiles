@@ -1,3 +1,4 @@
+quit 
 q
 Q
 clear 
@@ -6,7 +7,6 @@ filter !~g"*electr*"
 live-filter 
 filter !~g"electr"
 factivate !~g'electr'
-quit 
 exi
 add -q cdda://
 add -q /dev/cdrom
