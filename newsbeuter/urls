@@ -14,15 +14,15 @@
 "query:Aktionen // Föhn: tags =~ \"19[05][0-9]\" and title =~ \"F.hn\""                                                                                                                                                      "0.09"
 "query:Aktionen // Wasserfilter: tags =~ \"19[05][0-9]\" and (title =~ \"Britt\" or title =~ \"Wasserfilter\")"                                                                                                                                                      "0.09"
 "query:Aktionen // Garmin: tags =~ \"19[05][0-9]\" and title =~ \"garmin\""                                                                                                                                                                 "0.09"
-"query:Aktionen // Groupon: tags =~ \"19[3][0-9]\" and (title =~ \"sushi\" or title =~ \"massage\")"                                                                                                                                         "0.09"
 "query:Aktionen // Rabatt: tags =~ \"19[0-9][0-9]\" and ((title =~ \"[3-9][0-9]\+ *€\" and title =~ \"Gutschein\") or title =~ \"[3-9][0-9]\+ *%\")"                                                                                                          "0.09"
 "query:Aktionen // Rasierklingen: tags =~ \"19[0-9][0-9]\" and (title =~ \"rasierkl.*\" or title =~ \"wiĺkinson\" or title =~ \"gilette\")"                                                                                                  "0.09"
 "query:Aktionen // Stadtreisen: tags =~ \"19[0-9][0-9]\" and (title =~ \"brüssel\" or title =~ \"paris\")"                                                                                                                                   "0.09"
 "query:Aktionen // TOP: tags =~ \"19[0-9][0-9]\" and (title =~ \"preisfehler\" or title =~ \"deal. der woche\" or title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion!\")"  "0.09"
 "query:Aktionen // Supermarkt: tags =~ \"19[0-9][0-9]\" and title =~ \"supermarkt\""  "0.09"
+"query:Aktionen // Speaker: tags =~ \"19[0-9][0-9]\" and (title =~ \"subwoof\" or title =~ \"radio\" or title =~ \"lautsprecher\" or title =~ \"speaker\")"                                                                                  "0.09"
+# "query:Aktionen // Groupon: tags =~ \"19[3][0-9]\" and (title =~ \"sushi\" or title =~ \"massage\")"                                                                                                                                         "0.09"
 # "query:Aktionen // Notebook: tags =~ \"19[0-9][0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))"                                                                                                       "0.09"
 # "query:Aktionen // Schuhe: tags =~ \"19[4][0-9]\" and title =~ \"Rabattstufe [6-9]\""                                                                                                                                                      "0.09"
-"query:Aktionen // Speaker: tags =~ \"19[0-9][0-9]\" and (title =~ \"subwoof\" or title =~ \"radio\" or title =~ \"lautsprecher\" or title =~ \"speaker\")"                                                                                  "0.09"
 
 # queries                          {{{2
 # Alerts
@@ -85,6 +85,8 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCKgkOEqGFUOiXrx1klhlmJQ  "1
 https://www.youtube.com/feeds/videos.xml?channel_id=UCZnVGL3UzxeC1LMrJGcI0Cg  "1026 Hodinkee" "Watches" "Youtube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCFwzOXPZKE6aH3fAU0d2Cyg  "1026 EVO" "Cars" "Youtube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCRFsyeKu07-LnHDG44O6uCA  "1027 Sportschau.de" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCu1FJLH2dp7dwKoCCGFkaMg  "1027 Bild" "Bundesliga" "Youtube"
+
 
 # 01. Economy, Finance & Trading   {{{1
 # queries                          {{{2

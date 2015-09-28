@@ -456,7 +456,7 @@ alias randomplaytrack="find -regextype egrep -iregex '^.*(mp3|flac)' | sort --ra
 alias playpl="cat $HOME/Musik/playlist.pl | xargs -d '\n' mplayer"
 
 # R                                                                              {{{2
-alias stocks="Rscript $DOK/Finance/scrYahoo.r"
+alias stocks="Rscript $DOK/Trading/scrYahoo.r"
 
 # fzf - fuzzyfinder                                                              {{{2
 

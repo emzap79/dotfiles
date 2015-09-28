@@ -1,5 +1,3 @@
-http://127.0.0.1:16434/library/xts/html/xts.html
-http://127.0.0.1:10190/library/quantmod/html/chartSeries.html
 http://127.0.0.1:14393/library/base/html/as.data.frame.html
 http://127.0.0.1:14393/library/xts/html/as.xts.html
 http://127.0.0.1:29794/library/quantmod/html/chartSeries.html
@@ -98,3 +96,5 @@ http://127.0.0.1:26473/library/stats/html/ar.html
 http://127.0.0.1:26473/library/stats/html/predict.html
 http://127.0.0.1:26473/doc/html/Search?pattern=displ
 http://127.0.0.1:26473/library/base/html/print.html
+http://127.0.0.1:26833/library/base/html/sum.html
+http://127.0.0.1:26833/library/base/help/colSums
