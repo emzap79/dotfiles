@@ -1,21 +1,6 @@
 # vim:fdm=marker
 # export                       {{{1
 
-# env                          {{{2
-
-# to have a universal /bin folder in ~
-export PATH=~/bin:$PATH
-# include directories into CDPATH
-export CDPATH=$HOME/tmp:$UNI/:$UNI/$SEM:$CDPATH
-#some helpful env vars
-export PAGER='less'
-export EDITOR='vim'
-export VISUAL='vim'
-export PYTHONPATH="/home/${USER}/lib/python"
-export LS3=''
-export TEXINPUTS=".//:$HOME/local/texmf/tex//:$TEXINPUTS" # http://tex.stackexchange.com/a/93733
-export LATEXINPUTS=".//:$HOME/local/texmf/tex/latex//:$LATEXINPUTS"
-
 # paths                        {{{2
 
 export SEM="Sommer2015"
@@ -26,6 +11,21 @@ export VGOLF="$LIX/Vim/vimgolf"
 export VOL="/media/zapata/Volume"
 export USB="/media/zapata/ES02224159"
 export QRC="$LIX/QRCs"
+
+# env                          {{{2
+
+# to have a universal /bin folder in ~
+export PATH=~/bin:$PATH
+# include directories into CDPATH
+export CDPATH=$HOME/tmp:$DOK:$UNI/:$UNI/$SEM:$CDPATH
+#some helpful env vars
+export PAGER='less'
+export EDITOR='vim'
+export VISUAL='vim'
+export PYTHONPATH="/home/${USER}/lib/python"
+export LS3=''
+export TEXINPUTS=".//:$HOME/local/texmf/tex//:$TEXINPUTS" # http://tex.stackexchange.com/a/93733
+export LATEXINPUTS=".//:$HOME/local/texmf/tex/latex//:$LATEXINPUTS"
 
 # shopt                        {{{2
 

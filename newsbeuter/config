@@ -2,8 +2,8 @@
 # Documentation: http://www.newsbeuter.org/doc/newsbeuter.html
 # available operations: http://newsbeuter.org/doc/newsbeuter.html#_first_steps
 
-# bindings & macros {{{1
-# key-bindings {{{2
+# bindings & macros       {{{1
+# key-bindings            {{{2
 
 bind-key "ENTER" open                       # Open the currently selected feed or article.
 bind-key "q" quit                           # Quit the program or return to the
@@ -109,12 +109,12 @@ bind-key "L" toggle-show-read-feeds
 # tags 	feed, article 	all tags that are associated with the feed
 # feedindex 	feed, article 	Index of a feed in the feed list 
 
-# macro {{{2
+# macro                   {{{2
 
 macro p toggle-article-read "unread"
 macro E set browser "echo %u >> ~/.newsbeuter/queue" ; open ; set browser "elinks %u"
 
-# feedlist-format {{{1
+# feedlist-format         {{{1
 
 datetime-format              "%a, %d.%m %I:%M%P"
 # eigenes Format festlegen (man strftime)
@@ -158,8 +158,8 @@ itemview-title-format        "Article %T (%u unread, %t total)"
 urlview-title-format         "URLs"
 dialogs-title-format         "Dialogs"
 
-# colors & highlighting {{{1
-# colors {{{2
+# colors & highlighting   {{{1
+# colors                  {{{2
 
 # ## https://github.com/carno/dotfiles/blob/master/.newsbeuter/colors
 # ## include ~/.newsbeuter/colors
@@ -172,22 +172,7 @@ color info       color136 color235
 color background color244 color234
 color article    color244 color234
 
-# ## a simple newsbeuter color scheme.
-# color listnormal white  black
-# color listfocus  black  blue bold
-# color info       green  blue
-# color background white  black
-# color article    white  black
-
-# color background white default
-# color listnormal white default
-# color listfocus green default
-# color listnormal_unread yellow default bold
-# color listfocus_unread green default
-# color info white default
-# color article white default
-
-# highlighting  {{{2
+# highlighting            {{{2
 
 # search-highlight-colors                black yellow bold
 highlight all "^0[0-9]\\.0\ .*"          white               color234
@@ -209,7 +194,7 @@ highlight all "^0[9]\\.[0-9]\ .*"      blue               color234
 highlight all "^1[0-9]\\.[0-9]\ .*"      magenta             color234
 highlight all "^[0-9]{4,4}\ .*"          color300            color234
 
-# podcasts & downloads {{{1
+# podcasts & downloads    {{{1
 
 # Available Operations in Podbeuter
 # Operation                 Default key     Description
@@ -232,7 +217,7 @@ download-path ~/Podcasts/Videos/%n
 max-downloads 5
 player "mplayer %u"
 
-# general settings {{{1
+# general settings        {{{1
 
 mark-as-read-on-hover	yes
 article-sort-order      date-asc                       # currently available: date, title, flags, author, link, guid
@@ -253,13 +238,13 @@ text-width 72  # description: If set to a number greater than 0, then
                # all HTML will be rendered to this maximum line length. If set to 0, the terminal
                # width will be used.
 
-# url-sources {{{1
+# url-sources             {{{1
 
 urls-source "local"
 # urls-source "googlereader"
 # googlereader-login "emzap79@googlemail.com"
 
-# reload & refresh  {{{1
+# reload & refresh        {{{1
 
 auto-reload               no
 refresh-on-startup        no
@@ -268,7 +253,7 @@ reload-threads            2
 reload-time               60
 suppress-first-reload     yes
 
-# browser settings {{{1
+# browser settings        {{{1
 
 html-renderer "w3m -dump -T text/html"
 # browser "chromium-browser %u"
@@ -277,17 +262,17 @@ html-renderer "w3m -dump -T text/html"
 browser "firefox --new-tab %u 2> /dev/null &"
 # browser "chromium-browser --remote 'openURL(%u,new-tab,no-startup-window)'"
 
-# notifications {{{1
+# notifications           {{{1
 
 notify-format	"RSS: %n new articles (%n unread articles, %f unread feeds)"
 notify-program	"notify-send --hint=int:transient:1" # Notification-Programm festlegen
 notify-xterm	yes
 notify-beep		yes
 
-# scripts {{{1
+# scripts                 {{{1
 # exec:~/bin/snowscripts/rss-tag-filter
 
-# killfile {{{1
+# killfile                {{{1
 # include ~/.newsbeuter/killfile
 ignore-article "*" "title =~ \"Fedora\""
 # ignore-article "*" "title =~ \\"Windows\\""

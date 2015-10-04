@@ -62,6 +62,10 @@ snippet aspos "Apply POSIXct on variable" w
 as.POSIXct(strptime(${1:${VISUAL}}, format='${2:%Y-%m-%d}'))
 endsnippet
 
+snippet tr "Transform data frame" w
+transform(${1:${VISUAL}}, ${2:${3:colname} = ${4:-$3}})
+endsnippet
+
 snippet as "Apply type on variable" w
 as.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
@@ -211,7 +215,7 @@ for (${1:item} in ${2:list}) ${3:{
 endsnippet
 
 snippet fun "Function definition"
-${1:${2:name} <- }function(${3}) ${4:{
+function(${1:z}) ${2:{
 	${0:${VISUAL}}
 }}
 endsnippet
@@ -252,39 +256,39 @@ snippet li "list function"
 list(${0:items})
 endsnippet
 
-snippet mat "matrix function"
-matrix(${1:NA}, nrow = ${2:rows}, ncol = ${3:cols})
+snippet ma "matrix function"
+matrix(${1:NA}, ${2:rows}, ${3:cols})
 endsnippet
 
 snippet ta "table function"
 table(${1:data}${2:, nrow = ${3:rows}, ncol = ${4:cols}})
 endsnippet
 
-snippet "^ap([12])*" "apply function" rw
-apply(${1:array}, `!p snip.rv = match.group(1) if match.group(1) is not None else "2"`, ${2:function})
+snippet "ap([12])*" "apply function" wr
+apply(${1:array}, `!p snip.rv = match.group(1) if match.group(1) is not None else "2"`, fun$2)
 endsnippet
 
-snippet lap "lapply function"
+snippet lapp "lapply function"
 lapply(${1:list}, ${2:function})
 endsnippet
 
-snippet sap "sapply function"
+snippet sapp "sapply function"
 sapply(${1:list}, ${2:function})
 endsnippet
 
-snippet vap "vapply function"
+snippet vapp "vapply function"
 vapply(${1:list}, ${2:function}, ${3:type})
 endsnippet
 
-snippet map "mapply function"
+snippet mapp "mapply function"
 mapply(${1:function}, ${2:...})
 endsnippet
 
-snippet tap "tapply function"
+snippet tapp "tapply function"
 tapply(${1:vector}, ${2:index}, ${3:function})
 endsnippet
 
-snippet rap "rapply function"
+snippet rapp "rapply function"
 rapply(${1:list}, ${2:function})
 endsnippet
 
@@ -526,7 +530,7 @@ mc(${1:${VISUAL}})
 endsnippet
 
 snippet sa "sample" w
-sample(${1:N},${2:n}${3:,prob=${4:p}})
+sample(${1:Y},${2:n}${3:,prob=${4:p}})
 endsnippet
 
 snippet ss "set.seed"
@@ -620,4 +624,3 @@ endsnippet
 snippet xts "package: xts" w
 xts(${1:${VISUAL}})
 endsnippet
-

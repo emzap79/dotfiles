@@ -192,7 +192,7 @@ map <silent> <localleader>rr :call 'g:SendCmdToR("write.table(' . shellescape(ex
 """""""""""""""""""
 
 " Assine Value To Variable ('<-')            {{{2
-nmap <esc>- hEa<Space><-<Space>
+nmap <esc>_ hEa<Space><-<Space>
 
 " Assign Argument Under Cursor In Next Line  {{{2
 nmap <silent><localleader>- :normal! o0<CR>0v$
