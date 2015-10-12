@@ -175,24 +175,30 @@ color article    color244 color234
 # highlighting            {{{2
 
 # search-highlight-colors                black yellow bold
-highlight all "^0[0-9]\\.0\ .*"          white               color234
+highlight all "^00\\.0[0-9]\ .*"          magenta   color234
+highlight all "^00\\.1[0-9]\ .*"          cyan      color234
+highlight all "^00\\.2[0-9]\ .*"          magenta   color234
+highlight all "^00\\.3[0-9]\ .*"          cyan      color234
+highlight all "^00\\.4[0-9]\ .*"          magenta   color234
+highlight all "^00\\.5[0-9]\ .*"          cyan      color234
+highlight all "^00\\.6[0-9]\ .*"          magenta   color234
+highlight all "^00\\.7[0-9]\ .*"          cyan      color234
+highlight all "^00\\.8[0-9]\ .*"          magenta   color234
+highlight all "^00\\.9[0-9]\ .*"          cyan      color234
 
-highlight all "^0\\.0[0-9]\ .*"          white               color234
-highlight all "^0\\.1[0-9]\ .*"          magenta                color234
-highlight all "^0\\.2[0-9]\ .*"          cyan             color234
+highlight all "^0[1]\\.[1-9][0-9]\ .*"    blue      color234
+highlight all "^0[2]\\.[1-9][0-9]\ .*"    green     color234
+highlight all "^0[3]\\.[1-9][0-9]\ .*"    blue      color234
+highlight all "^0[4]\\.[1-9][0-9]\ .*"    green     color234
+highlight all "^0[5]\\.[1-9][0-9]\ .*"    blue      color234
+highlight all "^0[6]\\.[1-9][0-9]\ .*"    green     color234
+highlight all "^0[7]\\.[1-9][0-9]\ .*"    blue      color234
+highlight all "^0[8]\\.[1-9][0-9]\ .*"    green     color234
+highlight all "^0[9]\\.[1-9][0-9]\ .*"    blue      color234
 
-highlight all "^0[1]\\.[0-9]\ .*"      blue               color234
-highlight all "^0[2]\\.[0-9]\ .*"      green               color234
-highlight all "^0[3]\\.[0-9]\ .*"      blue                 color234
-highlight all "^0[4]\\.[0-9]\ .*"      green                color234
-highlight all "^0[5]\\.[0-9]\ .*"      blue                 color234
-highlight all "^0[6]\\.[0-9]\ .*"      green                color234
-highlight all "^0[7]\\.[0-9]\ .*"      blue                 color234
-highlight all "^0[8]\\.[0-9]\ .*"      green                color234
-highlight all "^0[9]\\.[0-9]\ .*"      blue               color234
-
-highlight all "^1[0-9]\\.[0-9]\ .*"      magenta             color234
-highlight all "^[0-9]{4,4}\ .*"          color300            color234
+highlight all "^0[0-9]\\.0[0-0]\ .*"      white     color234
+highlight all "^0[0-9]\\.0[1-9]\ .*"      cyan      color234
+highlight all "^[0-9]{4,4}\ .*"           color300  color234
 
 # podcasts & downloads    {{{1
 

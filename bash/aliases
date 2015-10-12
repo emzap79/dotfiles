@@ -123,22 +123,9 @@ alias cdb="cd $HOME/bin"
 
 # temporary mounted folders                                                      {{{3
 alias cdquito="cd ~/.gvfs/smb-share\:server\=quito-pc\,share\=users/Xime"
-alias cdarb="cd $DOK/Arbeitsordner"
-alias cdbank="cd $DOK/Banking"
-alias cdbew="cd $DOK/Bewerbungen"
 alias cddok="cd $DOK"
-alias cdkolp="cd $DOK/Kolping"
-alias cdr="cd $DOK/R"
-alias cdlatex="cd $DOK/LaTeX"
-alias cdlinux="cd $DOK/Linux"
-alias cdpers="cd $DOK/PersDok"
-alias cdfin="cd $DOK/Finance"
-alias cdpeug="cd $DOK/Gebrauchtwagen"
 alias cdqrc="cd $DOK/Linux/QRCs"
-alias cdrechn="cd $DOK/Rechnungen"
 alias cdrez="cd $DOK/Rezepte/EigeneRezepte"
-alias cdsonst="cd $DOK/Sonstiges"
-alias cdvers="cd $DOK/Versicherungen"
 alias cdvg="cd $HOME/Dokumente/Linux/Vim/vimgolf"
 alias cdvol="cd $VOL"
 alias cddb="cd $HOME/Cloudfolder/Dropbox"
@@ -498,62 +485,7 @@ alias unlckkeyr="sudo /usr/bin/gnome-keyring-daemon --start --components=gpg,pkc
 alias html2pdf="for i in *.html; do wkhtmltopdf $i $(basename $i .html).pdf; done"
 alias img2pdf=fun_conv_img_to_pdf
 alias architecture="echo $(lsb_release -sri | tr '\n' ' ') && echo $(gnome-shell --version) && uname -srm"
-
-# miscellanious                                                                  {{{1
-
-# dictionaries                                                                   {{{2
-# http://www.w3schools.com/tags/ref_language_codes.asp
-# tr    # turkish
-# en    # english
-# de    # german
-# es    # spanish
-
-# https://github.com/soimort/google-translate-cli
-# alias trs=fun_translate   # google translator
-alias trs="trans -b"   # google translator
-alias ot=fun_open_thesaurus
-alias lang="less /home/zapata/.dictionaries/language_iso.txt"
-
-# alerts                                                                         {{{2
-
-# Add an "alert" alias for long running commands.
-# http://askubuntu.com/questions/339499/bash-taking-a-lot-of-time-to-load
-# Use like so: sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal ||\
-    echo error)" "$(history|tail -n1|sed -e \
-    '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# play sound every 40 seconds
-alias exerc=fun_exerc
-
-# birthday                                                                       {{{2
-
-alias bday="cat $HOME/.birthdays | grep -i"
-
-# sudo commands                                                                  {{{2
-
-alias reboot='sudo reboot'
-alias halt='sudo halt'
-alias shutdown='sudo shutdown'
-alias dpkg='sudo dpkg'
-
-# do sudo, or sudo the last command if no argument given
-# http://serverfault.com/a/3847
-s() {
-    if [[ $# == 0 ]]; then
-    	sudo $(history -p '!!')
-    else
-    	sudo "$@"
-    fi
-}
-
-# set wallpaper                                                                  {{{2
-
-alias wallpaper=fun_set_wallp
-
-# gnome settings                                                                 {{{2
-
-alias gnomeapps=fun_gnome
+alias setmsdoslabel="sudo $HOME/bin/setmsdoslabel"
 
 # system & internet                                                              {{{1
 
@@ -692,6 +624,61 @@ if [[ -f "/home/${USER}/.vim/bundle/tmux-config/tmux-autwrite/autowrite-vim.sh" 
     # https://github.com/pivotal/tmux-config
     source ~/.vim/bundle/tmux-config/tmux-autowrite/autowrite-vim.sh
 fi
+
+# miscellanious                                                                  {{{1
+# dictionaries                                                                   {{{2
+# http://www.w3schools.com/tags/ref_language_codes.asp
+# tr    # turkish
+# en    # english
+# de    # german
+# es    # spanish
+
+# https://github.com/soimort/google-translate-cli
+# alias trs=fun_translate   # google translator
+alias trs="trans -b"   # google translator
+alias ot=fun_open_thesaurus
+alias lang="less /home/zapata/.dictionaries/language_iso.txt"
+
+# alerts                                                                         {{{2
+
+# Add an "alert" alias for long running commands.
+# http://askubuntu.com/questions/339499/bash-taking-a-lot-of-time-to-load
+# Use like so: sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal ||\
+    echo error)" "$(history|tail -n1|sed -e \
+    '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# play sound every 40 seconds
+alias exerc=fun_exerc
+
+# birthday                                                                       {{{2
+
+alias bday="cat $HOME/.birthdays | grep -i"
+
+# sudo commands                                                                  {{{2
+
+alias reboot='sudo reboot'
+alias halt='sudo halt'
+alias shutdown='sudo shutdown'
+alias dpkg='sudo dpkg'
+
+# do sudo, or sudo the last command if no argument given
+# http://serverfault.com/a/3847
+s() {
+    if [[ $# == 0 ]]; then
+    	sudo $(history -p '!!')
+    else
+    	sudo "$@"
+    fi
+}
+
+# set wallpaper                                                                  {{{2
+
+alias wallpaper=fun_set_wallp
+
+# gnome settings                                                                 {{{2
+
+alias gnomeapps=fun_gnome
 
 # functions                                                                      {{{1
 

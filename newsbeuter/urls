@@ -10,36 +10,12 @@
 
 # 00. Alerts                       {{{1
 # filter
-# TOP
-
-# Technik und Sonstige
-"query:Aktionen // DSL Flat: tags =~ \"19[12][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")"                                                                "0.09"
-"query:Aktionen // Flüge: tags =~ \"19[12][0-9]\" and (title =~ \"Flug\" or title =~ \"Flüge\")"                                                                                                                                                      "0.09"
-"query:Aktionen // Garmin: tags =~ \"19[12][0-9]\" and title =~ \"garmin\""                                                                                                                                                                 "0.09"
-"query:Aktionen // Wasserfilter: tags =~ \"19[126][0-9]\" and (title =~ \"Brita\" or title =~ \"Wasserfilter\")"                                                                                                                                                      "0.09"
-"query:Aktionen // Föhn: tags =~ \"19[126][0-9]\" and title =~ \"F.hn\""                                                                                                                                                      "0.09"
-
-# Aktionen
-"query:Aktionen // Rabatt: tags =~ \"19[0-9][0-9]\" and ((title =~ \"[3-9][0-9]\+ *€\" and title =~ \"Gutschein\") or title =~ \"[3-9][0-9]\+ *%\")"                                                                                                          "0.09"
-"query:Aktionen // Rasierklingen: tags =~ \"19[0-9][0-9]\" and (title =~ \"rasierkl.*\" or title =~ \"wiĺkinson\" or title =~ \"gilette\")"                                                                                                  "0.09"
-# "query:Aktionen // Notebook: tags =~ \"19[12][0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))"                                                                                                       "0.09"
-# "query:Aktionen // SIM: tags =~ \"19[12][0-9]\" and ( title =~ \"allnet\" or title =~ \" lte \" or title =~ \"sms\" or title =~ \"flatrate\")"  "0.09"
-# "query:Aktionen // Speaker: tags =~ \"19[12][0-9]\" and (title =~ \"subwoof\" or title =~ \"radio\" or title =~ \"lautsprecher\" or title =~ \"speaker\")"                                                                                  "0.09"
-
-# Groupon, Schuhe & Gutscheine
-# "query:Aktionen // Groupon: tags =~ \"19[3][0-9]\" and (title =~ \"sushi\" or title =~ \"massage\")"                                                                                                                                         "0.09"
-# "query:Aktionen // Schuhe: tags =~ \"19[4][0-9]\" and title =~ \"Rabattstufe [6-9]\""                                                                                                                                                      "0.09"
-
-# Alles
-"query:Aktionen // Spirituosen: tags =~ \"19[1256][0-9]\" and (title =~ \"Pils\" or title =~ \"Cocktail\" or title =~ \" Gin \" or title =~ \" Rum \" or title =~ \"Spirituosen\" or title =~ \"Vodka\" or title =~ \"Tequila\")" "0.09"
-"query:Aktionen // Spirituosen: tags =~ \"19[2][4]\" and link =~ \"hochprozentig\""    "0.09"
 
 # urls                             {{{2
 
 # Alerts
-http://www.oek.wiwi.uni-due.de/rss/                                           "1000 Lehrstuhl"
-https://www.jpmakro.wiwi.uni-due.de/rss                                       "1000 Lehrstuhl"
-http://www.spiegel.de/schlagzeilen/eilmeldungen/index.rss                     "1001 Breaking"
+http://www.oek.wiwi.uni-due.de/rss/                                           "00.01 Lehrstuhl"
+https://www.jpmakro.wiwi.uni-due.de/rss                                       "00.01 Lehrstuhl"
 
 # 01: Wirtschaft & Politik
 # 02: Finance & Trading
@@ -51,94 +27,80 @@ http://www.spiegel.de/schlagzeilen/eilmeldungen/index.rss                     "1
 # 09: Angebote & Gutscheine
 
 # Podcasts
-http://www.zdf.de/ZDFmediathek/podcast/2012868                                "1011 Kultur"
-http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml  "1011 Kultur"
-http://vimcasts.org/feeds/ogg.rss                                             "1012 Programming"
-
-# Youtube Channels
-# https://www.youtube.com/user/IGMarketsDE "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCsZncYBzgAR_-IlaVZ2r1YA  "1021 Trading" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC5tUi0nhIWLJvO_oWxuzekw  "1022 AllThingsTech" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCzcXV4TxPc-HAFj97lboNPg  "1022 RasbPi" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCrTpRj0xga7egp_fHqPLHrw  "1022 Karesyk | Raspberry Pi Tutorials" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCfY8sl5Q6VKndz0nLaGygPw  "1022 TheRaspberryPiGuy" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCRAvo5cQWyfog8nRzlf_jWg  "1022 RaspberryPiIVBeginners" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCveZqqGewoyPiacooywP5Ig  "1023 Alt Shift X" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCUPCfp3EUsaEnsNvvrX8ABg  "1024 Paul Eckman Group" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCRd9JHiQvqwT8O4d0QGI9jQ  "1024 Scam School" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UClM2LuQ1q5WEc23462tQzBg  "1025 Proko" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC5dyu9y0EV0cSvGtbBtHw_w  "1025 Sycra" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCqWzusU5btLZ9mjOa6GaVxg  "1025 VitruvianStudio" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCULpiAa8nIl_e68y59VYjHQ  "1025 TheVirtualInstructor.com" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCno-YPZ8BiLrN0Wbl8qICFA  "1025 markcrilley" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCcSGuuZEWue9f28RxSXSipQ  "1025 My Drawing Tutorials" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCKgkOEqGFUOiXrx1klhlmJQ  "1025 Art of Wei" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCZnVGL3UzxeC1LMrJGcI0Cg  "1026 Hodinkee" "Watches" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCFwzOXPZKE6aH3fAU0d2Cyg  "1026 EVO" "Cars" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCRFsyeKu07-LnHDG44O6uCA  "1027 Sportschau.de" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCu1FJLH2dp7dwKoCCGFkaMg  "1027 Bild" "Bundesliga" "Youtube"
+http://www.zdf.de/ZDFmediathek/podcast/2012868                                                                                        "00.11 Kultur"
+http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml                                                          "00.11 Kultur"
+http://vimcasts.org/feeds/ogg.rss                                                                                                     "00.12 Programming"
+                                                                                                                                         .
+# Youtube Channels                                                                                                                       .
 
 # 01. Economy, Finance & Trading   {{{1
-"query:Finance // Santelli:      tags=~ \"111[0-4]\" and title =~ \"Santelli\""                                                       "01.0"
-"query:Finance // Cramer:        tags=~ \"111[0-4]\" and title =~ \"Cramer\""                                                         "01.0"
-"query:Finance // Icahn:         tags=~ \"111[0-9]\" and title =~ \"Icahn\""                                                          "01.0"
-"query:Wirtschaft // VW-Affäre:  tags=~ \"11[12][0-9]\" and (title =~ \"dieselgate\" or title =~ \"VW\" or title =~ \"Volkswagen\")"  "01.0"
+# filter
+"query:Finance // Santelli:      tags=~ \"111[0-4]\" and title =~ \"Santelli\""                                                       "01.00"
+"query:Finance // Cramer:        tags=~ \"111[0-4]\" and title =~ \"Cramer\""                                                         "01.00"
+"query:Finance // Icahn:         tags=~ \"111[0-9]\" and title =~ \"Icahn\""                                                          "01.00"
+"query:Finance // Grugewitch:         tags=~ \"111[0-9]\" and title =~ \"Grugewitch\""                                                          "01.00"
+"query:Wirtschaft // VW-Affäre:  tags=~ \"11[12][0-9]\" and (title =~ \"dieselgate\" or title =~ \"VW\" or title =~ \"Volkswagen\")"  "01.00"
+
+# youtube                                                                                     .
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsZncYBzgAR_-IlaVZ2r1YA                                                          "01.01" "Trading" "Youtube"
 
 # queries                          {{{2
-"query:Finance // USA:             tags=~ \"111[0-4]\""  "01.1"
-"query:Finance // Germany:         tags=~ \"111[5-9]\""  "01.2"
-"query:Wirtschaft // Top Stories:  tags=~ \"112[0-9]\""  "01.3"
-"query:Finance // Blogs:           tags=~ \"113[0-9]\""  "01.4"
+"query:Finance // USA:             tags=~ \"111[0-4]\""                                                                               "01.10"
+"query:Finance // Germany:         tags=~ \"111[5-9]\""                                                                               "01.20"
+"query:Wirtschaft // Top Stories:  tags=~ \"112[0-9]\""                                                                               "01.30"
+"query:Finance // Blogs:           tags=~ \"113[0-9]\""                                                                               "01.40"
 
 # urls                             {{{2
 
 # USA
-http://www.cnbc.com/id/10000664/device/rss/rss.html                "1110 CNBC"
-http://www.businessweek.com/rss/bwdaily.rss                        "1111 Ticker"
+http://www.cnbc.com/id/10000664/device/rss/rss.html                                                                                   "1110 CNBC"
+http://www.businessweek.com/rss/bwdaily.rss                                                                                           "1111 Ticker"
 
 # Deutschland
-http://www.wiwo.de/contentexport/feed/rss/finanzen                 "1115 Wirtschaftswoche"
-http://www.handelsblatt.com/contentexport/feed/finanzen/           "1116 Handelsblatt"
+http://www.wiwo.de/contentexport/feed/rss/finanzen                                                                                    "1115 Wirtschaftswoche"
+http://www.handelsblatt.com/contentexport/feed/finanzen/                                                                              "1116 Handelsblatt"
 
 # Wirtschaft
-http://www.faz.net/aktuell/wirtschaft/?rssview=1                   "1120 FAZ"
-http://www.businessweek.com/topStories/rss/topStories.rss          "1120 Businessweek"
-http://www.wiwo.de/contentexport/feed/rss/unternehmen              "1120 Wirtschaftswoche"
-http://www.handelsblatt.com/contentexport/feed/wirtschaft          "1120 Handelsblatt"
+http://www.faz.net/aktuell/wirtschaft/?rssview=1                                                                                      "1120 FAZ"
+http://www.businessweek.com/topStories/rss/topStories.rss                                                                             "1120 Businessweek"
+http://www.wiwo.de/contentexport/feed/rss/unternehmen                                                                                 "1120 Wirtschaftswoche"
+http://www.handelsblatt.com/contentexport/feed/wirtschaft                                                                             "1120 Handelsblatt"
 
 # Kommentare & Blogs
-http://alexgurevich.tumblr.com/rss                                 "1130 Alex Grugevich"
-http://brattlestreetcapital.blogspot.com/feeds/posts/default       "1130 Brattlestreetcapital"
-http://ptotrading.blogspot.com/feeds/posts/default                 "1130 Ptotrading"
-http://systematicinvestor.wordpress.com/feed/                      "1130 Systematicinvestor"
-http://tradetheticker.blogspot.com/feeds/posts/default             "1130 Tradetheticker"
-http://tradingwithlinux.blogspot.com/feeds/posts/default           "1130 Tradingwithlinux"
-http://www.riskreversal.com/feed/                                  "1130 Riskreversal"
-http://feeds.feedburner.com/NakedCapitalism                        "1130 NakedCapitalism"
+http://alexgurevich.tumblr.com/rss                                                                                                    "1130 Alex Grugevich"
+http://brattlestreetcapital.blogspot.com/feeds/posts/default                                                                          "1130 Brattlestreetcapital"
+http://ptotrading.blogspot.com/feeds/posts/default                                                                                    "1130 Ptotrading"
+http://systematicinvestor.wordpress.com/feed/                                                                                         "1130 Systematicinvestor"
+http://tradetheticker.blogspot.com/feeds/posts/default                                                                                "1130 Tradetheticker"
+http://tradingwithlinux.blogspot.com/feeds/posts/default                                                                              "1130 Tradingwithlinux"
+http://www.riskreversal.com/feed/                                                                                                     "1130 Riskreversal"
+http://feeds.feedburner.com/NakedCapitalism                                                                                           "1130 NakedCapitalism"
 
 # Sonstige
-# http://www.wsj.com/xml/rss/3_7031.xml                              "1110 WSJ :: Markets"
-# http://www.wallstreet-online.de/rss/nachrichten-kommentare.xml     "1120 WSO"
-# http://www.wallstreet-online.de/rss/nachrichten-unternehmen.xml    "1120 WSO"
-# http://www.finanznachrichten.de/rss-nachrichten-devisen       "1100 devisen"
-# http://www.finanznachrichten.de/rss-nachrichten-meistgelesen  "1100 Ticker"
-# http://www.finanzen.net/rss/news                              "1100 Ticker"
-# http://www.finanzen.net/rss/analysen                          "1100 Analysen"
-# http://www.finanznachrichten.de/rss-aktien-analysen           "1100 Analysen"
-# http://www.finanznachrichten.de/rss-marktberichte             "1100 marktberichte"
-# http://www.finanznachrichten.de/rss-chartanalysen-top         "1100 chartanalysen-top"
-# http://www.cnbc.com/id/19794221/device/rss/rss.html           "1100 Europa"
-# http://www.cnbc.com/id/15837362/device/rss/rss.html           "1100 USA"
-# http://www.cnbc.com/id/19832390/device/rss/rss.html           "1100 Asien"
-# http://www.cnbc.com/id/100003114/device/rss/rss.html          "1100 Analysen"
+# http://www.wsj.com/xml/rss/3_7031.xml                                                                                               "1110 WSJ :: Markets"
+# http://www.wallstreet-online.de/rss/nachrichten-kommentare.xml                                                                      "1120 WSO"
+# http://www.wallstreet-online.de/rss/nachrichten-unternehmen.xml                                                                     "1120 WSO"
+# http://www.finanznachrichten.de/rss-nachrichten-devisen                                                                             "1100 devisen"
+# http://www.finanznachrichten.de/rss-nachrichten-meistgelesen                                                                        "1100 Ticker"
+# http://www.finanzen.net/rss/news                                                                                                    "1100 Ticker"
+# http://www.finanzen.net/rss/analysen                                                                                                "1100 Analysen"
+# http://www.finanznachrichten.de/rss-aktien-analysen                                                                                 "1100 Analysen"
+# http://www.finanznachrichten.de/rss-marktberichte                                                                                   "1100 marktberichte"
+# http://www.finanznachrichten.de/rss-chartanalysen-top                                                                               "1100 chartanalysen-top"
+# http://www.cnbc.com/id/19794221/device/rss/rss.html                                                                                 "1100 Europa"
+# http://www.cnbc.com/id/15837362/device/rss/rss.html                                                                                 "1100 USA"
+# http://www.cnbc.com/id/19832390/device/rss/rss.html                                                                                 "1100 Asien"
+# http://www.cnbc.com/id/100003114/device/rss/rss.html                                                                                "1100 Analysen"
 
 # 02. Politik                      {{{1
-"query:Politik // Kurden: tags =~ \"12[0-9]{2,2}\" and (title =~ \"kurden\" or title =~ \"PKK\" or title =~ \"erdo.an. \" or title =~ \"kurdis*\")" "02.0"
+# filter
+http://www.spiegel.de/schlagzeilen/eilmeldungen/index.rss                                                                                            "02.00" "Breaking"
+"query:Politik // Kurden: tags =~ \"12[0-9]{2,2}\" and (title =~ \"kurden\" or title =~ \"PKK\" or title =~ \"erdo.an. \" or title =~ \"kurdis*\")"  "02.00"
 
 # queries                          {{{2
-"query:Politik // Inland: tags =~ \"121[0-9]\""  "02.1"
-"query:Politik // Blogs: tags =~ \"122[0-9]\""  "02.2"
-"query:Politik // Ausland: tags =~ \"123[0-9]\""    "02.3"
+"query:Politik // Inland: tags =~ \"121[0-9]\""  "02.10"
+"query:Politik // Blogs: tags =~ \"122[0-9]\""  "02.20"
+"query:Politik // Ausland: tags =~ \"123[0-9]\""    "02.30"
 
 # urls                             {{{2
 # Deutschland
@@ -158,14 +120,20 @@ http://www.spiegel.de/politik/ausland/index.rss      "1230 Ausland"
 
 # 03. Technik News                 {{{1
 # filter
-"query:Artikelreihe // Autonomes Fahren: tags =~ \"130[0]\" and (link =~ \"autonomes\" and link =~ \"fahren\" and link != \"newsticker\")"  "03.0"
+"query:Artikelreihe // Autonomes Fahren: tags =~ \"130[0]\" and (link =~ \"autonomes\" and link =~ \"fahren\" and link != \"newsticker\")"  "03.00"
+
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5tUi0nhIWLJvO_oWxuzekw                                                          "03.01" "AllThingsTech" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCzcXV4TxPc-HAFj97lboNPg                                                          "03.01" "RasbPi" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCrTpRj0xga7egp_fHqPLHrw                                                          "03.01" "Karesyk | Raspberry Pi Tutorials" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfY8sl5Q6VKndz0nLaGygPw                                                          "03.01" "TheRaspberryPiGuy" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRAvo5cQWyfog8nRzlf_jWg                                                          "03.01" "RaspberryPiIVBeginners" "Youtube"
 
 # queries                          {{{2
-"query:Technik // Germany:  tags =~ \"131[0]\""  "03.1"
-"query:Technik // USA:      tags =~ \"131[1]\""  "03.2"
-"query:Unix // Linux:       tags =~ \"132[0]\""  "03.3"
-"query:Unix // Ubuntu:      tags =~ \"133[1]\""  "03.4"
-"query:Unix // Fedora:      tags =~ \"133[2]\""  "03.5"
+"query:Technik // Germany:  tags =~ \"131[0]\""  "03.10"
+"query:Technik // USA:      tags =~ \"131[1]\""  "03.20"
+"query:Unix // Linux:       tags =~ \"132[0]\""  "03.30"
+"query:Unix // Ubuntu:      tags =~ \"133[1]\""  "03.40"
+"query:Unix // Fedora:      tags =~ \"133[2]\""  "03.50"
 
 # urls                             {{{2
 
@@ -244,14 +212,14 @@ http://www.fedora-blog.de/feed/                                           "1332 
 # 04. FOSS & Coding                {{{1
 
 # filter
-"query:FOSS // Vimgolf: tags =~ \"141[1]\" and link =~ \"challenges\""            "03.0"
-"query:FOSS // Neovim: tags =~ \"141[2]\" or (tags =~ \"141[0-9]\" and title =~ \"neovim\")"            "03.0"
+"query:FOSS // Vimgolf: tags =~ \"141[1]\" and link =~ \"challenges\""            "03.00"
+"query:FOSS // Neovim: tags =~ \"141[2]\" or (tags =~ \"141[0-9]\" and title =~ \"neovim\")"            "03.00"
 
 # queries                          {{{2
-"query:FOSS // VIM:         tags =~ \"141[0-9]\""  "04.1"
-"query:Coding // R:         tags =~ \"142[0]\""    "04.2"
-"query:Coding // LaTeX:     tags =~ \"143[1]\""    "04.3"
-"query:Coding // Other:     tags =~ \"144[2-5]\""  "04.4"
+"query:FOSS // VIM:         tags =~ \"141[0-9]\""  "04.10"
+"query:Coding // R:         tags =~ \"142[0]\""    "04.20"
+"query:Coding // LaTeX:     tags =~ \"143[1]\""    "04.30"
+"query:Coding // Other:     tags =~ \"144[2-5]\""  "04.40"
 
 # urls                             {{{2
 # VIM
@@ -275,23 +243,27 @@ http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss            "1424 
 # 05. Sport                        {{{1
 
 # filter
-"query:Basketball // NBA: tags =~ \"152[0]\""                                                                                                               "05.0"
-"query:Basketball // Mavs:           tags =~ \"153[0-9]\""                                                                                                  "05.0"
-"query:Basketball // Tigers:         tags =~ \"151[0-9]\" and (title =~ \" Walter\" or link =~ \" Walter\" or title =~ \"Tigers\")"                      "05.0"
+"query:Basketball // NBA: tags =~ \"152[0]\""                                                                                                               "05.00"
+"query:Basketball // Mavs:           tags =~ \"153[0-9]\""                                                                                                  "05.00"
+"query:Basketball // Tigers:         tags =~ \"151[0-9]\" and (title =~ \" Walter\" or link =~ \" Walter\" or title =~ \"Tigers\")"                      "05.00"
 
-"query:Fussball // MSV:              tags =~ \"159[0]\""                                                                                                    "05.0"
-"query:Fussball // BVB:              tags =~ \"159[1]\" or (tags =~ \"15[58][0-9]\" and (title =~ \"BVB\" or title =~ \"Watzke\" or title =~ \"Tuchel\"))"  "05.0"
-"query:Fussball // 11 Freunde Spielbericht: tags =~ \"15[5][1]\" and title =~ \"[0-9]{1,2}[^0-9,][0-9]{1,2} \""                                                                     "05.0"
-"query:Fussball // Spieler des Tages: (tags =~ \"15[5][1]\" and title =~ \" des tages\")"                                                                     "05.0"
-"query:Fussball // Traumtore: tags =~ \"155[1]\" and link =~ \".*traumtore.*\""                                                                     "05.0"
+"query:Fussball // MSV:              tags =~ \"159[0]\""                                                                                                    "05.00"
+"query:Fussball // BVB:              tags =~ \"159[1]\" or (tags =~ \"15[58][0-9]\" and (title =~ \"BVB\" or title =~ \"Watzke\" or title =~ \"Tuchel\"))"  "05.00"
+"query:Fussball // 11 Freunde Spielbericht: tags =~ \"15[5][1]\" and title =~ \"[0-9]{1,2}[^0-9,][0-9]{1,2} \""                                                                     "05.00"
+"query:Fussball // Spieler des Tages: (tags =~ \"15[5][1]\" and title =~ \" des tages\")"                                                                     "05.00"
+"query:Fussball // Traumtore: tags =~ \"155[1]\" and link =~ \".*traumtore.*\""                                                                     "05.00"
+
+# youtube
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRFsyeKu07-LnHDG44O6uCA                                                          "05.01" "Sportschau.de" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCu1FJLH2dp7dwKoCCGFkaMg                                                          "05.01" "Bild" "Bundesliga" "Youtube"
 
 # queries                          {{{2
-"query:Basketball // International:  tags =~ \"151[0-9]\" and (title =~ \"Eurobasket\" or title =~ \"DBB\")"         "05.1"
-"query:Basketball // NBA:            tags =~ \"152[0-9]\""                                                           "05.2"
+"query:Basketball // International:  tags =~ \"151[0-9]\" and (title =~ \"Eurobasket\" or title =~ \"DBB\")"         "05.10"
+"query:Basketball // NBA:            tags =~ \"152[0-9]\""                                                           "05.20"
 
-"query:Fussball // Bundesliga:       tags =~ \"155[0-9]\" and (link !~ \"livematch\" and link !~ \"spielbericht\")"  "05.5"
-"query:Fussball // Champions League: tags =~ \"156[0-9]\" and (link !~ \"livematch\" and link !~ \"spielbericht\")"  "05.6"
-"query:Fussball // International:    tags =~ \"157[0-9]\""                                                           "05.7"
+"query:Fussball // Bundesliga:       tags =~ \"155[0-9]\" and (link !~ \"livematch\" and link !~ \"spielbericht\")"  "05.50"
+"query:Fussball // Champions League: tags =~ \"156[0-9]\" and (link !~ \"livematch\" and link !~ \"spielbericht\")"  "05.60"
+"query:Fussball // International:    tags =~ \"157[0-9]\""                                                           "05.70"
 
 # urls                             {{{2
 # Basketball                       {{{3
@@ -336,8 +308,8 @@ http://rss.kicker.de/team/borussiadortmund                             "1591 BVB
 
 # 06. Kultur, Veranstaltungen      {{{1
 # queries                          {{{2
-"query:Kultur // Allgemein:  tags =~ \"161[0-9]\""                                                                          "06.1"
-"query:Kultur // Ruhrgebiet: tags =~ \"162[0-9]\""                                                                          "06.2"
+"query:Kultur // Allgemein:  tags =~ \"161[0-9]\""                                                                          "06.10"
+"query:Kultur // Ruhrgebiet: tags =~ \"162[0-9]\""                                                                          "06.20"
 
 # urls                             {{{2
 
@@ -355,12 +327,12 @@ http://www.coolibri.de/redaktion/tags/Düsseldorf/rss.html  "1625 Düsseldorf"
 
 # # 06. Entertainment & Gossip     {{{1
 # # filter                         {{{2
-# "query:Gossip // Trump: (title =~ \"donald trump\" or title =~ \"(^| )trump \")"  "06.0"
+# "query:Gossip // Trump: (title =~ \"donald trump\" or title =~ \"(^| )trump \")"  "06.00"
 
 # # queries                        {{{2
-# "query:Entertainment // World:    tags =~ \"161[0-9]\""    "06.1"
-# "query:Entertainment // Cartoons: tags =~ \"162[0-9]\""    "06.2"
-# "query:Gossip // VIPs:            tags =~ \"163[0-9]\""  "06.3"
+# "query:Entertainment // World:    tags =~ \"161[0-9]\""    "06.10"
+# "query:Entertainment // Cartoons: tags =~ \"162[0-9]\""    "06.20"
+# "query:Gossip // VIPs:            tags =~ \"163[0-9]\""  "06.30"
 
 # # urls                           {{{2
 
@@ -376,7 +348,7 @@ http://www.coolibri.de/redaktion/tags/Düsseldorf/rss.html  "1625 Düsseldorf"
 
 # 07. Parties                      {{{1
 # queries                          {{{2
-"query:Parties // Salsa:     ((title =~ \"Salsa\" or link =~ \"Salsa\") and (tags =~ \"171[0-9]\")) or (tags =~ \"17[23][0-9]\")"  "07.1"
+"query:Parties // Salsa:     ((title =~ \"Salsa\" or link =~ \"Salsa\") and (tags =~ \"171[0-9]\")) or (tags =~ \"17[23][0-9]\")"  "07.10"
 
 # urls                             {{{2
 # Parties
@@ -392,10 +364,23 @@ http://www.addicted2salsa.com/videos/feed                  "1720 Salsa"
 http://www.yopmail.com/en/rssfeed.php?login=salsanewsletternrw&h=55fd4a6913aaa591603573 "1730 Yopmail"
 
 # 08. Style                        {{{1
+https://www.youtube.com/feeds/videos.xml?channel_id=UCveZqqGewoyPiacooywP5Ig                                                          "08.01" "Alt Shift X" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCUPCfp3EUsaEnsNvvrX8ABg                                                          "08.01" "Paul Eckman Group" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRd9JHiQvqwT8O4d0QGI9jQ                                                          "08.01" "Scam School" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UClM2LuQ1q5WEc23462tQzBg                                                          "08.02" "Proko" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5dyu9y0EV0cSvGtbBtHw_w                                                          "08.02" "Sycra" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCqWzusU5btLZ9mjOa6GaVxg                                                          "08.02" "VitruvianStudio" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCULpiAa8nIl_e68y59VYjHQ                                                          "08.02" "TheVirtualInstructor.com" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCno-YPZ8BiLrN0Wbl8qICFA                                                          "08.02" "markcrilley" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCcSGuuZEWue9f28RxSXSipQ                                                          "08.02" "My Drawing Tutorials" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCKgkOEqGFUOiXrx1klhlmJQ                                                          "08.02" "Art of Wei" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCZnVGL3UzxeC1LMrJGcI0Cg                                                          "08.03" "Hodinkee" "Watches" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCFwzOXPZKE6aH3fAU0d2Cyg                                                          "08.03" "EVO" "Cars" "Youtube"
+
 # queries                          {{{2
-"query:Lifestyle // Drawing:   tags =~ \"181[0-9]\"" "08.1"
-"query:Lifestyle // Lifehacks: tags =~ \"182[0-9]\"" "08.2"
-"query:Lifestyle // Sex:       tags =~ \"183[0-9]\"" "08.3"
+"query:Lifestyle // Drawing:   tags =~ \"181[0-9]\"" "08.10"
+"query:Lifestyle // Lifehacks: tags =~ \"182[0-9]\"" "08.20"
+"query:Lifestyle // Sex:       tags =~ \"183[0-9]\"" "08.30"
 
 # urls                             {{{2
 
@@ -408,38 +393,67 @@ http://feeds.gawker.com/lifehacker/full                 "1820 Lifehacker"
 
 # Sex
 http://www.reddit.com/r/sextechiques/.rss               "1830 Sextechniques"  "Reddit"
+http://www.reddit.com/r/sex/.rss               "1830 Sex"  "Reddit"
+http://www.reddit.com/r/sextalk/.rss               "1830 Sextalk"  "Reddit"
+
+# Green Tea
+http://feeds.feedburner.com/theartofjapanesegreentea    "1840 Japanese Green Tea"
+http://everyonestea.blogspot.com/feeds/posts/default    "1840 Japanese Green Tea"
+http://sugimotousa.blogspot.com/feeds/posts/default     "1840 Japanese Green Tea"
+http://blog.mellowmonk.com/feeds/posts/default          "1840 Japanese Green Tea"
 
 # 09. Angebote & Gutscheine        {{{1
 
 # filter
-"query:Aktionen // TOP: tags =~ \"19[0-9][0-9]\" and (title =~ \"sehr\ günstig\" or title =~ \"günstigst\" or title =~ \"preisfehler\" or title =~ \"deal. der woche\" or title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion!\")"  "09.0"
-"query:Aktionen // Supermarkt: tags =~ \"19[0-9][0-9]\" and title =~ \"supermarkt\""    "09.0"
+"query:Aktionen // TOP: tags =~ \"19[0-9][0-9]\" and (title =~ \"sehr\ günstig\" or title =~ \"günstigst\" or title =~ \"preisfehler\" or title =~ \"deal. der woche\" or title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion!\")"  "09.00"
+"query:Aktionen // Supermarkt: tags =~ \"19[0-9][0-9]\" and (title =~ \"supermarkt\" or title =~ \"10 drogerie\")"                                                                                                                                                                                                                 "09.00"
+
+# Technik und Sonstige
+"query:Aktionen // DSL Flat: tags =~ \"19[12][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")"                                                                                                                         "09.00"
+"query:Aktionen // Flüge: tags =~ \"19[12][0-9]\" and (title =~ \"Flug\" or title =~ \"Flüge\")"                                                                                                                                                                                                     "09.00"
+"query:Aktionen // Garmin: tags =~ \"19[12][0-9]\" and title =~ \"garmin\""                                                                                                                                                                                                                          "09.00"
+"query:Aktionen // Wasserfilter: tags =~ \"19[126][0-9]\" and (title =~ \"Brita\" or title =~ \"Wasserfilter\")"                                                                                                                                                                                     "09.00"
+"query:Aktionen // Föhn: tags =~ \"19[126][0-9]\" and title =~ \"F.hn\""                                                                                                                                                                                                                             "09.00"
+
+# Aktionen
+"query:Aktionen // Rabatt: tags =~ \"19[0-9][0-9]\" and ((title =~ \"[3-9][0-9]\+ *€\" and title =~ \"Gutschein\") or title =~ \"[3-9][0-9]\+ *%\")"                                                                                                                                                 "09.00"
+"query:Aktionen // Rasierklingen: tags =~ \"19[0-9][0-9]\" and (title =~ \"rasierkl.*\" or title =~ \"wiĺkinson\" or title =~ \"gillette\")"                                                                                                                                                          "09.00"
+"query:Aktionen // SIM: tags =~ \"19[12][0-9]\" and ( title =~ \"allnet\" or title =~ \" lte \" or title =~ \"sms\" or title =~ \"flatrate\")"                                                                                                                                                       "09.00"
+"query:Aktionen // Smartphone: tags =~ \"19[1-7][0-9]\" and (title =~ \"phone\" and title !~ \"iphone\")"                                                                                                                                                                      "09.00"
+
+# "query:Aktionen // Notebook: tags =~ \"19[12][0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))"                                                                                                                                                              "09.00"
+# "query:Aktionen // Smartphone: tags =~ \"19[126][0-9]\" and ( title =~ \"phone\" and title !~ \"iphone\" or title =~ \"1m8\" or title =~ \"samsung s6\")"                                                                                                                                                                      "09.00"
+# "query:Aktionen // Speaker: tags =~ \"19[12][0-9]\" and (title =~ \"subwoof\" or title =~ \"radio\" or title =~ \"lautsprecher\" or title =~ \"speaker\")"                                                                                                                                         "09.00"
+
+# Groupon, Schuhe & Gutscheine
+# "query:Aktionen // Groupon: tags =~ \"19[3][0-9]\" and (title =~ \"sushi\" or title =~ \"massage\")"                                                                                                                                                                                               "09.00"
+# "query:Aktionen // Schuhe: tags =~ \"19[4][0-9]\" and title =~ \"Rabattstufe [6-9]\""                                                                                                                                                                                                              "09.00"
+
+# Alles
+"query:Aktionen // Spirituosen: tags =~ \"19[1256][0-9]\" and (title =~ \"Pils\" or title =~ \"Cocktail\" or title =~ \" Gin \" or title =~ \" Rum \" or title =~ \"Spirituosen\" or title =~ \"Vodka\" or title =~ \"Tequila\")"                                                                    "09.00"
+"query:Aktionen // Spirituosen: tags =~ \"19[2][4]\" and link =~ \"hochprozentig\""                                                                                                                                                                                                                  "09.00"
 
 # queries                          {{{2
-"query:Angebote // Technik:    tags =~ \"19[1][0-9]\""  "09.1"
-"query:Angebote // Sonstige:   tags =~ \"19[2][0-9]\""  "09.2"
-"query:Angebote // Groupon:    tags =~ \"19[3][0-9]\""  "09.3"
-"query:Angebote // Kleidung:   tags =~ \"19[4][0-9]\""  "09.4"
-"query:Angebote // Gutscheine: tags =~ \"19[5][0-9]\""  "09.5"
-"query:Angebote // Supermarkt: tags =~ \"19[6][0-9]\""  "09.6"
-"query:Angebote // Reisen:     tags =~ \"19[7][0-9]\""  "09.7"
-"query:Angebote // EBooks:     tags =~ \"19[8][0-9]\""  "09.8"
+"query:Angebote // Technik:    tags =~ \"19[1][0-9]\""  "09.10"
+"query:Angebote // Sonstige:   tags =~ \"19[2][0-9]\""  "09.20"
+"query:Angebote // Groupon:    tags =~ \"19[3][0-9]\""  "09.30"
+"query:Angebote // Kleidung:   tags =~ \"19[4][0-9]\""  "09.40"
+"query:Angebote // Gutscheine: tags =~ \"19[5][0-9]\""  "09.50"
+"query:Angebote // Supermarkt: tags =~ \"19[6][0-9]\""  "09.60"
+"query:Angebote // Reisen:     tags =~ \"19[7][0-9]\""  "09.70"
+"query:Angebote // EBooks:     tags =~ \"19[8][0-9]\""  "09.80"
 
 # urls                             {{{2
 # Technik
 http://feeds.ibood.com/ibood/de_de                                      "1910 Technik"
-http://www.chip.de/rss/rss_mobilfunk.xml                                "1910 Technik"
-http://www.mein-wunschpreis.com/rss.php?BrowseNode=elektronikbestpreis  "1910 Technik"
 http://www.preisjaeger.de/technik/feed/                                 "1910 Technik"
 
 # Sonstige
-http://www.chip.de/preisvergleich/rss.php?feed=beliebteste_produkte     "1921 Sonstige"
 http://www.sparwelt.de/rss.xml                                          "1922 Sparwelt"
 http://news.billiger.de/feed                                            "1923 Sonstige"
 http://feeds.feedburner.com/myDealZ?format=xml                          "1924 Sonstige"
 http://feeds.feedburner.com/schnaeppchenfuchs                           "1925 Sonstige"
 http://feeds.feedburner.com/sparbote-schnaeppchen                       "1926 Sonstige"
-http://www.eudeal.de/feed/                                              "1927 Schnäppchen"
 
 # Groupon
 http://api.groupon.de/feed/api/v1/deals/oftheday/DE/duisburg            "1930 Groupon"
@@ -454,8 +468,13 @@ http://gutscheindeal.info/gutschein-anbieter/zalando/feed/              "1950 Kl
 http://www.gutschein-finder.org/shops/zalando-gutschein-2/feed/         "1950 Kleidung"
 
 # Supermarkt
+# # Elektronik
+http://www.discounto.de/Elektronik/Saturn/get.rss20                     "1960 Saturn"
+http://www.discounto.de/Elektronik/conrad/get.rss20                     "1960 Conrad"
+http://www.discounto.de/Elektronik/expert/get.rss20                     "1960 Expert"
+http://www.discounto.de/Elektronik/euronics/get.rss20                   "1960 Euronics"
+
 # # Discounter
-http://www.discounto.de/Discounter/get.rss20                            "1960 Discount"
 http://www.discounto.de/Discounter/Netto-Marken-Discount/get.rss20      "1961 Netto"
 http://www.discounto.de/Discounter/kodi/get.rss20                       "1961 Kodi"
 http://www.discounto.de/Discounter/Marktkauf/get.rss20                  "1961 Marktkauf"
@@ -465,18 +484,18 @@ http://www.discounto.de/Discounter/plus/get.rss20                       "1961 Pl
 http://www.discounto.de/Discounter/penny/get.rss20                      "1961 Penny"
 http://www.discounto.de/Discounter/aldi-sued/get.rss20                  "1961 Aldi Süd"
 
-# # Elektronik
-http://www.discounto.de/Elektronik/Saturn/get.rss20                     "1962 Saturn"
-http://www.discounto.de/Elektronik/conrad/get.rss20                     "1962 Conrad"
-http://www.discounto.de/Elektronik/expert/get.rss20                     "1962 Expert"
-http://www.discounto.de/Elektronik/euronics/get.rss20                   "1962 Euronics"
-
 # # Drogerie
-http://www.discounto.de/Drogerie/Mueller/get.rss20                      "1963 Müller"
-http://www.discounto.de/Drogerie/Douglas/get.rss20                      "1963 Douglas"
+http://www.discounto.de/Drogerie/Mueller/get.rss20                      "1962 Müller"
+http://www.discounto.de/Drogerie/Douglas/get.rss20                      "1962 Douglas"
 
 # Reisen
 http://www.fernbusse.de/feed/                                           "1970 Reisen"
 
+# Preisvergleich
+http://www.mein-wunschpreis.com/rss.php?BrowseNode=elektronikbestpreis  "1980 Technik"
+http://www.chip.de/preisvergleich/rss.php?feed=beliebteste_produkte     "1980 Sonstige"
+http://www.mein-wunschpreis.com/rss.php?BrowseNode=elektronikbestpreis  "1980 Technik"
+
+
 # Books
-http://cts.tradepub.com/cts4/?ptnr=www&tm=rss_ALL                       "1980 Tradepub"
+# http://cts.tradepub.com/cts4/?ptnr=www&tm=rss_ALL                       "1990 Tradepub"

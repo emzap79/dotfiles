@@ -146,12 +146,12 @@ write.$1`!p snip.rv = complete(t[1], FILE_TYPES)`(${2:${VISUAL}},file="${3:filen
 endsnippet
 
 snippet qread "Quick read from file"
-read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}",
+read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${3:filename}",${2:
 		header=TRUE, skip=0,
-		sep='${3:field seperator}', dec='${4:decimal seperator}',
+		sep='${4:field seperator}', dec='${5:decimal seperator}',
 		encoding='unknown',
 		blank.lines.skip=TRUE, fill=TRUE, stringsAsFactors=FALSE,
-		na.strings=c(NA,"NA",NaN,"NaN"," NA ","#N/A N/A"))
+		na.strings=c(NA,"NA",NaN,"NaN"," NA ","#N/A N/A")})
 endsnippet
 
 snippet read "Read from file"
@@ -162,6 +162,19 @@ read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}"${3:,
 		encoding='${8:utf-8|latin1|bytes|unknown}',
 		blank.lines.skip=TRUE, fill=TRUE, stringsAsFactors=FALSE,
 		${9:na.strings=c(NA,"NA",NaN,"NaN"," NA ","#N/A N/A")}})
+endsnippet
+
+snippet lread "Read Data into list" w
+tablist <- list()
+csvlist <- c("$1",
+            "$2"${3:,
+            "$4"})
+for (i in 1:length(csvlist)) {
+	tablist[[i]] <-
+	read.csv(csvlist[i])
+}
+${1/(.csv$)|(\w+)/(?1::$2)/ga} <- tablist[[1]]
+${2/(.csv$)|(\w+)/(?1::$2)/ga} <- tablist[[2]]
 endsnippet
 
 snippet grep "grepsearch for string" b
