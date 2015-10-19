@@ -1,4 +1,3 @@
-http://127.0.0.1:30005/library/base/html/matrix.html
 http://127.0.0.1:14039/library/quantmod/html/chartTheme.html
 http://127.0.0.1:14039/library/quantmod/html/chartSeries.html
 http://127.0.0.1:27242/library/PerformanceAnalytics/html/findDrawdowns.html
@@ -98,3 +97,4 @@ http://127.0.0.1:12610/library/base/html/diff.html
 http://127.0.0.1:12610/library/stats/html/ave.html
 http://127.0.0.1:12610/library/base/html/transform.html
 http://127.0.0.1:27037/library/base/html/sample.html
+http://127.0.0.1:27702/library/base/html/diff.html

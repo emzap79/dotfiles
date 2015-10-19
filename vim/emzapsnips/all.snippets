@@ -117,15 +117,13 @@ vim:$1=$2
 endsnippet
 
 snippet header
-" vim: ${1:fdm=marker}
-"
-" File: ${2:`!v expand('%:t')`}
-" Author: ${3:`!v g:snips_author`}${4:
-" URL: ${5:${VISUAL}}}
-" Description: ${6}
-${7:" Last Modified: `!v strftime("%B %d, %Y")`}
-
-$0
+${8:"} vim: ${1:fdm=marker}
+$8
+$8 File: ${2:`!v expand('%:t')`}
+$8 Author: ${3:`!v g:snips_author`}${4:
+$8 URL: ${5:${VISUAL}}}
+$8 Description: ${6}
+${7:$8 Last Modified: `!v strftime("%B %d, %Y")`}
 endsnippet
 
 snippet fold "Insert a vim fold marker" b

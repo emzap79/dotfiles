@@ -321,8 +321,10 @@ let g:fuf_modesDisable = ['mrucmd']
 let g:fuf_mrufile_maxItem = 50
 let g:fuf_mrucmd_maxItem = 50
 let g:fuf_keyOpen = '<Space>'		" default: <CR>
-let g:fuf_keyOpenSplit = '<C-j>'
-let g:fuf_keyOpenVsplit = '<C-k>'
+" let g:fuf_keyOpenSplit = '<C-j>'
+" let g:fuf_keyOpenVsplit = '<C-k>'
+let g:fuf_keyOpenSplit = 'ctrl-s'
+let g:fuf_keyOpenVsplit = 'ctrl-v'
 let MRU_File="~/.vim/vimplug_mru_files"
 
 " Syntastic                                               {{{2
