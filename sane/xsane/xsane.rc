@@ -1,15 +1,15 @@
 "xsane-version"
 "0.998"
 "xsane-mode"
-1
+3
 "tmp-path"
 "/tmp/"
 "working-directory"
 "/home/zapata"
 "filename"
-"/tmp/xsane.png"
+"/tmp/xsane.pdf"
 "filetype"
-""
+".pdf"
 "cms-function"
 0
 "cms-intent"
@@ -199,7 +199,7 @@
 "gtk-update-policy"
 1
 "medium-nr"
-8
+0
 "paper-orientation"
 0
 "preset-area-definitions"

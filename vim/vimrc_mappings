@@ -719,6 +719,7 @@ nnoremap <silent><leader>dd :exe '%g/^\(.*\)\(\r\?\n\1\)\+$/d \| %!uniq'<cr>``
 " remove trailing whitespaces
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
 nnoremap <silent><space>dp :'{,'}s/\s\s\+/ /g<CR>:nohl<CR>``
+nnoremap <silent><space>dP :'{,'}s/\s\s\+//g<CR>:nohl<CR>``
 vnoremap <silent><space>dv :B s/\s\s\+/ /g<cr>:nohl<cr>
 nnoremap <silent><space>d0 :'{,'}s/^\s\+//g<CR>:nohl<CR>``
 nnoremap <silent><space>d$ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>``

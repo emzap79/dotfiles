@@ -961,15 +961,12 @@ fun_ff() {
 
 fun_ffs() {
 
-    # find -type f -exec stat --format '%Y :%y %n' "{}" \; |\
-    # sort -n |\
-    # cut -d: -f2- |\
-    # egrep $(date '+%F') |\
-    # awk '{print $4}' # xargs -n1 -i cp -v "{}" /to/path
-
     find -type f -printf "%T+\t%p\n" |\
         sort -k1 -n |\
         awk '{print $2}'   # tail -nX | xargs -n1 -i cp -v "{}" /to/path
+
+    # alternatively: ls -1t | head -5
+    # http://stackoverflow.com/a/15691395/3569509
 
 }
 
@@ -1213,7 +1210,7 @@ fun_cd() {
     fi
 }
 
-# fun: change to dir from clipboard     {{{3
+# fun: change to dir from clipboard                                              {{{3
 fun_pwd_change(){
     cd $(xclip -o)
 }

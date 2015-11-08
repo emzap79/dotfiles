@@ -115,10 +115,7 @@ str(${1:${VISUAL}})
 endsnippet
 
 snippet sink "Write output from console to file" b
-sink(file="${1:filename}",${2:
-		type = c(${3:"output", "message"}),}
-		split=${4:F},
-		append=${5:F})
+sink("${1:filename}", split=${2:T}, append=${3:T})
 $0
 sink()
 endsnippet
@@ -569,7 +566,7 @@ sort(${1:${VISUAL}})
 endsnippet
 
 snippet cu "Cut" w
-cut(${1:${VISUAL}}, ${2:breaks=${3:T}, labels = ${4:NULL}, include.lowest = ${5:FALSE}, right = ${6:TRUE}}
+cut(${1:${VISUAL}}, ${2:breaks=${3:T}, labels = ${4:NULL}, include.lowest = ${5:FALSE}, right = ${6:TRUE}})
 endsnippet
 
 ###########################

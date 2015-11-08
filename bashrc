@@ -3,7 +3,8 @@
 
 # paths                        {{{2
 
-export SEM="Sommer2015"
+export SEM="Winter1516"
+export SEMALT="Sommer2015"
 export UNI="/home/zapata/Unimaterialien"
 export DOK="/home/zapata/Dokumente"
 export LIX="$DOK/Linux"

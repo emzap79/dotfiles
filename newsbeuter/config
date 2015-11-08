@@ -252,11 +252,11 @@ urls-source "local"
 
 # reload & refresh        {{{1
 
-auto-reload               no
+auto-reload               yes
 refresh-on-startup        no
 reload-only-visible-feeds yes
 reload-threads            2
-reload-time               60
+reload-time               240
 suppress-first-reload     yes
 
 # browser settings        {{{1

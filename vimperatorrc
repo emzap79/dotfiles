@@ -50,13 +50,13 @@ silent qmark B https://html5reader.buch.de/library/library.html#!/library
 silent qmark c http://www.google.com/calendar/render?hl=de
 silent qmark C https://bay01.calendar.live.com/calendar/calendar.aspx
 silent qmark d https://banking.ing-diba.de/webkunden/goLogin.do
-silent qmark D https://www.dropbox.com/home
+silent qmark D https://drive.google.com/drive/u/0/my-drive
 silent qmark e http://ebay.de
 silent qmark E http://kleinanzeigen.ebay.de
 silent qmark f http://facebook.com
 silent qmark F http://finanzen.net
 silent qmark g https://github.com/emzap79
-silent qmark G https://drive.google.com/drive/u/0/my-drive
+silent qmark G https://www.greenwheels.com/book/login
 silent qmark h http://opus.bsz-bw.de/hdms/dokserver.php?la=de
 silent qmark H http://www.hotmail.com/
 silent qmark i http://www.instapaper.com/u
