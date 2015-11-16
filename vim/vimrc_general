@@ -341,10 +341,10 @@ set fo+=tocqrnl
 
 " recognizes numbered lists
 " http://stackoverflow.com/a/22703433/3569509
-" set flp="^\s*\(\d\{1,2\}[\]:.)}\t ]\|[-*%]\s\)\s*"
+set flp="^\s*\(\d\{1,2\}[\]:.)}\t ]\|[-*%]\s\)\s*"
 
 " http://www.methods.co.nz/asciidoc/chunked/ch36.html
-set flp=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
+" set flp=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
 
 " shortmessage                                                " {{{2
 

@@ -312,7 +312,7 @@ http://newsfeed.zeit.de/zeit-magazin/index                 "1610 Magazin"
 
 # 07. Parties                      {{{1
 # queries                          {{{2
-"query:Parties // Salsa:     ((title =~ \"Salsa\" or link =~ \"Salsa\") and (                                                                                                               tags=~ \"171[0-9]\")) or (                                                                                                                                                                                                                                                                                tags=~ \"17[23][0-9]\")"  "07.10"
+"query:Parties // Salsa:     ((title =~ \"Salsa\" or link =~ \"Salsa\") and (tags =~ \"171[0-9]\")) or (tags =~ \"17[23][0-9]\")"  "07.1"
 
 # urls                             {{{2
 # Parties
@@ -375,6 +375,7 @@ http://blog.mellowmonk.com/feeds/posts/default          "1840 Japanese Green Tea
 "query:Aktionen // Rabatt:        tags=~ \"19[0-9][0-9]\" and ((title =~ \"[3-9][0-9]\+ *€\" and title =~ \"Gutschein\") or title =~ \"[3-9][0-9]\+ *%\")" "09.00"
 "query:Aktionen // Rasierklingen: tags=~ \"19[0-9][0-9]\" and (title =~ \"rasierkl.*\" or title =~ \"wiĺkinson\" or title =~ \"gillette\")" "09.00"
 "query:Aktionen // Ebooks:        tags=~ \"19[0-9][0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))" "09.00"
+"query:Aktionen // Notebook:      tags=~ \"19[0-9][0-9]\" and (title =~ \"notebook \" and title =~ \"laptop\" and (title !~ \"ebookers\" and title !~ \"e-book\"))" "0.09"
 
 # Technik und Sonstige
 "query:Aktionen // DSL Flat:     tags=~ \"19[0-9][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"
@@ -389,7 +390,8 @@ http://blog.mellowmonk.com/feeds/posts/default          "1840 Japanese Green Tea
 # "query:Aktionen // Schuhe:      tags=~ \"19[4][0-9]\" and title =~ \"Rabattstufe [6-9]\"" "09.00"
 
 # Alles
-"query:Aktionen // Spirituosen:   tags=~ \"19[0-9][0-9]\" and (title =~ \"Pils\" or title =~ \"Augustiner\" or title =~ \"Cocktail\" or title =~ \" Gin \" or title =~ \" Rum \" or title =~ \"Spirituosen\" or title =~ \"Vodka\" or title =~ \"Tequila\")" "09.00"
+"query:Aktionen // Spirituosen:   tags=~ \"19[0-9][0-9]\" and (title =~ \"Cocktail\" or title =~ \"spirituo\" or title =~ \"rmeister\" or title =~ \"odka\" or title =~ \"tequila\")" "09.00"
+"query:aktionen // Bier & Wein:   tags=~ \"19[0-9][0-9]\" and (title =~ \"sekt\" or title =~ \"wein \" or title =~ \"pils\" or title =~ \"becks\" or title =~ \"hasser.der\" or title =~ \"warsteiner\" or title =~ \"paulaner\" or title =~ \"erdinger\")" "09.00"
 "query:Aktionen // Spirituosen:   tags=~ \"19[0-9][0-9]\" and (link =~ \"spirituosen\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\")" "09.00"
 
 # queries                          {{{2
