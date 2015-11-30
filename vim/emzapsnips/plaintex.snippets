@@ -234,7 +234,6 @@ ${0:${VISUAL}}${7:
 
 % section % $4 (end)}
 endsnippet
-
 snippet par "Paragraph" b
 \paragraph{${1:paragraph name}}
 \label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
@@ -325,7 +324,16 @@ endsnippet
 snippet inp "Create inputcommand" b
 \input{${1:${VISUAL}}}
 endsnippet
-
+# font styles
+snippet bold "Bold fonts" b
+{\bfseries ${1:${VISUAL}}}
+endsnippet
+snippet ital "Italic Font Style" b
+{\itseries ${1:${VISUAL}}}
+endsnippet
+snippet underline "Underline Words" b
+\underline{${1:${VISUAL}}}
+endsnippet
 
 ############
 #  Rnoweb  #

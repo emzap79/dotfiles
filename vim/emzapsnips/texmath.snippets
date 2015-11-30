@@ -34,6 +34,9 @@ endsnippet
 snippet left "Brackets, Braces, Parenthesis" w
 \left${1:parenth} ${2:${VISUAL:contents}} \right${1/(\()$|(\[)$|(\{)/(?1:\))(?2:\])(?3:\})/} $0
 endsnippet
+snippet int "Integration" w
+\\int${1:_{${2:from}}^{${3:to}}}
+endsnippet
 snippet sum "Summary" w
 \\sum${1:_{${3:${2:i}=1}}^{${4:n}}}
 endsnippet

@@ -807,13 +807,13 @@
 "scan-area"
 "Maximum"
 "tl-x"
-16649
+16660
 "tl-y"
-16649
+16660
 "br-x"
-13702268
+14111344
 "br-y"
-19446232
+19459328
 "quick-format"
 "Maximum"
 "xsane-main-window-x-position"
@@ -823,7 +823,7 @@
 "xsane-main-window-width"
 321
 "xsane-main-window-height"
-475
+553
 "xsane-project-window-x-position"
 1737
 "xsane-project-window-y-position"
@@ -857,7 +857,7 @@
 "xsane-preview-window-height"
 831
 "xsane-gamma"
-101673
+95367
 "xsane-gamma-red"
 65536
 "xsane-gamma-green"

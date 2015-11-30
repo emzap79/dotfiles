@@ -76,6 +76,11 @@ nmap <localleader>j <Plug>RNLeftPart
 nmap <localleader>jj <Plug>RILeftPart
 nmap <localleader>k <Plug>RNRightPart
 
+" Send character under cursor {{{3
+nnoremap grr grl
+vnoremap grr grl
+inoremap grr grl
+
 " Send CodeChunk                             {{{3
 nmap <localleader>c <Plug>REDSendChunk
 nmap <localleader>ch <Plug>RSendChunkFH

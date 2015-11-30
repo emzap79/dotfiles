@@ -241,7 +241,8 @@ http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss            "1424 
 
 "query:Fussball // MSV: tags=~ \"159[0]\"" "05.00"
 "query:Fussball // BVB: tags=~ \"159[1]\" or ( tags=~ \"15[58][0-9]\" and (title =~ \"BVB\" or title =~ \"Watzke\" or title =~ \"Tuchel\"))" "05.00"
-"query:Fussball // 11 Freunde Spielbericht: tags=~ \"155[1]\" and title =~ \"[0-9]{1,2}[^0-9,][0-9]{1,2}\"" "05.00"
+"query:Fussball // 11 Freunde Spielbericht: tags=~ \"155[1]\" and title =~ \"[0-9]{1,2}[^0-9,\.][0-9]{1,2}\"" "05.00"
+"query:Fussball // BL Ergebnisse: tags=~ \"155[0]\" and link =~ \"spielbericht\"" "05.00"
 "query:Fussball // Spieler des Tages: ( tags=~ \"155[1]\" and title =~ \" des tages\")" "05.00"
 "query:Fussball // Traumtore: tags=~ \"155[1]\" and link =~ \".*traumtore.*\"" "05.00"
 
@@ -253,8 +254,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCu1FJLH2dp7dwKoCCGFkaMg    
 "query:Basketball // International:  tags=~ \"151[0-9]\" and (title =~ \"Eurobasket\" or title =~ \"DBB\")"         "05.10"
 "query:Basketball // NBA:            tags=~ \"152[0-9]\""                                                           "05.20"
 
-"query:Fussball // Bundesliga:       tags=~ \"155[0-9]\" and (link !~ \"livematch\" and link !~ \"spielbericht\")"  "05.50"
-# "query:Fussball // Champions League: tags=~ \"156[0-9]\" and (link !~ \"livematch\" and link !~ \"spielbericht\")"  "05.60"
+"query:Fussball // Bundesliga:       tags=~ \"155[1]\" and (link !~ \"champions-league\" and link !~ \"livematch\" and link !~ \"spielbericht\")"  "05.50"
 "query:Fussball // Champions League: tags=~ \"155[1]\" and link =~ \"champions-league\""  "05.60"
 "query:Fussball // International:    tags=~ \"157[0-9]\""                                                           "05.70"
 
@@ -376,6 +376,7 @@ http://blog.mellowmonk.com/feeds/posts/default          "1840 Japanese Green Tea
 "query:Aktionen // Rasierklingen: tags=~ \"19[0-9][0-9]\" and (title =~ \"rasierkl.*\" or title =~ \"wiĺkinson\" or title =~ \"gillette\")" "09.00"
 "query:Aktionen // Ebooks:        tags=~ \"19[0-9][0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))" "09.00"
 "query:Aktionen // Notebook:      tags=~ \"19[0-9][0-9]\" and (title =~ \"notebook \" and title =~ \"laptop\" and (title !~ \"ebookers\" and title !~ \"e-book\"))" "0.09"
+"query:Aktionen // Kleinanzeigen: tags=~ \"197[0-9]\""  "09.00"
 
 # Technik und Sonstige
 "query:Aktionen // DSL Flat:     tags=~ \"19[0-9][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"
@@ -401,7 +402,7 @@ http://blog.mellowmonk.com/feeds/posts/default          "1840 Japanese Green Tea
 "query:Angebote // Kleidung:       tags=~ \"19[4][0-9]\""  "09.40"
 "query:Angebote // Gutscheine:     tags=~ \"19[5][0-9]\""  "09.50"
 "query:Angebote // Reisen:         tags=~ \"19[6][0-9]\""  "09.60"
-"query:Angebote // eBooks:         tags=~ \"19[7][0-9]\""  "09.70"
+"query:Angebote // eBay:           tags=~ \"19[7][0-9]\""  "09.70"
 "query:Angebote // Preisvergleich: tags=~ \"19[8][0-9]\""  "09.80"
 "query:Angebote // Discounter:     tags=~ \"19[9][0-9]\""  "09.90"
 
@@ -433,6 +434,8 @@ http://www.gutschein-finder.org/shops/zalando-gutschein-2/feed/         "1950 Kl
 http://www.fernbusse.de/feed/                                           "1960 Reisen"
 
 # eBooks                           {{{3
+# ebaysearches@yopmail.com
+http://www.yopmail.com/en/rssfeed.php?login=ebaysearches&h=564c95e7efd1b465639155   "1970 Ebay Kleinanzeigen"
 # http://cts.tradepub.com/cts4/?ptnr=www&tm=rss_ALL                       "1970 Tradepub"
 
 # Preisvergleich                   {{{3

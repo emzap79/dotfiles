@@ -5,7 +5,7 @@
 " File: vimrc_mappings
 " Author: Jonas Petong
 " Description: vim mapping configuration
-" Last Modified: März 12, 2015
+" Last Modified: November 21, 2015
 
 " Font Matter                                                                  {{{1
 " Mapping Examples                                                             {{{2
@@ -62,11 +62,11 @@ vnoremap <f1><esc> :echom "f2: save and source file \| f3: bufferlist \| f4: ope
 
 " save file and source vimrc
 if has("gui_running")
-    nnoremap <silent><f2> :exe "w \| so $MYGVIMRC \| %foldo!"<cr>
-    inoremap <silent><f2> <esc>:exe "w \| so $MYGVIMRC \| %foldo!"<cr>
+    nnoremap <silent><f2> :silent! Git add %:p<CR>:exe "w \| so $MYGVIMRC \| %foldo!"<cr><cr>
+    inoremap <silent><f2> <esc>:silent! Git add %:p<CR>:exe "w \| so $MYGVIMRC \| %foldo!"<cr><cr>
 else
-    nnoremap <silent><f2> :exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
-    inoremap <silent><f2> <esc>:exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
+    nnoremap <silent><f2> :silent! Git add %:p<CR>:exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
+    inoremap <silent><f2> <esc>:silent! Git add %:p<CR>:exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
 endif
 
 "save & exit
@@ -240,9 +240,8 @@ inoremap <f10> <ESC>:call ToggleYCM()<CR>
 " save file in normal-mode                                                     {{{2
 
 " save file by hitting <space>
-nnoremap <space><space> :wall!<CR>
-vnoremap <space><space> <ESC>:wall!<CR>
-
+nnoremap <silent><space><space> :wall!<CR>:echo 'all open buffers saved!'<CR>
+vnoremap <silent><space><space> <ESC>:wall!<CR>:echo 'all open buffers saved!'<CR>
 " paste to clipboard                                                           {{{2
 
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
@@ -469,6 +468,10 @@ nnoremap <leader>bu :BundleInstall!<cr>
 inoremap <leader>bu <esc>:BundleInstall!<cr>
 
 " " vim-comment <plugin>                                                        {{{2
+
+nnoremap <silent><leader>yP :normal yyp<CR>
+vnoremap <silent><leader>yP <ESC>:normal yyp<CR>
+inoremap <silent><localleader>yP <ESC>:normal yyp<CR>
 
 nnoremap <silent><leader>yp :normal yygccp<CR>
 vnoremap <silent><leader>yp <ESC>:normal yygccp<CR>
@@ -896,17 +899,17 @@ command!  CompilePdfTeX execute "silent !pdftex % > /dev/null && xdg-open %:r.pd
 command!  CompilePdfXeLaTeX execute "silent !xelatex\ % > /dev/null && xdg-open %:r.pdf > /dev/null 2>&1 &" | redraw!
 
 " see: http://plankenau.com/blog/post-8/latexInVim
-nnoremap <leader>cr :CompilePdfRnw<CR>
-inoremap <localleader>ct <ESC>:CompilePdfRnw<CR>
-nnoremap <leader>ct :CompilePdfTeX<CR>
-inoremap <localleader>ct <ESC>:CompilePdfTeX<CR>
-vnoremap <leader>ct <ESC>:CompilePdfTeX<CR>
-nnoremap <leader>cl :CompilePdfLaTeX<CR>
-inoremap <localleader>cl <ESC>:CompilePdfLaTeX<CR>
-vnoremap <leader>cl <ESC>:CompilePdfLaTeX<CR>
-nnoremap <leader>cx :CompilePdfXeLaTeX<CR>
-inoremap <localleader>cx <ESC>:XeLatexCompilePDF<CR>
-vnoremap <leader>cx <ESC>:XeLatexCompilePDF<CR>
+nnoremap <silent><leader>cr :silent! CompilePdfRnw<CR>
+inoremap <silent><localleader>ct <ESC>:CompilePdfRnw<CR>
+nnoremap <silent><leader>ct :silent! CompilePdfTeX<CR>
+inoremap <silent><localleader>ct <ESC>:CompilePdfTeX<CR>
+vnoremap <silent><leader>ct <ESC>:CompilePdfTeX<CR>
+nnoremap <silent><leader>cl :silent! CompilePdfLaTeX<CR>
+inoremap <silent><localleader>cl <ESC>:CompilePdfLaTeX<CR>
+vnoremap <silent><leader>cl <ESC>:CompilePdfLaTeX<CR>
+nnoremap <silent><leader>cx :silent! CompilePdfXeLaTeX<CR>
+inoremap <silent><localleader>cx <ESC>:XeLatexCompilePDF<CR>
+vnoremap <silent><leader>cx <ESC>:XeLatexCompilePDF<CR>
 
 " Open any kind of files as pdf (requires pandoc installed!)
 " http://stackoverflow.com/a/20799071
