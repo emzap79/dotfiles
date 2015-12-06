@@ -961,12 +961,13 @@ fun_ff() {
 
 fun_ffs() {
 
-    find -type f -printf "%T+\t%p\n" |\
-        sort -k1 -n |\
-        awk '{print $2}'   # tail -nX | xargs -n1 -i cp -v "{}" /to/path
+    # find -type f -printf "%T+\t%p\n" |\
+    #     sort -k1 -n |\
+    #     awk '{print $2}'   # tail -nX | xargs -n1 -i cp -v "{}" /to/path
 
-    # alternatively: ls -1t | head -5
     # http://stackoverflow.com/a/15691395/3569509
+    # alternatively: ls -1t | head -5
+    ls -1t | head -5
 
 }
 

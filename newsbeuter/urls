@@ -66,7 +66,7 @@ http://tradetheticker.blogspot.com/feeds/posts/default                          
 http://tradingwithlinux.blogspot.com/feeds/posts/default                                                                              "1130 Tradingwithlinux"
 http://www.riskreversal.com/feed/                                                                                                     "1130 Riskreversal"
 http://feeds.feedburner.com/NakedCapitalism                                                                                           "1130 NakedCapitalism"
-http://alexgurevich.tumblr.com/rss                                                                                                    "1131 Alex Grugevich"
+http://alexgurevich.tumblr.com/rss                                                                                                    "1131 Alex Gurevich"
 
 # Sonstige
 # http://www.wsj.com/xml/rss/3_7031.xml                                                                                               "1110 WSJ :: Markets"
@@ -368,42 +368,44 @@ http://blog.mellowmonk.com/feeds/posts/default          "1840 Japanese Green Tea
 # 09. Angebote & Gutscheine        {{{1
 
 # filter
-"query:Aktionen // TOP:           tags=~ \"19[0-9][0-9]\" and (title =~ \"sehr\ günstig\" or title =~ \"günstigst\" or title =~ \"preisfehler\" or title =~ \"deal. der woche\" or title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion!\")" "09.00"
-"query:Aktionen // Supermarkt:    tags=~ \"19[0-9][0-9]\" and (title =~ \"supermarkt\" or title =~ \"10 drogerie\")" "09.00"
+"query:Aktionen // TOP:                  tags=~ \"19[0-9][0-9]\" and (title =~ \"sehr\ günstig\" or title =~ \"günstigst\" or title =~ \"preisfehler\" or title =~ \"deal. der woche\" or title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion!\")" "09.00"
+"query:Aktionen // Supermarkt:           tags=~ \"19[0-9][0-9]\" and (title =~ \"supermarkt\" or title =~ \"10 drogerie\")" "09.00"
 
 # Aktionen
-"query:Aktionen // Rabatt:        tags=~ \"19[0-9][0-9]\" and ((title =~ \"[3-9][0-9]\+ *€\" and title =~ \"Gutschein\") or title =~ \"[3-9][0-9]\+ *%\")" "09.00"
-"query:Aktionen // Rasierklingen: tags=~ \"19[0-9][0-9]\" and (title =~ \"rasierkl.*\" or title =~ \"wiĺkinson\" or title =~ \"gillette\")" "09.00"
-"query:Aktionen // Ebooks:        tags=~ \"19[0-9][0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))" "09.00"
-"query:Aktionen // Notebook:      tags=~ \"19[0-9][0-9]\" and (title =~ \"notebook \" and title =~ \"laptop\" and (title !~ \"ebookers\" and title !~ \"e-book\"))" "0.09"
-"query:Aktionen // Kleinanzeigen: tags=~ \"197[0-9]\""  "09.00"
+"query:Aktionen // Rabatt:               tags=~ \"19[0-9][0-9]\" and ((title =~ \"[3-9][0-9]\+ *€\" and title =~ \"Gutschein\") or title =~ \"[3-9][0-9]\+ *%\")" "09.00"
+"query:Aktionen // Rasierklingen:        tags=~ \"19[0-9][0-9]\" and (title =~ \"rasierkl.*\" or title =~ \"wiĺkinson\" or title =~ \"gillette\")" "09.00"
+"query:Aktionen // Ebooks:               tags=~ \"19[0-9][0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))" "09.00"
+"query:Aktionen // Notebook:             tags=~ \"19[0-9][0-9]\" and (title =~ \"notebook \" and title =~ \"laptop\" and (title !~ \"ebookers\" and title !~ \"e-book\"))" "0.09"
+"query:Aktionen // Tablet:               tags=~ \"19[0-9][0-9]\" and (title =~ \"tablet\" or title =~ \"ipad\")" "09.00"
+"query:Aktionen // Kleinanzeigen:        tags=~ \"197[0-9]\""  "09.00"
 
 # Technik und Sonstige
-"query:Aktionen // DSL Flat:     tags=~ \"19[0-9][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"
-"query:Aktionen // Flüge:        tags=~ \"19[0-9][0-9]\" and (title =~ \"Flug\" or title =~ \"Flüge\")" "09.00"
-"query:Aktionen // Garmin:       tags=~ \"19[0-9][0-9]\" and title =~ \"garmin\"" "09.00"
-"query:Aktionen // Wasserfilter: tags=~ \"19[0-9][0-9]\" and (title =~ \"Brita\" or title =~ \"Wasserfilter\")" "09.00"
-"query:Aktionen // Föhn:         tags=~ \"19[0-9][0-9]\" and title =~ \"F.hn\"" "09.00"
-"query:Aktionen // Speaker:      tags=~ \"19[0-9][0-9]\" and (title !~ \"bluetooth\" and title !~ \"BT-\") and (title =~ \"subwoof\" or title =~ \"lautsprecher\" or title =~ \"speaker\")" "09.00"
+"query:Aktionen // DSL Flat:             tags=~ \"19[0-9][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"
+"query:Aktionen // Garmin:               tags=~ \"19[0-9][0-9]\" and title =~ \"garmin\"" "09.00"
+"query:Aktionen // Föhn:                 tags=~ \"19[0-9][0-9]\" and title =~ \"F.hn\"" "09.00"
+# "query:Aktionen // Speaker:            tags=~ \"19[0-9][0-9]\" and (title !~ \"bluetooth\" and title !~ \"BT-\") and (title =~ \"subwoof\" or title =~ \"lautsprecher\" or title =~ \"speaker\")" "09.00"
 
 # Groupon, Schuhe & Gutscheine
-# "query:Aktionen // Groupon:     tags=~ \"19[3][0-9]\" and (title =~ \"sushi\" or title =~ \"massage\")" "09.00"
-# "query:Aktionen // Schuhe:      tags=~ \"19[4][0-9]\" and title =~ \"Rabattstufe [6-9]\"" "09.00"
+# "query:Aktionen // Groupon:            tags=~ \"19[3][0-9]\" and (title =~ \"sushi\" or title =~ \"massage\")" "09.00"
+# "query:Aktionen // Schuhe:             tags=~ \"19[4][0-9]\" and title =~ \"Rabattstufe [6-9]\"" "09.00"
 
 # Alles
-"query:Aktionen // Spirituosen:   tags=~ \"19[0-9][0-9]\" and (title =~ \"Cocktail\" or title =~ \"spirituo\" or title =~ \"rmeister\" or title =~ \"odka\" or title =~ \"tequila\")" "09.00"
-"query:aktionen // Bier & Wein:   tags=~ \"19[0-9][0-9]\" and (title =~ \"sekt\" or title =~ \"wein \" or title =~ \"pils\" or title =~ \"becks\" or title =~ \"hasser.der\" or title =~ \"warsteiner\" or title =~ \"paulaner\" or title =~ \"erdinger\")" "09.00"
-"query:Aktionen // Spirituosen:   tags=~ \"19[0-9][0-9]\" and (link =~ \"spirituosen\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\")" "09.00"
+"query:Aktionen // Wasserfilterkapseln:  tags=~ \"19[0-9][0-9]\" and (title =~ \"BWT\" or title =~ \"best water technology\")" "09.00"
+"query:Aktionen // Spirituosen:          tags=~ \"19[0-9][0-9]\" and (title =~ \"Cocktail\" or title =~ \"spirituo\" or title =~ \"rmeister\" or title =~ \"odka\" or title =~ \"tequila\")" "09.00"
+"query:aktionen // Sekt & Wein:          tags=~ \"19[0-9][0-9]\" and (title =~ \"sekt\" or title =~ \"wein \")" "09.00"
+"query:aktionen // Bier:                 tags=~ \"19[0-9][0-9]\" and (title =~ \"becks\" or title =~ \"augustiner\" or title =~ \"hasser.der\" or title =~ \"warsteiner\" or title =~ \"paulaner\" or title =~ \"erdinger\" or title =~ \"pils\")" "09.00"
+"query:Aktionen // Spirituosen:          tags=~ \"19[0-9][0-9]\" and (link =~ \"spirituosen\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\")" "09.00"
+"query:Aktionen // Kaffeekapseln:        tags=~ \"19[0-9][0-9]\" and link =~ \"tassimo\"" "09.00"
 
 # queries                          {{{2
 "query:Angebote // Technik:        tags=~ \"19[1][0-9]\""  "09.10"
 "query:Angebote // Sonstige:       tags=~ \"19[2][0-9]\""  "09.20"
 "query:Angebote // Groupon:        tags=~ \"19[3][0-9]\""  "09.30"
-"query:Angebote // Kleidung:       tags=~ \"19[4][0-9]\""  "09.40"
+"query:Angebote // Schuhe:         tags=~ \"19[4][0-9]\""  "09.40"
 "query:Angebote // Gutscheine:     tags=~ \"19[5][0-9]\""  "09.50"
 "query:Angebote // Reisen:         tags=~ \"19[6][0-9]\""  "09.60"
 "query:Angebote // eBay:           tags=~ \"19[7][0-9]\""  "09.70"
-"query:Angebote // Preisvergleich: tags=~ \"19[8][0-9]\""  "09.80"
+"query:Angebote // Bier:           tags=~ \"19[8][0-9]\""  "09.80"
 "query:Angebote // Discounter:     tags=~ \"19[9][0-9]\""  "09.90"
 
 # urls                             {{{2
@@ -422,7 +424,7 @@ http://feeds.feedburner.com/sparbote-schnaeppchen                       "1926 So
 http://api.groupon.de/feed/api/v1/deals/oftheday/DE/duisburg            "1930 Groupon"
 http://api.groupon.de/feed/api/v1/deals/oftheday/DE/essen               "1930 Groupon"
 
-# Kleidung                         {{{3
+# Schuhe
 http://rss.schuh-helden.de/feed.php?sizes=45,46                         "1940 Kleidung"
 
 # Gutscheine                       {{{3
@@ -434,14 +436,10 @@ http://www.gutschein-finder.org/shops/zalando-gutschein-2/feed/         "1950 Kl
 http://www.fernbusse.de/feed/                                           "1960 Reisen"
 
 # eBooks                           {{{3
-# ebaysearches@yopmail.com
 http://www.yopmail.com/en/rssfeed.php?login=ebaysearches&h=564c95e7efd1b465639155   "1970 Ebay Kleinanzeigen"
-# http://cts.tradepub.com/cts4/?ptnr=www&tm=rss_ALL                       "1970 Tradepub"
 
-# Preisvergleich                   {{{3
-http://www.mein-wunschpreis.com/rss.php?BrowseNode=elektronikbestpreis  "1980 Technik"
-http://www.chip.de/preisvergleich/rss.php?feed=beliebteste_produkte     "1980 Sonstige"
-http://www.mein-wunschpreis.com/rss.php?BrowseNode=elektronikbestpreis  "1980 Technik"
+# Spirituosen & Bier               {{{2
+http://www.yopmail.com/en/rssfeed.php?login=rssbeerfeed&h=5662df4e3d5ee933333848 "1980 Bierangebote"
 
 # Supermarkt                       {{{3
 # # Elektronik
@@ -453,7 +451,7 @@ http://www.discounto.de/Elektronik/euronics/get.rss20                   "1990 Eu
 # # Discounter
 http://www.discounto.de/Discounter/Netto-Marken-Discount/get.rss20      "1991 Netto"
 http://www.discounto.de/Discounter/kodi/get.rss20                       "1991 Kodi"
-http://www.discounto.de/Discounter/Marktkauf/get.rss20                  "1991 Marktkauf"
+http://www.discounto.de/Discounter/Kaufland/get.rss20                   "1991 Kaufland"
 http://www.discounto.de/Discounter/lidl/get.rss20                       "1991 Lidl"
 http://www.discounto.de/Discounter/tchibo/get.rss20                     "1991 Tchibo"
 http://www.discounto.de/Discounter/plus/get.rss20                       "1991 Plus"
