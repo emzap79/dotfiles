@@ -44,14 +44,13 @@ set verbose=1
 set visualbell
 
 " QMarks                                             {{{1
-silent qmark a http://www.ardmediathek.de/tv
-silent qmark b http://scores.espn.go.com/nba/scoreboard
-silent qmark B https://html5reader.buch.de/library/library.html#!/library
+silent qmark a http://www.discounto.de/Angebot-Kategorie/Alkoholische-Getraenke/Discounter:Netto-Marken-Discount/
+silent qmark b https://html5reader.buch.de/library/library.html#!/library
 silent qmark c http://www.google.com/calendar/render?hl=de
 silent qmark C https://bay01.calendar.live.com/calendar/calendar.aspx
 silent qmark d https://banking.ing-diba.de/webkunden/goLogin.do
 silent qmark D https://drive.google.com/drive/u/0/my-drive
-silent qmark e http://ebay.de
+silent qmark e http://scores.espn.go.com/nba/scoreboard
 silent qmark E http://kleinanzeigen.ebay.de
 silent qmark f http://facebook.com
 silent qmark F http://finanzen.net

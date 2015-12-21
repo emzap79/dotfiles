@@ -284,6 +284,9 @@ command_not_found_handle() {
         v*) vim ${2%%.*}.${1#v}
             return 0
             ;;
+        ls*) ls *.${1#ls}
+            return 0
+            ;;
         g*) git ${1#g} "${@:2}"
             return 0
             ;;
@@ -354,7 +357,8 @@ alias ltmk="latexmk -pvc"
 alias ltpdfl="pdflatex"
 alias ltcl="rm -f *.aux *.toc *.bbl *.idx *.ilg *.ind *.log *.toc *.blg *.out *.glg *.glo *.gls *.ist *.maf *.mtc *.gz *.backup *.lot *.lof *.fls"
 alias ltsw=fun_latex_sweave
-alias ltrd=fun_latex_rd
+alias pdfl=fun_latex_rd
+
 
 # latex symbols
 if [[ -e /home/${USER}/Dokumente ]]; then
@@ -1223,9 +1227,11 @@ fun_latex_sweave() {
     R CMD Sweave "${1%%.*}.rnw" && R CMD pdflatex "${1%%.*}.tex" && R CMD bibtex "${1%%.*}.aux" && evince "$1".pdf &
 }
 
-fun_latex_sweave() {
-    # http://stackoverflow.com/a/3780455/3569509
-    R CMD Rd2pdf --title=${1} -o /tmp/foo.pdf *.Rd
+fun_latex_rd() {
+
+    pdflatex ${1%%.*}.tex
+    pdflatex ${1%%.*}.tex
+    xdg-open ${1%%.*}.pdf &
 }
 
 fun_loop_pdflatex() {
