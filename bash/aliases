@@ -258,6 +258,9 @@ command_not_found_handle() {
         xls2*) ssconvert -S "$2" "${2%%.*}"."${1#xls2}"
             return 0
             ;;
+        ods2*) ssconvert -S "$2" "${2%%.*}"."${1#ods2}"
+            return 0
+            ;;
         xml2*) ssconvert -S "$2" "${2%%.*}"."${1#xml2}"
             return 0
             ;;
@@ -368,6 +371,7 @@ fi
 # pdf                                                                            {{{2
 
 alias pdfbar="pdftk *.pdf cat output bar.pdf; evince bar.pdf; rm -v bar.pdf"
+alias pdftkk=fun_pdftk
 alias pdfgrayscale="gs -sOutputFile=grayscale.pdf -sDEVICE=pdfwrite \
     -sCompatibilityLevel=1.5 -dProcessColorModel=/DeviceGray \
     -sColorConversionStrategy=Gray -dNOPAUSE -dBATCH"
@@ -885,7 +889,8 @@ curl -L -s https://www.gitignore.io/api/$@ ;
 # fun: conv images to pdf                                                        {{{3
 
 fun_conv_img_to_pdf() {
-    sam2p -e -pdf:2 "${1%%.*}"."${1##*.}" "${1%%.*}".pdf
+    # sam2p -e -pdf:2 "${1%%.*}"."${1##*.}" "${1%%.*}".pdf
+    sam2p -e ${1%%.*}.${1##*.} ${1%%.*}.pdf
 }
 
 # fun: enroll packed files                                                       {{{3
@@ -921,6 +926,18 @@ fun_pdf_image_extract(){
     pdfimages -j "$1" "${1%%.*}"."${1##*.}"
 
 }
+
+
+# fun: split pdf regarding txt file                                              {{{3
+#
+# pages;filename
+
+fun_pdftk(){
+    cat $1 |\
+        while read l
+        do pdftk $2 cat $(echo $l | cut -f1 -d';') output $(echo $l | cut -f2 -d';').pdf
+        done
+    }
 
 # fun: create gif from video                                                     {{{3
 
