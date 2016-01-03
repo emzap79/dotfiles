@@ -51,13 +51,11 @@ http://www.cnbc.com/id/10000664/device/rss/rss.html                             
 http://www.businessweek.com/rss/bwdaily.rss                                                                                           "1111 Ticker"
 
 # Deutschland
-# http://www.wiwo.de/contentexport/feed/rss/finanzen                                                                                    "1115 Wirtschaftswoche"
 http://www.handelsblatt.com/contentexport/feed/finanzen/                                                                              "1115 Handelsblatt"
 
 # Wirtschaft
 http://www.faz.net/aktuell/wirtschaft/?rssview=1                                                                                      "1120 FAZ"
 http://www.businessweek.com/topStories/rss/topStories.rss                                                                             "1120 Businessweek"
-http://www.wiwo.de/contentexport/feed/rss/unternehmen                                                                                 "1120 Wirtschaftswoche"
 http://www.handelsblatt.com/contentexport/feed/wirtschaft                                                                             "1120 Handelsblatt"
 
 # Kommentare & Blogs
@@ -88,8 +86,9 @@ http://alexgurevich.tumblr.com/rss                                              
 
 # 02. Politik                      {{{1
 # filter
-http://www.spiegel.de/schlagzeilen/eilmeldungen/index.rss                                                                                            "02.00" "Breaking"
-"query:Politik // Kurden:                                                                                                                                                                   tags=~ \"12[0-9]{2,2}\" and (title =~ \"kurden\" or title =~ \"PKK\" or title =~ \"erdo.an. \" or title =~ \"kurdis*\")"  "02.00"
+http://www.spiegel.de/schlagzeilen/eilmeldungen/index.rss   "02.00" "Breaking"
+"query:Politik // Kurden: tags=~ \"12[0-9]{2,2}\" and (title =~ \"kurden\" or title =~ \"PKK\" or title =~ \"erdo.an. \" or title =~ \"kurdis*\")"  "02.00"
+"query:Politik // Mexiko: tags=~ \"12[0-9]{2,2}\" and (title =~ \"mexico\" or title =~ \"mexiko\")"  "02.00"
 
 # queries                          {{{2
 "query:Politik // Inland:                                                                                                                                                                   tags=~ \"121[0-9]\""  "02.10"
@@ -378,7 +377,7 @@ http://blog.mellowmonk.com/feeds/posts/default          "1840 Japanese Green Tea
 "query:Aktionen // Rasierklingen:        tags=~ \"19[0-9][0-9]\" and (title =~ \"rasierkl.*\" or title =~ \"wiĺkinson\" or title =~ \"gillette\")" "09.00"
 "query:Aktionen // Ebooks:               tags=~ \"19[0-9][0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))" "09.00"
 "query:Aktionen // Notebook:             tags=~ \"19[0-9][0-9]\" and (title =~ \"notebook \" and title =~ \"laptop\" and (title !~ \"ebookers\" and title !~ \"e-book\"))" "0.09"
-"query:Aktionen // Tablet:               tags=~ \"19[0-9][0-9]\" and (title =~ \"tablet\" or title =~ \"ipad\")" "09.00"
+"query:Aktionen // Tablet:               tags=~ \"19[0-9][0-9]\" and (title =~ \"tablet\" or title =~ \"ipad\") and (title !~ \"tabletten\")" "09.00"
 "query:Aktionen // Kaffeemühle:          tags=~ \"19[0-9][0-9]\" and (title =~ \"kaffeem.hle\" or title =~ \"kaffee\")" "09.00"
 "query:Aktionen // Kleinanzeigen:        tags=~ \"197[0-9]\""  "09.00"
 
@@ -394,7 +393,7 @@ http://blog.mellowmonk.com/feeds/posts/default          "1840 Japanese Green Tea
 
 # Alles
 "query:Aktionen // Wasserfilterkapseln:  tags=~ \"19[0-9][0-9]\" and (title =~ \"BWT\" or title =~ \"best water technology\")" "09.00"
-"query:Aktionen // Spirituosen:          tags=~ \"19[0-9][0-9]\" and (link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"Cocktail\" or link =~ \"spirituo\" or title =~ \"spirituo\" or title =~ \"rmeister\" or title =~ \"odka\" or title =~ \"tequila\")" "09.00"
+"query:Aktionen // Spirituosen:          tags=~ \"19[0-9][0-9]\" and (link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"Cocktail\" or link =~ \"spirituo\" or title =~ \"spirituo\" or title =~ \"bailey\" or title =~ \"rmeister\" or title =~ \"odka\" or title =~ \"tequila\")" "09.00"
 "query:aktionen // Sekt & Wein:          tags=~ \"19[0-9][0-9]\" and (title =~ \"sekt\" or title =~ \"wein \")" "09.00"
 "query:Aktionen // Bier:                 tags=~ \"19[0-9][0-9]\" and (title =~ \"becks\" or title =~ \"fassbrause\" or title =~ \"desperados\" or title =~ \"bier\" or title =~ \"wei.*bier\" or title =~ \"craft\" or title =~ \"augustiner\" or title =~ \"hasser.der\" or title =~ \"warsteiner\" or title =~ \"paulaner\" or title =~ \"erdinger\" or title =~ \"pils\")" "09.00"
 "query:Aktionen // Bierangebote:                 tags=~ \"19[8][0-9]\""  "09.00"
@@ -459,7 +458,7 @@ http://www.discounto.de/Discounter/lidl/get.rss20                       "1991 Li
 http://www.discounto.de/Discounter/tchibo/get.rss20                     "1991 Tchibo"
 http://www.discounto.de/Discounter/plus/get.rss20                       "1991 Plus"
 http://www.discounto.de/Discounter/penny/get.rss20                      "1991 Penny"
-http://www.discounto.de/Discounter/aldi-sued/get.rss20                  "1991 Aldi Süd"
+http://www.discounto.de/Discounter/aldi_sued/get.rss20                  "1991 Aldi Süd"
 
 # # Drogerie
 http://www.discounto.de/Drogerie/Mueller/get.rss20                      "1992 Müller"

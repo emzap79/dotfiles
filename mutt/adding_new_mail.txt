@@ -1,0 +1,5 @@
+File                     , Section         , Number of entries
+~/.msmtp
+~/.fetchmailrc
+~/.mutt/muttKeybinds.priv, Folder-Switching, 1
+~/.mutt/muttHooks.priv   , Accounts        , 2
