@@ -381,6 +381,7 @@ alias pdfsplit="/bin/bash $HOME/bin/pdfPagesToParts.sh"
 alias pdfimg=fun_pdf_image_extract
 alias pdf=fun_pdf    # open default pdf-reader
 alias pdfuni='cat pdfs.txt | while read i; do evince $i; done &'
+alias pdfres=fun_pdf_resize
 
 # latex                                                                          {{{2
 
@@ -428,7 +429,7 @@ alias tvzdfinfo='vlc rtsp://3gp-livestreaming1.zdf.de/liveedge2/de08_v1_710.sdp'
 
 # youtube                                                                        {{{2
 
-alias yt-dl="youtube-dl -x --audio-format mp3"
+alias yt-dl='youtube-dl --yes-playlist -o "%(autonumber)s-%(title)s.%(ext)s"'  # autonumbers titles by downloading order
 alias yt-mps="mpsyt"
 alias yt-vlc-ascii="vlc -V aa "
 alias yt-vlc-novideo="cvlc -V novideo "
@@ -927,6 +928,18 @@ fun_pdf_image_extract(){
 
 }
 
+# fun: pdf resize
+fun_pdf_resize(){
+    # Starte Ghostscript
+    gs\
+        -sDEVICE=pdfwrite\
+        -dFIXEDMEDIA\
+        -dPDFFitPage\
+        -dCompatibilityLevel=1.4\
+        -sPAPERSIZE=$pagescale\
+        -o "${1%%.*}_resized.${1##*.}" $1
+}
+
 
 # fun: split pdf regarding txt file                                              {{{3
 #
@@ -1353,4 +1366,8 @@ fun_gnome() {
 }
 
 ### Other Commands
-# watch -n 5 <command>  # exec command periodically every 5 seconds
+# # exec command periodically every 5 seconds
+# # watch -n 5 <command>
+#
+# # mv salsa-files regarding to txt-file entries
+# # cat salsavids.txt | while read l; do x=$(echo $l | awk '{print $1}'); y=$(echo $l | cut -d '=' -f 2); z=$(lsg $y); zx=$(echo $x | sed 's/#//g'); zy=$(echo $z | sed "s/-$y.mp4//g" | sed 's/ /_/g'); mv -v "$z" "$zx"_"$zy".mp4; done

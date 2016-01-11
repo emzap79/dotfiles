@@ -670,6 +670,10 @@ vnoremap <leader>dt :<c-u>r!othes <c-r>=GetVisualSelection()<cr>
 
 " text replacement                                                             {{{2
 " shortkey for text replacement                                                {{{3
+nnoremap <leader>: :%s/
+vnoremap <leader>: <ESC>:%s/
+inoremap <localleader>: <ESC>:%s/
+
 " http://vimregex.com/#address
 noremap ,; :%s:::g<Left><Left><Left>
 noremap ,, :s:::g<Left><Left><Left>

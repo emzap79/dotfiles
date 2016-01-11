@@ -2,8 +2,8 @@
  (is (window_class) "R_x11")
  (begin
   (println "--[ R-Plots ]--")
-  /* (geometry "679x707+686+60") */
-  (geometry "800x800+1800+0")
+  /* (geometry "800x800+1800+0") */
+  (geometry "679x707+686+0")
   (above)
  )
  )
