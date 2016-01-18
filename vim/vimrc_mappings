@@ -700,12 +700,12 @@ nnoremap <leader>x *``cgn
 nnoremap <leader>X #``cgN
 
 " replace word under cursor in paragraph/buffer
-nnoremap <leader>r :%s/\<<C-r>=expand('<cWORD>')<CR>\>/
-nnoremap <leader>R :'{,'}s/\<<C-r>=expand('<cWORD>')<CR>\>/
+nnoremap <leader>R :%s/\<<C-r>=expand('<cWORD>')<CR>\>/
+nnoremap <leader>r :'{,'}s/\<<C-r>=expand('<cWORD>')<CR>\>/
 
 " replace word under cursor in visual selection
-xnoremap <leader>r :<C-u>%s/<C-r>=GetVisualSelection()<CR>/
-xnoremap <leader>R :<C-u>'{,'}s/<C-r>=GetVisualSelection()<CR>/
+xnoremap <leader>R :<C-u>%s/\<<C-r>=GetVisualSelection()<CR>\>/
+xnoremap <leader>r :<C-u>'{,'}s/\<<C-r>=GetVisualSelection()<CR>\>/
 
 " trim consecutive empty rows to single blank line                             {{{3
 " http://stackoverflow.com/a/726158/3569509

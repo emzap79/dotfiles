@@ -308,6 +308,11 @@ snippet rapp "rapply function"
 rapply(${1:list}, ${2:function})
 endsnippet
 
+# Plotting
+snippet par "Define Plotting Layout" b
+par(las=1,mfrow=c(${1:rows},${2:cols}))
+endsnippet
+
 snippet hi "Plot histogram"
 hist(${1:x},${2:y}${3:,main="${4:histogram title}"})
 endsnippet

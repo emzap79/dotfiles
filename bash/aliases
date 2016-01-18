@@ -290,6 +290,10 @@ command_not_found_handle() {
         ls*) ls *.${1#ls}
             return 0
             ;;
+        rm*)
+            ls | egrep -v '${1}$' | xargs -n1 -i rm -v {}
+            return0
+            ;;
         g*) git ${1#g} "${@:2}"
             return 0
             ;;
@@ -331,7 +335,7 @@ alias vb="vim ~/.bashrc; source ~/.bashrc"
 alias vg="vim ~/.gitconfig"
 alias vt="vim ~/.tmux.conf"
 alias vrc="vim ~/.vimrc"
-alias vn="vim ~/.newsbeuter/urls"
+alias vnb="vim ~/.newsbeuter/urls"
 alias vip="vim ~/.vimperatorrc"
 alias vtmp="vim ~/bin/tmplAte.sh"
 alias tvim="tvim"
@@ -404,7 +408,7 @@ alias mw=fun_loop_pdflatex
 
 alias muttt='pkill fetchmail; fetchmail -v --ssl; mutt'
 alias mb=fun_muttbeuter
-alias nb='pkill newsbeuter; newsbeuter -r'
+alias nb='pkill newsbeuter; newsbeuter -X; newsbeuter -r'
 # alias mutt='/usr/bin/mutt -y'
 
 # beet                                                                           {{{2
@@ -663,6 +667,7 @@ alias exerc=fun_exerc
 # birthday                                                                       {{{2
 
 alias bday="cat $HOME/.birthdays | grep -i"
+alias vbday="vim $HOME/.birthdays"
 
 # sudo commands                                                                  {{{2
 

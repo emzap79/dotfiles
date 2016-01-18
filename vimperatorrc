@@ -45,7 +45,9 @@ set visualbell
 
 " QMarks                                             {{{1
 silent qmark a http://www.discounto.de/Angebot-Kategorie/Alkoholische-Getraenke/Discounter:Netto-Marken-Discount/
+silent qmark A
 silent qmark b https://html5reader.buch.de/library/library.html#!/library
+silent qmark B
 silent qmark c http://www.google.com/calendar/render?hl=de
 silent qmark C https://bay01.calendar.live.com/calendar/calendar.aspx
 silent qmark d https://banking.ing-diba.de/webkunden/goLogin.do
@@ -60,32 +62,35 @@ silent qmark h http://opus.bsz-bw.de/hdms/dokserver.php?la=de
 silent qmark H http://www.hotmail.com/
 silent qmark i http://www.instapaper.com/u
 silent qmark I https://instagram.com/
-silent qmark J http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
 silent qmark j https://www.mylittlejob.de
+silent qmark J http://schoolofcode.me/course/computer-science-for-everyone-with-java-for-beginners/
 silent qmark k http://www.kicker.de/news/fussball/fussballstartseite.html
+silent qmark K
 silent qmark l https://lsf.uni-due.de/lsf
 silent qmark L https://www.linkedin.com
 silent qmark m http://moodle2.uni-due.de
 silent qmark M http://moodle.uni-due.de
 silent qmark n http://www.netflix.com
-silent qmark p https://www.planspiel-boerse.de/ssk-duesseldorf/0/index.htm
+silent qmark o http://www1.onleihe.de/duisburg
+silent qmark O https://onedrive.live.com/
+silent qmark p http://primo.ub.uni-due.de/primo_library/libweb/action/search.do
 silent qmark P https://photos.google.com/
+silent qmark q https://213.61.154.226/owa
+silent qmark Q https://www.quora.com/
 silent qmark r https://www.reddit.com/rising/
 silent qmark R http://www.refworks.com
 silent qmark s https://soundcloud.com/stream
 silent qmark S https://www.strava.com/dashboard
-silent qmark t http://twitter.com/home/
 silent qmark t http://detexify.kirelabs.org/classify.html
+silent qmark T http://twitter.com/home/
 silent qmark u http://speedtest-1.unitymedia.de/
-silent qmark o http://www1.onleihe.de/duisburg
-silent qmark O https://onedrive.live.com/
-silent qmark q https://213.61.154.226/owa
-silent qmark Q https://www.quora.com/
-silent qmark w https://www.wunderlist.com/webapp#/lists/starred
-silent qmark W https://web.whatsapp.com/
+silent qmark U
 silent qmark v http://www.vimgolf.com/
 silent qmark V https://vpn.wiwinf.uni-due.de
+silent qmark w https://www.wunderlist.com/webapp#/lists/starred
+silent qmark W https://web.whatsapp.com/
 silent qmark x http://www.xing.com/
+silent qmark X
 silent qmark y http://www.youtube.com
 silent qmark Y http://www.yopmail.com/en/
 silent qmark z http://10.10.10.1
