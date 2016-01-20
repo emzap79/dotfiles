@@ -1,8 +1,3 @@
-http://127.0.0.1:13137/library/base/html/colnames.html
-http://127.0.0.1:13137/library/grDevices/html/pdf.html
-http://127.0.0.1:11081/library/base/html/numeric.html
-http://127.0.0.1:11081/library/base/html/length.html
-http://127.0.0.1:11081/library/base/html/dim.html
 http://127.0.0.1:24697/library/plyr/html/arrange.html
 http://127.0.0.1:18633/library/base/html/order.html
 http://127.0.0.1:19242/library/utils/html/read.table.html
@@ -98,3 +93,8 @@ http://127.0.0.1:16228/library/base/html/mean.html
 http://127.0.0.1:24820/doc/html/Search?pattern=density
 http://127.0.0.1:24820/library/graphics/html/plot.html
 http://127.0.0.1:16958/library/graphics/html/hist.html
+http://127.0.0.1:11390/library/utils/html/write.table.html
+http://127.0.0.1:11390/library/base/html/length.html
+http://127.0.0.1:11390/library/base/html/dim.html
+http://127.0.0.1:11390/library/base/html/diff.html
+http://127.0.0.1:11390/library/base/html/Log.html

@@ -371,6 +371,9 @@ http://blog.mellowmonk.com/feeds/posts/default          "1840 Japanese Green Tea
 # Craftbeer
 http://www.bierblog.eu/?feed=rss                           "1850 Werners Bierblog"
 
+# Scienceblogs
+http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
+
 # 09. Angebote & Gutscheine        {{{1
 
 # filter
@@ -394,7 +397,8 @@ http://www.bierblog.eu/?feed=rss                           "1850 Werners Bierblo
 # Alles
 "query:Aktionen // Wasserfilterkapseln:  tags=~ \"19[0-8][0-9]\" and (title =~ \"BWT\" or title =~ \"best water technology\")" "09.00"
 "query:Aktionen // Staubsauger:          tags=~ \"19[0-8][0-9]\" and (title =~ \"dirt\ devil\" or title =~ \"staubsauger\" or title =~ \"vacuum\ cleaner\")" "09.00"
-"query:Aktionen // Spirituosen:          tags=~ \"19[0-8][0-9]\" and (link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"Cocktail\" or link =~ \"spirituo\" or title =~ \"spirituo\" or title =~ \"bailey\" or title =~ \"rmeister\" or title =~ \"odka\" or title =~ \"tequila\")" "09.00"
+"query:Aktionen // Spirituosen:          tags=~ \"19[0-8][0-9]\" and (link =~ \"spirituo\" or title =~ \"spirituo\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"cocktail\")" "09.00"
+"query:Aktionen // Spirituosen:          tags=~ \"19[0-8][0-9]\" and (title =~ \"bailey\" or title =~ \"rmeister\" or title =~ \"odka\" or title =~ \"tequila\")" "09.00"
 "query:aktionen // Sekt & Wein:          tags=~ \"19[0-8][0-9]\" and (title !~ \"giesswein\") and (title =~ \"sekt\" or title =~ \"wein \")" "09.00"
 "query:Aktionen // Bier:                 tags=~ \"19[0-8][0-9]\" and (title =~ \"becks\" or title =~ \"fassbrause\" or title =~ \"desperados\" or title =~ \"bier\" or title =~ \"wei.*bier\" or title =~ \"craft\" or title =~ \"augustiner\" or title =~ \"hasser.der\" or title =~ \"warsteiner\" or title =~ \"paulaner\" or title =~ \"erdinger\" or title =~ \"pils\")" "09.00"
 "query:Aktionen // Kaffeekapseln:        tags=~ \"19[0-8][0-9]\" and link =~ \"tassimo\"" "09.00"

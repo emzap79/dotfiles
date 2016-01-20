@@ -136,16 +136,8 @@ alias cdusb="cd /media/zapata/ES02224159"
 alias cdusbsem="cd /media/zapata/ES02224159/$SEM"
 alias cdwdp="cd /media/zapata/WDP"
 
-# mkdir                                                                          {{{2
-
-alias cdmkdir=fun_mkcd
-
-alias mkdir='mkdir -p'
-alias mkmailb='mkdir ./{cur,new,tmp}'
-alias mkcd=fun_mkcd     # mkdir -p $1 && cd $1
-alias mkcp=fun_mkcp
-alias mkmv=fun_mkmv
-alias mkdt=fun_mkdt
+# cp
+alias rs="rsync -ah --progress"
 
 # history                                                                        {{{2
 
@@ -291,7 +283,7 @@ command_not_found_handle() {
             return 0
             ;;
         rm*)
-            ls | egrep -v '${1}$' | xargs -n1 -i rm -v {}
+            ls *.${1#rm} | xargs -n1 -i rm -v "{}"
             return0
             ;;
         g*) git ${1#g} "${@:2}"

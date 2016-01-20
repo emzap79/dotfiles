@@ -143,7 +143,7 @@ endsnippet
 snippet qread "Quick read from file"
 read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${3:filename}",${2:
 		header=TRUE, skip=0,
-		sep='${4:field seperator}', dec='${5:decimal seperator}',
+		sep=',', dec='.',
 		encoding='unknown',
 		blank.lines.skip=TRUE, fill=TRUE, stringsAsFactors=FALSE,
 		na.strings=c(NA,"NA",NaN,"NaN"," NA ","#N/A N/A")})
@@ -238,6 +238,14 @@ endsnippet
 
 snippet sum "Sum" w
 sum(${1:${VISUAL}})
+endsnippet
+
+snippet logret "Logarithmic Returns of historical data" w
+diff(log(${1:${VISUAL}}))
+endsnippet
+
+snippet di "Differiential function" w
+diff(${1:${VISUAL}})
 endsnippet
 
 snippet log "Logarithm function" w
@@ -677,4 +685,13 @@ endsnippet
 
 snippet xts "package: xts" w
 xts(${1:${VISUAL}})
+endsnippet
+
+snippet read.loop "loop for reading in data" b
+# http://stackoverflow.com/a/17332018/1483760
+my.path <- list("${1:path to file 1}","${2:path to file 2}",$3)
+my.data <- list()
+	for (i in 1:length(my.path)){
+		my.data[[i]] <- read.csv(my.path[[i]])
+	}
 endsnippet
