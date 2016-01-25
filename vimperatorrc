@@ -103,8 +103,9 @@ function bmark(title, url, keyword) {
 		bookmarks.add(false, title, url, keyword, ['keyword'], false);
 	}
 }
-bmark('Amazon'         ,'http://www.amazon.de/field-keywords=%s'                                                                               ,'z');
+bmark('Amazon'                 ,'http://www.amazon.de/field-keywords=%s'                                                                               ,'z');
 bmark('Bing US Search'         ,'http://www.bing.com/search?q=%s'                                                                               ,'b');
+bmark('BierSearch'             ,'http://beersearch.usox.org/?s=%s'                                                                       ,'bs');
 bmark('Chefkoch'               ,'http://www.chefkoch.de/rs/s0/%s/Rezepte.html'                                                                  ,'ck');
 bmark('Ctan'                   ,'http://www.ctan.org/search'                                                                                    ,'ct');
 bmark('Cran'                   ,'http://crantastic.org/search?q=%s'                                                                             ,'cr');
@@ -117,6 +118,7 @@ bmark('Facebook'               ,'https://www.facebook.com/search/results/?=&q=%s
 bmark('Github'                 ,'https://github.com/search?q=%s'                                                                                ,'gh');
 bmark('Google Scholar'         ,'http://scholar.google.de/scholar?q=%s'                                                                         ,'gs');
 bmark('Google US Search'       ,'http://www.google.com/search?q=%s'                                                                             ,'gg');
+bmark('Google Translate'       ,'https://translate.google.de/#en/de/?q=%s'                                                                      ,'gt');
 bmark('IMDB Search'            ,'http://www.imdb.com/find?q=%s&s=all'                                                                           ,'imdb');
 bmark('Lascana'                ,'http://www.lascana.de/string-panty-slip/panty/?searchparam=%s'                                                 ,'las');
 bmark('LibreOffice Search'     ,'https://help.libreoffice.org/index.php?search=%s&title=Special%3ASearch&go=Go'                                 ,'lo');
@@ -125,8 +127,6 @@ bmark('Lustwiese'     ,'http://www.lustwiese.com/index.php?ActionCall=WebActionA
 bmark('Otto.de'                ,'https://www.otto.de/suche/%s/'                                                                                 ,'otto');
 bmark('Openstreetmap'                ,'http://www.openstreetmap.org/search?query=%s'                                                            ,'osm');
 bmark('Das Örtliche'                ,'http://www3.dasoertliche.de/Controller?kw=bick'                                                            ,'ö');
-bmark('Primo UB'               ,'http://primo.ub.uni-due.de/primo_library/libweb/action/search.do?dscnt=0&scp.scps=scope:(UDEALEPH),scope:(UDESEMAPP),scope:(UDEUBO),scope:(UDEDUEPUBLICO),primo_central_multiple_fe&frbg=&tab=default_tab&dstmp=1421247269953&srt=rank&ct=search&mode=Basic&dum=true&indx=1&tb=t&vl(freeText0)=%s&fn=search&vid=UDE
-'  ,'pr');
 bmark('Rseek'                  ,'http://www.rseek.org/?q=%s'                                                                                    ,'r');
 bmark('Soundcloud'             ,'https://soundcloud.com/search?q=%s'                                                                            ,'sc');
 bmark('Stackoverflow Bash'        ,'http://stackoverflow.com/search?q=[bash] %s'                                                                   ,'sob');

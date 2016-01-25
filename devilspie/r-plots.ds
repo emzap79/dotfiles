@@ -3,7 +3,7 @@
  (begin
   (println "--[ R-Plots ]--")
   /* (geometry "679x707+686+0") */
-  (geometry "800x800+1800+0")
+  (geometry "800x800+1800+450")
   (above)
  )
  )

@@ -33,7 +33,7 @@ http://rss.kicker.de/live/championsleague   "00.20 Champions League"
 "query:Finance // Grugewitch:  (tags=~ \"111[0-9]\" and title =~ \"Grugewitch\") or tags =~ \"1131\""                                  "01.00"
 "query:Wirtschaft // VW-Affäre: tags=~ \"11[12][0-9]\" and (title =~ \"dieselgate\" or title =~ \"VW\" or title =~ \"Volkswagen\")"    "01.00"
 
-"query:Finance // Market Insight:     tags=~ \"01\.0[0-9]\" and title =~ \"Market Insight\""    "01.00"
+"query:Finance // Marktanalysen:    tags=~ \"01\.0[0-9]\" and (title =~ \"Markets Unplugged\" or title =~ \"Market Insight\")"    "01.00"
 
 # youtube                                                                                     .
 https://www.youtube.com/feeds/videos.xml?channel_id=UCsZncYBzgAR_-IlaVZ2r1YA                                                           "01.01" "Trading - GKFX" "Youtube"
@@ -87,7 +87,7 @@ http://alexgurevich.tumblr.com/rss                                              
 # 02. Politik                      {{{1
 # filter
 http://www.spiegel.de/schlagzeilen/eilmeldungen/index.rss   "02.00" "Breaking"
-"query:Politik // Kurden: tags=~ \"12[0-9]{2,2}\" and (title =~ \"kurden\" or title =~ \"PKK\" or title =~ \"erdo.an. \" or title =~ \"kurdis*\")"  "02.00"
+"query:Politik // Kurden: tags=~ \"12[0-9]{2,2}\" and (title =~ \"[yj]esiden\" or title =~ \"peschmerg\" or title =~ \"kurden\" or title =~ \"PKK\" or title =~ \"erdo.an. \" or title =~ \"kurdis*\")"  "02.00"
 "query:Politik // Mexiko: tags=~ \"12[0-9]{2,2}\" and (title =~ \"mexico\" or title =~ \"mexiko\")"  "02.00"
 
 # queries                          {{{2
@@ -387,6 +387,7 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 "query:Aktionen // Notebook:             tags=~ \"19[0-8][0-9]\" and (title =~ \"notebook \" and title =~ \"laptop\" and (title !~ \"ebookers\" and title !~ \"e-book\"))" "0.09"
 "query:Aktionen // Tablet:               tags=~ \"19[0-8][0-9]\" and (title =~ \"tablet\" or title =~ \"ipad\") and (title !~ \"tabletten\")" "09.00"
 "query:Aktionen // Kaffeemühle:          tags=~ \"19[0-8][0-9]\" and (title =~ \"kaffeem.hle\" or title =~ \"kaffee\")" "09.00"
+"query:Aktionen // Reisebus:             tags=~ \"19[0-8][0-9]\" and (title =~ \"Megabus\" or title =~ \"Postbus\" or title =~ \"Flixbus\" or title =~ \"Meinfernbus\")" "09.00"
 
 # Technik und Sonstige
 "query:Aktionen // DSL Flat:             tags=~ \"19[0-8][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"

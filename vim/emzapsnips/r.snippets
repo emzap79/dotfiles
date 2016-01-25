@@ -12,6 +12,21 @@ AR_METHODS = [
 'mle',
 'yw']
 
+BREAK_TYPES = [
+'Sturges',
+'scott',
+'FD']
+
+COLOR_TYPES = [
+'black',
+'red',
+'green3',
+'blue',
+'cyan',
+'magenta',
+'yellow',
+'gray']
+
 ENCOD_TYPES = [
 'utf-8',
 'bytes',
@@ -54,50 +69,44 @@ FIELD_TYPES = [
 
 endglobal
 
+# math operations
+snippet "\*" "Matrix multiplication" ir
+%*%
+endsnippet
 snippet "^\?\?" "Show Mitschrift" wr
 /home/zapata/Dokumente/R/mitschrift.r
 endsnippet
-
 snippet aspos "Apply POSIXct on variable" w
 as.POSIXct(strptime(${1:${VISUAL}}, format='${2:%Y-%m-%d}'))
 endsnippet
-
 snippet tr "Transform data frame" w
 transform(${1:${VISUAL}}, ${2:${3:colname} = ${4:-$3}})
 endsnippet
-
 snippet as "Apply type on variable" w
 as.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
-
 snippet is "Test type on variable" w
 is.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`(${2}${VISUAL})
 endsnippet
-
 snippet d "Load data from package" w
 data(${1:${VISUAL}})
 endsnippet
-
 snippet "(\s|^)lib( (\S+))?" "Import a library" wr
 library("${1:`!p snip.rv = match.group(3) if match.group(2) is not None else ""`}")$0
 endsnippet
-
 snippet knitr "Install and update package from repo" b
 install.packages(c("digest", "evaluate", "formatR", "highlight", "knitr", "parser", "plyr", "Rcpp", "stringr"), repos = c('http://rforge.net', 'http://cran.rstudio.org'), type = 'source')
 endsnippet
-
 snippet inst "Install package from repo" b
 pkgs <- c('http://rforge.net', 'http://R-Forge.R-project.org', 'http://cran.rstudio.org', 'http://cran.r-project.org')
 # update.packages(ask = FALSE, repos = pkgs)
 install.packages('AER', repos = pkgs, type = 'source')
 library("AER")
 endsnippet
-
 snippet gith "Install from Github" b
 require(devtools)
 install_github('$1'${2:, '$3'})
 endsnippet
-
 snippet upgr "Upgrade R" b
 ## make sure you have Rtools installed first! if not, then run:
 # install.packages('installr')
@@ -107,39 +116,32 @@ snippet upgr "Upgrade R" b
 if (!require('devtools')) install.packages('devtools'); library('devtools')
 devtools::install_github('talgalili/installr')
 endsnippet
-
 snippet str "Internal structure of an object" w
 str(${1:${VISUAL}})
 endsnippet
-
 snippet sink "Write output from console to file" b
 sink("${1:filename}", split=${2:T}, append=${3:T})
 $0
 sink()
 endsnippet
-
 snippet "(\S+)\[" "Close Bracket" ri
 `!p snip.rv = match.group(1) if match.group(1) is not None else ""`[${1:${VISUAL}}]
 endsnippet
-
 snippet "(\S+)\(" "Close Brace" ri
 `!p snip.rv = match.group(1) if match.group(1) is not None else ""`(${1:${VISUAL}})
 endsnippet
-
 snippet qwrite "quick write into file" b
 write.$1`!p snip.rv = complete(t[1], FILE_TYPES)`(${2:${VISUAL}},file="${3:filename}.csv",
 		append=FALSE, sep=',', dec='.',
 		col.names=TRUE, row.names=TRUE,
 		fileEncoding='utf-8', eol="\n", na="NA"})
 endsnippet
-
 snippet write "Write into file" b
 write.$1`!p snip.rv = complete(t[1], FILE_TYPES)`(${2:${VISUAL}},file="${3:filename}.csv",
 		append=${5:F}, sep='${8:;}', dec='${9:.}',
 		col.names=${10:T}, row.names=${11:T}${12:,
 		fileEncoding='utf-8', eol="\n", na="NA"})
 endsnippet
-
 snippet qread "Quick read from file"
 read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${3:filename}",${2:
 		header=TRUE, skip=0,
@@ -148,7 +150,6 @@ read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${3:filename}",${2:
 		blank.lines.skip=TRUE, fill=TRUE, stringsAsFactors=FALSE,
 		na.strings=c(NA,"NA",NaN,"NaN"," NA ","#N/A N/A")})
 endsnippet
-
 snippet read "Read from file"
 read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}"${3:,
 		header=${4:TRUE or FALSE},
@@ -158,7 +159,6 @@ read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${2:filename}"${3:,
 		blank.lines.skip=TRUE, fill=TRUE, stringsAsFactors=FALSE,
 		${9:na.strings=c(NA,"NA",NaN,"NaN"," NA ","#N/A N/A")}})
 endsnippet
-
 snippet lread "Read Data into list" w
 tablist <- list()
 csvlist <- c("$1",
@@ -171,37 +171,30 @@ for (i in 1:length(csvlist)) {
 ${1/(.csv$)|(\w+)/(?1::$2)/ga} <- tablist[[1]]
 ${2/(.csv$)|(\w+)/(?1::$2)/ga} <- tablist[[2]]
 endsnippet
-
 snippet grep "grepsearch for string" b
 grep(${1:"${2:pattern}"}, ${3:matrix}, ignore.case=${4:TRUE}, value=${5:TRUE}, fixed=${6:FALSE})
 endsnippet
-
 snippet req "Require a file"
 require(${0:package})
 endsnippet
-
 snippet source "Source a file"
 source('${0:file}')
 endsnippet
-
 snippet if "If statement"
 if (${1}) {
 	${0:${VISUAL}}
 }
 endsnippet
-
 snippet eif "Else-If statement"
 else if (${1}) {
 	${0:${VISUAL}}
 }
 endsnippet
-
 snippet el "Else statement"
 else {
 	${0:${VISUAL}}
 }
 endsnippet
-
 snippet ife "if .. else"
 if (${1}) {
 	${2}
@@ -209,109 +202,92 @@ if (${1}) {
 	${3}
 }
 endsnippet
-
-snippet whl "while loop"
+snippet while "while loop"
 while(${1}) {
 	${2}
 }
 endsnippet
-
 snippet for "for loop"
 for (${1:item} in ${2:list}) ${3:{
 	${4:${VISUAL}}
 }}
 endsnippet
-
 snippet fun "Function definition"
 function(${1:z}) ${2:{
 	${0:${VISUAL}}
 }}
 endsnippet
-
 snippet rows "rowSums" i
 rowSums(${1:${VISUAL}})
 endsnippet
-
 snippet cols "colSums" i
 colSums(${1:${VISUAL}})
 endsnippet
-
 snippet sum "Sum" w
 sum(${1:${VISUAL}})
 endsnippet
-
-snippet logret "Logarithmic Returns of historical data" w
-diff(log(${1:${VISUAL}}))
-endsnippet
-
 snippet di "Differiential function" w
 diff(${1:${VISUAL}})
 endsnippet
-
 snippet log "Logarithm function" w
 log(${1:${VISUAL}})
 endsnippet
-
-snippet s "subset" w
+snippet su "subset" w
 subset(${1:${VISUAL}}, ${2:subset}, ${3:select == ${4:column names}})
 endsnippet
-
 snippet pth "Print current path" i
 ${1:`!p snip.rv = os.getcwd()`}
 endsnippet
-
 snippet src "Source file" b
 source("${1:`!p snip.rv = os.getcwd()`}")
 endsnippet
-
+snippet res "Residuals" i
+residuals(${0:${VISUAL}})
+endsnippet
+snippet dev "SSR of a regression" i
+deviance(${1:${VISUAL:lm}}$0)
+endsnippet
+snippet lm "Regression" i
+lm(${1}~${2},${3},data=${0:${VISUAL}})
+endsnippet
 snippet swd "Set workingdir" b
 setwd("${1:`!p snip.rv = os.getcwd()`}")
 endsnippet
-
 snippet ret "Return call"
 return(${0:${VISUAL}})
 endsnippet
 
+# data objects
 snippet df "Data frame"
 data.frame(${1:${VISUAL:col1}}, ${2:col2})
 endsnippet
-
 snippet li "list function"
 list(${0:items})
 endsnippet
-
 snippet ma "matrix function"
 matrix(${1:NA}, ${2:rows}, ${3:cols})
 endsnippet
-
 snippet ta "table function"
 table(${1:data}${2:, nrow = ${3:rows}, ncol = ${4:cols}})
 endsnippet
-
 snippet "ap([12])*" "apply function" wr
 apply(${1:array}, `!p snip.rv = match.group(1) if match.group(1) is not None else "2"`, fun$2)
 endsnippet
-
 snippet lapp "lapply function"
 lapply(${1:list}, ${2:function})
 endsnippet
-
 snippet sapp "sapply function"
 sapply(${1:list}, ${2:function})
 endsnippet
-
 snippet vapp "vapply function"
 vapply(${1:list}, ${2:function}, ${3:type})
 endsnippet
-
 snippet mapp "mapply function"
 mapply(${1:function}, ${2:...})
 endsnippet
-
 snippet tapp "tapply function"
 tapply(${1:vector}, ${2:index}, ${3:function})
 endsnippet
-
 snippet rapp "rapply function"
 rapply(${1:list}, ${2:function})
 endsnippet
@@ -320,176 +296,149 @@ endsnippet
 snippet par "Define Plotting Layout" b
 par(las=1,mfrow=c(${1:rows},${2:cols}))
 endsnippet
-
 snippet hi "Plot histogram"
-hist(${1:x},${2:y}${3:,main="${4:histogram title}"})
+hist(${1:${VISUAL:x}},${2:y},breaks$3,freq = F,${4:main="${5:histogram title}"})
 endsnippet
-
 snippet pl "Plot function"
-plot(${1:x},${2:y}${3:,main="${4:Plots Title}"})
+plot(${1:${VISUAL:x}},${2:y}${3:,main="${4:Plots Title}"})
 endsnippet
-
 snippet bp "Boxplot function"
 boxplot(${1:x}~${2:y},${3:data})
 endsnippet
-
 snippet go "close graphic" w
 graphics.off()
 endsnippet
-
+snippet abl "regression curve into plot" b
+ablines(${1:${VISUAL:x}},${2:y}${3:,main="${4:Plots Title}"},color$5)
+endsnippet
+snippet lin "draw line into existent plot" b
+lines(${1:${VISUAL:x}},${2:y}${3:,main="${4:Plots Title}"},color$5)
+endsnippet
 snippet ggp "ggplot2 plot"
-ggplot(${1:data}, aes(${2:aesthetics}))
+ggplot(${1:${VISUAL:data}}, aes(${2:aesthetics}))
 endsnippet
 
+# Plot components
+snippet breaks "Set appropriate number of breaks" i
+breaks = "$1`!p snip.rv = complete(t[1], BREAK_TYPES)`"
+endsnippet
+snippet color "Set appropriate type of color" i
+color = "$1`!p snip.rv = complete(t[1], COLOR_TYPES)`"
+endsnippet
+
+# Test statistics
 snippet fis "Fisher test"
 fisher.test(${1:x}, ${2:y})
 endsnippet
-
 snippet chi "Chi Squared test"
 chisq.test(${1:x}, ${2:y})
 endsnippet
-
 snippet tt "t-test"
 t.test(${1:x}, ${2:y})
 endsnippet
-
 snippet wil "Wilcox test"
 wilcox.test(${1:x}, ${2:y})
 endsnippet
-
 snippet cor "Correlation test"
 cor.test(${1:x}, ${2:y})
 endsnippet
-
 snippet fte "FTE test"
 var.test(${1:x}, ${2:y})
 endsnippet
-
 snippet kvt "KV test"
 kv.test(${1:x}, ${2:y})
 endsnippet
-
 snippet ifel "ifelse"
 ifelse (${1:cond}, ${2:yes}, ${3:no})
 endsnippet
-
 snippet dim "Show objects dimension" w
 dim(${1:${VISUAL}})
 endsnippet
-
 snippet nms "Show objects names" w
 names(${1:${VISUAL}})
 endsnippet
-
 snippet t "Matrix transpose" w
 t(${1:${VISUAL}})
 endsnippet
-
 snippet c "Concatenate" w
 c(${1:${VISUAL}})
 endsnippet
-
 snippet m "Mean" w
 mean(${1:${VISUAL}})
 endsnippet
-
 snippet ch "N over n" w
 choose(${1:N},${2:n})
 endsnippet
-
 snippet co "Show all possible combinations" w
 combn(${1:N},${2:n})
 endsnippet
-
 snippet v "Var" w
 var(${1:${VISUAL}})
 endsnippet
-
 snippet ls "list" w
 list(${1:${VISUAL}})
 endsnippet
-
 snippet rg "range" w
 range(${1:${VISUAL}})
 endsnippet
-
 snippet mx "max" w
 max(${1:${VISUAL}})
 endsnippet
-
 snippet mn "min" w
 min(${1:${VISUAL}})
 endsnippet
-
 snippet gt "get" w
 get(${1:${VISUAL}})
 endsnippet
-
 snippet hd "head" w
 head(${1:${VISUAL}})
 endsnippet
-
 snippet idx "index" w
 index(${1:${VISUAL}})
 endsnippet
-
 snippet tl "tail" w
 tail(${1:${VISUAL}})
 endsnippet
-
 snippet l "length" w
 length(${1:${VISUAL}})
 endsnippet
-
 snippet rb "rbind" w
 rbind(${1:${VISUAL}})
 endsnippet
-
 snippet cb "cbind" w
 cbind(${1:${VISUAL}})
 endsnippet
-
 snippet na.omit "na.omit" w
 na.omit(${1:${VISUAL}})
 endsnippet
-
 snippet unl "unlist" w
 unlist(${1:${VISUAL}})
 endsnippet
-
 snippet seq "seq" w
 seq(${1:${VISUAL}})
 endsnippet
-
 snippet fr "fractions" w
 # requires MASS package
 fractions(${1:${VISUAL}})
 endsnippet
-
 snippet sq "sqrt" w
 sqrt(${1:${VISUAL}})
 endsnippet
-
 snippet p "paste" w
 paste(${1:${VISUAL}})
 endsnippet
-
 snippet p0 "paste0" w
 paste0(${1:${VISUAL}})
 endsnippet
-
 snippet pr "print" w
 print(${1:${VISUAL}})
 endsnippet
-
 snippet ass "assign" w
 assign(${1:${VISUAL}})
 endsnippet
-
 snippet r "rep" w
 rep(${1:NA},${2:n})
 endsnippet
-
 snippet q "quantile" w
 quantile(${1:x},${2:0.95})
 endsnippet
@@ -498,111 +447,81 @@ endsnippet
 snippet db "binomial density" w
 dbinom(${1:range},${2:n},${3:prob})
 endsnippet
-
 snippet dn "dnorm" w
 dnorm(${1:pos},${2:mu},${3:sd})
 endsnippet
-
 snippet pn "pnorm" w
 pnorm(${1:pos},${2:mu},${3:sd})
 endsnippet
-
 snippet qn "qnorm" w
 qnorm(${1:quantile},${2:mu},${3:sd})
 endsnippet
-
 snippet rn "rnorm" w
 rnorm(${1:elements},${2:mu},${3:sd})
 endsnippet
-
 snippet cur "curve" w
 curve(${1:${2:d}norm},${3:from},${4:to})
 endsnippet
-
 snippet sd "standard deviation" w
 sd(${1:${VISUAL}})
 endsnippet
-
 snippet gwd "getwd" w
 getwd(${1:${VISUAL}})
 endsnippet
-
 snippet ex "exists" w
 exists(${1:${VISUAL}})
 endsnippet
-
 snippet fa "factor" w
 factor(${1:${VISUAL}})
 endsnippet
-
 snippet wh "which" w
 which(${1:${VISUAL}})
 endsnippet
-
-snippet st "subset" w
-subset(${1:${VISUAL}})
-endsnippet
-
 snippet lv "levels" w
 levels(${1:${VISUAL}})
 endsnippet
-
 snippet mc "match" w
 match(${1:${VISUAL}})
 endsnippet
-
 snippet rd "round" w
 round(${1:${VISUAL}},${2:n})
 endsnippet
-
 snippet cln "colnames" w
 colnames(${1:${VISUAL}})
 endsnippet
-
 snippet rwn "rownames" w
 rownames(${1:${VISUAL}})
 endsnippet
-
 snippet nc "ncol" w
 ncol(${1:${VISUAL}})
 endsnippet
-
 snippet nr "nrow" w
 nrow(${1:${VISUAL}})
 endsnippet
-
 snippet atr "attributes" w
 attributes(${1:${VISUAL}})
 endsnippet
-
 snippet at "attach" w
 attach(${1:${VISUAL}})
 endsnippet
-
 snippet re "return" w
 return(${1:${VISUAL}})
 endsnippet
-
 snippet summ "summary" w
 summary(${1:${VISUAL}})
 endsnippet
-
 snippet mc "mc" w
 mc(${1:${VISUAL}})
 endsnippet
-
 snippet sa "sample" w
 sample(${1:Y},${2:n}${3:,prob=${4:p}})
 endsnippet
-
 snippet ss "set.seed"
 set.seed(${1:123})
 endsnippet
-
 snippet an "Analysis of Variance Table"
 anova(${1:lm(${2:${VISUAL}})})
 endsnippet
-
 snippet strip "convert german numbers to floats" b
 # http://stackoverflow.com/a/13344095
 strip <- function(x){
@@ -612,81 +531,67 @@ strip <- function(x){
 }
 $1 <- strip(${1:dataset})
 endsnippet
-
+snippet sol "inverse of a matrix" w
+solve(${1:${VISUAL}})
+endsnippet
 snippet so "Sort vector" w
 sort(${1:${VISUAL}})
 endsnippet
-
 snippet cut "Cut" w
 cut(${1:${VISUAL}}, ${2:breaks=${3:T}, labels = ${4:NULL}, include.lowest = ${5:FALSE}, right = ${6:TRUE}})
 endsnippet
 
-###########################
-#  quick snippet helpers  #
-###########################
-
+# quick snippet helpers
 snippet "(order)|(sort)" "Sort rows in a df" br
 $1 <- ${1:df}[order($1[${2},${3}],decreasing=${4:TRUE}),]
 endsnippet
-
+snippet logret "Logarithmic Returns of historical data" w
+diff(log(${1:${VISUAL}}))
+endsnippet
 snippet keep "keep columns in df" b
 keeps <- c(${1:cols to keep})
 ${2:df} <- subset($2, select = keeps); $2
 endsnippet
-
 snippet drop "drop columns from df" b
 drops <- c(${1:define which cols to drop})
 ${2:df} <- subset($2, select = -drops); $2
 endsnippet
-
 snippet dropnames "drop columns in df selected by colnames" b
 drops <- c(${1:define which cols to drop})
 ${2:df}[,!(${3:col}names($2) %in% drops)]
 endsnippet
-
 snippet uniq "drop duplicate lines from df" b
 $1 <- sort[,$1]
 ${1:df}[!duplicated($1[,1:${2:length($1)}]),]
 endsnippet
 
-#############
-#  Finance  #
-#############
+# Finance
 snippet chrt "Add Chart Function" w
 $1`!p snip.rv = complete(t[1], CHART_TYPES)`${2}${VISUAL}Chart("${2:Ticker}",multi.col=TRUE,theme="white")
 endsnippet
 
-#################
-#  Time Series  #
-#################
+# Time Series
 snippet w "window" w
 window(${1:${VISUAL}}, ${2:start = c(${3:yyyy},${4:mm}), }${5:${6:end = c(${7:yyyy},${8:mm}), }${9:frequency = ${10:n}}})
 endsnippet
-
 snippet ar "AR(p)" w
-ar(${1:${VISUAL}}, order.max = ${2:p}, method = ${3:`!p snip.rv = complete(t[1], AR_METHODS)`})
+ar(${1:${VISUAL}}, order.max = ${2:p}, method = $3`!p snip.rv = complete(t[1], AR_METHODS)`)
 endsnippet
-
 snippet pre "predict" w
 predict(${1:${VISUAL}}, n.ahead = ${2:n})
 endsnippet
-
 snippet arima "ARIMA(p,d,q)" w
 arima(${1:${VISUAL}}, order = c(${2:p}, ${3:q}, ${4:p}), include.mean = ${5:FALSE})
 endsnippet
-
 snippet cy "cycle through time series" w
 cycle(${1:${VISUAL}})
 endsnippet
-
 snippet ts "time series" w
 ts(${1:${VISUAL}})
 endsnippet
-
 snippet xts "package: xts" w
 xts(${1:${VISUAL}})
 endsnippet
-
 snippet read.loop "loop for reading in data" b
 # http://stackoverflow.com/a/17332018/1483760
 my.path <- list("${1:path to file 1}","${2:path to file 2}",$3)
