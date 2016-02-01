@@ -386,7 +386,7 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 "query:Aktionen // Ebooks:               tags=~ \"19[0-8][0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))" "09.00"
 "query:Aktionen // Notebook:             tags=~ \"19[0-8][0-9]\" and (title =~ \"notebook \" and title =~ \"laptop\" and (title !~ \"ebookers\" and title !~ \"e-book\"))" "0.09"
 "query:Aktionen // Tablet:               tags=~ \"19[0-8][0-9]\" and (title =~ \"tablet\" or title =~ \"ipad\") and (title !~ \"tabletten\")" "09.00"
-"query:Aktionen // Kaffeemühle:          tags=~ \"19[0-8][0-9]\" and (title =~ \"kaffeem.hle\" or title =~ \"kaffee\")" "09.00"
+"query:Aktionen // Kaffeemühle:          tags=~ \"19[0-8][0-9]\" and (title =~ \"kaffeem.hle\") and (title !~ \"kaffeemaschine\")" "09.00"
 "query:Aktionen // Reisebus:             tags=~ \"19[0-8][0-9]\" and (title =~ \"Megabus\" or title =~ \"Postbus\" or title =~ \"Flixbus\" or title =~ \"Meinfernbus\")" "09.00"
 
 # Technik und Sonstige
@@ -401,7 +401,7 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 "query:Aktionen // Spirituosen:          tags=~ \"19[0-8][0-9]\" and (link =~ \"spirituo\" or title =~ \"spirituo\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"cocktail\")" "09.00"
 "query:Aktionen // Spirituosen:          tags=~ \"19[0-8][0-9]\" and (title =~ \"bailey\" or title =~ \"rmeister\" or title =~ \"odka\" or title =~ \"tequila\")" "09.00"
 "query:aktionen // Sekt & Wein:          tags=~ \"19[0-8][0-9]\" and (title !~ \"giesswein\") and (title =~ \"sekt\" or title =~ \"wein \")" "09.00"
-"query:Aktionen // Bier:                 tags=~ \"19[0-8][0-9]\" and (title =~ \"becks\" or title =~ \"fassbrause\" or title =~ \"desperados\" or title =~ \"bier\" or title =~ \"wei.*bier\" or title =~ \"craft\" or title =~ \"augustiner\" or title =~ \"hasser.der\" or title =~ \"warsteiner\" or title =~ \"paulaner\" or title =~ \"erdinger\" or title =~ \"pils\")" "09.00"
+"query:Aktionen // Bier:                 tags=~ \"19[0-8][0-9]\" and (title !~ \"probier\") and (title =~ \"becks\" or title =~ \"fassbrause\" or title =~ \"desperados\" or title =~ \"bier\" or title =~ \"wei.*bier\" or title =~ \"craft\" or title =~ \"augustiner\" or title =~ \"hasser.der\" or title =~ \"warsteiner\" or title =~ \"paulaner\" or title =~ \"erdinger\" or title =~ \"pils\")" "09.00"
 "query:Aktionen // Kaffeekapseln:        tags=~ \"19[0-8][0-9]\" and link =~ \"tassimo\"" "09.00"
 
 # Other
@@ -409,7 +409,7 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 # "query:Aktionen // Schuhe:             tags=~ \"19[4][0-9]\" and title =~ \"Rabattstufe [6-9]\"" "09.00"
 "query:Aktionen // Bierangebote:         tags=~ \"19[8][0-9]\""  "09.00"
 "query:Aktionen // Kleinanzeigen:        tags=~ \"197[089]\""  "09.00"
-# "query:Aktionen // Groupon:            tags=~ \"19[9][0-9]\" and (title =~ \"sushi\" or title =~ \"massage\")" "09.00"
+"query:Aktionen // Groupon:            tags=~ \"19[9][0-9]\" and (title =~ \"sushi\" or title =~ \"therme\" or title =~ \"sauna\")" "09.00"
 
 # queries                          {{{2
 "query:Angebote // Technik:        tags=~ \"19[1][0-9]\""  "09.10"
@@ -469,10 +469,14 @@ http://www.yopmail.com/en/rssfeed.php?login=ebaysearches&h=564c95e7efd1b46563915
 http://onny.project-insanity.org/feeds/ebaykleinanzeigen/duisburg/cocktailshaker?radius=10&maxprice=100 "1970 Ebay Kleinanzeigen"
 
 # Gutscheine                       {{{3
-http://www.gutscheinpony.de/rss/neue-gutscheine.xml                     "1980 Gutscheine"
-http://gutscheindeal.info/gutschein-anbieter/zalando/feed/              "1980 Kleidung"
-http://www.gutschein-finder.org/shops/zalando-gutschein-2/feed/         "1980 Kleidung"
+http://www.gutscheinpony.de/rss/neue-gutscheine.xml              "1980 Gutscheine"
+http://gutscheindeal.info/gutschein-anbieter/zalando/feed/       "1980 Kleidung"
+http://www.gutschein-finder.org/shops/zalando-gutschein-2/feed/  "1980 Kleidung"
 
 # Groupon                          {{{3
-http://api.groupon.de/feed/api/v1/deals/oftheday/DE/duisburg            "1990 Groupon"
-http://api.groupon.de/feed/api/v1/deals/oftheday/DE/essen               "1990 Groupon"
+http://api.groupon.de/feed/api/v1/deals/oftheday/DE/duisburg     "1990 Groupon - Duisburg"
+http://api.groupon.de/feed/api/v1/deals/oftheday/DE/essen        "1990 Groupon - Essen"
+http://api.groupon.de/feed/api/v1/deals/oftheday/DE/bochum       "1990 Groupon - Bochum"
+http://api.groupon.de/feed/api/v1/deals/oftheday/DE/dortmund     "1990 Groupon - Dortmund"
+http://api.groupon.de/feed/api/v1/deals/oftheday/DE/wuppertal    "1990 Groupon - Wuppertal"
+http://api.groupon.de/feed/api/v1/deals/oftheday/DE/duesseldorf  "1990 Groupon - Duesseldorf"

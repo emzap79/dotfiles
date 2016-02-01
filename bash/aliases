@@ -1339,7 +1339,8 @@ fun_exerc () {
     play /usr/share/sounds/gnome/default/alerts/bark.ogg repeat 1 gain -n 5  # play file with +5dB
 
     i=1
-    while [ $i -lt 12 ] # less than 12
+    n = 13
+    while [ $i -lt $n ] # less than n
     do sleep 40
         play /usr/share/sounds/gnome/default/alerts/drip.ogg repeat 1 gain -n 5
         echo "Schritte $i"

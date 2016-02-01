@@ -248,7 +248,7 @@ snippet dev "SSR of a regression" i
 deviance(${1:${VISUAL:lm}}$0)
 endsnippet
 snippet lm "Regression" i
-lm(${1}~${2},${3},data=${0:${VISUAL}})
+lm(${1:${VISUAL:x~y}}${0:,data=${2}})
 endsnippet
 snippet swd "Set workingdir" b
 setwd("${1:`!p snip.rv = os.getcwd()`}")
@@ -300,7 +300,7 @@ snippet hi "Plot histogram"
 hist(${1:${VISUAL:x}},${2:y},breaks$3,freq = F,${4:main="${5:histogram title}"})
 endsnippet
 snippet pl "Plot function"
-plot(${1:${VISUAL:x}},${2:y}${3:,main="${4:Plots Title}"})
+plot(${1:${VISUAL:x~y}},${2:,main="${3:Plots Title}"})
 endsnippet
 snippet bp "Boxplot function"
 boxplot(${1:x}~${2:y},${3:data})
@@ -309,10 +309,10 @@ snippet go "close graphic" w
 graphics.off()
 endsnippet
 snippet abl "regression curve into plot" b
-ablines(${1:${VISUAL:x}},${2:y}${3:,main="${4:Plots Title}"},color$5)
+abline(${1:${VISUAL:x,y}},col$2)
 endsnippet
 snippet lin "draw line into existent plot" b
-lines(${1:${VISUAL:x}},${2:y}${3:,main="${4:Plots Title}"},color$5)
+lines(${1:${VISUAL:x,y}},col$2)
 endsnippet
 snippet ggp "ggplot2 plot"
 ggplot(${1:${VISUAL:data}}, aes(${2:aesthetics}))
@@ -321,6 +321,9 @@ endsnippet
 # Plot components
 snippet breaks "Set appropriate number of breaks" i
 breaks = "$1`!p snip.rv = complete(t[1], BREAK_TYPES)`"
+endsnippet
+snippet col "Set appropriate type of color" i
+col = "$1`!p snip.rv = complete(t[1], COLOR_TYPES)`"
 endsnippet
 snippet color "Set appropriate type of color" i
 color = "$1`!p snip.rv = complete(t[1], COLOR_TYPES)`"
@@ -448,16 +451,16 @@ snippet db "binomial density" w
 dbinom(${1:range},${2:n},${3:prob})
 endsnippet
 snippet dn "dnorm" w
-dnorm(${1:pos},${2:mu},${3:sd})
+dnorm(${1:pos},${2:${3:mu},${4:sd}})
 endsnippet
 snippet pn "pnorm" w
-pnorm(${1:pos},${2:mu},${3:sd})
+pnorm(${1:pos},${2:${3:mu},${4:sd}})
 endsnippet
 snippet qn "qnorm" w
-qnorm(${1:quantile},${2:mu},${3:sd})
+qnorm(${1:quantile},${2:${3:mu},${4:sd}})
 endsnippet
 snippet rn "rnorm" w
-rnorm(${1:elements},${2:mu},${3:sd})
+rnorm(${1:elements},${2:${3:mu},${4:sd}})
 endsnippet
 snippet cur "curve" w
 curve(${1:${2:d}norm},${3:from},${4:to})
@@ -465,6 +468,8 @@ endsnippet
 snippet sd "standard deviation" w
 sd(${1:${VISUAL}})
 endsnippet
+
+# System Operator
 snippet gwd "getwd" w
 getwd(${1:${VISUAL}})
 endsnippet

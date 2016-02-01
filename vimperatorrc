@@ -57,7 +57,7 @@ silent qmark E http://kleinanzeigen.ebay.de
 silent qmark f http://facebook.com
 silent qmark F http://finanzen.net
 silent qmark g https://github.com/emzap79
-silent qmark G https://www.greenwheels.com/account/home/de
+silent qmark G https://www.greenwheels.de
 silent qmark h http://opus.bsz-bw.de/hdms/dokserver.php?la=de
 silent qmark H http://www.hotmail.com/
 silent qmark i http://www.instapaper.com/u
@@ -103,51 +103,52 @@ function bmark(title, url, keyword) {
 		bookmarks.add(false, title, url, keyword, ['keyword'], false);
 	}
 }
-bmark('Amazon'                 ,'http://www.amazon.de/field-keywords=%s'                                                                               ,'z');
-bmark('Bing US Search'         ,'http://www.bing.com/search?q=%s'                                                                               ,'b');
-bmark('BierSearch'             ,'http://beersearch.usox.org/?s=%s'                                                                       ,'bs');
-bmark('Chefkoch'               ,'http://www.chefkoch.de/rs/s0/%s/Rezepte.html'                                                                  ,'ck');
-bmark('Ctan'                   ,'http://www.ctan.org/search'                                                                                    ,'ct');
-bmark('Cran'                   ,'http://crantastic.org/search?q=%s'                                                                             ,'cr');
-bmark('Dict'                   ,'http://www.dict.cc/?s=%s'                                                                                      ,'dict');
-bmark('Urban Dictionary'       ,'http://de.urbandictionary.com/define.php?term=%s'                                                              ,'durb');
-bmark('DuckDuckGo'             ,'https://duckduckgo.com/?q=%s'                                                                                  ,'dd');
-bmark('Ebay-Kleinanzeigen.de'  ,'http://kleinanzeigen.ebay.de/anzeigen/s-47051/%s/k0l2151'                                                      ,'ek');
-bmark('Ebay.de'                ,'http://www.ebay.de/sch/%s'                                                                                     ,'e');
-bmark('Facebook'               ,'https://www.facebook.com/search/results/?=&q=%s'                                                               ,'f');
-bmark('Github'                 ,'https://github.com/search?q=%s'                                                                                ,'gh');
-bmark('Google Scholar'         ,'http://scholar.google.de/scholar?q=%s'                                                                         ,'gs');
-bmark('Google US Search'       ,'http://www.google.com/search?q=%s'                                                                             ,'gg');
-bmark('Google Translate'       ,'https://translate.google.de/#en/de/?q=%s'                                                                      ,'gt');
-bmark('IMDB Search'            ,'http://www.imdb.com/find?q=%s&s=all'                                                                           ,'imdb');
-bmark('Lascana'                ,'http://www.lascana.de/string-panty-slip/panty/?searchparam=%s'                                                 ,'las');
-bmark('LibreOffice Search'     ,'https://help.libreoffice.org/index.php?search=%s&title=Special%3ASearch&go=Go'                                 ,'lo');
-bmark('Linguee'     ,'http://www.linguee.de/deutsch-englisch/search?source=auto&query=%s'                                 ,'lin');
-bmark('Lustwiese'     ,'http://www.lustwiese.com/index.php?ActionCall=WebActionArticleSearch&Params[SearchParam]=%s'                                 ,'lw');
-bmark('Otto.de'                ,'https://www.otto.de/suche/%s/'                                                                                 ,'otto');
-bmark('Openstreetmap'                ,'http://www.openstreetmap.org/search?query=%s'                                                            ,'osm');
-bmark('Das Örtliche'                ,'http://www3.dasoertliche.de/Controller?kw=bick'                                                            ,'ö');
-bmark('Rseek'                  ,'http://www.rseek.org/?q=%s'                                                                                    ,'r');
-bmark('Soundcloud'             ,'https://soundcloud.com/search?q=%s'                                                                            ,'sc');
-bmark('Stackoverflow Bash'        ,'http://stackoverflow.com/search?q=[bash] %s'                                                                   ,'sob');
-bmark('Stackoverflow R'        ,'http://stackoverflow.com/search?q=[r] %s'                                                                      ,'sor');
-bmark('Stackoverflow Vim'        ,'http://stackoverflow.com/search?q=[vim] %s'                                                                      ,'sov');
-bmark('Stackoverflow'          ,'http://stackoverflow.com/search?q=%s'                                                                          ,'so');
-bmark('Stylight.de'            ,'http://www.stylight.de/Mode/?searchstring=%s'                                                                  ,'st');
-bmark('Superuser'              ,'http://superuser.com/search?q=%s'                                                                              ,'su');
-bmark('Tex.stackexchange'      ,'http://tex.stackexchange.com/search?q=%s'                                                                      ,'tex');
-bmark('Twitter Search'         ,'http://search.twitter.com/search?q=%s'                                                                         ,'ts');
-bmark('Twitter'                ,'http://twitter.com/%s'                                                                                         ,'tw');
-bmark('Ubuntuusers Wiki'       ,'http://ubuntuusers.de/%s'                                                              ,'uu');
-bmark('Vim.wikia'              ,'http://vim.wikia.com/wiki/Special:Search?search=%s'                                                            ,'vw');
-bmark('Yahoo! Finance'         ,'http://finance.yahoo.com/q?s=%s'                                                                               ,'yf');
-bmark('Yahoo! Search'          ,'http://search.yahoo.com/search;_ylt=?p=%s'                                                                     ,'y');
-bmark('Youtube'                ,'http://www.youtube.com/results?search_query=%s'                                                                ,'yt');
-bmark('Zalando.de'             ,'http://www.zalando.de/katalog/?q=%s'                                                                           ,'zl');
-bmark('wikibooks DE'           ,'http://de.wikibooks.org/w/index.php?search=%s&title=Spezial:Suche&go=Seite'                                    ,'wb');
-bmark('wikibooks EN'           ,'http://en.wikibooks.org/w/index.php?search=%s&title=Special:Search&go=Go'                                      ,'wbe');
-bmark('wikipedia DE'           ,'http://de.wikipedia.org/w/index.php?title=Spezial:Suche&profile=default&search=%s&fulltext=Search'             ,'w');
-bmark('wikipedia EN'           ,'http://en.wikipedia.org/w/index.php?title=Special:Search&profile=default&search=%s&fulltext=Search'            ,'we');
+bmark('Amazon'                 ,'http://www.amazon.de/field-keywords=%s'                                                                                 ,'qz');
+bmark('Bing US Search'         ,'http://www.bing.com/search?q=%s'                                                                                        ,'qb');
+bmark('BierSearch'             ,'http://beersearch.usox.org/?s=%s'                                                                                       ,'qbs');
+bmark('Chefkoch'               ,'http://www.chefkoch.de/rs/s0/%s/Rezepte.html'                                                                           ,'qck');
+bmark('Chefkoch'               ,'http://cocktails.wikia.com/wiki/%s'                                                                                     ,'qcockt');
+bmark('Ctan'                   ,'http://www.ctan.org/search'                                                                                             ,'qct');
+bmark('Cran'                   ,'http://crantastic.org/search?q=%s'                                                                                      ,'qcr');
+bmark('Dict'                   ,'http://www.dict.cc/?s=%s'                                                                                               ,'qdict');
+bmark('Urban Dictionary'       ,'http://de.urbandictionary.com/define.php?term=%s'                                                                       ,'qdurb');
+bmark('DuckDuckGo'             ,'https://duckduckgo.com/?q=%s'                                                                                           ,'qdd');
+bmark('Ebay-Kleinanzeigen.de'  ,'http://kleinanzeigen.ebay.de/anzeigen/s-47051/%s/k0l2151'                                                               ,'qek');
+bmark('Ebay.de'                ,'http://www.ebay.de/sch/%s'                                                                                              ,'qe');
+bmark('Facebook'               ,'https://www.facebook.com/search/results/?=&q=%s'                                                                        ,'qf');
+bmark('Github'                 ,'https://github.com/search?q=%s'                                                                                         ,'qgh');
+bmark('Google Scholar'         ,'http://scholar.google.de/scholar?q=%s'                                                                                  ,'qgs');
+bmark('Google US Search'       ,'http://www.google.com/search?q=%s'                                                                                      ,'qgg');
+bmark('Google Translate'       ,'https://translate.google.de/#en/de/?q=%s'                                                                               ,'qgt');
+bmark('IMDB Search'            ,'http://www.imdb.com/find?q=%s&s=all'                                                                                    ,'qimdb');
+bmark('Lascana'                ,'http://www.lascana.de/string-panty-slip/panty/?searchparam=%s'                                                          ,'qlas');
+bmark('LibreOffice Search'     ,'https://help.libreoffice.org/index.php?search=%s&title=Special%3ASearch&go=Go'                                          ,'qlo');
+bmark('Linguee'     ,'http://www.linguee.de/deutsch-englisch/search?source=auto&query=%s'                                                                ,'qlin');
+bmark('Lustwiese'     ,'http://www.lustwiese.com/index.php?ActionCall=WebActionArticleSearch&Params[SearchParam]=%s'                                     ,'qlw');
+bmark('Otto.de'                ,'https://www.otto.de/suche/%s/'                                                                                          ,'qotto');
+bmark('Openstreetmap'                ,'http://www.openstreetmap.org/search?query=%s'                                                                     ,'qosm');
+bmark('Das Örtliche'                ,'http://www3.dasoertliche.de/Controller?kw=bick'                                                                    ,'qö');
+bmark('Rseek'                  ,'http://www.rseek.org/?q=%s'                                                                                             ,'qr');
+bmark('Soundcloud'             ,'https://soundcloud.com/search?q=%s'                                                                                     ,'qsc');
+bmark('Stackoverflow Bash'        ,'http://stackoverflow.com/search?q=[bash] %s'                                                                         ,'qsob');
+bmark('Stackoverflow R'        ,'http://stackoverflow.com/search?q=[r] %s'                                                                               ,'qsor');
+bmark('Stackoverflow Vim'        ,'http://stackoverflow.com/search?q=[vim] %s'                                                                           ,'qsov');
+bmark('Stackoverflow'          ,'http://stackoverflow.com/search?q=%s'                                                                                   ,'qso');
+bmark('Stylight.de'            ,'http://www.stylight.de/Mode/?searchstring=%s'                                                                           ,'qst');
+bmark('Superuser'              ,'http://superuser.com/search?q=%s'                                                                                       ,'qsu');
+bmark('Tex.stackexchange'      ,'http://tex.stackexchange.com/search?q=%s'                                                                               ,'qtex');
+bmark('Twitter Search'         ,'http://search.twitter.com/search?q=%s'                                                                                  ,'qts');
+bmark('Twitter'                ,'http://twitter.com/%s'                                                                                                  ,'qtw');
+bmark('Ubuntuusers Wiki'       ,'http://ubuntuusers.de/%s'                                                                                               ,'quu');
+bmark('Vim.wikia'              ,'http://vim.wikia.com/wiki/Special:Search?search=%s'                                                                     ,'qvw');
+bmark('Yahoo! Finance'         ,'http://finance.yahoo.com/q?s=%s'                                                                                        ,'qyf');
+bmark('Yahoo! Search'          ,'http://search.yahoo.com/search;_ylt=?p=%s'                                                                              ,'qy');
+bmark('Youtube'                ,'http://www.youtube.com/results?search_query=%s'                                                                         ,'qyt');
+bmark('Zalando.de'             ,'http://www.zalando.de/katalog/?q=%s'                                                                                    ,'qzl');
+bmark('wikibooks DE'           ,'http://de.wikibooks.org/w/index.php?search=%s&title=Spezial:Suche&go=Seite'                                             ,'qwb');
+bmark('wikibooks EN'           ,'http://en.wikibooks.org/w/index.php?search=%s&title=Special:Search&go=Go'                                               ,'qwbe');
+bmark('wikipedia DE'           ,'http://de.wikipedia.org/w/index.php?title=Spezial:Suche&profile=default&search=%s&fulltext=Search'                      ,'qw');
+bmark('wikipedia EN'           ,'http://en.wikipedia.org/w/index.php?title=Special:Search&profile=default&search=%s&fulltext=Search'                     ,'qwe');
 EOM
 
 " Keybindings                                        {{{1
@@ -370,7 +371,7 @@ lazy js liberator.globalVariables.autoDetectLink.force = true
 let g:browser_object_prefix = ';'
 
 " copy.js                                            {{{2
-noremap <leader>c :copy 
+noremap <leader>c :copy
 javascript <<EOM
 liberator.globalVariables.copy_templates = [
 	{ label: 'titleAndUrl',         value: '%TITLE% %URL%' },
@@ -390,7 +391,7 @@ EOM
 " direct_bookmark.js                                 {{{2
 let g:direct_sbm_use_services_by_tag = "p"
 let g:direct_sbm_use_services_by_post = "p"
-nnoremap <leader>ba :sbm 
+nnoremap <leader>ba :sbm
 nnoremap <leader>bA :sbm<CR>
 nnoremap <leader>be :bentry<CR>
 nnoremap <leader>bt :btags<CR>
@@ -426,7 +427,7 @@ map -urls='http://www\.google\.co\.jp/reader/view' i <C-t>j
 command! -nargs=+ lazyfmapsgmail lazy fmaps -urls='https?://mail\.google\.com' <args>
 lazyfmapsgmail gi gs gt gd ga gc *a *n *r *u *s *t u k j o p n c / q ? x s e m ! # r a N ] [ z . I U S E GL
 lazyfmapsgmail E,Ie
-"lazyfmapsgmail [,] ],[ 
+"lazyfmapsgmail [,] ],[
 
 " Tumblr
 command! -nargs=+ lazyfmapstumblr lazy fmaps -urls='http://\w+\.tumblr\.com' <args>
@@ -457,7 +458,7 @@ noremap <leader>rl :readlater<CR>
 " ldrize_cooperation.js                              {{{2
 noremap <leader>, :toggleldrc<CR>
 let g:ldrc_enable = "true"
-let g:ldrc_captureMappings = "['j','k','p','o']" 
+let g:ldrc_captureMappings = "['j','k','p','o']"
 let g:ldrc_intelligence_bind = "true"
 let g:ldrc_hints = "true"
 let g:ldrc_skip = "0.1"
@@ -470,7 +471,7 @@ liberator.globalVariables.localKeyMappings = [
 		['p s S v V m r c f F'],
 		['p',       ':stplay'],
 		['s',       ':stseek! +10'],
-		['S',       ':stseek! -10 '], 
+		['S',       ':stseek! -10 '],
 		['v',       ':stvolume! +10 '],
 		['V',       ':stvolume! -10 '],
 		['m',       ':stmute'],
@@ -687,7 +688,7 @@ EOM
 "
 "var meta = null
 "if (liberator.has("Win32")) {
-"    meta = "C"; 
+"    meta = "C";
 "}
 "else if (liberator.has("MacUnix")) {
 "    meta = "M";
@@ -754,7 +755,7 @@ EOM
 " Colorsscheme                                       {{{2
 " https://github.com/Griffinhart/vimperatorrc/blob/master/_vimperatorrc
 colorscheme indigo
-highlight Bell display: none; 
+highlight Bell display: none;
 
 highlight Boolean color: #f00;
 highlight CmdLine color: #0ff; background: #000; font-family: Inconsolata; font-size: 12px; padding: 0px; vertical-align: middle; border: none;
