@@ -5,7 +5,7 @@
 " File: vimrc_mappings
 " Author: Jonas Petong
 " Description: vim mapping configuration
-" Last Modified: November 21, 2015
+" Last Modified: Februar 04, 2016
 
 " Font Matter                                                                  {{{1
 " Mapping Examples                                                             {{{2
@@ -801,6 +801,11 @@ nnoremap <silent><leader>uu mz :s/\<\w\+/\u\0/g<cr>:nohl<cr>`z
 nnoremap <leader>fh :Mirror<CR>
 command! -bar -range Mirror <line1>,<line2>call setline('.', join(reverse(split(getline('.'), '\zs')), ''))
 
+" TeX & LaTeX
+nnoremap <silent><leader>it vip:s/^/\\item /g<CR>
+vnoremap <silent><leader>it <ESC>vip:s/^/\\item /g<CR>
+inoremap <silent><localleader>it <ESC>vip:s/^/\\item /g<CR>
+
 " Miscellaneous                                                                {{{1
 " convert file to dos format                                                   {{{2
 nnoremap <leader>dos :call Unix2Dos()<cr>
@@ -962,7 +967,6 @@ else
 endif
 
 " Functions & Operator                                                         {{{1
-
 " Func: YouCompleteMe <Plugin>                                                 {{{2
 
 fun! ToggleYCM()

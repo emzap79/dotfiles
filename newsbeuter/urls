@@ -19,7 +19,9 @@ http://www.mikro.wiwi.uni-due.de/rss/                                        "00
 # Podcasts
 http://www.zdf.de/ZDFmediathek/podcast/2012868                               "00.11 Kultur"
 http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml "00.11 Kultur"
+http://www.ardmediathek.de/tv/kinokino/Sendung?documentId=14913678&bcastId=14913678&rss=true "00.11 Kultur"
 http://vimcasts.org/feeds/ogg.rss                                            "00.12 Programming"
+http://www.ardmediathek.de/tv/Zeigler-zum-Mitnehmen/Sendung?documentId=8078774&bcastId=8078774&rss=true "00.13 Sport"
 
 # Liveticker
 http://rss.kicker.de/live/championsleague   "00.20 Champions League"
@@ -279,6 +281,7 @@ http://www.dallasbasketball.com/rss/MainRss.xml                        "1530 Mav
 http://www.nba.com/mavericks/rss.xml                                   "1530 Mavs"
 
 # Fußball                         {{{3
+
 # Bundesliga
 http://rss.kicker.de/news/bundesliga                                   "1550 Bundesliga"
 http://www.11freunde.de/feed                                           "1551 11Freunde"
@@ -388,29 +391,32 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 "query:Aktionen // Tablet:               tags=~ \"19[0-8][0-9]\" and (title =~ \"tablet\" or title =~ \"ipad\") and (title !~ \"tabletten\")" "09.00"
 "query:Aktionen // Kaffeemühle:          tags=~ \"19[0-8][0-9]\" and (title =~ \"kaffeem.hle\") and (title !~ \"kaffeemaschine\")" "09.00"
 "query:Aktionen // Reisebus:             tags=~ \"19[0-8][0-9]\" and (title =~ \"Megabus\" or title =~ \"Postbus\" or title =~ \"Flixbus\" or title =~ \"Meinfernbus\")" "09.00"
+"query:Aktionen // Dessous:              tags=~ \"19[0-8][0-9]\" and (title =~ \"calzedonia\" or title =~ \"triumph\" or title =~ \"hunkem.ller\" or title =~ \"victoria\ secret\" or title =~ \"enamora\" or title =~ \"passonata\")" "09.00"
 
 # Technik und Sonstige
 "query:Aktionen // DSL Flat:             tags=~ \"19[0-8][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"
 "query:Aktionen // Garmin:               tags=~ \"19[0-8][0-9]\" and title =~ \"garmin\"" "09.00"
 "query:Aktionen // Föhn:                 tags=~ \"19[0-8][0-9]\" and title =~ \"F.hn\"" "09.00"
-# "query:Aktionen // Speaker:            tags=~ \"19[0-8][0-9]\" and (title !~ \"bluetooth\" and title !~ \"BT-\") and (title =~ \"subwoof\" or title =~ \"lautsprecher\" or title =~ \"speaker\")" "09.00"
 
 # Alles
-"query:Aktionen // Wasserfilterkapseln:  tags=~ \"19[0-8][0-9]\" and (title =~ \"BWT\" or title =~ \"best water technology\")" "09.00"
-"query:Aktionen // Staubsauger:          tags=~ \"19[0-8][0-9]\" and (title =~ \"dirt\ devil\" or title =~ \"staubsauger\" or title =~ \"vacuum\ cleaner\")" "09.00"
-"query:Aktionen // Spirituosen:          tags=~ \"19[0-8][0-9]\" and (link =~ \"spirituo\" or title =~ \"spirituo\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"cocktail\")" "09.00"
-"query:Aktionen // Spirituosen:          tags=~ \"19[0-8][0-9]\" and (title =~ \"bailey\" or title =~ \"rmeister\" or title =~ \"odka\" or title =~ \"tequila\")" "09.00"
-"query:aktionen // Sekt & Wein:          tags=~ \"19[0-8][0-9]\" and (title !~ \"giesswein\") and (title =~ \"sekt\" or title =~ \"wein \")" "09.00"
-"query:Aktionen // Bier:                 tags=~ \"19[0-8][0-9]\" and (title !~ \"probier\") and (title =~ \"becks\" or title =~ \"fassbrause\" or title =~ \"desperados\" or title =~ \"bier\" or title =~ \"wei.*bier\" or title =~ \"craft\" or title =~ \"augustiner\" or title =~ \"hasser.der\" or title =~ \"warsteiner\" or title =~ \"paulaner\" or title =~ \"erdinger\" or title =~ \"pils\")" "09.00"
-"query:Aktionen // Kaffeekapseln:        tags=~ \"19[0-8][0-9]\" and link =~ \"tassimo\"" "09.00"
+"query:Aktionen // Wasserfilterkapseln: tags=~ \"19[0-8][0-9]\" and (title =~ \"BWT\" or title =~ \"best water technology\")" "09.00"
+"query:Aktionen // Spirituosen:         tags=~ \"19[0-8][0-9]\" and (link =~ \"spirituo\" or title =~ \"spirituo\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"cocktail\")" "09.00"
+"query:Aktionen // Spirituosen:         tags=~ \"19[0-8][0-9]\" and (title =~ \"bailey\" or title =~ \"rmeister\" or title =~ \"odka\" or title =~ \"tequila\")" "09.00"
+"query:aktionen // Sekt & Wein:         tags=~ \"19[0-8][0-9]\" and (title !~ \"giesswein\") and (title =~ \"sekt\" or title =~ \"wein \")" "09.00"
+"query:Aktionen // Bier:                tags=~ \"19[0-8][0-9]\" and (title !~ \"probier\") and (title =~ \"becks\" or title =~ \"fassbrause\" or title =~ \"desperados\" or title =~ \"bier\" or title =~ \"wei.*bier\" or title =~ \"craft\" or title =~ \"augustiner\" or title =~ \"hasser.der\" or title =~ \"warsteiner\" or title =~ \"paulaner\" or title =~ \"erdinger\" or title =~ \"pils\")" "09.00"
+"query:Aktionen // Kaffeekapseln:       tags=~ \"19[0-8][0-9]\" and link =~ \"tassimo\"" "09.00"
+"query:Aktionen // Schuhe:              tags=~ \"19[0-8][0-9]\" and (title =~ \"schuh\" or title =~ \"sneaker\")" "09.00"
 
 # Other
 # Groupon, Schuhe & Gutscheine
-# "query:Aktionen // Schuhe:             tags=~ \"19[4][0-9]\" and title =~ \"Rabattstufe [6-9]\"" "09.00"
-"query:Aktionen // Bierangebote:         tags=~ \"19[8][0-9]\""  "09.00"
-"query:Aktionen // Kleinanzeigen:        tags=~ \"197[089]\""  "09.00"
-"query:Aktionen // Groupon:            tags=~ \"19[9][0-9]\" and (title =~ \"sushi\" or title =~ \"therme\" or title =~ \"sauna\")" "09.00"
+"query:Aktionen // Schuhe:        tags=~ \"19[4][0-9]\" and title =~ \"Rabattstufe [6-9]\"" "09.00"
+"query:Aktionen // Bierangebote:  tags=~ \"19[8][0-9]\""  "09.00"
+"query:Aktionen // Kleinanzeigen: tags=~ \"197[089]\""  "09.00"
+"query:Aktionen // Groupon:       tags=~ \"19[9][0-9]\" and (title =~ \"sushi\" or title =~ \"therme\" or title =~ \"sauna\")" "09.00"
 
+# Abgelaufene Suchfilter
+# "query:Aktionen // Speaker:            tags=~ \"19[0-8][0-9]\" and (title !~ \"bluetooth\" and title !~ \"BT-\") and (title =~ \"subwoof\" or title =~ \"lautsprecher\" or title =~ \"speaker\")" "09.00"
+# "query:Aktionen // Staubsauger:         tags=~ \"19[0-8][0-9]\" and (title =~ \"dirt\ devil\" or title =~ \"staubsauger\" or title =~ \"vacuum\ cleaner\")" "09.00"
 # queries                          {{{2
 "query:Angebote // Technik:        tags=~ \"19[1][0-9]\""  "09.10"
 "query:Angebote // Sonstige:       tags=~ \"19[2][0-9]\""  "09.20"

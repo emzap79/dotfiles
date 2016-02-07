@@ -264,8 +264,8 @@ endsnippet
 snippet li "list function"
 list(${0:items})
 endsnippet
-snippet ma "matrix function"
-matrix(${1:NA}, ${2:rows}, ${3:cols})
+snippet mat "matrix function"
+matrix(${1:${VISUAL:NA}}, ${2:rows}, ${3:cols})
 endsnippet
 snippet ta "table function"
 table(${1:data}${2:, nrow = ${3:rows}, ncol = ${4:cols}})
@@ -470,6 +470,9 @@ sd(${1:${VISUAL}})
 endsnippet
 
 # System Operator
+snippet dir "Show files in current direction" i
+dir("${1:.}"${2:, pattern = "${3:^[a-lr]}", full.names = ${4:TRUE}, ignore.case = ${5:TRUE}})
+endsnippet
 snippet gwd "getwd" w
 getwd(${1:${VISUAL}})
 endsnippet

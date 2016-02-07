@@ -452,8 +452,8 @@ set com+=:\\subparagraph{
 set com+=:\\usepackage{
 set com+=:\\documenclass{
 set com+=:\\usepackage[
-set com+=:\\item[
-set com+=:\\item
+" set com+=:\\item[
+" set com+=:\\item
 set com+=:#
 
 " commentstring: The "%s" in the value is replaced with the comment text

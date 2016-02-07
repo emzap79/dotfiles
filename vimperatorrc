@@ -152,35 +152,22 @@ bmark('wikipedia EN'           ,'http://en.wikipedia.org/w/index.php?title=Speci
 EOM
 
 " Keybindings                                        {{{1
-" Tabs                                               {{{2
-" groups                                             {{{3
-noremap <leader>tg :tabgroups<Space>
-
-" pull                                               {{{3
+" tabs                                               {{{2
 noremap <leader>tp :tabgroups pull<space>
-
-" push                                               {{{3
+noremap <leader>tg :tabgroups<Space>
 noremap <leader>tpp :tabgroups push<space>
-
-" add                                                {{{3
 noremap <leader>ta :tabgroups add<space>
-
-" switch                                             {{{3
 noremap <leader>ts :tabgroups switch<space>
-
-" list                                               {{{3
 noremap <leader>tl :tabgroups list<cr>
-
-" remove                                             {{{3
 noremap <leader>tr :tabgroups remove<cr>
-
-" tabonly                                            {{{3
 noremap <leader>to :tabonly<cr><cr>
-
-" apptab                                             {{{3
 noremap <leader>at :set invapptab<cr>
 
-" tabmove                                            {{{3
+" bookmarks                                               {{{2
+nnoremap <leader>bs :bmark -tags<space>
+nnoremap <leader>bm :bmarks! -tags<space>
+
+" add                                                {{{3
 nnoremap l <c-n>
 nnoremap h <c-p>
 nnoremap <silent> <c-l> :tabmove! +1<cr>
@@ -310,7 +297,6 @@ toggle_bottombar();
 EOF
 
 " Miscellaneous                                      {{{2
-
 " Deactivate FF genuine keybinds                     {{{3
 " inoremap <C-a> <Insert><C-a><Insert>
 noremap <C-S-T> <Nop>
@@ -339,7 +325,6 @@ set! mousewheel.withnokey.numlines=6
 set! mousewheel.withnokey.sysnumlines=false
 
 " Define Commands                                    {{{1
-
 " misc                                               {{{2
 command! -nargs=* feedkeys js events.feedkeys("<args>")
 command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
