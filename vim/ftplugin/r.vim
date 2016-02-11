@@ -76,7 +76,7 @@ nmap <localleader>j <Plug>RNLeftPart
 nmap <localleader>jj <Plug>RILeftPart
 nmap <localleader>k <Plug>RNRightPart
 
-" Send character under cursor {{{3
+" Send character under cursor                {{{3
 nnoremap grr grl
 vnoremap grr grl
 inoremap grr grl
@@ -139,6 +139,7 @@ map <silent> <LocalLeader>mi :call RAction("min")<CR>
 map <silent> <LocalLeader>mx :call RAction("max")<CR>
 map <silent> <LocalLeader>rg :call RAction("range")<CR>
 map <silent> <LocalLeader>mn :call RAction("mean")<CR>
+map <silent> <LocalLeader>dv :call RAction("deviance")<CR>
 map <silent> <LocalLeader>me :call RAction("median")<CR>
 map <silent> <LocalLeader>sd :call RAction("sd")<CR>
 map <silent> <LocalLeader>su :call RAction("summary")<CR>

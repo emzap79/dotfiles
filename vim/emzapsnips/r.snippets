@@ -248,7 +248,7 @@ snippet dev "SSR of a regression" i
 deviance(${1:${VISUAL:lm}}$0)
 endsnippet
 snippet lm "Regression" i
-lm(${1:${VISUAL:x~y}}${0:,data=${2}})
+lm(${1:${VISUAL:x~y}}${2:,data=${3}})
 endsnippet
 snippet swd "Set workingdir" b
 setwd("${1:`!p snip.rv = os.getcwd()`}")
@@ -320,13 +320,13 @@ endsnippet
 
 # Plot components
 snippet breaks "Set appropriate number of breaks" i
-breaks = "$1`!p snip.rv = complete(t[1], BREAK_TYPES)`"
+breaks="$1`!p snip.rv = complete(t[1], BREAK_TYPES)`"
 endsnippet
 snippet col "Set appropriate type of color" i
-col = "$1`!p snip.rv = complete(t[1], COLOR_TYPES)`"
+col="$1`!p snip.rv = complete(t[1], COLOR_TYPES)`"
 endsnippet
 snippet color "Set appropriate type of color" i
-color = "$1`!p snip.rv = complete(t[1], COLOR_TYPES)`"
+color="$1`!p snip.rv = complete(t[1], COLOR_TYPES)`"
 endsnippet
 
 # Test statistics

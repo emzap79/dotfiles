@@ -357,6 +357,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCFwzOXPZKE6aH3fAU0d2Cyg    
 # Drawing
 http://feeds.feedburner.com/likesketch?format=xml       "1810 Drawing"
 http://feeds.feedburner.com/artlessononline?format=xml  "1810 Drawing"
+http://feeds.feedburner.com/matthewjamestaylor?format=xml "1810 Drawing"
 
 # Lfehacks
 http://feeds.gawker.com/lifehacker/full                 "1820 Lifehacker"
@@ -397,6 +398,7 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 "query:Aktionen // DSL Flat:             tags=~ \"19[0-8][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"
 "query:Aktionen // Garmin:               tags=~ \"19[0-8][0-9]\" and title =~ \"garmin\"" "09.00"
 "query:Aktionen // Föhn:                 tags=~ \"19[0-8][0-9]\" and title =~ \"F.hn\"" "09.00"
+"query:Aktionen // Regenschirm:          tags=~ \"19[0-8][0-9]\" and title =~ \"Regenschirm\"" "09.00"
 
 # Alles
 "query:Aktionen // Wasserfilterkapseln: tags=~ \"19[0-8][0-9]\" and (title =~ \"BWT\" or title =~ \"best water technology\")" "09.00"
