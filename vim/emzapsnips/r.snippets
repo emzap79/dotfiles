@@ -100,8 +100,8 @@ endsnippet
 snippet inst "Install package from repo" b
 pkgs <- c('http://rforge.net', 'http://R-Forge.R-project.org', 'http://cran.rstudio.org', 'http://cran.r-project.org')
 # update.packages(ask = FALSE, repos = pkgs)
-install.packages('AER', repos = pkgs, type = 'source')
-library("AER")
+install.packages('${1:package}', repos = pkgs, type = 'source')
+library("$1")
 endsnippet
 snippet gith "Install from Github" b
 require(devtools)

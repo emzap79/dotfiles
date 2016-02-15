@@ -238,47 +238,46 @@ http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss            "1424 
 # 05. Sport                        {{{1
 
 # filter
-"query:Basketball // NBA: tags=~ \"152[0]\"" "05.00"
-"query:Basketball // Mavs: tags=~ \"153[0-9]\"" "05.00"
-"query:Basketball // Tigers: tags=~ \"151[0-9]\" and (title =~ \" Walter\" or link =~ \" Walter\" or title =~ \"Tigers\")" "05.00"
-
-"query:Fussball // MSV: tags=~ \"159[0]\"" "05.00"
-"query:Fussball // BVB: tags=~ \"159[1]\" or ( tags=~ \"15[58][0-9]\" and (title =~ \"BVB\" or title =~ \"Watzke\" or title =~ \"Tuchel\"))" "05.00"
-"query:Fussball // 11 Freunde Spielbericht: tags=~ \"155[1]\" and title =~ \"[0-9]{1,2}[^0-9,\.][0-9]{1,2}\"" "05.00"
-"query:Fussball // BL Ergebnisse: tags=~ \"155[0]\" and link =~ \"spielbericht\"" "05.00"
-"query:Fussball // Spieler des Tages: ( tags=~ \"155[1]\" and title =~ \" des tages\")" "05.00"
-"query:Fussball // Traumtore: tags=~ \"155[1]\" and link =~ \".*traumtore.*\"" "05.00"
+"query:Basketball // Tigers:                tags =~ \"15[0-9][0-9]\" and (title =~ \" Walter\" or link =~ \" Walter\" or title =~ \"Tigers\")" "05.00"
+"query:Basketball // NBA:                   tags =~ \"153[0-9]\" or (title =~ \"mavericks\" or title =~ \"warriors\")"  "05.00"
+"query:Fussball // MSV:                     tags =~ \"159[0]\"" "05.00"
+"query:Fussball // BVB:                     tags =~ \"159[1]\" or (                                                                                    tags =~ \"15[58][0-9]\" and (title =~ \"BVB\" or title =~ \"Watzke\" or title =~ \"Tuchel\"))" "05.00"
+"query:Fussball // 11 Freunde Spielbericht: tags =~ \"155[1]\" and title =~ \"[0-9]{1,2}[^0-9,\.][0-9]{1,2}\"" "05.00"
+"query:Fussball // BL Ergebnisse:           tags =~ \"155[0]\" and link =~ \"spielbericht\"" "05.00"
+"query:Fussball // Spieler des Tages:       tags =~ \"155[1]\" and title =~ \" des tages\"" "05.00"
+"query:Fussball // Traumtore:               tags =~ \"155[1]\" and link =~ \".*traumtore.*\"" "05.00"
 
 # youtube
 https://www.youtube.com/feeds/videos.xml?channel_id=UCRFsyeKu07-LnHDG44O6uCA                                                          "05.01" "Sportschau.de" "Youtube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCu1FJLH2dp7dwKoCCGFkaMg                                                          "05.01" "Bild" "Bundesliga" "Youtube"
 
 # queries                          {{{2
-"query:Basketball // International:  tags=~ \"151[0-9]\" and (title =~ \"Eurobasket\" or title =~ \"DBB\")"         "05.10"
-"query:Basketball // NBA:            tags=~ \"152[0-9]\""                                                           "05.20"
-
-"query:Fussball // Bundesliga:       tags=~ \"155[1]\" and (link !~ \"champions-league\" and link !~ \"livematch\" and link !~ \"spielbericht\")"  "05.50"
-"query:Fussball // Champions League: tags=~ \"155[1]\" and link =~ \"champions-league\""  "05.60"
-"query:Fussball // International:    tags=~ \"157[0-9]\""                                                           "05.70"
+"query:Basketball // International:     tags =~ \"151[0-9]\" and (title =~ \"Eurobasket\" or title =~ \"DBB\")"         "05.10"
+"query:Basketball // NBA:               tags =~ \"152[0-9]\""  "05.20"
+"query:Fussball // Bundesliga:          tags =~ \"155[1]\" and (link !~ \"champions-league\" and link !~ \"livematch\" and link !~ \"spielbericht\")"  "05.50"
+"query:Fussball // Champions League:    tags =~ \"155[1]\" and link =~ \"champions-league\""  "05.60"
+"query:Fussball // International:       tags =~ \"157[0-9]\""                                                           "05.70"
 
 # urls                             {{{2
 # Basketball                       {{{3
 # Allgemein
-http://sports.yahoo.com/nba/rss.xml                                    "1510 Basketball"
 http://www.kickz.com/five/?feed=rss2                                   "1510 Basketball"
 http://www.sport1.de/de_1/basketball/rss.xml                           "1510 Basketball"
 http://www.spox.com/pub/rss/basketball.xml                             "1510 Basketball"
 
 # NBA
-http://www.spox.com/pub/rss/us-sport-nba.xml                           "1523 Basketball"
-http://www.nba.com/dunkofthenight/rss.xml                              "1520 DunkOfTheNight"
-http://www.nba.com/powerrankings/rss.xml                               "1520 Powerranking"
+http://www.spox.com/pub/rss/us-sport-nba.xml                           "1520 Basketball"
+http://sports.yahoo.com/nba/rss.xml                                    "1520 Basketball"
 
 # Mavericks
 http://blogmaverick.com/feed/                                          "1530 Mavs"
 http://mavsblog.dallasnews.com/atom.xml                                "1530 Mavs"
 http://www.dallasbasketball.com/rss/MainRss.xml                        "1530 Mavs"
 http://www.nba.com/mavericks/rss.xml                                   "1530 Mavs"
+
+# Powerrankings
+http://www.nba.com/dunkofthenight/rss.xml                              "1540 DunkOfTheNight"
+http://www.nba.com/powerrankings/rss.xml                               "1540 Powerranking"
 
 # Fußball                         {{{3
 
@@ -381,37 +380,39 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 # 09. Angebote & Gutscheine        {{{1
 
 # filter
+# Aktionen
 "query:Aktionen // TOP:                  tags=~ \"19[0-8][0-9]\" and ((title !~ \"laptop\" and title !~ \"tank.top\" and title !~ \"topf\") and (title =~ \"sehr\ günstig\" or title =~ \"günstigst\" or title =~ \"preisfehler\" or title =~ \"deal. der woche\" or title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion!\"))" "09.00"
 "query:Aktionen // Supermarkt:           tags=~ \"19[0-8][0-9]\" and (title =~ \"supermarkt\" or title =~ \"10 drogerie\")" "09.00"
 
-# Aktionen
-"query:Aktionen // Rabatt:               tags=~ \"19[0-8][0-9]\" and ((title =~ \"[3-9][0-9]\+ *€\" and title =~ \"Gutschein\") or title =~ \"[3-9][0-9]\+ *%\")" "09.00"
-"query:Aktionen // Rasierklingen:        tags=~ \"19[0-8][0-9]\" and (title =~ \"rasierkl.*\" or title =~ \"wiĺkinson\" or title =~ \"gillette\")" "09.00"
-"query:Aktionen // Ebooks:               tags=~ \"19[0-8][0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))" "09.00"
-"query:Aktionen // Notebook:             tags=~ \"19[0-8][0-9]\" and (title =~ \"notebook \" and title =~ \"laptop\" and (title !~ \"ebookers\" and title !~ \"e-book\"))" "0.09"
-"query:Aktionen // Tablet:               tags=~ \"19[0-8][0-9]\" and (title =~ \"tablet\" or title =~ \"ipad\") and (title !~ \"tabletten\")" "09.00"
-"query:Aktionen // Kaffeemühle:          tags=~ \"19[0-8][0-9]\" and (title =~ \"kaffeem.hle\") and (title !~ \"kaffeemaschine\")" "09.00"
-"query:Aktionen // Reisebus:             tags=~ \"19[0-8][0-9]\" and (title =~ \"Megabus\" or title =~ \"Postbus\" or title =~ \"Flixbus\" or title =~ \"Meinfernbus\")" "09.00"
-"query:Aktionen // Dessous:              tags=~ \"19[0-8][0-9]\" and (title =~ \"calzedonia\" or title =~ \"triumph\" or title =~ \"hunkem.ller\" or title =~ \"victoria\ secret\" or title =~ \"enamora\" or title =~ \"passonata\")" "09.00"
+# Spirituosen & Bier
+"query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (link =~ \"spirituo\" or title =~ \"spirituo\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"cocktail\")" "09.00"
+"query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (title =~ \"bailey\" or title =~ \"whisk.y\" or title =~ \"rmeister\" or title =~ \"cointreau\" or title =~ \"odka\" or title =~ \"tequila\")" "09.00"
+"query:Aktionen // Softdrinks:          tags =~ \"19[0-8][0-9]\" and (title =~ \"tonic.water\" or title =~ \"fanta\" or title =~ \"coca.cola\" or title =~ \"fritz.kola\")" "09.00"
+"query:Aktionen // Bier:                tags =~ \"19[0-8][0-9]\" and (title =~ \"becks\" or title =~ \"fassbrause\" or title =~ \"desperados\")" "09.00"
+"query:Aktionen // CraftBeer:           tags =~ \"19[0-8][0-9]\" and (title =~ \"beer\" or title =~ \"bier\") and (title =~ \"craft\")" "09.00"
+"query:Aktionen // Weissbier:           tags =~ \"19[0-8][0-9]\" and (title =~ \"augustiner\" or title =~ \"schneider\ weisse\" or title =~ \"paulaner\" or title =~ \"erdinger\" or title =~ \"weissbier\")" "09.00"
 
-# Technik und Sonstige
-"query:Aktionen // DSL Flat:             tags=~ \"19[0-8][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"
-"query:Aktionen // Garmin:               tags=~ \"19[0-8][0-9]\" and title =~ \"garmin\"" "09.00"
-"query:Aktionen // Föhn:                 tags=~ \"19[0-8][0-9]\" and title =~ \"F.hn\"" "09.00"
-"query:Aktionen // Regenschirm:          tags=~ \"19[0-8][0-9]\" and title =~ \"Regenschirm\"" "09.00"
-
-# Alles
-"query:Aktionen // Wasserfilterkapseln: tags=~ \"19[0-8][0-9]\" and (title =~ \"BWT\" or title =~ \"best water technology\")" "09.00"
-"query:Aktionen // Spirituosen:         tags=~ \"19[0-8][0-9]\" and (link =~ \"spirituo\" or title =~ \"spirituo\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"cocktail\")" "09.00"
-"query:Aktionen // Spirituosen:         tags=~ \"19[0-8][0-9]\" and (title =~ \"bailey\" or title =~ \"rmeister\" or title =~ \"odka\" or title =~ \"tequila\")" "09.00"
-"query:aktionen // Sekt & Wein:         tags=~ \"19[0-8][0-9]\" and (title !~ \"giesswein\") and (title =~ \"sekt\" or title =~ \"wein \")" "09.00"
-"query:Aktionen // Bier:                tags=~ \"19[0-8][0-9]\" and (title !~ \"probier\") and (title =~ \"becks\" or title =~ \"fassbrause\" or title =~ \"desperados\" or title =~ \"bier\" or title =~ \"wei.*bier\" or title =~ \"craft\" or title =~ \"augustiner\" or title =~ \"hasser.der\" or title =~ \"warsteiner\" or title =~ \"paulaner\" or title =~ \"erdinger\" or title =~ \"pils\")" "09.00"
-"query:Aktionen // Kaffeekapseln:       tags=~ \"19[0-8][0-9]\" and link =~ \"tassimo\"" "09.00"
-"query:Aktionen // Schuhe:              tags=~ \"19[0-8][0-9]\" and (title =~ \"schuh\" or title =~ \"sneaker\")" "09.00"
+# Sonstige Suchanfragen
+"query:Aktionen // Parfume:             tags =~ \"19[0-8][0-9]\" and title =~ \"Parf.me*\"" "09.00"
+"query:Aktionen // Parfume:             tags =~ \"19[0-8][0-9]\" and (title =~ \"blue\ de\ chanel\" or title =~ \"homme\ libre\")" "09.00"
+"query:Aktionen // Rabatt:              tags =~ \"19[0-8][0-9]\" and ((title =~ \"[3-9][0-9]\+ *€\" and title =~ \"Gutschein\") or title =~ \"[3-9][0-9]\+ *%\")" "09.00"
+"query:Aktionen // Rasierklingen:       tags =~ \"19[0-8][0-9]\" and (title =~ \"rasierkl.*\" or title =~ \"wiĺkinson\" or title =~ \"gillette\")" "09.00"
+"query:Aktionen // Ebooks:              tags =~ \"19[0-8][0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))" "09.00"
+"query:Aktionen // Notebook:            tags =~ \"19[0-8][0-9]\" and (title =~ \"notebook \" and title =~ \"laptop\" and (title !~ \"ebookers\" and title !~ \"e-book\"))" "0.09"
+"query:Aktionen // Tablet:              tags =~ \"19[0-8][0-9]\" and (title =~ \"tablet\" or title =~ \"ipad\") and (title !~ \"tabletten\")" "09.00"
+"query:Aktionen // Kaffeemühle:         tags =~ \"19[0-8][0-9]\" and (title =~ \"kaffeem.hle\") and (title !~ \"kaffeemaschine\")" "09.00"
+"query:Aktionen // Reisebus:            tags =~ \"19[0-8][0-9]\" and (title =~ \"Megabus\" or title =~ \"Postbus\" or title =~ \"Flixbus\" or title =~ \"Meinfernbus\")" "09.00"
+"query:Aktionen // Dessous:             tags =~ \"19[0-8][0-9]\" and (title =~ \"calzedonia\" or title =~ \"triumph\" or title =~ \"hunkem.ller\" or title =~ \"victoria\ secret\" or title =~ \"enamora\" or title =~ \"passonata\")" "09.00"
+"query:Aktionen // DSL Flat:            tags =~ \"19[0-8][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"
+"query:Aktionen // Föhn:                tags =~ \"19[0-8][0-9]\" and title =~ \"F.hn\"" "09.00"
+"query:Aktionen // Regenschirm:         tags =~ \"19[0-8][0-9]\" and title =~ \"Regenschirm\"" "09.00"
+"query:Aktionen // Wasserfilterkapseln: tags =~ \"19[0-8][0-9]\" and (title =~ \"BWT\" or title =~ \"best water technology\")" "09.00"
+"query:Aktionen // Kaffeekapseln:       tags =~ \"19[0-8][0-9]\" and link =~ \"tassimo\"" "09.00"
 
 # Other
 # Groupon, Schuhe & Gutscheine
-"query:Aktionen // Schuhe:        tags=~ \"19[4][0-9]\" and title =~ \"Rabattstufe [6-9]\"" "09.00"
+"query:Aktionen // Schuhe:        tags=~ \"1940\" and title =~ \"1[0-9]\+ *%\"" "09.00"
+"query:Aktionen // Schuhe:        tags =~ \"19[^4][0-9]\" and (title =~ \"schuh\" or title =~ \"sneaker\")" "09.00"
 "query:Aktionen // Bierangebote:  tags=~ \"19[8][0-9]\""  "09.00"
 "query:Aktionen // Kleinanzeigen: tags=~ \"197[089]\""  "09.00"
 "query:Aktionen // Groupon:       tags=~ \"19[9][0-9]\" and (title =~ \"sushi\" or title =~ \"therme\" or title =~ \"sauna\")" "09.00"
@@ -419,6 +420,7 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 # Abgelaufene Suchfilter
 # "query:Aktionen // Speaker:            tags=~ \"19[0-8][0-9]\" and (title !~ \"bluetooth\" and title !~ \"BT-\") and (title =~ \"subwoof\" or title =~ \"lautsprecher\" or title =~ \"speaker\")" "09.00"
 # "query:Aktionen // Staubsauger:         tags=~ \"19[0-8][0-9]\" and (title =~ \"dirt\ devil\" or title =~ \"staubsauger\" or title =~ \"vacuum\ cleaner\")" "09.00"
+
 # queries                          {{{2
 "query:Angebote // Technik:        tags=~ \"19[1][0-9]\""  "09.10"
 "query:Angebote // Sonstige:       tags=~ \"19[2][0-9]\""  "09.20"
@@ -436,7 +438,6 @@ http://feeds.ibood.com/ibood/de_de                                      "1910 Te
 http://www.preisjaeger.de/technik/feed/                                 "1910 Technik"
 
 # Sonstige                         {{{3
-http://www.sparwelt.de/rss.xml                                          "1922 Sparwelt"
 http://news.billiger.de/feed                                            "1923 Sonstige"
 http://feeds.feedburner.com/myDealZ?format=xml                          "1924 Sonstige"
 http://feeds.feedburner.com/schnaeppchenfuchs                           "1925 Sonstige"
@@ -449,25 +450,34 @@ http://feeds.feedburner.com/sparbote-schnaeppchen                       "1926 So
 http://rss.schuh-helden.de/feed.php?sizes=45,46                         "1940 Kleidung"
 
 # Supermarkt                       {{{3
-# # Elektronik
-http://www.discounto.de/Elektronik/Saturn/get.rss20                     "1950 Saturn"
-http://www.discounto.de/Elektronik/conrad/get.rss20                     "1950 Conrad"
-http://www.discounto.de/Elektronik/expert/get.rss20                     "1950 Expert"
-http://www.discounto.de/Elektronik/euronics/get.rss20                   "1950 Euronics"
 
 # # Discounter
-http://www.discounto.de/Discounter/Netto-Marken-Discount/get.rss20      "1951 Netto"
-http://www.discounto.de/Discounter/kodi/get.rss20                       "1951 Kodi"
-http://www.discounto.de/Discounter/Kaufland/get.rss20                   "1951 Kaufland"
-http://www.discounto.de/Discounter/lidl/get.rss20                       "1951 Lidl"
-http://www.discounto.de/Discounter/tchibo/get.rss20                     "1951 Tchibo"
-http://www.discounto.de/Discounter/plus/get.rss20                       "1951 Plus"
-http://www.discounto.de/Discounter/penny/get.rss20                      "1951 Penny"
-http://www.discounto.de/Discounter/aldi_sued/get.rss20                  "1951 Aldi Süd"
+http://www.discounto.de/Discounter/aldi_sued/get.rss20             "1950 Discounter: Aldi Süd"
+http://www.discounto.de/Discounter/KODi/get.rss20                  "1950 Discounter: Kodi"
+http://www.discounto.de/Discounter/lidl/get.rss20                  "1950 Discounter: Lidl"
+http://www.discounto.de/Discounter/Netto-Marken-Discount/get.rss20 "1950 Discounter: Netto"
+http://www.discounto.de/Discounter/Tchibo/get.rss20                "1950 Discounter: Tchibo"
+http://www.discounto.de/Discounter/plus.de/get.rss20                  "1950 Discounter: Plus"
+http://www.discounto.de/Discounter/penny_markt/get.rss20                 "1950 Discounter: Penny"
+
+# # Supermarkt
+http://www.discounto.de/Supermarkt/real/get.rss20                  "1951 Supermarkt: Real"
+http://www.discounto.de/Supermarkt/Edeka-Direkt/get.rss20                 "1951 Supermarkt: Edeka"
+http://www.discounto.de/Supermarkt/REWE/get.rss20                  "1951 Supermarkt: Rewe"
+http://www.discounto.de/Supermarkt/Trink-und-Spare/get.rss20       "1951 Supermarkt: Trink & Spare" "09.00"
+http://www.discounto.de/Supermarkt/Kaufland/get.rss20              "1951 Supermarkt: Kaufland"
+
+# # Elektronik
+http://www.discounto.de/Elektronik/Saturn/get.rss20                "1952 Elektronik: Saturn"
+http://www.discounto.de/Elektronik/Conrad/get.rss20                "1952 Elektronik: Conrad"
+http://www.discounto.de/Elektronik/expert/get.rss20                "1952 Elektronik: Expert"
+http://www.discounto.de/Elektronik/Euronics/get.rss20              "1952 Elektronik: Euronics"
 
 # # Drogerie
-http://www.discounto.de/Drogerie/Mueller/get.rss20                      "1952 Müller"
-http://www.discounto.de/Drogerie/Douglas/get.rss20                      "1952 Douglas"
+http://www.discounto.de/Drogerie/Rossmann/get.rss20                "1953 Drogerie: Rossmann"
+http://www.discounto.de/Drogerie/Douglas/get.rss20                 "1953 Drogerie: Douglas"
+http://www.discounto.de/Drogerie/TheBodyShop/get.rss20             "1953 Drogerie: TheBodyShop"
+http://www.discounto.de/Drogerie/Yves-Rocher/get.rss20             "1953 Drogerie: Yves-Rocher"
 
 # Reisen                           {{{3
 http://www.fernbusse.de/feed/                                           "1960 Reisen"

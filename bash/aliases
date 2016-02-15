@@ -198,6 +198,7 @@ alias killall="killall -KILL"
 alias vimgolf="sudo vimgolf"
 alias clamsc="sudo /usr/bin/clamscan --scan-swf=no -r / > /tmp/clamav.log 2>&1" # http://bit.ly/1zrZw4s
 alias clamscan="sudo /usr/bin/clamscan --scan-swf=no -ri"   # <directory> to scan specific path
+alias scandocument="scanimage -l 0 -t 0 -x 210 -y 296 --resolution=200 --contrast=10 --brightness=10 --batch=/tmp/scanned_image-%03d.pnm"
 
 # bash alias completion                                    -*- shell-script -*-  {{{2
 
@@ -367,7 +368,7 @@ fi
 # pdf                                                                            {{{2
 
 alias pdfbar="pdftk *.pdf cat output bar.pdf; evince bar.pdf; rm -v bar.pdf"
-alias pdftkk=fun_pdftk
+alias pdftk_from_textfile=fun_pdftk
 alias pdfgrayscale="gs -sOutputFile=grayscale.pdf -sDEVICE=pdfwrite \
     -sCompatibilityLevel=1.5 -dProcessColorModel=/DeviceGray \
     -sColorConversionStrategy=Gray -dNOPAUSE -dBATCH"
@@ -883,7 +884,6 @@ fun_gitignore() {
 curl -L -s https://www.gitignore.io/api/$@ ;
 }
 # extract & convert                                                              {{{2
-
 # fun: conv images to pdf                                                        {{{3
 
 fun_conv_img_to_pdf() {
@@ -940,14 +940,22 @@ fun_pdf_resize(){
 
 # fun: split pdf regarding txt file                                              {{{3
 #
-# pages;filename
-
+# fun_pdftk <document>.pdf <textfile>.txt
 fun_pdftk(){
-    cat $1 |\
-        while read l
-        do pdftk $2 cat $(echo $l | cut -f1 -d';') output $(echo $l | cut -f2 -d';').pdf
-        done
-    }
+    # date:title:company:pages
+    sfi="$IFS"
+    awk 'FNR != 1{print}' $2 |\
+        sed 's/ /_/g' |\
+        while IFS=':' read \
+            date \
+            title \
+            company \
+            pages
+do pdftk $1 cat "$pages" output "$company"_"$date"_"$title".pdf
+done
+mkdir ./trash && mv $1 $2 ./trash/
+IFS="$sfi"
+}
 
 # fun: create gif from video                                                     {{{3
 
@@ -1369,3 +1377,6 @@ fun_gnome() {
 #
 # # mv salsa-files regarding to txt-file entries
 # # cat salsavids.txt | while read l; do x=$(echo $l | awk '{print $1}'); y=$(echo $l | cut -d '=' -f 2); z=$(lsg $y); zx=$(echo $x | sed 's/#//g'); zy=$(echo $z | sed "s/-$y.mp4//g" | sed 's/ /_/g'); mv -v "$z" "$zx"_"$zy".mp4; done
+#
+# # split pdf file regarding txt content
+# #

@@ -39,7 +39,7 @@ set tabnumbers
 set titlestring="INCREDIBLE_JFPs Firefox"
 set toolbars=noaddons,nobookmarks,nomenu,nonavigation,tabs
 set loadplugins
-set urlseparator=';;'
+set urlseparator=";;"
 set verbose=1
 set visualbell
 
@@ -69,7 +69,7 @@ silent qmark K
 silent qmark l https://lsf.uni-due.de/lsf
 silent qmark L https://www.linkedin.com
 silent qmark m http://moodle2.uni-due.de
-silent qmark M http://moodle.uni-due.de
+silent qmark M https://www.metro.de/angebote/aktuelle-angebote?showall=1
 silent qmark n http://www.netflix.com
 silent qmark o http://www1.onleihe.de/duisburg
 silent qmark O https://onedrive.live.com/
@@ -174,10 +174,10 @@ nnoremap <silent> <c-l> :tabmove! +1<cr>
 nnoremap <silent> <c-h> :tabmove! -1<cr>
 
 " next, previous, close, open in bg                  {{{3
-map J :tabnext<cr>
-map K :tabprevious<cr>
-map <A-d> :tabclose<Space>-select=lastactive<cr>
-map <A-f> ;b
+nnoremap J :tabnext<cr>
+nnoremap K :tabprevious<cr>
+nnoremap d :tabclose<Space>-select=lastactive<cr>
+" map <A-f> ;b
 
 " Commands                                           {{{2
 
