@@ -248,8 +248,10 @@ http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss            "1424 
 "query:Fussball // Traumtore:               tags =~ \"155[1]\" and link =~ \".*traumtore.*\"" "05.00"
 
 # youtube
-https://www.youtube.com/feeds/videos.xml?channel_id=UCRFsyeKu07-LnHDG44O6uCA                                                          "05.01" "Sportschau.de" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCu1FJLH2dp7dwKoCCGFkaMg                                                          "05.01" "Bild" "Bundesliga" "Youtube"
+"query:Bild.de // 1. Bundesliga: tags =~ \"2551\" and title !~ \"2. Bundesliga\"" "05.01" "Bild.de" "Youtube"
+"query:Bild.de // 2. Bundesliga: tags =~ \"2551\" and title =~ \"2. Bundesliga\"" "05.02" "Bild.de" "Youtube"
+"query:Sportschau // DFB-Pokal: tags =~ \"2552\" and title =~ \"DFB-Pokal\"" "05.04" "Sportschau.de" "Youtube"
+"query:Sportschau // Sport: tags =~ \"2552\" and title !~ \"DFB-Pokal\"" "05.03" "Sportschau.de" "Youtube"
 
 # queries                          {{{2
 "query:Basketball // International:     tags =~ \"151[0-9]\" and (title =~ \"Eurobasket\" or title =~ \"DBB\")"         "05.10"
@@ -286,6 +288,9 @@ http://rss.kicker.de/news/bundesliga                                   "1550 Bun
 http://www.11freunde.de/feed                                           "1551 11Freunde"
 http://rss.kicker.de/news/2bundesliga                                  "1552 2. Bundesliga"
 http://fussballblog.espace.ch/atom/                                    "1553 Blogs"
+
+https://www.youtube.com/feeds/videos.xml?channel_id=UCu1FJLH2dp7dwKoCCGFkaMg "2551" "Bild.de"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRFsyeKu07-LnHDG44O6uCA "2552" "Sportschau.de"
 
 # Champions League
 http://www.sport1.de/de_1/fussball/fussball_championsleague/rss.xml    "1560 Champions League"
@@ -386,7 +391,7 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 
 # Spirituosen & Bier
 "query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (link =~ \"spirituo\" or title =~ \"spirituo\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"cocktail\")" "09.00"
-"query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (title =~ \"bailey\" or title =~ \"whisk.y\" or title =~ \"rmeister\" or title =~ \"cointreau\" or title =~ \"odka\" or title =~ \"tequila\")" "09.00"
+"query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (title =~ \"bailey\" or title =~ \"whisk.y\" or title =~ \"rmeister\" or title =~ \"cointreau\" or title =~ \"[wv]odka\" or title =~ \"tequila\")" "09.00"
 "query:Aktionen // Softdrinks:          tags =~ \"19[0-8][0-9]\" and (title =~ \"tonic.water\" or title =~ \"fanta\" or title =~ \"coca.cola\" or title =~ \"fritz.kola\")" "09.00"
 "query:Aktionen // Bier:                tags =~ \"19[0-8][0-9]\" and (title =~ \"becks\" or title =~ \"fassbrause\" or title =~ \"desperados\")" "09.00"
 "query:Aktionen // CraftBeer:           tags =~ \"19[0-8][0-9]\" and (title =~ \"beer\" or title =~ \"bier\") and (title =~ \"craft\")" "09.00"
