@@ -7,6 +7,9 @@ extends tex, plaintex, textmpl
 ##############
 # MATH STUFF #
 ##############
+snippet "(\s)q" "\quad" ir
+\quad $0
+endsnippet
 snippet qtq "\quad\text{}\quad" i
 \quad\text{${1:${VISUAL}}}\quad $0
 endsnippet

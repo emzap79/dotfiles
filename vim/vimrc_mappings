@@ -467,7 +467,7 @@ inoremap <leader>bi <esc> :BundleInstall<cr>
 nnoremap <leader>bu :BundleInstall!<cr>
 inoremap <leader>bu <esc>:BundleInstall!<cr>
 
-" " vim-comment <plugin>                                                        {{{2
+" " vim-comment <plugin>                                                       {{{2
 
 nnoremap <silent><leader>yP :normal yyp<CR>
 vnoremap <silent><leader>yP <ESC>:normal yyp<CR>
@@ -1171,3 +1171,31 @@ endfunction
 nnoremap gZ :exe "!firefox " . shellescape(expand("<cword>"))<cr><cr>
 
 " s/^.\{-}\ze,\s\d\d\d\d\.\s/\\author{&},\r/g | s/,\s\(\d\{4\}\)\./\\year{\1\r/g | s/^\s\(.\{-}\)\s\(\d*\),/\\title{\1},\\journal{},\r\\number{\2},\r/g | s/^s\(\d.*\)\.$/\\pages{\1}/g s\r},
+
+" Other Functions                                                              {{{1
+" Join Lines                                                                   {{{2
+" http://superuser.com/a/420528/308018
+"
+" Verbinden Zeilen, die nicht das Wort 'pattern' enthalten:
+" :%s/\n\(\(pattern\.$\)\@!.*\)/\1/g # \@! schließt das vorhergehende Atom aus dem Suchpattern aus
+
+" Blöcke zusammenfügen                                                       {{{2
+" http://stackoverflow.com/a/10760494 ##
+"
+" untereinanderstehende Blöcke der Form
+
+" 1 abcd
+" 2 efg
+" 3 hij k
+
+" 4 lmn op
+" 5 qrstu
+" 6 vwx yz
+
+" miteinander zusammenfügen lassen sich so:
+
+" :4,6del | let l=split(@", '\n') | 1,3s/$/\=remove(l,0)/
+ " We could instead replace the deleted lines in reverse order by using remove(l,-1).
+ " If "\n" is omitted than whitespaces will be used instead.
+ " You can get rid of any trailing space using s/\s*$/ instead of s/$/.
+

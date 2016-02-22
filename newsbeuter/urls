@@ -37,7 +37,7 @@ http://rss.kicker.de/live/championsleague   "00.20 Champions League"
 
 "query:Finance // Marktanalysen:    tags=~ \"01\.0[0-9]\" and (title =~ \"Markets Unplugged\" or title =~ \"Market Insight\")"    "01.00"
 
-# youtube                                                                                     .
+# podcasts                                                                                     .
 https://www.youtube.com/feeds/videos.xml?channel_id=UCsZncYBzgAR_-IlaVZ2r1YA                                                           "01.01" "Trading - GKFX" "Youtube"
 
 # queries                          {{{2
@@ -236,10 +236,9 @@ http://alblue.bandlem.com/atom.xml                                        "1423 
 http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss            "1424 Gnuplot"
 
 # 05. Sport                        {{{1
-
-# filter
+# filter                           {{{2
 "query:Basketball // Tigers:                tags =~ \"15[0-9][0-9]\" and (title =~ \" Walter\" or link =~ \" Walter\" or title =~ \"Tigers\")" "05.00"
-"query:Basketball // NBA:                   tags =~ \"153[0-9]\" or (title =~ \"mavericks\" or title =~ \"warriors\")"  "05.00"
+"query:Basketball // Mavs:                  tags =~ \"153[0-9]\" or (title =~ \"mavs\" or title =~ \"mavericks\")"  "05.00"
 "query:Fussball // MSV:                     tags =~ \"159[0]\"" "05.00"
 "query:Fussball // BVB:                     tags =~ \"159[1]\" or (                                                                                    tags =~ \"15[58][0-9]\" and (title =~ \"BVB\" or title =~ \"Watzke\" or title =~ \"Tuchel\"))" "05.00"
 "query:Fussball // 11 Freunde Spielbericht: tags =~ \"155[1]\" and title =~ \"[0-9]{1,2}[^0-9,\.][0-9]{1,2}\"" "05.00"
@@ -247,21 +246,24 @@ http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss            "1424 
 "query:Fussball // Spieler des Tages:       tags =~ \"155[1]\" and title =~ \" des tages\"" "05.00"
 "query:Fussball // Traumtore:               tags =~ \"155[1]\" and link =~ \".*traumtore.*\"" "05.00"
 
-# youtube
-"query:Bild.de // 1. Bundesliga: tags =~ \"2551\" and title !~ \"2. Bundesliga\"" "05.01" "Bild.de" "Youtube"
-"query:Bild.de // 2. Bundesliga: tags =~ \"2551\" and title =~ \"2. Bundesliga\"" "05.02" "Bild.de" "Youtube"
-"query:Sportschau // DFB-Pokal: tags =~ \"2552\" and title =~ \"DFB-Pokal\"" "05.04" "Sportschau.de" "Youtube"
-"query:Sportschau // Sport: tags =~ \"2552\" and title !~ \"DFB-Pokal\"" "05.03" "Sportschau.de" "Youtube"
-
 # queries                          {{{2
-"query:Basketball // International:     tags =~ \"151[0-9]\" and (title =~ \"Eurobasket\" or title =~ \"DBB\")"         "05.10"
-"query:Basketball // NBA:               tags =~ \"152[0-9]\""  "05.20"
+"query:Basketball // International:     tags =~ \"151[0-9]\" and (title =~ \"Eurobasket\" or title =~ \"DBB\")" "05.10"
+"query:Basketball // NBA:               tags =~ \"15[1-3][0-9]\" and title !~ \"mavs\" and title !~ \"mavericks\""  "05.20"
 "query:Fussball // Bundesliga:          tags =~ \"155[1]\" and (link !~ \"champions-league\" and link !~ \"livematch\" and link !~ \"spielbericht\")"  "05.50"
 "query:Fussball // Champions League:    tags =~ \"155[1]\" and link =~ \"champions-league\""  "05.60"
-"query:Fussball // International:       tags =~ \"157[0-9]\""                                                           "05.70"
+"query:Fussball // International:       tags =~ \"157[0-9]\"" "05.70"
+
+# podcasts                         {{{2
+
+"query:Bild.de // 1. Bundesliga:       tags=~ \"9551\" and title !~ \"2. Bundesliga\"" "05.01" "Bild.de" "Youtube"
+"query:Bild.de // 2. Bundesliga:       tags=~ \"9551\" and title =~ \"2. Bundesliga\"" "05.02" "Bild.de" "Youtube"
+"query:Sportschau // DFB-Pokal:        tags=~ \"9552\" and title =~ \"DFB-Pokal\"" "06.03" "Sportschau.de" "Youtube"
+"query:Sky Sport // Champions League: tags=~ \"9553\" and title =~ \"Champions.League\"" "05.04" "Sky Sport HD" "Youtube"
+"query:Sky Sport // Europa League: tags=~ \"9553\" and title =~ \" - \" and title !~ \"Champions.League\"" "05.05" "Sky Sport HD" "Youtube"
+"query:Sportschau // Sport:            tags=~ \"9552\" and title !~ \"DFB-Pokal\"" "05.09" "Sportschau.de" "Youtube"
 
 # urls                             {{{2
-# Basketball                       {{{3
+# basketball                       {{{3
 # Allgemein
 http://www.kickz.com/five/?feed=rss2                                   "1510 Basketball"
 http://www.sport1.de/de_1/basketball/rss.xml                           "1510 Basketball"
@@ -281,16 +283,12 @@ http://www.nba.com/mavericks/rss.xml                                   "1530 Mav
 http://www.nba.com/dunkofthenight/rss.xml                              "1540 DunkOfTheNight"
 http://www.nba.com/powerrankings/rss.xml                               "1540 Powerranking"
 
-# Fußball                         {{{3
+# fußball                         {{{3
 
 # Bundesliga
-http://rss.kicker.de/news/bundesliga                                   "1550 Bundesliga"
 http://www.11freunde.de/feed                                           "1551 11Freunde"
 http://rss.kicker.de/news/2bundesliga                                  "1552 2. Bundesliga"
 http://fussballblog.espace.ch/atom/                                    "1553 Blogs"
-
-https://www.youtube.com/feeds/videos.xml?channel_id=UCu1FJLH2dp7dwKoCCGFkaMg "2551" "Bild.de"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCRFsyeKu07-LnHDG44O6uCA "2552" "Sportschau.de"
 
 # Champions League
 http://www.sport1.de/de_1/fussball/fussball_championsleague/rss.xml    "1560 Champions League"
@@ -306,6 +304,11 @@ http://www.transfermarkt.de/rss/news                                   "1580 Tra
 # Vereine
 http://rss.kicker.de/team/msvduisburg                                  "1590 MSV"
 http://rss.kicker.de/team/borussiadortmund                             "1591 BVB"
+
+# youtube                          {{{2
+https://www.youtube.com/feeds/videos.xml?channel_id=UCu1FJLH2dp7dwKoCCGFkaMg "9551" "Bild.de"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRFsyeKu07-LnHDG44O6uCA "9552" "Sportschau.de"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCuOwl-VgqBHOzR8hWnonBcA "9553" "Sky Sport HD"
 
 # 06. Kultur, Veranstaltungen      {{{1
 
@@ -335,7 +338,7 @@ http://www.yopmail.com/en/rssfeed.php?login=salsanewsletternrw&h=55fd4a6913aaa59
 
 # 08. Lifestyle                    {{{1
 
-# youtube                          {{{2
+# podcasts                         {{{2
 https://www.youtube.com/feeds/videos.xml?channel_id=UCveZqqGewoyPiacooywP5Ig                                                          "08.01" "Alt Shift X" "Youtube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCUPCfp3EUsaEnsNvvrX8ABg                                                          "08.01" "Paul Eckman Group" "Youtube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCRd9JHiQvqwT8O4d0QGI9jQ                                                          "08.01" "Scam School" "Youtube"
@@ -386,12 +389,12 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 
 # filter
 # Aktionen
-"query:Aktionen // TOP:                  tags=~ \"19[0-8][0-9]\" and ((title !~ \"laptop\" and title !~ \"tank.top\" and title !~ \"topf\") and (title =~ \"sehr\ günstig\" or title =~ \"günstigst\" or title =~ \"preisfehler\" or title =~ \"deal. der woche\" or title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion!\"))" "09.00"
+"query:Aktionen // TOP:                  tags=~ \"19[0-8][0-9]\" and ((title !~ \"laptop\" and title !~ \"topper\" and title !~ \"tank.top\" and title !~ \"topf\") and (title =~ \"sehr\ günstig\" or title =~ \"günstigst\" or title =~ \"preisfehler\" or title =~ \"deal. der woche\" or title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion!\"))" "09.00"
 "query:Aktionen // Supermarkt:           tags=~ \"19[0-8][0-9]\" and (title =~ \"supermarkt\" or title =~ \"10 drogerie\")" "09.00"
 
 # Spirituosen & Bier
 "query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (link =~ \"spirituo\" or title =~ \"spirituo\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"cocktail\")" "09.00"
-"query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (title =~ \"bailey\" or title =~ \"whisk.y\" or title =~ \"rmeister\" or title =~ \"cointreau\" or title =~ \"[wv]odka\" or title =~ \"tequila\")" "09.00"
+"query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (title =~ \"bailey\" or title =~ \"whisk.y\" or title =~ \"rmeister\" or title =~ \"jim\ beam\" or title =~ \"cointreau\" or title =~ \"[wv]odka\" or title =~ \"tequila\")" "09.00"
 "query:Aktionen // Softdrinks:          tags =~ \"19[0-8][0-9]\" and (title =~ \"tonic.water\" or title =~ \"fanta\" or title =~ \"coca.cola\" or title =~ \"fritz.kola\")" "09.00"
 "query:Aktionen // Bier:                tags =~ \"19[0-8][0-9]\" and (title =~ \"becks\" or title =~ \"fassbrause\" or title =~ \"desperados\")" "09.00"
 "query:Aktionen // CraftBeer:           tags =~ \"19[0-8][0-9]\" and (title =~ \"beer\" or title =~ \"bier\") and (title =~ \"craft\")" "09.00"
@@ -406,6 +409,7 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 "query:Aktionen // Notebook:            tags =~ \"19[0-8][0-9]\" and (title =~ \"notebook \" and title =~ \"laptop\" and (title !~ \"ebookers\" and title !~ \"e-book\"))" "0.09"
 "query:Aktionen // Tablet:              tags =~ \"19[0-8][0-9]\" and (title =~ \"tablet\" or title =~ \"ipad\") and (title !~ \"tabletten\")" "09.00"
 "query:Aktionen // Kaffeemühle:         tags =~ \"19[0-8][0-9]\" and (title =~ \"kaffeem.hle\") and (title !~ \"kaffeemaschine\")" "09.00"
+"query:Aktionen // Espressomaschine:    tags =~ \"19[0-8][0-9]\" and (title =~ \"espresso\")" "09.00"
 "query:Aktionen // Reisebus:            tags =~ \"19[0-8][0-9]\" and (title =~ \"Megabus\" or title =~ \"Postbus\" or title =~ \"Flixbus\" or title =~ \"Meinfernbus\")" "09.00"
 "query:Aktionen // Dessous:             tags =~ \"19[0-8][0-9]\" and (title =~ \"calzedonia\" or title =~ \"triumph\" or title =~ \"hunkem.ller\" or title =~ \"victoria\ secret\" or title =~ \"enamora\" or title =~ \"passonata\")" "09.00"
 "query:Aktionen // DSL Flat:            tags =~ \"19[0-8][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"
@@ -423,7 +427,7 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 "query:Aktionen // Groupon:       tags=~ \"19[9][0-9]\" and (title =~ \"sushi\" or title =~ \"therme\" or title =~ \"sauna\")" "09.00"
 
 # Abgelaufene Suchfilter
-# "query:Aktionen // Speaker:            tags=~ \"19[0-8][0-9]\" and (title !~ \"bluetooth\" and title !~ \"BT-\") and (title =~ \"subwoof\" or title =~ \"lautsprecher\" or title =~ \"speaker\")" "09.00"
+# "query:Aktionen // Speaker:            tags=~ \"19[0-8][0-9]\" and (title !~ \"bluetooth\" and title !~ \"BT-\") and (title =~ \"subwoof\" or title =~ \"soundbar\" or title =~ \"lautsprecher\" or title =~ \"speaker\")" "09.00"
 # "query:Aktionen // Staubsauger:         tags=~ \"19[0-8][0-9]\" and (title =~ \"dirt\ devil\" or title =~ \"staubsauger\" or title =~ \"vacuum\ cleaner\")" "09.00"
 
 # queries                          {{{2

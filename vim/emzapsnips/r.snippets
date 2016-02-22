@@ -17,6 +17,26 @@ BREAK_TYPES = [
 'scott',
 'FD']
 
+
+LINE_TYPES = [
+'solid',
+'dashed',
+'dotted',
+'dotdash',
+'long-dash',
+'twodash']
+
+PLOT_TYPES = [
+'p',
+'l',
+'b',
+'c',
+'o',
+'h',
+'s',
+'S',
+'n']
+
 COLOR_TYPES = [
 'black',
 'red',
@@ -141,6 +161,9 @@ write.$1`!p snip.rv = complete(t[1], FILE_TYPES)`(${2:${VISUAL}},file="${3:filen
 		append=${5:F}, sep='${8:;}', dec='${9:.}',
 		col.names=${10:T}, row.names=${11:T}${12:,
 		fileEncoding='utf-8', eol="\n", na="NA"})
+endsnippet
+snippet lo "Load Rda" b
+load(${1:${VISUAL}})
 endsnippet
 snippet qread "Quick read from file"
 read.$1`!p snip.rv = complete(t[1], FILE_TYPES)`("${3:filename}",${2:
@@ -300,7 +323,7 @@ snippet hi "Plot histogram"
 hist(${1:${VISUAL:x}},${2:y},breaks$3,freq = F,${4:main="${5:histogram title}"})
 endsnippet
 snippet pl "Plot function"
-plot(${1:${VISUAL:x~y}},${2:,main="${3:Plots Title}"})
+plot(${1:${VISUAL:x~y}},${2:,main="${3:Plots Title}", col$4, type$5, lty$6, lwd=${7:1}})
 endsnippet
 snippet bp "Boxplot function"
 boxplot(${1:x}~${2:y},${3:data})
@@ -327,6 +350,12 @@ col="$1`!p snip.rv = complete(t[1], COLOR_TYPES)`"
 endsnippet
 snippet color "Set appropriate type of color" i
 color="$1`!p snip.rv = complete(t[1], COLOR_TYPES)`"
+endsnippet
+snippet lty "Set appropriate type of lines" i
+lty="$1`!p snip.rv = complete(t[1], LINE_TYPES)`"
+endsnippet
+snippet type "Set appropriate plot type" i
+type="$1`!p snip.rv = complete(t[1], PLOT_TYPES)`"
 endsnippet
 
 # Test statistics
@@ -411,7 +440,7 @@ endsnippet
 snippet cb "cbind" w
 cbind(${1:${VISUAL}})
 endsnippet
-snippet na.omit "na.omit" w
+snippet na "na.omit" w
 na.omit(${1:${VISUAL}})
 endsnippet
 snippet unl "unlist" w
@@ -586,7 +615,7 @@ snippet ar "AR(p)" w
 ar(${1:${VISUAL}}, order.max = ${2:p}, method = $3`!p snip.rv = complete(t[1], AR_METHODS)`)
 endsnippet
 snippet pre "predict" w
-predict(${1:${VISUAL}}, n.ahead = ${2:n})
+predict(lm(${1:${VISUAL}}), newdata = data.frame(${2:colname}=${3:n}))
 endsnippet
 snippet arima "ARIMA(p,d,q)" w
 arima(${1:${VISUAL}}, order = c(${2:p}, ${3:q}, ${4:p}), include.mean = ${5:FALSE})
