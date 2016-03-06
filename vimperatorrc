@@ -104,10 +104,10 @@ function bmark(title, url, keyword) {
 	}
 }
 bmark('Amazon'                 ,'http://www.amazon.de/field-keywords=%s'                                                                                             ,'qz');
-bmark('Bing US Search'         ,'http://www.bing.com/search?q=%s'                                                                                                    ,'qb');
+bmark('Bing US Search'         ,'http://www.bing.com/search?q=%s'                                                                                                    ,'b');
 bmark('BierSearch'             ,'http://beersearch.usox.org/?s=%s'                                                                                                   ,'qbs');
 bmark('Chefkoch'               ,'http://www.chefkoch.de/rs/s0/%s/Rezepte.html'                                                                                       ,'qck');
-bmark('Chefkoch'               ,'http://cocktails.wikia.com/wiki/%s'                                                                                                 ,'qcockt');
+bmark('Cocktails'              ,'http://www.cocktailsworld.net/?s=%s'                                                                                                ,'qcockt');
 bmark('Ctan'                   ,'http://www.ctan.org/search'                                                                                                         ,'qct');
 bmark('Cran'                   ,'http://crantastic.org/search?q=%s'                                                                                                  ,'qcr');
 bmark('Dict'                   ,'http://www.dict.cc/?s=%s'                                                                                                           ,'qdict');
@@ -148,8 +148,8 @@ bmark('Youtube'                ,'http://www.youtube.com/results?search_query=%s'
 bmark('Zalando.de'             ,'http://www.zalando.de/katalog/?q=%s'                                                                                                ,'qzl');
 bmark('wikibooks DE'           ,'http://de.wikibooks.org/w/index.php?search=%s&title=Spezial:Suche&go=Seite'                                                         ,'qwb');
 bmark('wikibooks EN'           ,'http://en.wikibooks.org/w/index.php?search=%s&title=Special:Search&go=Go'                                                           ,'qwbe');
-bmark('wikipedia DE'           ,'http://de.wikipedia.org/w/index.php?title=Spezial:Suche&profile=default&search=%s&fulltext=Search'                                  ,'qw');
-bmark('wikipedia EN'           ,'http://en.wikipedia.org/w/index.php?title=Special:Search&profile=default&search=%s&fulltext=Search'                                 ,'qwe');
+bmark('wikipedia DE'           ,'http://de.wikipedia.org/w/index.php?title=Spezial:Suche&profile=default&search=%s&fulltext=Search'                                  ,'w');
+bmark('wikipedia EN'           ,'http://en.wikipedia.org/w/index.php?title=Special:Search&profile=default&search=%s&fulltext=Search'                                 ,'we');
 EOM
 
 " Keybindings                                        {{{1

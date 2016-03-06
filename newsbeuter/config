@@ -2,9 +2,141 @@
 # Documentation: http://www.newsbeuter.org/doc/newsbeuter.html
 # available operations: http://newsbeuter.org/doc/newsbeuter.html#_first_steps
 
-# bindings & macros       {{{1
-# key-bindings            {{{2
+# general settings           {{{1
+mark-as-read-on-hover	yes
+cleanup-on-quit         yes
+confirm-exit            no
+error-log               "~/.newsbeuter/error.log"
+goto-next-feed          no
+keep-articles-days      15
+max-items               500
+prepopulate-query-feeds yes
+text-width 72  # description: If set to a number greater than 0, then
+               # all HTML will be rendered to this maximum line length. If set to 0, the terminal
+               # width will be used.
 
+# reload & refresh           {{{2
+auto-reload               yes
+refresh-on-startup        no
+reload-only-visible-feeds yes
+reload-threads            2
+reload-time               240
+suppress-first-reload     yes
+
+# show options               {{{2
+show-keymap-hint        no
+show-read-articles      no
+show-read-feeds         no
+
+# sort order                 {{{2
+article-sort-order      date-asc                       # currently available: date, title, flags, author, link, guid
+feed-sort-order         firsttag                       # firsttag, none,  title
+
+# urls                       {{{2
+external-url-viewer     "urlview"
+urls-source "local"
+html-renderer "w3m -dump -T text/html"
+browser "firefox --new-tab %u 2> /dev/null &"
+# browser "chromium-browser --remote 'openURL(%u,new-tab,no-startup-window)'"
+
+# notifications              {{{2
+notify-format	"RSS: %n new articles (%n unread articles, %f unread feeds)"
+notify-program	"notify-send --hint=int:transient:1" # Notification-Programm festlegen
+notify-xterm	yes
+notify-beep		yes
+
+# scripts                    {{{2
+# exec:~/bin/snowscripts/rss-tag-filter
+
+# feedlist-format            {{{1
+# articlelist-format         {{{2
+articlelist-format           "%4i %f %D   | %?a?%-22T  % // %-18a%<&%-45T%? | %t"
+# Available Identifiers for articlelist-format
+# Identifier        Meaning
+# a                 Article author
+# D                 Publication date
+# f                 Article flags
+# i                 Article index
+# t                 Article title
+# T                 If the article list displays articles from different feeds,
+#                   then this identifier contains the title of the feed to
+#                   which the article belongs.
+# L                 Article length
+
+# feedlist-format            {{{2
+feedlist-format              "%T #%i - %t %u"  # Anzeige der Liste verändern
+# Available Identifiers for feedlist-format
+# Identifier        Meaning
+# d                 Feed description
+# i                 Feed index
+# l                 Feed link
+# L                 Feed RSS URL
+# n                 "unread" flag field
+# S                 download status
+# t                 Feed title
+# T                 First tag of a feed in the URLs file
+# u                 "unread/total" field
+# U                 "unread" field
+# c                 "total" field
+
+# remaining format options   {{{2
+feedlist-title-format        "Your feeds (%u unread, %t total)%?T? - tag ‘%T’&?"
+articlelist-title-format     "Articles in feed %T: %u unread, %t total"
+searchresult-title-format    "Search result (%u unread, %t total)"
+filebrowser-title-format     "%?O?Open File&Save File? - %f"
+help-title-format            "Help"
+selecttag-title-format       "Select Tag"
+selectfilter-title-format    "Select Filter"
+itemview-title-format        "Article %T (%u unread, %t total)"
+urlview-title-format         "URLs"
+dialogs-title-format         "Dialogs"
+datetime-format              "%a, %d.%m %I:%M%P"
+# eigenes Format festlegen (man strftime)
+
+# colors & highlighting      {{{1
+# colors                     {{{2
+
+# ## https://github.com/carno/dotfiles/blob/master/.newsbeuter/colors
+# ## include ~/.newsbeuter/colors
+
+# solarized color scheme for newsbeuter <http://www.newsbeuter.org/>
+# more on solarized: http://ethanschoonover.com/solarized
+color listnormal color244 color234
+color listfocus  color166 color235
+color info       color136 color235
+color background color244 color234
+color article    color244 color234
+
+# highlighting               {{{2
+# search-highlight-colors                black yellow bold
+highlight all "^00\\.0[0-9]\ .*"          magenta   color234
+highlight all "^00\\.1[0-9]\ .*"          cyan      color234
+highlight all "^00\\.2[0-9]\ .*"          magenta   color234
+highlight all "^00\\.3[0-9]\ .*"          cyan      color234
+highlight all "^00\\.4[0-9]\ .*"          magenta   color234
+highlight all "^00\\.5[0-9]\ .*"          cyan      color234
+highlight all "^00\\.6[0-9]\ .*"          magenta   color234
+highlight all "^00\\.7[0-9]\ .*"          cyan      color234
+highlight all "^00\\.8[0-9]\ .*"          magenta   color234
+highlight all "^00\\.9[0-9]\ .*"          cyan      color234
+
+highlight all "^0[1]\\.[1-9][0-9]\ .*"    blue      color234
+highlight all "^0[2]\\.[1-9][0-9]\ .*"    green     color234
+highlight all "^0[3]\\.[1-9][0-9]\ .*"    blue      color234
+highlight all "^0[4]\\.[1-9][0-9]\ .*"    green     color234
+highlight all "^0[5]\\.[1-9][0-9]\ .*"    blue      color234
+highlight all "^0[6]\\.[1-9][0-9]\ .*"    green     color234
+highlight all "^0[7]\\.[1-9][0-9]\ .*"    blue      color234
+highlight all "^0[8]\\.[1-9][0-9]\ .*"    green     color234
+highlight all "^0[9]\\.[1-9][0-9]\ .*"    blue      color234
+
+highlight all "^0[0-9]\\.0[0-0]\ .*"      white     color234
+highlight all "^0[0-9]\\.0[1-9]\ .*"      cyan      color234
+highlight all "^[0-9]{4,4}\ .*"           color300  color234
+highlight all "^[0-9]{4,4}\.[0-9].*"       color300  color234
+
+# bindings & macros          {{{1
+# key-bindings               {{{2
 bind-key "ENTER" open                       # Open the currently selected feed or article.
 bind-key "q" quit                           # Quit the program or return to the
                                             # previous dialog (depending on the context).
@@ -107,101 +239,14 @@ bind-key "L" toggle-show-read-feeds
 # unread_count 	feed, article 	number of unread articles in the feed
 # total_count 	feed, article 	total number of articles in the feed
 # tags 	feed, article 	all tags that are associated with the feed
-# feedindex 	feed, article 	Index of a feed in the feed list 
+# feedindex 	feed, article 	Index of a feed in the feed list
 
-# macro                   {{{2
+# macro                      {{{2
 
 macro p toggle-article-read "unread"
 macro E set browser "echo %u >> ~/.newsbeuter/queue" ; open ; set browser "elinks %u"
 
-# feedlist-format         {{{1
-
-datetime-format              "%a, %d.%m %I:%M%P"
-# eigenes Format festlegen (man strftime)
-
-articlelist-format           "%4i %f %D   | %?a?%-22T  % // %-18a%<&%-45T%? | %t"
-# Available Identifiers for articlelist-format
-# Identifier        Meaning
-# a                 Article author
-# D                 Publication date
-# f                 Article flags
-# i                 Article index
-# t                 Article title
-# T                 If the article list displays articles from different feeds,
-#                   then this identifier contains the title of the feed to
-#                   which the article belongs.
-# L                 Article length
-
-feedlist-format              "%T #%i - %t %u"  # Anzeige der Liste verändern
-# Available Identifiers for feedlist-format
-# Identifier        Meaning
-# d                 Feed description
-# i                 Feed index
-# l                 Feed link
-# L                 Feed RSS URL
-# n                 "unread" flag field
-# S                 download status
-# t                 Feed title
-# T                 First tag of a feed in the URLs file
-# u                 "unread/total" field
-# U                 "unread" field
-# c                 "total" field
-
-feedlist-title-format        "Your feeds (%u unread, %t total)%?T? - tag ‘%T’&?"
-articlelist-title-format     "Articles in feed %T: %u unread, %t total"
-searchresult-title-format    "Search result (%u unread, %t total)"
-filebrowser-title-format     "%?O?Open File&Save File? - %f"
-help-title-format            "Help"
-selecttag-title-format       "Select Tag"
-selectfilter-title-format    "Select Filter"
-itemview-title-format        "Article %T (%u unread, %t total)"
-urlview-title-format         "URLs"
-dialogs-title-format         "Dialogs"
-
-# colors & highlighting   {{{1
-# colors                  {{{2
-
-# ## https://github.com/carno/dotfiles/blob/master/.newsbeuter/colors
-# ## include ~/.newsbeuter/colors
-
-# solarized color scheme for newsbeuter <http://www.newsbeuter.org/>
-# more on solarized: http://ethanschoonover.com/solarized
-color listnormal color244 color234
-color listfocus  color166 color235
-color info       color136 color235
-color background color244 color234
-color article    color244 color234
-
-# highlighting            {{{2
-
-# search-highlight-colors                black yellow bold
-highlight all "^00\\.0[0-9]\ .*"          magenta   color234
-highlight all "^00\\.1[0-9]\ .*"          cyan      color234
-highlight all "^00\\.2[0-9]\ .*"          magenta   color234
-highlight all "^00\\.3[0-9]\ .*"          cyan      color234
-highlight all "^00\\.4[0-9]\ .*"          magenta   color234
-highlight all "^00\\.5[0-9]\ .*"          cyan      color234
-highlight all "^00\\.6[0-9]\ .*"          magenta   color234
-highlight all "^00\\.7[0-9]\ .*"          cyan      color234
-highlight all "^00\\.8[0-9]\ .*"          magenta   color234
-highlight all "^00\\.9[0-9]\ .*"          cyan      color234
-
-highlight all "^0[1]\\.[1-9][0-9]\ .*"    blue      color234
-highlight all "^0[2]\\.[1-9][0-9]\ .*"    green     color234
-highlight all "^0[3]\\.[1-9][0-9]\ .*"    blue      color234
-highlight all "^0[4]\\.[1-9][0-9]\ .*"    green     color234
-highlight all "^0[5]\\.[1-9][0-9]\ .*"    blue      color234
-highlight all "^0[6]\\.[1-9][0-9]\ .*"    green     color234
-highlight all "^0[7]\\.[1-9][0-9]\ .*"    blue      color234
-highlight all "^0[8]\\.[1-9][0-9]\ .*"    green     color234
-highlight all "^0[9]\\.[1-9][0-9]\ .*"    blue      color234
-
-highlight all "^0[0-9]\\.0[0-0]\ .*"      white     color234
-highlight all "^0[0-9]\\.0[1-9]\ .*"      cyan      color234
-highlight all "^[0-9]{4,4}\ .*"           color300  color234
-
-# podcasts & downloads    {{{1
-
+# podcasts & downloads       {{{1
 # Available Operations in Podbeuter
 # Operation                 Default key     Description
 # quit                      q               Quit the program.
@@ -211,74 +256,14 @@ highlight all "^[0-9]{4,4}\ .*"           color300  color234
 # pb-delete                 D               Delete the currently selected URL from the queue.
 # pb-purge                  P               Remove all finished and deleted downloads from the queue and load URLs that were newly added to the queue.
 # pb-toggle-download-all    a               Toggle the "automatic download"
-    # feature where all queued URLs are downloaded one after the other. The
-    # "max-downloads" configuration option controls how many downloads are done in
-    # parallel.
+# # feature where all queued URLs are downloaded one after the other. The
+# # "max-downloads" configuration option controls how many downloads are done in
+# # parallel.
 # pb-increase-max-dls       +               Increase the "max-downloads" option by 1.
 # pb-decrease-max-dls       -               Decrease the "max-downloads" option by 1. If the option is already 1, no further decrease is possible.
 podcast-auto-enqueue no
 download-full-page no
 download-retries   2
-download-path ~/Podcasts/Videos/%n
+download-path "~/Podcasts/Videos/%n"
 max-downloads 5
 player "mplayer %u"
-
-# general settings        {{{1
-
-mark-as-read-on-hover	yes
-article-sort-order      date-asc                       # currently available: date, title, flags, author, link, guid
-cleanup-on-quit         yes
-confirm-exit            no
-error-log               "~/.newsbeuter/error.log"
-external-url-viewer     "urlview"
-feed-sort-order         firsttag                       # firsttag, none,  title
-goto-next-feed          no
-html-renderer           "elinks  -dump -force-html"
-keep-articles-days      15
-max-items               500
-prepopulate-query-feeds yes
-show-keymap-hint        no
-show-read-articles      no
-show-read-feeds         no
-text-width 72  # description: If set to a number greater than 0, then
-               # all HTML will be rendered to this maximum line length. If set to 0, the terminal
-               # width will be used.
-
-# url-sources             {{{1
-
-urls-source "local"
-# urls-source "googlereader"
-# googlereader-login "emzap79@googlemail.com"
-
-# reload & refresh        {{{1
-
-auto-reload               yes
-refresh-on-startup        no
-reload-only-visible-feeds yes
-reload-threads            2
-reload-time               240
-suppress-first-reload     yes
-
-# browser settings        {{{1
-
-html-renderer "w3m -dump -T text/html"
-# browser "chromium-browser %u"
-# browser newsbPix      # For Terminal-Browser
-# browser "chromium-browser --no-startup-window --new-tab %u 2> /dev/null &"
-browser "firefox --new-tab %u 2> /dev/null &"
-# browser "chromium-browser --remote 'openURL(%u,new-tab,no-startup-window)'"
-
-# notifications           {{{1
-
-notify-format	"RSS: %n new articles (%n unread articles, %f unread feeds)"
-notify-program	"notify-send --hint=int:transient:1" # Notification-Programm festlegen
-notify-xterm	yes
-notify-beep		yes
-
-# scripts                 {{{1
-# exec:~/bin/snowscripts/rss-tag-filter
-
-# killfile                {{{1
-# include ~/.newsbeuter/killfile
-ignore-article "*" "title =~ \"Fedora\""
-# ignore-article "*" "title =~ \\"Windows\\""

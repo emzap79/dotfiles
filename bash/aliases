@@ -974,10 +974,10 @@ fun_muttbeuter(){
     fi
     # /usr/bin/fetchmail -v --ssl >> /dev/null 2>&1
     # /usr/bin/newsbeuter -x reload >> /dev/null 2>&1
-    # /usr/bin/mutt
 
     /usr/bin/newsbeuter -r
     /usr/bin/podbeuter
+    /usr/bin/mutt
 }
 
 # fun: locate                                                                    {{{3

@@ -1,0 +1,12 @@
+snippet filter "Create query request" b
+"query:${1:Topic} // ${2:Subtopic}: tags =~ \"$3[0-9]\"${4: and title =~ \"$5\"}"  "$6.00"
+endsnippet
+snippet query "Create query request" b
+"query:${1:Topic} // ${2:Subtopic}: tags =~ \"$3[0-9]\"${4: and title =~ \"$5\"}"  "$6"
+endsnippet
+snippet and "AND Condition" i
+and ${1:title} ${2:=}~ \"$3\"
+endsnippet
+snippet or "OR Condition" i
+or ${1:title} ${2:=}~ \"$3\"
+endsnippet

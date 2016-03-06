@@ -1,4 +1,5 @@
 # vim:fdm=marker:textwidth=0
+ignore-article "*" "title =~ \"this\ is\ just\ an\ example\""
 
 # queries
 # filters
@@ -17,11 +18,12 @@ http://www.stat.wiwi.uni-due.de/rss/                                         "00
 http://www.mikro.wiwi.uni-due.de/rss/                                        "00.01 Mikro"
 
 # Podcasts
-http://www.zdf.de/ZDFmediathek/podcast/2012868                               "00.11 Kultur"
-http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml "00.11 Kultur"
-http://www.ardmediathek.de/tv/kinokino/Sendung?documentId=14913678&bcastId=14913678&rss=true "00.11 Kultur"
-http://vimcasts.org/feeds/ogg.rss                                            "00.12 Programming"
-http://www.ardmediathek.de/tv/Zeigler-zum-Mitnehmen/Sendung?documentId=8078774&bcastId=8078774&rss=true "00.13 Sport"
+"query:Kultur // EinsLive:           tags =~ \"9998.101\"" "00.11"
+"query:Kultur // KinoKino:           tags =~ \"9999.101\" and title !~ \"kurzkritik\"" "00.11"
+"query:Kultur // Neo Magazin Royale: tags =~ \"9999.102\"" "00.11"
+"query:Kultur // TTT:                tags =~ \"9999.103\"" "00.11"
+"query:Programming // Vimcasts:      tags =~ \"9999.201\"" "00.12"
+"query:Sport // ZWWdF:               tags =~ \"9999.301\"" "00.13"
 
 # Liveticker
 http://rss.kicker.de/live/championsleague   "00.20 Champions League"
@@ -37,8 +39,8 @@ http://rss.kicker.de/live/championsleague   "00.20 Champions League"
 
 "query:Finance // Marktanalysen:    tags=~ \"01\.0[0-9]\" and (title =~ \"Markets Unplugged\" or title =~ \"Market Insight\")"    "01.00"
 
-# podcasts                                                                                     .
-https://www.youtube.com/feeds/videos.xml?channel_id=UCsZncYBzgAR_-IlaVZ2r1YA                                                           "01.01" "Trading - GKFX" "Youtube"
+# youtube
+"query:Trading // GKFX: tags =~ \"8888.101\""  "01.01"
 
 # queries                          {{{2
 "query:Finance // USA:             tags=~ \"111[0-4]\""                                                                                "01.10"
@@ -115,20 +117,22 @@ http://www.spiegel.de/politik/ausland/index.rss      "1230 Ausland"
 
 # 03. Technik News                 {{{1
 # filter
-"query:Artikelreihe // Autonomes Fahren:                                                                                                                                                    tags=~ \"130[0]\" and (link =~ \"autonomes\" and link =~ \"fahren\" and link != \"newsticker\")"  "03.00"
+"query:Artikelreihe // Autonomes Fahren: tags=~ \"130[0]\" and (link =~ \"autonomes\" and link =~ \"fahren\" and link != \"newsticker\")"  "03.00"
+"query:Ubuntu // Phone:     tags=~ \"133[1]\" and title =~ \"ubuntu\ phone\" and title !~ \"microphone\""  "03.00"
 
-https://www.youtube.com/feeds/videos.xml?channel_id=UC5tUi0nhIWLJvO_oWxuzekw                                                          "03.01" "AllThingsTech" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCzcXV4TxPc-HAFj97lboNPg                                                          "03.01" "RasbPi" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCrTpRj0xga7egp_fHqPLHrw                                                          "03.01" "Karesyk | Raspberry Pi Tutorials" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCfY8sl5Q6VKndz0nLaGygPw                                                          "03.01" "TheRaspberryPiGuy" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCRAvo5cQWyfog8nRzlf_jWg                                                          "03.01" "RaspberryPiIVBeginners" "Youtube"
+# youtube                          {{{2
+"query:Technik // Allthingstech: tags =~ \"8888.301\"" "03.01" "AllThingsTech" "Youtube"
+"query:Technik // RasbPi: tags =~ \"8888.301\"" "03.01" "RasbPi" "Youtube"
+"query:Technik // Karesyk | Raspberry Pi Tutorials: tags =~ \"8888.301\"" "03.01" "Karesyk | Raspberry Pi Tutorials" "Youtube"
+"query:Technik // TheRaspberryPiGuy: tags =~ \"8888.301\"" "03.01" "TheRaspberryPiGuy" "Youtube"
+"query:Technik // RaspberryPiIVBeginners: tags =~ \"8888.301\"" "03.01" "TheRaspberryPiGuy" "Youtube"
 
 # queries                          {{{2
-"query:Technik // Germany:                                                                                                                                                                  tags=~ \"131[0]\""  "03.10"
-"query:Technik // USA:                                                                                                                                                                      tags=~ \"131[1]\""  "03.20"
-"query:Unix // Linux:                                                                                                                                                                       tags=~ \"132[0]\""  "03.30"
-"query:Unix // Ubuntu:                                                                                                                                                                      tags=~ \"133[1]\""  "03.40"
-"query:Unix // Fedora:                                                                                                                                                                      tags=~ \"133[2]\""  "03.50"
+"query:Technik // Germany: tags=~ \"131[0]\""  "03.10"
+"query:Technik // USA:     tags=~ \"131[1]\""  "03.20"
+"query:Unix // Linux:      tags=~ \"132[0]\""  "03.30"
+"query:Unix // Ubuntu:     tags=~ \"133[1]\""  "03.40"
+"query:Unix // Fedora:     tags=~ \"133[2]\""  "03.50"
 
 # urls                             {{{2
 
@@ -207,8 +211,8 @@ http://www.fedora-blog.de/feed/                                           "1332 
 # 04. FOSS & Coding                {{{1
 
 # filter
-"query:FOSS // Vimgolf:                                                                                                                                                                     tags=~ \"141[1]\" and link =~ \"challenges\""            "03.00"
-"query:FOSS // Neovim:                                                                                                                                                                      tags=~ \"141[2]\" or (                                                                                                                                                                                                                                                                                    tags=~ \"141[0-9]\" and title =~ \"neovim\")"            "03.00"
+"query:FOSS // Vimgolf: tags=~ \"141[1]\" and link =~ \"challenges\"" "8888.300"
+"query:FOSS // Neovim:  tags=~ \"141[2]\" or (tags=~ \"141[0-9]\" and title =~ \"neovim\")" "8888.300"
 
 # queries                          {{{2
 "query:FOSS // VIM:                                                                                                                                                                         tags=~ \"141[0-9]\""  "04.10"
@@ -238,29 +242,27 @@ http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss            "1424 
 # 05. Sport                        {{{1
 # filter                           {{{2
 "query:Basketball // Tigers:                tags =~ \"15[0-9][0-9]\" and (title =~ \" Walter\" or link =~ \" Walter\" or title =~ \"Tigers\")" "05.00"
-"query:Basketball // Mavs:                  tags =~ \"153[0-9]\" or (title =~ \"mavs\" or title =~ \"mavericks\")"  "05.00"
+"query:Basketball // Mavs:                  tags =~ \"15[2-3][0-9]\" or (title =~ \"mavs\" or title =~ \"mavericks\")"  "05.00"
 "query:Fussball // MSV:                     tags =~ \"159[0]\"" "05.00"
-"query:Fussball // BVB:                     tags =~ \"159[1]\" or (                                                                                    tags =~ \"15[58][0-9]\" and (title =~ \"BVB\" or title =~ \"Watzke\" or title =~ \"Tuchel\"))" "05.00"
+"query:Fussball // BVB:                     tags =~ \"159[1]\" or (tags =~ \"15[58][0-9]\" and (title =~ \"BVB\" or title =~ \"Watzke\" or title =~ \"Tuchel\"))" "05.00"
 "query:Fussball // 11 Freunde Spielbericht: tags =~ \"155[1]\" and title =~ \"[0-9]{1,2}[^0-9,\.][0-9]{1,2}\"" "05.00"
 "query:Fussball // BL Ergebnisse:           tags =~ \"155[0]\" and link =~ \"spielbericht\"" "05.00"
 "query:Fussball // Spieler des Tages:       tags =~ \"155[1]\" and title =~ \" des tages\"" "05.00"
 "query:Fussball // Traumtore:               tags =~ \"155[1]\" and link =~ \".*traumtore.*\"" "05.00"
 
 # queries                          {{{2
-"query:Basketball // International:     tags =~ \"151[0-9]\" and (title =~ \"Eurobasket\" or title =~ \"DBB\")" "05.10"
-"query:Basketball // NBA:               tags =~ \"15[1-3][0-9]\" and title !~ \"mavs\" and title !~ \"mavericks\""  "05.20"
-"query:Fussball // Bundesliga:          tags =~ \"155[1]\" and (link !~ \"champions-league\" and link !~ \"livematch\" and link !~ \"spielbericht\")"  "05.50"
-"query:Fussball // Champions League:    tags =~ \"155[1]\" and link =~ \"champions-league\""  "05.60"
+"query:Basketball // International:     tags =~ \"151[0-9]\" and (title =~ \"^Eurocup\" or title =~ \"Eurobasket\" or title =~ \"DBB\")" "05.10"
+"query:Basketball // NBA:               tags =~ \"152[0-9]\""  "05.20"
 "query:Fussball // International:       tags =~ \"157[0-9]\"" "05.70"
 
-# podcasts                         {{{2
-
-"query:Bild.de // 1. Bundesliga:       tags=~ \"9551\" and title !~ \"2. Bundesliga\"" "05.01" "Bild.de" "Youtube"
-"query:Bild.de // 2. Bundesliga:       tags=~ \"9551\" and title =~ \"2. Bundesliga\"" "05.02" "Bild.de" "Youtube"
-"query:Sportschau // DFB-Pokal:        tags=~ \"9552\" and title =~ \"DFB-Pokal\"" "06.03" "Sportschau.de" "Youtube"
-"query:Sky Sport // Champions League: tags=~ \"9553\" and title =~ \"Champions.League\"" "05.04" "Sky Sport HD" "Youtube"
-"query:Sky Sport // Europa League: tags=~ \"9553\" and title =~ \" - \" and title !~ \"Champions.League\"" "05.05" "Sky Sport HD" "Youtube"
-"query:Sportschau // Sport:            tags=~ \"9552\" and title !~ \"DFB-Pokal\"" "05.09" "Sportschau.de" "Youtube"
+# youtube                          {{{2
+"query:Bild.de // 1. Bundesliga:        tags =~ \"8888.501\" and title =~ \"[0-9]{1,2}[^0-9,\.][0-9]{1,2}\" and title !~ \"2. Bundesliga\"" "05.01" "Bild.de" "Youtube"
+"query:Bild.de // 2. Bundesliga:        tags =~ \"8888.501\" and title =~ \"2. Bundesliga\"" "05.02" "Bild.de" "Youtube"
+"query:Bild.de // MSV Duisburg:                  tags =~ \"8888.501\" and title =~ \"MSV\"" "05.02" "Bild.de" "Youtube"
+"query:Sportschau // DFB-Pokal:         tags =~ \"8888.502\" and title =~ \"DFB-Pokal\"" "05.03" "Sportschau.de" "Youtube"
+"query:Sky Sport // Champions League:   tags =~ \"8888.503\" and title =~ \"Champions.League\"" "05.04" "Sky Sport HD" "Youtube"
+"query:Sky Sport // Europa League:      tags =~ \"8888.503\" and title =~ \" - \" and title !~ \"Champions.League\"" "05.05" "Sky Sport HD" "Youtube"
+"query:Sportschau // Sport:             tags =~ \"8888.502\" and title !~ \"^nordische\ kombination\" and title !~ \"DFB-Pokal\"" "05.09" "Sportschau.de" "Youtube"
 
 # urls                             {{{2
 # basketball                       {{{3
@@ -305,19 +307,15 @@ http://www.transfermarkt.de/rss/news                                   "1580 Tra
 http://rss.kicker.de/team/msvduisburg                                  "1590 MSV"
 http://rss.kicker.de/team/borussiadortmund                             "1591 BVB"
 
-# youtube                          {{{2
-https://www.youtube.com/feeds/videos.xml?channel_id=UCu1FJLH2dp7dwKoCCGFkaMg "9551" "Bild.de"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCRFsyeKu07-LnHDG44O6uCA "9552" "Sportschau.de"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCuOwl-VgqBHOzR8hWnonBcA "9553" "Sky Sport HD"
-
 # 06. Kultur, Veranstaltungen      {{{1
-
 
 # urls                             {{{2
 
 # Allgemein
 http://newsfeed.zeit.de/kultur/index                       "1620 Deutschland"
 http://newsfeed.zeit.de/zeit-magazin/index                 "1620 Magazin"
+
+# Podcasts
 
 # 07. Parties                      {{{1
 # queries                          {{{2
@@ -339,18 +337,7 @@ http://www.yopmail.com/en/rssfeed.php?login=salsanewsletternrw&h=55fd4a6913aaa59
 # 08. Lifestyle                    {{{1
 
 # podcasts                         {{{2
-https://www.youtube.com/feeds/videos.xml?channel_id=UCveZqqGewoyPiacooywP5Ig                                                          "08.01" "Alt Shift X" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCUPCfp3EUsaEnsNvvrX8ABg                                                          "08.01" "Paul Eckman Group" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCRd9JHiQvqwT8O4d0QGI9jQ                                                          "08.01" "Scam School" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UClM2LuQ1q5WEc23462tQzBg                                                          "08.02" "Proko" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC5dyu9y0EV0cSvGtbBtHw_w                                                          "08.02" "Sycra" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCqWzusU5btLZ9mjOa6GaVxg                                                          "08.02" "VitruvianStudio" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCULpiAa8nIl_e68y59VYjHQ                                                          "08.02" "TheVirtualInstructor.com" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCno-YPZ8BiLrN0Wbl8qICFA                                                          "08.02" "markcrilley" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCcSGuuZEWue9f28RxSXSipQ                                                          "08.02" "My Drawing Tutorials" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCKgkOEqGFUOiXrx1klhlmJQ                                                          "08.02" "Art of Wei" "Drawing" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCZnVGL3UzxeC1LMrJGcI0Cg                                                          "08.03" "Hodinkee" "Watches" "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCFwzOXPZKE6aH3fAU0d2Cyg                                                          "08.03" "EVO" "Cars" "Youtube"
+"query:Lifestyle // Drawing:    tags=~ \"9999.801\"" "08.01"
 
 # queries                          {{{2
 "query:Lifestyle // Drawing:    tags=~ \"181[0-9]\"" "08.10"
@@ -389,19 +376,19 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 
 # filter
 # Aktionen
-"query:Aktionen // TOP:                  tags=~ \"19[0-8][0-9]\" and ((title !~ \"laptop\" and title !~ \"topper\" and title !~ \"tank.top\" and title !~ \"topf\") and (title =~ \"sehr\ günstig\" or title =~ \"günstigst\" or title =~ \"preisfehler\" or title =~ \"deal. der woche\" or title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion!\"))" "09.00"
+"query:Aktionen // TOP:                  tags=~ \"19[0-8][0-9]\" and ((title !~ \"laptop\" and title !~ \"stop\" and title !~ \"topper\" and title !~ \"tank.top\" and title !~ \"topf\") and (title =~ \"sehr\ günstig\" or title =~ \"günstigst\" or title =~ \"preisfehler\" or title =~ \"deal. der woche\" or title =~ \"supersale\" or title =~ \"ebay wow\" or title =~ \"hamma heute\" or title =~ \"TOP\" or title =~ \"Aktion!\"))" "09.00"
 "query:Aktionen // Supermarkt:           tags=~ \"19[0-8][0-9]\" and (title =~ \"supermarkt\" or title =~ \"10 drogerie\")" "09.00"
 
 # Spirituosen & Bier
 "query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (link =~ \"spirituo\" or title =~ \"spirituo\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"cocktail\")" "09.00"
-"query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (title =~ \"bailey\" or title =~ \"whisk.y\" or title =~ \"rmeister\" or title =~ \"jim\ beam\" or title =~ \"cointreau\" or title =~ \"[wv]odka\" or title =~ \"tequila\")" "09.00"
-"query:Aktionen // Softdrinks:          tags =~ \"19[0-8][0-9]\" and (title =~ \"tonic.water\" or title =~ \"fanta\" or title =~ \"coca.cola\" or title =~ \"fritz.kola\")" "09.00"
-"query:Aktionen // Bier:                tags =~ \"19[0-8][0-9]\" and (title =~ \"becks\" or title =~ \"fassbrause\" or title =~ \"desperados\")" "09.00"
-"query:Aktionen // CraftBeer:           tags =~ \"19[0-8][0-9]\" and (title =~ \"beer\" or title =~ \"bier\") and (title =~ \"craft\")" "09.00"
-"query:Aktionen // Weissbier:           tags =~ \"19[0-8][0-9]\" and (title =~ \"augustiner\" or title =~ \"schneider\ weisse\" or title =~ \"paulaner\" or title =~ \"erdinger\" or title =~ \"weissbier\")" "09.00"
+"query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (title =~ \"bailey\" or title =~ \"whisk.y\" or title =~ \"rmeister\" or title =~ \"cointreau\" or title =~ \" gin \" or title =~ \"[wv]odka\" or title =~ \"tequila\")" "09.00"
 
-# Sonstige Suchanfragen
-"query:Aktionen // Parfume:             tags =~ \"19[0-8][0-9]\" and title =~ \"Parf.me*\"" "09.00"
+"query:Aktionen // Tequila:             tags =~ \"19[0-8][0-9]\" and (title =~ \"jos.\ cuervo\" or title =~ \"jimador\")" "09.00"
+"query:Aktionen // Rum:                 tags =~ \"19[0-8][0-9]\" and (title =~ \"bacardi\" or title =~ \"havana\ club\")" "09.00"
+"query:Aktionen // Whiskey:             tags =~ \"19[0-8][0-9]\" and (title =~ \"johnny\ walker\" or title =~ \"jim\ beam\" )" "09.00"
+
+
+# Sonstige
 "query:Aktionen // Parfume:             tags =~ \"19[0-8][0-9]\" and (title =~ \"blue\ de\ chanel\" or title =~ \"homme\ libre\")" "09.00"
 "query:Aktionen // Rabatt:              tags =~ \"19[0-8][0-9]\" and ((title =~ \"[3-9][0-9]\+ *€\" and title =~ \"Gutschein\") or title =~ \"[3-9][0-9]\+ *%\")" "09.00"
 "query:Aktionen // Rasierklingen:       tags =~ \"19[0-8][0-9]\" and (title =~ \"rasierkl.*\" or title =~ \"wiĺkinson\" or title =~ \"gillette\")" "09.00"
@@ -413,7 +400,8 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 "query:Aktionen // Reisebus:            tags =~ \"19[0-8][0-9]\" and (title =~ \"Megabus\" or title =~ \"Postbus\" or title =~ \"Flixbus\" or title =~ \"Meinfernbus\")" "09.00"
 "query:Aktionen // Dessous:             tags =~ \"19[0-8][0-9]\" and (title =~ \"calzedonia\" or title =~ \"triumph\" or title =~ \"hunkem.ller\" or title =~ \"victoria\ secret\" or title =~ \"enamora\" or title =~ \"passonata\")" "09.00"
 "query:Aktionen // DSL Flat:            tags =~ \"19[0-8][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"
-"query:Aktionen // Föhn:                tags =~ \"19[0-8][0-9]\" and title =~ \"F.hn\"" "09.00"
+"query:Aktionen // Föhn:                tags =~ \"19[0-8][0-9]\" and title =~ \"F.hn\" or title =~ \"Haartrockner\"" "09.00"
+"query:Aktionen // Gürtel:              tags =~ \"19[0-8][0-9]\" and title =~ \"G[üue]*rtel\"" "09.00"
 "query:Aktionen // Regenschirm:         tags =~ \"19[0-8][0-9]\" and title =~ \"Regenschirm\"" "09.00"
 "query:Aktionen // Wasserfilterkapseln: tags =~ \"19[0-8][0-9]\" and (title =~ \"BWT\" or title =~ \"best water technology\")" "09.00"
 "query:Aktionen // Kaffeekapseln:       tags =~ \"19[0-8][0-9]\" and link =~ \"tassimo\"" "09.00"
@@ -433,13 +421,13 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 # queries                          {{{2
 "query:Angebote // Technik:        tags=~ \"19[1][0-9]\""  "09.10"
 "query:Angebote // Sonstige:       tags=~ \"19[2][0-9]\""  "09.20"
-"query:Angebote // Bier:           tags=~ \"19[3][0-9]\""  "09.80"
+"query:Angebote // Bier:           tags=~ \"19[3][0-9]\""  "09.30"
 "query:Angebote // Schuhe:         tags=~ \"19[4][0-9]\""  "09.40"
-"query:Angebote // Discounter:     tags=~ \"19[5][0-9]\""  "09.90"
+"query:Angebote // Discounter:     tags=~ \"19[5][0-9]\" and title !~ \"(CD)\""  "09.50"
 "query:Angebote // Reisen:         tags=~ \"19[6][0-9]\""  "09.60"
 "query:Angebote // eBay:           tags=~ \"19[7][0-9]\""  "09.70"
-"query:Angebote // Gutscheine:     tags=~ \"19[8][0-9]\""  "09.50"
-"query:Angebote // Groupon:        tags=~ \"19[9][0-9]\""  "09.30"
+"query:Angebote // Gutscheine:     tags=~ \"19[8][0-9]\""  "09.80"
+"query:Angebote // Groupon:        tags=~ \"19[9][0-9]\""  "09.00"
 
 # urls                             {{{2
 # Technik                          {{{3
@@ -507,3 +495,47 @@ http://api.groupon.de/feed/api/v1/deals/oftheday/DE/bochum       "1990 Groupon -
 http://api.groupon.de/feed/api/v1/deals/oftheday/DE/dortmund     "1990 Groupon - Dortmund"
 http://api.groupon.de/feed/api/v1/deals/oftheday/DE/wuppertal    "1990 Groupon - Wuppertal"
 http://api.groupon.de/feed/api/v1/deals/oftheday/DE/duesseldorf  "1990 Groupon - Duesseldorf"
+
+# Youtube                         {{{1
+# Lifestyle                        {{{2
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsZncYBzgAR_-IlaVZ2r1YA "8888.101" "Trading - GKFX" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5tUi0nhIWLJvO_oWxuzekw "8888.301" "AllThingsTech" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCzcXV4TxPc-HAFj97lboNPg "8888.301" "RasbPi" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCrTpRj0xga7egp_fHqPLHrw "8888.301" "Karesyk | Raspberry Pi Tutorials" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfY8sl5Q6VKndz0nLaGygPw "8888.301" "TheRaspberryPiGuy" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRAvo5cQWyfog8nRzlf_jWg "8888.301" "RaspberryPiIVBeginners" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCu1FJLH2dp7dwKoCCGFkaMg "8888.501" "Bild.de"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRFsyeKu07-LnHDG44O6uCA "8888.502" "Sportschau.de"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCuOwl-VgqBHOzR8hWnonBcA "8888.503" "Sky Sport HD"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCveZqqGewoyPiacooywP5Ig "9999.801" "Alt Shift X" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCUPCfp3EUsaEnsNvvrX8ABg "9999.801" "Paul Eckman Group" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRd9JHiQvqwT8O4d0QGI9jQ "9999.801" "Scam School" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UClM2LuQ1q5WEc23462tQzBg "9999.802" "Proko" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5dyu9y0EV0cSvGtbBtHw_w "9999.802" "Sycra" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCqWzusU5btLZ9mjOa6GaVxg "9999.802" "VitruvianStudio" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCULpiAa8nIl_e68y59VYjHQ "9999.802" "TheVirtualInstructor.com" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCno-YPZ8BiLrN0Wbl8qICFA "9999.802" "markcrilley" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCcSGuuZEWue9f28RxSXSipQ "9999.802" "My Drawing Tutorials" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCKgkOEqGFUOiXrx1klhlmJQ "9999.802" "Art of Wei" "Drawing" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCZnVGL3UzxeC1LMrJGcI0Cg "9999.803" "Hodinkee" "Watches" "Youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCFwzOXPZKE6aH3fAU0d2Cyg "9999.803" "EVO" "Cars" "Youtube"
+
+# Podcasts                         {{{1
+# Kultur                           {{{2
+# http://www1.wdr.de/mediathek/audio/1live/1live-baeckerei-fleischer/baeckerei-fleischer104.podcast "9998.101" "EinsLive" "Audopodcast"
+http://www1.wdr.de/mediathek/audio/1live/1live-babo-bus/babobus104.podcast "9998.101" "EinsLive" "Audopodcast"
+http://www1.wdr.de/mediathek/audio/1live/1live-90er-park/einslive-neunziger-park-mit-luke-mockridge-100.podcast "9998.101" "EinsLive" "Audopodcast"
+http://www1.wdr.de/mediathek/audio/1live/1live-tony-mono/tonymono102.podcast "9998.101" "EinsLive" "Audopodcast"
+http://www1.wdr.de/mediathek/audio/1live/1live-o-ton-charts/einslive-o-ton-charts-podcast-100.podcast "9998.101" "EinsLive" "Audopodcast"
+http://www1.wdr.de/mediathek/audio/1live/1live-elfer/einslive-elfer-102.podcast "9998.101" "EinsLive" "Audopodcast"
+http://www1.wdr.de/mediathek/audio/1live/1live-der-weisse-brasilianer/der-weisse-brasilianer102.podcast "9998.101" "EinsLive" "Audopodcast"
+http://www1.wdr.de/mediathek/audio/1live/1live-der-beste-tag-der-welt/derbestetagderwelt100.podcast "9998.101" "EinsLive" "Audopodcast"
+http://www1.wdr.de/mediathek/audio/1live/1live-dennis-ruft-an/dennis126.podcast "9998.101" "EinsLive" "Audopodcast"
+http://www1.wdr.de/mediathek/audio/1live/1live-das-dschungeltelefon/dschungeltelefon106.podcast "9998.101" "EinsLive" "Audopodcast"
+http://www1.wdr.de/mediathek/audio/1live/1live-bahnansage/bahnansage106.podcast "9998.101" "EinsLive" "Audopodcast"
+
+http://www.ardmediathek.de/tv/kinokino/Sendung?documentId=14913678&bcastId=14913678&rss=true "9999.101 Kultur" "KinoKino" "ARD Mediathek"
+http://www.zdf.de/ZDFmediathek/podcast/2012868                               "9999.102 Kultur" "ZDF Mediathek" "Neo Magazin Royale"
+http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml "9999.103 Kultur" "ARD Mediathek" "TTT"
+http://vimcasts.org/feeds/ogg.rss                                            "9999.201 Programming" "Vimcasts"
+http://www.ardmediathek.de/tv/Zeigler-zum-Mitnehmen/Sendung?documentId=8078774&bcastId=8078774&rss=true "9999.301 Sport" "ZWWdF" "Fußball"

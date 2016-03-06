@@ -37,6 +37,17 @@ PLOT_TYPES = [
 'S',
 'n']
 
+POSITIONS = [
+'left',
+'right',
+'top',
+'center',
+'bottom',
+'bottomleft',
+'bottomright',
+'topleft',
+'topright']
+
 COLOR_TYPES = [
 'black',
 'red',
@@ -195,7 +206,7 @@ ${1/(.csv$)|(\w+)/(?1::$2)/ga} <- tablist[[1]]
 ${2/(.csv$)|(\w+)/(?1::$2)/ga} <- tablist[[2]]
 endsnippet
 snippet grep "grepsearch for string" b
-grep(${1:"${2:pattern}"}, ${3:matrix}, ignore.case=${4:TRUE}, value=${5:TRUE}, fixed=${6:FALSE})
+grep(${1:"${2:pattern}"}, ${3:matrix}, ignore.case=${4:TRUE}, value=${5:TRUE}, fixed=${6:FALSE}, invert=${7:FALSE})
 endsnippet
 snippet req "Require a file"
 require(${0:package})
@@ -323,7 +334,10 @@ snippet hi "Plot histogram"
 hist(${1:${VISUAL:x}},${2:y},breaks$3,freq = F,${4:main="${5:histogram title}"})
 endsnippet
 snippet pl "Plot function"
-plot(${1:${VISUAL:x~y}},${2:,main="${3:Plots Title}", col$4, type$5, lty$6, lwd=${7:1}})
+plot(${1:${VISUAL:x~y}}${2:,main="${3:Plots Title}", col$4, type$5, lty$6, lwd=${7:1}})
+endsnippet
+snippet leg "Set Legend"
+legend(pos$1,${2:legend}, pch=$3, ncol$4, bty$5, lwd=${6:1})
 endsnippet
 snippet bp "Boxplot function"
 boxplot(${1:x}~${2:y},${3:data})
@@ -340,10 +354,16 @@ endsnippet
 snippet ggp "ggplot2 plot"
 ggplot(${1:${VISUAL:data}}, aes(${2:aesthetics}))
 endsnippet
+snippet pdf "Save plot as pdf" b
+dev.copy2pdf(device="pdf", file="${1:/tmp/foobar.pdf}", out.type="pdf"); dev.off()
+endsnippet
 
 # Plot components
 snippet breaks "Set appropriate number of breaks" i
 breaks="$1`!p snip.rv = complete(t[1], BREAK_TYPES)`"
+endsnippet
+snippet pos "Set appropriate position of legend" i
+"$1`!p snip.rv = complete(t[1], POSITIONS)`"
 endsnippet
 snippet col "Set appropriate type of color" i
 col="$1`!p snip.rv = complete(t[1], COLOR_TYPES)`"
@@ -483,7 +503,7 @@ snippet dn "dnorm" w
 dnorm(${1:pos},${2:${3:mu},${4:sd}})
 endsnippet
 snippet pn "pnorm" w
-pnorm(${1:pos},${2:${3:mu},${4:sd}})
+pnorm(${1:pos}${2:,${3:mu},${4:sd}})
 endsnippet
 snippet qn "qnorm" w
 qnorm(${1:quantile},${2:${3:mu},${4:sd}})

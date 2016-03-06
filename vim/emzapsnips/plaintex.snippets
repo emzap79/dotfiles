@@ -148,7 +148,7 @@ snippet "(\s|^)ac( (\S+))?" "Set acronym" r
 endsnippet
 snippet acro "Define acronym" b
 \acro{${1:acronym}}[${2:${1/(\w+)/(?1:\U$1\E)/g}}]{${3:full name}}${4:
-\acroplural{$1}[$2$5]{$3$6}}
+\acroplural{$1}[$2$5s]{$3$6s}}
 endsnippet
 snippet abbr "env: abbreviations" b
 % ac{...}: Gibt bei der ersten Verwendung die Langform mit der Abkürzung in
@@ -197,7 +197,7 @@ ${0:${VISUAL}}
 endsnippet
 snippet item "env: itemize" b
 \begin{itemize}
-${1:${VISUAL}}
+\item ${1:${VISUAL}}
 \end{itemize}
 endsnippet
 snippet desc "env: description" b
@@ -227,21 +227,20 @@ ${3:${VISUAL}}
 % chapter % $2 (end) %}}}
 endsnippet
 snippet sec "Section" b
-\\${1:sub}section{${2:section name}}
-${3:\label{sec:${4:${2/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}${5:
-\input{${6:sections}/$4.tex}}
+\\${1:sub}section{${2:section name}}${3:
+\label{sec:${4:${2/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}${5:
+\addcontentsline{toc}{$1section}{$2}${6:
+\input{${7:sections}/$4.tex}}}
 
-${0:${VISUAL}}${7:
+${0:${VISUAL}}${8}
 
-% section % $4 (end)}
 endsnippet
 snippet par "Paragraph" b
 \paragraph{${1:paragraph name}}
-\label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+${2:\label{par:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}${0:
 
-${3:${VISUAL}
+${VISUAL}}
 
-% paragraph $2 (end)}
 endsnippet
 snippet spar "Subparagraph" b
 \subparagraph{${1:subparagraph name}}
@@ -313,8 +312,11 @@ endsnippet
 snippet emerg "emergencystretch" i
 \\emergencystretch=$1em
 endsnippet
-snippet pb "noindent" b
-\pagebreak $0
+snippet np "newpage" b
+\newpage
+endsnippet
+snippet pb "pagebreak" b
+\pagebreak
 endsnippet
 snippet ni "noindent" b
 \noindent $0

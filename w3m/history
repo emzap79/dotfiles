@@ -1,11 +1,3 @@
-http://127.0.0.1:26473/library/base/html/print.html
-http://127.0.0.1:26833/library/base/html/sum.html
-http://127.0.0.1:26833/library/base/help/colSums
-http://127.0.0.1:12610/library/base/html/sum.html
-http://127.0.0.1:12610/library/base/help/colSums
-http://127.0.0.1:12610/library/base/html/diff.html
-http://127.0.0.1:12610/library/stats/html/ave.html
-http://127.0.0.1:12610/library/base/html/transform.html
 http://127.0.0.1:27037/library/base/html/sample.html
 http://127.0.0.1:27702/library/base/html/diff.html
 http://127.0.0.1:23389/library/base/html/date.html
@@ -98,3 +90,11 @@ http://127.0.0.1:14815/doc/html/Search?pattern=infinity
 http://127.0.0.1:29912/doc/html/Search?pattern=Rda
 http://127.0.0.1:29912/library/tools/html/checkRdaFiles.html
 http://127.0.0.1:19903/library/graphics/html/plot.html
+http://127.0.0.1:13922/library/base/html/Log.html
+http://127.0.0.1:13922/library/stats/html/Normal.html
+http://127.0.0.1:12272/library/base/html/Log.html
+http://127.0.0.1:27528/library/base/html/print.html
+http://127.0.0.1:26409/library/base/html/grep.html
+http://127.0.0.1:26865/library/utils/html/head.html
+http://127.0.0.1:26865/library/graphics/html/legend.html
+http://127.0.0.1:26865/library/graphics/help/points
