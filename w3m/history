@@ -1,10 +1,3 @@
-http://127.0.0.1:27037/library/base/html/sample.html
-http://127.0.0.1:27702/library/base/html/diff.html
-http://127.0.0.1:23389/library/base/html/date.html
-http://127.0.0.1:31684/library/stats/html/Normal.html
-http://127.0.0.1:31684/library/stats/html/Binomial.html
-http://127.0.0.1:31684/library/stats/html/SignRank.html
-http://127.0.0.1:31684/library/base/html/det.html
 http://127.0.0.1:18290/library/base/html/by.html
 http://127.0.0.1:16637/library/graphics/html/curve.html
 http://127.0.0.1:16637/library/base/html/subset.html
@@ -98,3 +91,10 @@ http://127.0.0.1:26409/library/base/html/grep.html
 http://127.0.0.1:26865/library/utils/html/head.html
 http://127.0.0.1:26865/library/graphics/html/legend.html
 http://127.0.0.1:26865/library/graphics/help/points
+http://127.0.0.1:29877/library/base/html/names.html
+http://127.0.0.1:29877/library/base/html/data.frame.html
+http://127.0.0.1:29877/library/base/html/range.html
+http://127.0.0.1:29877/library/base/help/extendrange
+http://127.0.0.1:29877/library/base/html/cut.html
+http://127.0.0.1:26973/library/base/html/MathFun.html
+http://127.0.0.1:21439/library/graphics/html/legend.html

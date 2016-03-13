@@ -291,7 +291,8 @@ nnoremap <silent> <leader>eb :sp ~/.vim/vimrc_mappings<cr>
 nnoremap <silent> <leader>em :sp ~/.vim/vimrc_mutt<cr>
 nnoremap <silent> <leader>er :sp ~/.vim/ftplugin/r.vim<cr>
 nnoremap <silent> <leader>et :sp ~/.vim/ftplugin/tex.vim<cr>
-nnoremap <silent> <leader>ea :sp ~/.vim/plugin/vim-autocorrect.vim<cr>
+nnoremap <silent> <leader>eaa :sp ~/.vim/plugin/vim-autocorrect.vim<cr>
+nnoremap <silent> <leader>eab :sp ~/.vim/after/plugin/abbreviations.vim<cr>
 nnoremap <silent> <leader>ep :sp ~/.vim/vimrc_plugs<cr>
 
 " Plugin-Maps                                                                  {{{1

@@ -406,6 +406,12 @@ endsnippet
 snippet dim "Show objects dimension" w
 dim(${1:${VISUAL}})
 endsnippet
+snippet cnms "Show objects names" w
+colnames(${1:${VISUAL}})
+endsnippet
+snippet rnms "Show objects names" w
+rownames(${1:${VISUAL}})
+endsnippet
 snippet nms "Show objects names" w
 names(${1:${VISUAL}})
 endsnippet
@@ -595,7 +601,7 @@ snippet so "Sort vector" w
 sort(${1:${VISUAL}})
 endsnippet
 snippet cut "Cut" w
-cut(${1:${VISUAL}}, ${2:breaks=${3:T}, labels = ${4:NULL}, include.lowest = ${5:FALSE}, right = ${6:TRUE}})
+cut(${1:${VISUAL}}, breaks=${3:nclass.Sturges($1)}${2:, labels = ${4:FALSE}, include.lowest = ${5:FALSE}, right = ${6:TRUE}})
 endsnippet
 
 # quick snippet helpers
@@ -656,4 +662,14 @@ my.data <- list()
 	for (i in 1:length(my.path)){
 		my.data[[i]] <- read.csv(my.path[[i]])
 	}
+endsnippet
+
+# Formeln
+snippet pqformel "PQ-Formel" b
+pqformel <- function(p,q){
+    x1 <- -p/2-sqrt((p/2)^2-q)
+    x2 <- -p/2+sqrt((p/2)^2-q)
+    print(c(x1,x2))
+}
+pqformel(${1:p},${2:q})
 endsnippet

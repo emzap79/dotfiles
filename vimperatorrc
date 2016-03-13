@@ -144,7 +144,8 @@ bmark('Ubuntuusers Wiki'       ,'http://ubuntuusers.de/%s'                      
 bmark('Vim.wikia'              ,'http://vim.wikia.com/wiki/Special:Search?search=%s'                                                                                 ,'qvw');
 bmark('Yahoo! Finance'         ,'http://finance.yahoo.com/q?s=%s'                                                                                                    ,'qyf');
 bmark('Yahoo! Search'          ,'http://search.yahoo.com/search;_ylt=?p=%s'                                                                                          ,'qy');
-bmark('Youtube'                ,'http://www.youtube.com/results?search_query=%s'                                                                                     ,'qyt');
+bmark('METRO Spirituosen'      ,'https://www.metro.de/cat/de/products/searchProducts?query=%s&token=e217fea8-4bb4-4dff-b2d5-fced9dc6b782'                           ,'qspirit');
+bmark('Youtube'                ,'http://www.youtube.com/results?search_query=%s'                                                                                     ,'yt');
 bmark('Zalando.de'             ,'http://www.zalando.de/katalog/?q=%s'                                                                                                ,'qzl');
 bmark('wikibooks DE'           ,'http://de.wikibooks.org/w/index.php?search=%s&title=Spezial:Suche&go=Seite'                                                         ,'qwb');
 bmark('wikibooks EN'           ,'http://en.wikibooks.org/w/index.php?search=%s&title=Special:Search&go=Go'                                                           ,'qwbe');
