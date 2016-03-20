@@ -19,12 +19,17 @@ http://www.stat.wiwi.uni-due.de/rss/                                         "00
 http://www.mikro.wiwi.uni-due.de/rss/                                        "00.01 Mikro"
 
 # Podcasts
+# Audiocasts
 "query:Kultur // EinsLive:           tags =~ \"9998.101\"" "00.11"
-"query:Kultur // KinoKino:           tags =~ \"9999.101\" and title !~ \"kurzkritik\"" "00.11"
-"query:Kultur // Neo Magazin Royale: tags =~ \"9999.102\"" "00.11"
-"query:Kultur // TTT:                tags =~ \"9999.103\"" "00.11"
+
+# Videocasts
+"query:Kultur // KinoKino:           tags =~ \"9999.111\" and title !~ \"kurzkritik\"" "00.11"
+"query:Kultur // Neo Magazin Royale: tags =~ \"9999.112\"" "00.11"
+"query:Kultur // TTT:                tags =~ \"9999.113\"" "00.11"
 "query:Programming // Vimcasts:      tags =~ \"9999.201\"" "00.12"
 "query:Sport // ZWWdF:               tags =~ \"9999.301\"" "00.13"
+"query:Comedy // Heute-Show:         tags =~ \"9999.411\" and title =~ \"^heute\-show\"" "00.14"
+
 
 # Liveticker
 http://rss.kicker.de/live/championsleague   "00.20 Champions League"
@@ -241,7 +246,7 @@ http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss            "1424 
 # 05. Sport                        {{{1
 # filter                           {{{2
 "query:Basketball // Tigers:                tags =~ \"15[0-9][0-9]\" and (title =~ \" Walter\" or link =~ \" Walter\" or title =~ \"Tigers\")" "05.00"
-"query:Basketball // Mavs:                  tags =~ \"15[1-3][0-9]\" and title =~ \"mav(erick)*s\""  "05.00"
+"query:Basketball // Mavs:                  tags =~ \"15[1-3][0-9]\" and title !~ \"preview\" and title =~ \"mav(erick)*s\""  "05.00"
 "query:Basketball // Powerranking:          tags =~ \"1541\""  "05.00"
 "query:Fussball // MSV:                     tags =~ \"159[0]\"" "05.00"
 "query:Fussball // BVB:                     tags =~ \"159[1]\" or (tags =~ \"15[58][0-9]\" and (title =~ \"BVB\" or title =~ \"Watzke\" or title =~ \"Tuchel\"))" "05.00"
@@ -314,8 +319,6 @@ http://rss.kicker.de/team/borussiadortmund                             "1591 BVB
 http://newsfeed.zeit.de/kultur/index                       "1620 Deutschland"
 http://newsfeed.zeit.de/zeit-magazin/index                 "1620 Magazin"
 
-# Podcasts
-
 # 07. Parties                      {{{1
 # queries                          {{{2
 "query:Parties // Salsa:     ((title =~ \"Salsa\" or link =~ \"Salsa\") and (tags =~ \"171[0-9]\")) or (tags =~ \"17[23][0-9]\")"  "07.1"
@@ -334,12 +337,6 @@ http://www.addicted2salsa.com/videos/feed                  "1720 Salsa"
 http://www.yopmail.com/en/rssfeed.php?login=salsanewsletternrw&h=55fd4a6913aaa591603573 "1730 Yopmail"
 
 # 08. Lifestyle                    {{{1
-
-# podcasts                         {{{2
-"query:Music // Deezer:    tags=~ \"8888.804\"" "08.04"
-
-# podcasts                         {{{2
-"query:Lifestyle // Drawing:    tags=~ \"8888.801\"" "08.01"
 
 # queries                          {{{2
 "query:Lifestyle // Drawing:    tags=~ \"181[0-9]\"" "08.10"
@@ -384,15 +381,18 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 
 # Spirituosen & Bier
 "query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (link =~ \"spirituo\" or title =~ \"spirituo\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"cocktail\")" "09.00"
-"query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (title =~ \"cognac\" or title =~ \"whisk.y\" or title =~ \"rmeister\" or title =~ \" gin \" or title =~ \"[wv]odka\" or title =~ \"tequila\")" "09.00"
+"query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (title =~ \"cognac\" or title =~ \"whisk.*y\" or title =~ \"rmeister\" or title =~ \" gin \" or title =~ \"[wv]odka\" or title =~ \"tequila\")" "09.00"
+"query:Aktionen // Bier:                tags =~ \"19[0-8][0-9]\" and (title =~ \"beck.s\" or title =~ \"fassbrause\")" "09.00"
 "query:Aktionen // Tequila:             tags =~ \"19[0-8][0-9]\" and (title =~ \"jos.\ cuervo\" or title =~ \"jimador\")" "09.00"
 "query:Aktionen // Rum:                 tags =~ \"19[0-8][0-9]\" and (title =~ \"bacardi\" or title =~ \"havana\ club\")" "09.00"
-"query:Aktionen // Gin:                 tags =~ \"19[0-8][0-9]\" and (title =~ \"bombay\" or title =~ \"sapphire\")" "09.00"
+"query:Aktionen // Gin:                 tags =~ \"19[0-8][0-9]\" and (title =~ \"bombay\" or title =~ \"sapphire\" and title !~ \"radeon\")" "09.00"
 "query:Aktionen // Whiskey:             tags =~ \"19[0-8][0-9]\" and (title =~ \"johnny\ walker\" or title =~ \"jim\ beam\" )" "09.00"
-"query:Aktionen // Liköre:              tags =~ \"19[0-8][0-9]\" and (title =~ \"ramazz\" or title =~ \"aperol\" or title =~ \"bailey\" or title =~ \"cointreau\" or title =~ \"kahlua\" or title =~ \"amarula\" )" "09.00"
-
+"query:Aktionen // Ouzo & Raki:         tags =~ \"19[0-8][0-9]\" and (title =~ \"yeni\ raki\" or title =~ \"ouzo\")" "09.00"
+"query:Aktionen // Liköre:              tags =~ \"19[0-8][0-9]\" and (title =~ \"ramazz\" or title =~ \"licor\ 43\" or title =~ \"aperol\" or title =~ \"bailey\" or title =~ \"cointr(eau|au|aeu)\" or title =~ \"kah*luh*a\" or title =~ \"amarr*ull*a\" )" "09.00"
+"query:Aktionen // Nichtalkoholisch:    tags =~ \"19[0-8][0-9]\" and (title =~ \"coca.cola\" or title =~ \"schweppes\" or title =~ \"ginger.ale\" or title =~ \"tonic.water\" or title =~ \"limetten\")" "09.00"
 # Sonstige
-"query:Aktionen // Parfum:              tags =~ \"19[0-8][0-9]\" and (title =~ \"chanel\" or title =~ \"yves.*laurent\")" "09.00"
+# "query:Aktionen // Föhn:                tags =~ \"19[0-8][0-9]\" and title =~ \"F.hn\" or title =~ \"Haartrockner\"" "09.00"
+"query:Aktionen // Parfum:              tags =~ \"19[0-8][0-9]\" and (title =~ \"chanel\" or title =~ \"laura\ biagotti\" or title =~ \"giorgio\ armani\" or title =~ \"jean\ paul\ gaultier\" or title =~ \"lacoste\" or title =~ \"lanc.me\" or title =~ \"hugo\ boss\" or title =~ \"yves.*laurent\")" "09.00"
 "query:Aktionen // Rasierklingen:       tags =~ \"19[0-8][0-9]\" and (title =~ \"rasierkl.*\" or title =~ \"wiĺkinson\" or title =~ \"gillette\")" "09.00"
 "query:Aktionen // Ebooks:              tags =~ \"19[0-8][0-9]\" and (title =~ \"ebook \" and (title !~ \"ebookers\" and title !~ \"notebook\"))" "09.00"
 "query:Aktionen // Notebook:            tags =~ \"19[0-8][0-9]\" and (title =~ \"notebook \" and title =~ \"laptop\" and (title !~ \"ebookers\" and title !~ \"e-book\"))" "0.09"
@@ -402,7 +402,6 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 "query:Aktionen // Reisebus:            tags =~ \"19[0-8][0-9]\" and (title =~ \"Megabus\" or title =~ \"Postbus\" or title =~ \"Flixbus\" or title =~ \"Meinfernbus\")" "09.00"
 "query:Aktionen // Dessous:             tags =~ \"19[0-8][0-9]\" and (title =~ \"calzedonia\" or title =~ \"triumph\" or title =~ \"hunkem.ller\" or title =~ \"victoria\ secret\" or title =~ \"enamora\" or title =~ \"passonata\")" "09.00"
 "query:Aktionen // DSL Flat:            tags =~ \"19[0-8][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"
-"query:Aktionen // Föhn:                tags =~ \"19[0-8][0-9]\" and title =~ \"F.hn\" or title =~ \"Haartrockner\"" "09.00"
 "query:Aktionen // Gürtel:              tags =~ \"19[0-8][0-9]\" and title =~ \"G[üue]*rtel\"" "09.00"
 "query:Aktionen // Regenschirm:         tags =~ \"19[0-8][0-9]\" and title =~ \"Regenschirm\"" "09.00"
 "query:Aktionen // Hanteln:             tags =~ \"19[0-8][0-9]\" and title =~ \"hantel\"" "09.00"
@@ -447,7 +446,7 @@ http://feeds.feedburner.com/sparbote-schnaeppchen                       "1926 So
 # http://www.yopmail.com/en/rssfeed.php?login=rssbeerfeed&h=5662df4e3d5ee933333848 "1930 Bierangebote"
 
 # Schuhe                           {{{3
-http://rss.schuh-helden.de/feed.php?sizes=45,46                         "1940 Kleidung"
+http://rss.schuh-helden.de/feed.php?sizes=45,46                         "1940 Schuhe"
 
 # Supermarkt                       {{{3
 
@@ -457,12 +456,12 @@ http://www.discounto.de/Discounter/KODi/get.rss20                  "1950 Discoun
 http://www.discounto.de/Discounter/lidl/get.rss20                  "1950 Discounter: Lidl"
 http://www.discounto.de/Discounter/Netto-Marken-Discount/get.rss20 "1950 Discounter: Netto"
 http://www.discounto.de/Discounter/Tchibo/get.rss20                "1950 Discounter: Tchibo"
-http://www.discounto.de/Discounter/plus.de/get.rss20                  "1950 Discounter: Plus"
-http://www.discounto.de/Discounter/penny_markt/get.rss20                 "1950 Discounter: Penny"
+http://www.discounto.de/Discounter/plus/get.rss20               "1950 Discounter: Plus"
+http://www.discounto.de/Discounter/penny_markt/get.rss20           "1950 Discounter: Penny"
 
 # # Supermarkt
 http://www.discounto.de/Supermarkt/real/get.rss20                  "1951 Supermarkt: Real"
-http://www.discounto.de/Supermarkt/Edeka-Direkt/get.rss20                 "1951 Supermarkt: Edeka"
+http://www.discounto.de/Supermarkt/Edeka-Direkt/get.rss20          "1951 Supermarkt: Edeka"
 http://www.discounto.de/Supermarkt/REWE/get.rss20                  "1951 Supermarkt: Rewe"
 http://www.discounto.de/Supermarkt/Trink-und-Spare/get.rss20       "1951 Supermarkt: Trink & Spare" "09.00"
 http://www.discounto.de/Supermarkt/Kaufland/get.rss20              "1951 Supermarkt: Kaufland"
@@ -476,7 +475,7 @@ http://www.discounto.de/Elektronik/Euronics/get.rss20              "1952 Elektro
 # # Drogerie
 http://www.discounto.de/Drogerie/Rossmann/get.rss20                "1953 Drogerie: Rossmann"
 http://www.discounto.de/Drogerie/Douglas/get.rss20                 "1953 Drogerie: Douglas"
-http://www.discounto.de/Drogerie/TheBodyShop/get.rss20             "1953 Drogerie: TheBodyShop"
+http://www.discounto.de/Drogerie/thebodyshop/get.rss20             "1953 Drogerie: TheBodyShop"
 http://www.discounto.de/Drogerie/Yves-Rocher/get.rss20             "1953 Drogerie: Yves-Rocher"
 
 # Reisen                           {{{3
@@ -544,9 +543,13 @@ http://www1.wdr.de/mediathek/audio/1live/1live-bahnansage/bahnansage106.podcast 
 # http://www1.wdr.de/mediathek/audio/1live/1live-der-beste-tag-der-welt/derbestetagderwelt100.podcast "9998.101" "EinsLive" "Audopodcast"
 # http://www1.wdr.de/mediathek/audio/1live/1live-das-dschungeltelefon/dschungeltelefon106.podcast "9998.101" "EinsLive" "Audopodcast"
 
-http://www.ardmediathek.de/tv/kinokino/Sendung?documentId=14913678&bcastId=14913678&rss=true "9999.102 Kultur" "KinoKino" "ARD Mediathek"
-http://www.zdf.de/ZDFmediathek/podcast/2012868                               "9999.104 Kultur" "ZDF Mediathek" "Neo Magazin Royale"
-http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml "9999.104 Kultur" "ARD Mediathek" "TTT"
+# kultur
+http://www.ardmediathek.de/tv/kinokino/Sendung?documentId=14913678&bcastId=14913678&rss=true "9999.111 Kultur" "KinoKino" "ARD Mediathek"
+http://www.zdf.de/ZDFmediathek/podcast/2012868                               "9999.112 Kultur" "ZDF Mediathek" "Neo Magazin Royale"
+http://www.daserste.de/podcasts/mam_dyn~id,791~titel-thesen-temperamente.xml "9999.113 Kultur" "ARD Mediathek" "TTT"
+
+# comedy
+http://www.zdf.de/ZDFmediathek/rss/760014?view=rss      "9999.411 Comedy" "ZDF Mediathek" "Heute-Show"
 
 http://vimcasts.org/feeds/ogg.rss                                            "9999.201 Programming" "Vimcasts"
 http://www.ardmediathek.de/tv/Zeigler-zum-Mitnehmen/Sendung?documentId=8078774&bcastId=8078774&rss=true "9999.301 Sport" "ZWWdF" "Fußball"

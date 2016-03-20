@@ -62,6 +62,12 @@ endsnippet
 snippet ";(\S+)?" "Insert Tex-command" ir
 \\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`{${1:${VISUAL}}}
 endsnippet
+snippet ";;(\S+)?" "Insert Tex-command" ir
+\\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`{${1:${VISUAL}}}{$2}
+endsnippet
+snippet ";;;(\S+)?" "Insert Tex-command" ir
+\\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`{${1:${VISUAL}}}{$2}{$3}
+endsnippet
 snippet "\:(\S+)?" "Insert Tex-command" ir
 \\`!p snip.rv = match.group(1) if match.group(1) is not None else "cmd"`$1
 endsnippet
@@ -150,6 +156,12 @@ snippet acro "Define acronym" b
 \acro{${1:acronym}}[${2:${1/(\w+)/(?1:\U$1\E)/g}}]{${3:full name}}${4:
 \acroplural{$1}[$2$5s]{$3$6s}}
 endsnippet
+snippet fn "Add footnote" i
+\footnote{${1:put your footnotetext in here}}
+endsnippet
+snippet fnm "Add footnote" i
+\footnotemark ${2:\footnotetext{${1:put your footnotetext in here}}}
+endsnippet
 snippet abbr "env: abbreviations" b
 % ac{...}: Gibt bei der ersten Verwendung die Langform mit der Abkürzung in
 % Klammern aus, ab dann stets die Kurzform.
@@ -236,10 +248,10 @@ ${0:${VISUAL}}${8}
 
 endsnippet
 snippet par "Paragraph" b
-\paragraph{${1:paragraph name}}
+\paragraph{${1:${VISUAL}}}
 ${2:\label{par:${3:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}}${0:
 
-${VISUAL}}
+$4}
 
 endsnippet
 snippet spar "Subparagraph" b
@@ -331,6 +343,9 @@ snippet inp "Create inputcommand" b
 \input{${1:${VISUAL}}}
 endsnippet
 # font styles
+snippet bf "Bold fonts" b
+\textbf{${1:${VISUAL}}}
+endsnippet
 snippet bold "Bold fonts" b
 {\bfseries ${1:${VISUAL}}}
 endsnippet

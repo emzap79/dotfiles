@@ -359,7 +359,6 @@ alias ltcl="rm -f *.aux *.toc *.bbl *.idx *.ilg *.ind *.log *.toc *.blg *.out *.
 alias ltsw=fun_latex_sweave
 alias pdfl=fun_latex_rd
 
-
 # latex symbols
 if [[ -e /home/${USER}/Dokumente ]]; then
     alias esymb="evince $DOK/LaTeX/docLatex_Sonderzeichen.pdf &"
@@ -373,12 +372,11 @@ alias pdfgrayscale="gs -sOutputFile=grayscale.pdf -sDEVICE=pdfwrite \
     -sCompatibilityLevel=1.5 -dProcessColorModel=/DeviceGray \
     -sColorConversionStrategy=Gray -dNOPAUSE -dBATCH"
 alias pdfgs="pdfgrayscale"
-alias pdfresize="/bin/bash $HOME/bin/pdfResize.sh"
 alias pdfsplit="/bin/bash $HOME/bin/pdfPagesToParts.sh"
 alias pdfimg=fun_pdf_image_extract
 alias pdf=fun_pdf    # open default pdf-reader
-alias pdfuni='cat pdfs.txt | while read i; do evince $i; done &'
-alias pdfres=fun_pdf_resize
+alias pdfuni='cat pdfs.txt | while read i; do evince $i; done'
+alias pdfresize=fun_pdf_resize
 
 # latex                                                                          {{{2
 
@@ -577,7 +575,6 @@ alias ips=fun_show_ip       # IP-Adresse and more
 #  under construction!!  #
 ##########################
 alias ipsum=fun_summary_ip  # summarize a list of IP addresses, verifying IP address and giving counts for each IP found
-##########################
 ##########################
 
 alias dnsfree=fun_time_DNS  # Funktion um den schnellsten freien DNS Server zu finden
@@ -937,7 +934,6 @@ fun_pdf_resize(){
         -o "${1%%.*}_resized.${1##*.}" $1
 }
 
-
 # fun: split pdf regarding txt file                                              {{{3
 #
 # fun_pdftk <document>.pdf <textfile>.txt
@@ -985,12 +981,12 @@ fun_muttbeuter(){
 
 # http://serverfault.com/a/365843
 fun_locate_dir() {
-locate "$@" | xargs file -NF '|' |grep '| directory' | sed 's/| directory//g'
+    locate "$@" | xargs file -NF '|' |grep '| directory' | sed 's/| directory//g'
 }
 
 # http://serverfault.com/a/365843
 fun_locate_dat() {
-locate "$@" | xargs file -NF '|' |grep 'data$' | sed 's/|.*data//g'
+    locate "$@" | xargs file -NF '|' |grep 'data$' | sed 's/|.*data//g'
 }
 
 # fun: find                                                                      {{{3
@@ -1002,8 +998,8 @@ fun_ff() {
 fun_ffs() {
 
     # find -type f -printf "%T+\t%p\n" |\
-    #     sort -k1 -n |\
-    #     awk '{print $2}'   # tail -nX | xargs -n1 -i cp -v "{}" /to/path
+        #     sort -k1 -n |\
+        #     awk '{print $2}'   # tail -nX | xargs -n1 -i cp -v "{}" /to/path
 
     # http://stackoverflow.com/a/15691395/3569509
     # alternatively: ls -1t | head -5
@@ -1023,7 +1019,7 @@ fun_grepv(){
 # https://twitter.com/climagic/status/473916085541277696
 
 fun_grepc() {
-grep -rail "${@:1:$(($#-1))}" "${!#}"
+    grep -rail "${@:1:$(($#-1))}" "${!#}"
 }
 
 # fun: mkdir                                                                     {{{3
@@ -1071,28 +1067,28 @@ fun_mkdt(){
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
 fun_fe() {
-  local file
-  file=$(fzf --query="$1" --select-1 --exit-0)
-  [ -n "$file" ] && ${EDITOR:-vim} "$file"
+    local file
+    file=$(fzf --query="$1" --select-1 --exit-0)
+    [ -n "$file" ] && ${EDITOR:-vim} "$file"
 }
 
 # fd - cd to selected directory
 fun_fd() {
-  local dir
-  dir=$(find ${1:-*} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-                  fun_cd "$dir"
+    local dir
+    dir=$(find ${1:-*} -path '*/\.*' -prune \
+        -o -type d -print 2> /dev/null | fzf +m) &&
+        fun_cd "$dir"
 }
 
 # fh - repeat history
 fun_fh() {
-  eval $(([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s | sed 's/ *[0-9]* *//')
+    eval $(([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s | sed 's/ *[0-9]* *//')
 }
 #))
 
 # fkill - kill process
 fun_fkill() {
-  ps -ef | sed 1d | fzf -m | awk '{print $2}' | xargs kill -${1:-9}
+    ps -ef | sed 1d | fzf -m | awk '{print $2}' | xargs kill -${1:-9}
 }
 
 # fzf - tmux                                                                     {{{4
@@ -1102,11 +1098,11 @@ fun_fkill() {
 # command ($1) and sends its output back to the original pane with any number of
 # optional keys (shift; $*).
 fzf_tmux_helper() {
-  [ -n "$TMUX_PANE" ] || return
-  local cmd=$1
-  shift
-  tmux split-window -p 40 \
-    "bash -c \"\$(tmux send-keys -t $TMUX_PANE \"\$(source ~/.fzf.bash; $cmd)\" $*)\""
+    [ -n "$TMUX_PANE" ] || return
+    local cmd=$1
+    shift
+    tmux split-window -p 40 \
+        "bash -c \"\$(tmux send-keys -t $TMUX_PANE \"\$(source ~/.fzf.bash; $cmd)\" $*)\""
 }
 
 # This is the function we are going to run in the split pane.
@@ -1114,11 +1110,11 @@ fzf_tmux_helper() {
 # - "sed" will escape spaces in the paths.
 # - "paste" will join the selected paths into a single line
 fzf_tmux_dir() {
-  fzf_tmux_helper \
-    'find * -path "*/\.*" -prune -o -type d -print 2> /dev/null |
-     fzf --multi |
-     sed "s/ /\\\\ /g" |
-     paste -sd" " -' Space
+    fzf_tmux_helper \
+        'find * -path "*/\.*" -prune -o -type d -print 2> /dev/null |
+    fzf --multi |
+    sed "s/ /\\\\ /g" |
+    paste -sd" " -' Space
 }
 
 # Bind CTRL-X-CTRL-D to fzf_tmux_dir
@@ -1127,7 +1123,7 @@ bind '"\C-x\C-d": "$(fzf_tmux_dir)\e\C-e"'
 # fun: ifconfig - print ip address                                               {{{3
 
 fun_show_ip() {
-sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac | grep -i adr
+    sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac | grep -i adr
 }
 
 fun_summary_ip() {
@@ -1145,7 +1141,7 @@ fun_verify_ip() {
 fun_time_DNS() {
     # http://www.commandlinefu.com/commands/view/14188/a-function-to-find-the-fastest-free-dns-server
     parallel -j0 --tag dig @{} "$*" ::: 208.67.222.222 208.67.220.220 \
-    198.153.192.1 198.153.194.1 156.154.70.1 156.154.71.1 8.8.8.8 8.8.4.4 |
+        198.153.192.1 198.153.194.1 156.154.70.1 156.154.71.1 8.8.8.8 8.8.4.4 |
     grep Query | sort -nk5;
 }
 
@@ -1153,7 +1149,7 @@ fun_time_DNS() {
 
 # fun: kk <nr. of line to kill from prev. command>
 #kk() {
-    #sudo kill # Expecting a pid
+#sudo kill # Expecting a pid
 #}
 alias kk='sudo kill'
 fun_pss() {
@@ -1179,205 +1175,202 @@ fun_pdf() {
 # fun: ls - sort content by size                                                 {{{3
 
 fun_dus () {
-du --max-depth=0 -k *
-sort -rn
-awk '{
-if($1>=1024*1024) {size=$1/1024/1024; unit="G"}
-else if($1>=1024) {size=$1/1024; unit="M"}
-else {size=$1; unit="K"}; if(size<10) format="%.1f%s";
-else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }'
-}
+    du --max-depth=0 -k *
+    sort -rn
+    awk '{
+    if($1>=1024*1024) {size=$1/1024/1024; unit="G"}
+    else if($1>=1024) {size=$1/1024; unit="M"}
+    else {size=$1; unit="K"}; if(size<10) format="%.1f%s";
+    else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }'
+    }
 
-fun_dsp() {
-    # Diskspace der 50 größten Programme
-    dpkg-query --show --showformat='${Package;-50}\t${Installed-Size}\n'
-    sort -k 2 -n
-    grep -v deinstall
-    awk '{printf "%.3f MB \t %s\n", $2/(1024), $1}'
-    tail -n 300
-}
+    fun_dsp() {
+        # Diskspace der 50 größten Programme
+        dpkg-query --show --showformat='${Package;-50}\t${Installed-Size}\n'
+        sort -k 2 -n
+        grep -v deinstall
+        awk '{printf "%.3f MB \t %s\n", $2/(1024), $1}'
+        tail -n 300
+    }
 
-# fun: ls - show absolute path to file                                           {{{3
+    # fun: ls - show absolute path to file                                           {{{3
 
-# fun: http://stackoverflow.com/a/14984302
-fun_absolute_path() { echo "$PWD/$1"; }  # alt: readlink -f
+    # fun: http://stackoverflow.com/a/14984302
+    fun_absolute_path() { echo "$PWD/$1"; }  # alt: readlink -f
 
-# fun: curl - expand shortened urls                                              {{{3
+    # fun: curl - expand shortened urls                                              {{{3
 
-# fun: http://www.commandlinefu.com/commands/view/9515/expand-shortened-urls
-fun_expandurl() { curl -sIL $1 | grep ^Location; }
+    # fun: http://www.commandlinefu.com/commands/view/9515/expand-shortened-urls
+    fun_expandurl() { curl -sIL $1 | grep ^Location; }
 
-# fun: yt-dl - youtube-videos as ascii video                                     {{{3
+    # fun: yt-dl - youtube-videos as ascii video                                     {{{3
 
-# fun: http://annasagrera.com/on-ascii-youtube-and-letting-go/?lang=en
-fun_youtbmp() { youtube-dl $1 -o - | mplayer -vo aa -monitorpixelaspect 0.5 -; }
+    # fun: http://annasagrera.com/on-ascii-youtube-and-letting-go/?lang=en
+    fun_youtbmp() { youtube-dl $1 -o - | mplayer -vo aa -monitorpixelaspect 0.5 -; }
 
-# fun: yt-view - view youtubube videos in command line
-fun_yt_view()
-{ id=$(curl -s 'https://www.youtube.com/results?search_query='$(echo "$1"|tr '
-    ' +)|grep -o '"[[:alnum:]]\{11\}"'|sed -n 3p|cut -b 2-12); youtube-dl -q
-    'https://www.youtube.com/watch?v='"$id" -o -|mplayer -vo null /dev/fd/3
-    3<&0 </dev/tty; }
+    # fun: yt-view - view youtubube videos in command line
+    fun_yt_view()
+    { id=$(curl -s 'https://www.youtube.com/results?search_query='$(echo "$1"|tr '
+        ' +)|grep -o '"[[:alnum:]]\{11\}"'|sed -n 3p|cut -b 2-12); youtube-dl -q
+        'https://www.youtube.com/watch?v='"$id" -o -|mplayer -vo null /dev/fd/3
+        3<&0 </dev/tty; }
 
-# fun: cd - show last edited files                                               {{{3
+        # fun: cd - show last edited files                                               {{{3
 
-# fun: http://www.reddit.com/r/linux/comments/1zsn7r/a_bash_alias_i_cannot_function_without/cfwldex
-fun_cd() {
-    count=10
-    dir="${@:-$HOME}"  # ~ isn't expanded when in quotes
-    [ -z "${dir}" ] && dir=~
-    if ! builtin cd "$dir"
-    then
-        dir=`compgen -d "${dir}" | head -1`
-        if builtin cd "$dir"
-        then
-            clear
-            # pwd
-            ls -lrtcA
-        fi
-    else
-        clear
-        if [ $(ls -lt | wc -l) -gt $count ]
-        then
-            echo -e "                                                     ."
-            echo -e "                                                     ."
-            echo -e "                                                     ."
-            # pwd
-            ls -lrtcA | tail -n $count
-        else
-            # pwd
-            ls -ltrcA
-        fi
-    fi
-}
+        # fun: http://www.reddit.com/r/linux/comments/1zsn7r/a_bash_alias_i_cannot_function_without/cfwldex
+        fun_cd() {
+            count=10
+            dir="${@:-$HOME}"  # ~ isn't expanded when in quotes
+            [ -z "${dir}" ] && dir=~
+            if ! builtin cd "$dir"
+            then
+                dir=`compgen -d "${dir}" | head -1`
+                if builtin cd "$dir"
+                then
+                    clear
+                    # pwd
+                    ls -lrtcA
+                fi
+            else
+                clear
+                if [ $(ls -lt | wc -l) -gt $count ]
+                then
+                    echo -e "                                                     ."
+                    # pwd
+                    ls -lrtcA | tail -n $count
+                else
+                    # pwd
+                    ls -ltrcA
+                fi
+            fi
+        }
 
-# fun: change to dir from clipboard                                              {{{3
-fun_pwd_change(){
-    cd $(xclip -o)
-}
+        # fun: change to dir from clipboard                                              {{{3
+        fun_pwd_change(){
+            cd $(xclip -o)
+        }
 
-# fun: latex                                                                     {{{3
+        # fun: latex                                                                     {{{3
 
-fun_latex_sweave() {
-    # http://stackoverflow.com/a/4922768/3569509
-    R CMD Sweave "${1%%.*}.rnw" && R CMD pdflatex "${1%%.*}.tex" && R CMD bibtex "${1%%.*}.aux" && evince "$1".pdf &
-}
+        fun_latex_sweave() {
+            # http://stackoverflow.com/a/4922768/3569509
+            R CMD Sweave "${1%%.*}.rnw" && R CMD pdflatex "${1%%.*}.tex" && R CMD bibtex "${1%%.*}.aux" && evince "$1".pdf &
+        }
 
-fun_latex_rd() {
+        fun_latex_rd() {
 
-    pdflatex ${1%%.*}.tex
-    pdflatex ${1%%.*}.tex
-    xdg-open ${1%%.*}.pdf &
-}
+            pdflatex ${1%%.*}.tex
+            xdg-open ${1%%.*}.pdf &
+        }
 
-fun_loop_pdflatex() {
+        fun_loop_pdflatex() {
 
-    echo start; make all
+            echo start; make all
 
-    time=0
-    while true
-    do
-        # http://linux.about.com/od/Bash_Scripting_Solutions/a/How-To-Write-Bash-For-Loops.htm
-        while [[ $time -gt 0 ]]
-        do
-            echo $time
-            (( time-- ))
+            time=0
+            while true
+            do
+                # http://linux.about.com/od/Bash_Scripting_Solutions/a/How-To-Write-Bash-For-Loops.htm
+                while [[ $time -gt 0 ]]
+                do
+                    echo $time
+                    (( time-- ))
+                    sleep 1
+                done
+                make loop
+                if [ $? = 1 ];then
+                    /usr/bin/yad --center --on-top --title="pdflatex failed"
+                    # notify-send "Backup später durchführen!"
+                    # exit 1
+                fi
+                if [[ -z "$1" ]]; then time=15; else time=$1; fi
+            done
+
+            #     while true
+            #     do
+            #         for i in {$time...1};
+            #         do echo $i && sleep 1;
+            #         done
+            #         make loop
+            #         if [ $? = 1 ];then
+            #             /usr/bin/yad --center --on-top --title="pdflatex failed"
+            #             # notify-send "Backup später durchführen!"
+            #             # exit 1
+            #         fi
+            #
+            #     done
+
+        }
+
+        # fun: translate
+
+        fun_translate() {
+            translate "{=${1}}" "${*:2}"
+        }
+
+        # fun: open thesaurus                                                            {{{3
+
+        fun_open_thesaurus() {
+            egrep -i "$@" --color -h $HOME/.dictionaries/openthesaurus.txt | more
+        }
+
+        # fun: chmod + remove                                                            {{{3
+
+        fun_chmod_remove() {
+            chmod 777 -R "$*" && rm -rv "$*"
+        }
+
+        # fun: calc - easy calculating in bash                                           {{{3
+
+        # fun: http://unix.stackexchange.com/a/30486
+        fun_calc () {
+            bc -l <<< "$@"
+        }
+
+        # fun: exerc - play a sound every 40 sec for 12 times
+        fun_exerc () {
+            echo "start exercise in 60 sec"
+            play /usr/share/sounds/gnome/default/alerts/bark.ogg repeat 0 gain -n 5  # play file with +5dB
+            sleep 55
+            i=1
+            while [ $i -lt 5 ]
+            do sleep 1
+                play /usr/share/sounds/gnome/default/alerts/drip.ogg gain -n 5  # play file with +5dB
+                i=$((i+1))
+            done
+            play /usr/share/sounds/gnome/default/alerts/bark.ogg repeat 1 gain -n 5  # play file with +5dB
+
+            i=1
+            n = 13
+            while [ $i -lt $n ] # less than n
+            do sleep 40
+                play /usr/share/sounds/gnome/default/alerts/drip.ogg repeat 1 gain -n 5
+                echo "Schritte $i"
+                i=$(( i + 1 ))
+            done
+            play /usr/share/sounds/gnome/default/alerts/bark.ogg repeat 2 gain -n 5  # play file with +5dB
             sleep 1
-        done
-        make loop
-        if [ $? = 1 ];then
-            /usr/bin/yad --center --on-top --title="pdflatex failed"
-            # notify-send "Backup später durchführen!"
-            # exit 1
-        fi
-        if [[ -z "$1" ]]; then time=15; else time=$1; fi
-    done
+            play /usr/share/sounds/gnome/default/alerts/bark.ogg repeat 0 gain -n 5  # play file with +5dB
+        }
 
-#     while true
-#     do
-#         for i in {$time...1};
-#         do echo $i && sleep 1;
-#         done
-#         make loop
-#         if [ $? = 1 ];then
-#             /usr/bin/yad --center --on-top --title="pdflatex failed"
-#             # notify-send "Backup später durchführen!"
-#             # exit 1
-#         fi
-#
-#     done
+        # fun: set wallpaper                                                             {{{3
 
-}
+        fun_set_wallp() {
+            gsettings set org.gnome.desktop.background picture-uri "file:///`pwd`/$1"
+        }
 
-# fun: translate
+        # fun: gnome settings                                                            {{{3
 
-fun_translate() {
-    translate "{=${1}}" "${*:2}"
-}
+        fun_gnome() {
+            gsettings set org.gnome.shell enabled-extensions "['auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'gnome-shell-imgur@ttll.de', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'notesearch@rrochet.fr', 'SkypeNotification@chrisss404.gmail.com', 'system-monitor@paradoxxx.zero.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'weather-extension@xeked.com', 'windowoverlay-icons@sustmidown.centrum.cz', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']"
+        }
 
-# fun: open thesaurus                                                            {{{3
-
-fun_open_thesaurus() {
-    egrep -i "$@" --color -h $HOME/.dictionaries/openthesaurus.txt | more
-}
-
-# fun: chmod + remove                                                            {{{3
-
-fun_chmod_remove() {
-    chmod 777 -R "$*" && rm -rv "$*"
-}
-
-# fun: calc - easy calculating in bash                                           {{{3
-
-# fun: http://unix.stackexchange.com/a/30486
-fun_calc () {
-    bc -l <<< "$@"
-}
-
-# fun: exerc - play a sound every 40 sec for 12 times
-fun_exerc () {
-    echo "start exercise in 60 sec"
-    play /usr/share/sounds/gnome/default/alerts/bark.ogg repeat 0 gain -n 5  # play file with +5dB
-    sleep 55
-    i=1
-    while [ $i -lt 5 ]
-    do sleep 1
-        play /usr/share/sounds/gnome/default/alerts/drip.ogg gain -n 5  # play file with +5dB
-        i=$((i+1))
-    done
-    play /usr/share/sounds/gnome/default/alerts/bark.ogg repeat 1 gain -n 5  # play file with +5dB
-
-    i=1
-    n = 13
-    while [ $i -lt $n ] # less than n
-    do sleep 40
-        play /usr/share/sounds/gnome/default/alerts/drip.ogg repeat 1 gain -n 5
-        echo "Schritte $i"
-        i=$(( i + 1 ))
-    done
-    play /usr/share/sounds/gnome/default/alerts/bark.ogg repeat 2 gain -n 5  # play file with +5dB
-    sleep 1
-    play /usr/share/sounds/gnome/default/alerts/bark.ogg repeat 0 gain -n 5  # play file with +5dB
-}
-
-# fun: set wallpaper                                                             {{{3
-
-fun_set_wallp() {
-gsettings set org.gnome.desktop.background picture-uri "file:///`pwd`/$1"
-}
-
-# fun: gnome settings                                                            {{{3
-
-fun_gnome() {
-    gsettings set org.gnome.shell enabled-extensions "['auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'gnome-shell-imgur@ttll.de', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'notesearch@rrochet.fr', 'SkypeNotification@chrisss404.gmail.com', 'system-monitor@paradoxxx.zero.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'weather-extension@xeked.com', 'windowoverlay-icons@sustmidown.centrum.cz', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']"
-}
-
-### Other Commands
-# # exec command periodically every 5 seconds
-# # watch -n 5 <command>
-#
-# # mv salsa-files regarding to txt-file entries
-# # cat salsavids.txt | while read l; do x=$(echo $l | awk '{print $1}'); y=$(echo $l | cut -d '=' -f 2); z=$(lsg $y); zx=$(echo $x | sed 's/#//g'); zy=$(echo $z | sed "s/-$y.mp4//g" | sed 's/ /_/g'); mv -v "$z" "$zx"_"$zy".mp4; done
-#
-# # split pdf file regarding txt content
-# #
+        ### Other Commands
+        # # exec command periodically every 5 seconds
+        # # watch -n 5 <command>
+        #
+        # # mv salsa-files regarding to txt-file entries
+        # # cat salsavids.txt | while read l; do x=$(echo $l | awk '{print $1}'); y=$(echo $l | cut -d '=' -f 2); z=$(lsg $y); zx=$(echo $x | sed 's/#//g'); zy=$(echo $z | sed "s/-$y.mp4//g" | sed 's/ /_/g'); mv -v "$z" "$zx"_"$zy".mp4; done
+        #
+        # # split pdf file regarding txt content
+        # #
