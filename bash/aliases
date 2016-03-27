@@ -339,6 +339,7 @@ alias vf=fun_vim_find   # 'vf tex' will open every tex-file in subdirectory as b
 alias vi="vim -c 'startinsert'"
 alias vu="vim -u NONE"
 alias vs="vim -S Session.vim"
+alias vims="vim -S"
 alias vv="echo "" > /tmp/foo.bar; vim -c startinsert /tmp/foo.bar"
 alias vmd="vim /tmp/foo.md"
 
@@ -375,7 +376,7 @@ alias pdfgs="pdfgrayscale"
 alias pdfsplit="/bin/bash $HOME/bin/pdfPagesToParts.sh"
 alias pdfimg=fun_pdf_image_extract
 alias pdf=fun_pdf    # open default pdf-reader
-alias pdfuni='cat pdfs.txt | while read i; do evince $i; done'
+alias pdfuni="cat ./pdfs.txt | xargs evince"
 alias pdfresize=fun_pdf_resize
 
 # latex                                                                          {{{2
@@ -685,6 +686,12 @@ alias wallpaper=fun_set_wallp
 alias gnomeapps=fun_gnome
 
 # functions                                                                      {{{1
+# fun_file_transfer
+# http://www.commandlinefu.com/commands/view/15918/easy-file-sharing-from-the-command-line-using-transfer.sh
+fun_file_transfer() { basefile=$(basename "$1" | sed -e
+    's/[^a-zA-Z0-9._-]/-/g');curl --progress-bar --upload-file "$1"
+    "https://transfer.sh/$basefile"|xsel --clipboard;xsel --clipboard ;
+}
 
 # gitfunctions                                                                   {{{2
 

@@ -13,10 +13,12 @@ ignore-article "*" "title =~ \"boyardan\""
 # 00. Alerts                       {{{1
 
 # Alerts
-http://www.oek.wiwi.uni-due.de/rss/                                          "00.01 Ökonometrie"
-http://www.lef.wiwi.uni-due.de/rss/                                          "00.01 Financial Mathamatics"
-http://www.stat.wiwi.uni-due.de/rss/                                         "00.01 Empirische Methoden"
-http://www.mikro.wiwi.uni-due.de/rss/                                        "00.01 Mikro"
+http://www.oek.wiwi.uni-due.de/rss/                                          "00.01" "Ökonometrie" "Hank"
+http://www.lef.wiwi.uni-due.de/rss/                                          "00.01" "Energy & Finance" "Kiesel"
+http://www.stat.wiwi.uni-due.de/rss/                                         "00.01" "Statistik" "Behr"
+http://www.mikro.wiwi.uni-due.de/rss/                                        "00.01" "Mikro" "Amann"
+http://www.makro.wiwi.uni-due.de/rss/                                        "00.01" "Makro" "Belke"
+http://www.jpmakro.wiwi.uni-due.de/rss/                                        "00.01" "Makro" "Baas"
 
 # Podcasts
 # Audiocasts
@@ -245,7 +247,7 @@ http://gnuplot-tricks.blogspot.com/feeds/posts/default?alt=rss            "1424 
 
 # 05. Sport                        {{{1
 # filter                           {{{2
-"query:Basketball // Tigers:                tags =~ \"15[0-9][0-9]\" and (title =~ \" Walter\" or link =~ \" Walter\" or title =~ \"Tigers\")" "05.00"
+"query:Basketball // Tigers:                tags =~ \"15[0-9][0-9]\" and (title =~ \"(^| )Walter\" or link =~ \"(^| )Walter\" or title =~ \"Tigers\")" "05.00"
 "query:Basketball // Mavs:                  tags =~ \"15[1-3][0-9]\" and title !~ \"preview\" and title =~ \"mav(erick)*s\""  "05.00"
 "query:Basketball // Powerranking:          tags =~ \"1541\""  "05.00"
 "query:Fussball // MSV:                     tags =~ \"159[0]\"" "05.00"
@@ -381,14 +383,14 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 
 # Spirituosen & Bier
 "query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (link =~ \"spirituo\" or title =~ \"spirituo\" or link =~ \"hochprozentig\" or title =~ \"hochprozentig\" or title =~ \"cocktail\")" "09.00"
-"query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (title =~ \"cognac\" or title =~ \"whisk.*y\" or title =~ \"rmeister\" or title =~ \" gin \" or title =~ \"[wv]odka\" or title =~ \"tequila\")" "09.00"
+"query:Aktionen // Spirituosen:         tags =~ \"19[0-8][0-9]\" and (title =~ \"cognac\" or title =~ \"whisk.*y\" or title =~ \"rmeister\" or title =~ \"(^| )gin \" or title =~ \"[wv]odka\" or title =~ \"tequila\")" "09.00"
 "query:Aktionen // Bier:                tags =~ \"19[0-8][0-9]\" and (title =~ \"beck.s\" or title =~ \"fassbrause\")" "09.00"
 "query:Aktionen // Tequila:             tags =~ \"19[0-8][0-9]\" and (title =~ \"jos.\ cuervo\" or title =~ \"jimador\")" "09.00"
 "query:Aktionen // Rum:                 tags =~ \"19[0-8][0-9]\" and (title =~ \"bacardi\" or title =~ \"havana\ club\")" "09.00"
 "query:Aktionen // Gin:                 tags =~ \"19[0-8][0-9]\" and (title =~ \"bombay\" or title =~ \"sapphire\" and title !~ \"radeon\")" "09.00"
-"query:Aktionen // Whiskey:             tags =~ \"19[0-8][0-9]\" and (title =~ \"johnny\ walker\" or title =~ \"jim\ beam\" )" "09.00"
+"query:Aktionen // Whiskey:             tags =~ \"19[0-8][0-9]\" and (title =~ \"johnny\ walker\" or title =~ \"jim\ beam\")" "09.00"
 "query:Aktionen // Ouzo & Raki:         tags =~ \"19[0-8][0-9]\" and (title =~ \"yeni\ raki\" or title =~ \"ouzo\")" "09.00"
-"query:Aktionen // Liköre:              tags =~ \"19[0-8][0-9]\" and (title =~ \"ramazz\" or title =~ \"licor\ 43\" or title =~ \"aperol\" or title =~ \"bailey\" or title =~ \"cointr(eau|au|aeu)\" or title =~ \"kah*luh*a\" or title =~ \"amarr*ull*a\" )" "09.00"
+"query:Aktionen // Liköre:              tags =~ \"19[0-8][0-9]\" and (title =~ \"ramazz\" or title =~ \"licor\ 43\" or title =~ \"aperol\" or title =~ \"bailey\" or title =~ \"cointr(eau|au|aeu)\" or title =~ \"kah*luh*a\" or title =~ \"amarr*ull*a\")" "09.00"
 "query:Aktionen // Nichtalkoholisch:    tags =~ \"19[0-8][0-9]\" and (title =~ \"coca.cola\" or title =~ \"schweppes\" or title =~ \"ginger.ale\" or title =~ \"tonic.water\" or title =~ \"limetten\")" "09.00"
 # Sonstige
 # "query:Aktionen // Föhn:                tags =~ \"19[0-8][0-9]\" and title =~ \"F.hn\" or title =~ \"Haartrockner\"" "09.00"
@@ -401,7 +403,7 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 "query:Aktionen // Espressomaschine:    tags =~ \"19[0-8][0-9]\" and (title =~ \"espresso\")" "09.00"
 "query:Aktionen // Reisebus:            tags =~ \"19[0-8][0-9]\" and (title =~ \"Megabus\" or title =~ \"Postbus\" or title =~ \"Flixbus\" or title =~ \"Meinfernbus\")" "09.00"
 "query:Aktionen // Dessous:             tags =~ \"19[0-8][0-9]\" and (title =~ \"calzedonia\" or title =~ \"triumph\" or title =~ \"hunkem.ller\" or title =~ \"victoria\ secret\" or title =~ \"enamora\" or title =~ \"passonata\")" "09.00"
-"query:Aktionen // DSL Flat:            tags =~ \"19[0-8][0-9]\" and ( title !~ \"allnet\" and title !~ \" lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"
+"query:Aktionen // DSL Flat:            tags =~ \"19[0-8][0-9]\" and ( title !~ \"allnet\" and title !~ \"( |^)lte \" and title !~ \"sms\") and (title =~ \"flatrate\" or title =~ \"dsl\")" "09.00"
 "query:Aktionen // Gürtel:              tags =~ \"19[0-8][0-9]\" and title =~ \"G[üue]*rtel\"" "09.00"
 "query:Aktionen // Regenschirm:         tags =~ \"19[0-8][0-9]\" and title =~ \"Regenschirm\"" "09.00"
 "query:Aktionen // Hanteln:             tags =~ \"19[0-8][0-9]\" and title =~ \"hantel\"" "09.00"
@@ -415,6 +417,7 @@ http://www.livescience.com/home/feed/site.xml       "1860 LiveScience"
 "query:Aktionen // Bierangebote:  tags=~ \"19[8][0-9]\""  "09.00"
 "query:Aktionen // Kleinanzeigen: tags=~ \"197[089]\""  "09.00"
 "query:Aktionen // Groupon:       tags=~ \"199[0-9]\" and (title =~ \"sushi\" or title =~ \"therme\" or title =~ \"sauna\")" "09.00"
+"query:Discounter // Netto:       tags=~ \"1950\" and tags =~ \"Netto\""  "09.00"
 
 # Abgelaufene Suchfilter
 # "query:Aktionen // Speaker:            tags=~ \"19[0-8][0-9]\" and (title !~ \"bluetooth\" and title !~ \"BT-\") and (title =~ \"subwoof\" or title =~ \"soundbar\" or title =~ \"lautsprecher\" or title =~ \"speaker\")" "09.00"

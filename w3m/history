@@ -1,9 +1,3 @@
-http://127.0.0.1:16637/library/base/html/subset.html
-http://127.0.0.1:16637/library/graphics/html/boxplot.html
-http://127.0.0.1:17590/library/stats/html/Normal.html
-http://127.0.0.1:29283/library/stats/html/TDist.html
-http://127.0.0.1:29283/library/stats/html/Poisson.html
-http://127.0.0.1:29283/library/stats/html/Normal.html
 http://127.0.0.1:24904/library/base/html/sample.html
 http://127.0.0.1:30417/library/base/html/as.Date.html
 http://127.0.0.1:30417/library/graphics/html/plot.html
@@ -98,3 +92,9 @@ http://127.0.0.1:26973/library/base/html/MathFun.html
 http://127.0.0.1:21439/library/graphics/html/legend.html
 http://127.0.0.1:25650/library/base/html/subset.html
 http://127.0.0.1:25650/library/stats/html/Fdist.html
+http://127.0.0.1:21619/library/base/html/duplicated.html
+http://127.0.0.1:21619/library/base/html/merge.html
+http://127.0.0.1:23689/library/graphics/html/text.html
+http://127.0.0.1:23689/library/graphics/html/abline.html
+http://127.0.0.1:23689/library/graphics/html/lines.html
+http://127.0.0.1:23689/library/graphics/html/arrows.html

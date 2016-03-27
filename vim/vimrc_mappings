@@ -62,16 +62,12 @@ vnoremap <f1><esc> :echom "f2: save and source file \| f3: bufferlist \| f4: ope
 
 " save file and source vimrc
 if has("gui_running")
-    nnoremap <silent><f2> :silent! Git add %:p<CR>:exe "w \| so $MYGVIMRC \| %foldo!"<cr><cr>
-    inoremap <silent><f2> <esc>:silent! Git add %:p<CR>:exe "w \| so $MYGVIMRC \| %foldo!"<cr><cr>
+    nnoremap <silent><f2> :silent! :mks!<cr>:Git add %:p<CR>:exe "w \| so $MYGVIMRC \| %foldo!"<cr><cr>
+    inoremap <silent><f2> <esc>:silent! :mks!<cr>:Git add %:p<CR>:exe "w \| so $MYGVIMRC \| %foldo!"<cr><cr>
 else
-    nnoremap <silent><f2> :silent! Git add %:p<CR>:exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
-    inoremap <silent><f2> <esc>:silent! Git add %:p<CR>:exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
+    nnoremap <silent><f2> :silent! :mks!<cr>:Git add %:p<CR>:exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
+    inoremap <silent><f2> <esc>:silent! :mks!<cr>:Git add %:p<CR>:exe "w \| so $MYVIMRC \| if foldclosed(\".\") >= 0 \| %foldo! \| endif"<cr>
 endif
-
-"save & exit
-nnoremap <c-f2> :mks!<cr>:wqall!<cr>
-inoremap <c-f2> <esc>:mks!<cr>:wqall!<cr>
 
 " <f3>  " bufferlist                                                           {{{3
 
@@ -470,13 +466,13 @@ inoremap <leader>bu <esc>:BundleInstall!<cr>
 
 " " vim-comment <plugin>                                                       {{{2
 
-nnoremap <silent><leader>yP :normal yyp<CR>
-vnoremap <silent><leader>yP <ESC>:normal yyp<CR>
-inoremap <silent><localleader>yP <ESC>:normal yyp<CR>
+nnoremap <silent><leader>yp :normal yyp<CR>
+vnoremap <silent><leader>yp <ESC>:normal yyp<CR>
+inoremap <silent><localleader>yp <ESC>:normal yyp<CR>
 
-nnoremap <silent><leader>yp :normal yygccp<CR>
-vnoremap <silent><leader>yp <ESC>:normal yygccp<CR>
-inoremap <silent><localleader>yp <ESC>:normal yygccp<CR>
+nnoremap <silent><leader>yP :normal yygccp<CR>
+vnoremap <silent><leader>yP <ESC>:normal yygccp<CR>
+inoremap <silent><localleader>yP <ESC>:normal yygccp<CR>
 
 " Folds & Marks                                                                {{{1
 
@@ -562,8 +558,8 @@ nnoremap <c-s-tab> :bprevious<cr>
 
 " reload session.vim                                                           {{{2
 
-nnoremap <leader>ss :lcd %:p:h<CR>:so Session.vim<CR>
-vnoremap <leader>ss <ESC>:lcd %:p:h<CR>:so Session.vim<CR>
+nnoremap <leader>sn :lcd %:p:h<CR>:so Session.vim<CR>
+vnoremap <leader>sn <ESC>:lcd %:p:h<CR>:so Session.vim<CR>
 
 " open/edit/close buffers                                                      {{{2
 

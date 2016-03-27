@@ -4,7 +4,7 @@ endsnippet
 snippet sscore "mutt scoring rules" b
 score "(\
 		~$1'$2'${3:|\
-		~$4'$5'}\
+		~${4:$1}'${5:$2}'}\
        )\
        !($my_blacklist)\
        ($my_whitelist)" =$6
