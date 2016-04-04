@@ -12,8 +12,8 @@ keep-articles-days      15
 max-items               500
 prepopulate-query-feeds yes
 text-width 72  # description: If set to a number greater than 0, then
-               # all HTML will be rendered to this maximum line length. If set to 0, the terminal
-               # width will be used.
+               # all HTML will be rendered to this maximum line length. If set
+               # to 0, the terminal width will be used.
 
 # reload & refresh           {{{2
 auto-reload               yes
@@ -50,7 +50,7 @@ notify-beep		yes
 
 # feedlist-format            {{{1
 # articlelist-format         {{{2
-articlelist-format           "%4i %f %D   | %?a?%-22T  % // %-18a%<&%-45T%? | %t"
+articlelist-format           "%4i %f %D   | %?a?%-15T  % // %-15a%<&%-35T%? | %t"
 # Available Identifiers for articlelist-format
 # Identifier        Meaning
 # a                 Article author

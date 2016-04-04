@@ -1,7 +1,3 @@
-http://127.0.0.1:24904/library/base/html/sample.html
-http://127.0.0.1:30417/library/base/html/as.Date.html
-http://127.0.0.1:30417/library/graphics/html/plot.html
-http://127.0.0.1:10674/library/stats/html/ts.html
 http://127.0.0.1:16228/library/xts/html/xts.html
 http://127.0.0.1:16228/library/stats/html/plot.ts.html
 http://127.0.0.1:16228/doc/html/Search?pattern=skew
@@ -98,3 +94,7 @@ http://127.0.0.1:23689/library/graphics/html/text.html
 http://127.0.0.1:23689/library/graphics/html/abline.html
 http://127.0.0.1:23689/library/graphics/html/lines.html
 http://127.0.0.1:23689/library/graphics/html/arrows.html
+http://127.0.0.1:31073/library/base/html/Log.html
+http://127.0.0.1:31073/library/base/html/MathFun.html
+http://127.0.0.1:28021/library/utils/html/write.table.html
+http://127.0.0.1:28021/library/utils/html/read.table.html
